@@ -146,21 +146,24 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
 
         {/* Active Scenario Detail Box (Right Main Panel) */}
         <div className="scenario-detail-panel">
-          {/* Active Scenario Banner */}
-          <div className="scenario-banner-header">
-            <div className="banner-left">
-              <div className="scenario-hero-icon">{currentScenario.icon}</div>
-              <div>
-                <div className="scenario-tag-pill">
-                  {learningMode === 'zh' ? currentScenario.tagZh : currentScenario.tagEn}
+          {/* Active Scenario Hero Illustration Banner */}
+          {currentScenario.image && (
+            <div className="scenario-hero-cover-wrap">
+              <img 
+                src={`${import.meta.env.BASE_URL || '/'}images/scenarios/${currentScenario.image}`}
+                alt={currentScenario.titleZh}
+                className="scenario-hero-cover-img"
+              />
+              <div className="scenario-hero-cover-overlay">
+                <span className="cover-badge">{learningMode === 'zh' ? currentScenario.tagZh : currentScenario.tagEn}</span>
+                <div className="cover-title-row">
+                  <span className="cover-icon">{currentScenario.icon}</span>
+                  <h3 className="cover-title">{learningMode === 'zh' ? currentScenario.titleZh : currentScenario.titleEn}</h3>
                 </div>
-                <h3 className="scenario-hero-title">
-                  {learningMode === 'zh' ? currentScenario.titleZh : currentScenario.titleEn}
-                </h3>
-                <div className="scenario-hero-sub">{currentScenario.titleVi}</div>
+                <div className="cover-sub">{currentScenario.titleVi}</div>
               </div>
             </div>
-          </div>
+          )}
 
           {/* Scenario Summary Banner */}
           <div className="scenario-summary-box">

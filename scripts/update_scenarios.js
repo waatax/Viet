@@ -1,4 +1,7 @@
-/**
+import fs from 'fs';
+import path from 'path';
+
+const scenariosData = `/**
  * Comprehensive 16-Scenario Situational Vietnamese Dataset (16大實戰情境全能越語數據庫)
  * Standardized for Taiwan learners (ZH Mode) & Global English track (EN Mode)
  * Includes dialogue scripts, interactive role-play questions, vocabulary deck, and cultural tips.
@@ -170,7 +173,7 @@ export const situationalScenarios = [
               id: 'c3_opt2',
               textVi: 'Đắt quá, tôi không trả tiền đâu.',
               textZh: '太貴了，我才不付錢呢。',
-              textEn: 'Too expensive, I won\'t pay.',
+              textEn: 'Too expensive, I won\\'t pay.',
               isCorrect: false,
               feedbackZh: '在咖啡廳這樣說很不禮貌喔！',
               feedbackEn: 'Impolite response.'
@@ -3145,3 +3148,7 @@ export const situationalScenarios = [
     }
   }
 ];
+`;
+
+fs.writeFileSync(path.resolve('src/data/situationalScenarios.js'), scenariosData);
+console.log('Successfully updated src/data/situationalScenarios.js with 16 comprehensive scenarios!');
