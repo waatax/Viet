@@ -22,6 +22,21 @@ class AudioEngine {
     this.voices = [];
     this.hasNativeVietVoice = false;
     this.manifest = audioManifest || {};
+    this.normalizedManifest = new Map();
+    if (this.manifest) {
+      Object.entries(this.manifest).forEach(([text, file]) => {
+        if (text && file) {
+          this.normalizedManifest.set(text.trim(), file);
+          this.normalizedManifest.set(text.toLowerCase().trim(), file);
+          // Also store without trailing punctuation
+          const stripped = text.replace(/[.,?!;:…]+$/g, '').trim();
+          if (stripped) {
+            this.normalizedManifest.set(stripped, file);
+            this.normalizedManifest.set(stripped.toLowerCase(), file);
+          }
+        }
+      });
+    }
     this.listeners = new Set();
     this.state = {
       isPlaying: false,
@@ -137,7 +152,14 @@ class AudioEngine {
     if (options.onStart) options.onStart();
 
     // 1. Priority 0: Check Pre-Bundled Audio Bank
-    const manifestFile = this.manifest[cleanedText] || this.manifest[rawText.trim()];
+    const rawClean = rawText.trim();
+    const manifestFile = this.manifest[cleanedText] || 
+                         this.manifest[rawClean] || 
+                         this.normalizedManifest.get(cleanedText) ||
+                         this.normalizedManifest.get(cleanedText.toLowerCase()) ||
+                         this.normalizedManifest.get(rawClean) ||
+                         this.normalizedManifest.get(rawClean.toLowerCase());
+
     if (manifestFile) {
       const baseUrl = import.meta.env.BASE_URL || '/';
       const audioPath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${manifestFile}`;
