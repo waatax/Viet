@@ -427,7 +427,8 @@ export const hanVietRoots = [
       { viet: 'Quốc tế', zh: '國際', en: 'International' },
       { viet: 'Trung Quốc', zh: '中國', en: 'China' },
       { viet: 'Hàn Quốc', zh: '韓國', en: 'South Korea' },
-      { viet: 'Quốc tịch', zh: '國籍', en: 'Nationality' }
+      { viet: 'Quốc tịch', zh: '國籍', en: 'Nationality' },
+      { viet: 'Quốc hội', zh: '國會', en: 'National Assembly' }
     ]
   },
   {
@@ -440,7 +441,8 @@ export const hanVietRoots = [
       { viet: 'Đại học', zh: '大學', en: 'University' },
       { viet: 'Học tập', zh: '學習', en: 'Study / Learn' },
       { viet: 'Học viện', zh: '學院', en: 'Academy / Institute' },
-      { viet: 'Khoa học', zh: '科學', en: 'Science' }
+      { viet: 'Khoa học', zh: '科學', en: 'Science' },
+      { viet: 'Học phí', zh: '學費', en: 'Tuition fee' }
     ]
   },
   {
@@ -490,7 +492,8 @@ export const hanVietRoots = [
       { viet: 'Công nhân', zh: '工人 / 勞工', en: 'Worker / Laborer' },
       { viet: 'Công việc', zh: '工作 / 事務', en: 'Job / Task' },
       { viet: 'Công viên', zh: '公園', en: 'Public park' },
-      { viet: 'Công nghệ', zh: '科技 / 工藝', en: 'Technology' }
+      { viet: 'Công nghệ', zh: '科技 / 工藝', en: 'Technology' },
+      { viet: 'Công an', zh: '公安 / 警察', en: 'Police' }
     ]
   },
   {
@@ -523,7 +526,8 @@ export const hanVietRoots = [
     compounds: [
       { viet: 'Bệnh viện', zh: '醫院', en: 'Hospital' },
       { viet: 'Học viện', zh: '學院', en: 'Academy' },
-      { viet: 'Viện bảo tàng', zh: '博物館', en: 'Museum' }
+      { viet: 'Viện bảo tàng', zh: '博物館', en: 'Museum' },
+      { viet: 'Viện kiểm sát', zh: '檢察院', en: 'Procuracy' }
     ]
   },
   {
@@ -536,6 +540,477 @@ export const hanVietRoots = [
       { viet: 'Quan tâm', zh: '關心', en: 'To care / Pay attention' },
       { viet: 'Yên tâm', zh: '安心', en: 'Feel at ease' },
       { viet: 'Tâm lý', zh: '心理', en: 'Psychology' }
+    ]
+  },
+  {
+    han: '大 (Dà)',
+    root: 'Đại',
+    meaningZh: '巨大、宏大、高等',
+    meaningEn: 'Big, Great, High',
+    compounds: [
+      { viet: 'Đại học', zh: '大學', en: 'University' },
+      { viet: 'Đại biểu', zh: '代表', en: 'Representative / Delegate' },
+      { viet: 'Đại sứ quán', zh: '大使館', en: 'Embassy' },
+      { viet: 'Đại đa số', zh: '大多數', en: 'Great majority' }
+    ]
+  },
+  {
+    han: '小 (Xiǎo)',
+    root: 'Tiểu',
+    meaningZh: '細小、基層',
+    meaningEn: 'Small, Minor, Elementary',
+    compounds: [
+      { viet: 'Tiểu học', zh: '小學', en: 'Elementary school' },
+      { viet: 'Tiểu thuyết', zh: '小說', en: 'Novel / Fiction' },
+      { viet: 'Tiểu bang', zh: '州 / 小邦', en: 'State (e.g. US state)' }
+    ]
+  },
+  {
+    han: '中 (Zhōng)',
+    root: 'Trung',
+    meaningZh: '中央、居中、中間',
+    meaningEn: 'Center, Middle, Neutral',
+    compounds: [
+      { viet: 'Trung tâm', zh: '中心', en: 'Center / Hub' },
+      { viet: 'Trung Quốc', zh: '中國', en: 'China' },
+      { viet: 'Trung học', zh: '中學', en: 'High school' },
+      { viet: 'Trung niên', zh: '中年', en: 'Middle-aged' }
+    ]
+  },
+  {
+    han: '高 (Gāo)',
+    root: 'Cao',
+    meaningZh: '高端、崇高、頂點',
+    meaningEn: 'High, Advanced, Peak',
+    compounds: [
+      { viet: 'Cao cấp', zh: '高級', en: 'High-end / Premium' },
+      { viet: 'Cao đẳng', zh: '高等專科 / 大專', en: 'Junior college' },
+      { viet: 'Cao tốc', zh: '高速公路', en: 'Expressway' },
+      { viet: 'Cao ốc', zh: '高樓大廈', en: 'Skyscraper' }
+    ]
+  },
+  {
+    han: '人 (Rén)',
+    root: 'Nhân',
+    meaningZh: '人員、人類、人品',
+    meaningEn: 'Person, Human, People',
+    compounds: [
+      { viet: 'Nhân dân', zh: '人民', en: 'People / Citizens' },
+      { viet: 'Nhân viên', zh: '職員 / 員工', en: 'Staff / Employee' },
+      { viet: 'Nhân tài', zh: '人才', en: 'Talent' },
+      { viet: 'Nhân loại', zh: '人類', en: 'Humanity' }
+    ]
+  },
+  {
+    han: '民 (Mín)',
+    root: 'Dân',
+    meaningZh: '民眾、百姓',
+    meaningEn: 'People, Citizen, Folk',
+    compounds: [
+      { viet: 'Nhân dân', zh: '人民', en: 'People' },
+      { viet: 'Dân chủ', zh: '民主', en: 'Democracy' },
+      { viet: 'Dân tộc', zh: '民族', en: 'Ethnic group' },
+      { viet: 'Công dân', zh: '公民', en: 'Citizen' }
+    ]
+  },
+  {
+    han: '家 (Jiā)',
+    root: 'Gia',
+    meaningZh: '家庭、專門家',
+    meaningEn: 'Home, Family, Specialist',
+    compounds: [
+      { viet: 'Gia đình', zh: '家庭', en: 'Family / Household' },
+      { viet: 'Quốc gia', zh: '國家', en: 'Country' },
+      { viet: 'Chuyên gia', zh: '專家', en: 'Expert / Specialist' },
+      { viet: 'Gia nhập', zh: '加入 / 入會', en: 'To join' }
+    ]
+  },
+  {
+    han: '主 (Zhǔ)',
+    root: 'Chủ',
+    meaningZh: '首長、自主、所有者',
+    meaningEn: 'Master, Main, Host',
+    compounds: [
+      { viet: 'Chủ tịch', zh: '主席 / 董事長', en: 'Chairman / President' },
+      { viet: 'Chủ đề', zh: '主題', en: 'Topic / Theme' },
+      { viet: 'Chủ động', zh: '主動', en: 'Proactive' },
+      { viet: 'Chủ nhân', zh: '主人', en: 'Owner / Host' }
+    ]
+  },
+  {
+    han: '員 (Yuán)',
+    root: 'Viên',
+    meaningZh: '組織成員、人員',
+    meaningEn: 'Member, Personnel',
+    compounds: [
+      { viet: 'Nhân viên', zh: '員工 / 職員', en: 'Employee' },
+      { viet: 'Hội viên', zh: '會員', en: 'Club member' },
+      { viet: 'Đoàn viên', zh: '團員', en: 'Delegation member' },
+      { viet: 'Thành viên', zh: '成員', en: 'Member' }
+    ]
+  },
+  {
+    han: '友 (Yǒu)',
+    root: 'Hữu',
+    meaningZh: '朋友、情誼',
+    meaningEn: 'Friend, Friendship',
+    compounds: [
+      { viet: 'Hữu nghị', zh: '友誼 / 友好', en: 'Friendship' },
+      { viet: 'Bằng hữu', zh: '朋友 (古語)', en: 'Companions' },
+      { viet: 'Chiến hữu', zh: '戰友', en: 'Comrades' }
+    ]
+  },
+  {
+    han: '美 (Měi)',
+    root: 'Mỹ',
+    meaningZh: '美麗、美術、美國',
+    meaningEn: 'Beautiful, Art, USA',
+    compounds: [
+      { viet: 'Nước Mỹ', zh: '美國', en: 'United States' },
+      { viet: 'Mỹ thuật', zh: '美術', en: 'Fine Arts' },
+      { viet: 'Mỹ phẩm', zh: '化妝品 / 美容品', en: 'Cosmetics' },
+      { viet: 'Thẩm mỹ', zh: '審美 / 醫美', en: 'Aesthetic' }
+    ]
+  },
+  {
+    han: '華 (Huá)',
+    root: 'Hoa',
+    meaningZh: '中華、華麗',
+    meaningEn: 'Chinese, Splendid',
+    compounds: [
+      { viet: 'Trung Hoa', zh: '中華', en: 'China' },
+      { viet: 'Hoa kiều', zh: '華僑', en: 'Overseas Chinese' },
+      { viet: 'Hoa lệ', zh: '華麗', en: 'Gorgeous' }
+    ]
+  },
+  {
+    han: '越 (Yuè)',
+    root: 'Việt',
+    meaningZh: '越南、超越、優越',
+    meaningEn: 'Vietnam, Excel, Exceed',
+    compounds: [
+      { viet: 'Việt Nam', zh: '越南', en: 'Vietnam' },
+      { viet: 'Tiếng Việt', zh: '越南語', en: 'Vietnamese Language' },
+      { viet: 'Ưu việt', zh: '優越', en: 'Superior' },
+      { viet: 'Vượt qua', zh: '跨越 / 克服', en: 'To overcome' }
+    ]
+  },
+  {
+    han: '日 (Rì)',
+    root: 'Nhật',
+    meaningZh: '太陽、日子、日本',
+    meaningEn: 'Sun, Day, Japan',
+    compounds: [
+      { viet: 'Nhật Bản', zh: '日本', en: 'Japan' },
+      { viet: 'Sinh nhật', zh: '生日', en: 'Birthday' },
+      { viet: 'Chủ nhật', zh: '星期日 / 週日', en: 'Sunday' },
+      { viet: 'Nhật ký', zh: '日記', en: 'Diary' }
+    ]
+  },
+  {
+    han: '台 (Tái)',
+    root: 'Đài',
+    meaningZh: '台灣、講台、廣播台',
+    meaningEn: 'Taiwan, Platform, Station',
+    compounds: [
+      { viet: 'Đài Loan', zh: '台灣', en: 'Taiwan' },
+      { viet: 'Đài truyền hình', zh: '電視台', en: 'TV Station' },
+      { viet: 'Khán đài', zh: '看台', en: 'Grandstand' }
+    ]
+  },
+  {
+    han: '安 (Ān)',
+    root: 'An',
+    meaningZh: '平安、安定、安全',
+    meaningEn: 'Safe, Peace, Secure',
+    compounds: [
+      { viet: 'An toàn', zh: '安全', en: 'Safety / Secure' },
+      { viet: 'An tâm', zh: '安心', en: 'Peace of mind' },
+      { viet: 'Công an', zh: '公安 / 警察', en: 'Public Security' },
+      { viet: 'Bình an', zh: '平安', en: 'Peaceful' }
+    ]
+  },
+  {
+    han: '機 (Jī)',
+    root: 'Cơ',
+    meaningZh: '機器、契機、機構',
+    meaningEn: 'Machine, Opportunity, Agency',
+    compounds: [
+      { viet: 'Cơ hội', zh: '機會', en: 'Opportunity' },
+      { viet: 'Cơ quan', zh: '機關 / 單位', en: 'Government agency' },
+      { viet: 'Cơ cấu', zh: '機構 / 架構', en: 'Structure' },
+      { viet: 'Phi cơ', zh: '飛機', en: 'Airplane' }
+    ]
+  },
+  {
+    han: '場 (Chǎng)',
+    root: 'Trường',
+    meaningZh: '場所、田徑場、市場',
+    meaningEn: 'Field, Yard, Ground',
+    compounds: [
+      { viet: 'Phi trường', zh: '飛機場', en: 'Airport' },
+      { viet: 'Thị trường', zh: '市場', en: 'Market' },
+      { viet: 'Hiện trường', zh: '現場', en: 'Scene / On-site' },
+      { viet: 'Chiến trường', zh: '戰場', en: 'Battlefield' }
+    ]
+  },
+  {
+    han: '電 (Diàn)',
+    root: 'Điện',
+    meaningZh: '電力、電信',
+    meaningEn: 'Electric, Electronic',
+    compounds: [
+      { viet: 'Điện thoại', zh: '電話 / 手機', en: 'Telephone / Phone' },
+      { viet: 'Điện tử', zh: '電子', en: 'Electronics' },
+      { viet: 'Điện ảnh', zh: '電影', en: 'Cinema / Movies' },
+      { viet: 'Bưu điện', zh: '郵局', en: 'Post office' }
+    ]
+  },
+  {
+    han: '車 (Chē)',
+    root: 'Xa',
+    meaningZh: '車輛、交通工具',
+    meaningEn: 'Vehicle, Car',
+    compounds: [
+      { viet: 'Xe hơi', zh: '汽車 / 小轎車', en: 'Car' },
+      { viet: 'Xe máy', zh: '機車 / 摩托車', en: 'Motorcycle' },
+      { viet: 'Xe buýt', zh: '公車 / 巴士', en: 'Bus' },
+      { viet: 'Hỏa xa', zh: '火車 (舊稱)', en: 'Train' }
+    ]
+  },
+  {
+    han: '通 (Tōng)',
+    root: 'Thông',
+    meaningZh: '通達、通知、通訊',
+    meaningEn: 'Connect, Communicate, Fluent',
+    compounds: [
+      { viet: 'Giao thông', zh: '交通', en: 'Traffic / Transport' },
+      { viet: 'Thông tin', zh: '資訊 / 消息', en: 'Information' },
+      { viet: 'Thông báo', zh: '通知 / 公告', en: 'Notice / Announcement' },
+      { viet: 'Thông thạo', zh: '精通 / 流利', en: 'Fluent' }
+    ]
+  },
+  {
+    han: '行 (Xíng)',
+    root: 'Hành',
+    meaningZh: '行動、行業、銀行',
+    meaningEn: 'Act, Industry, Bank',
+    compounds: [
+      { viet: 'Ngân hàng', zh: '銀行', en: 'Bank' },
+      { viet: 'Hành động', zh: '行動', en: 'Action' },
+      { viet: 'Hành chính', zh: '行政', en: 'Administration' },
+      { viet: 'Du hành', zh: '旅行 / 漫遊', en: 'Travel' }
+    ]
+  },
+  {
+    han: '語 (Yǔ)',
+    root: 'Ngữ',
+    meaningZh: '語言、語文',
+    meaningEn: 'Language, Speech',
+    compounds: [
+      { viet: 'Ngôn ngữ', zh: '語言', en: 'Language' },
+      { viet: 'Ngoại ngữ', zh: '外語', en: 'Foreign language' },
+      { viet: 'Ngữ pháp', zh: '語法 / 文法', en: 'Grammar' },
+      { viet: 'Anh ngữ', zh: '英語', en: 'English' }
+    ]
+  },
+  {
+    han: '言 (Yán)',
+    root: 'Ngôn',
+    meaningZh: '言語、發言',
+    meaningEn: 'Word, Speak, Statement',
+    compounds: [
+      { viet: 'Phát ngôn', zh: '發言', en: 'Spokesperson / To speak' },
+      { viet: 'Tuyên ngôn', zh: '宣言', en: 'Declaration' },
+      { viet: 'Ngôn từ', zh: '言詞', en: 'Wording' }
+    ]
+  },
+  {
+    han: '文 (Wén)',
+    root: 'Văn',
+    meaningZh: '文化、文章、文明',
+    meaningEn: 'Culture, Text, Civil',
+    compounds: [
+      { viet: 'Văn hóa', zh: '文化', en: 'Culture' },
+      { viet: 'Văn minh', zh: '文明', en: 'Civilization' },
+      { viet: 'Văn bản', zh: '文件 / 正式公文', en: 'Document' },
+      { viet: 'Luận văn', zh: '論文', en: 'Thesis / Paper' }
+    ]
+  },
+  {
+    han: '書 (Shū)',
+    root: 'Thư',
+    meaningZh: '書籍、公函、秘書',
+    meaningEn: 'Book, Letter, Clerk',
+    compounds: [
+      { viet: 'Thư viện', zh: '圖書館', en: 'Library' },
+      { viet: 'Thư ký', zh: '秘書', en: 'Secretary' },
+      { viet: 'Chứng thư', zh: '證書', en: 'Certificate' },
+      { viet: 'Lá thư', zh: '信件', en: 'Letter' }
+    ]
+  },
+  {
+    han: '音 (Yīn)',
+    root: 'Âm',
+    meaningZh: '聲音、音樂、發音',
+    meaningEn: 'Sound, Music, Tone',
+    compounds: [
+      { viet: 'Âm nhạc', zh: '音樂', en: 'Music' },
+      { viet: 'Âm thanh', zh: '聲音 / 聲響', en: 'Sound / Audio' },
+      { viet: 'Phát âm', zh: '發音', en: 'Pronunciation' },
+      { viet: 'Hán Việt', zh: '漢越音', en: 'Sino-Vietnamese' }
+    ]
+  },
+  {
+    han: '名 (Míng)',
+    root: 'Danh',
+    meaningZh: '名字、名譽、名單',
+    meaningEn: 'Name, Fame, List',
+    compounds: [
+      { viet: 'Danh sách', zh: '名單 / 清單', en: 'List / Roster' },
+      { viet: 'Nổi tiếng', zh: '著名 / 有名', en: 'Famous' },
+      { viet: 'Họ tên', zh: '姓名', en: 'Full name' },
+      { viet: 'Danh dự', zh: '名譽', en: 'Honor' }
+    ]
+  },
+  {
+    han: '食 (Shí)',
+    root: 'Thực',
+    meaningZh: '食物、飲食、實際',
+    meaningEn: 'Eat, Food, Reality',
+    compounds: [
+      { viet: 'Thực phẩm', zh: '食品', en: 'Food products' },
+      { viet: 'Ẩm thực', zh: '飲食文化 / 美食', en: 'Cuisine' },
+      { viet: 'Thực tế', zh: '實際', en: 'Realistic / Practical' },
+      { viet: 'Thực hiện', zh: '實行 / 執行', en: 'To implement' }
+    ]
+  },
+  {
+    han: '品 (Pǐn)',
+    root: 'Phẩm',
+    meaningZh: '物品、品質、藥品',
+    meaningEn: 'Product, Quality, Item',
+    compounds: [
+      { viet: 'Sản phẩm', zh: '產品', en: 'Product' },
+      { viet: 'Dược phẩm', zh: '藥品', en: 'Pharmaceuticals' },
+      { viet: 'Phẩm chất', zh: '品質 / 品格', en: 'Quality / Character' },
+      { viet: 'Tác phẩm', zh: '作品', en: 'Masterpiece' }
+    ]
+  },
+  {
+    han: '物 (Wù)',
+    root: 'Vật',
+    meaningZh: '萬物、物質、動物',
+    meaningEn: 'Matter, Thing, Creature',
+    compounds: [
+      { viet: 'Động vật', zh: '動物', en: 'Animal' },
+      { viet: 'Thực vật', zh: '植物', en: 'Plant / Flora' },
+      { viet: 'Vật giá', zh: '物價', en: 'Commodity prices' },
+      { viet: 'Nhân vật', zh: '人物', en: 'Character / Figure' }
+    ]
+  },
+  {
+    han: '水 (Shuǐ)',
+    root: 'Thủy',
+    meaningZh: '水域、水產',
+    meaningEn: 'Water, Aquatic',
+    compounds: [
+      { viet: 'Thủy sản', zh: '水產 / 海鮮', en: 'Seafood / Aquaculture' },
+      { viet: 'Thủy điện', zh: '水力發電', en: 'Hydropower' },
+      { viet: 'Hồng thủy', zh: '洪水', en: 'Flood' }
+    ]
+  },
+  {
+    han: '火 (Huǒ)',
+    root: 'Hỏa',
+    meaningZh: '火焰、火災、火車',
+    meaningEn: 'Fire, Flame',
+    compounds: [
+      { viet: 'Tàu hỏa', zh: '火車 / 鐵路列車', en: 'Train' },
+      { viet: 'Hỏa hoạn', zh: '火災', en: 'Conflagration / Fire' },
+      { viet: 'Núi lửa', zh: '火山', en: 'Volcano' }
+    ]
+  },
+  {
+    han: '地 (Dì)',
+    root: 'Địa',
+    meaningZh: '土地、地點、地址',
+    meaningEn: 'Earth, Land, Place',
+    compounds: [
+      { viet: 'Địa chỉ', zh: '地址', en: 'Address' },
+      { viet: 'Địa điểm', zh: '地點', en: 'Location / Venue' },
+      { viet: 'Địa lý', zh: '地理', en: 'Geography' },
+      { viet: 'Động đất', zh: '地震', en: 'Earthquake' }
+    ]
+  },
+  {
+    han: '金 (Jīn)',
+    root: 'Kim',
+    meaningZh: '黃金、金融、金屬',
+    meaningEn: 'Gold, Finance, Metal',
+    compounds: [
+      { viet: 'Hoàng kim', zh: '黃金時代', en: 'Golden age' },
+      { viet: 'Kim loại', zh: '金屬', en: 'Metal' },
+      { viet: 'Kim ngạch', zh: '進出口金額', en: 'Trade turnover' }
+    ]
+  },
+  {
+    han: '銀 (Yín)',
+    root: 'Ngân',
+    meaningZh: '銀兩、銀行、資金',
+    meaningEn: 'Silver, Bank, Funds',
+    compounds: [
+      { viet: 'Ngân hàng', zh: '銀行', en: 'Bank' },
+      { viet: 'Ngân sách', zh: '預算', en: 'Budget' },
+      { viet: 'Tài chính', zh: '財務 / 金融', en: 'Finance' }
+    ]
+  },
+  {
+    han: '市 (Shì)',
+    root: 'Thị',
+    meaningZh: '城市、市場、市民',
+    meaningEn: 'City, Market',
+    compounds: [
+      { viet: 'Thành phố', zh: '城市 / 市區', en: 'City' },
+      { viet: 'Thị trường', zh: '市場', en: 'Market' },
+      { viet: 'Thị dân', zh: '市民', en: 'Citizen' },
+      { viet: 'Siêu thị', zh: '超市', en: 'Supermarket' }
+    ]
+  },
+  {
+    han: '業 (Yè)',
+    root: 'Nghiệp',
+    meaningZh: '企業、工業、事業',
+    meaningEn: 'Business, Profession, Industry',
+    compounds: [
+      { viet: 'Doanh nghiệp', zh: '企業', en: 'Enterprise / Business' },
+      { viet: 'Công nghiệp', zh: '工業', en: 'Industry' },
+      { viet: 'Nông nghiệp', zh: '農業', en: 'Agriculture' },
+      { viet: 'Nghề nghiệp', zh: '職業', en: 'Career / Occupation' }
+    ]
+  },
+  {
+    han: '產 (Chǎn)',
+    root: 'Sản',
+    meaningZh: '生產、財產、產品',
+    meaningEn: 'Produce, Property, Yield',
+    compounds: [
+      { viet: 'Sản xuất', zh: '生產 / 製造', en: 'Manufacture' },
+      { viet: 'Sản phẩm', zh: '產品', en: 'Product' },
+      { viet: 'Bất động sản', zh: '房地產 / 不動產', en: 'Real estate' },
+      { viet: 'Tài sản', zh: '財產 / 資產', en: 'Assets' }
+    ]
+  },
+  {
+    han: '理 (Lǐ)',
+    root: 'Lý',
+    meaningZh: '管理、理由、理論',
+    meaningEn: 'Manage, Reason, Logic',
+    compounds: [
+      { viet: 'Quản lý', zh: '管理 / 經理', en: 'Management' },
+      { viet: 'Lý do', zh: '理由 / 原因', en: 'Reason' },
+      { viet: 'Tâm lý', zh: '心理', en: 'Psychology' },
+      { viet: 'Lý tưởng', zh: '理想', en: 'Ideal' }
     ]
   }
 ];
@@ -785,20 +1260,108 @@ export const practicalPhrases = [
   { category: '醫療與急難 / Health & Emergency', viet: 'Tôi bị mất hộ chiếu và ví tiền', zh: '我弄丟了護照和錢包', en: 'I lost my passport and wallet', usageZh: '派出所報警做筆錄', usageEn: 'Reporting loss at police station' }
 ];
 
-// 9. SRS 間隔記憶閃卡庫 (Spaced Repetition Flashcards Deck)
+// 9. SRS 間隔記憶閃卡庫 (Spaced Repetition Flashcards Deck - 100 Cards Full Matrix)
 export const flashcardsDeck = [
-  { id: 1, viet: 'Xin chào', zh: '你好', en: 'Hello / Greetings', hanViet: '', category: '問候 / Greetings', example: 'Xin chào anh Nam!' },
-  { id: 2, viet: 'Cảm ơn', zh: '感謝 / 謝謝', en: 'Thank you', hanViet: '感恩 (Cảm ơn)', category: '禮貌 / Manners', example: 'Cảm ơn bạn rất nhiều.' },
-  { id: 3, viet: 'Quốc tế', zh: '國際', en: 'International', hanViet: '國際 (Quốc tế)', category: '漢越 / Han-Viet', example: 'Sân bay quốc tế Nội Bài.' },
-  { id: 4, viet: 'Bao nhiêu', zh: '多少 (數量/價格)', en: 'How much / How many', hanViet: '', category: '購物 / Shopping', example: 'Tô phở này bao nhiêu tiền?' },
-  { id: 5, viet: 'Ngon quá', zh: '太好吃了', en: 'So delicious / Tasty', hanViet: '', category: '餐飲 / Food', example: 'Cà phê sữa đá ngon quá!' },
-  { id: 6, viet: 'Công ty', zh: '公司 / 企業', en: 'Company / Corporation', hanViet: '公司 (Công ty)', category: '商務 / Business', example: 'Công ty chúng tôi ở Quận 1.' },
-  { id: 7, viet: 'Hợp đồng', zh: '合約 / 契約', en: 'Contract / Agreement', hanViet: '合同 (Hợp đồng)', category: '商務 / Business', example: 'Ký hợp đồng thương mại hôm nay.' },
-  { id: 8, viet: 'Bệnh viện', zh: '醫院', en: 'Hospital', hanViet: '病院 (Bệnh viện)', category: '醫療 / Health', example: 'Đi đến bệnh viện khám bệnh.' },
-  { id: 9, viet: 'Sân bay', zh: '機場 / 飛機場', en: 'Airport', hanViet: '飛機場 (Phi trường)', category: '交通 / Travel', example: 'Đón khách ở sân bay Tân Sơn Nhất.' },
-  { id: 10, viet: 'Kinh tế', zh: '經濟', en: 'Economy', hanViet: '經濟 (Kinh tế)', category: '漢越 / Han-Viet', example: 'Kinh tế Việt Nam tăng trưởng nhanh.' },
-  { id: 11, viet: 'Đắt quá', zh: '太貴了', en: 'Too expensive', hanViet: '', category: '購物 / Shopping', example: 'Áo này đắt quá, bớt đi!' },
-  { id: 12, viet: 'Khách sạn', zh: '飯店 / 旅館', en: 'Hotel', hanViet: '客棧 (Khách sạn)', category: '旅遊 / Travel', example: 'Đặt phòng khách sạn 3 đêm.' }
+  { id: 1, viet: 'Xin chào', zh: '你好 / 您好', en: 'Hello / Greetings', hanViet: '', category: '問候與禮貌', example: 'Xin chào anh Nam, rất vui được gặp anh!' },
+  { id: 2, viet: 'Cảm ơn', zh: '感謝 / 謝謝', en: 'Thank you', hanViet: '感恩 (Cảm ơn)', category: '問候與禮貌', example: 'Cảm ơn bạn rất nhiều vì đã giúp đỡ.' },
+  { id: 3, viet: 'Quốc tế', zh: '國際', en: 'International', hanViet: '國際 (Quốc tế)', category: '漢越核心', example: 'Sân bay quốc tế Nội Bài ở Hà Nội.' },
+  { id: 4, viet: 'Bao nhiêu', zh: '多少 (數量/價格)', en: 'How much / How many', hanViet: '', category: '購物殺價', example: 'Tô phở bò này bao nhiêu tiền?' },
+  { id: 5, viet: 'Ngon quá', zh: '太好吃了 / 味道絕佳', en: 'So delicious / Tasty', hanViet: '', category: '餐飲美食', example: 'Cà phê sữa đá và bánh mì này ngon quá!' },
+  { id: 6, viet: 'Công ty', zh: '公司 / 企業', en: 'Company / Corporation', hanViet: '公司 (Công ty)', category: '商務職場', example: 'Công ty chúng tôi có trụ sở ở Quận 1.' },
+  { id: 7, viet: 'Hợp đồng', zh: '合約 / 契約', en: 'Contract / Agreement', hanViet: '合同 (Hợp đồng)', category: '商務職場', example: 'Hai bên đã chính thức ký kết hợp đồng.' },
+  { id: 8, viet: 'Bệnh viện', zh: '醫院', en: 'Hospital', hanViet: '病院 (Bệnh viện)', category: '醫療健康', example: 'Tôi cần đi đến bệnh viện khám sức khỏe.' },
+  { id: 9, viet: 'Sân bay', zh: '機場 / 飛機場', en: 'Airport', hanViet: '飛機場 (Phi trường)', category: '交通出行', example: 'Đón đối tác ở sân bay Tân Sơn Nhất.' },
+  { id: 10, viet: 'Kinh tế', zh: '經濟', en: 'Economy', hanViet: '經濟 (Kinh tế)', category: '漢越核心', example: 'Kinh tế Việt Nam đang phát triển mạnh mẽ.' },
+  { id: 11, viet: 'Đắt quá', zh: '太貴了 / 算便宜點', en: 'Too expensive', hanViet: '', category: '購物殺價', example: 'Cái áo này đắt quá, bớt cho em một chút nhé!' },
+  { id: 12, viet: 'Khách sạn', zh: '飯店 / 旅館', en: 'Hotel', hanViet: '客棧 (Khách sạn)', category: '飯店住宿', example: 'Chúng tôi đặt phòng khách sạn năm sao 3 đêm.' },
+  { id: 13, viet: 'Hẹn gặp lại', zh: '再見 / 下次見', en: 'See you again', hanViet: '', category: '問候與禮貌', example: 'Hẹn gặp lại bạn vào ngày mai nhé!' },
+  { id: 14, viet: 'Rất vui được gặp bạn', zh: '很高興認識你', en: 'Nice to meet you', hanViet: '', category: '問候與禮貌', example: 'Rất vui được gặp anh tại Đài Loan.' },
+  { id: 15, viet: 'Xin lỗi', zh: '對不起 / 抱歉 / 借過', en: 'Sorry / Excuse me', hanViet: '', category: '問候與禮貌', example: 'Xin lỗi, tôi có thể hỏi đường được không?' },
+  { id: 16, viet: 'Không có gì', zh: '不客氣 / 沒關係', en: 'You are welcome / No problem', hanViet: '', category: '問候與禮貌', example: 'Không có gì đâu, giúp bạn là niềm vui của tôi.' },
+  { id: 17, viet: 'Chúc ngủ ngon', zh: '晚安 / 祝好夢', en: 'Good night', hanViet: '', category: '問候與禮貌', example: 'Chúc cả nhà ngủ ngon và có giấc mơ đẹp.' },
+  { id: 18, viet: 'Bạn tên gì?', zh: '你叫什麼名字？', en: 'What is your name?', hanViet: '', category: '問候與禮貌', example: 'Xin hỏi bạn tên là gì vậy ạ?' },
+  { id: 19, viet: 'Tôi là người Đài Loan', zh: '我是台灣人', en: 'I am Taiwanese', hanViet: '台 (Đài)', category: '社交日常', example: 'Tôi là người Đài Loan sang Việt Nam du lịch.' },
+  { id: 20, viet: 'Bạn khỏe không?', zh: '你身體好嗎？近況如何？', en: 'How are you?', hanViet: '康 (Khỏe)', category: '社交日常', example: 'Dạo này anh chị có khỏe không?' },
+  { id: 21, viet: 'Tôi rất khỏe', zh: '我很好 / 我很健康', en: 'I am doing well', hanViet: '', category: '社交日常', example: 'Cảm ơn bạn, tôi vẫn rất khỏe và công việc tốt.' },
+  { id: 22, viet: 'Cố lên!', zh: '加油！', en: 'Cheer up! / Go for it!', hanViet: '', category: '社交日常', example: 'Kỳ thi sắp tới rồi, cố lên nhé!' },
+  { id: 23, viet: 'Cà phê sữa đá', zh: '越南冰奶咖啡', en: 'Iced Milk Coffee', hanViet: '', category: '餐飲美食', example: 'Cho em một ly cà phê sữa đá nhiều sữa ít ngọt.' },
+  { id: 24, viet: 'Bánh mì thịt', zh: '越式豬肉法國麵包', en: 'Vietnamese Meat Banh Mi', hanViet: '', category: '餐飲美食', example: 'Một ổ bánh mì thịt nướng giòn rụm.' },
+  { id: 25, viet: 'Phở bò tái nạm', zh: '生熟牛肉河粉', en: 'Rare & Brisket Beef Pho', hanViet: '', category: '餐飲美食', example: 'Cho anh một tô phở bò tái nạm thêm quẩy.' },
+  { id: 26, viet: 'Bún chả Hà Nội', zh: '河內烤肉米線', en: 'Hanoi Grilled Pork Noodles', hanViet: '', category: '餐飲美食', example: 'Bún chả Hà Nội ăn kèm rau sống rất ngon.' },
+  { id: 27, viet: 'Trà đá vỉa hè', zh: '街頭路邊冰茶', en: 'Street Iced Tea', hanViet: '茶 (Trà)', category: '餐飲美食', example: 'Ngồi uống trà đá vỉa hè ngắm phố phường.' },
+  { id: 28, viet: 'Tính tiền nhé', zh: '買單結帳喔', en: 'The bill please', hanViet: '', category: '餐飲美食', example: 'Em ơi, tính tiền bàn số 5 giúp anh nhé!' },
+  { id: 29, viet: 'Không lấy hành', zh: '不要加蔥花', en: 'No scallions / onions', hanViet: '', category: '餐飲美食', example: 'Tô phở của em không lấy hành và không ăn cay.' },
+  { id: 30, viet: 'Ít đường nhiều đá', zh: '少糖多冰', en: 'Less sugar, more ice', hanViet: '', category: '餐飲美食', example: 'Trà sữa cho ít đường nhiều đá nha em.' },
+  { id: 31, viet: 'Nước mắm', zh: '魚露 (越南靈魂醬汁)', en: 'Fish sauce', hanViet: '', category: '餐飲美食', example: 'Nước mắm Phú Quốc thơm ngon nức tiếng.' },
+  { id: 32, viet: 'Cho thêm ớt', zh: '請多加一點辣椒', en: 'Add extra chili', hanViet: '', category: '餐飲美食', example: 'Cho xin thêm một đĩa ớt tươi xắt lát.' },
+  { id: 33, viet: 'Tôi ăn chay', zh: '我吃素', en: 'I am vegetarian', hanViet: '齋 (Chay)', category: '餐飲美食', example: 'Quán này có món ăn chay không ạ?' },
+  { id: 34, viet: 'Thực đơn', zh: '菜單', en: 'Menu', hanViet: '菜單 / 實單 (Thực đơn)', category: '餐飲美食', example: 'Cho tôi xem thực đơn đồ uống hôm nay.' },
+  { id: 35, viet: 'Hải sản tươi sống', zh: '新鮮活海鮮', en: 'Fresh Seafood', hanViet: '海產 (Hải sản)', category: '餐飲美食', example: 'Quán này nổi tiếng với hải sản tươi sống giá rẻ.' },
+  { id: 36, viet: 'Giảm giá một chút', zh: '算便宜一點 / 打折', en: 'Give a discount', hanViet: '減價 (Giảm giá)', category: '購物殺價', example: 'Mua nhiều có được giảm giá một chút không cô?' },
+  { id: 37, viet: 'Một ký bao nhiêu?', zh: '一公斤多少錢？', en: 'How much per kilo?', hanViet: '', category: '購物殺價', example: 'Xoài cát Hòa Lộc một ký bao nhiêu tiền?' },
+  { id: 38, viet: 'Có quẹt thẻ không?', zh: '可以刷信用卡嗎？', en: 'Can I pay by card?', hanViet: '', category: '購物殺價', example: 'Ở đây có quẹt thẻ tín dụng được không ạ?' },
+  { id: 39, viet: 'Có tiền thối không?', zh: '有找零錢嗎？', en: 'Do you have change?', hanViet: '', category: '購物殺價', example: 'Tôi chỉ có tờ 500 nghìn, có tiền thối không?' },
+  { id: 40, viet: 'Mua hai tặng một', zh: '買二送一', en: 'Buy 2 get 1 free', hanViet: '贈 (Tặng)', category: '購物殺價', example: 'Chương trình khuyến mãi mua hai tặng một.' },
+  { id: 41, viet: 'Cho tôi xem cái này', zh: '請給我看看這個', en: 'Show me this one', hanViet: '', category: '購物殺價', example: 'Cho tôi xem cái nón lá truyền thống kia.' },
+  { id: 42, viet: 'Hàng chất lượng cao', zh: '高品質商品', en: 'High quality goods', hanViet: '質量 (Chất lượng)', category: '購物殺價', example: 'Cà phê này là hàng chất lượng cao xuất khẩu.' },
+  { id: 43, viet: 'Xuất xứ ở đâu?', zh: '產地來源在哪裡？', en: 'Where is it made?', hanViet: '出身 / 出處 (Xuất xứ)', category: '購物殺價', example: 'Sản phẩm này có xuất xứ từ Đà Lạt.' },
+  { id: 44, viet: 'Gọi xe Grab', zh: '叫 Grab 計程車/機車', en: 'Call a Grab ride', hanViet: '', category: '交通出行', example: 'Để tôi gọi xe Grab chở chúng ta đi chợ Bến Thành.' },
+  { id: 45, viet: 'Đi thẳng', zh: '直走', en: 'Go straight', hanViet: '', category: '交通出行', example: 'Đi thẳng khoảng 200 mét là tới ngã tư.' },
+  { id: 46, viet: 'Rẽ phải', zh: '右轉', en: 'Turn right', hanViet: '', category: '交通出行', example: 'Đến đèn giao thông thì rẽ phải nhé bác tài.' },
+  { id: 47, viet: 'Rẽ trái', zh: '左轉', en: 'Turn left', hanViet: '', category: '交通出行', example: 'Qua cây cầu này rồi rẽ trái vào hẻm.' },
+  { id: 48, viet: 'Dừng ở đây nhé', zh: '請停在這裡下車', en: 'Stop here please', hanViet: '', category: '交通出行', example: 'Bác tài cho cháu dừng ở trước cửa khách sạn nhé.' },
+  { id: 49, viet: 'Bật đồng hồ tính tiền', zh: '請按表跳表計費', en: 'Please turn on the meter', hanViet: '時計 (Đồng hồ)', category: '交通出行', example: 'Làm ơn bật đồng hồ tính tiền taxi giúp tôi.' },
+  { id: 50, viet: 'Kẹt xe quá', zh: '塞車太嚴重了', en: 'Heavy traffic jam', hanViet: '', category: '交通出行', example: 'Giờ cao điểm ở Sài Gòn kẹt xe quá trời.' },
+  { id: 51, viet: 'Ga tàu hỏa', zh: '火車站', en: 'Train station', hanViet: '火車 (Tàu hỏa)', category: '交通出行', example: 'Ga tàu hỏa Hà Nội nằm ở đường Lê Duẩn.' },
+  { id: 52, viet: 'Bến xe khách', zh: '長途客運巴士站', en: 'Intercity Bus Station', hanViet: '', category: '交通出行', example: 'Bến xe Miền Đông có nhiều tuyến xe đi Đà Lạt.' },
+  { id: 53, viet: 'Mấy giờ khởi hành?', zh: '幾點起飛/發車出發？', en: 'What time does it depart?', hanViet: '啟行 (Khởi hành)', category: '交通出行', example: 'Chuyến bay của chúng ta mấy giờ khởi hành?' },
+  { id: 54, viet: 'Đặt phòng trước', zh: '提前預訂房間', en: 'Book room in advance', hanViet: '', category: '飯店住宿', example: 'Tôi đã đặt phòng trước qua mạng tuần trước.' },
+  { id: 55, viet: 'Nhận phòng (Check-in)', zh: '辦理入住登記', en: 'Check-in', hanViet: '領房 / 入住', category: '飯店住宿', example: 'Mấy giờ tôi có thể nhận phòng khách sạn?' },
+  { id: 56, viet: 'Trả phòng (Check-out)', zh: '辦理退房結帳', en: 'Check-out', hanViet: '退房', category: '飯店住宿', example: 'Giờ trả phòng quy định là 12 giờ trưa.' },
+  { id: 57, viet: 'Giữ hành lý giúp tôi', zh: '請幫我寄存行李', en: 'Keep my luggage please', hanViet: '行李 (Hành lý)', category: '飯店住宿', example: 'Tôi có thể gửi giữ hành lý ở quầy lễ tân không?' },
+  { id: 58, viet: 'Có bao gồm ăn sáng?', zh: '有包含早餐嗎？', en: 'Is breakfast included?', hanViet: '包含 (Bao gồm)', category: '飯店住宿', example: 'Giá phòng này đã bao gồm ăn sáng buffet chưa?' },
+  { id: 59, viet: 'Mật khẩu Wi-Fi', zh: '無線網路 WiFi 密碼', en: 'Wi-Fi Password', hanViet: '密碼 (Mật khẩu)', category: '飯店住宿', example: 'Cho em xin mật khẩu Wi-Fi của quán cà phê.' },
+  { id: 60, viet: 'Đổi tiền ở đâu?', zh: '哪裡可以兌換外幣？', en: 'Where can I exchange money?', hanViet: '換錢 (Đổi tiền)', category: '飯店住宿', example: 'Ở gần đây có tiệm vàng nào đổi tiền uy tín không?' },
+  { id: 61, viet: 'Thuê xe máy', zh: '租借摩托車/機車', en: 'Rent a motorcycle', hanViet: '', category: '旅遊休閒', example: 'Thuê xe máy tự lái giá 150 nghìn một ngày.' },
+  { id: 62, viet: 'Vé tham quan', zh: '參觀門票', en: 'Admission ticket', hanViet: '券 (Vé) / 參觀', category: '旅遊休閒', example: 'Mua vé tham quan Dinh Độc Lập ở đâu?' },
+  { id: 63, viet: 'Cảnh đẹp tuyệt vời', zh: '風景極美 / 風光壯麗', en: 'Magnificent scenery', hanViet: '景 (Cảnh) / 絕 (Tuyệt)', category: '旅遊休閒', example: 'Vịnh Hạ Long có cảnh đẹp tuyệt vời như tranh vẽ.' },
+  { id: 64, viet: 'Gội đầu dưỡng sinh', zh: '越式草本養生洗頭', en: 'Herbal hair spa wash', hanViet: '養生 (Dưỡng sinh)', category: '生活放鬆', example: 'Đi gội đầu dưỡng sinh thư giãn cuối tuần.' },
+  { id: 65, viet: 'Mát-xa toàn thân', zh: '全身指壓按摩', en: 'Full body massage', hanViet: '全身 (Toàn thân)', category: '生活放鬆', example: 'Gói mát-xa toàn thân bằng đá nóng 90 phút.' },
+  { id: 66, viet: 'Tôi bị đau đầu', zh: '我頭痛', en: 'I have a headache', hanViet: '頭 (Đầu)', category: '醫療健康', example: 'Tôi bị đau đầu và sốt nhẹ từ tối qua.' },
+  { id: 67, viet: 'Đau bụng / Tiêu chảy', zh: '肚子痛 / 拉肚子', en: 'Stomachache / Diarrhea', hanViet: '', category: '醫療健康', example: 'Ăn đồ lạ bị đau bụng, cần mua thuốc tiêu hóa.' },
+  { id: 68, viet: 'Tiệm thuốc tây', zh: '西藥房 / 藥局', en: 'Pharmacy / Drugstore', hanViet: '西藥 (Thuốc tây)', category: '醫療健康', example: 'Gần đây có tiệm thuốc tây nào mở cửa 24 giờ không?' },
+  { id: 69, viet: 'Uống thuốc này', zh: '服用這款藥物', en: 'Take this medicine', hanViet: '', category: '醫療健康', example: 'Uống thuốc này ngày 2 lần sau bữa ăn.' },
+  { id: 70, viet: 'Cứu tôi với!', zh: '救命！請幫幫我！', en: 'Save me! / Help me!', hanViet: '救 (Cứu)', category: '急難求助', example: 'Cứu tôi với, có người bị ngất xỉu!' },
+  { id: 71, viet: 'Mất hộ chiếu', zh: '遺失護照', en: 'Lost passport', hanViet: '護照 (Hộ chiếu)', category: '急難求助', example: 'Tôi bị mất hộ chiếu, cần đến văn phòng đại diện báo mất.' },
+  { id: 72, viet: 'Trạm cảnh sát', zh: '警察派出所', en: 'Police station', hanViet: '警察 (Cảnh sát)', category: '急難求助', example: 'Đến trạm cảnh sát gần nhất để làm giấy xác nhận.' },
+  { id: 73, viet: 'Giám đốc', zh: '總經理 / 董事長 / 總裁', en: 'Director / CEO', hanViet: '監督 (Giám đốc)', category: '商務職場', example: 'Giám đốc công ty chúng tôi đang đi công tác Hà Nội.' },
+  { id: 74, viet: 'Nhân viên', zh: '員工 / 職員', en: 'Staff / Employee', hanViet: '職員 (Nhân viên)', category: '商務職場', example: 'Nhân viên công ty làm việc rất chuyên nghiệp.' },
+  { id: 75, viet: 'Họp bàn kế hoạch', zh: '開會討論計劃', en: 'Meeting to discuss plan', hanViet: '計劃 (Kế hoạch)', category: '商務職場', example: 'Sáng nay chúng ta có buổi họp bàn kế hoạch phát triển.' },
+  { id: 76, viet: 'Báo cáo tài chính', zh: '財務報表 / 財報', en: 'Financial report', hanViet: '報告財務 (Báo cáo tài chính)', category: '商務職場', example: 'Nộp báo cáo tài chính quý 3 cho ban giám đốc.' },
+  { id: 77, viet: 'Tuyển dụng nhân tài', zh: '徵才招募優秀人才', en: 'Recruit talent', hanViet: '選用 (Tuyển dụng) / 人才', category: '商務職場', example: 'Doanh nghiệp đang tuyển dụng nhiều nhân tài tiếng Việt.' },
+  { id: 78, viet: 'Phát triển thị trường', zh: '拓展開拓市場', en: 'Develop market', hanViet: '發展市場 (Phát triển thị trường)', category: '商務職場', example: 'Chiến lược phát triển thị trường Đông Nam Á.' },
+  { id: 79, viet: 'Đối tác chiến lược', zh: '戰略合作夥伴', en: 'Strategic partner', hanViet: '對手 / 伴 (Đối tác) / 戰略', category: '商務職場', example: 'Đài Loan là đối tác chiến lược quan trọng của Việt Nam.' },
+  { id: 80, viet: 'Đầu tư nước ngoài', zh: '外國投資 (FDI)', en: 'Foreign investment', hanViet: '投資 (Đầu tư)', category: '商務職場', example: 'Thu hút nguồn vốn đầu tư nước ngoài vào công nghệ cao.' },
+  { id: 81, viet: 'Ký tên đóng dấu', zh: '簽名並蓋章', en: 'Sign and stamp', hanViet: '簽名 (Ký tên) / 封 (Đóng dấu)', category: '商務職場', example: 'Vui lòng ký tên đóng dấu vào 3 bản hợp đồng.' },
+  { id: 82, viet: 'Chúc mừng thành công', zh: '祝賀圓滿成功', en: 'Congratulate success', hanViet: '祝賀成功 (Chúc mừng thành công)', category: '商務職場', example: 'Chúc mừng dự án hợp tác thành công rực rỡ!' },
+  { id: 83, viet: 'Giao dịch ngân hàng', zh: '銀行臨櫃交易', en: 'Banking transaction', hanViet: '交易銀行 (Giao dịch ngân hàng)', category: '商務職場', example: 'Thực hiện giao dịch chuyển tiền quốc tế tại ngân hàng.' },
+  { id: 84, viet: 'Thuế thu nhập', zh: '個人/企業所得稅', en: 'Income tax', hanViet: '稅收入 (Thuế thu nhập)', category: '商務職場', example: 'Kê khai thuế thu nhập doanh nghiệp đúng hạn.' },
+  { id: 85, viet: 'Bảo hiểm y tế', zh: '全民全民健康保險', en: 'Health insurance', hanViet: '保險醫療 (Bảo hiểm y tế)', category: '生活保障', example: 'Tất cả người lao động đều được đóng bảo hiểm y tế.' },
+  { id: 86, viet: 'Thời tiết hôm nay', zh: '今天天氣狀況', en: 'Today weather', hanViet: '天時 (Thời tiết)', category: '日常對話', example: 'Thời tiết hôm nay ở Đà Nẵng rất mát mẻ và có nắng.' },
+  { id: 87, viet: 'Trời sắp mưa rồi', zh: '快要下雨了', en: 'It is about to rain', hanViet: '', category: '日常對話', example: 'Trời sắp mưa to rồi, nhớ mang theo áo mưa nhé.' },
+  { id: 88, viet: 'Bao nhiêu tuổi?', zh: '今年幾歲？(年齡)', en: 'How old are you?', hanViet: '歲 (Tuổi)', category: '日常對話', example: 'Năm nay em bao nhiêu tuổi rồi?' },
+  { id: 89, viet: 'Sở thích của bạn', zh: '你的個人愛好與興趣', en: 'Your hobbies', hanViet: '所癖 (Sở thích)', category: '日常對話', example: 'Sở thích của tôi là nghe nhạc và đi du lịch khám phá.' },
+  { id: 90, viet: 'Học tiếng Việt vui lắm', zh: '學越語非常有趣好玩', en: 'Learning Vietnamese is so fun', hanViet: '學 (Học)', category: '日常對話', example: 'Học tiếng Việt vui lắm, nhất là phần thanh điệu!' },
+  { id: 91, viet: 'Cảm nhận thế nào?', zh: '你覺得感受如何？', en: 'How do you feel about it?', hanViet: '感 (Cảm)', category: '日常對話', example: 'Bạn cảm nhận thế nào về món ăn đường phố Sài Gòn?' },
+  { id: 92, viet: 'Tuyệt vời ông mặt trời', zh: '太棒了！無懈可擊 (流行俚語)', en: 'Awesome! Super great!', hanViet: '', category: '道地口語', example: 'Chuyến đi này quả thật tuyệt vời ông mặt trời!' },
+  { id: 93, viet: 'Không thành vấn đề', zh: '小事一樁 / 沒問題', en: 'No problem at all', hanViet: '問題 (Vấn đề)', category: '道地口語', example: 'Chuyện nhỏ thôi mà, không thành vấn đề đâu.' },
+  { id: 94, viet: 'Đi nhậu thôi!', zh: '走吧！去熱炒喝一杯 (聚餐文化)', en: 'Let us go drink & eat street food!', hanViet: '', category: '道地口語', example: 'Cuối tuần rồi, rủ anh em cùng đi nhậu bia hơi thôi!' },
+  { id: 95, viet: 'Trăm phần trăm (100%)', zh: '乾杯！一飲而盡 (100%)', en: 'Bottoms up! / 100%', hanViet: '百分之百', category: '道地口語', example: 'Một, hai, ba, dô! Uống trăm phần trăm nhé!' },
+  { id: 96, viet: 'Một hai ba dô!', zh: '一、二、三，乾杯！(越式乾杯口號)', en: '1, 2, 3 Cheers!', hanViet: '', category: '道地口語', example: 'Người Việt Nam khi uống bia thường hô: Một hai ba dô!' },
+  { id: 97, viet: 'Chúc mừng năm mới', zh: '新年快樂 (過年賀詞)', en: 'Happy New Year', hanViet: '祝賀新年度', category: '節慶祝福', example: 'Chúc mừng năm mới, an khang thịnh vượng!' },
+  { id: 98, viet: 'An khang thịnh vượng', zh: '安康盛旺 (闔家平安、事業興盛)', en: 'Peace and Prosperity', hanViet: '安康盛旺 (An khang thịnh vượng)', category: '節慶祝福', example: 'Kính chúc quý công ty năm mới an khang thịnh vượng!' },
+  { id: 99, viet: 'Vạn sự như ý', zh: '萬事如意 / 心想事成', en: 'May all your wishes come true', hanViet: '萬事如意 (Vạn sự như ý)', category: '節慶祝福', example: 'Năm mới phát tài phát lộc, vạn sự như ý!' },
+  { id: 100, viet: 'Sức khỏe dồi dào', zh: '身體健康 / 活力充沛', en: 'Abundant health and vitality', hanViet: '', category: '節慶祝福', example: 'Kính chúc ông bà năm mới dồi dào sức khỏe và sống lâu trăm tuổi!' }
 ];
 
 // 10. 語法規則與互動拼句 (Grammar Principles & Sentence Builder)
