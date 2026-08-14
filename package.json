@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:audio": "node scripts/build_audio_bank.js",
     "preview": "vite preview"
   },
   "dependencies": {

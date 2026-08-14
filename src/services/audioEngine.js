@@ -1,13 +1,16 @@
 /**
- * Multi-Tiered Hybrid Audio Engine for Vietnamese Learning Hub
+ * Multi-Tiered Native Audio Engine for Vietnamese Learning Hub
  * 
  * Features:
- * 1. Tier 1: High-Fidelity Native Vietnamese Audio Stream (Google TTS / CDN stream with caching)
- * 2. Tier 2: Web Speech API (Used only if native vi-VN voice is verified installed on client OS)
- * 3. Tier 3: Web Audio API 6-Tone Harmonic Pitch Synthesizer (Ngang, Huyền, Hỏi, Ngã, Sắc, Nặng)
- * 4. Text Sanitizer: Cleans brackets, Chinese/English translations, and formatting for crystal-clear speech
- * 5. State Management: Event subscription for active audio status, playing animation, and speed control
+ * 1. Tier 0: Direct Pre-Bundled High-Fidelity MP3 Audio Bank (Zero latency, Zero CORS, Zero network failure)
+ * 2. Tier 1: Dynamic High-Fidelity Native Vietnamese Audio Stream (with local Audio Cache)
+ * 3. Tier 2: Web Speech API (Used only if native vi-VN voice is verified installed on client OS)
+ * 4. Tier 3: Web Audio API 6-Tone Harmonic Pitch Synthesizer (Ngang, Huyền, Hỏi, Ngã, Sắc, Nặng)
+ * 5. Text Sanitizer: Cleans brackets, Chinese/English translations, and formatting for crystal-clear speech
+ * 6. State Management: Event subscription for active audio status, playing animation, and speed control
  */
+
+import audioManifest from '../data/audioManifest.json';
 
 class AudioEngine {
   constructor() {
@@ -18,6 +21,7 @@ class AudioEngine {
     this.synth = typeof window !== 'undefined' ? window.speechSynthesis : null;
     this.voices = [];
     this.hasNativeVietVoice = false;
+    this.manifest = audioManifest || {};
     this.listeners = new Set();
     this.state = {
       isPlaying: false,
@@ -106,7 +110,7 @@ class AudioEngine {
   }
 
   /**
-   * Main speech method with multi-tiered fallback
+   * Main speech method with prioritized pre-bundled audio bank fallback
    * @param {string} rawText - Vietnamese text
    * @param {object} options - { rate: number, accent: 'north'|'south', key: string, onEnd: func, onStart: func }
    */
@@ -132,12 +136,95 @@ class AudioEngine {
 
     if (options.onStart) options.onStart();
 
-    // Primary: Google Native Vietnamese Audio Stream
+    // 1. Priority 0: Check Pre-Bundled Audio Bank
+    const manifestFile = this.manifest[cleanedText] || this.manifest[rawText.trim()];
+    if (manifestFile) {
+      const baseUrl = import.meta.env.BASE_URL || '/';
+      const audioPath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${manifestFile}`;
+      this.playLocalFile(audioPath, rate, options)
+        .catch(() => {
+          this.fallbackSpeech(cleanedText, rate, options);
+        });
+      return;
+    }
+
+    // 2. Fallback: Online Stream or Local Speech
+    this.fallbackSpeech(cleanedText, rate, options);
+  }
+
+  /**
+   * Plays a pre-bundled local MP3 audio file
+   */
+  playLocalFile(audioUrl, rate = 1.0, options = {}) {
+    return new Promise((resolve, reject) => {
+      try {
+        let audio = this.audioCache.get(audioUrl);
+        if (!audio) {
+          audio = new Audio(audioUrl);
+          audio.preload = 'auto';
+          this.audioCache.set(audioUrl, audio);
+        } else {
+          audio.currentTime = 0;
+        }
+
+        this.currentAudio = audio;
+        audio.playbackRate = Math.min(Math.max(rate, 0.5), 2.0);
+
+        const cleanup = () => {
+          audio.removeEventListener('ended', handleEnded);
+          audio.removeEventListener('error', handleError);
+          audio.removeEventListener('pause', handlePause);
+        };
+
+        const handleEnded = () => {
+          cleanup();
+          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+          if (options.onEnd) options.onEnd();
+          resolve();
+        };
+
+        const handlePause = () => {
+          if (this.currentAudio === audio && audio.currentTime === 0) {
+            cleanup();
+            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+          }
+        };
+
+        const handleError = (e) => {
+          cleanup();
+          reject(e);
+        };
+
+        audio.addEventListener('ended', handleEnded);
+        audio.addEventListener('error', handleError);
+        audio.addEventListener('pause', handlePause);
+
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((e) => {
+            cleanup();
+            reject(e);
+          });
+        }
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+
+  /**
+   * Fallback to online stream or Web Speech if native voice is present
+   */
+  fallbackSpeech(cleanedText, rate, options) {
     this.playOnlineStream(cleanedText, rate, options)
       .catch((err) => {
-        console.warn('Online audio stream fallback to Web Speech:', err);
-        // Fallback: Web Speech API (if supported)
-        this.playWebSpeech(cleanedText, rate, options);
+        // Only use Web Speech if a true Vietnamese voice is verified
+        if (this.hasNativeVietVoice) {
+          this.playWebSpeech(cleanedText, rate, options);
+        } else {
+          console.warn('Online stream failed and no native Vietnamese OS voice pack installed.');
+          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+        }
       });
   }
 
@@ -147,8 +234,7 @@ class AudioEngine {
   playOnlineStream(text, rate = 1.0, options = {}) {
     return new Promise((resolve, reject) => {
       try {
-        // Build direct Vietnamese TTS stream URL
-        const encodedText = encodeURIComponent(text.slice(0, 200)); // Google TTS single utterance limit
+        const encodedText = encodeURIComponent(text.slice(0, 200));
         const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=vi&client=tw-ob&q=${encodedText}`;
 
         let audio = this.audioCache.get(audioUrl);
@@ -206,7 +292,7 @@ class AudioEngine {
   }
 
   /**
-   * Tier 2: Web Speech API fallback
+   * Tier 2: Web Speech API fallback (only if native voice exists)
    */
   playWebSpeech(text, rate = 1.0, options = {}) {
     if (!this.synth) {
@@ -249,10 +335,7 @@ class AudioEngine {
    */
   speakAlphabet(item, options = {}) {
     if (!item) return;
-    // Extract base letter cleanly: e.g. "Ă ă" -> "Ă", "Q q (Qu)" -> "Qu"
     const exampleWord = item.example || '';
-    
-    // Pronounce: Letter Name e.g. "á", then example "Ăn"
     const speechText = `${item.name}. ${exampleWord}.`;
     this.speak(speechText, { ...options, key: item.char });
   }
