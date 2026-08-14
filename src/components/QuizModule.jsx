@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Trophy, CheckCircle, XCircle, Award, Flame, RefreshCw, Volume2, ShieldCheck } from 'lucide-react';
+import { Trophy, CheckCircle, XCircle, Award, Flame, RefreshCw, Volume2, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
 import { quizzes } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -62,156 +62,156 @@ export const QuizModule = ({ userStats, updateUserStats, selectedAccent }) => {
       <div className="section-header">
         <h2 className="section-title">
           <Trophy color="var(--brand-gold)" />
-          {learningMode === 'zh' ? 'iVPT 國際檢定與實戰測驗中心' : 'iVPT & CEFR Mock Proficiency Exams'}
+          {learningMode === 'zh' ? 'iVPT 國際越語能力檢定與實戰測驗中心' : 'iVPT & CEFR Mock Proficiency Exams'}
         </h2>
         <p className="section-desc">
           {learningMode === 'zh'
             ? '涵蓋 iVPT A1 - B2 全真題型，包含聲調辨識、南北口音、金額計算、漢越音詞義與職場稱謂'
-            : 'Covers authentic iVPT A1-B2 test formats including tones, dialects, currency, Sino-Vietnamese cognates, and business pronouns'}
+            : 'Covers authentic iVPT A1-B2 test formats including tones, dialects, currency, Sino-Vietnamese cognates, and business pronouns.'}
         </p>
       </div>
 
-      {/* Stats Dashboard Card */}
+      {/* Gamification Dashboard */}
       <div className="simulator-box" style={{ background: 'linear-gradient(135deg, var(--bg-card) 0%, var(--bg-accent) 100%)', marginBottom: '2rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', textAlign: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1.25rem', textAlign: 'center' }}>
           <div>
-            <Flame size={32} color="var(--brand-primary)" style={{ margin: '0 auto 0.5rem' }} />
-            <div style={{ fontSize: '1.8em', fontWeight: 800 }}>{userStats.streak} {t('days')}</div>
-            <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>
+            <Flame size={30} color="var(--brand-primary)" className="streak-flame-animated" style={{ margin: '0 auto 0.4rem' }} />
+            <div style={{ fontSize: '1.8em', fontWeight: 900 }}>{userStats.streak} {t('days')}</div>
+            <div style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>
               {learningMode === 'zh' ? '連續學習天數' : 'Streak Days'}
             </div>
           </div>
 
           <div>
-            <Trophy size={32} color="var(--brand-gold)" style={{ margin: '0 auto 0.5rem' }} />
-            <div style={{ fontSize: '1.8em', fontWeight: 800, color: 'var(--brand-gold)' }}>{userStats.xp} {t('xp')}</div>
-            <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>
+            <Trophy size={30} color="var(--brand-gold)" style={{ margin: '0 auto 0.4rem' }} />
+            <div style={{ fontSize: '1.8em', fontWeight: 900, color: 'var(--brand-gold)' }}>{userStats.xp} {t('xp')}</div>
+            <div style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>
               {learningMode === 'zh' ? '累積經驗值' : 'Total XP'}
             </div>
           </div>
 
           <div>
-            <Award size={32} color="var(--brand-green)" style={{ margin: '0 auto 0.5rem' }} />
-            <div style={{ fontSize: '1.6em', fontWeight: 800, color: 'var(--brand-green)' }}>
+            <Award size={30} color="var(--brand-green)" style={{ margin: '0 auto 0.4rem' }} />
+            <div style={{ fontSize: '1.5em', fontWeight: 900, color: 'var(--brand-green)' }}>
               {userStats.xp > 200 
-                ? (learningMode === 'zh' ? '越南語達人 🇻🇳' : 'VietMaster Pro 🇻🇳')
+                ? (learningMode === 'zh' ? '越語達人 🇻🇳' : 'VietMaster Pro 🇻🇳')
                 : (learningMode === 'zh' ? '越語新秀 🎒' : 'Novice Explorer 🎒')
               }
             </div>
-            <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>
-              {learningMode === 'zh' ? '當前稱號等級' : 'Proficiency Rank'}
+            <div style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>
+              {learningMode === 'zh' ? '當前頭銜階級' : 'Current Mastery Rank'}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Quiz Card Container */}
       {!quizFinished ? (
         <div className="simulator-box">
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', fontSize: '0.9em', color: 'var(--text-muted)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span className="tone-symbol" style={{ background: 'var(--brand-primary)', color: '#fff', fontWeight: 800 }}>
-                iVPT {activeQuiz.level}
-              </span>
-              <span>{learningMode === 'zh' ? `題目 ${currentQuizIdx + 1} / ${quizzes.length}` : `Question ${currentQuizIdx + 1} of ${quizzes.length}`}</span>
-            </div>
-            <span>{learningMode === 'zh' ? `當前得分：${score} / ${quizzes.length}` : `Score: ${score} / ${quizzes.length}`}</span>
+          {/* Quiz Question Header */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
+            <span style={{ fontWeight: 800, color: 'var(--brand-accent)', fontSize: '0.9em' }}>
+              {learningMode === 'zh' ? `第 ${currentQuizIdx + 1} / ${quizzes.length} 題` : `Question ${currentQuizIdx + 1} of ${quizzes.length}`}
+            </span>
+            <span className="tone-symbol" style={{ background: 'var(--bg-main)' }}>
+              {activeQuiz.level || 'iVPT A1-A2'}
+            </span>
           </div>
 
-          <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.5rem', color: 'var(--text-primary)', lineHeight: 1.5 }}>
+          <div style={{ fontSize: '1.3em', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
             {learningMode === 'zh' ? activeQuiz.questionZh : activeQuiz.questionEn}
-          </h3>
+          </div>
 
-          {/* Options list */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem' }}>
-            {options.map((option, idx) => {
-              const optKey = `quiz_opt_${idx}`;
-              let btnStyle = { background: 'var(--bg-card)', borderColor: 'var(--border-color)' };
+          {/* Options List */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem', marginBottom: '1.5rem' }}>
+            {options.map((opt, idx) => {
+              const isSelected = selectedOption === idx;
+              const isCorrectOpt = idx === activeQuiz.answer;
+              let btnStyle = {
+                padding: '1.1rem 1.3rem',
+                borderRadius: 'var(--radius-md)',
+                background: 'var(--bg-main)',
+                border: '1.5px solid var(--border-color)',
+                textAlign: 'left',
+                fontWeight: 700,
+                fontSize: '1.02em',
+                cursor: isAnswered ? 'default' : 'pointer',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                transition: 'all 0.2s ease',
+                color: 'var(--text-primary)'
+              };
+
               if (isAnswered) {
-                if (idx === activeQuiz.answer) {
-                  btnStyle = { background: 'rgba(16, 185, 129, 0.2)', borderColor: 'var(--brand-green)', color: 'var(--brand-green)' };
-                } else if (idx === selectedOption) {
-                  btnStyle = { background: 'rgba(239, 68, 68, 0.2)', borderColor: '#ef4444', color: '#ef4444' };
+                if (isCorrectOpt) {
+                  btnStyle.borderColor = 'var(--brand-green)';
+                  btnStyle.background = 'rgba(16, 185, 129, 0.1)';
+                } else if (isSelected) {
+                  btnStyle.borderColor = 'var(--brand-primary)';
+                  btnStyle.background = 'rgba(239, 68, 68, 0.1)';
                 }
               }
 
               return (
                 <button
                   key={idx}
-                  className="control-btn"
-                  style={{ ...btnStyle, padding: '1rem', justifyContent: 'space-between', fontSize: '1.05em', textAlign: 'left' }}
+                  style={btnStyle}
                   onClick={() => handleSelectOption(idx)}
+                  disabled={isAnswered}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-                    <span style={{ fontWeight: 800, width: '24px' }}>{String.fromCharCode(65 + idx)}.</span>
-                    <span>{option}</span>
-                  </div>
-                  {isAnswered && (
-                    <span
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        playSpeech(option, optKey);
-                      }}
-                      style={{ padding: '0.2rem 0.5rem', color: 'var(--brand-accent)', cursor: 'pointer' }}
-                    >
-                      <Volume2 size={16} />
-                    </span>
-                  )}
+                  <span>{opt}</span>
+                  {isAnswered && isCorrectOpt && <CheckCircle size={20} color="var(--brand-green)" />}
+                  {isAnswered && isSelected && !isCorrectOpt && <XCircle size={20} color="var(--brand-primary)" />}
                 </button>
               );
             })}
           </div>
 
-          {/* Explanation Banner */}
+          {/* Explanation Box */}
           {isAnswered && (
-            <div style={{ padding: '1rem 1.25rem', borderRadius: 'var(--radius-md)', background: 'var(--bg-accent)', marginBottom: '1.5rem', borderLeft: `4px solid ${selectedOption === activeQuiz.answer ? 'var(--brand-green)' : '#ef4444'}` }}>
-              <div style={{ fontWeight: 800, marginBottom: '0.35rem', color: selectedOption === activeQuiz.answer ? 'var(--brand-green)' : '#ef4444' }}>
-                {selectedOption === activeQuiz.answer 
-                  ? (learningMode === 'zh' ? '✅ 回答正確！獲得 +25 XP' : '✅ Correct! Earned +25 XP') 
-                  : (learningMode === 'zh' ? '❌ 回答有誤！' : '❌ Incorrect!')
-                }
+            <div style={{ background: 'var(--bg-main)', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', marginBottom: '1.5rem', animation: 'fadeInContent 0.3s ease' }}>
+              <div style={{ fontWeight: 800, color: selectedOption === activeQuiz.answer ? 'var(--brand-green)' : 'var(--brand-primary)', marginBottom: '0.4rem' }}>
+                {selectedOption === activeQuiz.answer ? '🎉 ' + t('common.correct') : '❌ ' + t('common.wrong')}
               </div>
-              <div style={{ fontSize: '0.95em', color: 'var(--text-secondary)', lineHeight: 1.5, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div>
-                  <strong>{learningMode === 'zh' ? '解析說明：' : 'Explanation: '}</strong>
-                  {learningMode === 'zh' ? activeQuiz.explanationZh : activeQuiz.explanationEn}
-                </div>
+              <div style={{ fontSize: '0.94em', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                <strong>{t('common.explanation')}：</strong>
+                {learningMode === 'zh' ? activeQuiz.explanationZh : activeQuiz.explanationEn}
               </div>
             </div>
           )}
 
+          {/* Next Button */}
           {isAnswered && (
-            <button 
-              className="control-btn" 
-              style={{ background: 'var(--brand-accent)', color: '#fff', padding: '0.75rem 1.5rem', fontSize: '1em' }}
-              onClick={handleNextQuiz}
-            >
-              {currentQuizIdx < quizzes.length - 1 
-                ? (learningMode === 'zh' ? '下一題 ➔' : 'Next Question ➔')
-                : (learningMode === 'zh' ? '查看總成績結果 🏆' : 'View Results 🏆')
-              }
-            </button>
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              <button
+                className="control-btn"
+                style={{ background: 'var(--brand-accent)', color: '#fff', padding: '0.75rem 1.6rem', fontWeight: 800 }}
+                onClick={handleNextQuiz}
+              >
+                <span>{currentQuizIdx < quizzes.length - 1 ? (learningMode === 'zh' ? '下一題' : 'Next') : (learningMode === 'zh' ? '查看成績單' : 'View Results')}</span>
+                <ArrowRight size={16} />
+              </button>
+            </div>
           )}
         </div>
       ) : (
-        /* Quiz Result Finish Screen */
-        <div className="simulator-box" style={{ textAlign: 'center', padding: '3rem 2rem' }}>
-          <Trophy size={64} color="var(--brand-gold)" style={{ margin: '0 auto 1rem' }} />
-          <h3 style={{ fontSize: '1.8em', fontWeight: 800, marginBottom: '0.5rem' }}>
-            {learningMode === 'zh' 
-              ? `測驗完成！你的總得分：${score} / ${quizzes.length}`
-              : `Exam Finished! Your Score: ${score} / ${quizzes.length}`
-            }
+        /* Results Card */
+        <div className="simulator-box" style={{ textAlign: 'center', padding: '3rem 1.5rem' }}>
+          <div style={{ fontSize: '3.5em', marginBottom: '0.5rem' }}>🏆</div>
+          <h3 style={{ fontSize: '1.8em', fontWeight: 900, marginBottom: '0.5rem' }}>
+            {learningMode === 'zh' ? '恭喜完成 iVPT 模擬測驗！' : 'Quiz Completed!'}
           </h3>
-          <p style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem' }}>
-            {learningMode === 'zh'
-              ? `恭喜獲得 +${score * 25} XP 經驗值獎勵！`
-              : `Congratulations! You gained +${score * 25} XP.`
-            }
-          </p>
+          <div style={{ fontSize: '1.3em', fontWeight: 800, color: 'var(--brand-gold)', marginBottom: '1.5rem' }}>
+            {learningMode === 'zh' ? `總分：${score} / ${quizzes.length} 題 (${Math.round((score/quizzes.length)*100)}分)` : `Score: ${score} / ${quizzes.length} (${Math.round((score/quizzes.length)*100)}%)`}
+          </div>
 
-          <button className="control-btn" style={{ background: 'var(--brand-primary)', color: '#fff', padding: '0.75rem 1.5rem' }} onClick={handleRestartQuiz}>
-            <RefreshCw size={18} /> {learningMode === 'zh' ? '再測驗一次' : 'Retake Exam'}
+          <button
+            className="control-btn"
+            style={{ background: 'var(--brand-accent)', color: '#fff', padding: '0.85rem 1.8rem', fontWeight: 800, margin: '0 auto' }}
+            onClick={handleRestartQuiz}
+          >
+            <RefreshCw size={18} />
+            <span>{learningMode === 'zh' ? '再測驗一次' : 'Retake Quiz'}</span>
           </button>
         </div>
       )}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Users, HelpCircle, CheckCircle, Volume2, Sparkles, UserCheck } from 'lucide-react';
+import { Users, HelpCircle, CheckCircle, Volume2, Sparkles, UserCheck, ArrowRight, BookOpen } from 'lucide-react';
 import { pronounKinshipData } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -118,220 +118,232 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
         meDescEn: 'Grandchild / Junior (I/me)',
         sampleVi: `Cháu kính chào ${youPronoun} ạ! Chúc ${youPronoun} dồi dào sức khỏe.`,
         sampleZh: `晚輩向${targetGender === 'male' ? '爺爺' : '奶奶'}問好！祝您身體健康。`,
-        sampleEn: `Respectful greetings! Wishing you great health and happiness.`
+        sampleEn: `I pay my deepest respect to you! Wishing you longevity and health.`
       };
     }
 
-    // Default: formal business
+    if (relation === 'formal_business') {
+      const youPronoun = targetGender === 'male' ? 'Ông / Anh' : 'Bà / Chị';
+      return {
+        you: youPronoun,
+        youDescZh: '正式商務貴賓/長官',
+        youDescEn: 'Formal Business Partner / VIP',
+        me: 'Tôi',
+        meDescZh: '本人 / 我 (正式商務)',
+        meDescEn: 'I / Me (Formal business)',
+        sampleVi: `Xin chào ${youPronoun}! Tôi rất vinh hạnh được hợp tác.`,
+        sampleZh: `您好！本人非常榮幸能與貴方合作。`,
+        sampleEn: `Hello! I am honored to collaborate with your esteemed company.`
+      };
+    }
+
     return {
-      you: targetGender === 'male' ? 'Ông / Anh' : 'Bà / Chị',
-      youDescZh: '商務正式尊稱 (先生 / 女士)',
-      youDescEn: 'Formal business title (Mr. / Ms.)',
+      you: 'Bạn',
+      youDescZh: '朋友',
+      youDescEn: 'Friend',
       me: 'Tôi',
-      meDescZh: '我 (正式中性自稱)',
-      meDescEn: 'I / Me (Formal standard)',
-      sampleVi: 'Rất hân hạnh được hợp tác với quý công ty.',
-      sampleZh: '非常榮幸能與貴公司合作。',
-      sampleEn: 'It is a great honor to cooperate with your esteemed company.'
+      meDescZh: '我',
+      meDescEn: 'Me',
+      sampleVi: 'Xin chào!',
+      sampleZh: '你好！',
+      sampleEn: 'Hello!'
     };
   };
 
-  const result = computePronouns();
+  const calculated = computePronouns();
 
-  const playSentence = (text, key) => {
+  const handleSpeak = (text, key) => {
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
     if (updateUserStats) updateUserStats(2);
   };
 
   return (
     <div className="module-container">
-      {/* Header */}
+      {/* Header Banner */}
       <div className="section-header">
         <h2 className="section-title">
           <Users color="var(--brand-primary)" />
-          {learningMode === 'zh' ? '人稱代詞與稱謂智慧推算器 (Kinship Calculator)' : 'Kinship & Pronoun Intelligence Calculator'}
+          {learningMode === 'zh' ? '越語社交與親屬人稱稱謂智能推算矩陣' : 'Vietnamese Kinship & Social Pronoun Calculator'}
         </h2>
         <p className="section-desc">
           {learningMode === 'zh'
-            ? '越南語沒有單純的 "You / I"，而是根據雙方的性別、年齡輩分與親疏關係動態確定稱呼！'
-            : 'Vietnamese uses relational kinship terms instead of generic "You / I". Select relationship dynamics below to instantly compute exact pronouns.'}
+            ? '越南語沒有單純的「你/我」，而是依據「年齡、性別、長幼尊卑」形成鏡像對稱稱謂（如 Anh-Em、Chị-Em、Chú-Cháu）。選擇雙方條件，立即推算最道地的稱謂與社交金句！'
+            : 'Vietnamese uses relative kinship pronouns instead of simple you/I. Select age, gender, and social relation to compute natural reciprocal pronouns.'}
         </p>
       </div>
 
-      {/* Interactive Calculator Section */}
-      <div className="simulator-box" style={{ background: 'var(--bg-card)', marginBottom: '2rem' }}>
-        <h3 style={{ fontSize: '1.2em', fontWeight: 800, marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <Sparkles color="var(--brand-accent)" size={20} />
-          {learningMode === 'zh' ? '⚡ 智慧稱謂即時推算' : '⚡ Live Relational Calculator'}
+      {/* Calculator Workstation Box */}
+      <div className="simulator-box">
+        <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <UserCheck color="var(--brand-accent)" />
+          {learningMode === 'zh' ? '稱謂對照設定台' : 'Pronoun Computation Station'}
         </h3>
 
-        {/* Input Selectors */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginBottom: '1.5rem' }}>
-          {/* 1. My Gender */}
-          <div>
-            <label style={{ display: 'block', fontSize: '0.85em', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-              {learningMode === 'zh' ? '1. 你的性別 (My Gender)：' : '1. Your Gender:'}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.25rem', marginBottom: '1.5rem' }}>
+          {/* 1. My Identity */}
+          <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <label style={{ display: 'block', fontSize: '0.88em', fontWeight: 800, color: 'var(--text-secondary)', marginBottom: '0.6rem' }}>
+              👤 {learningMode === 'zh' ? '1. 我的性別：' : '1. My Gender:'}
             </label>
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               <button
                 className={`control-btn ${myGender === 'male' ? 'active' : ''}`}
+                style={{ flex: 1, justifyContent: 'center', background: myGender === 'male' ? 'var(--brand-accent)' : 'var(--bg-card)', color: myGender === 'male' ? '#fff' : 'inherit' }}
                 onClick={() => setMyGender('male')}
-                style={{ flex: 1, padding: '0.6rem' }}
               >
                 👨 {learningMode === 'zh' ? '男性 (Nam)' : 'Male'}
               </button>
               <button
                 className={`control-btn ${myGender === 'female' ? 'active' : ''}`}
+                style={{ flex: 1, justifyContent: 'center', background: myGender === 'female' ? 'var(--brand-accent)' : 'var(--bg-card)', color: myGender === 'female' ? '#fff' : 'inherit' }}
                 onClick={() => setMyGender('female')}
-                style={{ flex: 1, padding: '0.6rem' }}
               >
                 👩 {learningMode === 'zh' ? '女性 (Nữ)' : 'Female'}
               </button>
             </div>
           </div>
 
-          {/* 2. Target Gender */}
-          <div>
-            <label style={{ display: 'block', fontSize: '0.85em', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-              {learningMode === 'zh' ? '2. 對方的性別 (Target Gender)：' : '2. Target Gender:'}
+          {/* 2. Target Identity */}
+          <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <label style={{ display: 'block', fontSize: '0.88em', fontWeight: 800, color: 'var(--text-secondary)', marginBottom: '0.6rem' }}>
+              👥 {learningMode === 'zh' ? '2. 對象的性別：' : '2. Partner Gender:'}
             </label>
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               <button
                 className={`control-btn ${targetGender === 'male' ? 'active' : ''}`}
+                style={{ flex: 1, justifyContent: 'center', background: targetGender === 'male' ? 'var(--brand-accent)' : 'var(--bg-card)', color: targetGender === 'male' ? '#fff' : 'inherit' }}
                 onClick={() => setTargetGender('male')}
-                style={{ flex: 1, padding: '0.6rem' }}
               >
                 👨 {learningMode === 'zh' ? '男性 (Nam)' : 'Male'}
               </button>
               <button
                 className={`control-btn ${targetGender === 'female' ? 'active' : ''}`}
+                style={{ flex: 1, justifyContent: 'center', background: targetGender === 'female' ? 'var(--brand-accent)' : 'var(--bg-card)', color: targetGender === 'female' ? '#fff' : 'inherit' }}
                 onClick={() => setTargetGender('female')}
-                style={{ flex: 1, padding: '0.6rem' }}
               >
                 👩 {learningMode === 'zh' ? '女性 (Nữ)' : 'Female'}
               </button>
             </div>
           </div>
 
-          {/* 3. Relational Dynamic */}
-          <div style={{ gridColumn: 'span 1' }}>
-            <label style={{ display: 'block', fontSize: '0.85em', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
-              {learningMode === 'zh' ? '3. 輩分與親疏關係：' : '3. Relational Dynamic:'}
+          {/* 3. Relative Age & Social Hierarchy */}
+          <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+            <label style={{ display: 'block', fontSize: '0.88em', fontWeight: 800, color: 'var(--text-secondary)', marginBottom: '0.6rem' }}>
+              ⚖️ {learningMode === 'zh' ? '3. 雙方年齡與社會關係：' : '3. Social Hierarchy:'}
             </label>
             <select
               value={relation}
               onChange={(e) => setRelation(e.target.value)}
-              className="control-btn"
-              style={{ width: '100%', padding: '0.6rem', background: 'var(--bg-main)' }}
+              style={{
+                width: '100%',
+                padding: '0.55rem 0.8rem',
+                background: 'var(--bg-card)',
+                border: '1.5px solid var(--border-color)',
+                borderRadius: 'var(--radius-md)',
+                color: 'var(--text-primary)',
+                fontWeight: 700,
+                fontSize: '0.92rem',
+                outline: 'none'
+              }}
             >
-              <option value="older_peer">{learningMode === 'zh' ? '對方年紀稍長 (平輩哥姐)' : 'Older Peer (Brother / Sister)'}</option>
-              <option value="younger_peer">{learningMode === 'zh' ? '對方年紀小於自己 (晚輩/弟妹)' : 'Younger Peer (Junior / Younger sibling)'}</option>
-              <option value="same_age">{learningMode === 'zh' ? '同齡朋友 / 同學 (平輩無年齡差)' : 'Same Age Friend / Classmate'}</option>
-              <option value="elder_uncle">{learningMode === 'zh' ? '長輩男性 (叔叔/伯父輩)' : 'Elder Male (Uncle / Senior)'}</option>
-              <option value="elder_aunt">{learningMode === 'zh' ? '長輩女性 (阿姨/姑姑/女老師)' : 'Elder Female (Aunt / Teacher)'}</option>
-              <option value="elder_grandparent">{learningMode === 'zh' ? '高齡長輩 (爺爺/奶奶輩)' : 'Senior Elder (Grandparent age)'}</option>
-              <option value="formal_business">{learningMode === 'zh' ? '商務正式場合 (先生/女士尊稱)' : 'Formal Business (Mr. / Ms.)'}</option>
+              <option value="older_peer">{learningMode === 'zh' ? '對方比我年長少許 (兄姐輩)' : 'Older Peer (Brother/Sister tier)'}</option>
+              <option value="younger_peer">{learningMode === 'zh' ? '對方比我年幼 (弟妹晚輩)' : 'Younger Peer (Em)'}</option>
+              <option value="same_age">{learningMode === 'zh' ? '同年齡朋友/同學 (Bạn)' : 'Same Age Friend (Bạn)'}</option>
+              <option value="elder_uncle">{learningMode === 'zh' ? '長輩叔伯輩 (Chú / Bác)' : 'Senior Uncle (Chú/Bác)'}</option>
+              <option value="elder_aunt">{learningMode === 'zh' ? '長輩姑姑/阿姨/老師 (Cô / Bác)' : 'Senior Aunt/Teacher (Cô/Bác)'}</option>
+              <option value="elder_grandparent">{learningMode === 'zh' ? '祖輩長者 (Ông / Bà)' : 'Grandparent tier (Ông/Bà)'}</option>
+              <option value="formal_business">{learningMode === 'zh' ? '正式商務/長官/貴賓 (Ông/Bà/Tôi)' : 'Formal Business (Ông/Bà/Tôi)'}</option>
             </select>
           </div>
         </div>
 
-        {/* Calculated Result Display Card */}
-        <div style={{ background: 'var(--bg-main)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', marginBottom: '1.2rem' }}>
-            {/* You Call Them */}
-            <div style={{ borderLeft: '4px solid var(--brand-accent)', paddingLeft: '1rem' }}>
-              <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', fontWeight: 700 }}>
-                {learningMode === 'zh' ? '👉 你稱呼對方為 (You)：' : '👉 You address them as:'}
+        {/* Calculated Pronouns Matrix Result Box */}
+        <div style={{ background: 'linear-gradient(135deg, var(--bg-card) 0%, var(--bg-accent) 100%)', border: '1.5px solid var(--brand-accent)', borderRadius: 'var(--radius-md)', padding: '1.5rem', marginBottom: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
+            {/* You Pronoun */}
+            <div style={{ background: 'var(--bg-card)', padding: '1.1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-xs)' }}>
+              <span style={{ fontSize: '0.8em', fontWeight: 800, color: 'var(--brand-primary)', textTransform: 'uppercase' }}>
+                {learningMode === 'zh' ? '👉 你對對方的稱呼 (You)' : '👉 How to address partner (You)'}
+              </span>
+              <div style={{ fontSize: '2em', fontWeight: 900, color: 'var(--brand-primary)', margin: '0.2rem 0' }}>
+                {calculated.you}
               </div>
-              <div style={{ fontSize: '1.8em', fontWeight: 900, color: 'var(--brand-accent)', margin: '0.2rem 0' }}>
-                {result.you}
-              </div>
-              <div style={{ fontSize: '0.85em', color: 'var(--text-secondary)' }}>
-                {learningMode === 'zh' ? result.youDescZh : result.youDescEn}
+              <div style={{ fontSize: '0.86em', color: 'var(--text-secondary)' }}>
+                {learningMode === 'zh' ? calculated.youDescZh : calculated.youDescEn}
               </div>
             </div>
 
-            {/* You Call Yourself */}
-            <div style={{ borderLeft: '4px solid var(--brand-primary)', paddingLeft: '1rem' }}>
-              <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', fontWeight: 700 }}>
-                {learningMode === 'zh' ? '👈 你自稱為 (I / Me)：' : '👈 You refer to yourself as:'}
+            {/* Me Pronoun */}
+            <div style={{ background: 'var(--bg-card)', padding: '1.1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', boxShadow: 'var(--shadow-xs)' }}>
+              <span style={{ fontSize: '0.8em', fontWeight: 800, color: 'var(--brand-green)', textTransform: 'uppercase' }}>
+                {learningMode === 'zh' ? '👈 我對自己的自稱 (Me / I)' : '👈 Your self-reference (I/Me)'}
+              </span>
+              <div style={{ fontSize: '2em', fontWeight: 900, color: 'var(--brand-green)', margin: '0.2rem 0' }}>
+                {calculated.me}
               </div>
-              <div style={{ fontSize: '1.8em', fontWeight: 900, color: 'var(--brand-primary)', margin: '0.2rem 0' }}>
-                {result.me}
-              </div>
-              <div style={{ fontSize: '0.85em', color: 'var(--text-secondary)' }}>
-                {learningMode === 'zh' ? result.meDescZh : result.meDescEn}
+              <div style={{ fontSize: '0.86em', color: 'var(--text-secondary)' }}>
+                {learningMode === 'zh' ? calculated.meDescZh : calculated.meDescEn}
               </div>
             </div>
           </div>
 
-          {/* Generated Live Example Sentence */}
-          <div style={{ background: 'var(--bg-card)', padding: '1rem 1.25rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+          {/* Practical Sample Sentence with Audio */}
+          <div style={{ background: 'var(--bg-card)', padding: '1rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
             <div>
-              <div style={{ fontSize: '0.8em', color: 'var(--brand-gold)', fontWeight: 800, textTransform: 'uppercase', marginBottom: '0.2rem' }}>
-                {learningMode === 'zh' ? '💬 對話實例示範' : '💬 Contextual Example'}
+              <span style={{ fontSize: '0.78em', fontWeight: 800, color: 'var(--brand-gold)', textTransform: 'uppercase' }}>
+                {learningMode === 'zh' ? '💬 實用社交情境例句：' : '💬 Practical Phrase:'}
+              </span>
+              <div style={{ fontSize: '1.25em', fontWeight: 800, color: 'var(--brand-accent)', margin: '0.2rem 0' }}>
+                {calculated.sampleVi}
               </div>
-              <div style={{ fontSize: '1.2em', fontWeight: 800, color: 'var(--text-primary)' }}>
-                {result.sampleVi}
-              </div>
-              <div style={{ fontSize: '0.9em', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
-                {learningMode === 'zh' ? result.sampleZh : result.sampleEn}
+              <div style={{ fontSize: '0.9em', color: 'var(--text-secondary)' }}>
+                {learningMode === 'zh' ? calculated.sampleZh : calculated.sampleEn}
               </div>
             </div>
+
             <button
-              className={`control-btn ${activeKey === 'calc_pronoun_sample' ? 'active' : ''}`}
-              onClick={() => playSentence(result.sampleVi, 'calc_pronoun_sample')}
-              style={{ background: 'var(--brand-primary)', color: '#fff', padding: '0.6rem 1rem' }}
+              className="speaker-btn"
+              onClick={() => handleSpeak(calculated.sampleVi, 'pronoun_sample')}
+              title="朗讀此句"
             >
-              <Volume2 size={16} />
-              <span>{learningMode === 'zh' ? '聆聽示範' : 'Listen'}</span>
+              <Volume2 size={18} />
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Comprehensive Reference Table */}
-      <div>
-        <h3 style={{ fontSize: '1.2em', fontWeight: 800, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <UserCheck color="var(--brand-gold)" size={20} />
-          {learningMode === 'zh' ? '越南語核心稱謂矩陣總表' : 'Vietnamese Master Kinship Matrix'}
-        </h3>
+        {/* Pronoun Reference Table */}
+        <h4 style={{ fontSize: '1.1em', fontWeight: 800, marginBottom: '0.8rem' }}>
+          {learningMode === 'zh' ? '常用人稱稱謂總覽速查表' : 'Full Kinship Pronoun Chart'}
+        </h4>
         <div style={{ overflowX: 'auto' }}>
-          <table style={{ width: '100%', borderCollapse: 'collapse', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
+          <table className="comparison-table">
             <thead>
-              <tr style={{ background: 'var(--bg-accent)', textAlign: 'left', fontSize: '0.9em', color: 'var(--brand-gold)' }}>
-                <th style={{ padding: '0.8rem 1rem' }}>{learningMode === 'zh' ? '稱謂 (Pronoun)' : 'Pronoun'}</th>
-                <th style={{ padding: '0.8rem 1rem' }}>{learningMode === 'zh' ? '適用對象 (Target)' : 'Applies To'}</th>
-                <th style={{ padding: '0.8rem 1rem' }}>{learningMode === 'zh' ? '自稱 (My Self)' : 'Self-reference'}</th>
-                <th style={{ padding: '0.8rem 1rem' }}>{learningMode === 'zh' ? '語意解析 (Details)' : 'Listen'}</th>
+              <tr>
+                <th>{learningMode === 'zh' ? '稱謂代詞' : 'Pronoun'}</th>
+                <th>{learningMode === 'zh' ? '適用對象與性別' : 'Target & Gender'}</th>
+                <th>{learningMode === 'zh' ? '自稱搭配' : 'Reciprocal (Me)'}</th>
+                <th>{learningMode === 'zh' ? '社交親密度' : 'Formality'}</th>
+                <th>{learningMode === 'zh' ? '朗讀' : 'Audio'}</th>
               </tr>
             </thead>
             <tbody>
-              {pronounKinshipData.map((item, idx) => {
-                const itemKey = `pronoun_row_${idx}`;
-                const isPlaying = activeKey === itemKey;
-                return (
-                  <tr key={idx} className={isPlaying ? 'row-highlight' : ''} style={{ borderBottom: '1px solid var(--border-color)', fontSize: '0.9em' }}>
-                    <td style={{ padding: '0.8rem 1rem', fontWeight: 800, color: 'var(--brand-primary)', fontSize: '1.1em' }}>
-                      {item.pronoun}
-                    </td>
-                    <td style={{ padding: '0.8rem 1rem', color: 'var(--text-primary)' }}>
-                      {loc(item, 'desc')}
-                    </td>
-                    <td style={{ padding: '0.8rem 1rem', fontWeight: 700, color: 'var(--brand-accent)' }}>
-                      {learningMode === 'zh' ? item.mySelfZh : item.mySelfEn}
-                    </td>
-                    <td style={{ padding: '0.8rem 1rem' }}>
-                      <button
-                        onClick={() => playSentence(`Chào ${item.pronoun} ạ`, itemKey)}
-                        style={{ background: 'none', border: 'none', color: isPlaying ? 'var(--brand-primary)' : 'var(--brand-accent)', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85em', fontWeight: isPlaying ? 700 : 500 }}
-                      >
-                        <Volume2 size={14} className={isPlaying ? 'playing-pulse' : ''} /> Chào {item.pronoun}
-                      </button>
-                    </td>
-                  </tr>
-                );
-              })}
+              {pronounKinshipData.map((row, idx) => (
+                <tr key={idx}>
+                  <td style={{ fontWeight: 900, color: 'var(--brand-primary)', fontSize: '1.1em' }}>{row.pronoun}</td>
+                  <td style={{ fontWeight: 600 }}>{learningMode === 'zh' ? row.targetZh : row.targetEn}</td>
+                  <td style={{ fontWeight: 700, color: 'var(--brand-green)' }}>{row.reciprocal}</td>
+                  <td><span className="tone-symbol" style={{ fontSize: '0.8em' }}>{row.level}</span></td>
+                  <td>
+                    <button
+                      className="speaker-btn mini-btn"
+                      onClick={() => handleSpeak(row.pronoun, `pr_tbl_${idx}`)}
+                      title="朗讀"
+                    >
+                      <Volume2 size={14} />
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

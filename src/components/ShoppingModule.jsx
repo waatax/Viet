@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, DollarSign, Calculator, Volume2, ArrowRight, Landmark, Tag, ShieldCheck } from 'lucide-react';
+import { ShoppingBag, DollarSign, Calculator, Volume2, ArrowRight, Landmark, Tag, ShieldCheck, Sparkles, Coins } from 'lucide-react';
 import { numbersAndCurrency } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -96,283 +96,221 @@ export const ShoppingModule = ({ selectedAccent }) => {
   const usdEquivalent = (parseInt(inputAmount, 10) / exchangeRateUsd || 0).toFixed(2);
   const vietnameseSpokenText = convertNumberToVietnamese(inputAmount);
 
+  // Common Presets (Coffee, Pho, Massage, Hotel, Tour, Apartment)
+  const presets = [
+    { labelZh: '☕ 冰咖啡 3.5萬', labelEn: '☕ Iced Coffee 35k', amount: '35000', noteClass: 'note-20k' },
+    { labelZh: '🍜 生牛肉河粉 6.5萬', labelEn: '🍜 Beef Pho 65k', amount: '65000', noteClass: 'note-50k' },
+    { labelZh: '🦞 海鮮熱炒 35萬', labelEn: '🦞 Seafood 350k', amount: '350000', noteClass: 'note-200k' },
+    { labelZh: '🏨 渡假飯店 150萬', labelEn: '🏨 Resort Hotel 1.5M', amount: '1500000', noteClass: 'note-500k' },
+    { labelZh: '🛵 機車買賣 2500萬', labelEn: '🛵 Scooter 25M', amount: '25000000', noteClass: 'note-500k' },
+    { labelZh: '🏢 西貢置產 25億', labelEn: '🏢 Real Estate 2.5B', amount: '2500000000', noteClass: 'note-500k' }
+  ];
+
   return (
     <div className="module-container">
+      {/* Header Banner */}
       <div className="section-header">
         <h2 className="section-title">
-          <ShoppingBag color="var(--brand-primary)" />
-          {learningMode === 'zh' ? '0 - 100 億數字教學、價格區帶與銀行金融會話' : '0 - 10 Billion Numbers, Price Brackets & Banking Dialogues'}
+          <Coins color="var(--brand-gold)" />
+          {learningMode === 'zh' ? '數字、百億級貨幣朗讀與越南實用物價換算器' : 'Vietnamese Numbers, Currency & Real VND Price Converter'}
         </h2>
         <p className="section-desc">
           {learningMode === 'zh'
-            ? '掌握越南盾 (VND) 數級單位（K / Củ / Triệu / Tỷ）、台幣換算、日常消費區帶與大額銀行存匯'
-            : 'Master Vietnamese currency scales (k / củ / triệu / tỷ), live USD & TWD conversions, practical price brackets, and banking dialogues'}
+            ? '從萬 (Mười nghìn/ngàn)、百萬 (Triệu) 到十億 (Tỷ)，輸入任意金額即時換算台幣、美金與標準越文口語大寫發音'
+            : 'Convert any VND amount into spoken Vietnamese, TWD, and USD with native pronunciation for street shopping and banking'}
         </p>
       </div>
 
-      {/* Sub-tab Navigation */}
-      <div className="controls-group" style={{ marginBottom: '1.5rem', flexWrap: 'wrap' }}>
-        <button 
+      {/* Sub tabs */}
+      <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+        <button
           className={`control-btn ${activeTabSub === 'converter' ? 'active' : ''}`}
-          style={{ background: activeTabSub === 'converter' ? 'var(--brand-accent)' : 'var(--bg-card)', color: activeTabSub === 'converter' ? '#fff' : 'var(--text-primary)' }}
+          style={{ background: activeTabSub === 'converter' ? 'var(--brand-accent)' : 'var(--bg-card)', color: activeTabSub === 'converter' ? '#fff' : 'inherit' }}
           onClick={() => setActiveTabSub('converter')}
         >
-          <Calculator size={16} /> 
-          {learningMode === 'zh' ? '1. 0-100億金額與計算器' : '1. 0-10B Currency Calculator'}
+          <Calculator size={16} />
+          {learningMode === 'zh' ? '百億級口語換算器' : 'VND Spoken Converter'}
         </button>
-
-        <button 
+        <button
           className={`control-btn ${activeTabSub === 'brackets' ? 'active' : ''}`}
-          style={{ background: activeTabSub === 'brackets' ? 'var(--brand-accent)' : 'var(--bg-card)', color: activeTabSub === 'brackets' ? '#fff' : 'var(--text-primary)' }}
+          style={{ background: activeTabSub === 'brackets' ? 'var(--brand-accent)' : 'var(--bg-card)', color: activeTabSub === 'brackets' ? '#fff' : 'inherit' }}
           onClick={() => setActiveTabSub('brackets')}
         >
-          <Tag size={16} /> 
-          {learningMode === 'zh' ? '2. 四大消費價格區帶' : '2. Four Price Brackets'}
+          <Tag size={16} />
+          {learningMode === 'zh' ? '高頻物價速記階梯' : 'Price Tiers Reference'}
         </button>
-
-        <button 
+        <button
           className={`control-btn ${activeTabSub === 'banking' ? 'active' : ''}`}
-          style={{ background: activeTabSub === 'banking' ? 'var(--brand-accent)' : 'var(--bg-card)', color: activeTabSub === 'banking' ? '#fff' : 'var(--text-primary)' }}
+          style={{ background: activeTabSub === 'banking' ? 'var(--brand-accent)' : 'var(--bg-card)', color: activeTabSub === 'banking' ? '#fff' : 'inherit' }}
           onClick={() => setActiveTabSub('banking')}
         >
-          <Landmark size={16} /> 
-          {learningMode === 'zh' ? '3. 銀行金融會話' : '3. Banking & Financial Dialogues'}
+          <Landmark size={16} />
+          {learningMode === 'zh' ? '銀行與殺價短句' : 'Banking & Bargaining'}
         </button>
       </div>
 
-      {/* VIEW 1: 0-100 Billion Currency Converter */}
       {activeTabSub === 'converter' && (
-        <>
-          {/* Base Numbers 0 - 10 */}
-          <div className="simulator-box">
-            <h3 style={{ fontSize: '1.2em', fontWeight: 800, marginBottom: '1rem' }}>
-              {learningMode === 'zh' ? '基本數字 (0 - 10) 唸法' : 'Base Numbers (0 - 10)'}
-            </h3>
-            <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))' }}>
-              {numbersAndCurrency.baseNumbers.map((item) => {
-                const itemKey = `num_${item.num}`;
-                const isPlaying = activeKey === itemKey;
-                return (
-                  <div 
-                    key={item.num} 
-                    className={`learning-card ${isPlaying ? 'playing-card' : ''}`}
-                    style={{ alignItems: 'center', textAlign: 'center', padding: '1rem', cursor: 'pointer' }}
-                    onClick={() => handleSpeakText(item.viet, itemKey)}
-                  >
-                    <div style={{ fontSize: '1.8em', fontWeight: 800, color: 'var(--brand-accent)' }}>{item.num}</div>
-                    <div style={{ fontWeight: 700 }}>{item.viet}</div>
-                    <div style={{ fontSize: '0.8em', color: 'var(--text-muted)' }}>
-                      {learningMode === 'zh' ? item.zh : item.en}
-                    </div>
-                    <Volume2 size={16} className={isPlaying ? 'playing-pulse' : ''} style={{ marginTop: '0.4rem', color: isPlaying ? 'var(--brand-accent)' : 'var(--brand-primary)' }} />
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Scale Units 100 to 10 Billion */}
-          <div className="simulator-box">
-            <h3 style={{ fontSize: '1.2em', fontWeight: 800, marginBottom: '1rem' }}>
-              {learningMode === 'zh' ? '大額數級單位 (百、千、百萬、十億) 階梯表' : 'Scale Units: Hundred, Thousand, Million, Billion'}
-            </h3>
-            <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))' }}>
-              {numbersAndCurrency.unitsScale.map((unit, uIdx) => {
-                const unitKey = `unit_${uIdx}`;
-                const isPlaying = activeKey === unitKey;
-                return (
-                  <div key={uIdx} className={`learning-card ${isPlaying ? 'playing-card' : ''}`} style={{ background: 'var(--bg-main)' }}>
-                    <div style={{ fontSize: '0.85em', color: 'var(--brand-primary)', fontWeight: 700 }}>{unit.unit}</div>
-                    <div style={{ fontSize: '1.25em', fontWeight: 800, color: 'var(--brand-accent)' }}>{unit.viet}</div>
-                    <div style={{ fontSize: '0.9em', color: 'var(--text-secondary)' }}>
-                      {learningMode === 'zh' ? unit.zh : unit.en}
-                    </div>
-                    <button 
-                      className={`speaker-btn ${isPlaying ? 'playing' : ''}`}
-                      onClick={() => handleSpeakText(unit.viet, unitKey)} 
-                      style={{ marginTop: '0.5rem', alignSelf: 'flex-start' }}
-                    >
-                      <Volume2 size={16} />
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Interactive Calculator up to 10 Billion */}
-          <div className="simulator-box">
-            <h3 style={{ fontSize: '1.2em', fontWeight: 800, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Calculator color="var(--brand-green)" />
-              {learningMode === 'zh' ? '0 - 100 億 (0 - 10 Tỷ VND) 大額金額與拼音讀法產生器' : '0 - 10 Billion VND Live Pronunciation & Currency Converter'}
-            </h3>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', alignItems: 'center' }}>
-              <div>
-                <label style={{ display: 'block', fontWeight: 700, marginBottom: '0.5rem' }}>
-                  {learningMode === 'zh' ? '輸入金額 (VND 越南盾)：' : 'Input Amount (VND):'}
-                </label>
-                <input 
-                  type="number"
-                  value={inputAmount}
-                  onChange={(e) => setInputAmount(e.target.value)}
-                  className="control-btn"
-                  style={{ width: '100%', padding: '0.75rem', fontSize: '1.2em', background: 'var(--bg-input)' }}
-                  step="500000"
-                />
-
-                <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  {[
-                    { label: '+5萬 (50k)', val: '50000' },
-                    { label: '+50萬 (500k)', val: '500000' },
-                    { label: '+1000萬 (10M)', val: '10000000' },
-                    { label: '+1億 (100M)', val: '100000000' },
-                    { label: '+10億 (1B)', val: '1000000000' },
-                    { label: '+50億 (5B)', val: '5000000000' }
-                  ].map(btn => (
-                    <button 
-                      key={btn.val} 
-                      className="control-btn"
-                      style={{ fontSize: '0.8em', padding: '0.3rem 0.6rem' }}
-                      onClick={() => setInputAmount(btn.val)}
-                    >
-                      {btn.label}
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div style={{ background: 'var(--bg-main)', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
-                  <div>
-                    <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>折合新台幣 (TWD)：</div>
-                    <div style={{ fontSize: '1.4em', fontWeight: 800, color: 'var(--brand-green)' }}>
-                      NT$ {parseInt(twdEquivalent).toLocaleString()}
-                    </div>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>折合美元 (USD)：</div>
-                    <div style={{ fontSize: '1.4em', fontWeight: 800, color: 'var(--brand-gold)' }}>
-                      $ {parseFloat(usdEquivalent).toLocaleString()}
-                    </div>
-                  </div>
-                </div>
-
-                <div style={{ paddingTop: '0.75rem', borderTop: '1px solid var(--border-color)' }}>
-                  <div style={{ fontSize: '0.9em', color: 'var(--text-muted)' }}>
-                    {learningMode === 'zh' ? '越南語標準大額讀法：' : 'Vietnamese Spoken Amount:'}
-                  </div>
-                  <div style={{ fontSize: '1.1em', fontWeight: 700, color: 'var(--brand-accent)', margin: '0.25rem 0' }}>
-                    {vietnameseSpokenText}
-                  </div>
-                  <button 
-                    className={`speaker-btn ${activeKey === 'calc_spoken' ? 'playing' : ''}`}
-                    onClick={() => handleSpeakText(vietnameseSpokenText, 'calc_spoken')}
-                    style={{ marginTop: '0.5rem' }}
-                    title="朗讀此大額金額"
-                  >
-                    <Volume2 size={18} />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      )}
-
-      {/* VIEW 2: Price Brackets & Practical Application */}
-      {activeTabSub === 'brackets' && (
         <div className="simulator-box">
-          <h3 style={{ fontSize: '1.2em', fontWeight: 800, marginBottom: '1.5rem' }}>
-            🛒 {learningMode === 'zh' ? '越南消費四大價格區帶與俗稱口語' : 'Four Practical Price Brackets & Colloquial Slang'}
+          <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <DollarSign color="var(--brand-gold)" />
+            {learningMode === 'zh' ? '越幣 (VND) 互動轉換台' : 'VND Interactive Spoken Terminal'}
           </h3>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {numbersAndCurrency.priceBrackets.map((bracket, bIdx) => (
-              <div key={bIdx} style={{ background: 'var(--bg-main)', padding: '1.25rem', borderRadius: 'var(--radius-md)', borderLeft: '5px solid var(--brand-accent)' }}>
-                <h4 style={{ color: 'var(--brand-primary)', fontWeight: 800, fontSize: '1.1em', marginBottom: '0.75rem' }}>
-                  📌 {learningMode === 'zh' ? `區帶 ${bIdx + 1}：${bracket.rangeZh}` : `Bracket ${bIdx + 1}: ${bracket.rangeEn}`}
-                </h4>
+          {/* Quick Presets with Polymer Banknote styles */}
+          <div style={{ marginBottom: '1.2rem' }}>
+            <div style={{ fontSize: '0.86em', fontWeight: 700, color: 'var(--text-muted)', marginBottom: '0.5rem' }}>
+              ⚡ {learningMode === 'zh' ? '高頻生活與置產預設金額：' : 'Quick Presets:'}
+            </div>
+            <div className="banknote-grid">
+              {presets.map((p, idx) => (
+                <div
+                  key={idx}
+                  className={`banknote-pill ${p.noteClass} ${inputAmount === p.amount ? 'active' : ''}`}
+                  onClick={() => setInputAmount(p.amount)}
+                >
+                  <span>{learningMode === 'zh' ? p.labelZh : p.labelEn}</span>
+                </div>
+              ))}
+            </div>
+          </div>
 
-                <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))' }}>
-                  {bracket.examples.map((item, iIdx) => {
-                    const itemKey = `bracket_${bIdx}_${iIdx}`;
-                    const isPlaying = activeKey === itemKey;
-                    return (
-                      <div key={iIdx} className={`learning-card ${isPlaying ? 'playing-card' : ''}`}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                          <span style={{ fontSize: '1.2em', fontWeight: 800, color: 'var(--brand-accent)' }}>{item.amount}</span>
-                          <span className="tone-symbol" style={{ background: 'var(--brand-gold)', color: '#000', fontWeight: 700 }}>
-                            {item.shortcut}
-                          </span>
-                        </div>
+          {/* Main Input Field */}
+          <div style={{ background: 'var(--bg-main)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', marginBottom: '1.5rem' }}>
+            <label style={{ display: 'block', fontSize: '0.9em', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+              {learningMode === 'zh' ? '輸入越南盾金額 (VND)：' : 'Enter Vietnamese Dong (VND):'}
+            </label>
+            <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+              <input
+                type="number"
+                value={inputAmount}
+                onChange={(e) => setInputAmount(e.target.value)}
+                style={{
+                  flex: '1 1 240px',
+                  fontSize: '1.4em',
+                  fontWeight: 800,
+                  padding: '0.65rem 1rem',
+                  background: 'var(--bg-card)',
+                  border: '1.5px solid var(--border-color)',
+                  borderRadius: 'var(--radius-md)',
+                  color: 'var(--text-primary)',
+                  outline: 'none',
+                  fontFamily: 'var(--font-family-mono)'
+                }}
+              />
+              <span style={{ fontSize: '1.2em', fontWeight: 800, color: 'var(--brand-gold)' }}>₫ VND</span>
+            </div>
+          </div>
 
-                        <div style={{ fontWeight: 700, marginTop: '0.5rem' }}>{item.viet}</div>
-                        <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>
-                          {learningMode === 'zh' ? item.zh : item.en}
-                        </div>
-
-                        <button 
-                          className={`speaker-btn ${isPlaying ? 'playing' : ''}`}
-                          onClick={() => handleSpeakText(item.viet, itemKey)} 
-                          style={{ marginTop: '0.75rem', alignSelf: 'flex-start' }}
-                          title="朗讀此金額"
-                        >
-                          <Volume2 size={16} />
-                        </button>
-                      </div>
-                    );
-                  })}
+          {/* Spoken Vietnamese Result Card */}
+          <div style={{ background: 'linear-gradient(135deg, var(--bg-card) 0%, var(--bg-accent) 100%)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1.5px solid var(--brand-accent)', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', flexWrap: 'wrap' }}>
+              <div>
+                <span style={{ fontSize: '0.82em', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+                  {learningMode === 'zh' ? '越語標準口語大寫：' : 'Vietnamese Spoken Format:'}
+                </span>
+                <div style={{ fontSize: '1.45em', fontWeight: 800, color: 'var(--text-primary)', margin: '0.4rem 0' }}>
+                  {vietnameseSpokenText}
                 </div>
               </div>
-            ))}
+              <button
+                className={`speaker-btn ${activeKey === inputAmount ? 'playing' : ''}`}
+                onClick={() => handleSpeakText(vietnameseSpokenText, inputAmount)}
+                title="朗讀此金額發音"
+                style={{ width: '48px', height: '48px' }}
+              >
+                <Volume2 size={22} />
+              </button>
+            </div>
+          </div>
+
+          {/* Currency Equivalent Matrix */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
+            <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', fontWeight: 600 }}>🇹🇼 約合新台幣 (TWD)</div>
+              <div style={{ fontSize: '1.5em', fontWeight: 900, color: 'var(--brand-primary)', margin: '0.2rem 0' }}>
+                NT$ {parseInt(twdEquivalent, 10).toLocaleString()}
+              </div>
+              <div style={{ fontSize: '0.78em', color: 'var(--text-muted)' }}>匯率基準: 1 TWD ≈ {exchangeRateTwd} VND</div>
+            </div>
+
+            <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+              <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', fontWeight: 600 }}>🇺🇸 約合美元 (USD)</div>
+              <div style={{ fontSize: '1.5em', fontWeight: 900, color: 'var(--brand-green)', margin: '0.2rem 0' }}>
+                $ {parseFloat(usdEquivalent).toLocaleString()}
+              </div>
+              <div style={{ fontSize: '0.78em', color: 'var(--text-muted)' }}>匯率基準: 1 USD ≈ {exchangeRateUsd} VND</div>
+            </div>
           </div>
         </div>
       )}
 
-      {/* VIEW 3: Banking & High-Value Interactive Dialogues */}
+      {activeTabSub === 'brackets' && (
+        <div className="simulator-box">
+          <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem' }}>
+            {learningMode === 'zh' ? '越南日常生活與商業物價分級階梯' : 'Everyday VND Price Tiers'}
+          </h3>
+          <div style={{ overflowX: 'auto' }}>
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>{learningMode === 'zh' ? '面額區間' : 'VND Tier'}</th>
+                  <th>{learningMode === 'zh' ? '越文口語' : 'Vietnamese'}</th>
+                  <th>{learningMode === 'zh' ? '約合台幣' : 'TWD Approx'}</th>
+                  <th>{learningMode === 'zh' ? '日常購買力實例' : 'Real Purchases'}</th>
+                  <th>{learningMode === 'zh' ? '朗讀' : 'Listen'}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {numbersAndCurrency.priceTiers.map((tier, idx) => (
+                  <tr key={idx}>
+                    <td style={{ fontWeight: 800, color: 'var(--brand-accent)' }}>{tier.range}</td>
+                    <td style={{ fontWeight: 700 }}>{tier.viet}</td>
+                    <td style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>{tier.twd}</td>
+                    <td>{learningMode === 'zh' ? tier.examplesZh : tier.examplesEn}</td>
+                    <td>
+                      <button
+                        className="speaker-btn mini-btn"
+                        onClick={() => handleSpeakText(tier.viet, `tier_${idx}`)}
+                        title="朗讀"
+                      >
+                        <Volume2 size={15} />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+
       {activeTabSub === 'banking' && (
         <div className="simulator-box">
-          <h3 style={{ fontSize: '1.2em', fontWeight: 800, marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Landmark color="var(--brand-primary)" />
-            {learningMode === 'zh' ? '臨櫃與大額金融會話 (Banking & Financial Dialogues)' : 'Banking & High-Value Corporate Dialogues'}
+          <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem' }}>
+            {learningMode === 'zh' ? '銀行、夜市換匯與殺價高頻短句' : 'Banking & Market Bargaining Phrases'}
           </h3>
-
-          {numbersAndCurrency.bankingDialogues.map((bDiag, bdIdx) => (
-            <div key={bdIdx} style={{ marginBottom: '1.5rem', background: 'var(--bg-main)', padding: '1.25rem', borderRadius: 'var(--radius-md)' }}>
-              <h4 style={{ color: 'var(--brand-accent)', marginBottom: '0.75rem', fontWeight: 800 }}>
-                🏦 {learningMode === 'zh' ? bDiag.titleZh : bDiag.titleEn}
-              </h4>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                {bDiag.lines.map((line, lIdx) => {
-                  const lineKey = `bank_${bdIdx}_${lIdx}`;
-                  const isPlaying = activeKey === lineKey;
-                  return (
-                    <div 
-                      key={lIdx} 
-                      className={isPlaying ? 'line-highlight' : ''}
-                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-card)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', transition: 'all 0.2s ease' }}
-                    >
-                      <div>
-                        <span className="tone-symbol" style={{ marginRight: '0.5rem', fontSize: '0.85em' }}>{line.speaker}</span>
-                        <strong style={{ color: 'var(--text-primary)' }}>{line.viet}</strong>
-                        <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>
-                          {learningMode === 'zh' ? line.zh : line.en}
-                        </div>
-                      </div>
-                      <button 
-                        className={`speaker-btn ${isPlaying ? 'playing' : ''}`} 
-                        onClick={() => handleSpeakText(line.viet, lineKey)}
-                        title="朗讀此對話句"
-                      >
-                        <Volume2 size={16} />
-                      </button>
-                    </div>
-                  );
-                })}
+          <div className="grid-cards">
+            {numbersAndCurrency.shoppingPhrases.map((phrase, idx) => (
+              <div key={idx} className="learning-card" style={{ background: 'var(--bg-main)' }}>
+                <div style={{ fontSize: '1.15em', fontWeight: 800, color: 'var(--brand-accent)', marginBottom: '0.3rem' }}>
+                  {phrase.viet}
+                </div>
+                <div style={{ fontSize: '0.92em', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+                  {learningMode === 'zh' ? phrase.zh : phrase.en}
+                </div>
+                <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.8em', color: 'var(--text-muted)' }}>💡 {phrase.tag}</span>
+                  <button
+                    className="speaker-btn mini-btn"
+                    onClick={() => handleSpeakText(phrase.viet, `shop_ph_${idx}`)}
+                    title="朗讀"
+                  >
+                    <Volume2 size={14} />
+                  </button>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       )}
     </div>

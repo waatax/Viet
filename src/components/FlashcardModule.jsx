@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Brain, Volume2, RotateCw, CheckCircle2, XCircle, ArrowRight, RefreshCw, Sparkles } from 'lucide-react';
+import { Brain, Volume2, RotateCw, CheckCircle2, XCircle, ArrowRight, RefreshCw, Sparkles, Award } from 'lucide-react';
 import { flashcardsDeck } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,11 +8,16 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   const { learningMode, loc, t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [masteredCards, setMasteredCards] = useState([]);
+  const [masteredCards, setMasteredCards] = useState(() => {
+    const saved = localStorage.getItem('viet_mastered_cards');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [reviewDeck, setReviewDeck] = useState(flashcardsDeck);
   const [activeKey, setActiveKey] = useState(null);
 
-  const currentCard = reviewDeck[currentIndex] || reviewDeck[0];
+  useEffect(() => {
+    localStorage.setItem('viet_mastered_cards', JSON.stringify(masteredCards));
+  }, [masteredCards]);
 
   useEffect(() => {
     const unsubscribe = audioEngine.subscribe((state) => {
@@ -21,19 +26,39 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
     return () => unsubscribe();
   }, []);
 
+  const currentCard = reviewDeck[currentIndex] || reviewDeck[0];
+
+  // Keyboard shortcut navigation (Space to flip, Left to review, Right for mastered)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        handleCardClick();
+      } else if (e.code === 'ArrowRight' || e.code === 'KeyD') {
+        handleAnswer(true);
+      } else if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
+        handleAnswer(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isFlipped, currentIndex, reviewDeck, currentCard]);
+
   const handleCardClick = () => {
-    setIsFlipped(!isFlipped);
-    if (!isFlipped) {
+    const nextFlipped = !isFlipped;
+    setIsFlipped(nextFlipped);
+    if (!isFlipped && currentCard) {
       audioEngine.speak(currentCard.viet, { accent: selectedAccent, key: `fc_${currentCard.id}` });
     }
   };
 
   const handleAnswer = (knowsIt) => {
     setIsFlipped(false);
-    if (knowsIt) {
+    if (knowsIt && currentCard) {
       if (updateUserStats) updateUserStats(10);
       if (!masteredCards.includes(currentCard.id)) {
-        setMasteredCards([...masteredCards, currentCard.id]);
+        setMasteredCards(prev => [...prev, currentCard.id]);
       }
     }
 
@@ -43,7 +68,7 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
       } else {
         setCurrentIndex(0);
       }
-    }, 200);
+    }, 180);
   };
 
   const handleRestart = () => {
@@ -51,32 +76,33 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
     setIsFlipped(false);
   };
 
-  const isCardPlaying = activeKey === `fc_${currentCard.id}` || activeKey === currentCard.viet;
+  const isCardPlaying = activeKey === `fc_${currentCard?.id}` || activeKey === currentCard?.viet;
 
   return (
     <div className="module-container">
       <div className="section-header">
         <h2 className="section-title">
           <Brain color="var(--brand-primary)" />
-          {learningMode === 'zh' ? '單字與片語 Leitner 間隔記憶閃卡 (3D Memory Deck)' : 'Spaced Repetition Flashcards (3D Memory Deck)'}
+          {learningMode === 'zh' ? '單字與高頻短句 Leitner 間隔記憶 3D 閃卡' : 'Spaced Repetition Flashcards (3D Memory Deck)'}
         </h2>
         <p className="section-desc">
           {learningMode === 'zh'
-            ? '點擊卡片即可 3D 翻轉查看釋義、漢越音標註與發音音訊，記住單字獲取 XP 獎勵！'
-            : 'Click card to flip and inspect bilingual meaning, Sino-Vietnamese cognates, and native audio.'}
+            ? '點擊卡片（或按空白鍵）3D 翻轉查看釋義、漢越音標註與原生真人發音。支援鍵盤快速操作（←需複習 / 已掌握→）。'
+            : 'Click card or press Space to 3D-flip. Inspect bilingual meanings, Sino-Vietnamese roots, and native audio.'}
         </p>
       </div>
 
       {/* Progress & Deck Stats */}
-      <div style={{ maxWidth: '480px', margin: '0 auto 1.2rem', display: 'flex', justifyContent: 'space-between', fontSize: '0.95em' }}>
-        <span>
-          {learningMode === 'zh' ? '進度：' : 'Progress: '}
-          <strong>{currentIndex + 1} / {reviewDeck.length}</strong>
-        </span>
-        <span style={{ color: 'var(--brand-green)' }}>
-          {learningMode === 'zh' ? '已掌握：' : 'Mastered: '}
-          <strong>{masteredCards.length} {learningMode === 'zh' ? '個' : 'words'}</strong>
-        </span>
+      <div style={{ maxWidth: '520px', margin: '0 auto 1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.95em', background: 'var(--bg-card)', padding: '0.75rem 1.2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700 }}>
+          <span>{learningMode === 'zh' ? '當前進度：' : 'Progress: '}</span>
+          <strong style={{ color: 'var(--brand-accent)' }}>{currentIndex + 1} / {reviewDeck.length}</strong>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--brand-green)', fontWeight: 800 }}>
+          <Award size={16} />
+          <span>{learningMode === 'zh' ? '已掌握：' : 'Mastered: '}</span>
+          <span>{masteredCards.length} {learningMode === 'zh' ? '字' : 'words'}</span>
+        </div>
       </div>
 
       {/* 3D Flip Card Container */}
@@ -87,31 +113,34 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
         <div className="flashcard-inner">
           {/* Card Front (Vietnamese) */}
           <div className="flashcard-front">
-            <span className="tone-symbol" style={{ marginBottom: '1rem', background: 'var(--bg-accent)' }}>
+            <span className="tone-symbol" style={{ marginBottom: '1.2rem', background: 'var(--bg-accent)', color: 'var(--brand-gold)' }}>
               {currentCard.category}
             </span>
-            <div style={{ fontSize: '2.4em', fontWeight: 800, color: 'var(--brand-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.6rem' }}>
+            <div style={{ fontSize: '2.6em', fontWeight: 900, color: 'var(--brand-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', lineHeight: 1.2 }}>
               <span>{currentCard.viet}</span>
-              <Volume2 size={24} className={isCardPlaying ? 'playing-pulse' : ''} style={{ color: isCardPlaying ? 'var(--brand-primary)' : 'var(--brand-accent)' }} />
+              <Volume2 size={26} className={isCardPlaying ? 'playing-pulse' : ''} style={{ color: isCardPlaying ? 'var(--brand-primary)' : 'var(--brand-accent)' }} />
             </div>
             {currentCard.hanViet && (
-              <div style={{ fontSize: '0.9em', color: 'var(--brand-gold)', marginTop: '0.5rem', fontWeight: 700 }}>
+              <div style={{ fontSize: '1.05em', color: 'var(--brand-gold)', marginTop: '0.75rem', fontWeight: 800 }}>
                 {learningMode === 'zh' ? `漢越音：${currentCard.hanViet}` : `Sino-Vietnamese: ${currentCard.hanViet}`}
               </div>
             )}
-            <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', marginTop: '1.2rem' }}>
-              💡 {t('common.cardFlipHint')}
+            <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <span>💡 {t('common.cardFlipHint')} (按 Space 翻轉)</span>
             </div>
           </div>
 
           {/* Card Back (Meaning & Example) */}
           <div className="flashcard-back">
-            <div style={{ fontSize: '2em', fontWeight: 800, color: 'var(--brand-primary)', marginBottom: '0.5rem' }}>
+            <span className="tone-symbol" style={{ marginBottom: '0.8rem', background: 'var(--bg-card)' }}>
+              {learningMode === 'zh' ? '釋義與例句' : 'Meaning & Context'}
+            </span>
+            <div style={{ fontSize: '2.1em', fontWeight: 900, color: 'var(--brand-primary)', marginBottom: '0.6rem' }}>
               {learningMode === 'zh' ? currentCard.zh : currentCard.en}
             </div>
-            <div style={{ fontSize: '1.05em', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
+            <div style={{ fontSize: '1.05em', color: 'var(--text-secondary)', marginBottom: '1.2rem', maxWidth: '420px', lineHeight: 1.5 }}>
               {learningMode === 'zh' ? '例句：' : 'Example: '}
-              <strong>{currentCard.example}</strong>
+              <strong style={{ color: 'var(--text-primary)' }}>{currentCard.example}</strong>
             </div>
 
             <button 
@@ -129,29 +158,31 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
       </div>
 
       {/* Action Buttons: Remembered vs Need Review */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginTop: '1.5rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginTop: '1rem' }}>
         <button 
           className="control-btn"
-          style={{ background: '#ef4444', color: '#fff', padding: '0.75rem 1.4rem' }}
+          style={{ background: '#ef4444', color: '#fff', padding: '0.8rem 1.5rem', fontWeight: 800 }}
           onClick={() => handleAnswer(false)}
+          title="鍵盤快捷鍵: ← 左方向鍵"
         >
-          <XCircle size={18} /> {learningMode === 'zh' ? '還不熟悉 (重複練習)' : 'Needs Review'}
+          <XCircle size={18} /> {learningMode === 'zh' ? '需再複習 (←)' : 'Review (←)'}
         </button>
 
         <button 
           className="control-btn"
-          style={{ background: 'var(--brand-green)', color: '#fff', padding: '0.75rem 1.4rem' }}
+          style={{ background: 'var(--brand-green)', color: '#fff', padding: '0.8rem 1.5rem', fontWeight: 800 }}
           onClick={() => handleAnswer(true)}
+          title="鍵盤快捷鍵: → 右方向鍵"
         >
-          <CheckCircle2 size={18} /> {learningMode === 'zh' ? '已掌握單字 (+10 XP)' : 'Mastered (+10 XP)'}
+          <CheckCircle2 size={18} /> {learningMode === 'zh' ? '已熟記 (+10 XP) (→)' : 'Mastered (+10 XP) (→)'}
         </button>
 
         <button 
           className="control-btn"
           onClick={handleRestart}
-          title="重新輪播閃卡"
+          title="重新輪播卡片"
         >
-          <RefreshCw size={18} /> {learningMode === 'zh' ? '從頭開始' : 'Restart Deck'}
+          <RefreshCw size={17} /> {learningMode === 'zh' ? '重新開始' : 'Restart'}
         </button>
       </div>
     </div>

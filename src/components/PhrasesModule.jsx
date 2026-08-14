@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Search, Volume2, Bookmark, Check } from 'lucide-react';
+import { BookOpen, Search, Volume2, Bookmark, Check, Sparkles } from 'lucide-react';
 import { practicalPhrases } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -8,8 +8,15 @@ export const PhrasesModule = ({ selectedAccent }) => {
   const { learningMode, loc, t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [savedPhrases, setSavedPhrases] = useState([]);
+  const [savedPhrases, setSavedPhrases] = useState(() => {
+    const saved = localStorage.getItem('viet_saved_phrases');
+    return saved ? JSON.parse(saved) : [];
+  });
   const [activeKey, setActiveKey] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem('viet_saved_phrases', JSON.stringify(savedPhrases));
+  }, [savedPhrases]);
 
   useEffect(() => {
     const unsubscribe = audioEngine.subscribe((state) => {
@@ -22,7 +29,8 @@ export const PhrasesModule = ({ selectedAccent }) => {
 
   const filteredPhrases = practicalPhrases.filter(item => {
     const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
-    const q = searchQuery.toLowerCase();
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return matchesCategory;
     const matchesSearch = item.viet.toLowerCase().includes(q) || 
                           (item.zh && item.zh.toLowerCase().includes(q)) ||
                           (item.en && item.en.toLowerCase().includes(q));
@@ -44,27 +52,26 @@ export const PhrasesModule = ({ selectedAccent }) => {
       <div className="section-header">
         <h2 className="section-title">
           <BookOpen color="var(--brand-primary)" />
-          {learningMode === 'zh' ? '實用片語與生活生存短句速查' : 'Essential Survival Phrases & Idioms'}
+          {learningMode === 'zh' ? '實用生活片語與生存高頻短句速查' : 'Essential Survival Phrases & Idioms'}
         </h2>
         <p className="section-desc">
           {learningMode === 'zh'
-            ? '包含問候、交通搭車、夜市購物殺價、餐廳點餐、緊急求助等高頻句型'
-            : 'High-frequency phrases covering greetings, transportation, market bargaining, dining, and emergency requests'}
+            ? '包含問候、交通搭車、夜市購物殺價、餐廳點餐、緊急求助等高頻句型，支援收藏夾與原生發音'
+            : 'High-frequency phrases covering greetings, transport, market bargaining, dining, and emergency requests.'}
         </p>
       </div>
 
       {/* Search & Filter Bar */}
-      <div className="simulator-box" style={{ padding: '1.25rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
-          <div style={{ position: 'relative' }}>
-            <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+      <div className="simulator-box" style={{ padding: '1.25rem', marginBottom: '1.8rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div className="search-input-wrapper">
+            <Search size={18} className="search-icon" />
             <input 
               type="text"
               placeholder={t('common.searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="control-btn"
-              style={{ width: '100%', paddingLeft: '2.4rem', background: 'var(--bg-input)' }}
+              className="scenario-search-input"
             />
           </div>
 
@@ -76,7 +83,8 @@ export const PhrasesModule = ({ selectedAccent }) => {
                 style={{ 
                   background: selectedCategory === cat ? 'var(--brand-accent)' : 'var(--bg-card)', 
                   color: selectedCategory === cat ? '#fff' : 'var(--text-primary)',
-                  fontSize: '0.85em'
+                  fontSize: '0.86em',
+                  padding: '0.45rem 0.85rem'
                 }}
                 onClick={() => setSelectedCategory(cat)}
               >
@@ -92,32 +100,37 @@ export const PhrasesModule = ({ selectedAccent }) => {
         {filteredPhrases.map((phrase, idx) => {
           const phraseKey = `phrase_${idx}`;
           const isPlaying = activeKey === phraseKey || activeKey === phrase.viet;
+          const isSaved = savedPhrases.includes(phrase.viet);
+
           return (
             <div key={idx} className={`learning-card ${isPlaying ? 'playing-card' : ''}`}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
-                <span className="tone-symbol" style={{ fontSize: '0.8em' }}>{phrase.category}</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.6rem' }}>
+                <span className="tone-symbol" style={{ fontSize: '0.8em', background: 'var(--bg-accent)', color: 'var(--brand-gold)' }}>
+                  {phrase.category}
+                </span>
                 <button 
                   onClick={() => toggleBookmark(phrase.viet)}
-                  style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: savedPhrases.includes(phrase.viet) ? 'var(--brand-gold)' : 'var(--text-muted)' }}
+                  style={{ background: 'transparent', border: 'none', cursor: 'pointer', color: isSaved ? 'var(--brand-gold)' : 'var(--text-muted)', transition: 'all 0.2s ease' }}
+                  title={isSaved ? '已收藏' : '收藏此片語'}
                 >
-                  <Bookmark size={18} fill={savedPhrases.includes(phrase.viet) ? 'var(--brand-gold)' : 'transparent'} />
+                  <Bookmark size={18} fill={isSaved ? 'var(--brand-gold)' : 'transparent'} />
                 </button>
               </div>
 
-              <div style={{ fontSize: '1.25em', fontWeight: 800, color: 'var(--brand-accent)', marginBottom: '0.25rem' }}>
+              <div style={{ fontSize: '1.28em', fontWeight: 800, color: 'var(--brand-accent)', marginBottom: '0.3rem', lineHeight: 1.4 }}>
                 {phrase.viet}
               </div>
 
-              <div style={{ fontSize: '1em', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+              <div style={{ fontSize: '0.96em', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.6rem' }}>
                 {learningMode === 'zh' ? phrase.zh : phrase.en}
               </div>
 
-              <div style={{ fontSize: '0.8em', color: 'var(--text-muted)', marginBottom: '0.75rem' }}>
-                {learningMode === 'zh' ? `情境：${phrase.usageZh}` : `Usage: ${phrase.usageEn}`}
+              <div style={{ fontSize: '0.82em', color: 'var(--text-muted)', marginBottom: '0.85rem' }}>
+                💡 {learningMode === 'zh' ? `情境：${phrase.usageZh}` : `Usage: ${phrase.usageEn}`}
               </div>
 
               <button 
-                className={`speaker-btn ${isPlaying ? 'playing' : ''}`}
+                className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
                 onClick={() => handleSpeak(phrase.viet, phraseKey)}
                 style={{ marginTop: 'auto', alignSelf: 'flex-start' }}
                 title={t('common.listen')}

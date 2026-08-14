@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ArrowUp, Sparkles, Keyboard, Heart } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { LearningPathModule } from './components/LearningPathModule';
 import { AlphabetModule } from './components/AlphabetModule';
@@ -12,6 +13,7 @@ import { HanVietModule } from './components/HanVietModule';
 import { PronounModule } from './components/PronounModule';
 import { QuizModule } from './components/QuizModule';
 import { useLanguage } from './context/LanguageContext';
+import { audioEngine } from './services/audioEngine';
 
 export function App() {
   const { learningMode, t } = useLanguage();
@@ -33,6 +35,9 @@ export function App() {
 
   // Active module tab
   const [activeTab, setActiveTab] = useState('path');
+
+  // Show Back To Top Button
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   // User Gamification Stats
   const [userStats, setUserStats] = useState(() => {
@@ -62,11 +67,28 @@ export function App() {
     localStorage.setItem('viet_user_stats', JSON.stringify(userStats));
   }, [userStats]);
 
+  // Effect: Window scroll listener for back-to-top
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowBackToTop(true);
+      } else {
+        setShowBackToTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const updateUserStats = (addXp) => {
     setUserStats(prev => ({
       ...prev,
       xp: prev.xp + addXp
     }));
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -99,17 +121,46 @@ export function App() {
         {activeTab === 'quiz' && <QuizModule userStats={userStats} updateUserStats={updateUserStats} selectedAccent={selectedAccent} />}
       </main>
 
+      {/* Floating Back To Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="speaker-btn"
+          style={{
+            position: 'fixed',
+            bottom: '2rem',
+            right: '2rem',
+            width: '46px',
+            height: '46px',
+            zIndex: 99,
+            background: 'var(--brand-accent)',
+            color: '#fff',
+            boxShadow: '0 6px 20px rgba(0,0,0,0.25)'
+          }}
+          title="回到頂端"
+        >
+          <ArrowUp size={20} />
+        </button>
+      )}
+
       {/* Footer */}
       <footer className="footer">
-        <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
+        <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.2rem' }}>
           <div>
-            <strong>{learningMode === 'zh' ? '越語學習通 (雙子系統) | Chào Việt Nam!' : 'VietMaster Pro (Dual Subsystem) | Chào Việt Nam!'}</strong> 
-            <span style={{ marginLeft: '0.5rem', opacity: 0.8 }}>
-              {learningMode === 'zh' ? '— 台灣教育部課綱 · iVPT檢定 · 漢越音極速學習體系' : '— MOE Taiwan Curriculum · iVPT Standards · Han-Viet Cognates'}
-            </span>
+            <div style={{ fontWeight: 800, fontSize: '1.05em', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <span>🇻🇳 越語學習通 (雙子系統) · Chào Việt Nam!</span>
+            </div>
+            <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+              {learningMode === 'zh' 
+                ? '台灣教育部東南亞語文課綱 · iVPT 國際越語檢定 · 漢越音音韻體系 · 打造最信達雅之越語學習旗艦' 
+                : 'MOE Taiwan Southeast Asian Language Curriculum · iVPT Standards · Sino-Vietnamese Etymology'}
+            </div>
           </div>
-          <div style={{ fontSize: '0.9em', color: 'var(--brand-gold)' }}>
-            {learningMode === 'zh' ? '當前軌道：🇹🇼 中文學越文模式' : 'Active Track: 🌐 English Global Track'}
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+            <div style={{ fontSize: '0.86em', color: 'var(--brand-gold)', fontWeight: 700, background: 'var(--bg-accent)', padding: '0.35rem 0.8rem', borderRadius: 'var(--radius-full)' }}>
+              {learningMode === 'zh' ? '當前軌道：🇹🇼 中文越語雙軌深度模式' : 'Active Track: 🌐 English Global Mode'}
+            </div>
           </div>
         </div>
       </footer>
