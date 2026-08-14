@@ -166,77 +166,151 @@ export const vietnameseTones = [
 
 // 3. 南北越口音對比 (Accent Comparison: Hanoi vs Saigon)
 export const accentDifferences = {
-  overviewZh: '越南語三大方言體系：北越（河內首都標音）、中越（順化歷史音）與南越（胡志明市商業通行音）。在台商務與日常生活以北越音與南越音最為普及。',
-  overviewEn: 'Vietnamese features three major dialect regions: Northern (Hanoi standard), Central (Hue heritage), and Southern (Ho Chi Minh City commerce). Learners primarily choose between Northern clarity and Southern conversational cadence.',
+  overviewZh: '越南語主要由三大方言體系構成：北越（以河內首都音為規範標準，聲調區分嚴謹）、中越（順化歷史音，聲調低沉喉音重）與南越（胡志明市商業音，發音輕快軟化）。掌握南北音變與詞彙對照，無論在北部政教檢定或南部經商投資皆能遊刃有餘。',
+  overviewEn: 'Vietnamese features three major dialect regions: Northern (Hanoi standard with 6 distinct tones), Central (Hue heritage with deep pitch), and Southern (Saigon commerce with softened consonants and 5 active tones).',
+  
+  toneDifferences: [
+    {
+      tone: 'Thanh Ngang (平聲 ─)',
+      northZh: '音高 44-44，平穩清亮高平調',
+      southZh: '音高 33-33，略為平緩放鬆',
+      diffZh: '南北皆為平調，北音略高亢，南音較輕柔'
+    },
+    {
+      tone: 'Thanh Huyền (玄聲 \\)',
+      northZh: '音高 31-21，深沉低降調',
+      southZh: '音高 21-21，柔和下沉',
+      diffZh: '南北調形一致，皆為平穩降調'
+    },
+    {
+      tone: 'Thanh Sắc (銳聲 /)',
+      northZh: '音高 35-45，陡峭急促向上衝',
+      southZh: '音高 35-44，平緩上揚',
+      diffZh: '北音緊縮急升；南音在短母音或塞音尾時極短促'
+    },
+    {
+      tone: 'Thanh Hỏi (問聲 ˀ)',
+      northZh: '音高 31-12-35，先降後升曲折調',
+      southZh: '音高 32-23，曲折幅度較小',
+      diffZh: '南越將 Hỏi 與 Ngã 合併為此調'
+    },
+    {
+      tone: 'Thanh Ngã (跌聲 ~)',
+      northZh: '音高 35-45，中途喉頭瞬間緊閉截斷（喉塞波浪音）',
+      southZh: '南越無喉塞音，完全讀成問聲 (Hỏi)',
+      diffZh: '★ 最關鍵差別：南越人日常口語中 Sữa (牛奶) 與 Sửa (修理) 聲調完全相同'
+    },
+    {
+      tone: 'Thanh Nặng (重聲 .)',
+      northZh: '音高 21-11，腹部用力急速下頓，短促緊閉',
+      southZh: '音高 21-12，頓音較軟，尾音有微弱回升',
+      diffZh: '北越短促截斷感強烈；南越較為溫和'
+    }
+  ],
+
   phoneticRules: [
     { 
-      rule: 'd, gi, r', 
-      northZh: 'D, Gi, R 全讀 [z] (像英文 Z 音)', 
+      rule: 'd, gi, r (聲母)', 
+      northZh: 'D, Gi, R 全讀 [z] (像英文 Z 音，無捲舌)', 
       northEn: 'All pronounced as /z/ (like English "zoo")',
       southZh: 'D, Gi 讀 [j] (像 Y 音)；R 讀 [r] 滾舌捲舌音', 
       southEn: 'D, Gi pronounced as /j/ ("yes"); R as rolled /r/',
-      example: 'Rắn (蛇)', 
+      example: 'Rắn (蛇) / Da (皮膚) / Giờ (小時)', 
       audioText: 'Rắn' 
     },
     { 
-      rule: 'v', 
-      northZh: '讀標準咬唇 [v] 音', 
+      rule: 'v (聲母)', 
+      northZh: '讀標準咬唇 [v] 音 (唇齒摩擦音)', 
       northEn: 'Clear labiodental /v/ (lip against teeth)',
-      southZh: '常讀成 [j] (像 Y 音) 或輕微軟顎化 [v]', 
+      southZh: '常讀成 [j] (像 Y 音) 或 [w] (例如 Vào 讀成 Vô 或 Dào)', 
       southEn: 'Often pronounced as /j/ ("yes") or merged with /w/',
-      example: 'Vào (進去)', 
+      example: 'Vào (進去) / Vui (快樂)', 
       audioText: 'Vào' 
     },
     { 
-      rule: 'tr / ch', 
-      northZh: 'Tr 與 Ch 不分，皆發平舌 [ch]', 
+      rule: 'tr / ch (聲母)', 
+      northZh: 'Tr 與 Ch 不分，皆發平舌 [tɕ] (類似國語「機」的清脆音)', 
       northEn: 'Tr and Ch are merged into flat /tɕ/ (like "ch")',
-      southZh: 'Tr 捲舌清晰 [tr]；Ch 發平舌 [ch]', 
+      southZh: 'Tr 捲舌清晰 [ʈ] (舌尖向後捲)；Ch 發平舌 [c]', 
       southEn: 'Tr is retroflex /ʈ/ while Ch is sharp palatal /c/',
-      example: 'Trà (茶葉)', 
+      example: 'Trà (茶葉) vs Cha (父親)', 
       audioText: 'Trà' 
     },
     { 
-      rule: 's / x', 
-      northZh: 'S 與 X 不分，皆發平舌 [s]', 
+      rule: 's / x (聲母)', 
+      northZh: 'S 與 X 不分，皆發平舌 [s] (像國語「思」)', 
       northEn: 'S and X are both pronounced as flat /s/',
-      southZh: 'S 發捲舌 [ʂ] (像 sh)；X 發平舌 [s]', 
+      southZh: 'S 發捲舌 [ʂ] (像國語「詩/sh」)；X 發平舌 [s]', 
       southEn: 'S is retroflex /ʂ/ ("shine"); X is flat /s/ ("sun")',
-      example: 'Sữa (牛奶)', 
+      example: 'Sữa (牛奶) vs Xa (遙遠)', 
       audioText: 'Sữa' 
     },
     { 
-      rule: '聲調 Hỏi / Ngã', 
-      northZh: '問聲(Hỏi)與跌聲(Ngã)區分極清晰，跌聲有喉塞斷音', 
+      rule: '聲調 Hỏi / Ngã (問跌調)', 
+      northZh: '問聲(Hỏi)與跌聲(Ngã)區分極嚴格，跌聲有喉塞斷音', 
       northEn: 'Clear distinction between Hỏi (dip-rise) and Ngã (glottal break)',
       southZh: '南越口音中 Hỏi 與 Ngã 幾乎合併為同一種轉折問聲', 
       southEn: 'Hỏi and Ngã tones are virtually merged into one smooth dipping tone',
-      example: 'Sữa vs Sửa', 
-      audioText: 'Sữa' 
+      example: 'Mã (代碼) vs Mả (墳墓)', 
+      audioText: 'Mã' 
     },
     { 
-      rule: '字尾 -n / -ng, -t / -c', 
-      northZh: '字尾鼻音與塞音發音位置精準對應', 
+      rule: '字尾韻尾 -n / -ng, -t / -c', 
+      northZh: '字尾鼻音與塞音發音位置精準對應，前鼻/後鼻分明', 
       northEn: 'Final consonants strictly follow written spelling',
-      southZh: '部分前鼻音 -n 會後移為 -ng；-t 轉為 -c', 
+      southZh: '在 a, o, u 後，前鼻音 -n 常後移讀成 -ng；-t 讀成 -k/-c (例如 Bán 讀成 Báng)', 
       southEn: 'Final -n often sounds like -ng; -t sounds like -k after back vowels',
-      example: 'Bánh (餅)', 
+      example: 'Bánh (餅) / Mắt (眼睛)', 
       audioText: 'Bánh' 
     }
   ],
+
   wordComparisonMatrix: [
-    { north: 'Thìa', south: 'Muỗng', meaningZh: '湯匙', meaningEn: 'Spoon', category: '餐具 / Utensils' },
-    { north: 'Ngô', south: 'Bắp', meaningZh: '玉米', meaningEn: 'Corn / Maize', category: '食物 / Food' },
-    { north: 'Dứa', south: 'Thơm / Khóm', meaningZh: '鳳梨', meaningEn: 'Pineapple', category: '水果 / Fruit' },
-    { north: 'Đậu phụ', south: 'Tàu hũ', meaningZh: '豆腐', meaningEn: 'Tofu / Bean curd', category: '食物 / Food' },
-    { north: 'Chè', south: 'Trà', meaningZh: '茶水 / 甜品', meaningEn: 'Tea / Sweet soup', category: '飲品 / Drink' },
-    { north: 'Vào', south: 'Vô', meaningZh: '進入 (動詞)', meaningEn: 'To enter', category: '動詞 / Verb' },
-    { north: 'Béo', south: 'Mập', meaningZh: '胖 (形容人體形)', meaningEn: 'Fat / Chubby', category: '形容詞 / Adjective' },
-    { north: 'Ốm', south: 'Bệnh', meaningZh: '生病 (南越 Ốm 專指瘦)', meaningEn: 'Sick (In South, Ốm means thin)', category: '健康 / Health' },
-    { north: 'Mũ', south: 'Nón', meaningZh: '帽子', meaningEn: 'Hat / Cap', category: '服飾 / Clothing' },
-    { north: 'Chăn', south: 'Mền', meaningZh: '棉被', meaningEn: 'Blanket', category: '居家 / Home' },
-    { north: 'Điện thoại', south: 'ĐTDĐ', meaningZh: '手機 / 行動電話', meaningEn: 'Mobile phone', category: '科技 / Tech' },
-    { north: 'Nhé', south: 'Nha', meaningZh: '語氣詞 (好嗎 / 喔)', meaningEn: 'Particle (okay? / will you?)', category: '日常 / Particle' }
+    { north: 'Thìa', south: 'Muỗng', meaningZh: '湯匙', meaningEn: 'Spoon', category: '餐飲器具' },
+    { north: 'Bát', south: 'Chén', meaningZh: '飯碗', meaningEn: 'Bowl', category: '餐飲器具' },
+    { north: 'Ngô', south: 'Bắp', meaningZh: '玉米', meaningEn: 'Corn / Maize', category: '食材蔬果' },
+    { north: 'Dứa', south: 'Thơm / Khóm', meaningZh: '鳳梨', meaningEn: 'Pineapple', category: '食材蔬果' },
+    { north: 'Đậu phụ', south: 'Tàu hũ', meaningZh: '豆腐', meaningEn: 'Tofu / Bean curd', category: '食材蔬果' },
+    { north: 'Hoa quả', south: 'Trái cây', meaningZh: '水果 (總稱)', meaningEn: 'Fruit', category: '食材蔬果' },
+    { north: 'Lạc', south: 'Đậu phộng', meaningZh: '花生', meaningEn: 'Peanut', category: '食材蔬果' },
+    { north: 'Chè', south: 'Trà', meaningZh: '茶水 / 甜湯', meaningEn: 'Tea / Sweet soup', category: '飲品點心' },
+    { north: 'Kem', south: 'Kem / Cà rem', meaningZh: '冰淇淋 / 冰棒', meaningEn: 'Ice cream', category: '飲品點心' },
+    { north: 'Vào', south: 'Vô', meaningZh: '進入 (動詞)', meaningEn: 'To enter', category: '核心動作' },
+    { north: 'Ra', south: 'Ra', meaningZh: '出去 (動詞)', meaningEn: 'To exit', category: '核心動作' },
+    { north: 'Béo', south: 'Mập', meaningZh: '胖 (形容人體態)', meaningEn: 'Chubby / Fat', category: '外觀體態' },
+    { north: 'Gầy', south: 'Ốm', meaningZh: '瘦 (形容人體態)', meaningEn: 'Thin / Skinny', category: '外觀體態' },
+    { north: 'Ốm', south: 'Bệnh', meaningZh: '生病 (南越 Ốm 專指瘦)', meaningEn: 'Sick / Illness', category: '健康醫療' },
+    { north: 'Mũ', south: 'Nón', meaningZh: '帽子', meaningEn: 'Hat / Cap', category: '日常服飾' },
+    { north: 'Chăn', south: 'Mền', meaningZh: '棉被', meaningEn: 'Blanket', category: '居家生活' },
+    { north: 'Tất', south: 'Vớ', meaningZh: '襪子', meaningEn: 'Socks', category: '日常服飾' },
+    { north: 'Ô', south: 'Dù', meaningZh: '雨傘', meaningEn: 'Umbrella', category: '日常用品' },
+    { north: 'Gửi thư', south: 'Gởi thơ', meaningZh: '寄信', meaningEn: 'Send a letter', category: '通訊交流' },
+    { north: 'Điện thoại', south: 'ĐTDĐ', meaningZh: '手機 / 行動電話', meaningEn: 'Mobile phone', category: '科技通訊' },
+    { north: 'Nhé', south: 'Nha / Nghen', meaningZh: '語氣詞 (好嗎 / 喔)', meaningEn: 'Modal Particle (okay?)', category: '語氣助詞' },
+    { north: 'Ạ', south: 'Dạ', meaningZh: '敬語詞 (句首Dạ/句尾Ạ)', meaningEn: 'Polite Particle', category: '禮貌敬語' },
+    { north: 'Thế à?', south: 'Vậy hả?', meaningZh: '是這樣子嗎？真的嗎？', meaningEn: 'Is that so?', category: '社交應答' },
+    { north: 'Nghìn', south: 'Ngàn', meaningZh: '千 (金額單位)', meaningEn: 'Thousand (Currency)', category: '商業數字' }
+  ],
+
+  regionalParticles: [
+    {
+      region: '🏛️ 北越河內 (Miền Bắc)',
+      particles: [
+        { word: 'Ạ', usageZh: '放在句尾表示極高度尊敬 (例: Vâng ạ, Cháu chào bác ạ)' },
+        { word: 'Nhé / Nhỉ', usageZh: '溫和邀請或商量 (例: Đi ăn phở nhé!)' },
+        { word: 'Thế / Thế à', usageZh: '疑問或驚訝 (例: Sao lại thế?)' },
+        { word: 'Cơ / Đâu', usageZh: '強調口吻 (例: Em không biết đâu!)' }
+      ]
+    },
+    {
+      region: '🌴 南越胡志明 (Miền Nam)',
+      particles: [
+        { word: 'Dạ', usageZh: '放在句首作為禮貌應答 (例: Dạ đúng rồi, Dạ chào anh)' },
+        { word: 'Nha / Nghen', usageZh: '親切囑咐或約定 (例: Đi uống cà phê nha!)' },
+        { word: 'Nè / Nè nghen', usageZh: '提醒注意或展示事物 (例: Xem cái này nè!)' },
+        { word: 'Hén / Hả', usageZh: '尋求認同或反問 (例: Ngon quá hén!)' }
+      ]
+    }
   ]
 };
 
