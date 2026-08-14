@@ -94,8 +94,7 @@ export const vietnameseTones = [
   {
     id: 'nang',
     name: 'Thanh Nặng (重聲/下點聲)',
-    symbol: '下點符號 (Mạ)',
-    pitchDescription: '重降停頓音 (Low Dropping)',
+    symbol: '重降停頓音 (Low Dropping)',
     contour: '21 (急促短暫頓音)',
     example: 'Mạ',
     meaning: '秧苗',
@@ -144,11 +143,82 @@ export const numbersAndCurrency = {
     { num: 9, viet: 'Chín', zh: '九' },
     { num: 10, viet: 'Mười', zh: '十' }
   ],
+  unitsScale: [
+    { unit: 'Trăm (百)', scale: '100', viet: 'Một trăm', zh: '一百 (100)' },
+    { unit: 'Nghìn / Ngàn (千)', scale: '1.000', viet: 'Một nghìn', zh: '一千 (1,000) [北:Nghìn / 南:Ngàn]' },
+    { unit: 'Triệu (百萬)', scale: '1.000.000', viet: 'Một triệu', zh: '一百萬 (1,000,000)' },
+    { unit: 'Tỷ (十億)', scale: '1.000.000.000', viet: 'Một tỷ', zh: '十億 (1,000,000,000)' },
+    { unit: 'Mười Tỷ (百億)', scale: '10.000.000.000', viet: 'Mười tỷ', zh: '一百億 (10,000,000,000)' }
+  ],
+  priceBrackets: [
+    {
+      range: '10,000 - 99,000 VND (日常小吃、路邊攤、咖啡)',
+      examples: [
+        { amount: '25.000đ', shortcut: '25k', viet: 'Hai mươi lăm nghìn đồng', zh: '2.5 萬盾 (約 NT$32)' },
+        { amount: '45.000đ', shortcut: '45k', viet: 'Bốn mươi lăm nghìn đồng', zh: '4.5 萬盾 (一碗河粉, 約 NT$58)' },
+        { amount: '60.000đ', shortcut: '60k', viet: 'Sáu mươi nghìn đồng', zh: '6 萬盾 (一杯知名咖啡, 約 NT$77)' }
+      ]
+    },
+    {
+      range: '100,000 - 999,000 VND (餐廳聚餐、計程車、超市購物)',
+      examples: [
+        { amount: '150.000đ', shortcut: '150k', viet: 'Một trăm năm mươi nghìn đồng', zh: '15 萬盾 (約 NT$192)' },
+        { amount: '350.000đ', shortcut: '350k', viet: 'Ba trăm năm mươi nghìn đồng', zh: '35 萬盾 (約 NT$448)' },
+        { amount: '800.000đ', shortcut: '800k', viet: 'Tám trăm nghìn đồng', zh: '80 萬盾 (約 NT$1,025)' }
+      ]
+    },
+    {
+      range: '1,000,000 - 999,000,000 VND (手機家電、機票、租房、商業採購)',
+      examples: [
+        { amount: '5.500.000đ', shortcut: '5.5 củ', viet: 'Năm triệu năm trăm nghìn đồng', zh: '550 萬盾 (手機/機票, 約 NT$7,050)' },
+        { amount: '12.000.000đ', shortcut: '12 củ', viet: 'Mười hai triệu đồng', zh: '1,200 萬盾 (月租金, 約 NT$15,380)' },
+        { amount: '350.000.000đ', shortcut: '350 triệu', viet: 'Ba trăm năm mươi triệu đồng', zh: '3.5 億盾 (汽車/設備, 約 NT$448,000)' }
+      ]
+    },
+    {
+      range: '1,000,000,000 - 10,000,000,000 VND (銀行存款、企業投資、不動產)',
+      examples: [
+        { amount: '1.200.000.000đ', shortcut: '1.2 tỷ', viet: 'Một tỷ hai trăm triệu đồng', zh: '12 億盾 (銀行存款/套房, 約 NT$153.8 萬)' },
+        { amount: '5.000.000.000đ', shortcut: '5 tỷ', viet: 'Năm tỷ đồng', zh: '50 億盾 (銀行商業貸款/不動產, 約 NT$641 萬)' },
+        { amount: '10.000.000.000đ', shortcut: '10 tỷ', viet: 'Mười tỷ đồng', zh: '100 億盾 (企業資本額/大額匯款, 約 NT$1,282 萬)' }
+      ]
+    }
+  ],
+  bankingDialogues: [
+    {
+      title: '1. 臨櫃開戶與辦理金融卡 (Mở tài khoản ngân hàng)',
+      lines: [
+        { speaker: '顧客', viet: 'Cho tôi mở một tài khoản ngân hàng cá nhân.', zh: '我要辦理一個個人銀行帳戶。', audioText: 'Cho tôi mở một tài khoản ngân hàng cá nhân.' },
+        { speaker: '行員', viet: 'Anh vui lòng cho tôi xem hộ chiếu và visa còn hạn ạ.', zh: '請出示您的護照與有效簽證。', audioText: 'Anh vui lòng cho tôi xem hộ chiếu và visa còn hạn ạ.' },
+        { speaker: '顧客', viet: 'Gửi cô hộ chiếu của tôi.', zh: '這是我的護照。', audioText: 'Gửi cô hộ chiếu của tôi.' },
+        { speaker: '行員', viet: 'Anh điền vào tờ khai này và ký tên ở đây nhé.', zh: '請填寫這張申請表並在此簽名。', audioText: 'Anh điền vào tờ khai này và ký tên ở đây nhé.' }
+      ]
+    },
+    {
+      title: '2. 銀行大額匯款與轉帳 (Chuyển khoản số tiền lớn tại ngân hàng)',
+      lines: [
+        { speaker: '顧客', viet: 'Tôi muốn chuyển khoản hai tỷ đồng cho công ty đối tác.', zh: '我想轉帳二十億越南盾 (2,000,000,000 VND) 給合作公司。', audioText: 'Tôi muốn chuyển khoản hai tỷ đồng cho công ty đối tác.' },
+        { speaker: '行員', viet: 'Dạ, anh vui lòng điền số tài khoản thụ hưởng và nội dung chuyển tiền.', zh: '好的，請填寫收款帳號與轉帳備註內容。', audioText: 'Dạ, anh vui lòng điền số tài khoản thụ hưởng và nội dung chuyển tiền.' },
+        { speaker: '顧客', viet: 'Phí chuyển khoản là bao nhiêu?', zh: '轉帳手續費是多少？', audioText: 'Phí chuyển khoản là bao nhiêu?' },
+        { speaker: '行員', viet: 'Phí là mười một nghìn đồng đã bao gồm thuế VAT ạ.', zh: '手續費包含加值稅共 11,000 越南盾。', audioText: 'Phí là mười một nghìn đồng đã bao gồm thuế VAT ạ.' }
+      ]
+    },
+    {
+      title: '3. 銀行定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất ngân hàng)',
+      lines: [
+        { speaker: '顧客', viet: 'Lãi suất gửi tiết kiệm kỳ hạn mười hai tháng là bao nhiêu?', zh: '十二個月期的定期存款利率是多少？', audioText: 'Lãi suất gửi tiết kiệm kỳ hạn mười hai tháng là bao nhiêu?' },
+        { speaker: '行員', viet: 'Hiện tại lãi suất là năm phẩy năm phần trăm một năm ạ.', zh: '目前年利率是 5.5%。', audioText: 'Hiện tại lãi suất là năm phẩy năm phần trăm một năm ạ.' },
+        { speaker: '顧客', viet: 'Tôi muốn gửi năm tỷ đồng kỳ hạn một năm.', zh: '我想辦理五十億盾 (5,000,000,000 VND) 的一年期定存。', audioText: 'Tôi muốn gửi năm tỷ đồng kỳ hạn một năm.' },
+        { speaker: '行員', viet: 'Dạ, tôi sẽ làm sổ tiết kiệm ngay cho anh.', zh: '好的，我馬上為您辦理定存存簿。', audioText: 'Dạ, tôi sẽ làm sổ tiết kiệm ngay cho anh.' }
+      ]
+    }
+  ],
   specialRules: [
     { rule: '11-19 尾數 5', text: '5 讀作 "Lăm" 而不是 "Năm"（例如：15 = Mười lăm）' },
     { rule: '21-91 尾數 1', text: '1 讀作 "Mốt" 而不是 "Một"（例如：21 = Hai mươi mốt）' },
     { rule: '20-90 的 十', text: '10 讀作 "Mươi"（平聲）而不是 "Mười"（例如：30 = Ba mươi）' },
-    { rule: '百/千/萬/億', text: 'Hundred = Trăm | Thousand = Nghìn (北) / Ngàn (南) | Million = Triệu | Billion = Tỷ' }
+    { rule: '百/千/萬/億/十億', text: 'Hundred = Trăm | Thousand = Nghìn (北)/Ngàn (南) | Million = Triệu | Billion = Tỷ' },
+    { rule: '日常簡稱與俗稱', text: '年輕人常說 "50k" (50.000đ)；口語俗稱 "1 củ" = 100萬盾；"1 cọc/cây" = 1億盾/1,000萬盾' }
   ],
   shoppingDialogues: [
     {
