@@ -34,7 +34,8 @@ export const translations = {
       grammar: '7. 語法與拼句練習',
       hanviet: '8. 漢越音百字根庫',
       pronoun: '9. 人稱稱謂推算器',
-      quiz: '10. iVPT檢定測驗'
+      quiz: '10. iVPT檢定測驗',
+      literature: '🏛️ 49輪古文白話經典庫'
     },
     common: {
       listen: '播放發音',
@@ -74,9 +75,9 @@ export const translations = {
     switchSubsystem: 'Switch Track',
     currentTrackBadge: '🌐 Learn Vietnamese via English (Global Track)',
     northAccent: 'North (Hanoi)',
-    southAccent: 'South (Saigon)',
+    southAccent: 'South (HCMC)',
     accentPref: 'Accent Mode',
-    streak: 'Streak',
+    streak: 'Daily Streak',
     days: 'days',
     xp: 'XP',
     fontSize: 'Font',
@@ -97,7 +98,8 @@ export const translations = {
       grammar: '7. Grammar & Sentence Builder',
       hanviet: '8. Sino-Vietnamese Roots',
       pronoun: '9. Kinship & Pronoun Tool',
-      quiz: '10. iVPT / CEFR Mock Exams'
+      quiz: '10. iVPT / CEFR Mock Exams',
+      literature: '🏛️ 49-Round Classical Matrix'
     },
     common: {
       listen: 'Play Audio',
@@ -118,62 +120,59 @@ export const translations = {
       finish: 'Finish Quiz',
       result: 'Quiz Result',
       score: 'Score',
-      correct: 'Correct! Excellent!',
-      wrong: 'Incorrect, try again.',
-      explanation: 'Explanation & Notes',
+      correct: 'Correct!',
+      wrong: 'Incorrect, please try again.',
+      explanation: 'Explanation',
       category: 'Category',
-      searchPlaceholder: 'Search vocabulary, phrases, meanings...',
-      filterAll: 'All Categories',
+      searchPlaceholder: 'Search words, sentences, or English meanings...',
+      filterAll: 'Show All',
       mastered: 'Mastered',
-      unmastered: 'Needs Review',
-      cardFlipHint: 'Click card to flip and view meaning & examples'
+      unmastered: 'Need Review',
+      cardFlipHint: 'Click card to flip and view details'
     }
   }
 };
 
 export const LanguageProvider = ({ children }) => {
   const [learningMode, setLearningMode] = useState(() => {
-    return localStorage.getItem('viet_learning_mode') || 'zh';
+    return localStorage.getItem('viet_learning_subsystem') || 'zh';
   });
 
   useEffect(() => {
-    localStorage.setItem('viet_learning_mode', learningMode);
-    document.documentElement.setAttribute('data-learning-mode', learningMode);
-    document.documentElement.lang = learningMode === 'zh' ? 'zh-TW' : 'en';
+    localStorage.setItem('viet_learning_subsystem', learningMode);
   }, [learningMode]);
 
-  const toggleLearningMode = () => {
-    setLearningMode(prev => (prev === 'zh' ? 'en' : 'zh'));
+  const toggleLearningMode = (mode) => {
+    if (mode) {
+      setLearningMode(mode);
+    } else {
+      setLearningMode(prev => (prev === 'zh' ? 'en' : 'zh'));
+    }
   };
 
-  const t = (keyPath) => {
-    const keys = keyPath.split('.');
+  const t = (path) => {
+    const keys = path.split('.');
     let current = translations[learningMode];
     for (const key of keys) {
       if (current && current[key] !== undefined) {
         current = current[key];
       } else {
-        return keyPath;
+        let fallback = translations.zh;
+        for (const fbKey of keys) {
+          if (fallback && fallback[fbKey] !== undefined) {
+            fallback = fallback[fbKey];
+          } else {
+            return path;
+          }
+        }
+        return fallback;
       }
     }
     return current;
   };
 
-  const loc = (obj, field = '') => {
-    if (!obj) return '';
-    if (typeof obj === 'string') return obj;
-    if (field) {
-      const zhVal = obj[`${field}Zh`] || obj[`${field}_zh`] || obj[field];
-      const enVal = obj[`${field}En`] || obj[`${field}_en`] || obj[field];
-      return learningMode === 'en' ? (enVal || zhVal) : (zhVal || enVal);
-    }
-    const zhVal = obj.zh || obj.meaningZh || obj.descZh || obj.nameZh || obj.titleZh || obj.textZh;
-    const enVal = obj.en || obj.meaningEn || obj.descEn || obj.nameEn || obj.titleEn || obj.textEn;
-    return learningMode === 'en' ? (enVal || zhVal) : (zhVal || enVal);
-  };
-
   return (
-    <LanguageContext.Provider value={{ learningMode, setLearningMode, toggleLearningMode, t, loc }}>
+    <LanguageContext.Provider value={{ learningMode, setLearningMode, toggleLearningMode, t }}>
       {children}
     </LanguageContext.Provider>
   );

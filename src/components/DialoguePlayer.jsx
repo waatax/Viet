@@ -1,10 +1,27 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Volume2, Play, Pause, FastForward, Eye, EyeOff, Sparkles, MessageCircle, MapPin } from 'lucide-react';
+import { Volume2, Play, Pause, FastForward, Eye, EyeOff, Sparkles, MessageCircle, MapPin, Layers, CheckCircle } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 
 export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) => {
   const { learningMode } = useLanguage();
+  
+  // Support dialogueSections (dual dialogues) or fallback to scenario.dialogues
+  const sections = scenario.dialogueSections && scenario.dialogueSections.length > 0 
+    ? scenario.dialogueSections 
+    : [
+        {
+          id: 'd1',
+          titleZh: '對話一：標準實況對話',
+          titleVi: 'Hội Thoại 1: Tiêu Chuẩn',
+          titleEn: 'Dialogue 1: Standard Interaction',
+          summaryZh: scenario.summaryZh,
+          summaryEn: scenario.summaryEn,
+          lines: scenario.dialogues || []
+        }
+      ];
+
+  const [activeSectionId, setActiveSectionId] = useState(sections[0]?.id || 'd1');
   const [isPlayingFull, setIsPlayingFull] = useState(false);
   const [activeLineIndex, setActiveLineIndex] = useState(null);
   const [playbackSpeed, setPlaybackSpeed] = useState(0.9); // 0.9 normal, 0.7 slow
@@ -13,7 +30,9 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
   const currentIdxRef = useRef(0);
   const timerRef = useRef(null);
 
-  const dialogues = scenario.dialogues || [];
+  // Active dialogue section object
+  const activeSection = sections.find(s => s.id === activeSectionId) || sections[0];
+  const dialogues = activeSection?.lines || [];
 
   useEffect(() => {
     const unsubscribe = audioEngine.subscribe((state) => {
@@ -24,14 +43,26 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
     return () => unsubscribe();
   }, []);
 
-  // Clear timers and stop audio on unmount or scenario switch
+  // Reset section and stop audio on scenario switch
   useEffect(() => {
-    return () => {
-      isPlayingFullRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
-      audioEngine.stop();
-    };
+    setActiveSectionId(sections[0]?.id || 'd1');
+    isPlayingFullRef.current = false;
+    if (timerRef.current) clearTimeout(timerRef.current);
+    audioEngine.stop();
+    setActiveLineIndex(null);
+    setIsPlayingFull(false);
   }, [scenario.id]);
+
+  // Stop audio on tab switch within same scenario
+  const handleSwitchSection = (sectionId) => {
+    if (sectionId === activeSectionId) return;
+    isPlayingFullRef.current = false;
+    if (timerRef.current) clearTimeout(timerRef.current);
+    audioEngine.stop();
+    setActiveLineIndex(null);
+    setIsPlayingFull(false);
+    setActiveSectionId(sectionId);
+  };
 
   const handlePlayLine = (text, idx, speed = playbackSpeed) => {
     if (isPlayingFull) {
@@ -43,7 +74,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
     audioEngine.speak(text, { 
       accent: selectedAccent, 
       rate: speed,
-      key: `line_${idx}`,
+      key: `line_${activeSectionId}_${idx}`,
       onEnd: () => {
         if (!isPlayingFullRef.current) {
           setActiveLineIndex(null);
@@ -70,7 +101,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
     audioEngine.speak(line.viet, {
       accent: selectedAccent,
       rate: playbackSpeed,
-      key: `seq_line_${index}`,
+      key: `seq_line_${activeSectionId}_${index}`,
       onEnd: () => {
         if (!isPlayingFullRef.current) return;
         // Natural conversational gap between turns
@@ -102,6 +133,66 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
 
   return (
     <div className="dialogue-player-wrapper">
+      {/* Dialogue Section Selector Tabs (Dialogue 1 / Dialogue 2) */}
+      {sections.length > 1 && (
+        <div className="dialogue-section-nav" style={{ display: 'flex', gap: '0.6rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+          {sections.map((sec, sIdx) => {
+            const isSecActive = sec.id === activeSectionId;
+            return (
+              <button
+                key={sec.id}
+                onClick={() => handleSwitchSection(sec.id)}
+                className={`dialogue-sec-tab-btn ${isSecActive ? 'active' : ''}`}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.55rem 1.1rem',
+                  borderRadius: 'var(--radius-md, 8px)',
+                  border: isSecActive ? '2px solid var(--brand-primary)' : '1px solid var(--border-color)',
+                  background: isSecActive ? 'var(--brand-primary-light, rgba(239, 68, 68, 0.12))' : 'var(--bg-secondary)',
+                  color: isSecActive ? 'var(--brand-primary)' : 'var(--text-primary)',
+                  fontWeight: isSecActive ? 700 : 500,
+                  fontSize: '0.92rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <span>{sIdx === 0 ? '💬' : '🌟'}</span>
+                <span>{learningMode === 'zh' ? sec.titleZh : sec.titleEn}</span>
+              </button>
+            );
+          })}
+        </div>
+      )}
+
+      {/* Active Section Goal Summary Card */}
+      {activeSection && (
+        <div 
+          className="dialogue-section-summary-banner"
+          style={{
+            background: 'var(--bg-card)',
+            borderLeft: '4px solid var(--brand-accent)',
+            padding: '0.75rem 1rem',
+            borderRadius: 'var(--radius-sm, 6px)',
+            marginBottom: '1rem',
+            fontSize: '0.88rem',
+            color: 'var(--text-secondary)',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}
+        >
+          <Sparkles size={16} color="var(--brand-accent)" style={{ flexShrink: 0 }} />
+          <div>
+            <strong style={{ color: 'var(--text-primary)', marginRight: '0.4rem' }}>
+              {learningMode === 'zh' ? activeSection.titleZh : activeSection.titleEn}:
+            </strong>
+            <span>{learningMode === 'zh' ? activeSection.summaryZh : activeSection.summaryEn}</span>
+          </div>
+        </div>
+      )}
+
       {/* Control Header Toolbar */}
       <div className="dialogue-toolbar">
         <div className="toolbar-left">
@@ -158,7 +249,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
 
           return (
             <div 
-              key={idx} 
+              key={`${activeSectionId}_${idx}`} 
               className={`dialogue-bubble-row ${isUserRole ? 'row-learner' : 'row-npc'} ${isActive ? 'line-highlight' : ''}`}
             >
               <div className="chat-bubble-container">
@@ -205,3 +296,4 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
     </div>
   );
 };
+

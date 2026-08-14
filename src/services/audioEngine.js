@@ -107,8 +107,9 @@ class AudioEngine {
     cleaned = cleaned.replace(/（[^）]*[\u4e00-\u9fa5A-Za-z]+[^）]*）/g, ' ');
     cleaned = cleaned.replace(/\[[^\]]*\]/g, ' ');
 
-    // 2. Remove isolated Chinese characters
+    // 2. Remove isolated Chinese characters and Chinese fullwidth punctuation
     cleaned = cleaned.replace(/[\u4e00-\u9fa5]/g, ' ');
+    cleaned = cleaned.replace(/[，。！？；：（）「」『』、《》“”‘’…—]/g, ' ');
 
     // 3. Clean currency symbols: only when preceded by digits (never replace standalone Vietnamese letter đ/Đ)
     cleaned = cleaned.replace(/(\d+[\d.,]*)\s*(?:đ|₫|VND)(?![a-zA-Zà-ỹÀ-Ỹ])/gi, (_, num) => `${num} đồng `);
@@ -529,3 +530,4 @@ class AudioEngine {
 }
 
 export const audioEngine = new AudioEngine();
+export default audioEngine;

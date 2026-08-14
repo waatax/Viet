@@ -16,6 +16,7 @@ import {
   quizzes 
 } from '../src/data/vietnameseData.js';
 import { situationalScenarios } from '../src/data/situationalScenarios.js';
+import { classicalLiteratureData } from '../src/data/classicalLiteratureData.js';
 
 const audioDir = path.resolve('public/audio');
 if (!fs.existsSync(audioDir)) {
@@ -29,6 +30,7 @@ function cleanText(text) {
   cleaned = cleaned.replace(/（[^）]*[\u4e00-\u9fa5A-Za-z]+[^）]*）/g, ' ');
   cleaned = cleaned.replace(/\[[^\]]*\]/g, ' ');
   cleaned = cleaned.replace(/[\u4e00-\u9fa5]/g, ' ');
+  cleaned = cleaned.replace(/[，。！？；：（）「」『』、《》“”‘’…—]/g, ' ');
   cleaned = cleaned.replace(/(\d+[\d.,]*)\s*(?:đ|₫|VND)(?![a-zA-Zà-ỹÀ-Ỹ])/gi, (_, num) => `${num} đồng `);
   cleaned = cleaned.replace(/(\d+[\d.,]*)\s*k(?![a-zA-Zà-ỹÀ-Ỹ])/gi, (_, num) => `${num} nghìn `);
   cleaned = cleaned.replace(/NT\$/gi, ' ');
@@ -52,22 +54,30 @@ function addPhrase(text) {
   }
 }
 
-// 1. Numbers
-numbersAndCurrency.baseNumbers.forEach(n => {
-  addPhrase(n.viet);
-});
-numbersAndCurrency.unitsScale.forEach(u => {
-  addPhrase(u.viet);
-  if (u.viet.includes('/')) {
-    u.viet.split('/').forEach(p => addPhrase(p));
-  }
-});
-numbersAndCurrency.priceBrackets.forEach(b => {
-  b.examples.forEach(e => addPhrase(e.viet));
-});
-numbersAndCurrency.bankingDialogues.forEach(d => {
-  d.lines.forEach(l => addPhrase(l.viet));
-});
+// 1. Numbers & Currency
+if (numbersAndCurrency?.baseNumbers) {
+  numbersAndCurrency.baseNumbers.forEach(n => {
+    addPhrase(n.viet);
+  });
+}
+if (numbersAndCurrency?.unitsScale) {
+  numbersAndCurrency.unitsScale.forEach(u => {
+    addPhrase(u.viet);
+    if (u.viet.includes('/')) {
+      u.viet.split('/').forEach(p => addPhrase(p));
+    }
+  });
+}
+if (numbersAndCurrency?.priceBrackets) {
+  numbersAndCurrency.priceBrackets.forEach(b => {
+    b.examples.forEach(e => addPhrase(e.viet));
+  });
+}
+if (numbersAndCurrency?.bankingDialogues) {
+  numbersAndCurrency.bankingDialogues.forEach(d => {
+    d.lines.forEach(l => addPhrase(l.viet));
+  });
+}
 
 // Common numbers
 [
@@ -78,42 +88,54 @@ numbersAndCurrency.bankingDialogues.forEach(d => {
 ].forEach(n => addPhrase(n));
 
 // 2. Tones
-vietnameseTones.forEach(t => {
-  addPhrase(t.example);
-});
+if (vietnameseTones) {
+  vietnameseTones.forEach(t => {
+    addPhrase(t.example);
+  });
+}
 
 // 3. Alphabet
-vietnameseAlphabet.forEach(item => {
-  addPhrase(`${item.name}. ${item.example}.`);
-  addPhrase(item.name);
-  addPhrase(item.example);
-  const charFirst = item.char.split(' ')[0];
-  addPhrase(charFirst);
-});
+if (vietnameseAlphabet) {
+  vietnameseAlphabet.forEach(item => {
+    addPhrase(`${item.name}. ${item.example}.`);
+    addPhrase(item.name);
+    addPhrase(item.example);
+    const charFirst = item.char.split(' ')[0];
+    addPhrase(charFirst);
+  });
+}
 
 // 4. Accent differences
-accentDifferences.phoneticRules.forEach(r => {
-  addPhrase(r.audioText || r.example);
-});
-accentDifferences.wordComparisonMatrix.forEach(w => {
-  addPhrase(w.north);
-  addPhrase(w.south);
-  if (w.south.includes('/')) {
-    w.south.split('/').forEach(p => addPhrase(p));
-  }
-});
+if (accentDifferences?.phoneticRules) {
+  accentDifferences.phoneticRules.forEach(r => {
+    addPhrase(r.audioText || r.example);
+  });
+}
+if (accentDifferences?.wordComparisonMatrix) {
+  accentDifferences.wordComparisonMatrix.forEach(w => {
+    addPhrase(w.north);
+    addPhrase(w.south);
+    if (w.south.includes('/')) {
+      w.south.split('/').forEach(p => addPhrase(p));
+    }
+  });
+}
 
 // 5. Han-Viet roots & compounds
-hanVietRoots.forEach(r => {
-  addPhrase(r.root);
-  r.compounds.forEach(c => addPhrase(c.viet));
-});
+if (hanVietRoots) {
+  hanVietRoots.forEach(r => {
+    addPhrase(r.root);
+    r.compounds.forEach(c => addPhrase(c.viet));
+  });
+}
 
 // 6. Pronouns
-pronounKinshipData.forEach(p => {
-  addPhrase(p.pronoun);
-  addPhrase(`Chào ${p.pronoun} ạ`);
-});
+if (pronounKinshipData) {
+  pronounKinshipData.forEach(p => {
+    addPhrase(p.pronoun);
+    addPhrase(`Chào ${p.pronoun} ạ`);
+  });
+}
 [
   'Chào Anh! Em rất vui được gặp anh.',
   'Chào Chị! Em có thể giúp gì cho chị?',
@@ -128,51 +150,100 @@ pronounKinshipData.forEach(p => {
 ].forEach(s => addPhrase(s));
 
 // 7. MultiScenarios & Practical Phrases
-multiScenarios.forEach(ms => {
-  ms.dialogues.forEach(d => {
-    d.lines.forEach(l => addPhrase(l.viet));
+if (multiScenarios) {
+  multiScenarios.forEach(ms => {
+    ms.dialogues.forEach(d => {
+      d.lines.forEach(l => addPhrase(l.viet));
+    });
   });
-});
+}
 
-practicalPhrases.forEach(p => addPhrase(p.viet));
+if (practicalPhrases) {
+  practicalPhrases.forEach(p => addPhrase(p.viet));
+}
 
 // 8. Flashcards
-flashcardsDeck.forEach(fc => {
-  addPhrase(fc.viet);
-  addPhrase(fc.example);
-});
+if (flashcardsDeck) {
+  flashcardsDeck.forEach(fc => {
+    addPhrase(fc.viet);
+    addPhrase(fc.example);
+  });
+}
 
 // 9. Grammar & Puzzles
-grammarRules.forEach(gr => {
-  if (gr.exampleZh) addPhrase(gr.exampleZh);
-});
-interactivePuzzles.forEach(ip => {
-  addPhrase(ip.correctOrder.join(' '));
-});
+if (grammarRules) {
+  grammarRules.forEach(gr => {
+    if (gr.exampleZh) addPhrase(gr.exampleZh);
+    if (gr.exampleEn) addPhrase(gr.exampleEn);
+  });
+}
+if (interactivePuzzles) {
+  interactivePuzzles.forEach(ip => {
+    addPhrase(ip.correctOrder.join(' '));
+  });
+}
 
-// 10. Situational Scenarios
-situationalScenarios.forEach(sc => {
-  sc.dialogues.forEach(d => addPhrase(d.viet));
-  if (sc.rolePlay?.steps) {
-    sc.rolePlay.steps.forEach(st => {
-      addPhrase(st.partnerPromptVi);
-      st.userOptions.forEach(opt => addPhrase(opt.textVi));
-    });
-  }
-  if (sc.vocab) {
-    sc.vocab.forEach(v => addPhrase(v.viet));
-  }
-});
+// 10. Situational Scenarios (Dialogue 1, Dialogue 2, RolePlay Steps & Options, Vocab)
+if (situationalScenarios) {
+  situationalScenarios.forEach(sc => {
+    // Both dialogue sections
+    if (sc.dialogueSections) {
+      sc.dialogueSections.forEach(sec => {
+        sec.lines.forEach(l => addPhrase(l.viet));
+      });
+    }
+    // Backward compatibility check
+    if (sc.dialogues) {
+      sc.dialogues.forEach(d => addPhrase(d.viet));
+    }
+    // Role play prompts and all user options
+    if (sc.rolePlay?.steps) {
+      sc.rolePlay.steps.forEach(st => {
+        addPhrase(st.partnerPromptVi);
+        st.userOptions.forEach(opt => addPhrase(opt.textVi));
+      });
+    }
+    // Core vocabulary
+    if (sc.vocab) {
+      sc.vocab.forEach(v => addPhrase(v.viet));
+    }
+  });
+}
 
-console.log(`Total unique phrases to prepare: ${audioSet.size}`);
+// 11. Quizzes
+if (quizzes) {
+  quizzes.forEach(q => {
+    if (q.questionVi) addPhrase(q.questionVi);
+    if (q.audioPrompt) addPhrase(q.audioPrompt);
+    if (q.options) {
+      q.options.forEach(opt => {
+        if (opt.viet) addPhrase(opt.viet);
+      });
+    }
+  });
+}
 
-async function fetchAudioWithRetry(text, retries = 3) {
+// 12. Classical Literature (245 Works across 49 Rounds)
+if (classicalLiteratureData) {
+  classicalLiteratureData.forEach(w => {
+    if (w.titleVi) addPhrase(w.titleVi);
+    if (w.famousQuotes) {
+      w.famousQuotes.forEach(q => {
+        if (q.viet) addPhrase(q.viet);
+      });
+    }
+  });
+}
+
+console.log(`Total unique phrases to prepare for full audio bank: ${audioSet.size}`);
+
+async function fetchAudioWithRetry(text, retries = 4) {
   const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=vi&client=tw-ob&q=${encodeURIComponent(text)}`;
   for (let i = 0; i < retries; i++) {
     try {
       const res = await fetch(url, {
         headers: {
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
         }
       });
       if (res.ok) {
@@ -183,7 +254,7 @@ async function fetchAudioWithRetry(text, retries = 3) {
       }
     } catch (e) {
       // delay before retry
-      await new Promise(r => setTimeout(r, 500 * (i + 1)));
+      await new Promise(r => setTimeout(r, 600 * (i + 1)));
     }
   }
   return null;
@@ -210,7 +281,7 @@ async function run() {
       continue;
     }
 
-    process.stdout.write(`[${i + 1}/${phrases.length}] Downloading "${phrase}"... `);
+    process.stdout.write(`[${i + 1}/${phrases.length}] Downloading "${phrase.slice(0, 40)}..." `);
     const audioData = await fetchAudioWithRetry(phrase);
     if (audioData) {
       fs.writeFileSync(filepath, audioData);
@@ -221,8 +292,8 @@ async function run() {
       console.log(`FAILED!`);
     }
 
-    // Gentle throttle to avoid rate limit
-    await new Promise(r => setTimeout(r, 80));
+    // Gentle throttle
+    await new Promise(r => setTimeout(r, 90));
   }
 
   // Write manifest file to src/data/audioManifest.json
@@ -231,11 +302,11 @@ async function run() {
 
   console.log(`\n========================================`);
   console.log(`Audio Bank Build Summary:`);
-  console.log(`Total: ${phrases.length}`);
-  console.log(`Downloaded: ${successCount}`);
-  console.log(`Existing/Skipped: ${skippedCount}`);
+  console.log(`Total Target Phrases: ${phrases.length}`);
+  console.log(`Newly Downloaded: ${successCount}`);
+  console.log(`Existing Verified: ${skippedCount}`);
   console.log(`Failed: ${failCount}`);
-  console.log(`Manifest written to: ${manifestPath}`);
+  console.log(`Manifest saved to: ${manifestPath}`);
   console.log(`========================================\n`);
 }
 

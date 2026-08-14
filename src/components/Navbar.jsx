@@ -24,6 +24,7 @@ export const Navbar = ({
 
   const navItems = [
     { id: 'path', label: t('tabs.path'), icon: Map },
+    { id: 'literature', label: t('tabs.literature'), icon: LibraryBig },
     { id: 'alphabet', label: t('tabs.alphabet'), icon: Languages },
     { id: 'accent', label: t('tabs.accent'), icon: AudioLines },
     { id: 'shopping', label: t('tabs.shopping'), icon: ShoppingBag },
@@ -31,7 +32,7 @@ export const Navbar = ({
     { id: 'phrases', label: t('tabs.phrases'), icon: MessageSquareText },
     { id: 'flashcards', label: t('tabs.flashcards'), icon: Layers3 },
     { id: 'grammar', label: t('tabs.grammar'), icon: BookOpenText },
-    { id: 'hanviet', label: t('tabs.hanviet'), icon: LibraryBig },
+    { id: 'hanviet', label: t('tabs.hanviet'), icon: BookOpenText },
     { id: 'pronoun', label: t('tabs.pronoun'), icon: UsersRound },
     { id: 'quiz', label: t('tabs.quiz'), icon: BadgeCheck }
   ];

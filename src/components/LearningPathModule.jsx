@@ -27,6 +27,7 @@ export const LearningPathModule = ({ setActiveTab }) => {
   const currentStage = learningPath.find(s => !completed.includes(s.id));
 
   const quickStarts = [
+    { id: 'literature', icon: BookOpen, titleZh: '49輪經典古文庫', titleEn: 'Classical Matrix', descZh: '245 部名著白話深研校勘', descEn: '245 masterpieces review', tone: 'purple' },
     { id: 'alphabet', icon: AudioLines, titleZh: '發音打底', titleEn: 'Start with sounds', descZh: '29 字母與 6 聲調', descEn: '29 letters and 6 tones', tone: 'blue' },
     { id: 'conversation', icon: MessagesSquare, titleZh: '情境開口', titleEn: 'Speak in context', descZh: '真實對話與跟讀', descEn: 'Dialogues and shadowing', tone: 'red' },
     { id: 'shopping', icon: ShoppingBag, titleZh: '旅行實戰', titleEn: 'Travel essentials', descZh: '數字、貨幣與購物', descEn: 'Numbers, money and shopping', tone: 'gold' },

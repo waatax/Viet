@@ -15,8 +15,9 @@ const GrammarModule = lazyNamed(() => import('./components/GrammarModule'), 'Gra
 const HanVietModule = lazyNamed(() => import('./components/HanVietModule'), 'HanVietModule');
 const PronounModule = lazyNamed(() => import('./components/PronounModule'), 'PronounModule');
 const QuizModule = lazyNamed(() => import('./components/QuizModule'), 'QuizModule');
+const LiteratureModule = lazy(() => import('./components/LiteratureModule'));
 
-const moduleIds = ['path', 'alphabet', 'accent', 'shopping', 'conversation', 'phrases', 'flashcards', 'grammar', 'hanviet', 'pronoun', 'quiz'];
+const moduleIds = ['path', 'literature', 'alphabet', 'accent', 'shopping', 'conversation', 'phrases', 'flashcards', 'grammar', 'hanviet', 'pronoun', 'quiz'];
 
 const getModuleFromHash = () => {
   const moduleId = window.location.hash.replace(/^#\/?/, '');
@@ -133,6 +134,7 @@ export function App() {
       <main id="main-content" className="main-content" tabIndex="-1">
         <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
           {activeTab === 'path' && <LearningPathModule setActiveTab={setActiveTab} />}
+          {activeTab === 'literature' && <LiteratureModule accent={selectedAccent} onAddXp={updateUserStats} />}
           {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} />}
           {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} />}
           {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} />}

@@ -47,12 +47,20 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
                          (sc.titleVi && sc.titleVi.toLowerCase().includes(q)) ||
                          (sc.summaryZh && sc.summaryZh.toLowerCase().includes(q));
 
-    // Also match any line in dialogues
-    const matchesDialogue = sc.dialogues?.some(d => 
+    // Also match any line across all dialogue sections (Dialogue 1 & Dialogue 2)
+    const matchesDialogue = (sc.dialogues?.some(d => 
       d.viet.toLowerCase().includes(q) || 
       d.zh.toLowerCase().includes(q) || 
       d.en.toLowerCase().includes(q)
-    );
+    )) || (sc.dialogueSections?.some(sec => 
+      sec.titleZh?.toLowerCase().includes(q) ||
+      sec.titleVi?.toLowerCase().includes(q) ||
+      sec.lines?.some(l => 
+        l.viet.toLowerCase().includes(q) || 
+        l.zh.toLowerCase().includes(q) || 
+        l.en.toLowerCase().includes(q)
+      )
+    ));
 
     // Also match vocab
     const matchesVocab = sc.vocab?.some(v => 
