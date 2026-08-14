@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Compass, CheckCircle, Circle, Target, BookOpen, ArrowRight, Flag, Sparkles, Award } from 'lucide-react';
+import {
+  Compass, CheckCircle, Circle, Target, BookOpen, ArrowRight, Flag, Sparkles,
+  AudioLines, MessagesSquare, ShoppingBag, GraduationCap, Play, Route
+} from 'lucide-react';
 import { learningPath } from '../data/vietnameseData';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -23,55 +26,69 @@ export const LearningPathModule = ({ setActiveTab }) => {
   const percent = Math.round((completed.length / learningPath.length) * 100);
   const currentStage = learningPath.find(s => !completed.includes(s.id));
 
+  const quickStarts = [
+    { id: 'alphabet', icon: AudioLines, titleZh: '發音打底', titleEn: 'Start with sounds', descZh: '29 字母與 6 聲調', descEn: '29 letters and 6 tones', tone: 'blue' },
+    { id: 'conversation', icon: MessagesSquare, titleZh: '情境開口', titleEn: 'Speak in context', descZh: '真實對話與跟讀', descEn: 'Dialogues and shadowing', tone: 'red' },
+    { id: 'shopping', icon: ShoppingBag, titleZh: '旅行實戰', titleEn: 'Travel essentials', descZh: '數字、貨幣與購物', descEn: 'Numbers, money and shopping', tone: 'gold' },
+    { id: 'quiz', icon: GraduationCap, titleZh: '能力檢測', titleEn: 'Check your level', descZh: 'iVPT 分級練習', descEn: 'iVPT level practice', tone: 'green' }
+  ];
+
   return (
     <div className="module-container">
-      <div className="section-header">
-        <h2 className="section-title">
-          <Compass color="var(--brand-primary)" />
-          {learningMode === 'zh' ? '學習路徑總覽：從零基礎到越語高手 (CEFR & iVPT 指標)' : 'Learning Path: Absolute Beginner to Fluency'}
-        </h2>
-        <p className="section-desc">
-          {learningMode === 'zh'
-            ? '對照台灣教育部新住民語文課綱能力指標、iVPT 檢定分級與 CEFR 標準，將 10 個核心模組串聯為階梯式闖關路線。勾選完成階段，清晰掌握自身語言實力！'
-            : 'Mapped to Taiwan MOE curriculum indicators, iVPT levels, and CEFR standards. Sequence through the 10 modules and track milestone progress.'}
-        </p>
-      </div>
-
-      {/* Overall Progress Dashboard */}
-      <div className="simulator-box" style={{ background: 'linear-gradient(135deg, var(--bg-card) 0%, var(--bg-accent) 100%)', marginBottom: '2.2rem', border: '1.5px solid var(--border-color)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.8rem', marginBottom: '1rem' }}>
-          <div style={{ fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '1.1em' }}>
-            <Target size={20} color="var(--brand-gold)" />
-            {learningMode === 'zh' ? '整體通關進度' : 'Overall Milestone Progress'}
-          </div>
-          <div style={{ fontWeight: 900, color: 'var(--brand-primary)', fontSize: '1.45em' }}>
-            {percent}% <span style={{ fontSize: '0.62em', color: 'var(--text-muted)', fontWeight: 700 }}>({completed.length}/{learningPath.length} 階段)</span>
+      <section className="home-hero" aria-labelledby="home-title">
+        <div className="hero-copy">
+          <div className="eyebrow"><Sparkles size={15} /> {learningMode === 'zh' ? '專為繁體中文學習者打造' : 'Vietnamese that works in real life'}</div>
+          <h1 id="home-title">
+            {learningMode === 'zh' ? <>從第一聲問候，<span>走進真正的越南。</span></> : <>Learn Vietnamese.<span>Use it with confidence.</span></>}
+          </h1>
+          <p>
+            {learningMode === 'zh'
+              ? '整合南北口音、實境會話、漢越音與 iVPT 分級，讓每一次練習都更接近真實溝通。'
+              : 'Master accents, real-world conversations, Sino-Vietnamese vocabulary and iVPT skills in one focused path.'}
+          </p>
+          <div className="hero-actions">
+            <button className="primary-action" onClick={() => setActiveTab(currentStage?.modules?.[0] || 'alphabet')}>
+              <Play size={17} fill="currentColor" /> {learningMode === 'zh' ? '繼續學習' : 'Continue learning'}
+            </button>
+            <button className="secondary-action" onClick={() => document.getElementById('learning-roadmap')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Route size={18} /> {learningMode === 'zh' ? '查看完整路徑' : 'View full path'}
+            </button>
           </div>
         </div>
 
-        <div style={{ height: '12px', background: 'var(--bg-main)', borderRadius: '999px', overflow: 'hidden', border: '1px solid var(--border-color)' }}>
-          <div style={{ height: '100%', width: `${percent}%`, background: 'linear-gradient(90deg, var(--brand-primary), var(--brand-gold))', transition: 'width 0.4s ease', borderRadius: '999px' }} />
+        <div className="hero-progress-card">
+          <div className="progress-orbit" style={{ '--progress': `${percent * 3.6}deg` }}>
+            <div><strong>{percent}%</strong><span>{learningMode === 'zh' ? '總進度' : 'progress'}</span></div>
+          </div>
+          <div className="hero-progress-copy">
+            <span>{learningMode === 'zh' ? '目前學習階段' : 'Current milestone'}</span>
+            <strong>{currentStage ? loc(currentStage, 'title') : (learningMode === 'zh' ? '全部通關' : 'Path completed')}</strong>
+            <small>{completed.length} / {learningPath.length} {learningMode === 'zh' ? '階段完成' : 'stages complete'}</small>
+          </div>
         </div>
+      </section>
 
-        <div style={{ marginTop: '0.9rem', fontSize: '0.94em', color: 'var(--text-secondary)' }}>
-          {currentStage ? (
-            <>
-              <strong style={{ color: 'var(--brand-accent)' }}>
-                {learningMode === 'zh' ? '👉 你目前正在攻克：' : '👉 You are currently at: '}
-              </strong>
-              <span style={{ fontWeight: 800, color: 'var(--text-primary)' }}>{loc(currentStage, 'title')}</span>
-            </>
-          ) : (
-            <strong style={{ color: 'var(--brand-gold)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-              <Sparkles size={18} />
-              {learningMode === 'zh' ? '🎉 恭喜！全部學習階段已全數通關 — 你已具備卓越的越語實戰溝通能力！' : '🎉 All stages completed — You have achieved high fluency in Vietnamese!'}
-            </strong>
-          )}
+      <section className="quick-start-section" aria-labelledby="quick-start-title">
+        <div className="section-heading-row">
+          <div>
+            <span className="section-kicker">{learningMode === 'zh' ? '快速開始' : 'QUICK START'}</span>
+            <h2 id="quick-start-title">{learningMode === 'zh' ? '今天想練什麼？' : 'What would you like to practice?'}</h2>
+          </div>
+          <span className="section-note">{learningMode === 'zh' ? '每次 5–10 分鐘也能穩定前進' : 'Make progress in just 5–10 minutes'}</span>
         </div>
-      </div>
+        <div className="quick-start-grid">
+          {quickStarts.map(({ id, icon: Icon, titleZh, titleEn, descZh, descEn, tone }) => (
+            <button key={id} className={`quick-start-card tone-${tone}`} onClick={() => setActiveTab(id)}>
+              <span className="quick-icon"><Icon size={23} /></span>
+              <span><strong>{learningMode === 'zh' ? titleZh : titleEn}</strong><small>{learningMode === 'zh' ? descZh : descEn}</small></span>
+              <ArrowRight className="quick-arrow" size={18} />
+            </button>
+          ))}
+        </div>
+      </section>
 
       {/* Stage Roadmap Cards */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.35rem' }}>
+      <div id="learning-roadmap" className="roadmap-grid">
         {learningPath.map((stage, idx) => {
           const done = completed.includes(stage.id);
           const isCurrent = currentStage && currentStage.id === stage.id;

@@ -116,12 +116,13 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
             {filteredScenarios.map((sc) => {
               const isSelected = sc.id === activeScenarioId;
               return (
-                <div
+                <button
                   key={sc.id}
                   className={`scenario-nav-card ${isSelected ? 'active-card' : ''}`}
                   onClick={() => {
                     setActiveScenarioId(sc.id);
                   }}
+                  aria-pressed={isSelected}
                 >
                   <div className="card-icon-bubble">{sc.icon}</div>
                   <div className="card-info">
@@ -132,7 +133,7 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
                     <span className="card-sub">{sc.titleVi}</span>
                   </div>
                   <ChevronRight size={16} className="card-arrow" />
-                </div>
+                </button>
               );
             })}
 

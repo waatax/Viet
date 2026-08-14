@@ -239,6 +239,15 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
                     key={opt.id}
                     className={optionClass}
                     onClick={() => handleSelectOption(opt)}
+                    onKeyDown={(event) => {
+                      if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        handleSelectOption(opt);
+                      }
+                    }}
+                    role="button"
+                    tabIndex="0"
+                    aria-pressed={isSelected}
                   >
                     <div className="opt-content">
                       <div className="opt-viet">{opt.textVi}</div>

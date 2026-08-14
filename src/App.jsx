@@ -1,19 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowUp, Sparkles, Keyboard, Heart } from 'lucide-react';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
+import { ArrowUp } from 'lucide-react';
 import { Navbar } from './components/Navbar';
-import { LearningPathModule } from './components/LearningPathModule';
-import { AlphabetModule } from './components/AlphabetModule';
-import { AccentModule } from './components/AccentModule';
-import { ShoppingModule } from './components/ShoppingModule';
-import { ConversationModule } from './components/ConversationModule';
-import { PhrasesModule } from './components/PhrasesModule';
-import { FlashcardModule } from './components/FlashcardModule';
-import { GrammarModule } from './components/GrammarModule';
-import { HanVietModule } from './components/HanVietModule';
-import { PronounModule } from './components/PronounModule';
-import { QuizModule } from './components/QuizModule';
 import { useLanguage } from './context/LanguageContext';
-import { audioEngine } from './services/audioEngine';
+
+const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
+const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
+const AlphabetModule = lazyNamed(() => import('./components/AlphabetModule'), 'AlphabetModule');
+const AccentModule = lazyNamed(() => import('./components/AccentModule'), 'AccentModule');
+const ShoppingModule = lazyNamed(() => import('./components/ShoppingModule'), 'ShoppingModule');
+const ConversationModule = lazyNamed(() => import('./components/ConversationModule'), 'ConversationModule');
+const PhrasesModule = lazyNamed(() => import('./components/PhrasesModule'), 'PhrasesModule');
+const FlashcardModule = lazyNamed(() => import('./components/FlashcardModule'), 'FlashcardModule');
+const GrammarModule = lazyNamed(() => import('./components/GrammarModule'), 'GrammarModule');
+const HanVietModule = lazyNamed(() => import('./components/HanVietModule'), 'HanVietModule');
+const PronounModule = lazyNamed(() => import('./components/PronounModule'), 'PronounModule');
+const QuizModule = lazyNamed(() => import('./components/QuizModule'), 'QuizModule');
+
+const moduleIds = ['path', 'alphabet', 'accent', 'shopping', 'conversation', 'phrases', 'flashcards', 'grammar', 'hanviet', 'pronoun', 'quiz'];
+
+const getModuleFromHash = () => {
+  const moduleId = window.location.hash.replace(/^#\/?/, '');
+  return moduleIds.includes(moduleId) ? moduleId : 'path';
+};
 
 export function App() {
   const { learningMode, t } = useLanguage();
@@ -34,7 +42,7 @@ export function App() {
   });
 
   // Active module tab
-  const [activeTab, setActiveTab] = useState('path');
+  const [activeTab, setActiveTabState] = useState(getModuleFromHash);
 
   // Show Back To Top Button
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -67,6 +75,20 @@ export function App() {
     localStorage.setItem('viet_user_stats', JSON.stringify(userStats));
   }, [userStats]);
 
+  useEffect(() => {
+    const handleHashChange = () => setActiveTabState(getModuleFromHash());
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const setActiveTab = (moduleId) => {
+    const nextModule = moduleIds.includes(moduleId) ? moduleId : 'path';
+    setActiveTabState(nextModule);
+    const nextHash = `#/${nextModule}`;
+    if (window.location.hash !== nextHash) window.location.hash = nextHash;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Effect: Window scroll listener for back-to-top
   useEffect(() => {
     const handleScroll = () => {
@@ -93,6 +115,7 @@ export function App() {
 
   return (
     <div className="app-container">
+      <a className="skip-link" href="#main-content">跳至主要內容</a>
       {/* Top Navbar Header with Dual Subsystem, Theme & Font Controllers */}
       <Navbar 
         theme={theme}
@@ -107,37 +130,29 @@ export function App() {
       />
 
       {/* Main Learning Module View */}
-      <main className="main-content">
-        {activeTab === 'path' && <LearningPathModule setActiveTab={setActiveTab} />}
-        {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} />}
-        {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} />}
-        {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} />}
-        {activeTab === 'conversation' && <ConversationModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-        {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} />}
-        {activeTab === 'flashcards' && <FlashcardModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-        {activeTab === 'grammar' && <GrammarModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-        {activeTab === 'hanviet' && <HanVietModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-        {activeTab === 'pronoun' && <PronounModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-        {activeTab === 'quiz' && <QuizModule userStats={userStats} updateUserStats={updateUserStats} selectedAccent={selectedAccent} />}
+      <main id="main-content" className="main-content" tabIndex="-1">
+        <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
+          {activeTab === 'path' && <LearningPathModule setActiveTab={setActiveTab} />}
+          {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} />}
+          {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} />}
+          {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} />}
+          {activeTab === 'conversation' && <ConversationModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+          {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} />}
+          {activeTab === 'flashcards' && <FlashcardModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+          {activeTab === 'grammar' && <GrammarModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+          {activeTab === 'hanviet' && <HanVietModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+          {activeTab === 'pronoun' && <PronounModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+          {activeTab === 'quiz' && <QuizModule userStats={userStats} updateUserStats={updateUserStats} selectedAccent={selectedAccent} />}
+        </Suspense>
       </main>
 
       {/* Floating Back To Top Button */}
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="speaker-btn"
-          style={{
-            position: 'fixed',
-            bottom: '2rem',
-            right: '2rem',
-            width: '46px',
-            height: '46px',
-            zIndex: 99,
-            background: 'var(--brand-accent)',
-            color: '#fff',
-            boxShadow: '0 6px 20px rgba(0,0,0,0.25)'
-          }}
+          className="speaker-btn back-to-top"
           title="回到頂端"
+          aria-label="回到頁面頂端"
         >
           <ArrowUp size={20} />
         </button>
@@ -145,7 +160,7 @@ export function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <div style={{ maxWidth: '1400px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.2rem' }}>
+        <div className="footer-content">
           <div>
             <div style={{ fontWeight: 800, fontSize: '1.05em', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <span>🇻🇳 越語學習通 (雙子系統) · Chào Việt Nam!</span>

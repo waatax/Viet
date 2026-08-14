@@ -1,161 +1,129 @@
-import React from 'react';
-import { Sun, Moon, Type, Flame, Trophy, Globe, Compass, Volume2, Sparkles } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import {
+  Sun, Moon, Type, Flame, Trophy, Globe, Volume2, Menu, X,
+  Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
+  Layers3, BookOpenText, LibraryBig, UsersRound, BadgeCheck
+} from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-export const Navbar = ({ 
-  theme, 
-  setTheme, 
-  fontSize, 
-  setFontSize, 
-  activeTab, 
+export const Navbar = ({
+  theme,
+  setTheme,
+  fontSize,
+  setFontSize,
+  activeTab,
   setActiveTab,
   userStats,
   selectedAccent,
   setSelectedAccent
 }) => {
   const { learningMode, toggleLearningMode, t } = useLanguage();
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleTheme = () => {
-    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
-  };
+  useEffect(() => setMenuOpen(false), [activeTab]);
 
   const navItems = [
-    { id: 'path', label: t('tabs.path'), num: '0' },
-    { id: 'alphabet', label: t('tabs.alphabet'), num: '1' },
-    { id: 'accent', label: t('tabs.accent'), num: '2' },
-    { id: 'shopping', label: t('tabs.shopping'), num: '3' },
-    { id: 'conversation', label: t('tabs.conversation'), num: '4' },
-    { id: 'phrases', label: t('tabs.phrases'), num: '5' },
-    { id: 'flashcards', label: t('tabs.flashcards'), num: '6' },
-    { id: 'grammar', label: t('tabs.grammar'), num: '7' },
-    { id: 'hanviet', label: t('tabs.hanviet'), num: '8' },
-    { id: 'pronoun', label: t('tabs.pronoun'), num: '9' },
-    { id: 'quiz', label: t('tabs.quiz'), num: '10' }
+    { id: 'path', label: t('tabs.path'), icon: Map },
+    { id: 'alphabet', label: t('tabs.alphabet'), icon: Languages },
+    { id: 'accent', label: t('tabs.accent'), icon: AudioLines },
+    { id: 'shopping', label: t('tabs.shopping'), icon: ShoppingBag },
+    { id: 'conversation', label: t('tabs.conversation'), icon: MessagesSquare },
+    { id: 'phrases', label: t('tabs.phrases'), icon: MessageSquareText },
+    { id: 'flashcards', label: t('tabs.flashcards'), icon: Layers3 },
+    { id: 'grammar', label: t('tabs.grammar'), icon: BookOpenText },
+    { id: 'hanviet', label: t('tabs.hanviet'), icon: LibraryBig },
+    { id: 'pronoun', label: t('tabs.pronoun'), icon: UsersRound },
+    { id: 'quiz', label: t('tabs.quiz'), icon: BadgeCheck }
   ];
 
   return (
     <header className="header-container">
-      <nav className="navbar">
+      <nav className="navbar" aria-label={learningMode === 'zh' ? '主要導覽與學習設定' : 'Primary navigation and learning settings'}>
         <div className="nav-content">
-          {/* Logo & Brand */}
-          <div className="brand-logo" onClick={() => setActiveTab('path')} style={{ cursor: 'pointer' }}>
-            <span className="flag-badge">
-              <span style={{ fontSize: '1.1em' }}>🇻🇳</span> VIỆT
+          <button className="brand-logo" onClick={() => setActiveTab('path')} aria-label={t('brandName')}>
+            <span className="flag-badge" aria-hidden="true"><span>★</span> VIỆT</span>
+            <span className="brand-copy">
+              <strong>{t('brandName')}</strong>
+              <small>{t('brandSub')}</small>
             </span>
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontWeight: 900, letterSpacing: '-0.01em', lineHeight: 1.1 }}>{t('brandName')}</span>
-              <span style={{ fontSize: '0.68em', color: 'var(--brand-gold)', opacity: 0.95, fontWeight: 700, letterSpacing: '0.3px' }}>
-                {t('brandSub')}
-              </span>
-            </div>
-          </div>
+          </button>
 
-          {/* Subsystem & Track Badge */}
-          <div className="track-badge-container">
-            <button 
-              className="subsystem-switch-btn"
-              onClick={toggleLearningMode}
-              title={learningMode === 'zh' ? 'Switch to English global learning track' : '切換至中文（台越對照・漢越音）模式'}
+          <div className="nav-mobile-actions">
+            <span className="mobile-xp"><Trophy size={15} /> {userStats.xp}</span>
+            <button
+              className="icon-control"
+              onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}
+              aria-label={theme === 'light' ? t('darkTheme') : t('lightTheme')}
             >
-              <Globe size={15} color="var(--brand-gold)" />
-              <span className="mode-text">
-                {learningMode === 'zh' ? '🇹🇼 中文學越文 (漢越音軌道)' : '🌐 English Track'}
-              </span>
-              <span className="switch-tag">
-                {learningMode === 'zh' ? '切換 EN' : 'Switch ZH'}
-              </span>
+              {theme === 'light' ? <Moon size={19} /> : <Sun size={19} />}
             </button>
-
-            {/* Accent Selector (North vs South) */}
-            <div className="accent-quick-toggle">
-              <Volume2 size={13} color="var(--text-muted)" style={{ marginLeft: '0.2rem' }} />
-              <button 
-                className={`accent-chip ${selectedAccent === 'north' ? 'active' : ''}`}
-                onClick={() => setSelectedAccent('north')}
-                title="河內標準發音 (Giọng Bắc)"
-              >
-                🏛️ {t('northAccent')}
-              </button>
-              <button 
-                className={`accent-chip ${selectedAccent === 'south' ? 'active' : ''}`}
-                onClick={() => setSelectedAccent('south')}
-                title="胡志明市商業發音 (Giọng Nam)"
-              >
-                🌴 {t('southAccent')}
-              </button>
-            </div>
+            <button
+              className="icon-control menu-toggle"
+              onClick={() => setMenuOpen(open => !open)}
+              aria-expanded={menuOpen}
+              aria-controls="header-settings"
+              aria-label={menuOpen ? '關閉設定選單' : '開啟設定選單'}
+            >
+              {menuOpen ? <X size={21} /> : <Menu size={21} />}
+            </button>
           </div>
 
-          {/* User Progress Stats & Control Center */}
-          <div className="controls-group">
-            {/* Gamification Stats */}
-            <div className="control-btn stat-pill" style={{ borderColor: 'rgba(239, 68, 68, 0.35)' }} title="連續學習天數">
-              <Flame size={16} color="var(--brand-primary)" className="streak-flame-animated" />
-              <span>{userStats.streak} {t('days')}</span>
+          <div id="header-settings" className={`header-settings ${menuOpen ? 'is-open' : ''}`}>
+            <div className="track-badge-container">
+              <button className="subsystem-switch-btn" onClick={toggleLearningMode}>
+                <Globe size={16} />
+                <span className="mode-text">{learningMode === 'zh' ? '中文學越文' : 'English Track'}</span>
+                <span className="switch-tag">{learningMode === 'zh' ? 'EN' : '中文'}</span>
+              </button>
+
+              <div className="accent-quick-toggle" aria-label={learningMode === 'zh' ? '口音選擇' : 'Accent selection'}>
+                <Volume2 size={15} aria-hidden="true" />
+                <button className={`accent-chip ${selectedAccent === 'north' ? 'active' : ''}`} onClick={() => setSelectedAccent('north')}>
+                  {t('northAccent')}
+                </button>
+                <button className={`accent-chip ${selectedAccent === 'south' ? 'active' : ''}`} onClick={() => setSelectedAccent('south')}>
+                  {t('southAccent')}
+                </button>
+              </div>
             </div>
 
-            <div className="control-btn stat-pill" style={{ borderColor: 'rgba(234, 179, 8, 0.35)' }} title="累積學習經驗值">
-              <Trophy size={16} color="var(--brand-gold)" />
-              <span style={{ color: 'var(--brand-gold)' }}>{userStats.xp} {t('xp')}</span>
-            </div>
-
-            {/* Font Size Adjuster Control */}
-            <div className="font-size-selector" title={t('fontSize')}>
-              <Type size={13} style={{ margin: 'auto 0.2rem', color: 'var(--text-muted)' }} />
-              <button 
-                className={`size-option-btn ${fontSize === 'small' ? 'active' : ''}`}
-                onClick={() => setFontSize('small')}
-              >
-                {t('sizeSmall')}
-              </button>
-              <button 
-                className={`size-option-btn ${fontSize === 'normal' ? 'active' : ''}`}
-                onClick={() => setFontSize('normal')}
-              >
-                {t('sizeNormal')}
-              </button>
-              <button 
-                className={`size-option-btn ${fontSize === 'large' ? 'active' : ''}`}
-                onClick={() => setFontSize('large')}
-              >
-                {t('sizeLarge')}
-              </button>
-              <button 
-                className={`size-option-btn ${fontSize === 'xlarge' ? 'active' : ''}`}
-                onClick={() => setFontSize('xlarge')}
-              >
-                {t('sizeXLarge')}
+            <div className="controls-group">
+              <span className="control-btn stat-pill streak-pill" title="連續學習天數"><Flame size={16} /> {userStats.streak} {t('days')}</span>
+              <span className="control-btn stat-pill xp-pill" title="累積學習經驗值"><Trophy size={16} /> {userStats.xp} {t('xp')}</span>
+              <div className="font-size-selector" aria-label={t('fontSize')}>
+                <Type size={14} aria-hidden="true" />
+                {['small', 'normal', 'large', 'xlarge'].map((size, index) => (
+                  <button
+                    key={size}
+                    className={`size-option-btn ${fontSize === size ? 'active' : ''}`}
+                    onClick={() => setFontSize(size)}
+                    aria-pressed={fontSize === size}
+                  >
+                    {t(['sizeSmall', 'sizeNormal', 'sizeLarge', 'sizeXLarge'][index])}
+                  </button>
+                ))}
+              </div>
+              <button className="control-btn theme-toggle-btn" onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}>
+                {theme === 'light' ? <Moon size={17} /> : <Sun size={17} />}
+                <span>{theme === 'light' ? t('darkTheme') : t('lightTheme')}</span>
               </button>
             </div>
-
-            {/* Theme Toggle (Light / Dark) */}
-            <button className="control-btn theme-toggle-btn" onClick={toggleTheme} title="切換和紙亮面/墨色暗面主題">
-              {theme === 'light' ? (
-                <>
-                  <Moon size={15} color="var(--brand-purple)" />
-                  <span className="theme-label" style={{ fontSize: '0.86em' }}>{t('darkTheme')}</span>
-                </>
-              ) : (
-                <>
-                  <Sun size={15} color="var(--brand-gold)" />
-                  <span className="theme-label" style={{ fontSize: '0.86em' }}>{t('lightTheme')}</span>
-                </>
-              )}
-            </button>
           </div>
         </div>
       </nav>
 
-      {/* Module Navigation Tabs (10 Modules) */}
-      <div className="tabs-navigation">
-        <div className="tabs-wrapper">
-          {navItems.map(item => (
+      <div className={`tabs-navigation ${menuOpen ? 'settings-open' : ''}`}>
+        <div className="tabs-wrapper" role="tablist" aria-label={learningMode === 'zh' ? '學習模組' : 'Learning modules'}>
+          {navItems.map(({ id, label, icon: Icon }) => (
             <button
-              key={item.id}
-              className={`tab-item ${activeTab === item.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(item.id)}
+              key={id}
+              className={`tab-item ${activeTab === id ? 'active' : ''}`}
+              onClick={() => setActiveTab(id)}
+              role="tab"
+              aria-selected={activeTab === id}
             >
-              {item.label}
+              <Icon size={17} strokeWidth={2} aria-hidden="true" />
+              <span>{label}</span>
             </button>
           ))}
         </div>

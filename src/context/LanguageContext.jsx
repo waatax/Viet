@@ -139,6 +139,7 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     localStorage.setItem('viet_learning_mode', learningMode);
     document.documentElement.setAttribute('data-learning-mode', learningMode);
+    document.documentElement.lang = learningMode === 'zh' ? 'zh-TW' : 'en';
   }, [learningMode]);
 
   const toggleLearningMode = () => {

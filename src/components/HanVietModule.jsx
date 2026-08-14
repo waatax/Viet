@@ -94,9 +94,10 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
             {filteredRoots.map((r, idx) => {
               const isSelected = selectedRoot?.root === r.root;
               return (
-                <div
+                <button
                   key={idx}
                   onClick={() => setSelectedRoot(r)}
+                  aria-pressed={isSelected}
                   style={{
                     padding: '0.85rem 1rem',
                     borderRadius: 'var(--radius-md)',
@@ -117,7 +118,7 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
                   <div style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>
                     {loc(r, 'meaning')}
                   </div>
-                </div>
+                </button>
               );
             })}
           </div>

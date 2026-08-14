@@ -109,6 +109,15 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
       <div 
         className={`flashcard-container ${isFlipped ? 'flipped' : ''}`}
         onClick={handleCardClick}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            handleCardClick();
+          }
+        }}
+        role="button"
+        tabIndex="0"
+        aria-label={learningMode === 'zh' ? '翻面查看答案' : 'Flip card to reveal answer'}
       >
         <div className="flashcard-inner">
           {/* Card Front (Vietnamese) */}

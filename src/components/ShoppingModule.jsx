@@ -163,13 +163,14 @@ export const ShoppingModule = ({ selectedAccent }) => {
             </div>
             <div className="banknote-grid">
               {presets.map((p, idx) => (
-                <div
+                <button
                   key={idx}
                   className={`banknote-pill ${p.noteClass} ${inputAmount === p.amount ? 'active' : ''}`}
                   onClick={() => setInputAmount(p.amount)}
+                  aria-pressed={inputAmount === p.amount}
                 >
                   <span>{learningMode === 'zh' ? p.labelZh : p.labelEn}</span>
-                </div>
+                </button>
               ))}
             </div>
           </div>
