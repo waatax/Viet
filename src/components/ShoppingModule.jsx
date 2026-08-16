@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, DollarSign, Calculator, Volume2, ArrowRight, Landmark, Tag, ShieldCheck, Sparkles, Coins } from 'lucide-react';
+import {
+  ShoppingBag, DollarSign, Calculator, Volume2, ArrowRight, Landmark,
+  Tag, ShieldCheck, Sparkles, Coins, Search, CheckCircle2, Gift,
+  Shirt, Apple, CreditCard, Flame, HelpCircle
+} from 'lucide-react';
 import { numbersAndCurrency } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -9,8 +13,10 @@ export const ShoppingModule = ({ selectedAccent }) => {
   const [inputAmount, setInputAmount] = useState('2500000000'); // Default 2.5 Billion VND
   const [exchangeRateTwd, setExchangeRateTwd] = useState(780); // ~780 VND per TWD
   const [exchangeRateUsd, setExchangeRateUsd] = useState(25400); // ~25,400 VND per USD
-  const [activeTabSub, setActiveTabSub] = useState('converter'); // 'converter', 'brackets', 'banking'
+  const [activeTabSub, setActiveTabSub] = useState('converter'); // 'converter', 'shopping', 'brackets', 'banking'
   const [activeKey, setActiveKey] = useState(null);
+  const [shoppingCategory, setShoppingCategory] = useState('all');
+  const [shoppingSearch, setShoppingSearch] = useState('');
 
   useEffect(() => {
     const unsubscribe = audioEngine.subscribe((state) => {
@@ -106,18 +112,39 @@ export const ShoppingModule = ({ selectedAccent }) => {
     { labelZh: '🏢 西貢置產 25億', labelEn: '🏢 Real Estate 2.5B', amount: '2500000000', noteClass: 'note-500k' }
   ];
 
+  // High Frequency Shopping Data Resolution
+  const shoppingData = numbersAndCurrency.highFrequencyShopping || {
+    categories: [
+      { id: 'all', nameZh: '全部購物情境 (45+句)', nameEn: 'All Shopping (45+)' }
+    ],
+    items: numbersAndCurrency.shoppingPhrases || [],
+    vocabulary: []
+  };
+
+  const filteredShoppingItems = (shoppingData.items || []).filter(item => {
+    const matchesCat = shoppingCategory === 'all' || item.category === shoppingCategory;
+    const q = shoppingSearch.toLowerCase().trim();
+    if (!q) return matchesCat;
+    return matchesCat && (
+      item.viet.toLowerCase().includes(q) ||
+      (item.zh && item.zh.toLowerCase().includes(q)) ||
+      (item.en && item.en.toLowerCase().includes(q)) ||
+      (item.tag && item.tag.toLowerCase().includes(q))
+    );
+  });
+
   return (
     <div className="module-container">
       {/* Header Banner */}
       <div className="section-header">
         <h2 className="section-title">
           <Coins color="var(--brand-gold)" />
-          {learningMode === 'zh' ? '數字、百億級貨幣朗讀與越南實用物價換算器' : 'Vietnamese Numbers, Currency & Real VND Price Converter'}
+          {learningMode === 'zh' ? '數字、百億級貨幣朗讀與高頻購物實戰手冊' : 'Vietnamese Numbers, Currency & Street Shopping Master'}
         </h2>
         <p className="section-desc">
           {learningMode === 'zh'
-            ? '從萬 (Mười nghìn/ngàn)、百萬 (Triệu) 到十億 (Tỷ)，輸入任意金額即時換算台幣、美金與標準越文口語大寫發音'
-            : 'Convert any VND amount into spoken Vietnamese, TWD, and USD with native pronunciation for street shopping and banking'}
+            ? '涵蓋百億級金額轉換、夜市殺價大絕招、特產伴手禮、服飾試穿、生鮮秤重與臨櫃銀行對話，配備原生雙口音發音'
+            : 'From billion VND conversions to street market bargaining tactics, local souvenirs, clothing sizes, and banking dialogues with full native audio.'}
         </p>
       </div>
 
@@ -130,6 +157,14 @@ export const ShoppingModule = ({ selectedAccent }) => {
         >
           <Calculator size={16} />
           {learningMode === 'zh' ? '百億級口語換算器' : 'VND Spoken Converter'}
+        </button>
+        <button
+          className={`control-btn ${activeTabSub === 'shopping' ? 'active' : ''}`}
+          style={{ background: activeTabSub === 'shopping' ? 'var(--brand-accent)' : 'var(--bg-card)', color: activeTabSub === 'shopping' ? '#fff' : 'inherit' }}
+          onClick={() => setActiveTabSub('shopping')}
+        >
+          <ShoppingBag size={16} />
+          {learningMode === 'zh' ? '高頻購物實戰手冊' : 'Shopping & Bargaining'}
         </button>
         <button
           className={`control-btn ${activeTabSub === 'brackets' ? 'active' : ''}`}
@@ -145,10 +180,11 @@ export const ShoppingModule = ({ selectedAccent }) => {
           onClick={() => setActiveTabSub('banking')}
         >
           <Landmark size={16} />
-          {learningMode === 'zh' ? '銀行與殺價短句' : 'Banking & Bargaining'}
+          {learningMode === 'zh' ? '銀行金融與臨櫃對話' : 'Banking & Dialogues'}
         </button>
       </div>
 
+      {/* TAB 1: CONVERTER */}
       {activeTabSub === 'converter' && (
         <div className="simulator-box">
           <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -222,21 +258,24 @@ export const ShoppingModule = ({ selectedAccent }) => {
                 <Volume2 size={22} />
               </button>
             </div>
+            <div style={{ fontSize: '0.85em', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
+              💡 {selectedAccent === 'north' ? '北越慣用「Nghìn」' : '南越慣用「Ngàn」'} · 尾數 1 讀 Mốt · 尾數 5 讀 Lăm
+            </div>
           </div>
 
-          {/* Currency Equivalent Matrix */}
+          {/* Exchange Rates Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
-            <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', fontWeight: 600 }}>🇹🇼 約合新台幣 (TWD)</div>
-              <div style={{ fontSize: '1.5em', fontWeight: 900, color: 'var(--brand-primary)', margin: '0.2rem 0' }}>
+            <div className="learning-card" style={{ background: 'var(--bg-main)', borderLeft: '4px solid var(--brand-primary)' }}>
+              <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>{learningMode === 'zh' ? '約合新台幣 (TWD)' : 'Approx. TWD'}</div>
+              <div style={{ fontSize: '1.6em', fontWeight: 900, color: 'var(--brand-primary)', margin: '0.3rem 0' }}>
                 NT$ {parseInt(twdEquivalent, 10).toLocaleString()}
               </div>
               <div style={{ fontSize: '0.78em', color: 'var(--text-muted)' }}>匯率基準: 1 TWD ≈ {exchangeRateTwd} VND</div>
             </div>
 
-            <div style={{ background: 'var(--bg-main)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-              <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', fontWeight: 600 }}>🇺🇸 約合美元 (USD)</div>
-              <div style={{ fontSize: '1.5em', fontWeight: 900, color: 'var(--brand-green)', margin: '0.2rem 0' }}>
+            <div className="learning-card" style={{ background: 'var(--bg-main)', borderLeft: '4px solid var(--brand-gold)' }}>
+              <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>{learningMode === 'zh' ? '約合美金 (USD)' : 'Approx. USD'}</div>
+              <div style={{ fontSize: '1.6em', fontWeight: 900, color: 'var(--brand-gold)', margin: '0.3rem 0' }}>
                 $ {parseFloat(usdEquivalent).toLocaleString()}
               </div>
               <div style={{ fontSize: '0.78em', color: 'var(--text-muted)' }}>匯率基準: 1 USD ≈ {exchangeRateUsd} VND</div>
@@ -245,6 +284,176 @@ export const ShoppingModule = ({ selectedAccent }) => {
         </div>
       )}
 
+      {/* TAB 2: HIGH-FREQUENCY SHOPPING & BARGAINING */}
+      {activeTabSub === 'shopping' && (
+        <div className="simulator-box">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.2rem' }}>
+            <div>
+              <h3 style={{ fontSize: '1.25em', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <ShoppingBag color="var(--brand-gold)" />
+                {learningMode === 'zh' ? '高頻購物與市場殺價必備手冊' : 'High-Frequency Shopping & Market Bargaining'}
+              </h3>
+              <p style={{ fontSize: '0.88em', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
+                {learningMode === 'zh'
+                  ? '精選 45+ 句夜市殺價、特產伴手禮、服飾試穿、水果秤重與行動支付高頻句型，配備真人朗讀與實戰秘技'
+                  : 'Master 45+ practical shopping phrases across bargaining, souvenirs, clothing, fruit markets, and payments.'}
+              </p>
+            </div>
+          </div>
+
+          {/* Search & Category Filter */}
+          <div style={{ background: 'var(--bg-main)', padding: '1.2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.9rem' }}>
+              <div className="search-input-wrapper">
+                <Search size={17} className="search-icon" />
+                <input
+                  type="text"
+                  placeholder={learningMode === 'zh' ? '搜尋購物短句 (例: 咖啡, 腰果, 殺價, 便宜, 尺寸, 芒果, 試穿, 發票)...' : 'Search shopping phrases & vocab...'}
+                  value={shoppingSearch}
+                  onChange={(e) => setShoppingSearch(e.target.value)}
+                  className="scenario-search-input"
+                />
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
+                {shoppingData.categories.map(cat => (
+                  <button
+                    key={cat.id}
+                    className={`category-filter-chip ${shoppingCategory === cat.id ? 'active' : ''}`}
+                    onClick={() => setShoppingCategory(cat.id)}
+                    style={{
+                      fontSize: '0.84em',
+                      padding: '0.4rem 0.85rem',
+                      borderRadius: 'var(--radius-full)'
+                    }}
+                  >
+                    {learningMode === 'zh' ? cat.nameZh : cat.nameEn}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Phrase Cards Grid */}
+          <div style={{ marginBottom: '2rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.9rem' }}>
+              <h4 style={{ fontSize: '1.05em', fontWeight: 800, color: 'var(--brand-accent)' }}>
+                💬 {learningMode === 'zh' ? `情境短句 (${filteredShoppingItems.length} 句)` : `Phrases (${filteredShoppingItems.length})`}
+              </h4>
+              <span style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>
+                💡 點擊喇叭即享 {selectedAccent === 'north' ? '🏛️ 北越音' : '🌴 南越音'} 真人朗讀
+              </span>
+            </div>
+
+            <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))' }}>
+              {filteredShoppingItems.map((item, idx) => {
+                const itemKey = `shop_item_${idx}_${item.id || item.viet}`;
+                const isPlaying = activeKey === itemKey || activeKey === item.viet;
+                return (
+                  <div key={idx} className={`learning-card ${isPlaying ? 'playing-card' : ''}`} style={{ background: 'var(--bg-main)' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.4rem' }}>
+                      <span className="tone-symbol" style={{ fontSize: '0.78em', background: 'var(--bg-accent)', color: 'var(--brand-gold)' }}>
+                        {item.tag || '購物必備'}
+                      </span>
+                      <button
+                        className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
+                        onClick={() => handleSpeakText(item.viet, itemKey)}
+                        title="朗讀此句"
+                      >
+                        <Volume2 size={15} />
+                      </button>
+                    </div>
+                    <div style={{ fontSize: '1.1em', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.35rem', lineHeight: '1.4' }}>
+                      {item.viet}
+                    </div>
+                    <div style={{ fontSize: '0.92em', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.4rem' }}>
+                      {learningMode === 'zh' ? item.zh : item.en}
+                    </div>
+                    {item.tipZh && (
+                      <div style={{ fontSize: '0.78em', color: 'var(--text-muted)', marginTop: 'auto', borderTop: '1px dashed var(--border-color)', paddingTop: '0.4rem' }}>
+                        💡 {learningMode === 'zh' ? item.tipZh : item.tag}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* High Frequency Shopping Vocabulary Deck */}
+          {shoppingData.vocabulary && shoppingData.vocabulary.length > 0 && (
+            <div style={{ marginBottom: '2rem' }}>
+              <h4 style={{ fontSize: '1.05em', fontWeight: 800, color: 'var(--brand-gold)', marginBottom: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <Sparkles size={16} />
+                {learningMode === 'zh' ? '越南必買伴手禮與購物核心單字庫' : 'Core Shopping Vocabulary & Souvenirs'}
+              </h4>
+              <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))' }}>
+                {shoppingData.vocabulary.map((vocab, vIdx) => {
+                  const vKey = `vocab_shop_${vIdx}`;
+                  const isPlaying = activeKey === vKey || activeKey === vocab.viet;
+                  return (
+                    <div key={vIdx} className={`learning-card ${isPlaying ? 'playing-card' : ''}`} style={{ background: 'var(--bg-main)', padding: '0.9rem 1rem' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div>
+                          <div style={{ fontSize: '1.05em', fontWeight: 800, color: 'var(--brand-primary)' }}>{vocab.viet}</div>
+                          <div style={{ fontSize: '0.78em', color: 'var(--brand-gold)', fontFamily: 'var(--font-family-mono)' }}>{vocab.ipa}</div>
+                          <div style={{ fontSize: '0.86em', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
+                            {learningMode === 'zh' ? vocab.zh : vocab.en}
+                          </div>
+                        </div>
+                        <button
+                          className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
+                          onClick={() => handleSpeakText(vocab.viet, vKey)}
+                          title="朗讀單字"
+                        >
+                          <Volume2 size={14} />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Pro Bargaining Tips */}
+          <div style={{ background: 'linear-gradient(135deg, var(--bg-card) 0%, var(--bg-accent) 100%)', padding: '1.4rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--brand-accent)' }}>
+            <h4 style={{ fontSize: '1.05em', fontWeight: 800, color: 'var(--brand-accent)', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <ShieldCheck size={18} />
+              {learningMode === 'zh' ? '在地達人：越南夜市與市場 5 大殺價金律' : 'Local Pro-Tips: 5 Golden Rules of Vietnam Shopping'}
+            </h4>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.8rem', fontSize: '0.88em', color: 'var(--text-secondary)' }}>
+              <div>
+                <strong>1. 早晨開市吉利單 (Mở hàng)：</strong>
+                <br />
+                越南商家極重開市好彩頭，早市第一位客人親切問價，老闆通常願意給予最大折扣促成首單。
+              </div>
+              <div>
+                <strong>2. 貨比三家不吃虧 (So sánh giá)：</strong>
+                <br />
+                觀光夜市（如濱城市場、河內同春市場）同款服飾腰果每攤報價落差大，多問兩攤即可掌握底價。
+              </div>
+              <div>
+                <strong>3. 現切水果認明公斤 (Ký / kg)：</strong>
+                <br />
+                越南計價單位為公斤 (kg)，購買芒果榴槤時可先詢問「Một ký bao nhiêu?」，並請店家去皮現切裝盒。
+              </div>
+              <div>
+                <strong>4. 退稅發票必開紅單 (Hóa đơn đỏ)：</strong>
+                <br />
+                在連鎖店或百貨購買高單價商品辦理機場退稅，需索取正式加值稅統一紅發票 (Hóa đơn đỏ VAT)。
+              </div>
+              <div>
+                <strong>5. 檢查找零鈔票完整度 (Kiểm tra tiền)：</strong>
+                <br />
+                收到找零塑膠鈔 (Polymer) 時請留意是否有裂痕或破損，破損鈔票常在其他店家被拒收，有破損可當場要求換新。
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TAB 3: PRICE TIERS */}
       {activeTabSub === 'brackets' && (
         <div className="simulator-box">
           <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem' }}>
@@ -285,10 +494,11 @@ export const ShoppingModule = ({ selectedAccent }) => {
         </div>
       )}
 
+      {/* TAB 4: BANKING & DIALOGUES */}
       {activeTabSub === 'banking' && (
         <div className="simulator-box">
           <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem' }}>
-            {learningMode === 'zh' ? '銀行、夜市換匯與殺價高頻短句' : 'Banking & Market Bargaining Phrases'}
+            {learningMode === 'zh' ? '銀行金融、外幣換匯與商務對話' : 'Banking, Currency Exchange & Business Dialogues'}
           </h3>
           <div className="grid-cards" style={{ marginBottom: '2rem' }}>
             {(numbersAndCurrency.shoppingPhrases || []).map((phrase, idx) => (

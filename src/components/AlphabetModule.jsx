@@ -29,7 +29,7 @@ export const AlphabetModule = ({ selectedAccent }) => {
 
   const handlePlayToneSynth = (toneId, exampleText) => {
     setSelectedTone(toneId);
-    audioEngine.playTonePitch(toneId);
+    audioEngine.playTonePitch(toneId, selectedAccent);
     setTimeout(() => {
       audioEngine.speak(exampleText, { accent: selectedAccent, key: `tone_${toneId}` });
     }, 650);

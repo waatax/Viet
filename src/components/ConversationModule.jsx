@@ -38,7 +38,10 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
 
   // Filter scenarios
   const filteredScenarios = situationalScenarios.filter(sc => {
-    const matchesCategory = selectedCategory === 'all' || sc.category === selectedCategory;
+    const matchesCategory = selectedCategory === 'all' || 
+                            sc.category === selectedCategory ||
+                            (selectedCategory === 'shopping' && (sc.category === 'shopping' || sc.id === 'market' || sc.id === 'convenience')) ||
+                            (selectedCategory === 'daily' && (sc.category === 'daily' || sc.id === 'spa'));
     const q = searchQuery.toLowerCase().trim();
     if (!q) return matchesCategory;
 

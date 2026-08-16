@@ -171,40 +171,76 @@ export const accentDifferences = {
   
   toneDifferences: [
     {
+      id: 'ngang',
       tone: 'Thanh Ngang (平聲 ─)',
+      sampleWord: 'Ma',
       northZh: '音高 44-44，平穩清亮高平調',
+      northEn: 'Pitch 44-44, crisp high level tone',
+      northAudio: 'Ma',
       southZh: '音高 33-33，略為平緩放鬆',
+      southEn: 'Pitch 33-33, relaxed mid-level tone',
+      southAudio: 'Ma',
       diffZh: '南北皆為平調，北音略高亢，南音較輕柔'
     },
     {
+      id: 'huyen',
       tone: 'Thanh Huyền (玄聲 \\)',
+      sampleWord: 'Mà',
       northZh: '音高 31-21，深沉低降調',
+      northEn: 'Pitch 31-21, deep low falling tone',
+      northAudio: 'Mà',
       southZh: '音高 21-21，柔和下沉',
+      southEn: 'Pitch 21-21, gentle soft low',
+      southAudio: 'Mà',
       diffZh: '南北調形一致，皆為平穩降調'
     },
     {
+      id: 'sac',
       tone: 'Thanh Sắc (銳聲 /)',
+      sampleWord: 'Má',
       northZh: '音高 35-45，陡峭急促向上衝',
+      northEn: 'Pitch 35-45, steep sharp climb',
+      northAudio: 'Má',
       southZh: '音高 35-44，平緩上揚',
+      southEn: 'Pitch 35-44, smooth rising tone',
+      southAudio: 'Má',
       diffZh: '北音緊縮急升；南音在短母音或塞音尾時極短促'
     },
     {
+      id: 'hoi',
       tone: 'Thanh Hỏi (問聲 ˀ)',
+      sampleWord: 'Mả',
       northZh: '音高 31-12-35，先降後升曲折調',
-      southZh: '音高 32-23，曲折幅度較小',
-      diffZh: '南越將 Hỏi 與 Ngã 合併為此調'
+      northEn: 'Pitch 31-12-35, distinct dip-and-rise contour',
+      northAudio: 'Mả',
+      southZh: '音高 32-23，曲折幅度較小平緩',
+      southEn: 'Pitch 32-23, smooth relaxed dipping curve',
+      southAudio: 'Mả',
+      diffZh: '南越將 Hỏi 與 Ngã 合併為此平緩問調'
     },
     {
+      id: 'nga',
       tone: 'Thanh Ngã (跌聲 ~)',
+      sampleWord: 'Mã',
       northZh: '音高 35-45，中途喉頭瞬間緊閉截斷（喉塞波浪音）',
-      southZh: '南越無喉塞音，完全讀成問聲 (Hỏi)',
-      diffZh: '★ 最關鍵差別：南越人日常口語中 Sữa (牛奶) 與 Sửa (修理) 聲調完全相同'
+      northEn: 'Pitch 35-45, glottal stop wave break',
+      northAudio: 'Mã',
+      southZh: '南越無喉塞音，完全讀成問聲 (Mả)',
+      southEn: 'Saigon merged: pronounced smoothly as Hỏi (Mả)',
+      southAudio: 'Mả',
+      diffZh: '★ 最關鍵差別：南越人日常口語中 Sữa (牛奶) 與 Sửa (修理) 聲調完全相同，無喉塞頓斷'
     },
     {
+      id: 'nang',
       tone: 'Thanh Nặng (重聲 .)',
+      sampleWord: 'Mạ',
       northZh: '音高 21-11，腹部用力急速下頓，短促緊閉',
+      northEn: 'Pitch 21-11, abrupt constricted drop',
+      northAudio: 'Mạ',
       southZh: '音高 21-12，頓音較軟，尾音有微弱回升',
-      diffZh: '北越短促截斷感強烈；南越較為溫和'
+      southEn: 'Pitch 21-12, softer drop without harsh cutoff',
+      southAudio: 'Mạ',
+      diffZh: '北越短促截斷感強烈；南越較為溫和長綿'
     }
   ],
 
@@ -215,17 +251,31 @@ export const accentDifferences = {
       northEn: 'All pronounced as /z/ (like English "zoo")',
       southZh: 'D, Gi 讀 [j] (像 Y 音)；R 讀 [r] 滾舌捲舌音', 
       southEn: 'D, Gi pronounced as /j/ ("yes"); R as rolled /r/',
-      example: 'Rắn (蛇) / Da (皮膚) / Giờ (小時)', 
-      audioText: 'Rắn' 
+      example: 'Da (皮膚) / Giờ (小時) / Rắn (蛇)', 
+      audioText: 'Da',
+      northAudioText: 'Da',
+      southAudioText: 'Ya',
+      pairs: [
+        { northWord: 'Da', southWord: 'Ya', displayWord: 'Da (皮膚)', northIPA: '[za]', southIPA: '[ja]' },
+        { northWord: 'Giờ', southWord: 'Yờ', displayWord: 'Giờ (小時)', northIPA: '[zəː]', southIPA: '[jəː]' },
+        { northWord: 'Rắn', southWord: 'Rắn', displayWord: 'Rắn (蛇)', northIPA: '[zan]', southIPA: '[raŋ]' }
+      ]
     },
     { 
       rule: 'v (聲母)', 
       northZh: '讀標準咬唇 [v] 音 (唇齒摩擦音)', 
       northEn: 'Clear labiodental /v/ (lip against teeth)',
-      southZh: '常讀成 [j] (像 Y 音) 或 [w] (例如 Vào 讀成 Vô 或 Dào)', 
+      southZh: '常軟化讀成 [j] (像 Y 音) 或 [w]/Vô (例如 Vào 讀成 Vô 或 Dào)', 
       southEn: 'Often pronounced as /j/ ("yes") or merged with /w/',
-      example: 'Vào (進去) / Vui (快樂)', 
-      audioText: 'Vào' 
+      example: 'Vào (進去) / Vui vẻ (快樂) / Về (回去)', 
+      audioText: 'Vào',
+      northAudioText: 'Vào',
+      southAudioText: 'Vô',
+      pairs: [
+        { northWord: 'Vào', southWord: 'Vô', displayWord: 'Vào (進去)', northIPA: '[vaːw]', southIPA: '[vo] / [jaːw]' },
+        { northWord: 'Vui vẻ', southWord: 'Dui dẻ', displayWord: 'Vui vẻ (高興)', northIPA: '[vwi vɛ]', southIPA: '[jwi jɛ]' },
+        { northWord: 'Về', southWord: 'Dề', displayWord: 'Về (回家)', northIPA: '[ve]', southIPA: '[je]' }
+      ]
     },
     { 
       rule: 'tr / ch (聲母)', 
@@ -234,7 +284,13 @@ export const accentDifferences = {
       southZh: 'Tr 捲舌清晰 [ʈ] (舌尖向後捲)；Ch 發平舌 [c]', 
       southEn: 'Tr is retroflex /ʈ/ while Ch is sharp palatal /c/',
       example: 'Trà (茶葉) vs Cha (父親)', 
-      audioText: 'Trà' 
+      audioText: 'Trà',
+      northAudioText: 'Trà',
+      southAudioText: 'Trà',
+      pairs: [
+        { northWord: 'Trà', southWord: 'Trà', displayWord: 'Trà (茶葉)', northIPA: '[tɕaː] (平舌)', southIPA: '[ʈaː] (捲舌)' },
+        { northWord: 'Cha', southWord: 'Cha', displayWord: 'Cha (父親)', northIPA: '[tɕaː]', southIPA: '[caː]' }
+      ]
     },
     { 
       rule: 's / x (聲母)', 
@@ -243,25 +299,77 @@ export const accentDifferences = {
       southZh: 'S 發捲舌 [ʂ] (像國語「詩/sh」)；X 發平舌 [s]', 
       southEn: 'S is retroflex /ʂ/ ("shine"); X is flat /s/ ("sun")',
       example: 'Sữa (牛奶) vs Xa (遙遠)', 
-      audioText: 'Sữa' 
+      audioText: 'Sữa',
+      northAudioText: 'Sữa',
+      southAudioText: 'Sửa',
+      pairs: [
+        { northWord: 'Sữa', southWord: 'Sửa', displayWord: 'Sữa (牛奶)', northIPA: '[sɨəˀ˥] (平舌+喉塞)', southIPA: '[ʂɨə˧˨˧] (捲舌+問聲)' },
+        { northWord: 'Xa', southWord: 'Xa', displayWord: 'Xa (遙遠)', northIPA: '[saː]', southIPA: '[saː]' }
+      ]
     },
     { 
       rule: '聲調 Hỏi / Ngã (問跌調)', 
-      northZh: '問聲(Hỏi)與跌聲(Ngã)區分極嚴格，跌聲有喉塞斷音', 
+      northZh: '問聲(Hỏi)與跌聲(Ngã)區分極嚴格，跌聲有強烈喉塞斷音', 
       northEn: 'Clear distinction between Hỏi (dip-rise) and Ngã (glottal break)',
-      southZh: '南越口音中 Hỏi 與 Ngã 幾乎合併為同一種轉折問聲', 
+      southZh: '南越口音中 Hỏi 與 Ngã 完全合流，跌聲一律讀成平緩的問聲', 
       southEn: 'Hỏi and Ngã tones are virtually merged into one smooth dipping tone',
       example: 'Mã (代碼) vs Mả (墳墓)', 
-      audioText: 'Mã' 
+      audioText: 'Mã',
+      northAudioText: 'Mã',
+      southAudioText: 'Mả',
+      pairs: [
+        { northWord: 'Mã', southWord: 'Mả', displayWord: 'Mã (代碼/馬)', northIPA: '[maːˀ˥] (喉塞斷音)', southIPA: '[maː˧˨˧] (合流讀成Mả)' },
+        { northWord: 'Mả', southWord: 'Mả', displayWord: 'Mả (墳墓)', northIPA: '[maː˧˩˧]', southIPA: '[maː˧˨˧]' },
+        { northWord: 'Đã', southWord: 'Đả', displayWord: 'Đã (已經)', northIPA: '[ɗaːˀ˥]', southIPA: '[ɗaː˧˨˧]' },
+        { northWord: 'Nghĩ', southWord: 'Nghỉ', displayWord: 'Nghĩ (思考)', northIPA: '[ŋiˀ˥]', southIPA: '[ŋi˧˨˧]' }
+      ]
     },
     { 
       rule: '字尾韻尾 -n / -ng, -t / -c', 
       northZh: '字尾鼻音與塞音發音位置精準對應，前鼻/後鼻分明', 
       northEn: 'Final consonants strictly follow written spelling',
-      southZh: '在 a, o, u 後，前鼻音 -n 常後移讀成 -ng；-t 讀成 -k/-c (例如 Bán 讀成 Báng)', 
+      southZh: '在 a, o, u 後，前鼻音 -n 常後移讀成 -ng；-t 讀成 -k/-c', 
       southEn: 'Final -n often sounds like -ng; -t sounds like -k after back vowels',
-      example: 'Bánh (餅) / Mắt (眼睛)', 
-      audioText: 'Bánh' 
+      example: 'Bán (賣) vs Báng / Mắt (眼睛) vs Mắc', 
+      audioText: 'Bán',
+      northAudioText: 'Bán',
+      southAudioText: 'Báng',
+      pairs: [
+        { northWord: 'Bán', southWord: 'Báng', displayWord: 'Bán (買賣的賣)', northIPA: '[baːn] (前鼻)', southIPA: '[baːŋ] (後鼻 Báng)' },
+        { northWord: 'Mắt', southWord: 'Mắc', displayWord: 'Mắt (眼睛)', northIPA: '[mat] (齒音尾)', southIPA: '[mak] (喉音尾 Mắc)' },
+        { northWord: 'Ăn', southWord: 'Ăng', displayWord: 'Ăn (吃飯)', northIPA: '[an]', southIPA: '[aŋ]' }
+      ]
+    },
+    { 
+      rule: 'qu (聲母)', 
+      northZh: '讀標準圓唇複輔音 [kw] (發音清脆)', 
+      northEn: 'Clear labialized velar consonant /kw/',
+      southZh: '舌根音軟化脫落，直接發雙唇半母音 [w]', 
+      southEn: 'Softened into bilabial glide /w/',
+      example: 'Quá (太過) / Quên (忘記)', 
+      audioText: 'Quá',
+      northAudioText: 'Quá',
+      southAudioText: 'Oá',
+      pairs: [
+        { northWord: 'Quá', southWord: 'Oá', displayWord: 'Quá (太/非常)', northIPA: '[kwaː]', southIPA: '[waː]' },
+        { northWord: 'Quên', southWord: 'Uên', displayWord: 'Quên (忘記)', northIPA: '[kwen]', southIPA: '[wen]' }
+      ]
+    },
+    { 
+      rule: '-nh / -ch (i, e, ê 後韻尾)', 
+      northZh: '-nh 讀顎化硬腭鼻音 [ɲ]；-ch 讀清硬腭塞音 [c]', 
+      northEn: '-nh is palatal /ɲ/, -ch is palatal /c/',
+      southZh: '-nh 讀成齒齦鼻音 [n]；-ch 讀成舌尖清塞音 [t]', 
+      southEn: '-nh is alveolar /n/, -ch is alveolar /t/',
+      example: 'Bệnh (生病) / Chính (正確) / Thích (喜歡)', 
+      audioText: 'Bệnh',
+      northAudioText: 'Bệnh',
+      southAudioText: 'Bện',
+      pairs: [
+        { northWord: 'Bệnh', southWord: 'Bện', displayWord: 'Bệnh (疾病/病)', northIPA: '[bɛɲ] (北音)', southIPA: '[bɛn] (讀同 Bện)' },
+        { northWord: 'Chính', southWord: 'Chín', displayWord: 'Chính (主要/正確)', northIPA: '[tɕiɲ]', southIPA: '[tɕin] (讀同 Chín)' },
+        { northWord: 'Thích', southWord: 'Thít', displayWord: 'Thích (喜愛)', northIPA: '[tʰic]', southIPA: '[tʰit] (讀同 Thít)' }
+      ]
     }
   ],
 
@@ -316,6 +424,80 @@ export const accentDifferences = {
 
 // 4. 數字、貨幣換算與商務金融 (Numbers & VND Currency Simulator)
 export const numbersAndCurrency = {
+
+  highFrequencyShopping: {
+    categories: [
+      { id: 'all', nameZh: '全部情境 (45+句)', nameEn: 'All Shopping (45+)' },
+      { id: 'bargain', nameZh: '🔥 夜市殺價絕招', nameEn: '🔥 Bargaining Tactics' },
+      { id: 'souvenir', nameZh: '🎁 特產伴手禮', nameEn: '🎁 Souvenirs & Treats' },
+      { id: 'clothing', nameZh: '👗 服飾鞋包試穿', nameEn: '👗 Clothing & Sizing' },
+      { id: 'fruit', nameZh: '🥭 水果生鮮秤重', nameEn: '🥭 Fruits & Weighing' },
+      { id: 'payment', nameZh: '💳 刷卡轉帳發票', nameEn: '💳 Payment & Invoices' }
+    ],
+    items: [
+      { id: 'bg1', category: 'bargain', viet: 'Cái này bao nhiêu tiền một cái?', zh: '這個一個多少錢？', en: 'How much is this per piece?', tag: '問價起手式', tipZh: '市場購物最通用問價句' },
+      { id: 'bg2', category: 'bargain', viet: 'Có bớt chút nào không cô?', zh: '阿姨，可以算便宜一點點嗎？', en: 'Can you lower the price a little bit?', tag: '禮貌殺價', tipZh: '稱呼 cô/chị 顯得親切好議價' },
+      { id: 'bg3', category: 'bargain', viet: 'Đắt quá, giảm giá cho tôi đi!', zh: '太貴了啦，給我打個折吧！', en: 'Too expensive, give me a discount please!', tag: '直接殺價', tipZh: '夜市觀光區強烈議價' },
+      { id: 'bg4', category: 'bargain', viet: 'Nếu tôi mua ba cái thì giá bao nhiêu?', zh: '如果我買三個的話算多少錢？', en: 'If I buy 3 pieces, how much will it be?', tag: '以量議價', tipZh: '多件購買爭取批發折扣' },
+      { id: 'bg5', category: 'bargain', viet: 'Bán mở hàng cho tôi giá may mắn đi!', zh: '幫我當今天開市第一單，算個吉利價吧！', en: 'Give me a lucky opening price for good fortune!', tag: '討吉利殺價', tipZh: '越南文化早市開單討好彩頭' },
+      { id: 'bg6', category: 'bargain', viet: 'Một trăm nghìn được không?', zh: '十萬盾可以嗎？(100.000đ được không?)', en: 'Can you do 100,000 VND?', tag: '主動出價', tipZh: '心中底價直接詢問老闆' },
+      { id: 'bg7', category: 'bargain', viet: 'Ở chỗ khác bán rẻ hơn nhiều.', zh: '別家店賣得便宜很多耶。', en: 'Other shops sell it much cheaper.', tag: '貨比三家', tipZh: '比價談判話術' },
+      { id: 'bg8', category: 'bargain', viet: 'Bớt hai mươi nghìn nhé, tôi lấy liền!', zh: '便宜兩萬盾的話，我馬上買！', en: 'Discount 20k and I will take it right away!', tag: '成交收尾', tipZh: '給老闆立刻成交的誘因' },
+      { id: 'bg9', category: 'bargain', viet: 'Tôi chỉ còn đúng hai trăm nghìn thôi.', zh: '我身上只剩剛好二十萬盾了。', en: 'I only have 200,000 VND left with me.', tag: '零錢戰術', tipZh: '示弱爭取最後降價' },
+      { id: 'bg10', category: 'bargain', viet: 'Giá này là giá chót rồi hả anh?', zh: '這個價錢是底價、不能再降了嗎？', en: 'Is this your final best price?', tag: '確認底價', tipZh: '確認最後降價空間' },
+
+      { id: 'sv1', category: 'souvenir', viet: 'Cà phê này là loại Robusta hay Arabica?', zh: '這款咖啡是羅布斯塔還是阿拉比卡豆？', en: 'Is this coffee Robusta or Arabica?', tag: '咖啡豆選購', tipZh: '越南為全球第二大咖啡出口國' },
+      { id: 'sv2', category: 'souvenir', viet: 'Hạt điều rang muối này hạn sử dụng bao lâu?', zh: '這罐帶皮鹽焗腰果保質期多久？', en: 'What is the shelf life of these salted cashews?', tag: '食品期限', tipZh: '腰果為越南必買伴手禮' },
+      { id: 'sv3', category: 'souvenir', viet: 'Tôi muốn mua năm hộp bánh pía làm quà.', zh: '我想買五盒榴槤皮亞餅當伴手禮。', en: 'I want to buy 5 boxes of Bánh Pía as gifts.', tag: '名產包裝', tipZh: 'Sóc Trăng 特產榴槤蛋黃餅' },
+      { id: 'sv4', category: 'souvenir', viet: 'Gói kẹo dừa này bao nhiêu tiền một bịch?', zh: '這包檳知椰子糖一袋多少錢？', en: 'How much is a bag of this coconut candy?', tag: '名產價格', tipZh: 'Bến Tre 經典椰子軟糖' },
+      { id: 'sv5', category: 'souvenir', viet: 'Có đóng thùng xốp để tôi mang lên máy bay không?', zh: '可以幫我用保麗龍箱封箱方便帶上飛機嗎？', en: 'Can you pack it in a styrofoam box for my flight?', tag: '機場託運', tipZh: '生鮮水果名產打包上機必備' },
+      { id: 'sv6', category: 'souvenir', viet: 'Cho tôi thử một miếng được không?', zh: '可以讓我試吃一小口嗎？', en: 'Can I try a small piece?', tag: '試吃詢問', tipZh: '食品店試吃確認口味' },
+      { id: 'sv7', category: 'souvenir', viet: 'Cái phin pha cà phê bằng nhôm này giá bao nhiêu?', zh: '這個鋁製越式咖啡滴漏壺多少錢？', en: 'How much is this traditional aluminum coffee filter?', tag: '滴漏壺選購', tipZh: 'Phin 滴漏壺為越式咖啡靈魂' },
+      { id: 'sv8', category: 'souvenir', viet: 'Có túi hút chân không không em?', zh: '有真空包裝袋包裝嗎？', en: 'Do you have vacuum sealing bags?', tag: '保鮮包裝', tipZh: '真空防潮利於航空攜帶' },
+
+      { id: 'cl1', category: 'clothing', viet: 'Cái áo này có size L không em?', zh: '這件衣服有 L 號嗎？', en: 'Do you have this shirt in size L?', tag: '詢問尺寸', tipZh: '越南尺碼通常比歐美版型偏小一號' },
+      { id: 'cl2', category: 'clothing', viet: 'Phòng thay đồ ở đâu vậy?', zh: '請問試衣間在哪裡？', en: 'Where is the fitting room?', tag: '尋找試衣間', tipZh: '服飾店試穿' },
+      { id: 'cl3', category: 'clothing', viet: 'Tôi có thể mặc thử bộ Áo Dài này được không?', zh: '我可以試穿這套越式奧黛 (Áo Dài) 嗎？', en: 'May I try on this Ao Dai set?', tag: '傳統服飾', tipZh: '奧黛為越南國服' },
+      { id: 'cl4', category: 'clothing', viet: 'Đôi giày này hơi chật, có số lớn hơn không?', zh: '這雙鞋有點太緊，有大一號的嗎？', en: 'These shoes are a bit tight, do you have a larger size?', tag: '鞋碼調整', tipZh: '換大尺碼' },
+      { id: 'cl5', category: 'clothing', viet: 'Có màu đen hoặc màu trắng không?', zh: '有黑色或白色的嗎？', en: 'Do you have this in black or white?', tag: '詢問顏色', tipZh: '挑選顏色' },
+      { id: 'cl6', category: 'clothing', viet: 'Chất liệu vải này là cotton hay lụa tơ tằm?', zh: '這塊布料是純棉還是純天然蠶絲？', en: 'Is this fabric cotton or natural silk?', tag: '材質確認', tipZh: '會安與河內絲綢名產' },
+      { id: 'cl7', category: 'clothing', viet: 'Chiếc nón lá truyền thống này bao nhiêu tiền?', zh: '頂傳統越式斗笠 (Nón lá) 賣多少錢？', en: 'How much is this traditional conical hat?', tag: '越式斗笠', tipZh: '越南經典特色手工藝品' },
+
+      { id: 'fr1', category: 'fruit', viet: 'Một ký xoài cát này giá bao nhiêu?', zh: '這一公斤和祿芒果賣多少錢？', en: 'How much for one kilo of Hoa Loc mangoes?', tag: '水果秤重', tipZh: '越南以公斤 (ký/kg) 為計價單位' },
+      { id: 'fr2', category: 'fruit', viet: 'Trái sầu riêng này nặng mấy ký?', zh: '這顆榴槤重幾公斤？', en: 'How many kilos does this durian weigh?', tag: '榴槤秤重', tipZh: 'Ri6 榴槤最為出名' },
+      { id: 'fr3', category: 'fruit', viet: 'Gọt vỏ và cắt sẵn giúp tôi nhé.', zh: '請幫我削皮並切塊裝盒喔。', en: 'Please peel and slice it into a container for me.', tag: '現切服務', tipZh: '夜市水果攤現切現吃' },
+      { id: 'fr4', category: 'fruit', viet: 'Trái dừa xiêm này có ngọt không?', zh: '這顆青椰子喝起來甜不甜？', en: 'Is this fresh young coconut sweet?', tag: '椰子選購', tipZh: 'Dừa xiêm 越式生椰水' },
+      { id: 'fr5', category: 'fruit', viet: 'Cân giúp tôi hai ký thanh long ruột đỏ.', zh: '請幫我秤兩公斤紅肉火龍果。', en: 'Please weigh 2 kilos of red dragon fruit for me.', tag: '指定重量', tipZh: '平順省紅肉火龍果特產' },
+      { id: 'fr6', category: 'fruit', viet: 'Măng cụt này có tươi không?', zh: '這些山竹新鮮嗎？', en: 'Is this mangosteen fresh?', tag: '山竹選購', tipZh: '熱帶水果之后' },
+
+      { id: 'pm1', category: 'payment', viet: 'Có thanh toán bằng thẻ tín dụng không?', zh: '可以刷國際信用卡 (Visa/Master) 嗎？', en: 'Do you accept credit cards?', tag: '刷卡確認', tipZh: '商場超市必備' },
+      { id: 'pm2', category: 'payment', viet: 'Tôi có thể quét mã QR chuyển khoản được không?', zh: '我可以掃 QR Code 銀行轉帳付款嗎？', en: 'Can I scan a QR code to transfer payment?', tag: '行動支付', tipZh: '越南 VietQR 普及率極高' },
+      { id: 'pm3', category: 'payment', viet: 'Cho tôi xin túi nilông để xách đồ.', zh: '請給我一個塑膠提袋裝東西。', en: 'Please give me a plastic bag to carry items.', tag: '索取提袋', tipZh: '超市購物袋' },
+      { id: 'pm4', category: 'payment', viet: 'Cho tôi xin hóa đơn đỏ VAT để hoàn thuế.', zh: '請開立統一紅發票給我，我要辦理退稅。', en: 'Please give me a red VAT invoice for tax refund.', tag: '商務退稅', tipZh: '機場退稅需準備 Hóa đơn đỏ' },
+      { id: 'pm5', category: 'payment', viet: 'Tiền thối bị rách rồi, đổi tờ khác giúp tôi.', zh: '找給我的這張紙鈔破掉了，請幫我換一張。', en: 'This change note is torn, please exchange it for another one.', tag: '更換鈔票', tipZh: '破損塑膠鈔常被拒收，應即刻更換' },
+      { id: 'pm6', category: 'payment', viet: 'Tính tiền giúp tôi!', zh: '請幫我結帳算錢！', en: 'Bill please! / Check out please!', tag: '結帳招呼', tipZh: '最常用結帳招呼句' }
+    ],
+    vocabulary: [
+      { viet: 'Mua sắm', zh: '購物 / 買東西', en: 'Shopping', ipa: '[muə sam]' },
+      { viet: 'Bao nhiêu tiền', zh: '多少錢', en: 'How much money', ipa: '[ɓaw ɲiəw tiəŋ]' },
+      { viet: 'Giảm giá', zh: '打折 / 降價', en: 'Discount / Sale', ipa: '[zam za]' },
+      { viet: 'Đắt quá', zh: '太貴了', en: 'Too expensive', ipa: '[ɗat kwa]' },
+      { viet: 'Rẻ', zh: '便宜', en: 'Cheap', ipa: '[ʐɛ / jɛ]' },
+      { viet: 'Hóa đơn đỏ', zh: '統一發票 (紅發票)', en: 'VAT Red Invoice', ipa: '[hwa ɗən ɗɔ]' },
+      { viet: 'Quét mã QR', zh: '掃 QR Code 轉帳', en: 'Scan QR Code', ipa: '[kwɛt ma QR]' },
+      { viet: 'Thẻ tín dụng', zh: '信用卡', en: 'Credit Card', ipa: '[tʰɛ tin zuŋ]' },
+      { viet: 'Tiền mặt', zh: '現金', en: 'Cash', ipa: '[tiən mat]' },
+      { viet: 'Tiền thối', zh: '找零錢', en: 'Change money', ipa: '[tiən tʰoj]' },
+      { viet: 'Ký / Cân', zh: '公斤 (kg)', en: 'Kilogram', ipa: '[ki / kən]' },
+      { viet: 'Thử đồ', zh: '試穿 / 試用', en: 'Try on', ipa: '[tʰɨ ɗo]' },
+      { viet: 'Áo Dài', zh: '越南奧黛國服', en: 'Ao Dai Dress', ipa: '[aw zaj]' },
+      { viet: 'Nón lá', zh: '越式斗笠', en: 'Conical Hat', ipa: '[nɔn la]' },
+      { viet: 'Bánh Pía', zh: '榴槤蛋黃餅 (伴手禮)', en: 'Durian Pia Cake', ipa: '[ɓaɲ piə]' },
+      { viet: 'Hạt điều', zh: '帶皮鹽焗腰果', en: 'Cashew nuts', ipa: '[hat diəw]' },
+      { viet: 'Cà phê phin', zh: '滴漏咖啡粉/壺', en: 'Filter coffee', ipa: '[ka fe fin]' },
+      { viet: 'Kẹo dừa', zh: '椰子糖', en: 'Coconut candy', ipa: '[kɛw zɨə]' }
+    ]
+  },
   baseNumbers: [
     { num: 0, viet: 'Không', zh: '零', en: 'Zero' },
     { num: 1, viet: 'Một', zh: '一', en: 'One' },

@@ -16,8 +16,31 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
       return [];
     }
   });
-  const [reviewDeck, setReviewDeck] = useState(flashcardsDeck);
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeKey, setActiveKey] = useState(null);
+
+  const categories = [
+    { id: 'all', labelZh: '全部單字 (100張)', labelEn: 'All (100)' },
+    { id: '購物殺價', labelZh: '🛍️ 購物殺價', labelEn: '🛍️ Shopping' },
+    { id: '餐飲美食', labelZh: '🍜 餐飲美食', labelEn: '🍜 Food & Dining' },
+    { id: '商務職場', labelZh: '💼 商務職場', labelEn: '💼 Business' },
+    { id: '交通出行', labelZh: '✈️ 交通出行', labelEn: '✈️ Transport' },
+    { id: '飯店住宿', labelZh: '🏨 飯店住宿', labelEn: '🏨 Hotel' },
+    { id: '醫療健康', labelZh: '💊 醫療健康', labelEn: '💊 Medical' },
+    { id: '問候與禮貌', labelZh: '👋 問候禮貌', labelEn: '👋 Greetings' }
+  ];
+
+  const filteredDeck = flashcardsDeck.filter(card => {
+    if (selectedCategory === 'all') return true;
+    return card.category === selectedCategory || (selectedCategory === '購物殺價' && (card.category.includes('購物') || card.category.includes('殺價')));
+  });
+
+  const reviewDeck = filteredDeck.length > 0 ? filteredDeck : flashcardsDeck;
+
+  useEffect(() => {
+    setCurrentIndex(0);
+    setIsFlipped(false);
+  }, [selectedCategory]);
 
   useEffect(() => {
     localStorage.setItem('viet_mastered_cards', JSON.stringify(masteredCards));
@@ -94,6 +117,24 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
             ? '點擊卡片（或按空白鍵）3D 翻轉查看釋義、漢越音標註與原生真人發音。支援鍵盤快速操作（←需複習 / 已掌握→）。'
             : 'Click card or press Space to 3D-flip. Inspect bilingual meanings, Sino-Vietnamese roots, and native audio.'}
         </p>
+      </div>
+
+      {/* Category Filter Chips */}
+      <div style={{ maxWidth: '650px', margin: '0 auto 1.2rem', display: 'flex', gap: '0.45rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+        {categories.map(cat => (
+          <button
+            key={cat.id}
+            className={`category-filter-chip ${selectedCategory === cat.id ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(cat.id)}
+            style={{
+              fontSize: '0.82em',
+              padding: '0.35rem 0.75rem',
+              borderRadius: 'var(--radius-full)'
+            }}
+          >
+            {learningMode === 'zh' ? cat.labelZh : cat.labelEn}
+          </button>
+        ))}
       </div>
 
       {/* Progress & Deck Stats */}

@@ -7,6 +7,7 @@
 
 export const scenarioCategories = [
   { id: 'all', labelZh: '全部情境 (16個)', labelEn: 'All Scenarios (16)' },
+  { id: 'shopping', labelZh: '🛍️ 高頻購物', labelEn: '🛍️ Shopping & Markets' },
   { id: 'dining', labelZh: '🍜 餐飲美食', labelEn: '🍜 Food & Dining' },
   { id: 'travel', labelZh: '✈️ 旅遊交通', labelEn: '✈️ Travel & Transport' },
   { id: 'daily', labelZh: '🏪 日常生活', labelEn: '🏪 Daily Life' },
@@ -1965,7 +1966,7 @@ export const situationalScenarios = [
   // 9. 傳統市場與夜市
   {
     id: 'market',
-    category: 'daily',
+    category: 'shopping',
     tagZh: '殺價買水果',
     tagEn: 'Bargaining at Market',
     icon: '🥭',
@@ -2211,7 +2212,7 @@ export const situationalScenarios = [
   // 10. 便利商店
   {
     id: 'convenience',
-    category: 'daily',
+    category: 'shopping',
     tagZh: '生活必用',
     tagEn: 'Convenience Store',
     icon: '🏪',

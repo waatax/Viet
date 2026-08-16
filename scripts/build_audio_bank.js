@@ -72,6 +72,16 @@ if (numbersAndCurrency?.priceTiers) {
     addPhrase(t.viet);
   });
 }
+if (numbersAndCurrency?.highFrequencyShopping?.items) {
+  numbersAndCurrency.highFrequencyShopping.items.forEach(p => {
+    addPhrase(p.viet);
+  });
+}
+if (numbersAndCurrency?.highFrequencyShopping?.vocabulary) {
+  numbersAndCurrency.highFrequencyShopping.vocabulary.forEach(v => {
+    addPhrase(v.viet);
+  });
+}
 if (numbersAndCurrency?.shoppingPhrases) {
   numbersAndCurrency.shoppingPhrases.forEach(p => {
     addPhrase(p.viet);
@@ -103,6 +113,7 @@ if (vietnameseTones) {
     addPhrase(t.example);
   });
 }
+['Ma', 'Mà', 'Má', 'Mả', 'Mã', 'Mạ', 'Ba', 'Bà', 'Bá', 'Bả', 'Bã', 'Bạ'].forEach(n => addPhrase(n));
 
 // 3. Alphabet
 if (vietnameseAlphabet) {
@@ -115,10 +126,25 @@ if (vietnameseAlphabet) {
   });
 }
 
-// 4. Accent differences
+// 4. Accent differences & Regional Phonetics
+if (accentDifferences?.toneDifferences) {
+  accentDifferences.toneDifferences.forEach(td => {
+    if (td.sampleWord) addPhrase(td.sampleWord);
+    if (td.northAudio) addPhrase(td.northAudio);
+    if (td.southAudio) addPhrase(td.southAudio);
+  });
+}
 if (accentDifferences?.phoneticRules) {
   accentDifferences.phoneticRules.forEach(r => {
-    addPhrase(r.audioText || r.example);
+    if (r.audioText) addPhrase(r.audioText);
+    if (r.northAudioText) addPhrase(r.northAudioText);
+    if (r.southAudioText) addPhrase(r.southAudioText);
+    if (r.pairs) {
+      r.pairs.forEach(p => {
+        if (p.northWord) addPhrase(p.northWord);
+        if (p.southWord) addPhrase(p.southWord);
+      });
+    }
   });
 }
 if (accentDifferences?.wordComparisonMatrix) {
@@ -126,10 +152,29 @@ if (accentDifferences?.wordComparisonMatrix) {
     addPhrase(w.north);
     addPhrase(w.south);
     if (w.south.includes('/')) {
-      w.south.split('/').forEach(p => addPhrase(p));
+      w.south.split('/').forEach(p => addPhrase(p.trim()));
+    }
+    if (w.north.includes('/')) {
+      w.north.split('/').forEach(p => addPhrase(p.trim()));
     }
   });
 }
+if (accentDifferences?.regionalParticles) {
+  accentDifferences.regionalParticles.forEach(reg => {
+    reg.particles.forEach(p => {
+      addPhrase(p.word);
+      if (p.word.includes('/')) {
+        p.word.split('/').forEach(part => addPhrase(part.trim()));
+      }
+    });
+  });
+}
+[
+  'Da', 'Ya', 'Giờ', 'Yờ', 'Rắn', 'Vào', 'Vô', 'Dào', 'Vui vẻ', 'Dui dẻ', 'Về', 'Dề',
+  'Trà', 'Cha', 'Sữa', 'Sửa', 'Xa', 'Mã', 'Mả', 'Đã', 'Đả', 'Nghĩ', 'Nghỉ',
+  'Bán', 'Báng', 'Mắt', 'Mắc', 'Ăn', 'Ăng', 'Quá', 'Oá', 'Quên', 'Uên',
+  'Bệnh', 'Bện', 'Chính', 'Chín', 'Thích', 'Thít', 'Muổng', 'Dỉa', 'Nón', 'Mền', 'Vớ', 'Dù', 'Gởi thơ', 'ĐTDĐ'
+].forEach(p => addPhrase(p));
 
 // 5. Han-Viet roots & compounds
 if (hanVietRoots) {
