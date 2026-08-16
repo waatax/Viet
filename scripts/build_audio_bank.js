@@ -67,23 +67,34 @@ if (numbersAndCurrency?.unitsScale) {
     }
   });
 }
-if (numbersAndCurrency?.priceBrackets) {
-  numbersAndCurrency.priceBrackets.forEach(b => {
-    b.examples.forEach(e => addPhrase(e.viet));
+if (numbersAndCurrency?.priceTiers) {
+  numbersAndCurrency.priceTiers.forEach(t => {
+    addPhrase(t.viet);
   });
 }
-if (numbersAndCurrency?.bankingDialogues) {
-  numbersAndCurrency.bankingDialogues.forEach(d => {
-    d.lines.forEach(l => addPhrase(l.viet));
+if (numbersAndCurrency?.shoppingPhrases) {
+  numbersAndCurrency.shoppingPhrases.forEach(p => {
+    addPhrase(p.viet);
   });
 }
 
-// Common numbers
+// Common numbers & Presets
 [
   'Không', 'Một', 'Hai', 'Ba', 'Bốn', 'Năm', 'Sáu', 'Bảy', 'Tám', 'Chín', 'Mười',
   'Mười một', 'Mười hai', 'Mười ba', 'Mười bốn', 'Mười lăm', 'Mười sáu', 'Mười bảy', 'Mười tám', 'Mười chín',
-  'Hai mươi', 'Hai mươi mốt', 'Hai mươi lăm', 'Năm mươi', 'Năm mươi lăm', 'Năm mươi nghìn đồng',
-  'Năm trăm nghìn đồng', 'Mười triệu đồng', 'Một trăm triệu đồng', 'Một tỷ đồng', 'Hai tỷ năm trăm triệu đồng', 'Năm tỷ đồng', 'Mười tỷ đồng'
+  'Hai mươi', 'Hai mươi mốt', 'Hai mươi lăm', 'Ba mươi', 'Ba mươi lăm', 'Bốn mươi', 'Bốn mươi lăm',
+  'Năm mươi', 'Năm mươi lăm', 'Sáu mươi', 'Sáu mươi lăm', 'Bảy mươi', 'Tám mươi', 'Chín mươi',
+  'Một trăm', 'Hai trăm', 'Ba trăm', 'Bốn trăm', 'Năm trăm', 'Sáu trăm', 'Bảy trăm', 'Tám trăm', 'Chín trăm',
+  'Ba mươi lăm nghìn đồng', 'Ba mươi lăm ngàn đồng',
+  'Sáu mươi lăm nghìn đồng', 'Sáu mươi lăm ngàn đồng',
+  'Ba trăm năm mươi nghìn đồng', 'Ba trăm năm mươi ngàn đồng',
+  'Một triệu năm trăm nghìn đồng', 'Một triệu năm trăm ngàn đồng',
+  'Hai mươi lăm triệu đồng', 'Hai mươi lăm triệu ngàn đồng',
+  'Hai tỷ năm trăm triệu đồng',
+  'Năm mươi nghìn đồng', 'Năm mươi ngàn đồng',
+  'Năm trăm nghìn đồng', 'Năm trăm ngàn đồng',
+  'Mười triệu đồng', 'Một trăm triệu đồng', 'Một tỷ đồng', 'Hai tỷ đồng', 'Năm tỷ đồng', 'Mười tỷ đồng',
+  'đồng', 'nghìn', 'ngàn', 'triệu', 'tỷ', 'trăm', 'mười', 'mươi', 'lăm', 'mốt', 'linh', 'tư'
 ].forEach(n => addPhrase(n));
 
 // 2. Tones

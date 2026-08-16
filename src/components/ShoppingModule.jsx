@@ -262,7 +262,7 @@ export const ShoppingModule = ({ selectedAccent }) => {
                 </tr>
               </thead>
               <tbody>
-                {numbersAndCurrency.priceTiers.map((tier, idx) => (
+                {(numbersAndCurrency.priceTiers || []).map((tier, idx) => (
                   <tr key={idx}>
                     <td style={{ fontWeight: 800, color: 'var(--brand-accent)' }}>{tier.range}</td>
                     <td style={{ fontWeight: 700 }}>{tier.viet}</td>
@@ -270,7 +270,7 @@ export const ShoppingModule = ({ selectedAccent }) => {
                     <td>{learningMode === 'zh' ? tier.examplesZh : tier.examplesEn}</td>
                     <td>
                       <button
-                        className="speaker-btn mini-btn"
+                        className={`speaker-btn mini-btn ${activeKey === `tier_${idx}` ? 'playing' : ''}`}
                         onClick={() => handleSpeakText(tier.viet, `tier_${idx}`)}
                         title="朗讀"
                       >
@@ -290,8 +290,8 @@ export const ShoppingModule = ({ selectedAccent }) => {
           <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem' }}>
             {learningMode === 'zh' ? '銀行、夜市換匯與殺價高頻短句' : 'Banking & Market Bargaining Phrases'}
           </h3>
-          <div className="grid-cards">
-            {numbersAndCurrency.shoppingPhrases.map((phrase, idx) => (
+          <div className="grid-cards" style={{ marginBottom: '2rem' }}>
+            {(numbersAndCurrency.shoppingPhrases || []).map((phrase, idx) => (
               <div key={idx} className="learning-card" style={{ background: 'var(--bg-main)' }}>
                 <div style={{ fontSize: '1.15em', fontWeight: 800, color: 'var(--brand-accent)', marginBottom: '0.3rem' }}>
                   {phrase.viet}
@@ -302,7 +302,7 @@ export const ShoppingModule = ({ selectedAccent }) => {
                 <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ fontSize: '0.8em', color: 'var(--text-muted)' }}>💡 {phrase.tag}</span>
                   <button
-                    className="speaker-btn mini-btn"
+                    className={`speaker-btn mini-btn ${activeKey === `shop_ph_${idx}` ? 'playing' : ''}`}
                     onClick={() => handleSpeakText(phrase.viet, `shop_ph_${idx}`)}
                     title="朗讀"
                   >
@@ -312,6 +312,46 @@ export const ShoppingModule = ({ selectedAccent }) => {
               </div>
             ))}
           </div>
+
+          {numbersAndCurrency.bankingDialogues && (
+            <div>
+              <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Landmark color="var(--brand-gold)" />
+                {learningMode === 'zh' ? '銀行櫃台實境對話 (Banking Practical Dialogues)' : 'Banking Counter Practical Dialogues'}
+              </h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+                {numbersAndCurrency.bankingDialogues.map((diag, dIdx) => (
+                  <div key={dIdx} className="learning-card" style={{ background: 'var(--bg-main)', padding: '1.25rem' }}>
+                    <h4 style={{ fontSize: '1.05em', fontWeight: 800, color: 'var(--brand-gold)', marginBottom: '0.75rem' }}>
+                      {learningMode === 'zh' ? diag.titleZh : diag.titleEn}
+                    </h4>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                      {diag.lines.map((line, lIdx) => (
+                        <div key={lIdx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.75rem', padding: '0.4rem 0.6rem', borderRadius: 'var(--radius-sm)', background: 'var(--bg-card)' }}>
+                          <div>
+                            <div style={{ fontSize: '0.95em', fontWeight: 700, color: 'var(--text-primary)' }}>
+                              <span style={{ color: 'var(--brand-primary)', marginRight: '0.4rem' }}>{line.speaker}:</span>
+                              {line.viet}
+                            </div>
+                            <div style={{ fontSize: '0.85em', color: 'var(--text-secondary)', marginTop: '0.15rem' }}>
+                              {learningMode === 'zh' ? line.zh : line.en}
+                            </div>
+                          </div>
+                          <button
+                            className={`speaker-btn mini-btn ${activeKey === `bank_${dIdx}_${lIdx}` ? 'playing' : ''}`}
+                            onClick={() => handleSpeakText(line.viet, `bank_${dIdx}_${lIdx}`)}
+                            title="朗讀對話句"
+                          >
+                            <Volume2 size={14} />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

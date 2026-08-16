@@ -352,25 +352,6 @@ export const numbersAndCurrency = {
       examples: [
         { amount: '150.000đ', shortcut: '150k', viet: 'Một trăm năm mươi nghìn đồng', zh: '15 萬盾 (市區計程車, 約 NT$192)', en: '150k VND (City center Grab ride, ~$6 USD)' },
         { amount: '350.000đ', shortcut: '350k', viet: 'Ba trăm năm mươi nghìn đồng', zh: '35 萬盾 (海鮮餐廳單人套餐, 約 NT$448)', en: '350k VND (Seafood restaurant dinner)' },
-        { amount: '800.000đ', shortcut: '800k', viet: 'Tám trăm nghìn đồng', zh: '80 萬盾 (家庭超市一週採購, 約 NT$1,025)', en: '800k VND (Weekly supermarket shopping)' }
-      ]
-    },
-    {
-      rangeZh: '1,000,000 - 999,000,000 VND (機票、租屋、手機家電、工廠採購)',
-      rangeEn: '1,000,000 - 999,000,000 VND (Rent, Flights, Electronics, Procurement)',
-      examples: [
-        { amount: '5.500.000đ', shortcut: '5.5 củ', viet: 'Năm triệu năm trăm nghìn đồng', zh: '550 萬盾 (台越來回機票/手機, 約 NT$7,050)', en: '5.5 Million VND (Roundtrip flight / Smartphone)' },
-        { amount: '12.000.000đ', shortcut: '12 củ', viet: 'Mười hai triệu đồng', zh: '1,200 萬盾 (胡志明一郡單人套房月租, 約 NT$15,380)', en: '12 Million VND (Monthly apartment rent)' },
-        { amount: '350.000.000đ', shortcut: '350 triệu', viet: 'Ba trăm năm mươi triệu đồng', zh: '3.5 億盾 (汽車/小型工廠設備, 約 NT$448,000)', en: '350 Million VND (Automobile / Machinery)' }
-      ]
-    },
-    {
-      rangeZh: '1,000,000,000 - 10,000,000,000 VND (銀行定存、不動產、外資設立)',
-      rangeEn: '1,000,000,000 - 10,000,000,000 VND (Real Estate, Corporate Capital, FDI)',
-      examples: [
-        { amount: '1.200.000.000đ', shortcut: '1.2 tỷ', viet: 'Một tỷ hai trăm triệu đồng', zh: '12 億盾 (公寓套房投資, 約 NT$153.8 萬)', en: '1.2 Billion VND (Condo studio investment)' },
-        { amount: '5.000.000.000đ', shortcut: '5 tỷ', viet: 'Năm tỷ đồng', zh: '50 億盾 (銀行企業商業貸款, 約 NT$641 萬)', en: '5 Billion VND (Commercial business credit line)' },
-        { amount: '10.000.000.000đ', shortcut: '10 tỷ', viet: 'Mười tỷ đồng', zh: '100 億盾 (外商投資登記資本額, 約 NT$1,282 萬)', en: '10 Billion VND (FDI Registered capital)' }
       ]
     }
   ],
@@ -405,6 +386,31 @@ export const numbersAndCurrency = {
         { speaker: 'Giao dịch viên', viet: 'Dạ, tôi sẽ làm sổ tiết kiệm ngay cho anh.', zh: '好的，我馬上為您辦理定存存摺。', en: 'Certainly, I will issue your passbook right away.' }
       ]
     }
+  ],
+  priceTiers: [
+    { range: '1.000 - 9.000đ', viet: 'Một nghìn đến chín nghìn đồng', twd: 'NT$ 1.3 ~ 12', examplesZh: '超商小零嘴、路邊停車費、茶水 (Trà đá)', examplesEn: 'Snacks, street parking, iced tea (Trà đá)' },
+    { range: '10.000 - 49.000đ', viet: 'Mười nghìn đến bốn mươi chín nghìn đồng', twd: 'NT$ 13 ~ 63', examplesZh: '越式冰咖啡、法包三明治 (Bánh mì)、生椰水', examplesEn: 'Iced coffee, Bánh mì, fresh coconut' },
+    { range: '50.000 - 99.000đ', viet: 'Năm mươi nghìn đến chín mươi chín nghìn đồng', twd: 'NT$ 64 ~ 127', examplesZh: '道地生牛肉河粉 (Phở bò)、連鎖店特調咖啡', examplesEn: 'Beef Pho bowl, specialty coffee' },
+    { range: '100.000 - 499.000đ', viet: 'Một trăm nghìn đến bốn trăm chín mươi chín nghìn đồng', twd: 'NT$ 128 ~ 640', examplesZh: '市區計程車/Grab、海鮮熱炒單人餐、全身指壓按摩', examplesEn: 'Grab rides, seafood dinner, 60min massage' },
+    { range: '500.000 - 1.999.000đ', viet: 'Năm trăm nghìn đến một triệu chín trăm chín mươi chín nghìn đồng', twd: 'NT$ 641 ~ 2,560', examplesZh: '家庭超市一週採買、星級渡假飯店單日住宿', examplesEn: 'Weekly grocery shopping, 4-star hotel night' },
+    { range: '2.000.000 - 9.999.000đ', viet: 'Hai triệu đến chín triệu chín trăm chín mươi chín nghìn đồng', twd: 'NT$ 2,564 ~ 12,800', examplesZh: '台越往返國際機票、智慧型手機、西貢市區合租套房', examplesEn: 'Roundtrip flights, smartphone, room rental' },
+    { range: '10.000.000 - 99.000.000đ', viet: 'Mười triệu đến chín mươi chín triệu đồng', twd: 'NT$ 12,820 ~ 126,900', examplesZh: '市中心高檔公寓月租、本田機車買賣 (Honda Vision)', examplesEn: 'Luxury apartment rent, Honda scooter purchase' },
+    { range: '100.000.000 - 999.000.000đ', viet: 'Một trăm triệu đến chín trăm chín mươi chín triệu đồng', twd: 'NT$ 128,200 ~ 128.2 萬', examplesZh: '小型商業投資開店、汽車頭期款、工廠設備採購', examplesEn: 'Shop startup capital, car down payment, machinery' },
+    { range: '1.000.000.000đ+', viet: 'Một tỷ đồng trở lên', twd: 'NT$ 128.2 萬以上', examplesZh: '胡志明/河內置產買房、銀行定存大額儲蓄、外商投資', examplesEn: 'Real estate purchase, bank term deposits, FDI capital' }
+  ],
+  shoppingPhrases: [
+    { viet: 'Cái này bao nhiêu tiền?', zh: '這個多少錢？', en: 'How much is this?', tag: '問價必備' },
+    { viet: 'Có giảm giá không?', zh: '可以打折嗎？能算便宜一點嗎？', en: 'Can you give a discount?', tag: '市場殺價' },
+    { viet: 'Đắt quá, bớt chút đi!', zh: '太貴了，算便宜一點嘛！', en: 'Too expensive, give a little discount!', tag: '殺價金句' },
+    { viet: 'Tôi lấy cái này.', zh: '我要買這個。', en: 'I will take this one.', tag: '決定購買' },
+    { viet: 'Có thanh toán bằng thẻ không?', zh: '可以刷信用卡嗎？', en: 'Can I pay by credit card?', tag: '支付方式' },
+    { viet: 'Có chuyển khoản ngân hàng được không?', zh: '可以轉帳付款嗎？(掃QR Code)', en: 'Can I pay via bank transfer / QR code?', tag: '行動支付' },
+    { viet: 'Cho tôi xin hóa đơn đỏ.', zh: '請給我統一發票 (紅發票)。', en: 'Please give me a VAT red invoice.', tag: '商務報帳' },
+    { viet: 'Tôi muốn đổi tiền USD sang VND.', zh: '我想將美金兌換成越南盾。', en: 'I want to exchange USD to VND.', tag: '銀行換匯' },
+    { viet: 'Tỷ giá hôm nay là bao nhiêu?', zh: '今天的兌換匯率是多少？', en: 'What is today\'s exchange rate?', tag: '匯率諮詢' },
+    { viet: 'Cho tôi mở một tài khoản ngân hàng cá nhân.', zh: '我想開立一個個人銀行帳戶。', en: 'I would like to open a personal bank account.', tag: '銀行開戶' },
+    { viet: 'Tôi muốn gửi tiết kiệm kỳ hạn một năm.', zh: '我想辦理一年期定期存款。', en: 'I want to make a one-year fixed deposit.', tag: '定存理財' },
+    { viet: 'Tôi muốn chuyển khoản cho công ty đối tác.', zh: '我想轉帳給商業合作夥伴公司。', en: 'I want to transfer money to a partner company.', tag: '商務匯款' }
   ],
   specialRules: [
     { ruleZh: '11-19 尾數 5', ruleEn: 'Numbers 11-19 ending with 5', textZh: '5 讀作 "Lăm" 而不是 "Năm"（例如：15 = Mười lăm）', textEn: '5 becomes "Lăm" instead of "Năm" (e.g. 15 = Mười lăm)' },

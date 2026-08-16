@@ -154,12 +154,19 @@ class AudioEngine {
 
     // 1. Priority 0: Check Pre-Bundled Audio Bank
     const rawClean = rawText.trim();
+    const northVariant = cleanedText.replace(/\bngàn\b/gi, 'nghìn');
+    const southVariant = cleanedText.replace(/\bnghìn\b/gi, 'ngàn');
+
     const manifestFile = this.manifest[cleanedText] || 
                          this.manifest[rawClean] || 
+                         this.manifest[northVariant] || 
+                         this.manifest[southVariant] || 
                          this.normalizedManifest.get(cleanedText) ||
                          this.normalizedManifest.get(cleanedText.toLowerCase()) ||
                          this.normalizedManifest.get(rawClean) ||
-                         this.normalizedManifest.get(rawClean.toLowerCase());
+                         this.normalizedManifest.get(rawClean.toLowerCase()) ||
+                         this.normalizedManifest.get(northVariant) ||
+                         this.normalizedManifest.get(southVariant);
 
     if (manifestFile) {
       const baseUrl = import.meta.env.BASE_URL || '/';
@@ -171,7 +178,7 @@ class AudioEngine {
       return;
     }
 
-    // 2. Fallback: Online Stream or Local Speech
+    // 2. Fallback: Web Speech API or Online Stream
     this.fallbackSpeech(cleanedText, rate, options);
   }
 
@@ -236,23 +243,62 @@ class AudioEngine {
   }
 
   /**
-   * Fallback to online stream or Web Speech if native voice is present
+   * Fallback to Web Speech API first, then online audio stream
    */
   fallbackSpeech(cleanedText, rate, options) {
-    this.playOnlineStream(cleanedText, rate, options)
-      .catch((err) => {
-        // Only use Web Speech if a true Vietnamese voice is verified
-        if (this.hasNativeVietVoice) {
-          this.playWebSpeech(cleanedText, rate, options);
-        } else {
-          console.warn('Online stream failed and no native Vietnamese OS voice pack installed.');
-          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
-        }
+    this.playWebSpeech(cleanedText, rate, options)
+      .catch(() => {
+        this.playOnlineStream(cleanedText, rate, options)
+          .catch((err) => {
+            console.warn('Audio fallback stream failed:', err);
+            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+          });
       });
   }
 
   /**
-   * Tier 1: High-fidelity online audio stream
+   * Tier 1: Web Speech API (synthesizes vi-VN natively in modern browsers)
+   */
+  playWebSpeech(text, rate = 1.0, options = {}) {
+    return new Promise((resolve, reject) => {
+      if (!this.synth) {
+        return reject(new Error('Speech synthesis not supported'));
+      }
+
+      try {
+        this.synth.cancel();
+
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'vi-VN';
+        utterance.rate = Math.min(Math.max(rate, 0.7), 1.3);
+        utterance.pitch = options.accent === 'south' ? 1.05 : 1.0;
+
+        const vietVoice = this.getVietnameseVoice();
+        if (vietVoice) {
+          utterance.voice = vietVoice;
+        }
+
+        utterance.onend = () => {
+          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+          if (options.onEnd) options.onEnd();
+          resolve();
+        };
+
+        utterance.onerror = (e) => {
+          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+          reject(e);
+        };
+
+        this.synth.speak(utterance);
+      } catch (err) {
+        this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+        reject(err);
+      }
+    });
+  }
+
+  /**
+   * Tier 2: Online audio stream fallback
    */
   playOnlineStream(text, rate = 1.0, options = {}) {
     return new Promise((resolve, reject) => {
@@ -312,45 +358,6 @@ class AudioEngine {
         reject(err);
       }
     });
-  }
-
-  /**
-   * Tier 2: Web Speech API fallback (only if native voice exists)
-   */
-  playWebSpeech(text, rate = 1.0, options = {}) {
-    if (!this.synth) {
-      this.notifyState({ isPlaying: false, activeText: null, activeKey: null, error: 'Audio not supported' });
-      return;
-    }
-
-    try {
-      this.synth.cancel();
-
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'vi-VN';
-      utterance.rate = Math.min(Math.max(rate, 0.7), 1.3);
-      utterance.pitch = options.accent === 'south' ? 1.05 : 1.0;
-
-      const vietVoice = this.getVietnameseVoice();
-      if (vietVoice) {
-        utterance.voice = vietVoice;
-      }
-
-      utterance.onend = () => {
-        this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
-        if (options.onEnd) options.onEnd();
-      };
-
-      utterance.onerror = (e) => {
-        console.warn('Web Speech API Error:', e);
-        this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
-      };
-
-      this.synth.speak(utterance);
-    } catch (err) {
-      console.warn('Speech synthesis failed:', err);
-      this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
-    }
   }
 
   /**
