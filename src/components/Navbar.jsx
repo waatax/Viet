@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {
   Sun, Moon, Type, Flame, Trophy, Globe, Volume2, Menu, X,
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
-  Layers3, BookOpenText, LibraryBig, UsersRound, BadgeCheck
+  Layers3, BookOpenText, UsersRound, BadgeCheck
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -24,7 +24,6 @@ export const Navbar = ({
 
   const navItems = [
     { id: 'path', label: t('tabs.path'), icon: Map },
-    { id: 'literature', label: t('tabs.literature'), icon: LibraryBig },
     { id: 'alphabet', label: t('tabs.alphabet'), icon: Languages },
     { id: 'accent', label: t('tabs.accent'), icon: AudioLines },
     { id: 'shopping', label: t('tabs.shopping'), icon: ShoppingBag },

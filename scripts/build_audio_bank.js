@@ -16,7 +16,6 @@ import {
   quizzes 
 } from '../src/data/vietnameseData.js';
 import { situationalScenarios } from '../src/data/situationalScenarios.js';
-import { classicalLiteratureData } from '../src/data/classicalLiteratureData.js';
 
 const audioDir = path.resolve('public/audio');
 if (!fs.existsSync(audioDir)) {
@@ -223,17 +222,6 @@ if (quizzes) {
   });
 }
 
-// 12. Classical Literature (245 Works across 49 Rounds)
-if (classicalLiteratureData) {
-  classicalLiteratureData.forEach(w => {
-    if (w.titleVi) addPhrase(w.titleVi);
-    if (w.famousQuotes) {
-      w.famousQuotes.forEach(q => {
-        if (q.viet) addPhrase(q.viet);
-      });
-    }
-  });
-}
 
 console.log(`Total unique phrases to prepare for full audio bank: ${audioSet.size}`);
 

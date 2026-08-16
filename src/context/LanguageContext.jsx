@@ -34,8 +34,7 @@ export const translations = {
       grammar: '7. 語法與拼句練習',
       hanviet: '8. 漢越音百字根庫',
       pronoun: '9. 人稱稱謂推算器',
-      quiz: '10. iVPT檢定測驗',
-      literature: '🏛️ 49輪古文白話經典庫'
+      quiz: '10. iVPT檢定測驗'
     },
     common: {
       listen: '播放發音',
@@ -98,8 +97,7 @@ export const translations = {
       grammar: '7. Grammar & Sentence Builder',
       hanviet: '8. Sino-Vietnamese Roots',
       pronoun: '9. Kinship & Pronoun Tool',
-      quiz: '10. iVPT / CEFR Mock Exams',
-      literature: '🏛️ 49-Round Classical Matrix'
+      quiz: '10. iVPT / CEFR Mock Exams'
     },
     common: {
       listen: 'Play Audio',
