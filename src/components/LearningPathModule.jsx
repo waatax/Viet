@@ -11,8 +11,12 @@ export const LearningPathModule = ({ setActiveTab }) => {
 
   // Which stages the learner has marked complete (persisted locally)
   const [completed, setCompleted] = useState(() => {
-    const saved = localStorage.getItem('viet_path_progress');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('viet_path_progress');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
 
   useEffect(() => {

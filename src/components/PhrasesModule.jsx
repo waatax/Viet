@@ -11,8 +11,12 @@ export const PhrasesModule = ({ selectedAccent }) => {
   const [onlyBookmarked, setOnlyBookmarked] = useState(false);
   const [visibleCount, setVisibleCount] = useState(48);
   const [savedPhrases, setSavedPhrases] = useState(() => {
-    const saved = localStorage.getItem('viet_saved_phrases');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('viet_saved_phrases');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
   const [activeKey, setActiveKey] = useState(null);
 

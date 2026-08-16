@@ -50,8 +50,12 @@ export function App() {
 
   // User Gamification Stats
   const [userStats, setUserStats] = useState(() => {
-    const saved = localStorage.getItem('viet_user_stats');
-    return saved ? JSON.parse(saved) : { streak: 1, xp: 80, masteredWords: [] };
+    try {
+      const saved = localStorage.getItem('viet_user_stats');
+      return saved ? JSON.parse(saved) : { streak: 1, xp: 80, masteredWords: [] };
+    } catch {
+      return { streak: 1, xp: 80, masteredWords: [] };
+    }
   });
 
   // Effect: Sync Theme attribute to html tag

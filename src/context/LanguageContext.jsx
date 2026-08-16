@@ -171,11 +171,49 @@ export const LanguageProvider = ({ children }) => {
     return current;
   };
 
+  const loc = (obj, field) => {
+    if (!obj) return '';
+    if (typeof obj === 'string') return obj;
+    if (typeof field !== 'string') return '';
+    
+    if (learningMode === 'en') {
+      if (field.endsWith('Zh')) {
+        const enField = field.slice(0, -2) + 'En';
+        if (obj[enField] !== undefined && obj[enField] !== null && obj[enField] !== '') {
+          return obj[enField];
+        }
+      }
+      const enKey = `${field}En`;
+      if (obj[enKey] !== undefined && obj[enKey] !== null && obj[enKey] !== '') {
+        return obj[enKey];
+      }
+    }
+
+    if (field.endsWith('En')) {
+      const zhField = field.slice(0, -2) + 'Zh';
+      if (obj[zhField] !== undefined && obj[zhField] !== null && obj[zhField] !== '') {
+        return obj[zhField];
+      }
+    }
+
+    const zhKey = `${field}Zh`;
+    if (obj[zhKey] !== undefined && obj[zhKey] !== null && obj[zhKey] !== '') {
+      return obj[zhKey];
+    }
+
+    if (obj[field] !== undefined && obj[field] !== null && obj[field] !== '') {
+      return obj[field];
+    }
+
+    return '';
+  };
+
   return (
-    <LanguageContext.Provider value={{ learningMode, setLearningMode, toggleLearningMode, t }}>
+    <LanguageContext.Provider value={{ learningMode, setLearningMode, toggleLearningMode, t, loc }}>
       {children}
     </LanguageContext.Provider>
   );
 };
 
 export const useLanguage = () => useContext(LanguageContext);
+

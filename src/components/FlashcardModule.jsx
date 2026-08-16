@@ -9,8 +9,12 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
   const [masteredCards, setMasteredCards] = useState(() => {
-    const saved = localStorage.getItem('viet_mastered_cards');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('viet_mastered_cards');
+      return saved ? JSON.parse(saved) : [];
+    } catch {
+      return [];
+    }
   });
   const [reviewDeck, setReviewDeck] = useState(flashcardsDeck);
   const [activeKey, setActiveKey] = useState(null);
