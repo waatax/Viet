@@ -3,19 +3,19 @@ import { Brain, Volume2, RotateCw, CheckCircle2, XCircle, ArrowRight, RefreshCw,
 import { flashcardsDeck } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { srsEngine } from '../services/srsEngine';
 
 export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   const { learningMode, loc, t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [masteredCards, setMasteredCards] = useState(() => {
-    try {
-      const saved = localStorage.getItem('viet_mastered_cards');
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
-  });
+  const [srsData, setSrsData] = useState({});
+  const [audioFirstMode, setAudioFirstMode] = useState(false);
+
+  useEffect(() => {
+    setSrsData(srsEngine.loadSrsData());
+  }, []);
+
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [activeKey, setActiveKey] = useState(null);
 
@@ -35,16 +35,27 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
     return card.category === selectedCategory || (selectedCategory === '購物殺價' && (card.category.includes('購物') || card.category.includes('殺價')));
   });
 
-  const reviewDeck = filteredDeck.length > 0 ? filteredDeck : flashcardsDeck;
+  const reviewDeck = React.useMemo(() => {
+    const baseDeck = filteredDeck.length > 0 ? filteredDeck : flashcardsDeck;
+    const now = Date.now();
+    const due = [];
+    const newCards = [];
+    baseDeck.forEach(card => {
+      const data = srsData[card.id];
+      if (!data || !data.dueDate) {
+        newCards.push(card);
+      } else if (data.dueDate <= now) {
+        due.push(card);
+      }
+    });
+    const deck = [...due, ...newCards.slice(0, 10)];
+    return deck.length > 0 ? deck : baseDeck.slice(0, 10);
+  }, [filteredDeck, srsData]);
 
   useEffect(() => {
     setCurrentIndex(0);
     setIsFlipped(false);
   }, [selectedCategory]);
-
-  useEffect(() => {
-    localStorage.setItem('viet_mastered_cards', JSON.stringify(masteredCards));
-  }, [masteredCards]);
 
   useEffect(() => {
     const unsubscribe = audioEngine.subscribe((state) => {
@@ -63,9 +74,9 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
         e.preventDefault();
         handleCardClick();
       } else if (e.code === 'ArrowRight' || e.code === 'KeyD') {
-        handleAnswer(true);
+        handleAnswer(4);
       } else if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
-        handleAnswer(false);
+        handleAnswer(0);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -80,13 +91,15 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
     }
   };
 
-  const handleAnswer = (knowsIt) => {
+  const handleAnswer = (quality) => {
     setIsFlipped(false);
-    if (knowsIt && currentCard) {
-      if (updateUserStats) updateUserStats(10);
-      if (!masteredCards.includes(currentCard.id)) {
-        setMasteredCards(prev => [...prev, currentCard.id]);
-      }
+    if (currentCard) {
+      if (updateUserStats && quality > 0) updateUserStats(quality > 0 ? 10 : 2);
+      const updated = srsEngine.reviewCard(currentCard.id, quality);
+      setSrsData(prev => ({
+        ...prev,
+        [currentCard.id]: updated
+      }));
     }
 
     setTimeout(() => {
@@ -120,7 +133,7 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
       </div>
 
       {/* Category Filter Chips */}
-      <div style={{ maxWidth: '650px', margin: '0 auto 1.2rem', display: 'flex', gap: '0.45rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+      <div style={{ maxWidth: '650px', margin: '0 auto 0.8rem', display: 'flex', gap: '0.45rem', flexWrap: 'wrap', justifyContent: 'center' }}>
         {categories.map(cat => (
           <button
             key={cat.id}
@@ -137,6 +150,18 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
         ))}
       </div>
 
+      <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+        <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontSize: '0.95em', fontWeight: 600, color: 'var(--text-primary)' }}>
+          <input 
+            type="checkbox" 
+            checked={audioFirstMode} 
+            onChange={(e) => setAudioFirstMode(e.target.checked)} 
+            style={{ cursor: 'pointer' }}
+          />
+          {learningMode === 'zh' ? 'Audio First (聽音盲測)' : 'Audio First Mode'}
+        </label>
+      </div>
+
       {/* Progress & Deck Stats */}
       <div style={{ maxWidth: '520px', margin: '0 auto 1.2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.95em', background: 'var(--bg-card)', padding: '0.75rem 1.2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700 }}>
@@ -146,7 +171,7 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--brand-green)', fontWeight: 800 }}>
           <Award size={16} />
           <span>{learningMode === 'zh' ? '已掌握：' : 'Mastered: '}</span>
-          <span>{masteredCards.length} {learningMode === 'zh' ? '字' : 'words'}</span>
+          <span>{Object.values(srsData).filter(d => d.interval >= 14).length} {learningMode === 'zh' ? '字' : 'words'}</span>
         </div>
       </div>
 
@@ -171,8 +196,20 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
               {currentCard.category}
             </span>
             <div style={{ fontSize: '2.6em', fontWeight: 900, color: 'var(--brand-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', lineHeight: 1.2 }}>
-              <span>{currentCard.viet}</span>
-              <Volume2 size={26} className={isCardPlaying ? 'playing-pulse' : ''} style={{ color: isCardPlaying ? 'var(--brand-primary)' : 'var(--brand-accent)' }} />
+              {audioFirstMode && !isFlipped ? (
+                <span style={{ filter: 'blur(10px)', opacity: 0.6, userSelect: 'none' }}>{currentCard.viet}</span>
+              ) : (
+                <span>{currentCard.viet}</span>
+              )}
+              <Volume2 
+                size={26} 
+                className={isCardPlaying ? 'playing-pulse' : ''} 
+                style={{ color: isCardPlaying ? 'var(--brand-primary)' : 'var(--brand-accent)', cursor: 'pointer' }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  audioEngine.speak(currentCard.viet, { accent: selectedAccent, key: `fc_${currentCard.id}` });
+                }}
+              />
             </div>
             {currentCard.hanViet && (
               <div style={{ fontSize: '1.05em', color: 'var(--brand-gold)', marginTop: '0.75rem', fontWeight: 800 }}>
@@ -189,6 +226,11 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
             <span className="tone-symbol" style={{ marginBottom: '0.8rem', background: 'var(--bg-card)' }}>
               {learningMode === 'zh' ? '釋義與例句' : 'Meaning & Context'}
             </span>
+            {audioFirstMode && (
+              <div style={{ fontSize: '1.6em', fontWeight: 800, color: 'var(--brand-accent)', marginBottom: '0.5rem' }}>
+                {currentCard.viet}
+              </div>
+            )}
             <div style={{ fontSize: '2.1em', fontWeight: 900, color: 'var(--brand-primary)', marginBottom: '0.6rem' }}>
               {learningMode === 'zh' ? currentCard.zh : currentCard.en}
             </div>
@@ -212,31 +254,39 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
       </div>
 
       {/* Action Buttons: Remembered vs Need Review */}
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginTop: '1rem' }}>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1rem' }}>
         <button 
           className="control-btn"
-          style={{ background: '#ef4444', color: '#fff', padding: '0.8rem 1.5rem', fontWeight: 800 }}
-          onClick={() => handleAnswer(false)}
+          style={{ background: '#ef4444', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.95em', fontWeight: 700 }}
+          onClick={() => handleAnswer(0)}
           title="鍵盤快捷鍵: ← 左方向鍵"
         >
-          <XCircle size={18} /> {learningMode === 'zh' ? '需再複習 (←)' : 'Review (←)'}
+          {learningMode === 'zh' ? '生疏 (Again) - 1d' : 'Again - 1d'}
         </button>
 
         <button 
           className="control-btn"
-          style={{ background: 'var(--brand-green)', color: '#fff', padding: '0.8rem 1.5rem', fontWeight: 800 }}
-          onClick={() => handleAnswer(true)}
+          style={{ background: '#f59e0b', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.95em', fontWeight: 700 }}
+          onClick={() => handleAnswer(3)}
+        >
+          {learningMode === 'zh' ? '困難 (Hard) - 3d' : 'Hard - 3d'}
+        </button>
+
+        <button 
+          className="control-btn"
+          style={{ background: '#3b82f6', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.95em', fontWeight: 700 }}
+          onClick={() => handleAnswer(4)}
           title="鍵盤快捷鍵: → 右方向鍵"
         >
-          <CheckCircle2 size={18} /> {learningMode === 'zh' ? '已熟記 (+10 XP) (→)' : 'Mastered (+10 XP) (→)'}
+          {learningMode === 'zh' ? '良好 (Good) - 6d' : 'Good - 6d'}
         </button>
 
         <button 
           className="control-btn"
-          onClick={handleRestart}
-          title="重新輪播卡片"
+          style={{ background: 'var(--brand-green)', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.95em', fontWeight: 700 }}
+          onClick={() => handleAnswer(5)}
         >
-          <RefreshCw size={17} /> {learningMode === 'zh' ? '重新開始' : 'Restart'}
+          {learningMode === 'zh' ? '容易 (Easy) - 14d+' : 'Easy - 14d+'}
         </button>
       </div>
     </div>

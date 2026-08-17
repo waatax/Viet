@@ -21,8 +21,29 @@ export const GrammarModule = ({ selectedAccent, updateUserStats }) => {
     return () => unsubscribe();
   }, []);
 
+  const playSnapSound = () => {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const ctx = new AudioContext();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(100, ctx.currentTime + 0.1);
+      gain.gain.setValueAtTime(0.5, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + 0.1);
+    } catch (e) {
+      console.error('Audio play failed', e);
+    }
+  };
+
   const handleAddWord = (word) => {
     if (!userWords.includes(word)) {
+      playSnapSound();
       const newWords = [...userWords, word];
       setUserWords(newWords);
 
@@ -126,7 +147,9 @@ export const GrammarModule = ({ selectedAccent, updateUserStats }) => {
         </div>
 
         {/* User Constructed Sentence Drop Zone */}
-        <div style={{ minHeight: '70px', padding: '1rem', background: 'var(--bg-card)', border: '2px dashed var(--border-color)', borderRadius: 'var(--radius-md)', display: 'flex', flexWrap: 'wrap', gap: '0.6rem', alignItems: 'center', marginBottom: '1.5rem' }}>
+        <div 
+          className={isCompleted ? (isCorrect ? 'glow-success' : 'shake-error') : ''}
+          style={{ minHeight: '70px', padding: '1rem', background: 'var(--bg-card)', border: '2px dashed var(--border-color)', borderRadius: 'var(--radius-md)', display: 'flex', flexWrap: 'wrap', gap: '0.6rem', alignItems: 'center', marginBottom: '1.5rem' }}>
           {userWords.length === 0 ? (
             <span style={{ color: 'var(--text-muted)', fontSize: '0.9em' }}>
               {learningMode === 'zh' ? '👇 點擊下方單字積木，依正確越語語序排列句子...' : '👇 Click word blocks below to construct the sentence in correct order...'}

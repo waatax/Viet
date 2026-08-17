@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Compass, CheckCircle, Circle, Target, BookOpen, ArrowRight, Flag, Sparkles,
-  AudioLines, MessagesSquare, ShoppingBag, GraduationCap, Play, Route
+  AudioLines, MessagesSquare, ShoppingBag, GraduationCap, Play, Route, Brain, Clock, Layers3
 } from 'lucide-react';
-import { learningPath } from '../data/vietnameseData';
+import { learningPath, flashcardsDeck } from '../data/vietnameseData';
+import { srsEngine } from '../services/srsEngine';
 import { useLanguage } from '../context/LanguageContext';
 
 export const LearningPathModule = ({ setActiveTab }) => {
@@ -18,6 +19,29 @@ export const LearningPathModule = ({ setActiveTab }) => {
       return [];
     }
   });
+
+  // SRS Data
+  const [srsStats, setSrsStats] = useState({ dueCount: 0, masteredCount: 0, totalTracked: 0 });
+
+  useEffect(() => {
+    const srsData = srsEngine.loadSrsData();
+    const now = Date.now();
+    let due = 0;
+    let mastered = 0;
+    const trackedKeys = Object.keys(srsData);
+    
+    trackedKeys.forEach(id => {
+      const item = srsData[id];
+      if (item.dueDate && item.dueDate <= now) due++;
+      if (item.interval && item.interval >= 14) mastered++;
+    });
+
+    setSrsStats({
+      dueCount: due,
+      masteredCount: mastered,
+      totalTracked: trackedKeys.length
+    });
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('viet_path_progress', JSON.stringify(completed));
@@ -71,6 +95,79 @@ export const LearningPathModule = ({ setActiveTab }) => {
             <small>{completed.length} / {learningPath.length} {learningMode === 'zh' ? '階段完成' : 'stages complete'}</small>
           </div>
         </div>
+      </section>
+
+      {/* SRS Spaced Repetition Retention Hub */}
+      <section className="srs-retention-hub" style={{
+        margin: '1.75rem 0',
+        padding: '1.25rem 1.5rem',
+        background: 'linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(16,185,129,0.08) 100%)',
+        border: '1.5px solid rgba(37,99,235,0.25)',
+        borderRadius: 'var(--radius-lg)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '1.25rem'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{
+            width: '48px',
+            height: '48px',
+            borderRadius: 'var(--radius-md)',
+            background: 'var(--brand-primary)',
+            color: '#fff',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <Brain size={26} />
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <strong style={{ fontSize: '1.15em', color: 'var(--text-primary)' }}>
+                {learningMode === 'zh' ? '🧠 今日大腦記憶保鮮狀態 (SM-2 SRS)' : '🧠 Daily Brain Retention Status (SM-2)'}
+              </strong>
+              {srsStats.dueCount > 0 ? (
+                <span style={{
+                  background: '#ef4444',
+                  color: '#fff',
+                  fontSize: '0.75em',
+                  fontWeight: 800,
+                  padding: '0.2rem 0.55rem',
+                  borderRadius: 'var(--radius-full)'
+                }}>
+                  {learningMode === 'zh' ? `${srsStats.dueCount} 張到期待複習` : `${srsStats.dueCount} Due for review`}
+                </span>
+              ) : (
+                <span style={{
+                  background: 'var(--brand-green)',
+                  color: '#fff',
+                  fontSize: '0.75em',
+                  fontWeight: 800,
+                  padding: '0.2rem 0.55rem',
+                  borderRadius: 'var(--radius-full)'
+                }}>
+                  {learningMode === 'zh' ? '✓ 記憶狀態絕佳' : '✓ Retention optimal'}
+                </span>
+              )}
+            </div>
+            <p style={{ margin: '0.3rem 0 0', fontSize: '0.88em', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh'
+                ? `已進入間隔重複排程：${srsStats.totalTracked} 個單字 · 深度長期記憶 (14d+)：${srsStats.masteredCount} 個`
+                : `Active in SRS schedule: ${srsStats.totalTracked} words · Long-term mastered (14d+): ${srsStats.masteredCount} words`}
+            </p>
+          </div>
+        </div>
+
+        <button
+          className="primary-action"
+          style={{ padding: '0.6rem 1.2rem', fontSize: '0.92rem' }}
+          onClick={() => setActiveTab('flashcards')}
+        >
+          <Layers3 size={17} />
+          {learningMode === 'zh' ? '開啟智能閃卡複習' : 'Start SRS Flashcards'}
+        </button>
       </section>
 
       <section className="quick-start-section" aria-labelledby="quick-start-title">

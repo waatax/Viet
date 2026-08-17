@@ -610,6 +610,7 @@ export const hanVietRoots = [
     root: 'Quốc',
     meaningZh: '國家、疆域',
     meaningEn: 'Country, Nation, State',
+    phonologyNoteZh: '中古入聲 -k 尾，對應越語 -c 尾 (Quốc)。',
     compounds: [
       { viet: 'Quốc gia', zh: '國家', en: 'Nation / Country' },
       { viet: 'Quốc tế', zh: '國際', en: 'International' },
@@ -624,6 +625,7 @@ export const hanVietRoots = [
     root: 'Học',
     meaningZh: '學習、學科',
     meaningEn: 'To study, Academic field',
+    phonologyNoteZh: '中古入聲 -k 尾，對應越語 -c 尾 (Học)。',
     compounds: [
       { viet: 'Học sinh', zh: '學生', en: 'Student (K-12)' },
       { viet: 'Đại học', zh: '大學', en: 'University' },
@@ -650,6 +652,7 @@ export const hanVietRoots = [
     root: 'Tế',
     meaningZh: '救濟、交際、國際',
     meaningEn: 'Aid, Social, Across',
+    phonologyNoteZh: '漢越音聲調對應：中古去聲字（陰/陽去），對應越語的銳聲/重聲。',
     compounds: [
       { viet: 'Kinh tế', zh: '經濟', en: 'Economy' },
       { viet: 'Quốc tế', zh: '國際', en: 'International' },
@@ -662,8 +665,9 @@ export const hanVietRoots = [
     root: 'Sinh',
     meaningZh: '生命、出生、生活',
     meaningEn: 'Life, Birth, Student',
+    phonologyNoteZh: '聲母 s- 對應中古漢語的生母。',
     compounds: [
-      { viet: 'Sinh viên', zh: '大學生', en: 'University student' },
+      { viet: 'Sinh viên', zh: '大學生', en: 'University student', falseFriend: { literalZh: "生員", warningZh: "越南語中專指『大學生』，而非古代的秀才。" } },
       { viet: 'Sinh nhật', zh: '生日', en: 'Birthday' },
       { viet: 'Cuộc sống', zh: '生活', en: 'Life' },
       { viet: 'Vệ sinh', zh: '衛生', en: 'Hygiene / Restroom' },
@@ -723,6 +727,7 @@ export const hanVietRoots = [
     root: 'Tâm',
     meaningZh: '心靈、中心',
     meaningEn: 'Heart, Mind, Center',
+    phonologyNoteZh: '中古心母，越語讀為 t-。',
     compounds: [
       { viet: 'Trung tâm', zh: '中心', en: 'Center' },
       { viet: 'Quan tâm', zh: '關心', en: 'To care / Pay attention' },
@@ -735,6 +740,7 @@ export const hanVietRoots = [
     root: 'Đại',
     meaningZh: '巨大、宏大、高等',
     meaningEn: 'Big, Great, High',
+    phonologyNoteZh: '中古定母濁音，越語轉為 đ-，並對應重聲 (Thanh Nặng)。',
     compounds: [
       { viet: 'Đại học', zh: '大學', en: 'University' },
       { viet: 'Đại biểu', zh: '代表', en: 'Representative / Delegate' },
@@ -876,6 +882,7 @@ export const hanVietRoots = [
     root: 'Việt',
     meaningZh: '越南、超越、優越',
     meaningEn: 'Vietnam, Excel, Exceed',
+    phonologyNoteZh: '中古入聲 -t 尾，越語完美保留 -t (Việt)。',
     compounds: [
       { viet: 'Việt Nam', zh: '越南', en: 'Vietnam' },
       { viet: 'Tiếng Việt', zh: '越南語', en: 'Vietnamese Language' },
@@ -888,6 +895,7 @@ export const hanVietRoots = [
     root: 'Nhật',
     meaningZh: '太陽、日子、日本',
     meaningEn: 'Sun, Day, Japan',
+    phonologyNoteZh: '中古入聲 -t 尾，越語保留為 -t (Nhật)。',
     compounds: [
       { viet: 'Nhật Bản', zh: '日本', en: 'Japan' },
       { viet: 'Sinh nhật', zh: '生日', en: 'Birthday' },
@@ -900,6 +908,7 @@ export const hanVietRoots = [
     root: 'Đài',
     meaningZh: '台灣、講台、廣播台',
     meaningEn: 'Taiwan, Platform, Station',
+    phonologyNoteZh: '中古濁音，對應越語玄聲 (Thanh Huyền) 且聲母為 đ-。',
     compounds: [
       { viet: 'Đài Loan', zh: '台灣', en: 'Taiwan' },
       { viet: 'Đài truyền hình', zh: '電視台', en: 'TV Station' },
@@ -1066,6 +1075,7 @@ export const hanVietRoots = [
     root: 'Thực',
     meaningZh: '食物、飲食、實際',
     meaningEn: 'Eat, Food, Reality',
+    phonologyNoteZh: '中古入聲 -k 尾，對應越語 -c 尾 (Thực)。',
     compounds: [
       { viet: 'Thực phẩm', zh: '食品', en: 'Food products' },
       { viet: 'Ẩm thực', zh: '飲食文化 / 美食', en: 'Cuisine' },
@@ -1199,6 +1209,50 @@ export const hanVietRoots = [
       { viet: 'Lý do', zh: '理由 / 原因', en: 'Reason' },
       { viet: 'Tâm lý', zh: '心理', en: 'Psychology' },
       { viet: 'Lý tưởng', zh: '理想', en: 'Ideal' }
+    ]
+  },
+  {
+    han: '士 (Shì)',
+    root: 'Sĩ',
+    meaningZh: '人士、學士',
+    meaningEn: 'Scholar',
+    compounds: [
+      { viet: 'Bác sĩ', zh: '醫生', en: 'Doctor', falseFriend: { literalZh: '博士', warningZh: '越南語的 Bác sĩ 是指『醫生』，而非學位上的博士（博士為 Tiến sĩ）。' } },
+      { viet: 'Tiến sĩ', zh: '博士', en: 'Ph.D.' },
+      { viet: 'Ca sĩ', zh: '歌手', en: 'Singer' }
+    ]
+  },
+  {
+    han: '歷 (Lì)',
+    root: 'Lịch',
+    meaningZh: '經歷、歷史',
+    meaningEn: 'History, Experience',
+    compounds: [
+      { viet: 'Lịch sử', zh: '歷史', en: 'History' },
+      { viet: 'Lịch sự', zh: '禮貌', en: 'Polite', falseFriend: { literalZh: '歷事', warningZh: '越南語的 Lịch sự 意為『禮貌、文雅』，與中文的歷史事件無關。' } },
+      { viet: 'Du lịch', zh: '旅遊', en: 'Travel' }
+    ]
+  },
+  {
+    han: '客 (Kè)',
+    root: 'Khách',
+    meaningZh: '客人',
+    meaningEn: 'Guest',
+    compounds: [
+      { viet: 'Khách hàng', zh: '客戶', en: 'Customer' },
+      { viet: 'Khách sạn', zh: '飯店/旅館', en: 'Hotel', falseFriend: { literalZh: '客棧', warningZh: '越南語的 Khách sạn 是現代的『飯店、旅館』，並不是古代的客棧。' } },
+      { viet: 'Du khách', zh: '遊客', en: 'Tourist' }
+    ]
+  },
+  {
+    han: '方 (Fāng)',
+    root: 'Phương',
+    meaningZh: '方向、方法',
+    meaningEn: 'Direction, Method',
+    compounds: [
+      { viet: 'Phương pháp', zh: '方法', en: 'Method' },
+      { viet: 'Địa phương', zh: '地方', en: 'Local' },
+      { viet: 'Phương tiện', zh: '交通工具/手段', en: 'Means / Vehicle', falseFriend: { literalZh: '方便', warningZh: '越南語的 Phương tiện 指的是『交通工具』或『手段』，並非『方便』之意。' } }
     ]
   }
 ];

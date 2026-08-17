@@ -1,8 +1,37 @@
 /* ==========================================================================
-   Design System - 越語學習通 (Chào Việt Nam! / VietMaster Pro)
+   Design System - 越�?學�???(Ch?o Việt Nam! / VietMaster Pro)
    Aesthetics: Japanese Wabi-Sabi Minimalism + Modern Ergonomic Visual Polish
    Dimensions: Responsive Layout, Audio Waveform Synth, Real VND Polymer Colors
    ========================================================================== */
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-30px); opacity: 0; }
+}
+
+.glow-success {
+    animation: glowSuccess 1s ease-out;
+    border-color: var(--brand-green) !important;
+    box-shadow: 0 0 15px rgba(5, 150, 105, 0.4) !important;
+}
+
+@keyframes glowSuccess {
+    0% { box-shadow: 0 0 0 rgba(5, 150, 105, 0); }
+    50% { box-shadow: 0 0 20px rgba(5, 150, 105, 0.6); }
+    100% { box-shadow: 0 0 15px rgba(5, 150, 105, 0.4); }
+}
+
+.shake-error {
+    animation: shakeError 0.4s cubic-bezier(.36,.07,.19,.97) both;
+    border-color: var(--brand-primary) !important;
+}
+
+@keyframes shakeError {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+}
 
 :root {
   /* Dynamic font scaling */
@@ -30,7 +59,7 @@
 }
 
 /* ==========================================================================
-   Theme 1: Light Mode (和紙 Washi & 月白 Tsukishiro)
+   Theme 1: Light Mode (?��? Washi & ?�白 Tsukishiro)
    ========================================================================== */
 [data-theme="light"] {
   --bg-main: #f8fafc;
@@ -55,12 +84,12 @@
   /* Japanese Wairo + Vietnam Flag Accents */
   --brand-primary: #da251c;   /* 緋色 (Hiiro) / Vietnam Red */
   --brand-primary-rgb: 218, 37, 28;
-  --brand-gold: #d97706;      /* 琥珀 (Kohaku) / Warm Gold */
+  --brand-gold: #d97706;      /* ?��? (Kohaku) / Warm Gold */
   --brand-gold-rgb: 217, 119, 6;
-  --brand-accent: #2563eb;    /* 浅葱 / 藍 (Asagi/Ai) / Modern Royal Blue */
+  --brand-accent: #2563eb;    /* 浅葱 / ??(Asagi/Ai) / Modern Royal Blue */
   --brand-accent-rgb: 37, 99, 235;
-  --brand-green: #059669;     /* 松葉 (Matsuba) / Jade Emerald */
-  --brand-purple: #7c3aed;    /* 藤紫 (Fujimurasaki) */
+  --brand-green: #059669;     /* ?��? (Matsuba) / Jade Emerald */
+  --brand-purple: #7c3aed;    /* ?�紫 (Fujimurasaki) */
   --brand-teal: #0891b2;
 
   /* Shadows - Organic Soft Washi Paper Elevation */
@@ -76,7 +105,7 @@
 }
 
 /* ==========================================================================
-   Theme 2: Dark Mode (漆黒 Shikkoku & 墨 Sumi)
+   Theme 2: Dark Mode (漆�? Shikkoku & �?Sumi)
    ========================================================================== */
 [data-theme="dark"] {
   --bg-main: #0a0e17;
@@ -417,6 +446,125 @@ body {
   background: linear-gradient(135deg, var(--brand-accent) 0%, #1d4ed8 100%);
   box-shadow: 0 4px 14px rgba(var(--brand-accent-rgb), 0.35);
   font-weight: 700;
+}
+
+/* ---------- Grouped Navigation Dropdowns ---------- */
+.nav-group {
+  position: relative;
+}
+
+.nav-group-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.62rem 1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: calc(0.9rem * var(--font-scale));
+  border: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-normal);
+  background: none;
+}
+
+.nav-group-trigger:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-card-hover);
+}
+
+.nav-group-trigger.active {
+  color: var(--brand-accent);
+  background-color: rgba(var(--brand-accent-rgb), 0.08);
+  border-color: rgba(var(--brand-accent-rgb), 0.2);
+}
+
+.nav-group-trigger .chevron {
+  transition: transform var(--transition-fast);
+}
+
+.nav-group-trigger .chevron.rotated {
+  transform: rotate(180deg);
+}
+
+.nav-group-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 200px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.35rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25), 0 4px 8px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  animation: dropdownFadeIn 0.15s ease-out;
+}
+
+@keyframes dropdownFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: calc(0.87rem * var(--font-scale));
+  border: none;
+  cursor: pointer;
+  background: none;
+  width: 100%;
+  text-align: left;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-card-hover);
+}
+
+.dropdown-item.active {
+  color: var(--brand-accent);
+  background-color: rgba(var(--brand-accent-rgb), 0.1);
+  font-weight: 700;
+}
+
+.supplement-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.12rem 0.4rem;
+  border-radius: var(--radius-full);
+  background: rgba(234, 179, 8, 0.12);
+  color: #d4a00a;
+  margin-left: auto;
+}
+
+/* Accent toggle in advanced settings */
+.accent-advanced-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 0.35rem;
+  padding-top: 0.6rem;
+}
+
+.accent-advanced-toggle .accent-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 600;
 }
 
 /* ==========================================================================
@@ -1303,7 +1451,7 @@ body {
 }
 
 /* ==========================================================================
-   2026 Responsive Product Shell — fluid FHD/4K + portrait mobile
+   2026 Responsive Product Shell ??fluid FHD/4K + portrait mobile
    ========================================================================== */
 :root {
   --content-max: 1880px;
@@ -2618,4 +2766,22 @@ p, li, h1, h2, h3, strong, small, span {
   .roleplay-opt-card {
     align-items: flex-start;
   }
+}
+
+/* ==========================================================================
+   Dialect Supplement Block
+   ========================================================================== */
+.dialect-supplement {
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  background: var(--bg-accent, rgba(255,255,255,0.04));
+  overflow: hidden;
+}
+.dialect-supplement summary {
+  cursor: pointer;
+  padding: 0.4rem 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
 }

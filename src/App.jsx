@@ -1,7 +1,9 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import { Navbar } from './components/Navbar';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { useLanguage } from './context/LanguageContext';
+import { gamificationEngine } from './utils/gamificationEngine';
 
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
@@ -51,11 +53,13 @@ export function App() {
   const [userStats, setUserStats] = useState(() => {
     try {
       const saved = localStorage.getItem('viet_user_stats');
-      return saved ? JSON.parse(saved) : { streak: 1, xp: 80, masteredWords: [] };
+      return saved ? JSON.parse(saved) : { xp: 0, streak: 1, lastLoginDate: '', masteredWords: [] };
     } catch {
-      return { streak: 1, xp: 80, masteredWords: [] };
+      return { xp: 0, streak: 1, lastLoginDate: '', masteredWords: [] };
     }
   });
+
+  const [levelUpData, setLevelUpData] = useState(null);
 
   // Effect: Sync Theme attribute to html tag
   useEffect(() => {
@@ -78,6 +82,17 @@ export function App() {
   useEffect(() => {
     localStorage.setItem('viet_user_stats', JSON.stringify(userStats));
   }, [userStats]);
+
+  // Effect: Process Daily Login Streak
+  useEffect(() => {
+    setUserStats(prev => {
+      const { newStreak, newLastLoginDate, streakUpdated } = gamificationEngine.processLoginStreak(prev.lastLoginDate, prev.streak);
+      if (streakUpdated) {
+        return { ...prev, streak: newStreak, lastLoginDate: newLastLoginDate };
+      }
+      return prev;
+    });
+  }, []);
 
   useEffect(() => {
     const handleHashChange = () => setActiveTabState(getModuleFromHash());
@@ -106,11 +121,26 @@ export function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const updateUserStats = (addXp) => {
-    setUserStats(prev => ({
-      ...prev,
-      xp: prev.xp + addXp
-    }));
+  const updateUserStats = (action) => {
+    if (typeof action === 'number') {
+      // Legacy fallback
+      setUserStats(prev => ({ ...prev, xp: prev.xp + action }));
+      return;
+    }
+
+    if (action.type === 'ADD_XP') {
+      setUserStats(prev => {
+        const oldLevel = gamificationEngine.calculateLevel(prev.xp);
+        const newXp = prev.xp + (action.payload || 0);
+        const newLevel = gamificationEngine.calculateLevel(newXp);
+        
+        if (newLevel > oldLevel) {
+          setLevelUpData({ level: newLevel });
+        }
+        
+        return { ...prev, xp: newXp };
+      });
+    }
   };
 
   const scrollToTop = () => {
@@ -133,21 +163,24 @@ export function App() {
         setSelectedAccent={setSelectedAccent}
       />
 
-      {/* Main Learning Module View */}
+      {/* Main Learning Module View — wrapped in ErrorBoundary for graceful error handling */}
       <main id="main-content" className="main-content" tabIndex="-1">
-        <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
-          {activeTab === 'path' && <LearningPathModule setActiveTab={setActiveTab} />}
-          {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} />}
-          {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} />}
-          {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} />}
-          {activeTab === 'conversation' && <ConversationModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-          {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} />}
-          {activeTab === 'flashcards' && <FlashcardModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-          {activeTab === 'grammar' && <GrammarModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-          {activeTab === 'hanviet' && <HanVietModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-          {activeTab === 'pronoun' && <PronounModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-          {activeTab === 'quiz' && <QuizModule userStats={userStats} updateUserStats={updateUserStats} selectedAccent={selectedAccent} />}
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
+            {activeTab === 'path' && <LearningPathModule setActiveTab={setActiveTab} />}
+            {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} />}
+            {/* AccentModule — supplementary dialect reference (進階 → 方言補充) */}
+            {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} />}
+            {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} />}
+            {activeTab === 'conversation' && <ConversationModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} />}
+            {activeTab === 'flashcards' && <FlashcardModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'grammar' && <GrammarModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'hanviet' && <HanVietModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'pronoun' && <PronounModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'quiz' && <QuizModule userStats={userStats} updateUserStats={updateUserStats} selectedAccent={selectedAccent} />}
+          </Suspense>
+        </ErrorBoundary>
       </main>
 
       {/* Floating Back To Top Button */}
@@ -160,6 +193,59 @@ export function App() {
         >
           <ArrowUp size={20} />
         </button>
+      )}
+
+      {/* Level-Up Celebration Modal */}
+      {levelUpData && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0, 0, 0, 0.75)',
+          backdropFilter: 'blur(6px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 9999,
+          padding: '1rem'
+        }}>
+          <div style={{
+            background: 'var(--bg-card)',
+            border: '2px solid var(--brand-gold)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '2.5rem 2rem',
+            maxWidth: '440px',
+            width: '100%',
+            textAlign: 'center',
+            boxShadow: '0 20px 50px rgba(234, 179, 8, 0.35)',
+            animation: 'glowSuccess 1.5s infinite alternate'
+          }}>
+            <div style={{ fontSize: '3.5rem', marginBottom: '0.5rem' }}>🏆✨</div>
+            <h2 style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--brand-gold)', margin: '0 0 0.5rem' }}>
+              LEVEL UP!
+            </h2>
+            <div style={{
+              fontSize: '1.25rem',
+              fontWeight: 800,
+              color: 'var(--brand-primary)',
+              marginBottom: '1rem'
+            }}>
+              等級晉升至 Lv. {levelUpData.level}
+            </div>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+              恭喜您！您的越語神經元正在以倍速建立連結！解鎖全新成就勳章與榮耀稱號。
+            </p>
+            <button
+              className="primary-action"
+              style={{ width: '100%', padding: '0.85rem', fontSize: '1.05rem', fontWeight: 800 }}
+              onClick={() => setLevelUpData(null)}
+            >
+              繼續征服越語 🚀
+            </button>
+          </div>
+        </div>
       )}
 
       {/* Footer */}

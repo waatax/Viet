@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { 
   MessageSquare, 
   Search, 
@@ -36,43 +36,54 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
 
   const currentScenario = situationalScenarios.find(s => s.id === activeScenarioId) || situationalScenarios[0];
 
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+
   // Filter scenarios
-  const filteredScenarios = situationalScenarios.filter(sc => {
-    const matchesCategory = selectedCategory === 'all' || 
-                            sc.category === selectedCategory ||
-                            (selectedCategory === 'shopping' && (sc.category === 'shopping' || sc.id === 'market' || sc.id === 'convenience')) ||
-                            (selectedCategory === 'daily' && (sc.category === 'daily' || sc.id === 'spa'));
-    const q = searchQuery.toLowerCase().trim();
-    if (!q) return matchesCategory;
+  const filteredScenarios = useMemo(() => {
+    return situationalScenarios.filter(sc => {
+      const matchesCategory = selectedCategory === 'all' || 
+                              sc.category === selectedCategory ||
+                              (selectedCategory === 'shopping' && (sc.category === 'shopping' || sc.id === 'market' || sc.id === 'convenience')) ||
+                              (selectedCategory === 'daily' && (sc.category === 'daily' || sc.id === 'spa'));
+      const q = debouncedSearchQuery.toLowerCase().trim();
+      if (!q) return matchesCategory;
 
-    const matchesTitle = (sc.titleZh && sc.titleZh.toLowerCase().includes(q)) ||
-                         (sc.titleEn && sc.titleEn.toLowerCase().includes(q)) ||
-                         (sc.titleVi && sc.titleVi.toLowerCase().includes(q)) ||
-                         (sc.summaryZh && sc.summaryZh.toLowerCase().includes(q));
+      const matchesTitle = (sc.titleZh && sc.titleZh.toLowerCase().includes(q)) ||
+                           (sc.titleEn && sc.titleEn.toLowerCase().includes(q)) ||
+                           (sc.titleVi && sc.titleVi.toLowerCase().includes(q)) ||
+                           (sc.summaryZh && sc.summaryZh.toLowerCase().includes(q));
 
-    // Also match any line across all dialogue sections (Dialogue 1 & Dialogue 2)
-    const matchesDialogue = (sc.dialogues?.some(d => 
-      d.viet.toLowerCase().includes(q) || 
-      d.zh.toLowerCase().includes(q) || 
-      d.en.toLowerCase().includes(q)
-    )) || (sc.dialogueSections?.some(sec => 
-      sec.titleZh?.toLowerCase().includes(q) ||
-      sec.titleVi?.toLowerCase().includes(q) ||
-      sec.lines?.some(l => 
-        l.viet.toLowerCase().includes(q) || 
-        l.zh.toLowerCase().includes(q) || 
-        l.en.toLowerCase().includes(q)
-      )
-    ));
+      // Also match any line across all dialogue sections (Dialogue 1 & Dialogue 2)
+      const matchesDialogue = (sc.dialogues?.some(d => 
+        d.viet.toLowerCase().includes(q) || 
+        d.zh.toLowerCase().includes(q) || 
+        d.en.toLowerCase().includes(q)
+      )) || (sc.dialogueSections?.some(sec => 
+        sec.titleZh?.toLowerCase().includes(q) ||
+        sec.titleVi?.toLowerCase().includes(q) ||
+        sec.lines?.some(l => 
+          l.viet.toLowerCase().includes(q) || 
+          l.zh.toLowerCase().includes(q) || 
+          l.en.toLowerCase().includes(q)
+        )
+      ));
 
-    // Also match vocab
-    const matchesVocab = sc.vocab?.some(v => 
-      v.viet.toLowerCase().includes(q) || 
-      v.zh.toLowerCase().includes(q)
-    );
+      // Also match vocab
+      const matchesVocab = sc.vocab?.some(v => 
+        v.viet.toLowerCase().includes(q) || 
+        v.zh.toLowerCase().includes(q)
+      );
 
-    return matchesCategory && (matchesTitle || matchesDialogue || matchesVocab);
-  });
+      return matchesCategory && (matchesTitle || matchesDialogue || matchesVocab);
+    });
+  }, [selectedCategory, debouncedSearchQuery]);
 
   return (
     <div className="module-container">

@@ -3,6 +3,27 @@ import { Volume2, Play, Pause, FastForward, Eye, EyeOff, Sparkles, MessageCircle
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 
+const TypewriterText = ({ text, isActive, speed = 30 }) => {
+  const [displayedText, setDisplayedText] = useState('');
+  
+  useEffect(() => {
+    if (!isActive) {
+      setDisplayedText(text);
+      return;
+    }
+    setDisplayedText('');
+    let i = 0;
+    const interval = setInterval(() => {
+      setDisplayedText(text.slice(0, i + 1));
+      i++;
+      if (i >= text.length) clearInterval(interval);
+    }, speed);
+    return () => clearInterval(interval);
+  }, [text, isActive, speed]);
+
+  return <span>{displayedText}</span>;
+};
+
 export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) => {
   const { learningMode } = useLanguage();
   
@@ -255,25 +276,40 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
               <div className="chat-bubble-container">
                 <div className="bubble-meta">
                   <span className="speaker-tag">{line.speaker}</span>
-                  {selectedAccent === 'north' && line.northTip && (
-                    <span className="dialect-badge north" title="北越口音特色">
-                      🏛️ {line.northTip}
-                    </span>
-                  )}
-                  {selectedAccent === 'south' && line.southTip && (
-                    <span className="dialect-badge south" title="南越口音特色">
-                      🌴 {line.southTip}
-                    </span>
-                  )}
                 </div>
 
                 <div className="bubble-content-main">
-                  <div className="vietnamese-text">{line.viet}</div>
+                  <div className="vietnamese-text">
+                    <TypewriterText text={line.viet} isActive={isActive} speed={30} />
+                  </div>
                   
                   {showTranslations && (
                     <div className="translation-text">
-                      {learningMode === 'zh' ? line.zh : line.en}
+                      <TypewriterText text={learningMode === 'zh' ? line.zh : line.en} isActive={isActive} speed={30} />
                     </div>
+                  )}
+                  
+                  {(line.northTip || line.southTip) && (
+                    <details className="dialect-supplement">
+                      <summary>
+                        <span className="supplement-icon">📖</span>
+                        <span>{learningMode === 'zh' ? '方言補充' : 'Dialect Notes'}</span>
+                      </summary>
+                      <div className="dialect-notes-content">
+                        {line.northTip && (
+                          <div className="dialect-note">
+                            <span className="dialect-tag north">🇻🇳 {learningMode === 'zh' ? '北音' : 'North'}</span>
+                            <span>{learningMode === 'zh' ? line.northTip : (line.northTipEn || line.northTip)}</span>
+                          </div>
+                        )}
+                        {line.southTip && (
+                          <div className="dialect-note">
+                            <span className="dialect-tag south">🇻🇳 {learningMode === 'zh' ? '南音' : 'South'}</span>
+                            <span>{learningMode === 'zh' ? line.southTip : (line.southTipEn || line.southTip)}</span>
+                          </div>
+                        )}
+                      </div>
+                    </details>
                   )}
                 </div>
 

@@ -1,10 +1,109 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   Sun, Moon, Type, Flame, Trophy, Globe, Volume2, Menu, X,
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
-  Layers3, BookOpenText, UsersRound, BadgeCheck
+  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, ChevronDown, Settings2, Star
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { gamificationEngine } from '../utils/gamificationEngine';
+
+/* Icon registry used by the grouped navigation config */
+const ICON_MAP = {
+  Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
+  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked
+};
+
+/*
+ * Grouped navigation structure.
+ * AccentModule is placed under 'advanced' as supplementary content —
+ * dialect differences are important but not the main learning track.
+ */
+const NAV_GROUPS = [
+  {
+    id: 'dashboard',
+    items: [{ id: 'path', labelKey: 'tabs.path', icon: Map }]
+  },
+  {
+    id: 'basics',
+    labelKey: 'tabs.groupBasics',
+    items: [
+      { id: 'alphabet', labelKey: 'tabs.alphabet', icon: Languages },
+      { id: 'pronoun', labelKey: 'tabs.pronoun', icon: UsersRound }
+    ]
+  },
+  {
+    id: 'conv',
+    labelKey: 'tabs.groupConversation',
+    items: [
+      { id: 'phrases', labelKey: 'tabs.phrases', icon: MessageSquareText },
+      { id: 'conversation', labelKey: 'tabs.conversation', icon: MessagesSquare }
+    ]
+  },
+  {
+    id: 'practice',
+    labelKey: 'tabs.groupPractice',
+    items: [
+      { id: 'flashcards', labelKey: 'tabs.flashcards', icon: Layers3 },
+      { id: 'grammar', labelKey: 'tabs.grammar', icon: BookOpenText },
+      { id: 'quiz', labelKey: 'tabs.quiz', icon: BadgeCheck }
+    ]
+  },
+  {
+    id: 'advanced',
+    labelKey: 'tabs.groupAdvanced',
+    items: [
+      { id: 'hanviet', labelKey: 'tabs.hanviet', icon: BookOpenText },
+      { id: 'shopping', labelKey: 'tabs.shopping', icon: ShoppingBag },
+      { id: 'accent', labelKey: 'tabs.accent', icon: BookMarked }
+    ]
+  }
+];
+
+/* Dropdown sub-menu for grouped navigation */
+const NavGroup = ({ group, activeTab, setActiveTab, t }) => {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+
+  // Close on outside click
+  useEffect(() => {
+    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
+    if (open) document.addEventListener('pointerdown', handler);
+    return () => document.removeEventListener('pointerdown', handler);
+  }, [open]);
+
+  const groupActive = group.items.some(item => item.id === activeTab);
+
+  return (
+    <div className={`nav-group ${open ? 'is-open' : ''}`} ref={ref}>
+      <button
+        className={`nav-group-trigger ${groupActive ? 'active' : ''}`}
+        onClick={() => setOpen(o => !o)}
+        aria-expanded={open}
+      >
+        <span>{t(group.labelKey)}</span>
+        <ChevronDown size={14} className={`chevron ${open ? 'rotated' : ''}`} />
+      </button>
+      {open && (
+        <div className="nav-group-dropdown">
+          {group.items.map(({ id, labelKey, icon: Icon }) => (
+            <button
+              key={id}
+              className={`dropdown-item ${activeTab === id ? 'active' : ''}`}
+              onClick={() => { setActiveTab(id); setOpen(false); }}
+              role="tab"
+              aria-selected={activeTab === id}
+            >
+              <Icon size={16} strokeWidth={2} aria-hidden="true" />
+              <span>{t(labelKey)}</span>
+              {/* Visual marker for supplementary dialect content */}
+              {id === 'accent' && <span className="supplement-badge">{t('tabs.groupAdvanced').includes('進') ? '補充' : 'Suppl.'}</span>}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export const Navbar = ({
   theme,
@@ -19,22 +118,11 @@ export const Navbar = ({
 }) => {
   const { learningMode, toggleLearningMode, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  
+  const { currentXpInLevel, requiredXpForNextLevel, progressPercent } = gamificationEngine.getLevelProgress(userStats.xp);
+  const currentLevel = gamificationEngine.calculateLevel(userStats.xp);
 
   useEffect(() => setMenuOpen(false), [activeTab]);
-
-  const navItems = [
-    { id: 'path', label: t('tabs.path'), icon: Map },
-    { id: 'alphabet', label: t('tabs.alphabet'), icon: Languages },
-    { id: 'accent', label: t('tabs.accent'), icon: AudioLines },
-    { id: 'shopping', label: t('tabs.shopping'), icon: ShoppingBag },
-    { id: 'conversation', label: t('tabs.conversation'), icon: MessagesSquare },
-    { id: 'phrases', label: t('tabs.phrases'), icon: MessageSquareText },
-    { id: 'flashcards', label: t('tabs.flashcards'), icon: Layers3 },
-    { id: 'grammar', label: t('tabs.grammar'), icon: BookOpenText },
-    { id: 'hanviet', label: t('tabs.hanviet'), icon: BookOpenText },
-    { id: 'pronoun', label: t('tabs.pronoun'), icon: UsersRound },
-    { id: 'quiz', label: t('tabs.quiz'), icon: BadgeCheck }
-  ];
 
   return (
     <header className="header-container">
@@ -75,21 +163,19 @@ export const Navbar = ({
                 <span className="mode-text">{learningMode === 'zh' ? '中文學越文' : 'English Track'}</span>
                 <span className="switch-tag">{learningMode === 'zh' ? 'EN' : '中文'}</span>
               </button>
-
-              <div className="accent-quick-toggle" aria-label={learningMode === 'zh' ? '口音選擇' : 'Accent selection'}>
-                <Volume2 size={15} aria-hidden="true" />
-                <button className={`accent-chip ${selectedAccent === 'north' ? 'active' : ''}`} onClick={() => setSelectedAccent('north')}>
-                  {t('northAccent')}
-                </button>
-                <button className={`accent-chip ${selectedAccent === 'south' ? 'active' : ''}`} onClick={() => setSelectedAccent('south')}>
-                  {t('southAccent')}
-                </button>
-              </div>
             </div>
 
             <div className="controls-group">
+              <span className="control-btn stat-pill level-pill" title="Current Level"><Star size={16} /> Lv. {currentLevel}</span>
               <span className="control-btn stat-pill streak-pill" title="連續學習天數"><Flame size={16} /> {userStats.streak} {t('days')}</span>
-              <span className="control-btn stat-pill xp-pill" title="累積學習經驗值"><Trophy size={16} /> {userStats.xp} {t('xp')}</span>
+              <div className="stat-pill xp-pill-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--bg-accent)', padding: '0.2rem 0.5rem', borderRadius: 'var(--radius-md)' }}>
+                <span className="xp-pill-text" title="累積學習經驗值" style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85em', fontWeight: 'bold' }}>
+                  <Trophy size={14} /> {userStats.xp} {t('xp')}
+                </span>
+                <div className="xp-progress-bar" style={{ width: '100%', height: '4px', background: 'var(--bg-primary)', borderRadius: '2px', marginTop: '2px', overflow: 'hidden' }}>
+                  <div className="xp-progress-fill" style={{ width: `${progressPercent}%`, height: '100%', background: 'var(--brand-gold)' }}></div>
+                </div>
+              </div>
               <div className="font-size-selector" aria-label={t('fontSize')}>
                 <Type size={14} aria-hidden="true" />
                 {['small', 'normal', 'large', 'xlarge'].map((size, index) => (
@@ -107,25 +193,55 @@ export const Navbar = ({
                 {theme === 'light' ? <Moon size={17} /> : <Sun size={17} />}
                 <span>{theme === 'light' ? t('darkTheme') : t('lightTheme')}</span>
               </button>
+
+              {/* Accent toggle — moved to advanced settings area (demoted from primary) */}
+              <div className="accent-advanced-toggle" aria-label={learningMode === 'zh' ? '發音口音偏好（進階）' : 'Pronunciation accent (advanced)'}>
+                <Settings2 size={14} aria-hidden="true" />
+                <span className="accent-label">{learningMode === 'zh' ? '口音' : 'Accent'}:</span>
+                <button className={`accent-chip ${selectedAccent === 'north' ? 'active' : ''}`} onClick={() => setSelectedAccent('north')}>
+                  {t('northAccent')}
+                </button>
+                <button className={`accent-chip ${selectedAccent === 'south' ? 'active' : ''}`} onClick={() => setSelectedAccent('south')}>
+                  {t('southAccent')}
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </nav>
 
+      {/* Grouped Navigation Tabs */}
       <div className={`tabs-navigation ${menuOpen ? 'settings-open' : ''}`}>
         <div className="tabs-wrapper" role="tablist" aria-label={learningMode === 'zh' ? '學習模組' : 'Learning modules'}>
-          {navItems.map(({ id, label, icon: Icon }) => (
-            <button
-              key={id}
-              className={`tab-item ${activeTab === id ? 'active' : ''}`}
-              onClick={() => setActiveTab(id)}
-              role="tab"
-              aria-selected={activeTab === id}
-            >
-              <Icon size={17} strokeWidth={2} aria-hidden="true" />
-              <span>{label}</span>
-            </button>
-          ))}
+          {NAV_GROUPS.map(group => {
+            // Dashboard is rendered as a standalone tab button
+            if (group.id === 'dashboard') {
+              const item = group.items[0];
+              const Icon = item.icon;
+              return (
+                <button
+                  key={item.id}
+                  className={`tab-item ${activeTab === item.id ? 'active' : ''}`}
+                  onClick={() => setActiveTab(item.id)}
+                  role="tab"
+                  aria-selected={activeTab === item.id}
+                >
+                  <Icon size={17} strokeWidth={2} aria-hidden="true" />
+                  <span>{t(item.labelKey)}</span>
+                </button>
+              );
+            }
+            // Other groups rendered as dropdown menus
+            return (
+              <NavGroup
+                key={group.id}
+                group={group}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+                t={t}
+              />
+            );
+          })}
         </div>
       </div>
     </header>

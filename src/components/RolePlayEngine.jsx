@@ -17,6 +17,8 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
   const [recognizedText, setRecognizedText] = useState('');
   const [recognitionSupported, setRecognitionSupported] = useState(false);
   const [activeKey, setActiveKey] = useState(null);
+  const [warning, setWarning] = useState(null);
+  const [xpPopup, setXpPopup] = useState(null);
 
   const currentStep = steps[currentStepIndex] || steps[0];
 
@@ -70,7 +72,13 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
     }
   };
 
-  const handleNextStep = () => {
+  const handleNextStep = (e) => {
+    // Show +10 XP popup animation on click
+    if (e && e.clientX) {
+      setXpPopup({ x: e.clientX, y: e.clientY - 20, id: Date.now() });
+      setTimeout(() => setXpPopup(null), 1000);
+    }
+    
     if (currentStepIndex + 1 < steps.length) {
       setCurrentStepIndex(prev => prev + 1);
       setSelectedOption(null);
@@ -93,7 +101,7 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
 
   const handleStartVoiceShadowing = () => {
     if (!recognitionSupported) {
-      alert(learningMode === 'zh' ? '您的瀏覽器不支援即時語音識別，請嘗試 Chrome 瀏覽器。' : 'Speech recognition not supported in this browser. Please try Chrome.');
+      setWarning(learningMode === 'zh' ? '您的瀏覽器不支援即時語音識別，請嘗試 Chrome 瀏覽器。' : 'Speech recognition not supported in this browser. Please try Chrome.');
       return;
     }
 
@@ -140,6 +148,15 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
 
   return (
     <div className="roleplay-engine-wrapper">
+      {warning && (
+        <div className="warning-banner" style={{ background: 'var(--brand-primary)', color: 'white', padding: '10px 15px', borderRadius: 'var(--radius-sm)', marginBottom: '15px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <span style={{ fontSize: '1.2em' }}>⚠️</span>
+            <span style={{ fontWeight: 600 }}>{warning}</span>
+          </div>
+          <button onClick={() => setWarning(null)} style={{ background: 'rgba(255, 255, 255, 0.2)', border: 'none', cursor: 'pointer', padding: '5px 10px', borderRadius: '4px', color: 'white', fontWeight: 'bold' }}>✕</button>
+        </div>
+      )}
       {/* Role Identity Bar */}
       <div className="roleplay-identity-bar">
         <div className="role-chip user-role">
@@ -293,6 +310,25 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
                     <ChevronRight size={16} />
                   </button>
                 )}
+              </div>
+            )}
+            
+            {/* XP Floating Animation */}
+            {xpPopup && (
+              <div 
+                style={{ 
+                  position: 'fixed', 
+                  left: xpPopup.x, 
+                  top: xpPopup.y, 
+                  color: 'var(--brand-gold)', 
+                  fontWeight: 'bold', 
+                  fontSize: '1.2rem',
+                  pointerEvents: 'none',
+                  zIndex: 9999,
+                  animation: 'floatUp 1s ease-out forwards'
+                }}
+              >
+                +10 XP
               </div>
             )}
           </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Users, HelpCircle, CheckCircle, Volume2, Sparkles, UserCheck, ArrowRight, BookOpen } from 'lucide-react';
 import { pronounKinshipData } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
@@ -21,7 +21,7 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
   const [relation, setRelation] = useState('older_peer'); 
   // 'older_peer' | 'younger_peer' | 'same_age' | 'elder_uncle' | 'elder_aunt' | 'elder_grandparent' | 'formal_business'
 
-  const computePronouns = () => {
+  const calculated = useMemo(() => {
     if (relation === 'older_peer') {
       if (targetGender === 'male') {
         return {
@@ -148,9 +148,89 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
       sampleZh: '你好！',
       sampleEn: 'Hello!'
     };
+  }, [relation, targetGender, myGender]);
+
+  // Pronoun Situational Challenge Sandbox State
+  const [scenarioIdx, setScenarioIdx] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [scenarioScore, setScenarioScore] = useState(0);
+
+  const PRONOUN_SCENARIOS = [
+    {
+      titleZh: '☕ 情境一：咖啡廳點餐',
+      titleEn: '☕ Scenario 1: Coffee Shop',
+      descZh: '你是一位 28 歲的男士，來到河內咖啡廳。接待你的店員是一位大約 20 歲的年輕女大學生。你應該如何自稱並稱呼對方？',
+      descEn: 'You are a 28yo man at a Hanoi cafe. The barista is a 20yo young lady. How do you address yourselves?',
+      optionsZh: [
+        'A. 我稱「Anh (哥)」，稱對方「Em (妹/晚輩)」',
+        'B. 我稱「Em (弟)」，稱對方「Chị (姐)」',
+        'C. 我稱「Chú (叔)」，稱對方「Cháu (侄)」',
+        'D. 雙方皆自稱「Tôi」'
+      ],
+      optionsEn: [
+        'A. Me: Anh (Brother), You: Em (Sister)',
+        'B. Me: Em (Brother), You: Chị (Sister)',
+        'C. Me: Chú (Uncle), You: Cháu (Niece)',
+        'D. Both use Tôi'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！面對比自己年幼的女性店員，男性自稱 Anh (哥哥)，親切稱呼對方為 Em (弟妹輩)，是最道地有禮的點餐方式。'
+    },
+    {
+      titleZh: '🛵 情境二：搭乘 Grab 摩托車',
+      titleEn: '🛵 Scenario 2: Grab Ride',
+      descZh: '你是一位 25 歲的乘客，接單的 Grab 司機是一位大約 65 歲、頭髮花白的長輩爺爺。你該如何打招呼並自稱？',
+      descEn: 'You are a 25yo rider. Your Grab driver is a 65yo elderly senior with white hair. How should you greet him?',
+      optionsZh: [
+        'A. 自稱「Em」，稱對方「Anh」',
+        'B. 自稱「Cháu (侄輩)」，稱對方「Bác / Ông (伯父/爺爺)」',
+        'C. 自稱「Tôi」，稱對方「Bạn」',
+        'D. 自稱「Con」，稱對方「Mẹ」'
+      ],
+      optionsEn: [
+        'A. Me: Em, You: Anh',
+        'B. Me: Cháu (Nephew), You: Bác/Ông (Uncle/Grandpa)',
+        'C. Me: Tôi, You: Bạn',
+        'D. Me: Con, You: Mẹ'
+      ],
+      answer: 1,
+      explainZh: '✓ 完全正確！面對爺爺輩或年長於父母的長輩，晚輩應自稱 Cháu，並尊敬地稱呼對方為 Bác (伯父) 或 Ông (爺爺)。'
+    },
+    {
+      titleZh: '💼 情境三：初次商務會議',
+      titleEn: '💼 Scenario 3: Business Meeting',
+      descZh: '你在胡志明市參加跨國企業合作會議，首次拜訪 45 歲的越南男性總經理。最得體且具備專業禮節的自稱與稱謂是？',
+      descEn: 'You are at a corporate meeting meeting a 45yo Vietnamese Managing Director for the first time.',
+      optionsZh: [
+        'A. 自稱「Tôi / Em」，稱對方為「Anh / Quý công ty」',
+        'B. 自稱「Mày」，稱對方為「Tao」',
+        'C. 自稱「Con」，稱對方為「Bố」',
+        'D. 自稱「Bạn」，稱對方為「Bạn」'
+      ],
+      optionsEn: [
+        'A. Me: Tôi/Em, You: Anh/Quý công ty',
+        'B. Me: Mày, You: Tao',
+        'C. Me: Con, You: Bố',
+        'D. Me: Bạn, You: Bạn'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！商務初次見面可用禮貌客氣的 Tôi (本人) 或 Em，並尊稱對方為 Anh (長輩先生) 或 Quý công ty (貴公司)。'
+    }
+  ];
+
+  const handleScenarioChoice = (idx) => {
+    if (selectedAnswer !== null) return;
+    setSelectedAnswer(idx);
+    if (idx === PRONOUN_SCENARIOS[scenarioIdx].answer) {
+      setScenarioScore(s => s + 1);
+      if (updateUserStats) updateUserStats(20);
+    }
   };
 
-  const calculated = computePronouns();
+  const nextScenario = () => {
+    setSelectedAnswer(null);
+    setScenarioIdx(prev => (prev + 1) % PRONOUN_SCENARIOS.length);
+  };
 
   const handleSpeak = (text, key) => {
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
@@ -170,6 +250,92 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
             ? '越南語沒有單純的「你/我」，而是依據「年齡、性別、長幼尊卑」形成鏡像對稱稱謂（如 Anh-Em、Chị-Em、Chú-Cháu）。選擇雙方條件，立即推算最道地的稱謂與社交金句！'
             : 'Vietnamese uses relative kinship pronouns instead of simple you/I. Select age, gender, and social relation to compute natural reciprocal pronouns.'}
         </p>
+      </div>
+
+      {/* Interactive Situational Challenge */}
+      <div style={{
+        marginBottom: '2.5rem',
+        padding: '1.5rem',
+        background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(37, 99, 235, 0.08) 100%)',
+        border: '1.5px solid var(--brand-green)',
+        borderRadius: 'var(--radius-lg)'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
+          <div>
+            <h3 style={{ fontSize: '1.2em', fontWeight: 800, color: 'var(--brand-green)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Sparkles size={20} />
+              {learningMode === 'zh' ? '🎭 實境稱謂語用沙盤挑戰' : '🎭 Situational Pronoun Sandbox'}
+            </h3>
+            <span style={{ fontSize: '0.85em', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh' ? '進入真實生活情境，選出最得體、最自然的自稱與稱呼！' : 'Test your pronoun instincts in authentic everyday Vietnamese scenarios.'}
+            </span>
+          </div>
+          <span style={{ fontSize: '0.88em', fontWeight: 800, color: 'var(--text-primary)' }}>
+            關卡 {scenarioIdx + 1} / {PRONOUN_SCENARIOS.length} · 答對 {scenarioScore} 題
+          </span>
+        </div>
+
+        <div style={{ background: 'var(--bg-card)', padding: '1.2rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', marginBottom: '1rem' }}>
+          <div style={{ fontSize: '1.1em', fontWeight: 800, color: 'var(--brand-primary)', marginBottom: '0.4rem' }}>
+            {learningMode === 'zh' ? PRONOUN_SCENARIOS[scenarioIdx].titleZh : PRONOUN_SCENARIOS[scenarioIdx].titleEn}
+          </div>
+          <p style={{ fontSize: '0.94em', color: 'var(--text-secondary)', lineHeight: 1.6, margin: 0 }}>
+            {learningMode === 'zh' ? PRONOUN_SCENARIOS[scenarioIdx].descZh : PRONOUN_SCENARIOS[scenarioIdx].descEn}
+          </p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '0.75rem', marginBottom: '1rem' }}>
+          {(learningMode === 'zh' ? PRONOUN_SCENARIOS[scenarioIdx].optionsZh : PRONOUN_SCENARIOS[scenarioIdx].optionsEn).map((opt, idx) => {
+            const isSelected = selectedAnswer === idx;
+            const isCorrect = idx === PRONOUN_SCENARIOS[scenarioIdx].answer;
+            let bg = 'var(--bg-main)';
+            let border = '1px solid var(--border-color)';
+            if (selectedAnswer !== null) {
+              if (isCorrect) {
+                bg = 'rgba(16, 185, 129, 0.2)';
+                border = '1.5px solid #10b981';
+              } else if (isSelected) {
+                bg = 'rgba(239, 68, 68, 0.2)';
+                border = '1.5px solid #ef4444';
+              }
+            }
+            return (
+              <button
+                key={idx}
+                onClick={() => handleScenarioChoice(idx)}
+                style={{
+                  padding: '0.85rem 1.1rem',
+                  borderRadius: 'var(--radius-md)',
+                  background: bg,
+                  border: border,
+                  textAlign: 'left',
+                  cursor: selectedAnswer === null ? 'pointer' : 'default',
+                  fontWeight: 700,
+                  fontSize: '0.92em',
+                  color: 'var(--text-primary)',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                {opt}
+              </button>
+            );
+          })}
+        </div>
+
+        {selectedAnswer !== null && (
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', background: 'var(--bg-main)', padding: '0.85rem 1.25rem', borderRadius: 'var(--radius-md)' }}>
+            <div style={{ fontSize: '0.92em', fontWeight: 700, color: selectedAnswer === PRONOUN_SCENARIOS[scenarioIdx].answer ? '#10b981' : '#f59e0b', flex: '1 1 320px' }}>
+              {learningMode === 'zh' ? PRONOUN_SCENARIOS[scenarioIdx].explainZh : PRONOUN_SCENARIOS[scenarioIdx].explainZh}
+            </div>
+            <button
+              className="primary-action"
+              style={{ padding: '0.45rem 1.1rem', fontSize: '0.88em' }}
+              onClick={nextScenario}
+            >
+              下一情境 ➔
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Calculator Workstation Box */}

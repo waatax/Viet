@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, Music, Sparkles, Filter, Info, Play, VolumeX, Activity, Compass } from 'lucide-react';
 import { vietnameseAlphabet, vietnameseTones } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
@@ -27,11 +27,49 @@ export const AlphabetModule = ({ selectedAccent }) => {
     audioEngine.speakAlphabet(item, { accent: selectedAccent });
   };
 
+  const playIdRef = useRef(0);
+
+  // 6 Tones Ear-Trainer State
+  const [trainerTarget, setTrainerTarget] = useState(null);
+  const [trainerSelected, setTrainerSelected] = useState(null);
+  const [trainerScore, setTrainerScore] = useState(0);
+  const [trainerStreak, setTrainerStreak] = useState(0);
+
+  const startNewEarTraining = () => {
+    const randomTone = vietnameseTones[Math.floor(Math.random() * vietnameseTones.length)];
+    setTrainerTarget(randomTone);
+    setTrainerSelected(null);
+    audioEngine.speak(randomTone.example.split(' ')[0], { accent: selectedAccent, key: `trainer_${randomTone.id}` });
+  };
+
+  const handlePlayTrainerSound = () => {
+    if (trainerTarget) {
+      audioEngine.speak(trainerTarget.example.split(' ')[0], { accent: selectedAccent, key: `trainer_${trainerTarget.id}` });
+    } else {
+      startNewEarTraining();
+    }
+  };
+
+  const handleTrainerGuess = (toneId) => {
+    if (trainerSelected !== null || !trainerTarget) return;
+    setTrainerSelected(toneId);
+    if (toneId === trainerTarget.id) {
+      setTrainerScore(s => s + 1);
+      setTrainerStreak(st => st + 1);
+    } else {
+      setTrainerStreak(0);
+    }
+  };
+
   const handlePlayToneSynth = (toneId, exampleText) => {
     setSelectedTone(toneId);
     audioEngine.playTonePitch(toneId, selectedAccent);
+    
+    const currentId = ++playIdRef.current;
     setTimeout(() => {
-      audioEngine.speak(exampleText, { accent: selectedAccent, key: `tone_${toneId}` });
+      if (playIdRef.current === currentId) {
+        audioEngine.speak(exampleText, { accent: selectedAccent, key: `tone_${toneId}` });
+      }
     }, 650);
   };
 
@@ -92,6 +130,101 @@ export const AlphabetModule = ({ selectedAccent }) => {
             ? '聲調是越南語的靈魂與詞義關鍵！點擊下方聲調卡片，觸發 Web Audio 音高振盪器與標準人聲朗讀，透過音高軌跡直觀感知調值走勢。'
             : 'Tones distinguish word meanings. Click any tone card to trigger the real-time pitch oscillator followed by native voice pronunciation.'}
         </p>
+      </div>
+
+      {/* 6 Tones Ear-Trainer Interactive Sandbox */}
+      <div style={{
+        marginBottom: '2.5rem',
+        padding: '1.25rem 1.5rem',
+        background: 'linear-gradient(135deg, rgba(234, 179, 8, 0.08) 0%, rgba(37, 99, 235, 0.08) 100%)',
+        border: '1.5px solid var(--brand-gold)',
+        borderRadius: 'var(--radius-lg)'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
+          <div>
+            <h3 style={{ fontSize: '1.2em', fontWeight: 800, color: 'var(--brand-gold)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Activity size={20} />
+              {learningMode === 'zh' ? '👂 6 聲調盲聽辨音特訓 (Tone Ear-Trainer)' : '👂 6 Tones Ear-Trainer'}
+            </h3>
+            <span style={{ fontSize: '0.85em', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh' ? '點擊播放盲聽音檔，考驗耳朵對聲調音高走勢的直覺！' : 'Listen blindly and identify which tone was spoken!'}
+            </span>
+          </div>
+          <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <span style={{ fontSize: '0.88em', fontWeight: 800, color: 'var(--text-primary)' }}>
+              得分：{trainerScore} | 連續答對：🔥 {trainerStreak}
+            </span>
+            <button
+              className="primary-action"
+              style={{ padding: '0.45rem 1rem', fontSize: '0.88em' }}
+              onClick={handlePlayTrainerSound}
+            >
+              <Volume2 size={16} />
+              {trainerTarget ? (learningMode === 'zh' ? '再聽一次 🔊' : 'Replay 🔊') : (learningMode === 'zh' ? '開始出題 🎯' : 'Start Drill 🎯')}
+            </button>
+          </div>
+        </div>
+
+        {trainerTarget && (
+          <div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.65rem', margin: '1rem 0' }}>
+              {vietnameseTones.map((tone) => {
+                const isSelected = trainerSelected === tone.id;
+                const isCorrect = tone.id === trainerTarget.id;
+                let bg = 'var(--bg-card)';
+                let border = `1.5px solid var(--border-color)`;
+                if (trainerSelected !== null) {
+                  if (isCorrect) {
+                    bg = 'rgba(16, 185, 129, 0.25)';
+                    border = '1.5px solid #10b981';
+                  } else if (isSelected) {
+                    bg = 'rgba(239, 68, 68, 0.25)';
+                    border = '1.5px solid #ef4444';
+                  }
+                }
+                return (
+                  <button
+                    key={tone.id}
+                    onClick={() => handleTrainerGuess(tone.id)}
+                    style={{
+                      padding: '0.75rem',
+                      borderRadius: 'var(--radius-md)',
+                      background: bg,
+                      border: border,
+                      cursor: trainerSelected === null ? 'pointer' : 'default',
+                      fontWeight: 800,
+                      textAlign: 'center',
+                      color: 'var(--text-primary)',
+                      transition: 'all 0.2s ease'
+                    }}
+                  >
+                    <div style={{ fontSize: '1.1em', color: tone.color }}>{loc(tone, 'name')}</div>
+                    <div style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>{loc(tone, 'symbol')}</div>
+                  </button>
+                );
+              })}
+            </div>
+
+            {trainerSelected !== null && (
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', background: 'var(--bg-main)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)' }}>
+                <div style={{ fontSize: '0.92em', fontWeight: 700, color: trainerSelected === trainerTarget.id ? '#10b981' : '#ef4444' }}>
+                  {trainerSelected === trainerTarget.id ? (
+                    <>🎉 辨音正確！正確答案是 <strong>{loc(trainerTarget, 'name')} ({loc(trainerTarget, 'symbol')})</strong> · 例字：{trainerTarget.example}</>
+                  ) : (
+                    <>❌ 答錯囉！剛剛播放的是 <strong>{loc(trainerTarget, 'name')} ({loc(trainerTarget, 'symbol')})</strong> · 例字：{trainerTarget.example}</>
+                  )}
+                </div>
+                <button
+                  className="secondary-action"
+                  style={{ padding: '0.4rem 0.9rem', fontSize: '0.85em' }}
+                  onClick={startNewEarTraining}
+                >
+                  下一題 ➔
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', marginBottom: '3rem' }}>
