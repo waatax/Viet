@@ -9,7 +9,7 @@
     "build:audio": "node scripts/build_audio_bank.js",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "node scripts/deploy_gh_pages.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
