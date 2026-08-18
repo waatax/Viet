@@ -1,9 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Volume2, RotateCw, CheckCircle2, XCircle, ArrowRight, RefreshCw, Sparkles, Award } from 'lucide-react';
 import { flashcardsDeck } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
+
+const getCardIcon = (card) => {
+  if (!card) return '💡';
+  if (card.icon) return card.icon;
+  const text = (card.zh + ' ' + card.viet + ' ' + (card.category || '')).toLowerCase();
+  if (text.includes('cà phê')) return '☕';
+  if (text.includes('phở') || text.includes('bún')) return '🍜';
+  if (text.includes('bánh mì')) return '🥖';
+  if (text.includes('cảm ơn') || text.includes('感謝')) return '🙏';
+  if (text.includes('xin chào') || text.includes('你好')) return '👋';
+  if (text.includes('bệnh viện') || text.includes('醫院')) return '🏥';
+  if (text.includes('khách sạn') || text.includes('飯店')) return '🏨';
+  if (text.includes('sân bay') || text.includes('機場')) return '✈️';
+  if (text.includes('tiền') || text.includes('giá') || text.includes('đắt') || text.includes('錢') || text.includes('買')) return '💸';
+  if (text.includes('công ty') || text.includes('hợp đồng') || text.includes('公司')) return '🏢';
+  if (text.includes('hải sản')) return '🦀';
+  if (text.includes('chúc mừng')) return '🎉';
+  if (text.includes('nhậu')) return '🍻';
+  const cats = {
+    '問候與禮貌': '🤝',
+    '購物殺價': '🛍️',
+    '餐飲美食': '🍽️',
+    '商務職場': '💼',
+    '交通出行': '🚗',
+    '飯店住宿': '🛌',
+    '醫療健康': '💊',
+    '社交日常': '💬',
+    '漢越核心': '📖',
+    '節慶祝福': '🏮',
+    '道地口語': '🗣️'
+  };
+  return cats[card.category] || '💡';
+};
 
 export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   const { learningMode, loc, t } = useLanguage();
@@ -66,22 +99,7 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
 
   const currentCard = reviewDeck[currentIndex] || reviewDeck[0];
 
-  // Keyboard shortcut navigation (Space to flip, Left to review, Right for mastered)
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.code === 'Space') {
-        e.preventDefault();
-        handleCardClick();
-      } else if (e.code === 'ArrowRight' || e.code === 'KeyD') {
-        handleAnswer(4);
-      } else if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
-        handleAnswer(0);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isFlipped, currentIndex, reviewDeck, currentCard]);
+  const handlersRef = useRef({ handleCardClick: null, handleAnswer: null });
 
   const handleCardClick = () => {
     const nextFlipped = !isFlipped;
@@ -110,6 +128,27 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
       }
     }, 180);
   };
+
+  useEffect(() => {
+    handlersRef.current = { handleCardClick, handleAnswer };
+  }, [handleCardClick, handleAnswer]);
+
+  // Keyboard shortcut navigation (Space to flip, Left to review, Right for mastered)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.code === 'Space') {
+        e.preventDefault();
+        handlersRef.current.handleCardClick();
+      } else if (e.code === 'ArrowRight' || e.code === 'KeyD') {
+        handlersRef.current.handleAnswer(4);
+      } else if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
+        handlersRef.current.handleAnswer(0);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const handleRestart = () => {
     setCurrentIndex(0);
@@ -199,7 +238,10 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
               {audioFirstMode && !isFlipped ? (
                 <span style={{ filter: 'blur(10px)', opacity: 0.6, userSelect: 'none' }}>{currentCard.viet}</span>
               ) : (
-                <span>{currentCard.viet}</span>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
+                  <span style={{ fontSize: '1.2em', filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}>{getCardIcon(currentCard)}</span>
+                  <span>{currentCard.viet}</span>
+                </div>
               )}
               <Volume2 
                 size={26} 

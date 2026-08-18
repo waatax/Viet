@@ -24,7 +24,7 @@ export const translations = {
     lightTheme: '亮面主題',
     darkTheme: '暗面主題',
     tabs: {
-      path: '學習路徑總覽',
+      path: '學習總覽',
       alphabet: '字母與聲調',
       accent: '方言補充',
       shopping: '數字與貨幣',
@@ -92,7 +92,7 @@ export const translations = {
     lightTheme: 'Light Theme',
     darkTheme: 'Dark Theme',
     tabs: {
-      path: 'Learning Path',
+      path: 'Learning Overview',
       alphabet: 'Alphabet & Tones',
       accent: 'Dialect Notes',
       shopping: 'Numbers & VND',

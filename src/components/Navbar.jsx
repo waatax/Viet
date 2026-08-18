@@ -124,17 +124,58 @@ export const Navbar = ({
 
   useEffect(() => setMenuOpen(false), [activeTab]);
 
+  const renderNavItems = () => (
+    <>
+      {NAV_GROUPS.map(group => {
+        // Dashboard is rendered as a standalone tab button
+        if (group.id === 'dashboard') {
+          const item = group.items[0];
+          const Icon = item.icon;
+          return (
+            <button
+              key={item.id}
+              className={`tab-item ${activeTab === item.id ? 'active' : ''}`}
+              onClick={() => setActiveTab(item.id)}
+              role="tab"
+              aria-selected={activeTab === item.id}
+            >
+              <Icon size={17} strokeWidth={2} aria-hidden="true" />
+              <span>{t(item.labelKey)}</span>
+            </button>
+          );
+        }
+        // Other groups rendered as dropdown menus
+        return (
+          <NavGroup
+            key={group.id}
+            group={group}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            t={t}
+          />
+        );
+      })}
+    </>
+  );
+
   return (
     <header className="header-container">
       <nav className="navbar" aria-label={learningMode === 'zh' ? '主要導覽與學習設定' : 'Primary navigation and learning settings'}>
         <div className="nav-content">
-          <button className="brand-logo" onClick={() => setActiveTab('path')} aria-label={t('brandName')}>
-            <span className="flag-badge" aria-hidden="true"><span>★</span> VIỆT</span>
-            <span className="brand-copy">
-              <strong>{t('brandName')}</strong>
-              <small>{t('brandSub')}</small>
-            </span>
-          </button>
+          <div className="nav-brand-and-modules">
+            <button className="brand-logo" onClick={() => setActiveTab('path')} aria-label={t('brandName')}>
+              <span className="flag-badge" aria-hidden="true"><span>★</span> VIỆT</span>
+              <span className="brand-copy">
+                <strong>{t('brandName')}</strong>
+                <small>{t('brandSub')}</small>
+              </span>
+            </button>
+
+            {/* Desktop Top Navigation Bar (Directly to the right of Brand Logo) */}
+            <div className="desktop-nav-modules" role="tablist" aria-label={learningMode === 'zh' ? '學習模組導覽' : 'Learning modules navigation'}>
+              {renderNavItems()}
+            </div>
+          </div>
 
           <div className="nav-mobile-actions">
             <span className="mobile-xp"><Trophy size={15} /> {userStats.xp}</span>
@@ -210,38 +251,10 @@ export const Navbar = ({
         </div>
       </nav>
 
-      {/* Grouped Navigation Tabs */}
-      <div className={`tabs-navigation ${menuOpen ? 'settings-open' : ''}`}>
+      {/* Mobile Bottom Navigation Bar (Visible only on mobile screens) */}
+      <div className={`tabs-navigation mobile-only-tabs ${menuOpen ? 'settings-open' : ''}`}>
         <div className="tabs-wrapper" role="tablist" aria-label={learningMode === 'zh' ? '學習模組' : 'Learning modules'}>
-          {NAV_GROUPS.map(group => {
-            // Dashboard is rendered as a standalone tab button
-            if (group.id === 'dashboard') {
-              const item = group.items[0];
-              const Icon = item.icon;
-              return (
-                <button
-                  key={item.id}
-                  className={`tab-item ${activeTab === item.id ? 'active' : ''}`}
-                  onClick={() => setActiveTab(item.id)}
-                  role="tab"
-                  aria-selected={activeTab === item.id}
-                >
-                  <Icon size={17} strokeWidth={2} aria-hidden="true" />
-                  <span>{t(item.labelKey)}</span>
-                </button>
-              );
-            }
-            // Other groups rendered as dropdown menus
-            return (
-              <NavGroup
-                key={group.id}
-                group={group}
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
-                t={t}
-              />
-            );
-          })}
+          {renderNavItems()}
         </div>
       </div>
     </header>

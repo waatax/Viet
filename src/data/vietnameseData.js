@@ -6140,6 +6140,39 @@ export const quizzes = [
     answer: 1,
     explanationZh: '對年齡稍長或同輩尊重的男性稱呼「Anh」，自己自稱「Em」。',
     explanationEn: 'Address an older male peer as "Anh" and refer to oneself as "Em".'
+  },
+  {
+    id: 'q7',
+    level: 'C1',
+    questionZh: '在審閱越南商業合約時，「Điều khoản bất khả kháng」指涉的法律概念是？',
+    questionEn: 'In a Vietnamese commercial contract, what legal concept does "Điều khoản bất khả kháng" refer to?',
+    optionsZh: ['違約賠償條款', '不可抗力條款 (Force Majeure)', '保密協定條款', '管轄法院條款'],
+    optionsEn: ['Liquidated Damages', 'Force Majeure Clause', 'Non-Disclosure Agreement', 'Jurisdiction Clause'],
+    answer: 1,
+    explanationZh: '「Bất khả kháng」即漢越詞「不可抗」，法律上指因天災、戰爭等無法預見且無法避免之不可抗力事件。',
+    explanationEn: '"Bất khả kháng" means Force Majeure, referring to unforeseeable and unavoidable external events like natural disasters.'
+  },
+  {
+    id: 'q8',
+    level: 'C1+',
+    questionZh: '越南著名成語「Uống nước nhớ nguồn」在社會語用中最常用來表達何種精神？',
+    questionEn: 'What virtue does the famous Vietnamese proverb "Uống nước nhớ nguồn" express in social discourse?',
+    optionsZh: ['節約用水與環境保護', '飲水思源、感念先人與師長恩德', '及時行樂與豁達人生', '刻苦耐勞與商業競爭'],
+    optionsEn: ['Water conservation', 'Remembering one’s roots and gratitude to ancestors/teachers', 'Carpe diem philosophy', 'Hard work and commercial competition'],
+    answer: 1,
+    explanationZh: '「Uống nước nhớ nguồn」(飲水思源) 是越南文化中極為崇尚的美德，常用於教師節、國祖節或紀念先烈之正式場合。',
+    explanationEn: '"Uống nước nhớ nguồn" translates to "When drinking water, remember the source", symbolizing filial piety and gratitude.'
+  },
+  {
+    id: 'q9',
+    level: 'C2',
+    questionZh: '越南古典文學巨著阮攸《金雲翹傳》開篇名句「Trăm năm trong cõi người ta, Chữ tài chữ mệnh khéo là ghét nhau」探討之核心哲學是？',
+    questionEn: 'What core philosophical theme is explored in the opening of Nguyen Du’s The Tale of Kieu ("Chữ tài chữ mệnh khéo là ghét nhau")?',
+    optionsZh: ['百年好合與家庭倫理', '才命相妒 / 天妒英才之命運悲劇性', '商業財富與因果報應', '山水田園與隱逸生活'],
+    optionsEn: ['Marital bliss and family ethics', 'The tragic conflict between talent and destiny (才命相妒)', 'Wealth and karmic retribution', 'Pastoral and hermit lifestyle'],
+    answer: 1,
+    explanationZh: '此句意為「百年茫茫人世間，才與命往往相妒相悖」，為《金雲翹傳》乃至越南古典文學探討才華與命運衝突的經典命題。',
+    explanationEn: 'This classic line contemplates the eternal struggle between exceptional talent and tragic destiny in human life.'
   }
 ];
 
@@ -6149,10 +6182,10 @@ export const learningPath = [
   {
     id: 'lp1',
     level: 'A1',
-    ivptZh: 'iVPT 入門級',
-    ivptEn: 'iVPT Foundation',
-    titleZh: '第 1 階：零基礎破冰（拼讀能力建立）',
-    titleEn: 'Stage 1: Absolute Beginner (Decoding Foundation)',
+    ivptZh: 'iVPT 入門級 (A1)',
+    ivptEn: 'iVPT Foundation (A1)',
+    titleZh: '第 1 階：零基礎破冰與發音（Foundation & Decoding）',
+    titleEn: 'Stage 1: Foundation & Decoding',
     durationZh: '約 4–6 週 · 每日 20 分鐘',
     durationEn: 'Approx. 4–6 weeks · 20 min/day',
     vocabTarget: 150,
@@ -6160,9 +6193,9 @@ export const learningPath = [
     goalEn: 'Read aloud any Vietnamese spelling from scratch and reliably distinguish all 6 tones.',
     canDoZh: [
       '正確唸出 29 個字母與全部母音／輔音組合',
-      '聽辨並發出 6 大聲調，不再把 Hỏi 和 Ngã 搞混',
+      '聽辨並發出 6 大聲調，精準區分 Hỏi 和 Ngã',
       '用 Xin chào / Cảm ơn / Tạm biệt 完成基本禮貌互動',
-      '選定自己的主口音（北越河內 或 南越胡志明）'
+      '選定自己的主口音（北越河內或南越胡志明）'
     ],
     canDoEn: [
       'Pronounce all 29 letters plus vowel/consonant clusters',
@@ -6171,16 +6204,16 @@ export const learningPath = [
       'Commit to a primary accent (Hanoi North or Saigon South)'
     ],
     modules: ['alphabet', 'accent'],
-    milestoneZh: '里程碑：完成第 10 項檢定測驗中的 A1 題組，正確率達 80%。',
-    milestoneEn: 'Milestone: Score 80% on the A1 question set in the Quiz module.'
+    milestoneZh: '里程碑：完成字母表模組，正確率達 90% 以上。',
+    milestoneEn: 'Milestone: Complete Alphabet module with 90%+ accuracy.'
   },
   {
     id: 'lp2',
-    level: 'A1+',
-    ivptZh: 'iVPT 初級',
-    ivptEn: 'iVPT Elementary',
-    titleZh: '第 2 階：生存越語（稱謂與數字）',
-    titleEn: 'Stage 2: Survival Vietnamese (Pronouns & Numbers)',
+    level: 'A2',
+    ivptZh: 'iVPT 初級 (A2)',
+    ivptEn: 'iVPT Elementary (A2)',
+    titleZh: '第 2 階：生存越語與社會稱謂（Survival & Social）',
+    titleEn: 'Stage 2: Survival & Social Mechanics',
     durationZh: '約 6–8 週 · 每日 25 分鐘',
     durationEn: 'Approx. 6–8 weeks · 25 min/day',
     vocabTarget: 400,
@@ -6188,7 +6221,7 @@ export const learningPath = [
     goalEn: 'Clear the two hardest hurdles: the relational pronoun system and large-number currency conversion.',
     canDoZh: [
       '面對任何對象，能在 3 秒內選對「你／我」該用哪個稱謂',
-      '聽懂並說出 0 到 10 億的數字，含口語簡稱（如 2 củ = 200 萬盾）',
+      '聽懂並說出 0 到 10 億的數字，含口語簡稱',
       '在市場問價、殺價、確認找零',
       '完成自我介紹：姓名、國籍、職業、學越語多久'
     ],
@@ -6199,91 +6232,147 @@ export const learningPath = [
       'Deliver a self-introduction: name, nationality, job, study duration'
     ],
     modules: ['pronoun', 'shopping', 'phrases'],
-    milestoneZh: '里程碑：不看提示完成「階段 1、2」全部情境會話的跟讀。',
-    milestoneEn: 'Milestone: Shadow all Stage 1–2 dialogues without looking at hints.'
+    milestoneZh: '里程碑：無字幕跟讀購物與問候情境會話。',
+    milestoneEn: 'Milestone: Shadow shopping and greeting dialogues without subtitles.'
   },
   {
     id: 'lp3',
-    level: 'A2',
-    ivptZh: 'iVPT 中級',
-    ivptEn: 'iVPT Intermediate',
-    titleZh: '第 3 階：語法骨架與漢越音起飛',
+    level: 'B1',
+    ivptZh: 'iVPT 中級 (B1)',
+    ivptEn: 'iVPT Intermediate (B1)',
+    titleZh: '第 3 階：核心語法與漢越音起飛（Grammar & Han-Viet）',
     titleEn: 'Stage 3: Grammar Backbone & Han-Viet Takeoff',
     durationZh: '約 8–12 週 · 每日 30 分鐘',
     durationEn: 'Approx. 8–12 weeks · 30 min/day',
     vocabTarget: 1200,
-    goalZh: '這是台灣學習者的加速帶——用漢越音字根，把 1 個字根換算成 5 到 10 個生詞。',
-    goalEn: 'The accelerator stage: leverage Sino-Vietnamese roots to convert one root into 5–10 new words.',
+    goalZh: '建立穩固語法框架，並利用漢越音字根，把 1 個中文字根擴展成 5 到 10 個高級越語生詞。',
+    goalEn: 'Establish grammar and leverage Sino-Vietnamese roots to convert one root into 5–10 new words.',
     canDoZh: [
-      '掌握形容詞後置、量詞、時態標記（đã／đang／sẽ）三大語法核心',
-      '透過漢越音字根庫，看到 Quốc／Học／Kinh 就能推出整組同源詞',
-      '用完整句子描述過去發生的事與未來計畫',
-      '進行看診、搭車、問路等中等複雜度的情境對話'
+      '掌握形容詞後置、量詞、時態標記三大語法核心',
+      '透過漢越音字根庫，快速推導出同源詞',
+      '用完整句子描述過去經歷與未來計畫',
+      '進行看診、搭車、問路等日常實用對話'
     ],
     canDoEn: [
-      'Master post-nominal adjectives, classifiers, and tense markers (đã/đang/sẽ)',
+      'Master post-nominal adjectives, classifiers, and tense markers',
       'Expand vocabulary by deriving cognate families from Han-Viet roots',
       'Describe past events and future plans in full sentences',
       'Handle mid-complexity scenarios: clinic visits, transport, directions'
     ],
     modules: ['grammar', 'hanviet', 'flashcards'],
-    milestoneZh: '里程碑：閃卡庫累積 500 張標記為「已掌握」，且漢越音字根熟悉 60 組以上。',
-    milestoneEn: 'Milestone: 500 flashcards marked mastered, plus 60+ Han-Viet roots internalized.'
+    milestoneZh: '里程碑：累積 500 張掌握閃卡，熟悉 60 組漢越音字根。',
+    milestoneEn: 'Milestone: 500 mastered flashcards, plus 60+ Han-Viet roots internalized.'
   },
   {
     id: 'lp4',
-    level: 'B1',
-    ivptZh: 'iVPT 中高級',
-    ivptEn: 'iVPT Upper-Intermediate',
-    titleZh: '第 4 階：流利情境應對與口音自如',
-    titleEn: 'Stage 4: Fluent Situational Response & Accent Agility',
+    level: 'B2',
+    ivptZh: 'iVPT 中高級 (B2)',
+    ivptEn: 'iVPT Upper-Intermediate (B2)',
+    titleZh: '第 4 階：情境應變與口音自如（Fluency & Dialect Agility）',
+    titleEn: 'Stage 4: Fluency & Dialect Agility',
     durationZh: '約 4–6 個月 · 每日 40 分鐘',
     durationEn: 'Approx. 4–6 months · 40 min/day',
-    vocabTarget: 3000,
-    goalZh: '從「講得出來」進化到「接得下去」——能即時回應、能聽懂南北兩種口音。',
+    vocabTarget: 2500,
+    goalZh: '從「講得出來」進化到「接得下去」——能即時回應、無縫適應南北兩大主流口音。',
     goalEn: 'Move from producing sentences to sustaining exchanges, understanding both dialects live.',
     canDoZh: [
       '同時聽懂北越與南越口音的日常對話，不需對方放慢',
-      '就工作、家庭、旅遊等主題連續交談 10 分鐘以上',
-      '讀懂越南新聞標題與菜單、告示等日常書面文字',
-      '在對話中即時修正自己的聲調錯誤'
+      '就工作、家庭、時事等主題連續交談 10 分鐘以上',
+      '讀懂越南新聞標題與菜單、告示等書面文字',
+      '在對話中即時自我修正聲調與文法錯誤'
     ],
     canDoEn: [
       'Follow everyday conversation in both Northern and Southern accents at natural speed',
-      'Sustain 10+ minute conversations on work, family, and travel',
+      'Sustain 10+ minute conversations on work, family, and news',
       'Read news headlines, menus, and public notices',
       'Self-correct tone errors in real time while speaking'
     ],
     modules: ['conversation', 'accent', 'quiz'],
-    milestoneZh: '里程碑：完成「階段 3、4」情境會話，並在測驗中通過 A2／B1 題組。',
-    milestoneEn: 'Milestone: Complete Stage 3–4 dialogues and pass the A2/B1 quiz sets.'
+    milestoneZh: '里程碑：通過 B2 級模擬測驗，能與母語者流利通話。',
+    milestoneEn: 'Milestone: Pass B2 mock exams and converse fluently with native speakers.'
   },
   {
     id: 'lp5',
-    level: 'B2–C1',
-    ivptZh: 'iVPT 高級',
-    ivptEn: 'iVPT Advanced',
-    titleZh: '第 5 階：商務越語與越文高手',
-    titleEn: 'Stage 5: Business Vietnamese & Mastery',
+    level: 'C1',
+    ivptZh: 'iVPT 高級 (C1)',
+    ivptEn: 'iVPT Advanced (C1)',
+    titleZh: '第 5 階：商務越語與正式溝通（Business & Formal Register）',
+    titleEn: 'Stage 5: Business & Formal Register',
     durationZh: '約 6–12 個月 · 每日 45 分鐘',
     durationEn: 'Approx. 6–12 months · 45 min/day',
-    vocabTarget: 6000,
-    goalZh: '進入台商實戰場域：合約、投資、談判、正式書信，皆能獨立處理。',
+    vocabTarget: 5000,
+    goalZh: '進入台商與外企實戰場域：商業合約、投資法規、商務談判、正式書信皆能獨立處理。',
     goalEn: 'Operate in professional settings: contracts, investment, negotiation, and formal correspondence.',
     canDoZh: [
-      '主持會議、洽談合作條件、討論合約條款',
-      '理解 FDI 投資、供應鏈、勞動法規等專業詞彙',
-      '撰寫正式商業書信與電子郵件，用字得體',
-      '依對象身分自如切換敬語層級與稱謂策略'
+      '主持會議、洽談合作條件、討論合約細節',
+      '精通 FDI 投資、供應鏈、勞動法規等專業詞彙',
+      '撰寫正式商業書信與電子郵件，遣詞用字符合商務禮儀',
+      '依對象身分自如切換敬語層級與進階稱謂'
     ],
     canDoEn: [
-      'Run meetings, negotiate terms, and discuss contract clauses',
-      'Understand specialist vocabulary: FDI, supply chain, labor regulation',
+      'Run meetings, negotiate terms, and discuss contract details',
+      'Understand specialist vocabulary: FDI, supply chain, labor laws',
       'Write formal business letters and emails with appropriate register',
-      'Shift politeness levels and pronoun strategy to match the counterpart'
+      'Shift politeness levels seamlessly in professional environments'
     ],
     modules: ['conversation', 'hanviet', 'quiz'],
-    milestoneZh: '里程碑：完成「階段 5、6」商務與 FDI 情境，並通過 B1 以上全部題組。',
-    milestoneEn: 'Milestone: Complete Stage 5–6 business/FDI scenarios and pass all B1+ quiz sets.'
+    milestoneZh: '里程碑：完成商務與 FDI 情境，撰寫一篇 300 字越文正式商業報告。',
+    milestoneEn: 'Milestone: Complete business scenarios and write a 300-word formal report.'
+  },
+  {
+    id: 'lp6',
+    level: 'C1+',
+    ivptZh: 'CEFR / iVPT 頂級準備 (C1+)',
+    ivptEn: 'CEFR / iVPT Pre-Mastery (C1+)',
+    titleZh: '第 6 階：高階讀寫與社會議題（Academic & Societal）',
+    titleEn: 'Stage 6: Academic & Societal Depth',
+    durationZh: '約 6 個月 · 每日 45 分鐘',
+    durationEn: 'Approx. 6 months · 45 min/day',
+    vocabTarget: 8000,
+    goalZh: '具備大學程度的論述能力，能閱讀社論、參與社會議題辯論，並掌握豐富的成語。',
+    goalEn: 'Attain university-level discourse ability, read editorials, debate societal issues, and use idioms.',
+    canDoZh: [
+      '流暢閱讀越南各大報深度報導',
+      '運用越南成語 (Thành ngữ) 與俗語 (Tục ngữ) 豐富表達',
+      '撰寫結構嚴謹的論說文與學術摘要',
+      '探討越南經濟、歷史、文化等深度議題'
+    ],
+    canDoEn: [
+      'Fluently read in-depth reports from major Vietnamese news outlets',
+      'Employ Vietnamese idioms (Thành ngữ) and proverbs (Tục ngữ)',
+      'Write well-structured argumentative essays and summaries',
+      'Discuss deep topics like Vietnam’s economy, history, and culture'
+    ],
+    modules: ['hanviet', 'flashcards', 'quiz'],
+    milestoneZh: '里程碑：能連續 20 分鐘無腳本對越南特定社會議題發表演講。',
+    milestoneEn: 'Milestone: Deliver a 20-minute unscripted speech on a Vietnamese societal issue.'
+  },
+  {
+    id: 'lp7',
+    level: 'C2',
+    ivptZh: 'iVPT 專業級 (C2)',
+    ivptEn: 'iVPT Professional (C2)',
+    titleZh: '第 7 階：母語級精通與信達雅（Native Mastery & Elegance）',
+    titleEn: 'Stage 7: Native Mastery & Elegance',
+    durationZh: '終身學習',
+    durationEn: 'Lifelong learning',
+    vocabTarget: 12000,
+    goalZh: '不僅要聽懂，更要聽出言外之意。能欣賞古典文學，並在翻譯與口說中達到「信、達、雅」的境界。',
+    goalEn: 'Achieve true fluency: understand subtext, appreciate classic literature, and express ideas with elegance and precision.',
+    canDoZh: [
+      '賞析越南古典文學巨著（如阮攸《金雲翹傳》Truyện Kiều）',
+      '無縫融入當地流行語、年輕人俚語及幽默感',
+      '在翻譯或跨文化溝通中，展現極高精準度與文化體貼',
+      '思考與做夢時自然使用越南語，徹底打破母語框架'
+    ],
+    canDoEn: [
+      'Appreciate classic literature (e.g., The Tale of Kieu)',
+      'Seamlessly integrate modern slang, internet culture, and humor',
+      'Show extreme precision and cultural empathy in translation',
+      'Think and dream naturally in Vietnamese, breaking native language barriers'
+    ],
+    modules: ['conversation', 'accent', 'hanviet'],
+    milestoneZh: '里程碑：真正成為越南文化的橋樑，達到「信達雅」之翻譯與溝通水準。',
+    milestoneEn: 'Milestone: Become a true bridge of Vietnamese culture, achieving elegant and precise communication.'
   }
 ];
