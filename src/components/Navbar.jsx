@@ -234,18 +234,6 @@ export const Navbar = ({
                 {theme === 'light' ? <Moon size={17} /> : <Sun size={17} />}
                 <span>{theme === 'light' ? t('darkTheme') : t('lightTheme')}</span>
               </button>
-
-              {/* Accent toggle — moved to advanced settings area (demoted from primary) */}
-              <div className="accent-advanced-toggle" aria-label={learningMode === 'zh' ? '發音口音偏好（進階）' : 'Pronunciation accent (advanced)'}>
-                <Settings2 size={14} aria-hidden="true" />
-                <span className="accent-label">{learningMode === 'zh' ? '口音' : 'Accent'}:</span>
-                <button className={`accent-chip ${selectedAccent === 'north' ? 'active' : ''}`} onClick={() => setSelectedAccent('north')}>
-                  {t('northAccent')}
-                </button>
-                <button className={`accent-chip ${selectedAccent === 'south' ? 'active' : ''}`} onClick={() => setSelectedAccent('south')}>
-                  {t('southAccent')}
-                </button>
-              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Settings2 } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { useLanguage } from './context/LanguageContext';
@@ -262,7 +262,29 @@ export function App() {
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <div className="footer-settings-controls" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
+            {/* Setting: Accent Preference (Moved from top to bottom) */}
+            <div className="accent-toggle-group" style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', background: 'var(--bg-input)', padding: '0.3rem 0.6rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-color)' }}>
+              <Settings2 size={15} color="var(--brand-primary)" />
+              <span style={{ fontSize: '0.82em', fontWeight: 700, color: 'var(--text-secondary)' }}>
+                {learningMode === 'zh' ? '口音設定：' : 'Accent: '}
+              </span>
+              <button
+                className={`accent-chip ${selectedAccent === 'north' ? 'active' : ''}`}
+                onClick={() => setSelectedAccent('north')}
+                style={{ cursor: 'pointer' }}
+              >
+                {t('northAccent')}
+              </button>
+              <button
+                className={`accent-chip ${selectedAccent === 'south' ? 'active' : ''}`}
+                onClick={() => setSelectedAccent('south')}
+                style={{ cursor: 'pointer' }}
+              >
+                {t('southAccent')}
+              </button>
+            </div>
+
             <div style={{ fontSize: '0.86em', color: 'var(--brand-gold)', fontWeight: 700, background: 'var(--bg-accent)', padding: '0.35rem 0.8rem', borderRadius: 'var(--radius-full)' }}>
               {learningMode === 'zh' ? '當前軌道：🇹🇼 中文越語雙軌深度模式' : 'Active Track: 🌐 English Global Mode'}
             </div>
