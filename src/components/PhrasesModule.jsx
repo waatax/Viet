@@ -71,16 +71,16 @@ export const PhrasesModule = ({ selectedAccent }) => {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem' }}>
           <div>
             <span style={{ fontSize: '0.8em', fontWeight: 800, color: 'var(--brand-gold)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
-              SURVIVAL PHRASEBOOK · 550+ VERIFIED DIALOGIC PHRASES
+              SURVIVAL PHRASEBOOK · {practicalPhrases.length}+ VERIFIED DIALOGIC PHRASES
             </span>
             <h2 className="section-title" style={{ marginTop: '0.2rem' }}>
               <BookOpen color="var(--brand-primary)" />
-              {learningMode === 'zh' ? '實用生活片語與生存高頻短句庫 (550+句)' : 'Essential Survival Phrases & Idioms (550+)'}
+              {learningMode === 'zh' ? `實用生活片語與生存高頻短句庫 (${practicalPhrases.length}+句)` : `Essential Survival Phrases & Idioms (${practicalPhrases.length}+)`}
             </h2>
             <p className="section-desc">
               {learningMode === 'zh'
-                ? `收錄 14 大情境領域共 ${practicalPhrases.length} 句道地越南短句，涵蓋問候、咖啡、點餐、殺價、叫車、商務簽約與俚語，配備原生雙口音發音`
-                : `Comprehensive collection of ${practicalPhrases.length} essential Vietnamese phrases across 14 life domains with native audio.`}
+                ? `收錄 15 大情境領域共 ${practicalPhrases.length} 句道地越南短句，涵蓋問候初見、社交閒聊、咖啡點餐、旅遊住宿、運動健身、職場商務與道地俚語，配備原生雙口音發音`
+                : `Comprehensive collection of ${practicalPhrases.length} essential Vietnamese phrases across 15 life domains with native audio.`}
             </p>
           </div>
 

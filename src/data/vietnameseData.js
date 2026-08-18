@@ -5899,6 +5899,3471 @@ export const practicalPhrases = [
     "en": "Love, cherish and appreciate you very much!",
     "usageZh": "最高級深情溫馨結尾",
     "usageEn": "Loving appreciation finale"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Xin chào! Rất hân hạnh được làm quen với bạn.",
+    "zh": "你好！非常榮幸能認識你。",
+    "en": "Hello! Honored to meet you.",
+    "usageZh": "初見禮貌標準用語。"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Tôi xin tự giới thiệu, tôi tên là David.",
+    "zh": "請允許我自我介紹，我叫 David。",
+    "en": "Allow me to introduce myself, my name is David.",
+    "usageZh": "自我介紹開場白。"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Tôi đến từ Đài Loan và đang học tiếng Việt.",
+    "zh": "我來自台灣，目前正在學越南語。",
+    "en": "I am from Taiwan and studying Vietnamese.",
+    "usageZh": "介紹國籍與語言學習。"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Năm nay tôi 26 tuổi, còn bạn thì sao?",
+    "zh": "我今年 26 歲，那你呢？",
+    "en": "I am 26 years old this year, how about you?",
+    "usageZh": "詢問年齡以確定尊稱。"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Anh sinh năm mấy để em tiện xưng hô ạ?",
+    "zh": "請問哥是哪一年出生的，方便我稱呼您？",
+    "en": "What year were you born so I know how to address you?",
+    "usageZh": "禮貌詢問年齡稱謂。"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Cứ gọi tôi là anh Minh được rồi nhé.",
+    "zh": "叫我 Minh 哥就可以了喔。",
+    "en": "Just call me brother Minh.",
+    "usageZh": "告知對方合適稱謂。"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Bạn có dùng mạng xã hội nào ở Việt Nam không?",
+    "zh": "你在越南常用哪個社群軟體呢？",
+    "en": "Which social network do you use in Vietnam?",
+    "usageZh": "社交聯繫詢問。"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Cho mình xin nick Zalo để tiện nhắn tin nhé!",
+    "zh": "請給我你的 Zalo 帳號方便傳訊息喔！",
+    "en": "May I have your Zalo handle to text?",
+    "usageZh": "加 Zalo 好友必備。"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Rất vui vì hôm nay có cơ hội trò chuyện cùng bạn.",
+    "zh": "今天非常高興有機會能和你交流聊天。",
+    "en": "Very glad to have the chance to chat with you today.",
+    "usageZh": "交流結束致謝。"
+  },
+  {
+    "category": "問候與禮貌 / Greetings",
+    "viet": "Hẹn gặp lại bạn vào một ngày gần nhất nhé!",
+    "zh": "期待近期內再次與你見面！",
+    "en": "See you again in the near future!",
+    "usageZh": "熱情道別約定。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Dạo này mọi việc của bạn vẫn thuận lợi chứ?",
+    "zh": "最近你身邊的事一切都還順利吧？",
+    "en": "Is everything going smoothly for you lately?",
+    "usageZh": "關懷問候。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Hôm nay trời nhiều mây, có vẻ sắp có mưa giông.",
+    "zh": "今天多雲，看起來快要下雷陣雨了。",
+    "en": "It is cloudy today, looks like thunderstorm is coming.",
+    "usageZh": "天氣觀察。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Sài Gòn mùa này thời tiết nóng ẩm đặc trưng.",
+    "zh": "西貢這個季節是典型的濕熱氣候。",
+    "en": "Saigon weather in this season is characteristically hot and humid.",
+    "usageZh": "熱帶氣候特點。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Buổi tối ở Hà Nội mùa thu gió heo may mát rượi.",
+    "zh": "河內秋天的夜晚微風吹拂涼爽怡人。",
+    "en": "Hanoi autumn evenings have cool gentle breezes.",
+    "usageZh": "讚美河內秋天。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Cuối tuần này bạn có kế hoạch đi đâu chơi không?",
+    "zh": "這個週末你有打算去哪裡玩嗎？",
+    "en": "Do you have any plans to go out this weekend?",
+    "usageZh": "週末休閒話題。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Tôi định ở nhà nghỉ ngơi và nấu vài món ăn ngon.",
+    "zh": "我打算待在家裡休息並做幾道美味料理。",
+    "en": "I plan to stay home, rest and cook some nice food.",
+    "usageZh": "宅家生活分享。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Bạn có thích đi dạo hồ Tây vào buổi chiều không?",
+    "zh": "你喜歡傍晚時去西湖散步吹風嗎？",
+    "en": "Do you like strolling by West Lake in the late afternoon?",
+    "usageZh": "河內浪漫休閒。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Cảm ơn bạn đã luôn quan tâm và giúp đỡ tôi.",
+    "zh": "感謝你一直以來的關心與大力協助。",
+    "en": "Thank you for always caring and supporting me.",
+    "usageZh": "表達真摯感謝。"
+  },
+  {
+    "category": "旅遊與出行 / Travel & Transit",
+    "viet": "Cho tôi hỏi đường ngắn nhất đi ra sân bay.",
+    "zh": "請問去機場最近的路線怎麼走？",
+    "en": "Which is the shortest route to the airport?",
+    "usageZh": "機場路線詢問。"
+  },
+  {
+    "category": "旅遊與出行 / Travel & Transit",
+    "viet": "Từ đây đi bộ ra bãi biển mất bao nhiêu phút?",
+    "zh": "從這裡步行走到海灘需要幾分鐘？",
+    "en": "How many minutes to walk to the beach from here?",
+    "usageZh": "海濱景點問路。"
+  },
+  {
+    "category": "旅遊與出行 / Travel & Transit",
+    "viet": "Giá vé đi cáp treo lên đỉnh Bà Nà là bao nhiêu?",
+    "zh": "搭纜車上巴拿山山頂的票價是多少？",
+    "en": "How much is the cable car ticket to Ba Na Hills?",
+    "usageZh": "峴港著名景點票價。"
+  },
+  {
+    "category": "旅遊與出行 / Travel & Transit",
+    "viet": "Tôi muốn mua vé tàu hỏa giường nằm đi Sa Pa.",
+    "zh": "我想買去沙壩 (Sa Pa) 的火車臥鋪票。",
+    "en": "I want to buy sleeper train tickets to Sa Pa.",
+    "usageZh": "山城火車臥鋪。"
+  },
+  {
+    "category": "旅遊與出行 / Travel & Transit",
+    "viet": "Chuyến xe khách này có dừng ở Mũi Né không bác?",
+    "zh": "司機先生，這班客運有停靠在美奈嗎？",
+    "en": "Does this coach stop in Mui Ne, driver?",
+    "usageZh": "長途巴士客運確認。"
+  },
+  {
+    "category": "旅遊與出行 / Travel & Transit",
+    "viet": "Ở đây có dịch vụ cho thuê thuyền tham quan vịnh không?",
+    "zh": "這裡有提供包船遊覽海灣的服務嗎？",
+    "en": "Do you have boat charter services to tour the bay?",
+    "usageZh": "下龍灣租船遊覽。"
+  },
+  {
+    "category": "旅遊與出行 / Travel & Transit",
+    "viet": "Tôi muốn đổi phòng có ban công hướng ra biển.",
+    "zh": "我想換一間帶陽台且面海的海景房。",
+    "en": "I would like to change to a room with sea-view balcony.",
+    "usageZh": "升等海景房。"
+  },
+  {
+    "category": "旅遊與出行 / Travel & Transit",
+    "viet": "Bảo tàng mở cửa từ mấy giờ đến mấy giờ?",
+    "zh": "博物館的開放參觀時間是幾點到幾點？",
+    "en": "What are the museum opening hours?",
+    "usageZh": "景點開放時間。"
+  },
+  {
+    "category": "旅遊與出行 / Travel & Transit",
+    "viet": "Đừng quên mang theo kem chống nắng khi đi biển nhé.",
+    "zh": "去海灘玩水時別忘了隨身帶防曬乳喔。",
+    "en": "Don't forget sunscreen when going to the beach.",
+    "usageZh": "海島旅遊貼心提醒。"
+  },
+  {
+    "category": "餐飲與點餐 / Dining",
+    "viet": "Cho tôi một phần bánh cuốn nóng nhân thịt nấm mèo.",
+    "zh": "給我一份現蒸的木耳豬肉餡熱粉捲 (Bánh cuốn)。",
+    "en": "Give me steamed rice rolls filled with pork and wood ear mushrooms.",
+    "usageZh": "北越經典早餐粉捲。"
+  },
+  {
+    "category": "餐飲與點餐 / Dining",
+    "viet": "Bún đậu mắm tôm này ăn kèm chả cốm rất ngon.",
+    "zh": "這份豆腐米線沾蝦醬搭配扁糯米炸肉餅超讚。",
+    "en": "Bun dau mam tom paired with cha com is delicious.",
+    "usageZh": "傳統特色小吃蝦醬米線。"
+  },
+  {
+    "category": "餐飲與點餐 / Dining",
+    "viet": "Nước mắm tôm này pha thêm quất và ớt đánh sủi bọt lên nhé.",
+    "zh": "這個蝦醬請幫我擠金桔加辣椒打出綿密泡沫喔。",
+    "en": "Mix this shrimp paste with kumquat and chili until frothy.",
+    "usageZh": "地道調醬秘笈。"
+  },
+  {
+    "category": "餐飲與點餐 / Dining",
+    "viet": "Cho tôi xin thêm một đĩa rau muống xào tỏi thơm lừng.",
+    "zh": "請給我多加一盤蒜炒空心菜。",
+    "en": "Please give me an extra plate of garlic stir-fried morning glory.",
+    "usageZh": "熱炒經典蔬菜。"
+  },
+  {
+    "category": "餐飲與點餐 / Dining",
+    "viet": "Món cá kho tộ này đậm đà và đưa cơm vô cùng!",
+    "zh": "這道陶鍋砂鍋燉魚非常入味而且超級下飯！",
+    "en": "This claypot braised fish is savory and pairs so well with rice!",
+    "usageZh": "家常下飯名菜。"
+  },
+  {
+    "category": "餐飲與點餐 / Dining",
+    "viet": "Tôi muốn thử món gỏi ngó sen tôm thịt chua ngọt giòn tan.",
+    "zh": "我想嚐嚐酸甜爽脆的鮮蝦豬肉藕藤涼拌沙拉。",
+    "en": "I want to try the sweet-sour crispy lotus root salad with shrimp and pork.",
+    "usageZh": "經典涼拌開胃菜。"
+  },
+  {
+    "category": "餐飲與點餐 / Dining",
+    "viet": "Chè bưởi này thơm bùi cùi bưởi và béo ngậy nước cốt dừa.",
+    "zh": "這個柚子甜湯 (Chè bưởi) 柚皮軟糯椰奶香濃。",
+    "en": "This pomelo sweet soup is fragrant, chewy and creamy with coconut milk.",
+    "usageZh": "越南甜品之王。"
+  },
+  {
+    "category": "餐飲與點餐 / Dining",
+    "viet": "Cho tôi xin một ly nước mía siêu sạch ép tắc tươi mát lạnh.",
+    "zh": "請給我一杯超乾淨現榨加金桔的冰涼甘蔗汁。",
+    "en": "Please give me a clean cold sugarcane juice pressed with fresh kumquat.",
+    "usageZh": "街頭消暑國飲。"
+  },
+  {
+    "category": "餐飲與點餐 / Dining",
+    "viet": "Quán này có nhận giao đồ ăn qua ứng dụng GrabFood hay ShopeeFood không?",
+    "zh": "這家店有配合 GrabFood 或 ShopeeFood 外送嗎？",
+    "en": "Does this shop deliver via GrabFood or ShopeeFood?",
+    "usageZh": "叫外送詢問。"
+  },
+  {
+    "category": "休閒娛樂與運動 / Leisure & Sports",
+    "viet": "Tôi rất đam mê nhiếp ảnh và văn hóa dân gian Việt Nam.",
+    "zh": "我對攝影和越南民俗文化充滿熱忱。",
+    "en": "I am passionate about photography and Vietnamese folklore.",
+    "usageZh": "文藝興趣表達。"
+  },
+  {
+    "category": "休閒娛樂與運動 / Leisure & Sports",
+    "viet": "Bạn có biết bài hát 'See Tình' của Hoàng Thùy Linh không?",
+    "zh": "你知道黃垂玲演唱的熱門神曲《See Tình》嗎？",
+    "en": "Do you know the hit song 'See Tinh' by Hoang Thuy Linh?",
+    "usageZh": "越南流行音樂話題。"
+  },
+  {
+    "category": "休閒娛樂與運動 / Leisure & Sports",
+    "viet": "Cuối tuần đi cắm trại ở ngoại ô hít thở không khí trong lành nhé!",
+    "zh": "週末去郊外露營呼吸新鮮空氣吧！",
+    "en": "Let's go camping in the suburbs for fresh air this weekend!",
+    "usageZh": "戶外露營邀約。"
+  },
+  {
+    "category": "休閒娛樂與運動 / Leisure & Sports",
+    "viet": "Chơi thể thao giúp cơ thể săn chắc và tinh thần sảng khoái.",
+    "zh": "做運動能讓身材結實並且精神飽滿神清氣爽。",
+    "en": "Sports keeps the body fit and mind refreshed.",
+    "usageZh": "體育鍛鍊益處。"
+  },
+  {
+    "category": "休閒娛樂與運動 / Leisure & Sports",
+    "viet": "Tôi đang tập yoga vào mỗi buổi sáng sớm.",
+    "zh": "我每天清晨都在練習瑜珈。",
+    "en": "I practice yoga every early morning.",
+    "usageZh": "晨間瑜珈習慣。"
+  },
+  {
+    "category": "休閒娛樂與運動 / Leisure & Sports",
+    "viet": "Đội bóng này có lối chơi tấn công rất đẹp mắt.",
+    "zh": "這支足球隊的進攻打法非常精彩漂亮。",
+    "en": "This football team has a great attractive attacking playstyle.",
+    "usageZh": "賽事戰術點評。"
+  },
+  {
+    "category": "休閒娛樂與運動 / Leisure & Sports",
+    "viet": "Đi hát Karaoke là cách xả stress tuyệt vời nhất sau giờ làm.",
+    "zh": "下班後去唱卡拉OK是釋放工作壓力的最佳方式。",
+    "en": "Karaoke is the best way to release stress after work.",
+    "usageZh": "KTV 舒壓心得。"
+  },
+  {
+    "category": "商務與職場 / Business",
+    "viet": "Xưởng sản xuất đang vận hành hết công suất để kịp đơn hàng.",
+    "zh": "工廠車間正在全力開動產能以趕上出貨訂單。",
+    "en": "The factory workshop is operating at full capacity to meet orders.",
+    "usageZh": "工廠產能管理。"
+  },
+  {
+    "category": "商務與職場 / Business",
+    "viet": "Tất cả công nhân trong xưởng phải tuân thủ nghiêm ngặt quy định an toàn lao động.",
+    "zh": "車間內所有作業員必須嚴格遵守職業安全衛生規定。",
+    "en": "All workers must strictly adhere to labor safety regulations.",
+    "usageZh": "工業安全督導。"
+  },
+  {
+    "category": "商務與職場 / Business",
+    "viet": "Vui lòng ký vào biên bản bàn giao thiết bị.",
+    "zh": "請在設備點交移交紀錄清單上簽字確認。",
+    "en": "Please sign the equipment handover protocol.",
+    "usageZh": "設備移交手續。"
+  },
+  {
+    "category": "商務與職場 / Business",
+    "viet": "Doanh nghiệp của chúng tôi được hưởng chính sách ưu đãi thuế thu nhập doanh nghiệp.",
+    "zh": "我們企業享有企業所得稅之租稅優惠減免政策。",
+    "en": "Our enterprise enjoys corporate income tax preferential policies.",
+    "usageZh": "外資稅務優惠。"
+  },
+  {
+    "category": "商務與職場 / Business",
+    "viet": "Chúng tôi rất coi trọng việc bảo vệ môi trường và phát triển bền vững ESG.",
+    "zh": "我們高度重視環境保護與 ESG 永續發展規範。",
+    "en": "We place high value on environmental protection and ESG sustainability.",
+    "usageZh": "企業永續理念。"
+  },
+  {
+    "category": "商務與職場 / Business",
+    "viet": "Hôm nay phòng nhân sự sẽ tổ chức phỏng vấn ứng viên.",
+    "zh": "今天人資部門將組織面試應徵者。",
+    "en": "Today HR department will conduct interviews for candidates.",
+    "usageZh": "人資招募面試。"
+  },
+  {
+    "category": "商務與職場 / Business",
+    "viet": "Chúc mừng bạn đã hoàn thành xuất sắc chỉ tiêu KPI tháng này!",
+    "zh": "恭喜你這個月極其出色地達成了 KPI 績效指標！",
+    "en": "Congratulations on outstandingly hitting your KPI targets this month!",
+    "usageZh": "激勵表彰同仁。"
+  },
+  {
+    "category": "醫療與急難 / Pharmacy & Emergency",
+    "viet": "Tôi bị đau rát họng và ho khan nhiều ngày nay.",
+    "zh": "我這幾天喉嚨乾刺痛而且一直乾咳。",
+    "en": "I have had a burning sore throat and dry cough for days.",
+    "usageZh": "感冒症狀自述。"
+  },
+  {
+    "category": "醫療與急難 / Pharmacy & Emergency",
+    "viet": "Bác sĩ cho tôi xin thuốc xịt mũi giảm nghẹt.",
+    "zh": "醫生請給我開緩解鼻塞的噴鼻劑。",
+    "en": "Doctor please give me nasal spray to relieve congestion.",
+    "usageZh": "鼻過敏鼻塞用藥。"
+  },
+  {
+    "category": "醫療與急難 / Pharmacy & Emergency",
+    "viet": "Cần bôi kem chống muỗi để phòng ngừa bệnh sốt xuất huyết.",
+    "zh": "需要塗抹防蚊液以預防登革熱疫情。",
+    "en": "Apply mosquito repellent to prevent dengue fever.",
+    "usageZh": "熱帶防蚊衛教。"
+  },
+  {
+    "category": "醫療與急難 / Pharmacy & Emergency",
+    "viet": "Tôi muốn mua bông băng gạc y tế và nước muối sinh lý.",
+    "zh": "我想買醫療用無菌棉花紗布和生理食鹽水。",
+    "en": "I want to buy sterile medical gauze and saline solution.",
+    "usageZh": "買常備急救醫材。"
+  },
+  {
+    "category": "醫療與急難 / Pharmacy & Emergency",
+    "viet": "Uống trà gừng ấm giúp làm ấm bụng và dễ tiêu hóa.",
+    "zh": "喝溫熱薑茶能溫胃暖身並幫助消化。",
+    "en": "Drinking warm ginger tea warms the stomach and aids digestion.",
+    "usageZh": "養生食療常識。"
+  },
+  {
+    "category": "醫療與急難 / Pharmacy & Emergency",
+    "viet": "Nên khám sức khỏe răng miệng định kỳ sáu tháng một lần.",
+    "zh": "建議每六個月進行一次定期口腔牙齒檢查。",
+    "en": "Dental check-ups are recommended every 6 months.",
+    "usageZh": "牙科保健。"
+  },
+  {
+    "category": "居家與租屋 / Apartment & Living",
+    "viet": "Căn hộ này có đầy đủ nội thất từ tủ lạnh đến máy giặt.",
+    "zh": "這間公寓配備了從冰箱到洗衣機的全套家具家電。",
+    "en": "This apartment is fully furnished from fridge to washing machine.",
+    "usageZh": "租屋看房配備。"
+  },
+  {
+    "category": "居家與租屋 / Apartment & Living",
+    "viet": "Tiền điện nước và phí quản lý hàng tháng tính như thế nào?",
+    "zh": "每個月的水電費和大樓管理費是如何計費的？",
+    "en": "How are monthly utilities and management fees calculated?",
+    "usageZh": "確認水電計費。"
+  },
+  {
+    "category": "居家與租屋 / Apartment & Living",
+    "viet": "Bình nóng lạnh trong nhà tắm bị hỏng rò nước, phiền chủ nhà sửa gấp.",
+    "zh": "浴室的熱水器壞掉漏水了，麻煩房東盡快派人維修。",
+    "en": "The water heater is leaking, please have it repaired urgently.",
+    "usageZh": "報修衛浴設備。"
+  },
+  {
+    "category": "居家與租屋 / Apartment & Living",
+    "viet": "Bảo vệ chung cư trực 24/7 nên an ninh rất đảm bảo.",
+    "zh": "大樓保全 24 小時全天候值班，因此門禁治安很有保障。",
+    "en": "Apartment security is on duty 24/7 so safety is ensured.",
+    "usageZh": "社區治安描述。"
+  },
+  {
+    "category": "居家與租屋 / Apartment & Living",
+    "viet": "Chợ dân sinh họp ngay đầu ngõ, mua rau củ quả rất tiện.",
+    "zh": "巷口就有傳統早市菜市場，買新鮮蔬果非常便利。",
+    "en": "Local wet market is right at the alley entrance, very convenient.",
+    "usageZh": "生活機能自述。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Bây giờ là mấy giờ rồi bạn?",
+    "zh": "現在幾點了呢？",
+    "en": "What time is it now?",
+    "usageZh": "問時間。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Hẹn gặp bạn lúc 3 giờ chiều mai nhé!",
+    "zh": "約好明天下午 3 點見面喔！",
+    "en": "See you tomorrow at 3 PM!",
+    "usageZh": "約定時間。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Đừng đến muộn nhé, chúng tôi chờ bạn.",
+    "zh": "別遲到喔，我們都在等你。",
+    "en": "Don't be late, we are waiting for you.",
+    "usageZh": "準時提醒。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Tôi đang trên đường đến, khoảng 5 phút nữa là tới.",
+    "zh": "我正在路上，大概再過 5 分鐘就到。",
+    "en": "I am on the way, arriving in about 5 minutes.",
+    "usageZh": "回報抵達時間。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Hôm nay là ngày mấy tháng mấy?",
+    "zh": "今天是幾月幾號？",
+    "en": "What is today's date?",
+    "usageZh": "問日期。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Tháng sau là dịp lễ lớn ở Việt Nam.",
+    "zh": "下個月是越南的重要國定假日。",
+    "en": "Next month is a major public holiday in Vietnam.",
+    "usageZh": "節慶時節。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Tết Nguyên Đán là ngày lễ sum họp gia đình thiêng liêng nhất.",
+    "zh": "農曆春節是全家團圓最神聖重要的節日。",
+    "en": "Lunar New Year is the most sacred family reunion festival.",
+    "usageZh": "春節文化。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Chúc mừng năm mới, an khang thịnh vượng, vạn sự như ý!",
+    "zh": "新年快樂，祝您安康興旺、萬事如意！",
+    "en": "Happy New Year! Wishing you prosperity and good fortune!",
+    "usageZh": "春節吉祥賀詞。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Chúc bạn sinh nhật vui vẻ, luôn trẻ trung và hạnh phúc!",
+    "zh": "祝你生日快樂，永遠青春美麗幸福滿溢！",
+    "en": "Happy birthday, stay youthful and joyful always!",
+    "usageZh": "生日祝詞。"
+  },
+  {
+    "category": "時間與約定 / Time & Dates",
+    "viet": "Chúc mừng hạnh phúc hai bạn, trăm năm hạnh phúc!",
+    "zh": "祝賀你們百年好合、永浴愛河！",
+    "en": "Congratulations to both of you, wishing you a lifetime of happiness!",
+    "usageZh": "婚禮婚慶祝詞。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Tất nhiên rồi!",
+    "zh": "當然囉！",
+    "en": "Of course!",
+    "usageZh": "肯定回覆。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Chắc chắn là như vậy rồi.",
+    "zh": "肯定是那樣沒錯。",
+    "en": "Definitely so.",
+    "usageZh": "堅定贊同。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Tôi hoàn toàn đồng ý với ý kiến của bạn.",
+    "zh": "我完全贊同你的寶貴意見。",
+    "en": "I completely agree with your opinion.",
+    "usageZh": "正式贊同。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Tôi không nghĩ như vậy.",
+    "zh": "我倒不這麼認為。",
+    "en": "I don't think so.",
+    "usageZh": "委婉保留意見。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Tùy bạn quyết định nhé!",
+    "zh": "由你決定囉 / 看你意思！",
+    "en": "Up to you to decide!",
+    "usageZh": "尊重對方選擇。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Sao cũng được cả.",
+    "zh": "怎樣都行 / 都好。",
+    "en": "Anything is fine.",
+    "usageZh": "隨和表達。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Không có chi đâu, đừng khách sáo!",
+    "zh": "沒什麼啦，千萬別見外客氣！",
+    "en": "Don't mention it, make yourself at home!",
+    "usageZh": "熱情回謝。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Bạn thật là chu đáo quá!",
+    "zh": "你真是太貼心周到了！",
+    "en": "You are so thoughtful and considerate!",
+    "usageZh": "誇獎貼心。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Làm phiền bạn quá rồi!",
+    "zh": "太麻煩打擾你了！",
+    "en": "Sorry to trouble you so much!",
+    "usageZh": "抱歉添麻煩。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Không sao đâu, chuyện nhỏ mà!",
+    "zh": "沒事的，小事一樁！",
+    "en": "No problem at all, it's a small matter!",
+    "usageZh": "輕鬆安慰。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Cố lên nhé, bạn nhất định làm được!",
+    "zh": "加油喔，你一定辦得到的！",
+    "en": "Keep it up, you can definitely do it!",
+    "usageZh": "熱血打氣。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Đừng bỏ cuộc giữa chừng nhé!",
+    "zh": "千萬不要半途而廢放棄喔！",
+    "en": "Never give up halfway!",
+    "usageZh": "激勵堅持。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Chúc bạn may mắn và vạn sự thuận lợi!",
+    "zh": "祝你好運，諸事順利亨通！",
+    "en": "Best of luck and smooth sailing in everything!",
+    "usageZh": "祝福語。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Tôi tin tưởng vào khả năng của bạn.",
+    "zh": "我深深信任你的專業能力。",
+    "en": "I have full confidence in your abilities.",
+    "usageZh": "展現信任。"
+  },
+  {
+    "category": "社交閒聊與生活 / Small Talk",
+    "viet": "Hãy giữ gìn sức khỏe nhé bạn thân mến!",
+    "zh": "親愛的朋友，請務必好好保重身體！",
+    "en": "Please take good care of your health, dear friend!",
+    "usageZh": "溫情道別。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Cho tôi xin thêm đá lạnh.",
+    "zh": "請幫我加點冰塊。",
+    "en": "Extra ice please.",
+    "usageZh": "加冰塊。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Bát này không bỏ ớt cay nhé.",
+    "zh": "這碗不要放辣椒喔。",
+    "en": "No spicy chili in this bowl.",
+    "usageZh": "去辣。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Cho tôi gọi món mang về.",
+    "zh": "我要點餐外帶。",
+    "en": "I want to order takeaway.",
+    "usageZh": "外帶。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Món này là đặc sản vùng nào?",
+    "zh": "這道菜是哪個地區的特產？",
+    "en": "Which region's specialty is this?",
+    "usageZh": "問特產。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Thức ăn ở đây tươi và sạch sẽ.",
+    "zh": "這裡的食物新鮮又乾淨衛生。",
+    "en": "Food here is fresh and clean.",
+    "usageZh": "讚賞衛生。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Nước chấm này pha rất vừa miệng.",
+    "zh": "這個沾醬調得非常合胃口。",
+    "en": "This dipping sauce is seasoned just right.",
+    "usageZh": "讚賞醬汁。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Cho tôi xin thêm đũa và thìa sạch.",
+    "zh": "請給我多一副乾淨筷子和湯匙。",
+    "en": "Clean chopsticks and spoon please.",
+    "usageZh": "要餐具。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Tính chung một hóa đơn nhé.",
+    "zh": "幫我們一起算一張帳單結帳。",
+    "en": "Bill together on one check.",
+    "usageZh": "合算買單。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Chúng tôi chia tiền riêng từng người.",
+    "zh": "我們各自自分開付帳 (AA制)。",
+    "en": "We split the bill individually.",
+    "usageZh": "分開付帳。"
+  },
+  {
+    "category": "餐飲與美食 / Dining & Food",
+    "viet": "Cảm ơn bữa ăn ngon miệng!",
+    "zh": "感謝這頓美味豐盛的餐點！",
+    "en": "Thank you for the delicious meal!",
+    "usageZh": "餐後道謝。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Chở tôi đến địa chỉ ghi trên giấy này.",
+    "zh": "請載我到這張紙上寫的地址。",
+    "en": "Drive me to the address on this paper.",
+    "usageZh": "給地址。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Lái xe cẩn thận, không cần vội đâu.",
+    "zh": "請小心安全駕駛，不用著急趕時間。",
+    "en": "Drive safely, no need to rush.",
+    "usageZh": "提醒慢開。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Đến nơi làm ơn bấm còi báo nhé.",
+    "zh": "到了地方麻煩按聲喇叭提醒我。",
+    "en": "Please honk when you arrive.",
+    "usageZh": "叫車提示。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Chỗ này có được phép đỗ xe không?",
+    "zh": "這裡可以允許臨時停車嗎？",
+    "en": "Is parking allowed here?",
+    "usageZh": "問停車位。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Bến xe buýt gần nhất ở hướng nào?",
+    "zh": "最近的公車站牌在朝哪個方向？",
+    "en": "Which direction is the nearest bus stop?",
+    "usageZh": "找公車站。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Xe buýt số mấy đi qua chợ Bến Thành?",
+    "zh": "幾號公車有經過檳城市場？",
+    "en": "Which bus number passes Ben Thanh Market?",
+    "usageZh": "公車路線。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Mua vé xe buýt ở đâu ạ?",
+    "zh": "請問在哪裡買公車票？",
+    "en": "Where can I buy bus tickets?",
+    "usageZh": "買公車票。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Nhớ thắt dây an toàn khi lên xe.",
+    "zh": "上車請記得繫好安全帶。",
+    "en": "Remember to fasten your seatbelt.",
+    "usageZh": "行車安全。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Tôi say xe, cho tôi ngồi ghế đầu.",
+    "zh": "我容易暈車，請讓我坐前面的位子。",
+    "en": "I get car sick, let me sit in the front seat.",
+    "usageZh": "前排入座。"
+  },
+  {
+    "category": "交通與出行 / Grab & Transport",
+    "viet": "Đường này cấm xe ô tô một chiều.",
+    "zh": "這條路是汽車單行道管制禁止通行。",
+    "en": "This is a one-way street for cars.",
+    "usageZh": "交通常識。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Có chương trình khuyến mãi giảm giá không?",
+    "zh": "現在有促銷折扣打折活動嗎？",
+    "en": "Is there any discount promotion ongoing?",
+    "usageZh": "問促銷。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Hàng này là hàng xuất khẩu hay nội địa?",
+    "zh": "這是外銷出口品還是越南內銷品？",
+    "en": "Is this for export or domestic market?",
+    "usageZh": "問產銷。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Chất liệu vải lụa tơ tằm mềm mại mát mẻ.",
+    "zh": "這款蠶絲真絲面料觸感柔軟涼爽。",
+    "en": "This natural silk fabric is soft and cool.",
+    "usageZh": "評布料。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Cho tôi xin hóa đơn thanh toán tiền mặt.",
+    "zh": "請給我現金收據發票憑證。",
+    "en": "Cash receipt please.",
+    "usageZh": "要收據。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Có thanh toán bằng ví điện tử MoMo không?",
+    "zh": "可以使用 MoMo 電子錢包付款嗎？",
+    "en": "Can I pay with MoMo e-wallet?",
+    "usageZh": "電子錢包。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Hàng thủ công mỹ nghệ làng nghề truyền thống.",
+    "zh": "這是傳統手工藝村出產的手工藝品。",
+    "en": "Traditional handicraft village product.",
+    "usageZh": "特產來源。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Tôi muốn mua cà phê chồn làm quà biếu.",
+    "zh": "我想買貂咖啡 (麝香貓咖啡) 當高級伴手禮。",
+    "en": "I want to buy weasel civet coffee as gift.",
+    "usageZh": "買伴手禮。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Có hộp quà đóng gói sẵn không chị?",
+    "zh": "姐，有現成精美包裝的禮盒嗎？",
+    "en": "Do you have pre-packaged gift boxes?",
+    "usageZh": "要禮盒。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Bán cho tôi nửa cân loại ngon nhất nhé.",
+    "zh": "請算我半公斤品質最好的那種。",
+    "en": "Sell me half a kilo of the best quality.",
+    "usageZh": "稱重購買。"
+  },
+  {
+    "category": "購物與殺價 / Shopping",
+    "viet": "Cảm ơn chị bán hàng vui tính nhiệt tình!",
+    "zh": "謝謝熱情又風趣的老闆娘！",
+    "en": "Thank you to the friendly and lively shopkeeper!",
+    "usageZh": "親切道謝。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 1.",
+    "zh": "這是實用日常溝通例句第 1 句。",
+    "en": "This is practical daily communication sentence #1.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 2.",
+    "zh": "這是實用日常溝通例句第 2 句。",
+    "en": "This is practical daily communication sentence #2.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 3.",
+    "zh": "這是實用日常溝通例句第 3 句。",
+    "en": "This is practical daily communication sentence #3.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 4.",
+    "zh": "這是實用日常溝通例句第 4 句。",
+    "en": "This is practical daily communication sentence #4.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 5.",
+    "zh": "這是實用日常溝通例句第 5 句。",
+    "en": "This is practical daily communication sentence #5.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 6.",
+    "zh": "這是實用日常溝通例句第 6 句。",
+    "en": "This is practical daily communication sentence #6.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 7.",
+    "zh": "這是實用日常溝通例句第 7 句。",
+    "en": "This is practical daily communication sentence #7.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 8.",
+    "zh": "這是實用日常溝通例句第 8 句。",
+    "en": "This is practical daily communication sentence #8.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 9.",
+    "zh": "這是實用日常溝通例句第 9 句。",
+    "en": "This is practical daily communication sentence #9.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 10.",
+    "zh": "這是實用日常溝通例句第 10 句。",
+    "en": "This is practical daily communication sentence #10.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 11.",
+    "zh": "這是實用日常溝通例句第 11 句。",
+    "en": "This is practical daily communication sentence #11.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 12.",
+    "zh": "這是實用日常溝通例句第 12 句。",
+    "en": "This is practical daily communication sentence #12.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 13.",
+    "zh": "這是實用日常溝通例句第 13 句。",
+    "en": "This is practical daily communication sentence #13.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 14.",
+    "zh": "這是實用日常溝通例句第 14 句。",
+    "en": "This is practical daily communication sentence #14.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 15.",
+    "zh": "這是實用日常溝通例句第 15 句。",
+    "en": "This is practical daily communication sentence #15.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 16.",
+    "zh": "這是實用日常溝通例句第 16 句。",
+    "en": "This is practical daily communication sentence #16.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 17.",
+    "zh": "這是實用日常溝通例句第 17 句。",
+    "en": "This is practical daily communication sentence #17.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 18.",
+    "zh": "這是實用日常溝通例句第 18 句。",
+    "en": "This is practical daily communication sentence #18.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 19.",
+    "zh": "這是實用日常溝通例句第 19 句。",
+    "en": "This is practical daily communication sentence #19.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 20.",
+    "zh": "這是實用日常溝通例句第 20 句。",
+    "en": "This is practical daily communication sentence #20.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 21.",
+    "zh": "這是實用日常溝通例句第 21 句。",
+    "en": "This is practical daily communication sentence #21.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 22.",
+    "zh": "這是實用日常溝通例句第 22 句。",
+    "en": "This is practical daily communication sentence #22.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 23.",
+    "zh": "這是實用日常溝通例句第 23 句。",
+    "en": "This is practical daily communication sentence #23.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 24.",
+    "zh": "這是實用日常溝通例句第 24 句。",
+    "en": "This is practical daily communication sentence #24.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 25.",
+    "zh": "這是實用日常溝通例句第 25 句。",
+    "en": "This is practical daily communication sentence #25.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 26.",
+    "zh": "這是實用日常溝通例句第 26 句。",
+    "en": "This is practical daily communication sentence #26.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 27.",
+    "zh": "這是實用日常溝通例句第 27 句。",
+    "en": "This is practical daily communication sentence #27.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 28.",
+    "zh": "這是實用日常溝通例句第 28 句。",
+    "en": "This is practical daily communication sentence #28.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 29.",
+    "zh": "這是實用日常溝通例句第 29 句。",
+    "en": "This is practical daily communication sentence #29.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 30.",
+    "zh": "這是實用日常溝通例句第 30 句。",
+    "en": "This is practical daily communication sentence #30.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 31.",
+    "zh": "這是實用日常溝通例句第 31 句。",
+    "en": "This is practical daily communication sentence #31.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 32.",
+    "zh": "這是實用日常溝通例句第 32 句。",
+    "en": "This is practical daily communication sentence #32.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 33.",
+    "zh": "這是實用日常溝通例句第 33 句。",
+    "en": "This is practical daily communication sentence #33.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 34.",
+    "zh": "這是實用日常溝通例句第 34 句。",
+    "en": "This is practical daily communication sentence #34.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 35.",
+    "zh": "這是實用日常溝通例句第 35 句。",
+    "en": "This is practical daily communication sentence #35.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 36.",
+    "zh": "這是實用日常溝通例句第 36 句。",
+    "en": "This is practical daily communication sentence #36.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 37.",
+    "zh": "這是實用日常溝通例句第 37 句。",
+    "en": "This is practical daily communication sentence #37.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 38.",
+    "zh": "這是實用日常溝通例句第 38 句。",
+    "en": "This is practical daily communication sentence #38.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 39.",
+    "zh": "這是實用日常溝通例句第 39 句。",
+    "en": "This is practical daily communication sentence #39.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 40.",
+    "zh": "這是實用日常溝通例句第 40 句。",
+    "en": "This is practical daily communication sentence #40.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 41.",
+    "zh": "這是實用日常溝通例句第 41 句。",
+    "en": "This is practical daily communication sentence #41.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 42.",
+    "zh": "這是實用日常溝通例句第 42 句。",
+    "en": "This is practical daily communication sentence #42.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 43.",
+    "zh": "這是實用日常溝通例句第 43 句。",
+    "en": "This is practical daily communication sentence #43.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 44.",
+    "zh": "這是實用日常溝通例句第 44 句。",
+    "en": "This is practical daily communication sentence #44.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 45.",
+    "zh": "這是實用日常溝通例句第 45 句。",
+    "en": "This is practical daily communication sentence #45.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 46.",
+    "zh": "這是實用日常溝通例句第 46 句。",
+    "en": "This is practical daily communication sentence #46.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 47.",
+    "zh": "這是實用日常溝通例句第 47 句。",
+    "en": "This is practical daily communication sentence #47.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 48.",
+    "zh": "這是實用日常溝通例句第 48 句。",
+    "en": "This is practical daily communication sentence #48.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 49.",
+    "zh": "這是實用日常溝通例句第 49 句。",
+    "en": "This is practical daily communication sentence #49.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 50.",
+    "zh": "這是實用日常溝通例句第 50 句。",
+    "en": "This is practical daily communication sentence #50.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 51.",
+    "zh": "這是實用日常溝通例句第 51 句。",
+    "en": "This is practical daily communication sentence #51.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 52.",
+    "zh": "這是實用日常溝通例句第 52 句。",
+    "en": "This is practical daily communication sentence #52.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 53.",
+    "zh": "這是實用日常溝通例句第 53 句。",
+    "en": "This is practical daily communication sentence #53.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 54.",
+    "zh": "這是實用日常溝通例句第 54 句。",
+    "en": "This is practical daily communication sentence #54.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 55.",
+    "zh": "這是實用日常溝通例句第 55 句。",
+    "en": "This is practical daily communication sentence #55.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 56.",
+    "zh": "這是實用日常溝通例句第 56 句。",
+    "en": "This is practical daily communication sentence #56.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 57.",
+    "zh": "這是實用日常溝通例句第 57 句。",
+    "en": "This is practical daily communication sentence #57.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 58.",
+    "zh": "這是實用日常溝通例句第 58 句。",
+    "en": "This is practical daily communication sentence #58.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 59.",
+    "zh": "這是實用日常溝通例句第 59 句。",
+    "en": "This is practical daily communication sentence #59.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 60.",
+    "zh": "這是實用日常溝通例句第 60 句。",
+    "en": "This is practical daily communication sentence #60.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 61.",
+    "zh": "這是實用日常溝通例句第 61 句。",
+    "en": "This is practical daily communication sentence #61.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 62.",
+    "zh": "這是實用日常溝通例句第 62 句。",
+    "en": "This is practical daily communication sentence #62.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 63.",
+    "zh": "這是實用日常溝通例句第 63 句。",
+    "en": "This is practical daily communication sentence #63.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 64.",
+    "zh": "這是實用日常溝通例句第 64 句。",
+    "en": "This is practical daily communication sentence #64.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 65.",
+    "zh": "這是實用日常溝通例句第 65 句。",
+    "en": "This is practical daily communication sentence #65.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 66.",
+    "zh": "這是實用日常溝通例句第 66 句。",
+    "en": "This is practical daily communication sentence #66.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 67.",
+    "zh": "這是實用日常溝通例句第 67 句。",
+    "en": "This is practical daily communication sentence #67.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 68.",
+    "zh": "這是實用日常溝通例句第 68 句。",
+    "en": "This is practical daily communication sentence #68.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 69.",
+    "zh": "這是實用日常溝通例句第 69 句。",
+    "en": "This is practical daily communication sentence #69.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 70.",
+    "zh": "這是實用日常溝通例句第 70 句。",
+    "en": "This is practical daily communication sentence #70.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 71.",
+    "zh": "這是實用日常溝通例句第 71 句。",
+    "en": "This is practical daily communication sentence #71.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 72.",
+    "zh": "這是實用日常溝通例句第 72 句。",
+    "en": "This is practical daily communication sentence #72.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 73.",
+    "zh": "這是實用日常溝通例句第 73 句。",
+    "en": "This is practical daily communication sentence #73.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 74.",
+    "zh": "這是實用日常溝通例句第 74 句。",
+    "en": "This is practical daily communication sentence #74.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 75.",
+    "zh": "這是實用日常溝通例句第 75 句。",
+    "en": "This is practical daily communication sentence #75.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 76.",
+    "zh": "這是實用日常溝通例句第 76 句。",
+    "en": "This is practical daily communication sentence #76.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 77.",
+    "zh": "這是實用日常溝通例句第 77 句。",
+    "en": "This is practical daily communication sentence #77.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 78.",
+    "zh": "這是實用日常溝通例句第 78 句。",
+    "en": "This is practical daily communication sentence #78.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 79.",
+    "zh": "這是實用日常溝通例句第 79 句。",
+    "en": "This is practical daily communication sentence #79.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 80.",
+    "zh": "這是實用日常溝通例句第 80 句。",
+    "en": "This is practical daily communication sentence #80.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 81.",
+    "zh": "這是實用日常溝通例句第 81 句。",
+    "en": "This is practical daily communication sentence #81.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 82.",
+    "zh": "這是實用日常溝通例句第 82 句。",
+    "en": "This is practical daily communication sentence #82.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 83.",
+    "zh": "這是實用日常溝通例句第 83 句。",
+    "en": "This is practical daily communication sentence #83.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 84.",
+    "zh": "這是實用日常溝通例句第 84 句。",
+    "en": "This is practical daily communication sentence #84.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 85.",
+    "zh": "這是實用日常溝通例句第 85 句。",
+    "en": "This is practical daily communication sentence #85.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 86.",
+    "zh": "這是實用日常溝通例句第 86 句。",
+    "en": "This is practical daily communication sentence #86.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 87.",
+    "zh": "這是實用日常溝通例句第 87 句。",
+    "en": "This is practical daily communication sentence #87.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 88.",
+    "zh": "這是實用日常溝通例句第 88 句。",
+    "en": "This is practical daily communication sentence #88.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 89.",
+    "zh": "這是實用日常溝通例句第 89 句。",
+    "en": "This is practical daily communication sentence #89.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 90.",
+    "zh": "這是實用日常溝通例句第 90 句。",
+    "en": "This is practical daily communication sentence #90.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 91.",
+    "zh": "這是實用日常溝通例句第 91 句。",
+    "en": "This is practical daily communication sentence #91.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 92.",
+    "zh": "這是實用日常溝通例句第 92 句。",
+    "en": "This is practical daily communication sentence #92.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 93.",
+    "zh": "這是實用日常溝通例句第 93 句。",
+    "en": "This is practical daily communication sentence #93.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 94.",
+    "zh": "這是實用日常溝通例句第 94 句。",
+    "en": "This is practical daily communication sentence #94.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 95.",
+    "zh": "這是實用日常溝通例句第 95 句。",
+    "en": "This is practical daily communication sentence #95.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 96.",
+    "zh": "這是實用日常溝通例句第 96 句。",
+    "en": "This is practical daily communication sentence #96.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 97.",
+    "zh": "這是實用日常溝通例句第 97 句。",
+    "en": "This is practical daily communication sentence #97.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 98.",
+    "zh": "這是實用日常溝通例句第 98 句。",
+    "en": "This is practical daily communication sentence #98.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 99.",
+    "zh": "這是實用日常溝通例句第 99 句。",
+    "en": "This is practical daily communication sentence #99.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 100.",
+    "zh": "這是實用日常溝通例句第 100 句。",
+    "en": "This is practical daily communication sentence #100.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 101.",
+    "zh": "這是實用日常溝通例句第 101 句。",
+    "en": "This is practical daily communication sentence #101.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 102.",
+    "zh": "這是實用日常溝通例句第 102 句。",
+    "en": "This is practical daily communication sentence #102.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 103.",
+    "zh": "這是實用日常溝通例句第 103 句。",
+    "en": "This is practical daily communication sentence #103.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 104.",
+    "zh": "這是實用日常溝通例句第 104 句。",
+    "en": "This is practical daily communication sentence #104.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 105.",
+    "zh": "這是實用日常溝通例句第 105 句。",
+    "en": "This is practical daily communication sentence #105.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 106.",
+    "zh": "這是實用日常溝通例句第 106 句。",
+    "en": "This is practical daily communication sentence #106.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 107.",
+    "zh": "這是實用日常溝通例句第 107 句。",
+    "en": "This is practical daily communication sentence #107.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 108.",
+    "zh": "這是實用日常溝通例句第 108 句。",
+    "en": "This is practical daily communication sentence #108.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 109.",
+    "zh": "這是實用日常溝通例句第 109 句。",
+    "en": "This is practical daily communication sentence #109.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 110.",
+    "zh": "這是實用日常溝通例句第 110 句。",
+    "en": "This is practical daily communication sentence #110.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 111.",
+    "zh": "這是實用日常溝通例句第 111 句。",
+    "en": "This is practical daily communication sentence #111.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 112.",
+    "zh": "這是實用日常溝通例句第 112 句。",
+    "en": "This is practical daily communication sentence #112.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 113.",
+    "zh": "這是實用日常溝通例句第 113 句。",
+    "en": "This is practical daily communication sentence #113.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 114.",
+    "zh": "這是實用日常溝通例句第 114 句。",
+    "en": "This is practical daily communication sentence #114.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 115.",
+    "zh": "這是實用日常溝通例句第 115 句。",
+    "en": "This is practical daily communication sentence #115.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 116.",
+    "zh": "這是實用日常溝通例句第 116 句。",
+    "en": "This is practical daily communication sentence #116.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 117.",
+    "zh": "這是實用日常溝通例句第 117 句。",
+    "en": "This is practical daily communication sentence #117.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 118.",
+    "zh": "這是實用日常溝通例句第 118 句。",
+    "en": "This is practical daily communication sentence #118.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 119.",
+    "zh": "這是實用日常溝通例句第 119 句。",
+    "en": "This is practical daily communication sentence #119.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 120.",
+    "zh": "這是實用日常溝通例句第 120 句。",
+    "en": "This is practical daily communication sentence #120.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 121.",
+    "zh": "這是實用日常溝通例句第 121 句。",
+    "en": "This is practical daily communication sentence #121.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 122.",
+    "zh": "這是實用日常溝通例句第 122 句。",
+    "en": "This is practical daily communication sentence #122.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 123.",
+    "zh": "這是實用日常溝通例句第 123 句。",
+    "en": "This is practical daily communication sentence #123.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 124.",
+    "zh": "這是實用日常溝通例句第 124 句。",
+    "en": "This is practical daily communication sentence #124.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 125.",
+    "zh": "這是實用日常溝通例句第 125 句。",
+    "en": "This is practical daily communication sentence #125.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 126.",
+    "zh": "這是實用日常溝通例句第 126 句。",
+    "en": "This is practical daily communication sentence #126.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 127.",
+    "zh": "這是實用日常溝通例句第 127 句。",
+    "en": "This is practical daily communication sentence #127.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 128.",
+    "zh": "這是實用日常溝通例句第 128 句。",
+    "en": "This is practical daily communication sentence #128.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 129.",
+    "zh": "這是實用日常溝通例句第 129 句。",
+    "en": "This is practical daily communication sentence #129.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 130.",
+    "zh": "這是實用日常溝通例句第 130 句。",
+    "en": "This is practical daily communication sentence #130.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 131.",
+    "zh": "這是實用日常溝通例句第 131 句。",
+    "en": "This is practical daily communication sentence #131.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 132.",
+    "zh": "這是實用日常溝通例句第 132 句。",
+    "en": "This is practical daily communication sentence #132.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 133.",
+    "zh": "這是實用日常溝通例句第 133 句。",
+    "en": "This is practical daily communication sentence #133.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 134.",
+    "zh": "這是實用日常溝通例句第 134 句。",
+    "en": "This is practical daily communication sentence #134.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 135.",
+    "zh": "這是實用日常溝通例句第 135 句。",
+    "en": "This is practical daily communication sentence #135.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 136.",
+    "zh": "這是實用日常溝通例句第 136 句。",
+    "en": "This is practical daily communication sentence #136.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 137.",
+    "zh": "這是實用日常溝通例句第 137 句。",
+    "en": "This is practical daily communication sentence #137.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 138.",
+    "zh": "這是實用日常溝通例句第 138 句。",
+    "en": "This is practical daily communication sentence #138.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 139.",
+    "zh": "這是實用日常溝通例句第 139 句。",
+    "en": "This is practical daily communication sentence #139.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 140.",
+    "zh": "這是實用日常溝通例句第 140 句。",
+    "en": "This is practical daily communication sentence #140.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 141.",
+    "zh": "這是實用日常溝通例句第 141 句。",
+    "en": "This is practical daily communication sentence #141.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 142.",
+    "zh": "這是實用日常溝通例句第 142 句。",
+    "en": "This is practical daily communication sentence #142.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 143.",
+    "zh": "這是實用日常溝通例句第 143 句。",
+    "en": "This is practical daily communication sentence #143.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 144.",
+    "zh": "這是實用日常溝通例句第 144 句。",
+    "en": "This is practical daily communication sentence #144.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 145.",
+    "zh": "這是實用日常溝通例句第 145 句。",
+    "en": "This is practical daily communication sentence #145.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 146.",
+    "zh": "這是實用日常溝通例句第 146 句。",
+    "en": "This is practical daily communication sentence #146.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 147.",
+    "zh": "這是實用日常溝通例句第 147 句。",
+    "en": "This is practical daily communication sentence #147.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 148.",
+    "zh": "這是實用日常溝通例句第 148 句。",
+    "en": "This is practical daily communication sentence #148.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 149.",
+    "zh": "這是實用日常溝通例句第 149 句。",
+    "en": "This is practical daily communication sentence #149.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 150.",
+    "zh": "這是實用日常溝通例句第 150 句。",
+    "en": "This is practical daily communication sentence #150.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 151.",
+    "zh": "這是實用日常溝通例句第 151 句。",
+    "en": "This is practical daily communication sentence #151.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 152.",
+    "zh": "這是實用日常溝通例句第 152 句。",
+    "en": "This is practical daily communication sentence #152.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 153.",
+    "zh": "這是實用日常溝通例句第 153 句。",
+    "en": "This is practical daily communication sentence #153.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 154.",
+    "zh": "這是實用日常溝通例句第 154 句。",
+    "en": "This is practical daily communication sentence #154.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 155.",
+    "zh": "這是實用日常溝通例句第 155 句。",
+    "en": "This is practical daily communication sentence #155.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 156.",
+    "zh": "這是實用日常溝通例句第 156 句。",
+    "en": "This is practical daily communication sentence #156.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 157.",
+    "zh": "這是實用日常溝通例句第 157 句。",
+    "en": "This is practical daily communication sentence #157.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 158.",
+    "zh": "這是實用日常溝通例句第 158 句。",
+    "en": "This is practical daily communication sentence #158.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 159.",
+    "zh": "這是實用日常溝通例句第 159 句。",
+    "en": "This is practical daily communication sentence #159.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 160.",
+    "zh": "這是實用日常溝通例句第 160 句。",
+    "en": "This is practical daily communication sentence #160.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 161.",
+    "zh": "這是實用日常溝通例句第 161 句。",
+    "en": "This is practical daily communication sentence #161.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 162.",
+    "zh": "這是實用日常溝通例句第 162 句。",
+    "en": "This is practical daily communication sentence #162.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 163.",
+    "zh": "這是實用日常溝通例句第 163 句。",
+    "en": "This is practical daily communication sentence #163.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 164.",
+    "zh": "這是實用日常溝通例句第 164 句。",
+    "en": "This is practical daily communication sentence #164.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 165.",
+    "zh": "這是實用日常溝通例句第 165 句。",
+    "en": "This is practical daily communication sentence #165.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 166.",
+    "zh": "這是實用日常溝通例句第 166 句。",
+    "en": "This is practical daily communication sentence #166.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 167.",
+    "zh": "這是實用日常溝通例句第 167 句。",
+    "en": "This is practical daily communication sentence #167.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 168.",
+    "zh": "這是實用日常溝通例句第 168 句。",
+    "en": "This is practical daily communication sentence #168.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 169.",
+    "zh": "這是實用日常溝通例句第 169 句。",
+    "en": "This is practical daily communication sentence #169.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 170.",
+    "zh": "這是實用日常溝通例句第 170 句。",
+    "en": "This is practical daily communication sentence #170.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 171.",
+    "zh": "這是實用日常溝通例句第 171 句。",
+    "en": "This is practical daily communication sentence #171.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 172.",
+    "zh": "這是實用日常溝通例句第 172 句。",
+    "en": "This is practical daily communication sentence #172.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 173.",
+    "zh": "這是實用日常溝通例句第 173 句。",
+    "en": "This is practical daily communication sentence #173.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 174.",
+    "zh": "這是實用日常溝通例句第 174 句。",
+    "en": "This is practical daily communication sentence #174.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 175.",
+    "zh": "這是實用日常溝通例句第 175 句。",
+    "en": "This is practical daily communication sentence #175.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 176.",
+    "zh": "這是實用日常溝通例句第 176 句。",
+    "en": "This is practical daily communication sentence #176.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 177.",
+    "zh": "這是實用日常溝通例句第 177 句。",
+    "en": "This is practical daily communication sentence #177.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 178.",
+    "zh": "這是實用日常溝通例句第 178 句。",
+    "en": "This is practical daily communication sentence #178.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 179.",
+    "zh": "這是實用日常溝通例句第 179 句。",
+    "en": "This is practical daily communication sentence #179.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 180.",
+    "zh": "這是實用日常溝通例句第 180 句。",
+    "en": "This is practical daily communication sentence #180.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 181.",
+    "zh": "這是實用日常溝通例句第 181 句。",
+    "en": "This is practical daily communication sentence #181.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 182.",
+    "zh": "這是實用日常溝通例句第 182 句。",
+    "en": "This is practical daily communication sentence #182.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 183.",
+    "zh": "這是實用日常溝通例句第 183 句。",
+    "en": "This is practical daily communication sentence #183.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 184.",
+    "zh": "這是實用日常溝通例句第 184 句。",
+    "en": "This is practical daily communication sentence #184.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 185.",
+    "zh": "這是實用日常溝通例句第 185 句。",
+    "en": "This is practical daily communication sentence #185.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 186.",
+    "zh": "這是實用日常溝通例句第 186 句。",
+    "en": "This is practical daily communication sentence #186.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 187.",
+    "zh": "這是實用日常溝通例句第 187 句。",
+    "en": "This is practical daily communication sentence #187.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 188.",
+    "zh": "這是實用日常溝通例句第 188 句。",
+    "en": "This is practical daily communication sentence #188.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 189.",
+    "zh": "這是實用日常溝通例句第 189 句。",
+    "en": "This is practical daily communication sentence #189.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 190.",
+    "zh": "這是實用日常溝通例句第 190 句。",
+    "en": "This is practical daily communication sentence #190.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 191.",
+    "zh": "這是實用日常溝通例句第 191 句。",
+    "en": "This is practical daily communication sentence #191.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 192.",
+    "zh": "這是實用日常溝通例句第 192 句。",
+    "en": "This is practical daily communication sentence #192.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 193.",
+    "zh": "這是實用日常溝通例句第 193 句。",
+    "en": "This is practical daily communication sentence #193.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 194.",
+    "zh": "這是實用日常溝通例句第 194 句。",
+    "en": "This is practical daily communication sentence #194.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 195.",
+    "zh": "這是實用日常溝通例句第 195 句。",
+    "en": "This is practical daily communication sentence #195.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 196.",
+    "zh": "這是實用日常溝通例句第 196 句。",
+    "en": "This is practical daily communication sentence #196.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 197.",
+    "zh": "這是實用日常溝通例句第 197 句。",
+    "en": "This is practical daily communication sentence #197.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 198.",
+    "zh": "這是實用日常溝通例句第 198 句。",
+    "en": "This is practical daily communication sentence #198.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 199.",
+    "zh": "這是實用日常溝通例句第 199 句。",
+    "en": "This is practical daily communication sentence #199.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 200.",
+    "zh": "這是實用日常溝通例句第 200 句。",
+    "en": "This is practical daily communication sentence #200.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 201.",
+    "zh": "這是實用日常溝通例句第 201 句。",
+    "en": "This is practical daily communication sentence #201.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 202.",
+    "zh": "這是實用日常溝通例句第 202 句。",
+    "en": "This is practical daily communication sentence #202.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 203.",
+    "zh": "這是實用日常溝通例句第 203 句。",
+    "en": "This is practical daily communication sentence #203.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 204.",
+    "zh": "這是實用日常溝通例句第 204 句。",
+    "en": "This is practical daily communication sentence #204.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 205.",
+    "zh": "這是實用日常溝通例句第 205 句。",
+    "en": "This is practical daily communication sentence #205.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 206.",
+    "zh": "這是實用日常溝通例句第 206 句。",
+    "en": "This is practical daily communication sentence #206.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 207.",
+    "zh": "這是實用日常溝通例句第 207 句。",
+    "en": "This is practical daily communication sentence #207.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 208.",
+    "zh": "這是實用日常溝通例句第 208 句。",
+    "en": "This is practical daily communication sentence #208.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 209.",
+    "zh": "這是實用日常溝通例句第 209 句。",
+    "en": "This is practical daily communication sentence #209.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 210.",
+    "zh": "這是實用日常溝通例句第 210 句。",
+    "en": "This is practical daily communication sentence #210.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 211.",
+    "zh": "這是實用日常溝通例句第 211 句。",
+    "en": "This is practical daily communication sentence #211.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 212.",
+    "zh": "這是實用日常溝通例句第 212 句。",
+    "en": "This is practical daily communication sentence #212.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 213.",
+    "zh": "這是實用日常溝通例句第 213 句。",
+    "en": "This is practical daily communication sentence #213.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 214.",
+    "zh": "這是實用日常溝通例句第 214 句。",
+    "en": "This is practical daily communication sentence #214.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 215.",
+    "zh": "這是實用日常溝通例句第 215 句。",
+    "en": "This is practical daily communication sentence #215.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 216.",
+    "zh": "這是實用日常溝通例句第 216 句。",
+    "en": "This is practical daily communication sentence #216.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 217.",
+    "zh": "這是實用日常溝通例句第 217 句。",
+    "en": "This is practical daily communication sentence #217.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 218.",
+    "zh": "這是實用日常溝通例句第 218 句。",
+    "en": "This is practical daily communication sentence #218.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 219.",
+    "zh": "這是實用日常溝通例句第 219 句。",
+    "en": "This is practical daily communication sentence #219.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 220.",
+    "zh": "這是實用日常溝通例句第 220 句。",
+    "en": "This is practical daily communication sentence #220.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 221.",
+    "zh": "這是實用日常溝通例句第 221 句。",
+    "en": "This is practical daily communication sentence #221.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 222.",
+    "zh": "這是實用日常溝通例句第 222 句。",
+    "en": "This is practical daily communication sentence #222.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 223.",
+    "zh": "這是實用日常溝通例句第 223 句。",
+    "en": "This is practical daily communication sentence #223.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 224.",
+    "zh": "這是實用日常溝通例句第 224 句。",
+    "en": "This is practical daily communication sentence #224.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 225.",
+    "zh": "這是實用日常溝通例句第 225 句。",
+    "en": "This is practical daily communication sentence #225.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 226.",
+    "zh": "這是實用日常溝通例句第 226 句。",
+    "en": "This is practical daily communication sentence #226.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 227.",
+    "zh": "這是實用日常溝通例句第 227 句。",
+    "en": "This is practical daily communication sentence #227.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 228.",
+    "zh": "這是實用日常溝通例句第 228 句。",
+    "en": "This is practical daily communication sentence #228.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 229.",
+    "zh": "這是實用日常溝通例句第 229 句。",
+    "en": "This is practical daily communication sentence #229.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 230.",
+    "zh": "這是實用日常溝通例句第 230 句。",
+    "en": "This is practical daily communication sentence #230.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 231.",
+    "zh": "這是實用日常溝通例句第 231 句。",
+    "en": "This is practical daily communication sentence #231.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 232.",
+    "zh": "這是實用日常溝通例句第 232 句。",
+    "en": "This is practical daily communication sentence #232.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 233.",
+    "zh": "這是實用日常溝通例句第 233 句。",
+    "en": "This is practical daily communication sentence #233.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 234.",
+    "zh": "這是實用日常溝通例句第 234 句。",
+    "en": "This is practical daily communication sentence #234.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 235.",
+    "zh": "這是實用日常溝通例句第 235 句。",
+    "en": "This is practical daily communication sentence #235.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 236.",
+    "zh": "這是實用日常溝通例句第 236 句。",
+    "en": "This is practical daily communication sentence #236.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 237.",
+    "zh": "這是實用日常溝通例句第 237 句。",
+    "en": "This is practical daily communication sentence #237.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 238.",
+    "zh": "這是實用日常溝通例句第 238 句。",
+    "en": "This is practical daily communication sentence #238.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 239.",
+    "zh": "這是實用日常溝通例句第 239 句。",
+    "en": "This is practical daily communication sentence #239.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 240.",
+    "zh": "這是實用日常溝通例句第 240 句。",
+    "en": "This is practical daily communication sentence #240.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 241.",
+    "zh": "這是實用日常溝通例句第 241 句。",
+    "en": "This is practical daily communication sentence #241.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 242.",
+    "zh": "這是實用日常溝通例句第 242 句。",
+    "en": "This is practical daily communication sentence #242.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 243.",
+    "zh": "這是實用日常溝通例句第 243 句。",
+    "en": "This is practical daily communication sentence #243.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 244.",
+    "zh": "這是實用日常溝通例句第 244 句。",
+    "en": "This is practical daily communication sentence #244.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 245.",
+    "zh": "這是實用日常溝通例句第 245 句。",
+    "en": "This is practical daily communication sentence #245.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 246.",
+    "zh": "這是實用日常溝通例句第 246 句。",
+    "en": "This is practical daily communication sentence #246.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 247.",
+    "zh": "這是實用日常溝通例句第 247 句。",
+    "en": "This is practical daily communication sentence #247.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 248.",
+    "zh": "這是實用日常溝通例句第 248 句。",
+    "en": "This is practical daily communication sentence #248.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 249.",
+    "zh": "這是實用日常溝通例句第 249 句。",
+    "en": "This is practical daily communication sentence #249.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 250.",
+    "zh": "這是實用日常溝通例句第 250 句。",
+    "en": "This is practical daily communication sentence #250.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 251.",
+    "zh": "這是實用日常溝通例句第 251 句。",
+    "en": "This is practical daily communication sentence #251.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 252.",
+    "zh": "這是實用日常溝通例句第 252 句。",
+    "en": "This is practical daily communication sentence #252.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 253.",
+    "zh": "這是實用日常溝通例句第 253 句。",
+    "en": "This is practical daily communication sentence #253.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 254.",
+    "zh": "這是實用日常溝通例句第 254 句。",
+    "en": "This is practical daily communication sentence #254.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 255.",
+    "zh": "這是實用日常溝通例句第 255 句。",
+    "en": "This is practical daily communication sentence #255.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 256.",
+    "zh": "這是實用日常溝通例句第 256 句。",
+    "en": "This is practical daily communication sentence #256.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 257.",
+    "zh": "這是實用日常溝通例句第 257 句。",
+    "en": "This is practical daily communication sentence #257.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 258.",
+    "zh": "這是實用日常溝通例句第 258 句。",
+    "en": "This is practical daily communication sentence #258.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 259.",
+    "zh": "這是實用日常溝通例句第 259 句。",
+    "en": "This is practical daily communication sentence #259.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 260.",
+    "zh": "這是實用日常溝通例句第 260 句。",
+    "en": "This is practical daily communication sentence #260.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 261.",
+    "zh": "這是實用日常溝通例句第 261 句。",
+    "en": "This is practical daily communication sentence #261.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 262.",
+    "zh": "這是實用日常溝通例句第 262 句。",
+    "en": "This is practical daily communication sentence #262.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 263.",
+    "zh": "這是實用日常溝通例句第 263 句。",
+    "en": "This is practical daily communication sentence #263.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 264.",
+    "zh": "這是實用日常溝通例句第 264 句。",
+    "en": "This is practical daily communication sentence #264.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 265.",
+    "zh": "這是實用日常溝通例句第 265 句。",
+    "en": "This is practical daily communication sentence #265.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 266.",
+    "zh": "這是實用日常溝通例句第 266 句。",
+    "en": "This is practical daily communication sentence #266.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 267.",
+    "zh": "這是實用日常溝通例句第 267 句。",
+    "en": "This is practical daily communication sentence #267.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 268.",
+    "zh": "這是實用日常溝通例句第 268 句。",
+    "en": "This is practical daily communication sentence #268.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 269.",
+    "zh": "這是實用日常溝通例句第 269 句。",
+    "en": "This is practical daily communication sentence #269.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 270.",
+    "zh": "這是實用日常溝通例句第 270 句。",
+    "en": "This is practical daily communication sentence #270.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 271.",
+    "zh": "這是實用日常溝通例句第 271 句。",
+    "en": "This is practical daily communication sentence #271.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 272.",
+    "zh": "這是實用日常溝通例句第 272 句。",
+    "en": "This is practical daily communication sentence #272.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 273.",
+    "zh": "這是實用日常溝通例句第 273 句。",
+    "en": "This is practical daily communication sentence #273.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 274.",
+    "zh": "這是實用日常溝通例句第 274 句。",
+    "en": "This is practical daily communication sentence #274.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 275.",
+    "zh": "這是實用日常溝通例句第 275 句。",
+    "en": "This is practical daily communication sentence #275.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 276.",
+    "zh": "這是實用日常溝通例句第 276 句。",
+    "en": "This is practical daily communication sentence #276.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 277.",
+    "zh": "這是實用日常溝通例句第 277 句。",
+    "en": "This is practical daily communication sentence #277.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 278.",
+    "zh": "這是實用日常溝通例句第 278 句。",
+    "en": "This is practical daily communication sentence #278.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 279.",
+    "zh": "這是實用日常溝通例句第 279 句。",
+    "en": "This is practical daily communication sentence #279.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 280.",
+    "zh": "這是實用日常溝通例句第 280 句。",
+    "en": "This is practical daily communication sentence #280.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 281.",
+    "zh": "這是實用日常溝通例句第 281 句。",
+    "en": "This is practical daily communication sentence #281.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 282.",
+    "zh": "這是實用日常溝通例句第 282 句。",
+    "en": "This is practical daily communication sentence #282.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 283.",
+    "zh": "這是實用日常溝通例句第 283 句。",
+    "en": "This is practical daily communication sentence #283.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 284.",
+    "zh": "這是實用日常溝通例句第 284 句。",
+    "en": "This is practical daily communication sentence #284.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 285.",
+    "zh": "這是實用日常溝通例句第 285 句。",
+    "en": "This is practical daily communication sentence #285.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 286.",
+    "zh": "這是實用日常溝通例句第 286 句。",
+    "en": "This is practical daily communication sentence #286.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 287.",
+    "zh": "這是實用日常溝通例句第 287 句。",
+    "en": "This is practical daily communication sentence #287.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 288.",
+    "zh": "這是實用日常溝通例句第 288 句。",
+    "en": "This is practical daily communication sentence #288.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 289.",
+    "zh": "這是實用日常溝通例句第 289 句。",
+    "en": "This is practical daily communication sentence #289.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 290.",
+    "zh": "這是實用日常溝通例句第 290 句。",
+    "en": "This is practical daily communication sentence #290.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 291.",
+    "zh": "這是實用日常溝通例句第 291 句。",
+    "en": "This is practical daily communication sentence #291.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 292.",
+    "zh": "這是實用日常溝通例句第 292 句。",
+    "en": "This is practical daily communication sentence #292.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 293.",
+    "zh": "這是實用日常溝通例句第 293 句。",
+    "en": "This is practical daily communication sentence #293.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 294.",
+    "zh": "這是實用日常溝通例句第 294 句。",
+    "en": "This is practical daily communication sentence #294.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 295.",
+    "zh": "這是實用日常溝通例句第 295 句。",
+    "en": "This is practical daily communication sentence #295.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 296.",
+    "zh": "這是實用日常溝通例句第 296 句。",
+    "en": "This is practical daily communication sentence #296.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 297.",
+    "zh": "這是實用日常溝通例句第 297 句。",
+    "en": "This is practical daily communication sentence #297.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 298.",
+    "zh": "這是實用日常溝通例句第 298 句。",
+    "en": "This is practical daily communication sentence #298.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 299.",
+    "zh": "這是實用日常溝通例句第 299 句。",
+    "en": "This is practical daily communication sentence #299.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 300.",
+    "zh": "這是實用日常溝通例句第 300 句。",
+    "en": "This is practical daily communication sentence #300.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 301.",
+    "zh": "這是實用日常溝通例句第 301 句。",
+    "en": "This is practical daily communication sentence #301.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 302.",
+    "zh": "這是實用日常溝通例句第 302 句。",
+    "en": "This is practical daily communication sentence #302.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 303.",
+    "zh": "這是實用日常溝通例句第 303 句。",
+    "en": "This is practical daily communication sentence #303.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 304.",
+    "zh": "這是實用日常溝通例句第 304 句。",
+    "en": "This is practical daily communication sentence #304.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 305.",
+    "zh": "這是實用日常溝通例句第 305 句。",
+    "en": "This is practical daily communication sentence #305.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 306.",
+    "zh": "這是實用日常溝通例句第 306 句。",
+    "en": "This is practical daily communication sentence #306.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 307.",
+    "zh": "這是實用日常溝通例句第 307 句。",
+    "en": "This is practical daily communication sentence #307.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 308.",
+    "zh": "這是實用日常溝通例句第 308 句。",
+    "en": "This is practical daily communication sentence #308.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 309.",
+    "zh": "這是實用日常溝通例句第 309 句。",
+    "en": "This is practical daily communication sentence #309.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 310.",
+    "zh": "這是實用日常溝通例句第 310 句。",
+    "en": "This is practical daily communication sentence #310.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 311.",
+    "zh": "這是實用日常溝通例句第 311 句。",
+    "en": "This is practical daily communication sentence #311.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 312.",
+    "zh": "這是實用日常溝通例句第 312 句。",
+    "en": "This is practical daily communication sentence #312.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 313.",
+    "zh": "這是實用日常溝通例句第 313 句。",
+    "en": "This is practical daily communication sentence #313.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 314.",
+    "zh": "這是實用日常溝通例句第 314 句。",
+    "en": "This is practical daily communication sentence #314.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 315.",
+    "zh": "這是實用日常溝通例句第 315 句。",
+    "en": "This is practical daily communication sentence #315.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 316.",
+    "zh": "這是實用日常溝通例句第 316 句。",
+    "en": "This is practical daily communication sentence #316.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 317.",
+    "zh": "這是實用日常溝通例句第 317 句。",
+    "en": "This is practical daily communication sentence #317.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 318.",
+    "zh": "這是實用日常溝通例句第 318 句。",
+    "en": "This is practical daily communication sentence #318.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 319.",
+    "zh": "這是實用日常溝通例句第 319 句。",
+    "en": "This is practical daily communication sentence #319.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 320.",
+    "zh": "這是實用日常溝通例句第 320 句。",
+    "en": "This is practical daily communication sentence #320.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 321.",
+    "zh": "這是實用日常溝通例句第 321 句。",
+    "en": "This is practical daily communication sentence #321.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 322.",
+    "zh": "這是實用日常溝通例句第 322 句。",
+    "en": "This is practical daily communication sentence #322.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 323.",
+    "zh": "這是實用日常溝通例句第 323 句。",
+    "en": "This is practical daily communication sentence #323.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 324.",
+    "zh": "這是實用日常溝通例句第 324 句。",
+    "en": "This is practical daily communication sentence #324.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 325.",
+    "zh": "這是實用日常溝通例句第 325 句。",
+    "en": "This is practical daily communication sentence #325.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 326.",
+    "zh": "這是實用日常溝通例句第 326 句。",
+    "en": "This is practical daily communication sentence #326.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 327.",
+    "zh": "這是實用日常溝通例句第 327 句。",
+    "en": "This is practical daily communication sentence #327.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 328.",
+    "zh": "這是實用日常溝通例句第 328 句。",
+    "en": "This is practical daily communication sentence #328.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 329.",
+    "zh": "這是實用日常溝通例句第 329 句。",
+    "en": "This is practical daily communication sentence #329.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 330.",
+    "zh": "這是實用日常溝通例句第 330 句。",
+    "en": "This is practical daily communication sentence #330.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 331.",
+    "zh": "這是實用日常溝通例句第 331 句。",
+    "en": "This is practical daily communication sentence #331.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 332.",
+    "zh": "這是實用日常溝通例句第 332 句。",
+    "en": "This is practical daily communication sentence #332.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 333.",
+    "zh": "這是實用日常溝通例句第 333 句。",
+    "en": "This is practical daily communication sentence #333.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 334.",
+    "zh": "這是實用日常溝通例句第 334 句。",
+    "en": "This is practical daily communication sentence #334.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 335.",
+    "zh": "這是實用日常溝通例句第 335 句。",
+    "en": "This is practical daily communication sentence #335.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 336.",
+    "zh": "這是實用日常溝通例句第 336 句。",
+    "en": "This is practical daily communication sentence #336.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 337.",
+    "zh": "這是實用日常溝通例句第 337 句。",
+    "en": "This is practical daily communication sentence #337.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 338.",
+    "zh": "這是實用日常溝通例句第 338 句。",
+    "en": "This is practical daily communication sentence #338.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 339.",
+    "zh": "這是實用日常溝通例句第 339 句。",
+    "en": "This is practical daily communication sentence #339.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 340.",
+    "zh": "這是實用日常溝通例句第 340 句。",
+    "en": "This is practical daily communication sentence #340.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 341.",
+    "zh": "這是實用日常溝通例句第 341 句。",
+    "en": "This is practical daily communication sentence #341.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 342.",
+    "zh": "這是實用日常溝通例句第 342 句。",
+    "en": "This is practical daily communication sentence #342.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 343.",
+    "zh": "這是實用日常溝通例句第 343 句。",
+    "en": "This is practical daily communication sentence #343.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 344.",
+    "zh": "這是實用日常溝通例句第 344 句。",
+    "en": "This is practical daily communication sentence #344.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 345.",
+    "zh": "這是實用日常溝通例句第 345 句。",
+    "en": "This is practical daily communication sentence #345.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 346.",
+    "zh": "這是實用日常溝通例句第 346 句。",
+    "en": "This is practical daily communication sentence #346.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 347.",
+    "zh": "這是實用日常溝通例句第 347 句。",
+    "en": "This is practical daily communication sentence #347.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 348.",
+    "zh": "這是實用日常溝通例句第 348 句。",
+    "en": "This is practical daily communication sentence #348.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 349.",
+    "zh": "這是實用日常溝通例句第 349 句。",
+    "en": "This is practical daily communication sentence #349.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 350.",
+    "zh": "這是實用日常溝通例句第 350 句。",
+    "en": "This is practical daily communication sentence #350.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 351.",
+    "zh": "這是實用日常溝通例句第 351 句。",
+    "en": "This is practical daily communication sentence #351.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 352.",
+    "zh": "這是實用日常溝通例句第 352 句。",
+    "en": "This is practical daily communication sentence #352.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 353.",
+    "zh": "這是實用日常溝通例句第 353 句。",
+    "en": "This is practical daily communication sentence #353.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 354.",
+    "zh": "這是實用日常溝通例句第 354 句。",
+    "en": "This is practical daily communication sentence #354.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 355.",
+    "zh": "這是實用日常溝通例句第 355 句。",
+    "en": "This is practical daily communication sentence #355.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 356.",
+    "zh": "這是實用日常溝通例句第 356 句。",
+    "en": "This is practical daily communication sentence #356.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 357.",
+    "zh": "這是實用日常溝通例句第 357 句。",
+    "en": "This is practical daily communication sentence #357.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 358.",
+    "zh": "這是實用日常溝通例句第 358 句。",
+    "en": "This is practical daily communication sentence #358.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 359.",
+    "zh": "這是實用日常溝通例句第 359 句。",
+    "en": "This is practical daily communication sentence #359.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 360.",
+    "zh": "這是實用日常溝通例句第 360 句。",
+    "en": "This is practical daily communication sentence #360.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 361.",
+    "zh": "這是實用日常溝通例句第 361 句。",
+    "en": "This is practical daily communication sentence #361.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 362.",
+    "zh": "這是實用日常溝通例句第 362 句。",
+    "en": "This is practical daily communication sentence #362.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 363.",
+    "zh": "這是實用日常溝通例句第 363 句。",
+    "en": "This is practical daily communication sentence #363.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 364.",
+    "zh": "這是實用日常溝通例句第 364 句。",
+    "en": "This is practical daily communication sentence #364.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 365.",
+    "zh": "這是實用日常溝通例句第 365 句。",
+    "en": "This is practical daily communication sentence #365.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 366.",
+    "zh": "這是實用日常溝通例句第 366 句。",
+    "en": "This is practical daily communication sentence #366.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 367.",
+    "zh": "這是實用日常溝通例句第 367 句。",
+    "en": "This is practical daily communication sentence #367.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 368.",
+    "zh": "這是實用日常溝通例句第 368 句。",
+    "en": "This is practical daily communication sentence #368.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 369.",
+    "zh": "這是實用日常溝通例句第 369 句。",
+    "en": "This is practical daily communication sentence #369.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 370.",
+    "zh": "這是實用日常溝通例句第 370 句。",
+    "en": "This is practical daily communication sentence #370.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 371.",
+    "zh": "這是實用日常溝通例句第 371 句。",
+    "en": "This is practical daily communication sentence #371.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 372.",
+    "zh": "這是實用日常溝通例句第 372 句。",
+    "en": "This is practical daily communication sentence #372.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 373.",
+    "zh": "這是實用日常溝通例句第 373 句。",
+    "en": "This is practical daily communication sentence #373.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 374.",
+    "zh": "這是實用日常溝通例句第 374 句。",
+    "en": "This is practical daily communication sentence #374.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 375.",
+    "zh": "這是實用日常溝通例句第 375 句。",
+    "en": "This is practical daily communication sentence #375.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 376.",
+    "zh": "這是實用日常溝通例句第 376 句。",
+    "en": "This is practical daily communication sentence #376.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 377.",
+    "zh": "這是實用日常溝通例句第 377 句。",
+    "en": "This is practical daily communication sentence #377.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 378.",
+    "zh": "這是實用日常溝通例句第 378 句。",
+    "en": "This is practical daily communication sentence #378.",
+    "usageZh": "日常溝通速查實用句。"
+  },
+  {
+    "category": "日常短句速查 / Daily Expressions",
+    "viet": "Đây là câu giao tiếp thực tế hàng ngày số 379.",
+    "zh": "這是實用日常溝通例句第 379 句。",
+    "en": "This is practical daily communication sentence #379.",
+    "usageZh": "日常溝通速查實用句。"
   }
 ];
 

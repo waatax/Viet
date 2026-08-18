@@ -91,12 +91,12 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
       <div className="section-header">
         <h2 className="section-title">
           <MessageSquare color="var(--brand-primary)" />
-          {learningMode === 'zh' ? '16 大實戰情境對話與沉浸式角色扮演 (Situational Role-Play)' : '16 Practical Situational Dialogues & Interactive Role-Play'}
+          {learningMode === 'zh' ? `${situationalScenarios.length} 大實戰情境對話與沉浸式角色扮演 (Situational Role-Play)` : `${situationalScenarios.length} Practical Situational Dialogues & Interactive Role-Play`}
         </h2>
         <p className="section-desc">
           {learningMode === 'zh'
-            ? '涵蓋咖啡廳、河粉店、法國麵包、熱炒海鮮、機場通關、飯店入住、Grab 叫車、夜市殺價、藥局就醫與商務拜訪等 16 個超真實高頻情境'
-            : 'Master 16 authentic real-world scenarios including cafes, pho shops, banh mi carts, seafood dining, airports, hotels, Grab rides, market bargaining, and medical clinics.'}
+            ? `全面涵蓋初次見面、社交閒聊、旅遊交通、咖啡美食、興趣娛樂、運動健身、職場協作、醫療健康與緊急求助等 ${situationalScenarios.length} 個超實用高頻情境`
+            : `Master ${situationalScenarios.length} authentic real-world scenarios across first meetings, small talk, travel, dining, leisure, sports, workplace, healthcare, and emergencies.`}
         </p>
       </div>
 
