@@ -199,7 +199,7 @@ export const Navbar = ({
 
           <div id="header-settings" className={`header-settings ${menuOpen ? 'is-open' : ''}`}>
             <div className="track-badge-container">
-              <button className="subsystem-switch-btn" onClick={toggleLearningMode}>
+              <button className="subsystem-switch-btn" onClick={() => toggleLearningMode()}>
                 <Globe size={16} />
                 <span className="mode-text">{learningMode === 'zh' ? '中文學越文' : 'English Track'}</span>
                 <span className="switch-tag">{learningMode === 'zh' ? 'EN' : '中文'}</span>

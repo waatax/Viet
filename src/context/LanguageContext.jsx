@@ -143,7 +143,8 @@ export const translations = {
 
 export const LanguageProvider = ({ children }) => {
   const [learningMode, setLearningMode] = useState(() => {
-    return localStorage.getItem('viet_learning_subsystem') || 'zh';
+    const saved = localStorage.getItem('viet_learning_subsystem');
+    return saved === 'en' ? 'en' : 'zh';
   });
 
   useEffect(() => {
@@ -151,7 +152,7 @@ export const LanguageProvider = ({ children }) => {
   }, [learningMode]);
 
   const toggleLearningMode = (mode) => {
-    if (mode) {
+    if (typeof mode === 'string' && (mode === 'zh' || mode === 'en')) {
       setLearningMode(mode);
     } else {
       setLearningMode(prev => (prev === 'zh' ? 'en' : 'zh'));
