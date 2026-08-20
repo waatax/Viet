@@ -4,6 +4,29 @@ import { practicalPhrases } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 
+const categoryIcons = {
+  "問候與禮貌 / Greetings": "👋",
+  "咖啡與飲品 / Cafe & Drinks": "☕",
+  "餐飲與點餐 / Dining": "🍽️",
+  "購物與殺價 / Shopping": "🛍️",
+  "交通與出行 / Grab & Transport": "🚗",
+  "飯店與住宿 / Hotel": "🏨",
+  "機場與出入境 / Airport & Visa": "✈️",
+  "放鬆與水療 / Hair Spa & Massage": "💆",
+  "商務與職場 / Business": "💼",
+  "醫療與急難 / Pharmacy & Emergency": "🏥",
+  "居家與租屋 / Apartment & Living": "🏠",
+  "旅遊與休閒 / Tourism & Travel": "🏝️",
+  "熱炒與乾杯 / Nightlife & Cheers": "🍻",
+  "情感與俗諺 / Idioms & Slang": "❤️",
+  "社交閒聊與生活 / Small Talk": "💬",
+  "旅遊與出行 / Travel & Transit": "🧳",
+  "休閒娛樂與運動 / Leisure & Sports": "⚽",
+  "時間與約定 / Time & Dates": "⏰",
+  "餐飲與美食 / Dining & Food": "🍜",
+  "日常短句速查 / Daily Expressions": "📝"
+};
+
 export const PhrasesModule = ({ selectedAccent }) => {
   const { learningMode, loc, t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
@@ -57,11 +80,142 @@ export const PhrasesModule = ({ selectedAccent }) => {
   };
 
   const handleSpeak = (text, key) => {
+    if (isPlayingFull) {
+      setIsPlayingFull(false);
+      isPlayingFullRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+    }
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
   };
 
   const loadMore = () => {
     setVisibleCount(prev => prev + 48);
+  };
+
+  const [isPlayingFull, setIsPlayingFull] = useState(false);
+  const [playMode, setPlayMode] = useState('zh-vi'); // 'zh-vi' | 'vi-zh' | 'vi-only'
+  const [playbackSpeed, setPlaybackSpeed] = useState(0.9);
+  const [activePhraseIndex, setActivePhraseIndex] = useState(null);
+  const isPlayingFullRef = React.useRef(false);
+  const timerRef = React.useRef(null);
+  
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      isPlayingFullRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
+  const playInSequence = (index, part = 'first', currentPlayMode = playMode, speed = playbackSpeed) => {
+    const listToPlay = filteredPhrases; // Play the currently filtered list
+    
+    if (!isPlayingFullRef.current || index >= listToPlay.length) {
+      setIsPlayingFull(false);
+      isPlayingFullRef.current = false;
+      setActivePhraseIndex(null);
+      return;
+    }
+
+    // Auto expand visibleCount to ensure active card is rendered in DOM
+    if (index >= visibleCount) {
+      setVisibleCount(prev => Math.max(prev, index + 24));
+    }
+
+    setActivePhraseIndex(index);
+    const item = listToPlay[index];
+    const nativeText = learningMode === 'zh' ? item.zh : item.en;
+    const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
+
+    if (currentPlayMode === 'vi-only') {
+      audioEngine.speak(item.viet, {
+        accent: selectedAccent,
+        lang: 'vi',
+        rate: speed,
+        key: `seq_phrase_viet_${index}`,
+        onEnd: () => {
+          if (!isPlayingFullRef.current) return;
+          const gap = speed < 0.85 ? 1400 : 1100;
+          timerRef.current = setTimeout(() => {
+            if (isPlayingFullRef.current) playInSequence(index + 1, 'first', currentPlayMode, speed);
+          }, gap);
+        }
+      });
+    } else if (currentPlayMode === 'zh-vi') {
+      // 1次中文 -> 1次越文 (Chinese first, then Vietnamese)
+      if (part === 'first') {
+        audioEngine.speak(nativeText, {
+          lang: nativeLang,
+          rate: speed,
+          key: `seq_phrase_native_${index}`,
+          onEnd: () => {
+            if (!isPlayingFullRef.current) return;
+            timerRef.current = setTimeout(() => {
+              if (isPlayingFullRef.current) playInSequence(index, 'second', currentPlayMode, speed);
+            }, 350);
+          }
+        });
+      } else {
+        audioEngine.speak(item.viet, {
+          accent: selectedAccent,
+          lang: 'vi',
+          rate: speed,
+          key: `seq_phrase_viet_${index}`,
+          onEnd: () => {
+            if (!isPlayingFullRef.current) return;
+            const gap = speed < 0.85 ? 1500 : 1200;
+            timerRef.current = setTimeout(() => {
+              if (isPlayingFullRef.current) playInSequence(index + 1, 'first', currentPlayMode, speed);
+            }, gap);
+          }
+        });
+      }
+    } else {
+      // 'vi-zh': 1次越文 -> 1次中文 (Vietnamese first, then Chinese)
+      if (part === 'first') {
+        audioEngine.speak(item.viet, {
+          accent: selectedAccent,
+          lang: 'vi',
+          rate: speed,
+          key: `seq_phrase_viet_${index}`,
+          onEnd: () => {
+            if (!isPlayingFullRef.current) return;
+            timerRef.current = setTimeout(() => {
+              if (isPlayingFullRef.current) playInSequence(index, 'second', currentPlayMode, speed);
+            }, 350);
+          }
+        });
+      } else {
+        audioEngine.speak(nativeText, {
+          lang: nativeLang,
+          rate: speed,
+          key: `seq_phrase_native_${index}`,
+          onEnd: () => {
+            if (!isPlayingFullRef.current) return;
+            const gap = speed < 0.85 ? 1500 : 1200;
+            timerRef.current = setTimeout(() => {
+              if (isPlayingFullRef.current) playInSequence(index + 1, 'first', currentPlayMode, speed);
+            }, gap);
+          }
+        });
+      }
+    }
+  };
+
+  const handlePlayFull = (mode = 'zh-vi') => {
+    if (isPlayingFull) {
+      setIsPlayingFull(false);
+      isPlayingFullRef.current = false;
+      setActivePhraseIndex(null);
+      if (timerRef.current) clearTimeout(timerRef.current);
+      audioEngine.stop();
+      return;
+    }
+    
+    setPlayMode(mode);
+    setIsPlayingFull(true);
+    isPlayingFullRef.current = true;
+    playInSequence(0, 'first', mode, playbackSpeed);
   };
 
   return (
@@ -139,22 +293,180 @@ export const PhrasesModule = ({ selectedAccent }) => {
                   setVisibleCount(48);
                 }}
               >
-                {cat === 'all' ? (learningMode === 'zh' ? `全部類別 (${practicalPhrases.length})` : `All (${practicalPhrases.length})`) : cat}
+                {cat === 'all' 
+                  ? (learningMode === 'zh' ? `全部類別 (${practicalPhrases.length})` : `All (${practicalPhrases.length})`) 
+                  : `${categoryIcons[cat] || '💡'} ${learningMode === 'zh' ? cat.split('/')[0].trim() : (cat.split('/')[1]?.trim() || cat)}`}
               </button>
             ))}
           </div>
         </div>
       </div>
 
-      {/* Count Indicator Banner */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', fontSize: '0.9em', color: 'var(--text-secondary)' }}>
-        <div>
-          {learningMode === 'zh' 
-            ? `正在顯示 ${displayedPhrases.length} / ${filteredPhrases.length} 句` 
-            : `Showing ${displayedPhrases.length} of ${filteredPhrases.length} phrases`}
+      {/* Count Indicator Banner & Play Controls */}
+      <div style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        marginBottom: '1.2rem', 
+        flexWrap: 'wrap', 
+        gap: '0.8rem', 
+        background: 'var(--bg-card)', 
+        padding: '0.9rem 1.2rem', 
+        borderRadius: '12px', 
+        border: isPlayingFull ? '2px solid var(--brand-primary)' : '1px solid var(--border-color)', 
+        boxShadow: isPlayingFull ? '0 4px 16px rgba(var(--brand-primary-rgb, 239, 68, 68), 0.15)' : '0 2px 8px rgba(0,0,0,0.05)',
+        transition: 'all 0.3s ease'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+          <div style={{ fontSize: '0.92em', color: 'var(--text-primary)', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+            <Layers size={17} color="var(--brand-primary)" />
+            {learningMode === 'zh' 
+              ? `正在顯示 ${displayedPhrases.length} / ${filteredPhrases.length} 句` 
+              : `Showing ${displayedPhrases.length} of ${filteredPhrases.length} phrases`}
+          </div>
+          {isPlayingFull && (
+            <span style={{ 
+              fontSize: '0.75em', 
+              background: 'var(--brand-primary)', 
+              color: '#fff', 
+              padding: '0.2rem 0.55rem', 
+              borderRadius: '10px', 
+              fontWeight: 700,
+              animation: 'pulse 1.5s infinite' 
+            }}>
+              {learningMode === 'zh' ? `▶ 播放中 #${(activePhraseIndex || 0) + 1}` : `▶ Playing #${(activePhraseIndex || 0) + 1}`}
+            </span>
+          )}
         </div>
-        <div style={{ fontSize: '0.85em', color: 'var(--text-muted)' }}>
-          💡 點擊喇叭按鈕即可聆聽 {selectedAccent === 'north' ? '🏛️ 北越河內音' : '🌴 南越胡志明音'}
+        
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+          {/* Mode 1: Once Vietnamese, Once Chinese (越+中) */}
+          <button 
+            className={`control-btn play-full-btn ${isPlayingFull && playMode === 'vi-zh' ? 'playing' : ''}`}
+            onClick={() => handlePlayFull('vi-zh')}
+            style={{ 
+              background: isPlayingFull && playMode === 'vi-zh' ? 'var(--brand-primary)' : '#d97706', 
+              color: '#fff',
+              opacity: isPlayingFull && playMode !== 'vi-zh' ? 0.6 : 1,
+              padding: '0.5rem 0.95rem',
+              fontSize: '0.85em',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              borderRadius: '8px',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              boxShadow: isPlayingFull && playMode === 'vi-zh' ? '0 4px 12px rgba(217, 119, 6, 0.4)' : '0 2px 4px rgba(0,0,0,0.1)'
+            }}
+            title={learningMode === 'zh' ? '類別連續播放：先唸越文再唸中文' : 'Play Category: Viet then Native'}
+          >
+            {isPlayingFull && playMode === 'vi-zh' ? <Pause size={15} /> : <Play size={15} />}
+            <span>
+              {isPlayingFull && playMode === 'vi-zh'
+                ? (learningMode === 'zh' ? '暫停' : 'Pause') 
+                : (learningMode === 'zh' ? <>連續播放: 越+中</> : <>Play: Vi → Zh</>)}
+            </span>
+          </button>
+
+          {/* Mode 2: Once Chinese, Once Vietnamese (中+越) */}
+          <button 
+            className={`control-btn play-full-btn ${isPlayingFull && playMode === 'zh-vi' ? 'playing' : ''}`}
+            onClick={() => handlePlayFull('zh-vi')}
+            style={{ 
+              background: isPlayingFull && playMode === 'zh-vi' ? 'var(--brand-primary)' : '#059669', 
+              color: '#fff',
+              opacity: isPlayingFull && playMode !== 'zh-vi' ? 0.6 : 1,
+              padding: '0.5rem 0.95rem',
+              fontSize: '0.85em',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              borderRadius: '8px',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              boxShadow: isPlayingFull && playMode === 'zh-vi' ? '0 4px 12px rgba(5, 150, 105, 0.4)' : '0 2px 4px rgba(0,0,0,0.1)'
+            }}
+            title={learningMode === 'zh' ? '類別連續播放：先唸中文再唸越文' : 'Play Category: Native then Viet'}
+          >
+            {isPlayingFull && playMode === 'zh-vi' ? <Pause size={15} /> : <Play size={15} />}
+            <span>
+              {isPlayingFull && playMode === 'zh-vi'
+                ? (learningMode === 'zh' ? '暫停' : 'Pause') 
+                : (learningMode === 'zh' ? <>連續播放: 中+越</> : <>Play: Zh → Vi</>)}
+            </span>
+          </button>
+
+          {/* Mode 3: Vietnamese Only */}
+          <button 
+            className={`control-btn play-full-btn ${isPlayingFull && playMode === 'vi-only' ? 'playing' : ''}`}
+            onClick={() => handlePlayFull('vi-only')}
+            style={{ 
+              background: isPlayingFull && playMode === 'vi-only' ? 'var(--brand-primary)' : '#7c3aed', 
+              color: '#fff',
+              opacity: isPlayingFull && playMode !== 'vi-only' ? 0.6 : 1,
+              padding: '0.5rem 0.85rem',
+              fontSize: '0.85em',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.4rem',
+              borderRadius: '8px',
+              border: 'none',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              boxShadow: isPlayingFull && playMode === 'vi-only' ? '0 4px 12px rgba(124, 58, 237, 0.4)' : '0 2px 4px rgba(0,0,0,0.1)'
+            }}
+            title={learningMode === 'zh' ? '類別連續播放：純越文沉浸式聽力' : 'Play Category: Viet Only'}
+          >
+            {isPlayingFull && playMode === 'vi-only' ? <Pause size={15} /> : <Play size={15} />}
+            <span>
+              {isPlayingFull && playMode === 'vi-only'
+                ? (learningMode === 'zh' ? '暫停' : 'Pause') 
+                : (learningMode === 'zh' ? <>純越文</> : <>Viet Only</>)}
+            </span>
+          </button>
+
+          {/* Speed Toggle Chips */}
+          <div className="speed-toggle-group" style={{ display: 'inline-flex', background: 'var(--bg-secondary)', borderRadius: '8px', padding: '2px', border: '1px solid var(--border-color)', marginLeft: '2px' }}>
+            <button 
+              className={`speed-chip ${playbackSpeed >= 0.85 ? 'active' : ''}`}
+              onClick={() => setPlaybackSpeed(0.9)}
+              style={{
+                background: playbackSpeed >= 0.85 ? 'var(--brand-primary)' : 'transparent',
+                color: playbackSpeed >= 0.85 ? '#fff' : 'var(--text-secondary)',
+                border: 'none',
+                padding: '0.35rem 0.6rem',
+                fontSize: '0.8em',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 600
+              }}
+              title="正常語速"
+            >
+              1.0x
+            </button>
+            <button 
+              className={`speed-chip ${playbackSpeed < 0.85 ? 'active' : ''}`}
+              onClick={() => setPlaybackSpeed(0.7)}
+              style={{
+                background: playbackSpeed < 0.85 ? 'var(--brand-primary)' : 'transparent',
+                color: playbackSpeed < 0.85 ? '#fff' : 'var(--text-secondary)',
+                border: 'none',
+                padding: '0.35rem 0.6rem',
+                fontSize: '0.8em',
+                borderRadius: '6px',
+                cursor: 'pointer',
+                fontWeight: 600
+              }}
+              title="慢速精讀 (適合初學跟讀)"
+            >
+              0.75x
+            </button>
+          </div>
         </div>
       </div>
 
@@ -162,14 +474,14 @@ export const PhrasesModule = ({ selectedAccent }) => {
       <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))' }}>
         {displayedPhrases.map((phrase, idx) => {
           const phraseKey = `phrase_${idx}_${phrase.viet}`;
-          const isPlaying = activeKey === phraseKey || activeKey === phrase.viet;
+          const isPlaying = activeKey === phraseKey || activeKey === phrase.viet || activePhraseIndex === idx;
           const isSaved = savedPhrases.includes(phrase.viet);
 
           return (
             <div key={idx} className={`learning-card ${isPlaying ? 'playing-card' : ''}`}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
                 <span className="tone-symbol" style={{ fontSize: '0.78em', background: 'var(--bg-accent)', color: 'var(--brand-gold)' }}>
-                  {phrase.category.split('/')[0].trim()}
+                  {`${categoryIcons[phrase.category] || '💡'} ${learningMode === 'zh' ? phrase.category.split('/')[0].trim() : (phrase.category.split('/')[1]?.trim() || phrase.category)}`}
                 </span>
                 <button 
                   onClick={() => toggleBookmark(phrase.viet)}
