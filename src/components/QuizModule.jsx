@@ -3,6 +3,7 @@ import { Trophy, CheckCircle, XCircle, Award, Flame, RefreshCw, Volume2, ShieldC
 import { quizzes } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { gamificationEngine } from '../utils/gamificationEngine';
 
 export const QuizModule = ({ userStats, updateUserStats, selectedAccent }) => {
   const { learningMode, loc, t } = useLanguage();
@@ -53,8 +54,10 @@ export const QuizModule = ({ userStats, updateUserStats, selectedAccent }) => {
 
     if (idx === activeQuiz.answer) {
       setScore(prev => prev + 1);
+      audioEngine.playSuccessChime();
       if (updateUserStats) updateUserStats(25);
     } else {
+      audioEngine.playGentleError();
       setWrongQuizzes(prev => [...prev, activeQuiz]);
     }
   };
@@ -66,6 +69,10 @@ export const QuizModule = ({ userStats, updateUserStats, selectedAccent }) => {
       setCurrentQuizIdx(prev => prev + 1);
     } else {
       setQuizFinished(true);
+      if (score + (selectedOption === activeQuiz.answer ? 1 : 0) >= activeDeck.length) {
+        audioEngine.playLevelUpFanfare();
+        gamificationEngine.checkAchievements({ xp: 60 }, { type: 'QUIZ_PERFECT' });
+      }
     }
   };
 

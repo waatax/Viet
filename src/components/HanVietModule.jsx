@@ -3,6 +3,7 @@ import { BookOpen, Search, Volume2, Sparkles, Award, ArrowRight, Layers, HelpCir
 import { hanVietRoots } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { gamificationEngine } from '../utils/gamificationEngine';
 
 export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
   const { learningMode, loc } = useLanguage();
@@ -81,14 +82,25 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
     'An + Toàn': { viet: 'An toàn', han: '安全', zh: '安全', en: 'Safety' },
     'Bác + Sĩ': { viet: 'Bác sĩ', han: '博士', zh: '醫生 (假朋友!)', en: 'Doctor' },
     'Y + Viện': { viet: 'Y viện', han: '醫院', zh: '醫療機構', en: 'Medical Clinic' },
-    'Kinh + Doanh': { viet: 'Kinh doanh', han: '經營', zh: '商業/經商', en: 'Business' }
+    'Kinh + Doanh': { viet: 'Kinh doanh', han: '經營', zh: '商業/經商', en: 'Business' },
+    'Tài + Chính': { viet: 'Tài chính', han: '財務', zh: '財務/金融', en: 'Finance' },
+    'Kỹ + Thuật': { viet: 'Kỹ thuật', han: '技術', zh: '技術/科技', en: 'Technology' },
+    'Thương + Mại': { viet: 'Thương mại', han: '商貿', zh: '貿易/商業', en: 'Trade' },
+    'Hợp + Đồng': { viet: 'Hợp đồng', han: '合同', zh: '契約/合同', en: 'Contract' },
+    'Sản + Xuất': { viet: 'Sản xuất', han: '生產', zh: '生產/製造', en: 'Production' },
+    'Thông + Tin': { viet: 'Thông tin', han: '通信', zh: '資訊/消息', en: 'Information' },
+    'Bảo + Hiểm': { viet: 'Bảo hiểm', han: '保險', zh: '保險', en: 'Insurance' },
+    'Đầu + Tư': { viet: 'Đầu tư', han: '投資', zh: '投資 (FDI)', en: 'Investment' }
   };
 
   const COMBINER_ROOTS = [
     'Quốc', 'Tế', 'Kinh', 'Đại', 'Học', 'Gia',
     'Bệnh', 'Viện', 'Du', 'Pháp', 'Luật', 'Nhân',
     'Dân', 'Văn', 'Hóa', 'Tự', 'Do', 'Công',
-    'Ty', 'An', 'Toàn', 'Bác', 'Sĩ'
+    'Ty', 'An', 'Toàn', 'Bác', 'Sĩ', 'Tài',
+    'Chính', 'Kỹ', 'Thuật', 'Thương', 'Mại', 'Hợp',
+    'Đồng', 'Sản', 'Xuất', 'Thông', 'Tin', 'Bảo',
+    'Hiểm', 'Đầu', 'Tư'
   ];
 
   const handleCombineClick = (root) => {
@@ -101,13 +113,17 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
       const valid = VALID_COMPOUNDS[comboKey];
       if (valid) {
         setCombineMsg({ type: 'success', text: `✨ 成功組合：${valid.viet} (${valid.han}) - ${valid.zh}` });
+        audioEngine.playSuccessChime();
         playWord(valid.viet, `combo_${valid.viet}`);
         if (!unlockedCombos.includes(valid.viet)) {
-          setUnlockedCombos(prev => [...prev, valid.viet]);
+          const nextCombos = [...unlockedCombos, valid.viet];
+          setUnlockedCombos(nextCombos);
+          gamificationEngine.checkAchievements({ xp: 50 }, { type: 'HANVIET_STUDIED', count: nextCombos.length });
         }
-        if (updateUserStats) updateUserStats(5);
+        if (updateUserStats) updateUserStats(10);
       } else {
         setCombineMsg({ type: 'error', text: '❌ 無效的字根組合，請再試一次！' });
+        audioEngine.playGentleError();
         setTimeout(() => {
           setSlot1(null);
           setSlot2(null);
@@ -127,7 +143,10 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
     const drill = FALSE_FRIENDS_DRILLS[drillIdx];
     if (idx === drill.answer) {
       setDrillScore(prev => prev + 1);
+      audioEngine.playSuccessChime();
       if (updateUserStats) updateUserStats(15);
+    } else {
+      audioEngine.playGentleError();
     }
   };
 
@@ -174,19 +193,51 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
         </p>
       </div>
 
-      {/* Secret Weapon Knowledge Card */}
+      {/* Secret Weapon Knowledge Card - Comprehensive Educational Block */}
       <div className="simulator-box" style={{ background: 'linear-gradient(135deg, var(--bg-card) 0%, var(--bg-accent) 100%)', borderLeft: '4px solid var(--brand-accent)' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
-          <Sparkles size={20} color="var(--brand-accent)" />
-          <h3 style={{ fontSize: '1.18em', fontWeight: 800 }}>
-            {learningMode === 'zh' ? '💡 漢越音倍速記詞秘笈（台越音韻超強關聯）' : '💡 The Sino-Vietnamese Accelerator'}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
+          <Sparkles size={22} color="var(--brand-accent)" />
+          <h3 style={{ fontSize: '1.25em', fontWeight: 800 }}>
+            {learningMode === 'zh' ? '💡 知識點 完整解釋：漢越詞的降維打擊 (The Sino-Vietnamese Accelerator)' : '💡 Comprehensive Knowledge: The Sino-Vietnamese Accelerator'}
           </h3>
         </div>
-        <p style={{ fontSize: '0.94em', color: 'var(--text-secondary)', lineHeight: 1.65 }}>
-          {learningMode === 'zh'
-            ? '越語發音與台語/客語/古漢語音韻高度契合。例如：Quốc (國) + Tế (際) = Quốc tế (國際)；Kinh (經) + Tế (濟) = Kinh tế (經濟)；Đại (大) + Học (學) = Đại học (大學)！'
-            : 'Example: Quốc (Nation) + Tế (International) = Quốc tế (International); Kinh (Manage) + Tế (Economy) = Kinh tế (Economy); Đại (Big) + Học (Study) = Đại học (University)!'}
-        </p>
+        <div style={{ fontSize: '0.95em', color: 'var(--text-primary)', lineHeight: 1.7 }}>
+          {learningMode === 'zh' ? (
+            <>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>你知道嗎？</strong> 現代越南語中，高達 <strong>60% 到 70%</strong> 的詞彙屬於「漢越詞」（Từ Hán Việt）。這些詞彙在唐宋時期從中國傳入越南，保留了大量古漢語（尤其是中古音）的發音特徵。對於母語為中文（特別是會講台語、客家話或粵語）的學習者來說，這簡直是<strong>降維打擊</strong>！
+              </p>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>🧠 如何運用這個優勢？</strong><br/>
+                與其死記硬背單字，不如掌握「字根」。因為漢越詞的組合邏輯與中文<strong>完全一致</strong>。只要記住一個字根，就能瞬間解鎖數十個相關詞彙。<br/>
+                例如：你知道「Quốc」對應漢字「國」，「Tế」對應「際」，「Gia」對應「家」。<br/>
+                那麼你不需要學，就能猜出：<br/>
+                👉 <strong>Quốc tế</strong> = 國際<br/>
+                👉 <strong>Quốc gia</strong> = 國家
+              </p>
+              <p style={{ margin: 0, padding: '0.75rem', background: 'rgba(37, 99, 235, 0.1)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--brand-primary)' }}>
+                <strong>⚠️ 假朋友警告：</strong>雖然多數詞彙意思相同，但有少數詞彙在越南語中演變出了不同的意思（稱為「假朋友」）。例如「Bác sĩ」對應漢字是「博士」，但越南語的意思卻是「醫生」！我們在下方的「避坑排雷特訓」中會專門對付它們。
+              </p>
+            </>
+          ) : (
+            <>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>Did you know?</strong> Up to <strong>60% to 70%</strong> of modern Vietnamese vocabulary consists of "Sino-Vietnamese words" (Từ Hán Việt). These words were borrowed from Chinese during the Tang and Song dynasties and have preserved many phonetic features of Middle Chinese. For learners with a background in Chinese, this is an incredible <strong>unfair advantage</strong>!
+              </p>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>🧠 How to leverage this?</strong><br/>
+                Instead of memorizing isolated words, master the "roots". The logic of combining Sino-Vietnamese words is <strong>exactly the same</strong> as in Chinese. By learning one root, you can instantly unlock dozens of related words.<br/>
+                For example: If you know "Quốc" maps to "Nation", "Tế" maps to "International", and "Gia" maps to "Family".<br/>
+                You can intuitively guess:<br/>
+                👉 <strong>Quốc tế</strong> = International<br/>
+                👉 <strong>Quốc gia</strong> = Nation
+              </p>
+              <p style={{ margin: 0, padding: '0.75rem', background: 'rgba(37, 99, 235, 0.1)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--brand-primary)' }}>
+                <strong>⚠️ False Friends Warning:</strong> While most words share the same meaning, some have evolved differently in Vietnamese (known as "False Friends"). For instance, "Bác sĩ" maps to the Chinese characters for "PhD", but in Vietnamese, it means "Medical Doctor"! We will tackle these in the drill below.
+              </p>
+            </>
+          )}
+        </div>
       </div>
 
       {/* Search Bar */}
@@ -208,7 +259,38 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
         </div>
       </div>
 
-      {/* Morpheme Combiner */}
+      {/* Morpheme Combiner Tutorial & Workbench */}
+      <div className="section-header" style={{ marginTop: '3rem', marginBottom: '1.5rem', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem' }}>
+        <h2 className="section-title">
+          <Sparkles color="var(--brand-gold)" />
+          {learningMode === 'zh' ? '實戰演練：詞素煉金合成台' : 'Practice: Morpheme Combiner Workbench'}
+        </h2>
+      </div>
+
+      <div className="simulator-box" style={{ marginBottom: '1rem', background: 'var(--bg-accent)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-md)', padding: '1.2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
+          <HelpCircle size={22} color="var(--brand-gold)" />
+          <h3 style={{ fontSize: '1.15em', fontWeight: 800, margin: 0 }}>
+            {learningMode === 'zh' ? '玩法教學：詞素煉金術' : 'How to Play: Morpheme Alchemy'}
+          </h3>
+        </div>
+        <div style={{ fontSize: '0.95em', color: 'var(--text-primary)', lineHeight: 1.6 }}>
+          {learningMode === 'zh' ? (
+            <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <li><strong>積木概念：</strong>就像樂高積木一樣，你可以把單一的字根（詞素）組裝成高階詞彙。</li>
+              <li><strong>操作方式：</strong>從下方字根庫中，點選兩個能合理對應的字根（例如先點 <code>Quốc(國)</code> 再點 <code>Gia(家)</code>）。</li>
+              <li><strong>學習目標：</strong>找出隱藏在題庫中的 <strong>{Object.keys(VALID_COMPOUNDS).length} 個</strong>合法複合詞，完成越南語詞彙鍊金！點擊成功的單字會發音。</li>
+            </ul>
+          ) : (
+            <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <li><strong>LEGO Concept:</strong> Combine single roots (morphemes) into advanced words, just like LEGO blocks.</li>
+              <li><strong>How to interact:</strong> Select two roots from the bank below that make a logical compound (e.g., <code>Quốc(Nation)</code> + <code>Gia(Family)</code>).</li>
+              <li><strong>Goal:</strong> Find and unlock all <strong>{Object.keys(VALID_COMPOUNDS).length}</strong> hidden valid compounds. Click on the successful words to hear the pronunciation!</li>
+            </ul>
+          )}
+        </div>
+      </div>
+
       <div style={{ marginBottom: '2rem', padding: '1.25rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', border: '2px dashed var(--brand-gold)' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '1rem' }}>
           <h3 style={{ fontSize: '1.15em', fontWeight: 800, color: 'var(--brand-primary)', margin: 0 }}>

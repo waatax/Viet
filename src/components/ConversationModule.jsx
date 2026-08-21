@@ -17,13 +17,17 @@ import {
   AlertTriangle,
   Layers,
   ChevronRight,
-  Filter
+  Filter,
+  ClipboardList,
+  Map
 } from 'lucide-react';
 import { situationalScenarios, scenarioCategories } from '../data/situationalScenarios';
 import { DialoguePlayer } from './DialoguePlayer';
 import { RolePlayEngine } from './RolePlayEngine';
 import { ScenarioVocabDeck } from './ScenarioVocabDeck';
 import { CulturalTipsCard } from './CulturalTipsCard';
+import RealMenuViewer from './RealMenuViewer';
+import CityGuideViewer from './CityGuideViewer';
 import { useLanguage } from '../context/LanguageContext';
 
 export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
@@ -98,6 +102,34 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
             ? `全面涵蓋初次見面、社交閒聊、旅遊交通、咖啡美食、興趣娛樂、運動健身、職場協作、醫療健康與緊急求助等 ${situationalScenarios.length} 個超實用高頻情境`
             : `Master ${situationalScenarios.length} authentic real-world scenarios across first meetings, small talk, travel, dining, leisure, sports, workplace, healthcare, and emergencies.`}
         </p>
+      </div>
+
+      {/* Educational Guide Block */}
+      <div className="scenario-guide-card" style={{ backgroundColor: 'var(--bg-secondary, #f8f9fa)', padding: '16px', borderRadius: '8px', marginBottom: '24px', borderLeft: '4px solid var(--brand-primary, #007bff)' }}>
+        <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: 0, marginBottom: '12px', fontSize: '1.1rem' }}>
+          <Compass size={18} style={{ color: 'var(--brand-primary, #007bff)' }} />
+          {learningMode === 'zh' ? '💡 學習指南：情境語境與南北差異' : '💡 Learning Guide: Context & Regional Differences'}
+        </h4>
+        <ul style={{ margin: 0, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.95rem', color: 'var(--text-secondary, #4b5563)' }}>
+          <li>
+            <strong style={{ color: 'var(--text-primary, #1f2937)' }}>{learningMode === 'zh' ? '語境至上：' : 'Context is Key: '}</strong>
+            {learningMode === 'zh' 
+              ? '越南語高度依賴當下的情境與雙方關係。面對長輩、平輩或服務生，必須切換不同的稱呼與應對方式。'
+              : 'Vietnamese relies heavily on context and relationships. You must adapt pronouns and phrases based on who you are speaking to.'}
+          </li>
+          <li>
+            <strong style={{ color: 'var(--text-primary, #1f2937)' }}>{learningMode === 'zh' ? '南北差異：' : 'North vs South: '}</strong>
+            {learningMode === 'zh'
+              ? '日常詞彙與發音在北越與南越有著顯著差異。請留意對話解析中的「北越提示」與「南越提示」，這能幫助您更接地氣。'
+              : 'Daily vocabulary and pronunciation vary significantly between the North and South. Utilize the regional tips in dialogues to sound more local.'}
+          </li>
+          <li>
+            <strong style={{ color: 'var(--text-primary, #1f2937)' }}>{learningMode === 'zh' ? '實戰順序：' : 'Practice Flow: '}</strong>
+            {learningMode === 'zh'
+              ? '建議先透過【對話研讀】與【文化秘笈】建立基礎，再進入【角色扮演】進行沉浸式模擬並賺取經驗值。'
+              : 'Start with "Dialogue Study" and "Cultural Tips" to build a foundation, then jump into "Role-Play" to practice and earn XP.'}
+          </li>
+        </ul>
       </div>
 
       {/* Category Filter Pills & Search Bar */}
@@ -226,6 +258,26 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
               <Compass size={16} />
               <span>{learningMode === 'zh' ? '4. 文化秘笈 & 避坑' : '4. Cultural Tips'}</span>
             </button>
+
+            {currentScenario.realMenu && (
+              <button 
+                className={`view-tab-btn ${activeViewTab === 'menu' ? 'active' : ''} highlight-tab`}
+                onClick={() => setActiveViewTab('menu')}
+              >
+                <ClipboardList size={16} />
+                <span>{learningMode === 'zh' ? '5. 實際菜單解析' : '5. Real Menu Guide'}</span>
+              </button>
+            )}
+
+            {currentScenario.cityGuides && (
+              <button 
+                className={`view-tab-btn ${activeViewTab === 'cityGuide' ? 'active' : ''} highlight-tab`}
+                onClick={() => setActiveViewTab('cityGuide')}
+              >
+                <Map size={16} />
+                <span>{learningMode === 'zh' ? '5. 城市景點指南' : '5. City Guides'}</span>
+              </button>
+            )}
           </div>
 
           {/* Tab Content Display */}
@@ -256,6 +308,21 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
             {activeViewTab === 'culture' && (
               <CulturalTipsCard 
                 scenario={currentScenario} 
+              />
+            )}
+
+            {activeViewTab === 'menu' && (
+              <RealMenuViewer
+                scenario={currentScenario}
+                learningMode={learningMode}
+                selectedAccent={selectedAccent}
+              />
+            )}
+
+            {activeViewTab === 'cityGuide' && (
+              <CityGuideViewer
+                scenario={currentScenario}
+                learningMode={learningMode}
               />
             )}
           </div>

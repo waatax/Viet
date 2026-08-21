@@ -47,6 +47,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
   const [activeLineIndex, setActiveLineIndex] = useState(null);
   const [playbackSpeed, setPlaybackSpeed] = useState(0.9); // 0.9 normal, 0.7 slow
   const [showTranslations, setShowTranslations] = useState(true);
+  const [playMode, setPlayMode] = useState('bilingual'); // 'bilingual' | 'viet-only'
   const isPlayingFullRef = useRef(false);
   const currentIdxRef = useRef(0);
   const timerRef = useRef(null);
@@ -104,7 +105,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
     });
   };
 
-  const playLineInSequence = (index) => {
+  const playLineInSequence = (index, part = 'bilingual-first', currentPlayMode = playMode) => {
     if (!isPlayingFullRef.current || index >= dialogues.length) {
       setIsPlayingFull(false);
       isPlayingFullRef.current = false;
@@ -119,24 +120,46 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
     setActiveLineIndex(index);
     const line = dialogues[index];
 
-    audioEngine.speak(line.viet, {
-      accent: selectedAccent,
-      rate: playbackSpeed,
-      key: `seq_line_${activeSectionId}_${index}`,
-      onEnd: () => {
-        if (!isPlayingFullRef.current) return;
-        // Natural conversational gap between turns
-        const gapMs = playbackSpeed < 0.85 ? 900 : 700;
-        timerRef.current = setTimeout(() => {
-          if (isPlayingFullRef.current) {
-            playLineInSequence(index + 1);
-          }
-        }, gapMs);
-      }
-    });
+    const isBilingual = currentPlayMode === 'bilingual';
+
+    if (isBilingual && part === 'bilingual-first') {
+      const nativeText = learningMode === 'zh' ? line.zh : line.en;
+      const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
+
+      audioEngine.speak(nativeText, {
+        lang: nativeLang,
+        rate: playbackSpeed,
+        key: `seq_line_native_${activeSectionId}_${index}`,
+        onEnd: () => {
+          if (!isPlayingFullRef.current) return;
+          timerRef.current = setTimeout(() => {
+            if (isPlayingFullRef.current) {
+              playLineInSequence(index, 'viet', currentPlayMode);
+            }
+          }, 300); // short gap between languages
+        }
+      });
+    } else {
+      audioEngine.speak(line.viet, {
+        accent: selectedAccent,
+        lang: 'vi',
+        rate: playbackSpeed,
+        key: `seq_line_${activeSectionId}_${index}`,
+        onEnd: () => {
+          if (!isPlayingFullRef.current) return;
+          // Natural conversational gap between turns
+          const gapMs = playbackSpeed < 0.85 ? 900 : 700;
+          timerRef.current = setTimeout(() => {
+            if (isPlayingFullRef.current) {
+              playLineInSequence(index + 1, 'bilingual-first', currentPlayMode);
+            }
+          }, gapMs);
+        }
+      });
+    }
   };
 
-  const handlePlayFullDialogue = () => {
+  const handlePlayFullDialogue = (mode = 'bilingual') => {
     if (isPlayingFull) {
       // Pause/Stop
       setIsPlayingFull(false);
@@ -147,9 +170,10 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
       return;
     }
 
+    setPlayMode(mode);
     setIsPlayingFull(true);
     isPlayingFullRef.current = true;
-    playLineInSequence(0);
+    playLineInSequence(0, 'bilingual-first', mode);
   };
 
   return (
@@ -216,17 +240,40 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
 
       {/* Control Header Toolbar */}
       <div className="dialogue-toolbar">
-        <div className="toolbar-left">
+        <div className="toolbar-left" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          {/* Play Bilingual */}
           <button 
-            className={`control-btn play-full-btn ${isPlayingFull ? 'playing' : ''}`}
-            onClick={handlePlayFullDialogue}
-            style={{ background: isPlayingFull ? 'var(--brand-primary)' : 'var(--brand-green)', color: '#fff' }}
+            className={`control-btn play-full-btn ${isPlayingFull && playMode === 'bilingual' ? 'playing' : ''}`}
+            onClick={() => handlePlayFullDialogue('bilingual')}
+            style={{ 
+              background: isPlayingFull && playMode === 'bilingual' ? 'var(--brand-primary)' : 'var(--brand-green)', 
+              color: '#fff',
+              opacity: isPlayingFull && playMode !== 'bilingual' ? 0.6 : 1
+            }}
           >
-            {isPlayingFull ? <Pause size={16} /> : <Play size={16} />}
+            {isPlayingFull && playMode === 'bilingual' ? <Pause size={16} /> : <Play size={16} />}
             <span>
-              {isPlayingFull 
+              {isPlayingFull && playMode === 'bilingual'
                 ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
-                : (learningMode === 'zh' ? '播放全篇對話 (+20 XP)' : 'Play Full Dialogue (+20 XP)')}
+                : (learningMode === 'zh' ? <>中+越 <span className="hide-mobile">(+20 XP)</span></> : <>Bilingual <span className="hide-mobile">(+20 XP)</span></>)}
+            </span>
+          </button>
+
+          {/* Play Viet Only */}
+          <button 
+            className={`control-btn play-full-btn ${isPlayingFull && playMode === 'viet-only' ? 'playing' : ''}`}
+            onClick={() => handlePlayFullDialogue('viet-only')}
+            style={{ 
+              background: isPlayingFull && playMode === 'viet-only' ? 'var(--brand-primary)' : 'var(--brand-accent, #8b5cf6)', 
+              color: '#fff',
+              opacity: isPlayingFull && playMode !== 'viet-only' ? 0.6 : 1
+            }}
+          >
+            {isPlayingFull && playMode === 'viet-only' ? <Pause size={16} /> : <Play size={16} />}
+            <span>
+              {isPlayingFull && playMode === 'viet-only'
+                ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
+                : (learningMode === 'zh' ? <>純越文 <span className="hide-mobile">(+20 XP)</span></> : <>Viet <span className="hide-mobile">(+20 XP)</span></>)}
             </span>
           </button>
 

@@ -1,0 +1,192 @@
+.sentence-builder-module .builder-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sentence-builder-module .card-header {
+  text-align: right;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.sentence-builder-module .target-translation {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--bg-accent);
+  border-radius: 8px;
+}
+
+.sentence-builder-module .answer-area {
+  min-height: 80px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: flex-start;
+  background: #f8fafc;
+}
+
+[data-theme="dark"] .sentence-builder-module .answer-area {
+  border-color: #334155;
+  background: #0f172a;
+}
+
+.sentence-builder-module .placeholder-text {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.sentence-builder-module .word-pool {
+  min-height: 80px;
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.sentence-builder-module .word-block {
+  padding: 0.75rem 1.25rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.1s, box-shadow 0.1s;
+  user-select: none;
+}
+
+[data-theme="dark"] .sentence-builder-module .word-block {
+  background: #1e293b;
+  border-color: #475569;
+}
+
+.sentence-builder-module .word-block:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.sentence-builder-module .word-block.selected {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+[data-theme="dark"] .sentence-builder-module .word-block.selected {
+  background: rgba(134, 239, 172, 0.1);
+  border-color: #15803d;
+}
+
+.sentence-builder-module .action-area {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sentence-builder-module .check-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--brand-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sentence-builder-module .check-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
+
+[data-theme="dark"] .sentence-builder-module .check-btn:disabled {
+  background: #475569;
+}
+
+.sentence-builder-module .result-banner {
+  padding: 1.5rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.sentence-builder-module .result-banner.success {
+  background: #ecfdf5;
+  border: 2px solid #10b981;
+}
+
+[data-theme="dark"] .sentence-builder-module .result-banner.success {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.sentence-builder-module .result-banner.error {
+  background: #fef2f2;
+  border: 2px solid #ef4444;
+}
+
+[data-theme="dark"] .sentence-builder-module .result-banner.error {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.sentence-builder-module .result-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.sentence-builder-module .success .result-message { color: #059669; }
+.sentence-builder-module .error .result-message { color: #b91c1c; }
+
+.sentence-builder-module .correct-answer {
+  font-size: 1.5rem;
+  color: var(--brand-primary);
+  margin-top: 0.5rem;
+}
+
+.sentence-builder-module .next-btn,
+.sentence-builder-module .retry-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.sentence-builder-module .next-btn {
+  background: #10b981;
+  color: white;
+}
+
+.sentence-builder-module .retry-btn {
+  background: #ef4444;
+  color: white;
+}

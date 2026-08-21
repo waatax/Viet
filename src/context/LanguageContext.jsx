@@ -25,6 +25,9 @@ export const translations = {
     darkTheme: '暗面主題',
     tabs: {
       path: '學習總覽',
+      fasttrack: '7天生活速成',
+      science: '科學方法研究',
+      emergency: '生活急救錦囊',
       alphabet: '字母與聲調',
       accent: '方言補充',
       shopping: '數字與貨幣',
@@ -35,11 +38,16 @@ export const translations = {
       hanviet: '漢越音詞根',
       pronoun: '稱謂推算器',
       quiz: 'iVPT 測驗',
+      shadowing: 'AI 跟讀評分',
+      sentence: '句子重組特訓',
+      tonegame: '聲調聽力特訓',
       // Navigation group labels
+      groupFastTrack: '⚡ 速成',
       groupBasics: '🔤 基礎',
       groupConversation: '💬 會話',
       groupPractice: '🎯 練習',
       groupAdvanced: '📚 進階',
+      groupScience: '🔬 科學',
     },
     common: {
       listen: '播放發音',
@@ -93,6 +101,9 @@ export const translations = {
     darkTheme: 'Dark Theme',
     tabs: {
       path: 'Learning Overview',
+      fasttrack: '7-Day Fast-Track',
+      science: 'Science & SLA',
+      emergency: 'Survival Audio Kit',
       alphabet: 'Alphabet & Tones',
       accent: 'Dialect Notes',
       shopping: 'Numbers & VND',
@@ -103,11 +114,16 @@ export const translations = {
       hanviet: 'Sino-Viet Roots',
       pronoun: 'Kinship & Pronouns',
       quiz: 'iVPT / CEFR Exams',
+      shadowing: 'AI Shadowing',
+      sentence: 'Sentence Builder',
+      tonegame: 'Tone Mastery',
       // Navigation group labels
+      groupFastTrack: '⚡ Fast-Track',
       groupBasics: '🔤 Basics',
       groupConversation: '💬 Conversation',
       groupPractice: '🎯 Practice',
       groupAdvanced: '📚 Advanced',
+      groupScience: '🔬 Science',
     },
     common: {
       listen: 'Play Audio',

@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import {
   Compass, CheckCircle, Circle, Target, BookOpen, ArrowRight, Flag, Sparkles,
-  AudioLines, MessagesSquare, ShoppingBag, GraduationCap, Play, Route, Brain, Clock, Layers3
+  AudioLines, MessagesSquare, ShoppingBag, GraduationCap, Play, Route, Brain, Clock, Layers3,
+  Zap, LifeBuoy, ShieldCheck, Award
 } from 'lucide-react';
 import { learningPath, flashcardsDeck } from '../data/vietnameseData';
 import { srsEngine } from '../services/srsEngine';
@@ -17,6 +18,16 @@ export const LearningPathModule = ({ setActiveTab }) => {
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
+    }
+  });
+
+  // Fast-track completed days count
+  const [fastTrackCount, setFastTrackCount] = useState(() => {
+    try {
+      const saved = localStorage.getItem('viet_fasttrack_completed_days');
+      return saved ? JSON.parse(saved).length : 0;
+    } catch {
+      return 0;
     }
   });
 
@@ -55,32 +66,33 @@ export const LearningPathModule = ({ setActiveTab }) => {
   const currentStage = learningPath.find(s => !completed.includes(s.id));
 
   const quickStarts = [
-    { id: 'alphabet', icon: AudioLines, titleZh: '發音打底', titleEn: 'Start with sounds', descZh: '29 字母與 6 聲調', descEn: '29 letters and 6 tones', tone: 'blue' },
-    { id: 'conversation', icon: MessagesSquare, titleZh: '情境開口', titleEn: 'Speak in context', descZh: '真實對話與跟讀', descEn: 'Dialogues and shadowing', tone: 'red' },
-    { id: 'hanviet', icon: BookOpen, titleZh: '漢越字根', titleEn: 'Han-Viet Roots', descZh: '百大字根倍速記詞', descEn: '100 Core cognate roots', tone: 'purple' },
-    { id: 'shopping', icon: ShoppingBag, titleZh: '旅行實戰', titleEn: 'Travel essentials', descZh: '數字、貨幣與購物', descEn: 'Numbers, money and shopping', tone: 'gold' },
-    { id: 'quiz', icon: GraduationCap, titleZh: '能力檢測', titleEn: 'Check your level', descZh: 'iVPT 分級練習', descEn: 'iVPT level practice', tone: 'green' }
+    { id: 'fasttrack', icon: Zap, titleZh: '7天生活速成', titleEn: '7-Day Fast-Track', descZh: '35 句高頻破冰實戰', descEn: '35 Survival Phrases', tone: 'gold' },
+    { id: 'science', icon: Brain, titleZh: '科學方法研究', titleEn: 'Science & SLA', descZh: '5 大跨學科學習體系', descEn: '5-Discipline SLA Hub', tone: 'purple' },
+    { id: 'emergency', icon: LifeBuoy, titleZh: '生活急救錦囊', titleEn: 'Survival Audio Kit', descZh: '街頭出差一鍵出聲', descEn: 'Instant Tap-to-Speak', tone: 'red' },
+    { id: 'alphabet', icon: AudioLines, titleZh: '發音聲調打底', titleEn: 'Sounds & Tones', descZh: '29 字母與 6 聲調', descEn: '29 letters & 6 tones', tone: 'blue' },
+    { id: 'conversation', icon: MessagesSquare, titleZh: '22大情境對話', titleEn: '22 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
+    { id: 'hanviet', icon: BookOpen, titleZh: '漢越同源字根', titleEn: 'Han-Viet Roots', descZh: '百大字根倍速記詞', descEn: '100 Core cognate roots', tone: 'purple' }
   ];
 
   return (
     <div className="module-container">
       <section className="home-hero" aria-labelledby="home-title">
         <div className="hero-copy">
-          <div className="eyebrow"><Sparkles size={15} /> {learningMode === 'zh' ? '專為繁體中文學習者打造' : 'Vietnamese that works in real life'}</div>
+          <div className="eyebrow"><Sparkles size={15} /> {learningMode === 'zh' ? '多學科科學方法 · 專為繁體中文學習者打造' : 'Science-Backed Vietnamese for Everyone'}</div>
           <h1 id="home-title">
             {learningMode === 'zh' ? <>從第一聲問候，<span>走進真正的越南。</span></> : <>Learn Vietnamese.<span>Use it with confidence.</span></>}
           </h1>
           <p>
             {learningMode === 'zh'
-              ? '整合南北口音、實境會話、漢越音與 iVPT 分級，讓每一次練習都更接近真實溝通。'
-              : 'Master accents, real-world conversations, Sino-Vietnamese vocabulary and iVPT skills in one focused path.'}
+              ? '結合 7天生活速成破冰、漢越音認知捷徑、SM-2 遺忘曲線對抗與南北口音切換，讓大眾快樂學好、掌握基本溝通！'
+              : 'Master accents, 7-day survival conversations, Sino-Vietnamese cognates, and SM-2 memory curves in one joyful path.'}
           </p>
           <div className="hero-actions">
-            <button className="primary-action" onClick={() => setActiveTab(currentStage?.modules?.[0] || 'alphabet')}>
-              <Play size={17} fill="currentColor" /> {learningMode === 'zh' ? '繼續學習' : 'Continue learning'}
+            <button className="primary-action" onClick={() => setActiveTab('fasttrack')}>
+              <Zap size={18} fill="currentColor" /> {learningMode === 'zh' ? '開啟 7 天生活速成破冰' : 'Start 7-Day Fast-Track'}
             </button>
-            <button className="secondary-action" onClick={() => document.getElementById('learning-roadmap')?.scrollIntoView({ behavior: 'smooth' })}>
-              <Route size={18} /> {learningMode === 'zh' ? '查看完整路徑' : 'View full path'}
+            <button className="secondary-action" onClick={() => setActiveTab('science')}>
+              <Brain size={18} /> {learningMode === 'zh' ? '檢視科學研究體系' : 'Explore Science Hub'}
             </button>
           </div>
         </div>
@@ -90,11 +102,73 @@ export const LearningPathModule = ({ setActiveTab }) => {
             <div><strong>{percent}%</strong><span>{learningMode === 'zh' ? '總進度' : 'progress'}</span></div>
           </div>
           <div className="hero-progress-copy">
-            <span>{learningMode === 'zh' ? '目前學習階段' : 'Current milestone'}</span>
-            <strong>{currentStage ? loc(currentStage, 'title') : (learningMode === 'zh' ? '全部通關' : 'Path completed')}</strong>
-            <small>{completed.length} / {learningPath.length} {learningMode === 'zh' ? '階段完成' : 'stages complete'}</small>
+            <span>{learningMode === 'zh' ? '7天速成進度' : 'Fast-Track Progress'}</span>
+            <strong>{fastTrackCount} / 7 {learningMode === 'zh' ? '天已通關' : 'Days Complete'}</strong>
+            <small>{completed.length} / {learningPath.length} {learningMode === 'zh' ? '大階段完成' : 'stages complete'}</small>
           </div>
         </div>
+      </section>
+
+      {/* 7-Day Fast-Track Prominent Banner */}
+      <section style={{
+        margin: '1.75rem 0',
+        padding: '1.5rem 2rem',
+        background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(234, 179, 8, 0.1) 50%, rgba(59, 130, 246, 0.1) 100%)',
+        border: '1.5px solid rgba(234, 179, 8, 0.35)',
+        borderRadius: 'var(--radius-lg)',
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+        gap: '1.25rem'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+          <div style={{
+            width: '56px',
+            height: '56px',
+            borderRadius: 'var(--radius-md)',
+            background: 'linear-gradient(135deg, #ef4444, #f59e0b)',
+            color: '#fff',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '1.8rem',
+            boxShadow: '0 8px 20px rgba(239, 68, 68, 0.25)'
+          }}>
+            ⚡
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+              <strong style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>
+                {learningMode === 'zh' ? '7天生活基本溝通速成破冰計畫' : '7-Day Fast-Track Survival Vietnamese'}
+              </strong>
+              <span style={{
+                background: 'var(--brand-gold)',
+                color: '#000',
+                fontSize: '0.75rem',
+                fontWeight: 900,
+                padding: '0.2rem 0.6rem',
+                borderRadius: 'var(--radius-full)'
+              }}>
+                {learningMode === 'zh' ? '大眾快樂零負擔' : 'Zero Friction'}
+              </span>
+            </div>
+            <p style={{ margin: '0.35rem 0 0', fontSize: '0.92rem', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh'
+                ? '每天 5 分鐘，精選 35 句打招呼、點咖啡、市場殺價、Grab搭車、稱謂防踩雷與交友實戰金句！'
+                : '5 minutes a day: 35 essential phrases for greetings, coffee, bargaining, Grab rides, pronouns, and making friends!'}
+            </p>
+          </div>
+        </div>
+
+        <button
+          className="primary-action"
+          onClick={() => setActiveTab('fasttrack')}
+          style={{ padding: '0.75rem 1.5rem', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+        >
+          <Play size={18} fill="currentColor" />
+          {learningMode === 'zh' ? '立即前往速成島' : 'Start Fast-Track'}
+        </button>
       </section>
 
       {/* SRS Spaced Repetition Retention Hub */}
@@ -168,6 +242,53 @@ export const LearningPathModule = ({ setActiveTab }) => {
           <Layers3 size={17} />
           {learningMode === 'zh' ? '開啟智能閃卡複習' : 'Start SRS Flashcards'}
         </button>
+      </section>
+
+      {/* Daily Quests 2.0 Upgrade */}
+      <section className="daily-quests-hub" style={{
+        margin: '1.75rem 0',
+        padding: '1.5rem',
+        background: 'var(--bg-card)',
+        border: '1px solid var(--border-color)',
+        borderRadius: 'var(--radius-lg)',
+        boxShadow: '0 4px 6px -1px rgba(0,0,0,0.05)'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem', color: 'var(--brand-gold)' }}>
+          <Target size={24} />
+          <h3 style={{ margin: 0, fontSize: '1.25rem', color: 'var(--text-primary)' }}>
+            {learningMode === 'zh' ? '2.0 全新每日任務 (Daily Quests)' : 'Daily Quests 2.0'}
+          </h3>
+        </div>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1rem' }}>
+          <div className="quest-card" style={{ padding: '1rem', background: 'var(--bg-accent)', borderRadius: '8px', borderLeft: '4px solid #ef4444' }}>
+            <div style={{ fontWeight: 'bold' }}>🎙️ {learningMode === 'zh' ? '智能跟讀特訓' : 'AI Shadowing'}</div>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0.5rem 0' }}>
+              {learningMode === 'zh' ? '完成 5 句發音辨識，糾正口音。' : 'Complete 5 phrases in AI Shadowing.'}
+            </p>
+            <button onClick={() => setActiveTab('shadowing')} style={{ background: 'transparent', color: 'var(--brand-primary)', border: '1px solid var(--brand-primary)', padding: '0.2rem 0.5rem', borderRadius: '4px', cursor: 'pointer' }}>
+              {learningMode === 'zh' ? '前往訓練' : 'Start'}
+            </button>
+          </div>
+          <div className="quest-card" style={{ padding: '1rem', background: 'var(--bg-accent)', borderRadius: '8px', borderLeft: '4px solid #3b82f6' }}>
+            <div style={{ fontWeight: 'bold' }}>🧩 {learningMode === 'zh' ? '句型結構強化' : 'Sentence Builder'}</div>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0.5rem 0' }}>
+              {learningMode === 'zh' ? '完成 5 題句子重組，掌握語感。' : 'Complete 5 sentences in Builder.'}
+            </p>
+            <button onClick={() => setActiveTab('sentence')} style={{ background: 'transparent', color: 'var(--brand-primary)', border: '1px solid var(--brand-primary)', padding: '0.2rem 0.5rem', borderRadius: '4px', cursor: 'pointer' }}>
+              {learningMode === 'zh' ? '前往訓練' : 'Start'}
+            </button>
+          </div>
+          <div className="quest-card" style={{ padding: '1rem', background: 'var(--bg-accent)', borderRadius: '8px', borderLeft: '4px solid #f59e0b' }}>
+            <div style={{ fontWeight: 'bold' }}>🎵 {learningMode === 'zh' ? '聲調聽力特訓' : 'Tone Mastery'}</div>
+            <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', margin: '0.5rem 0' }}>
+              {learningMode === 'zh' ? '挑戰聽音辨調，獲得 Combo！' : 'Play Tone Mastery and get Combos!'}
+            </p>
+            <button onClick={() => setActiveTab('tonegame')} style={{ background: 'transparent', color: 'var(--brand-primary)', border: '1px solid var(--brand-primary)', padding: '0.2rem 0.5rem', borderRadius: '4px', cursor: 'pointer' }}>
+              {learningMode === 'zh' ? '前往訓練' : 'Start'}
+            </button>
+          </div>
+        </div>
       </section>
 
       <section className="quick-start-section" aria-labelledby="quick-start-title">

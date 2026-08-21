@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   ShoppingBag, DollarSign, Calculator, Volume2, ArrowRight, Landmark,
   Tag, ShieldCheck, Sparkles, Coins, Search, CheckCircle2, Gift,
-  Shirt, Apple, CreditCard, Flame, HelpCircle
+  Shirt, Apple, CreditCard, Flame, HelpCircle, Play, Pause
 } from 'lucide-react';
 import { numbersAndCurrency } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
@@ -95,7 +95,81 @@ export const ShoppingModule = ({ selectedAccent }) => {
   };
 
   const handleSpeakText = (text, key) => {
+    if (isPlayingFull) {
+      setIsPlayingFull(false);
+      isPlayingFullRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+    }
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
+  };
+
+  const [isPlayingFull, setIsPlayingFull] = useState(false);
+  const [playMode, setPlayMode] = useState('bilingual');
+  const isPlayingFullRef = React.useRef(false);
+  const timerRef = React.useRef(null);
+  
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      isPlayingFullRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
+
+  const playInSequence = (index, part = 'bilingual-first', currentPlayMode = playMode) => {
+    const listToPlay = filteredShoppingItems; // Only play phrases list for now
+    
+    if (!isPlayingFullRef.current || index >= listToPlay.length) {
+      setIsPlayingFull(false);
+      isPlayingFullRef.current = false;
+      return;
+    }
+
+    const item = listToPlay[index];
+    const isBilingual = currentPlayMode === 'bilingual';
+
+    if (isBilingual && part === 'bilingual-first') {
+      const nativeText = learningMode === 'zh' ? item.zh : item.en;
+      const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
+
+      audioEngine.speak(nativeText, {
+        lang: nativeLang,
+        key: `seq_shop_native_${index}`,
+        onEnd: () => {
+          if (!isPlayingFullRef.current) return;
+          timerRef.current = setTimeout(() => {
+            if (isPlayingFullRef.current) playInSequence(index, 'viet', currentPlayMode);
+          }, 400);
+        }
+      });
+    } else {
+      audioEngine.speak(item.viet, {
+        accent: selectedAccent,
+        lang: 'vi',
+        key: `seq_shop_viet_${index}`,
+        onEnd: () => {
+          if (!isPlayingFullRef.current) return;
+          timerRef.current = setTimeout(() => {
+            if (isPlayingFullRef.current) playInSequence(index + 1, 'bilingual-first', currentPlayMode);
+          }, 1200); 
+        }
+      });
+    }
+  };
+
+  const handlePlayFull = (mode = 'bilingual') => {
+    if (isPlayingFull) {
+      setIsPlayingFull(false);
+      isPlayingFullRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+      audioEngine.stop();
+      return;
+    }
+    
+    setPlayMode(mode);
+    setIsPlayingFull(true);
+    isPlayingFullRef.current = true;
+    playInSequence(0, 'bilingual-first', mode);
   };
 
   const twdEquivalent = (parseInt(inputAmount, 10) / exchangeRateTwd || 0).toFixed(0);
@@ -336,13 +410,67 @@ export const ShoppingModule = ({ selectedAccent }) => {
 
           {/* Phrase Cards Grid */}
           <div style={{ marginBottom: '2rem' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.9rem' }}>
-              <h4 style={{ fontSize: '1.05em', fontWeight: 800, color: 'var(--brand-accent)' }}>
-                💬 {learningMode === 'zh' ? `情境短句 (${filteredShoppingItems.length} 句)` : `Phrases (${filteredShoppingItems.length})`}
-              </h4>
-              <span style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>
-                💡 點擊喇叭即享 {selectedAccent === 'north' ? '🏛️ 北越音' : '🌴 南越音'} 真人朗讀
-              </span>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.9rem', flexWrap: 'wrap', gap: '1rem' }}>
+              <div>
+                <h4 style={{ fontSize: '1.05em', fontWeight: 800, color: 'var(--brand-accent)' }}>
+                  💬 {learningMode === 'zh' ? `情境短句 (${filteredShoppingItems.length} 句)` : `Phrases (${filteredShoppingItems.length})`}
+                </h4>
+                <div style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>
+                  💡 點擊喇叭即享 {selectedAccent === 'north' ? '🏛️ 北越音' : '🌴 南越音'} 真人朗讀
+                </div>
+              </div>
+              
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                <button 
+                  className={`control-btn play-full-btn ${isPlayingFull && playMode === 'bilingual' ? 'playing' : ''}`}
+                  onClick={() => handlePlayFull('bilingual')}
+                  style={{ 
+                    background: isPlayingFull && playMode === 'bilingual' ? 'var(--brand-primary)' : 'var(--brand-green)', 
+                    color: '#fff',
+                    opacity: isPlayingFull && playMode !== 'bilingual' ? 0.6 : 1,
+                    padding: '0.4rem 0.8rem',
+                    fontSize: '0.85em',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    borderRadius: '6px',
+                    border: 'none',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {isPlayingFull && playMode === 'bilingual' ? <Pause size={14} /> : <Play size={14} />}
+                  <span>
+                    {isPlayingFull && playMode === 'bilingual'
+                      ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
+                      : (learningMode === 'zh' ? <>播放: 中+越</> : <>Play: Bilingual</>)}
+                  </span>
+                </button>
+
+                <button 
+                  className={`control-btn play-full-btn ${isPlayingFull && playMode === 'viet-only' ? 'playing' : ''}`}
+                  onClick={() => handlePlayFull('viet-only')}
+                  style={{ 
+                    background: isPlayingFull && playMode === 'viet-only' ? 'var(--brand-primary)' : 'var(--brand-accent, #8b5cf6)', 
+                    color: '#fff',
+                    opacity: isPlayingFull && playMode !== 'viet-only' ? 0.6 : 1,
+                    padding: '0.4rem 0.8rem',
+                    fontSize: '0.85em',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem',
+                    borderRadius: '6px',
+                    border: 'none',
+                    cursor: 'pointer'
+                  }}
+                >
+                  {isPlayingFull && playMode === 'viet-only' ? <Pause size={14} /> : <Play size={14} />}
+                  <span>
+                    {isPlayingFull && playMode === 'viet-only'
+                      ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
+                      : (learningMode === 'zh' ? <>播放: 純越文</> : <>Play: Viet</>)}
+                  </span>
+                </button>
+              </div>
             </div>
 
             <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))' }}>

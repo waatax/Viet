@@ -59,6 +59,973 @@ export const scenarioCategories = [
 
 export const situationalScenarios = [
   {
+    "id": "vietnam_geography",
+    "category": "travel",
+    "tagZh": "風土民情",
+    "tagEn": "Culture & Travel",
+    "icon": "🇻🇳",
+    "image": "vietnam_map.jpg",
+    "titleZh": "越南風土民情與三大區域",
+    "titleEn": "Vietnamese Culture & Regions",
+    "titleVi": "Văn Hóa Và Các Vùng Miền Việt Nam",
+    "summaryZh": "深入了解越南北、中、南部的風土民情，並探索各大著名城市的必訪景點。",
+    "summaryEn": "Dive deep into the culture and local customs of Northern, Central, and Southern Vietnam, and explore top attractions.",
+    "cityGuides": {
+      "descriptionZh": "越南地形狹長，北、中、南越在氣候、飲食與文化上都有著鮮明的差異。點擊各區域深入了解：",
+      "descriptionEn": "Vietnam's long geography results in distinct climates, cuisines, and cultures across the North, Center, and South.",
+      "regions": [
+        {
+          "nameVi": "Miền Bắc",
+          "nameZh": "北越 (Miền Bắc)",
+          "nameEn": "Northern Vietnam",
+          "climateZh": "四季分明，冬天 (12-2月) 會冷，甚至山區會下雪。",
+          "climateEn": "Four distinct seasons. Winters (Dec-Feb) can be quite cold, with snow in the mountains.",
+          "cultureZh": "保留最多傳統文化與歷史古蹟。飲食偏清淡，注重原汁原味，不嗜甜與辣。",
+          "cultureEn": "Preserves traditional culture and history. Cuisine is light, focusing on original flavors, not overly sweet or spicy.",
+          "cities": [
+            {
+              "nameZh": "河內 (Hà Nội)",
+              "nameEn": "Hanoi",
+              "descZh": "越南首都，擁有千年歷史的文化古城，步調較為悠閒。",
+              "descEn": "The capital city, a thousand-year-old cultural hub with a relaxed pace.",
+              "attractions": ["Phố Cổ (三十六古街)", "Hồ Hoàn Kiếm (還劍湖)", "Văn Miếu (文廟)"]
+            },
+            {
+              "nameZh": "下龍灣 (Hạ Long)",
+              "nameEn": "Ha Long",
+              "descZh": "世界自然遺產，以壯麗的石灰岩喀斯特地貌聞名。",
+              "descEn": "A World Heritage site famous for its breathtaking limestone karsts.",
+              "attractions": ["Vịnh Hạ Long (下龍灣乘船)", "Hang Sửng Sốt (驚訝洞)"]
+            },
+            {
+              "nameZh": "沙壩 (Sa Pa)",
+              "nameEn": "Sapa",
+              "descZh": "西北部高原小鎮，以梯田與少數民族文化著稱。",
+              "descEn": "Northwestern highland town known for terraced rice fields and ethnic minorities.",
+              "attractions": ["Đỉnh Fansipan (番西邦峰)", "Bản Cát Cát (貓貓村)"]
+            }
+          ]
+        },
+        {
+          "nameVi": "Miền Trung",
+          "nameZh": "中越 (Miền Trung)",
+          "nameEn": "Central Vietnam",
+          "climateZh": "乾濕季分明，夏季炎熱，秋季常有颱風與暴雨。",
+          "climateEn": "Distinct dry and wet seasons. Hot summers and stormy autumns.",
+          "cultureZh": "昔日阮朝皇室所在地。當地人性格刻苦耐勞。飲食口味偏重，極度嗜辣。",
+          "cultureEn": "Home to the former Nguyen Dynasty. Locals are known for resilience. Cuisine is highly flavorful and very spicy.",
+          "cities": [
+            {
+              "nameZh": "峴港 (Đà Nẵng)",
+              "nameEn": "Da Nang",
+              "descZh": "越南第三大城，以絕美海岸線與現代化設施著稱，是最宜居城市。",
+              "descEn": "Vietnam's 3rd largest city, famous for beautiful coastlines and modern amenities.",
+              "attractions": ["Bà Nà Hills (巴拿山/佛手橋)", "Cầu Rồng (龍橋)", "Biển Mỹ Khê (美溪沙灘)"]
+            },
+            {
+              "nameZh": "會安 (Hội An)",
+              "nameEn": "Hoi An",
+              "descZh": "世界文化遺產，完美保留15至19世紀的傳統貿易港口風貌，夜間燈籠極美。",
+              "descEn": "World Heritage site preserving a 15th-19th century trading port, famous for lanterns.",
+              "attractions": ["Phố cổ Hội An (會安古鎮)", "Chùa Cầu (日本橋)"]
+            },
+            {
+              "nameZh": "順化 (Huế)",
+              "nameEn": "Hue",
+              "descZh": "越南末代王朝的古都，充滿歷史滄桑與皇城底蘊。",
+              "descEn": "The ancient capital of Vietnam's last dynasty, full of imperial history.",
+              "attractions": ["Đại Nội (順化皇城)", "Lăng Tự Đức (嗣德陵)"]
+            }
+          ]
+        },
+        {
+          "nameVi": "Miền Nam",
+          "nameZh": "南越 (Miền Nam)",
+          "nameEn": "Southern Vietnam",
+          "climateZh": "終年炎熱，僅分旱季與雨季 (5-11月常有午後雷陣雨)。",
+          "climateEn": "Hot year-round, divided only into dry and rainy seasons (May-Nov).",
+          "cultureZh": "經濟中心，文化多元開放。當地人性格熱情大方。飲食偏甜，且喝任何飲料都喜歡加大量冰塊。",
+          "cultureEn": "Economic hub with a diverse and open culture. Locals are welcoming. Cuisine is sweeter and drinks are served with lots of ice.",
+          "cities": [
+            {
+              "nameZh": "胡志明市 (TP. HCM)",
+              "nameEn": "Ho Chi Minh City",
+              "descZh": "越南最大城市與經濟樞紐，充滿活力、高樓與法式殖民風情。",
+              "descEn": "Vietnam's largest city, vibrant and bustling with French colonial charm.",
+              "attractions": ["Nhà thờ Đức Bà (紅教堂)", "Bưu điện Trung tâm (中央郵局)", "Chợ Bến Thành (檳城市場)"]
+            },
+            {
+              "nameZh": "芹苴 (Cần Thơ)",
+              "nameEn": "Can Tho",
+              "descZh": "湄公河三角洲最大城市，體驗濃厚的水鄉澤國風情。",
+              "descEn": "Largest city in the Mekong Delta, famous for water-based culture.",
+              "attractions": ["Chợ nổi Cái Răng (丐冷水上市場)", "Bến Ninh Kiều (寧橋碼頭)"]
+            },
+            {
+              "nameZh": "富國島 (Phú Quốc)",
+              "nameEn": "Phu Quoc",
+              "descZh": "越南最大的島嶼，免簽證的度假勝地，擁有絕美夕陽。",
+              "descEn": "Vietnam's largest island and a visa-free tropical paradise with stunning sunsets.",
+              "attractions": ["Grand World (富國大世界)", "Cáp treo Hòn Thơm (跨海纜車)"]
+            }
+          ]
+        }
+      ]
+    },
+    "dialogues": [
+      {
+        "speaker": "Du khách (遊客)",
+        "role": "learner",
+        "viet": "Tôi muốn đi du lịch Việt Nam. Bạn có thể giới thiệu cho tôi vài thành phố được không?",
+        "zh": "我想去越南旅遊，你能介紹幾個城市給我嗎？",
+        "en": "I want to travel to Vietnam. Can you recommend some cities to me?",
+        "northTip": "「Du lịch」是旅遊；「Giới thiệu」是介紹。",
+        "southTip": "「Vài」是幾個的意思。"
+      },
+      {
+        "speaker": "Bạn địa phương (當地朋友)",
+        "role": "npc",
+        "viet": "Tất nhiên rồi! Nếu bạn thích thời tiết mát mẻ và văn hóa truyền thống, hãy đến Hà Nội ở miền Bắc.",
+        "zh": "當然！如果你喜歡涼爽的天氣和傳統文化，就去北部的河內。",
+        "en": "Of course! If you like cool weather and traditional culture, go to Hanoi in the North.",
+        "northTip": "北越四季分明，冬天是真的會冷。",
+        "southTip": "「Mát mẻ」指涼爽的。"
+      },
+      {
+        "speaker": "Du khách (遊客)",
+        "role": "learner",
+        "viet": "Nghe hay quá! Thế còn miền Trung và miền Nam thì sao?",
+        "zh": "聽起來很棒！那中部和南部呢？",
+        "en": "Sounds great! What about the Central and South regions?",
+        "northTip": "「Thế còn... thì sao?」是「那...呢？」的常用句型。",
+        "southTip": "南部人更常說「Vậy còn... thì sao?」"
+      },
+      {
+        "speaker": "Bạn địa phương (當地朋友)",
+        "role": "npc",
+        "viet": "Miền Trung có Đà Nẵng và Hội An rất đẹp. Còn miền Nam thì bạn nhất định phải đến Thành phố Hồ Chí Minh nhộn nhịp.",
+        "zh": "中部有峴港和會安非常美。南部的話你一定要去熱鬧的胡志明市。",
+        "en": "The Central region has beautiful Da Nang and Hoi An. In the South, you must visit bustling Ho Chi Minh City.",
+        "northTip": "「Nhất định」是一定；「Nhộn nhịp」是熱鬧、熙熙攘攘的意思。",
+        "southTip": "南部人也常將胡志明市簡稱為「Sài Gòn」(西貢)。"
+      },
+      {
+        "speaker": "Du khách (遊客)",
+        "role": "learner",
+        "viet": "Tôi rất thích ăn cay. Vậy tôi nên đi đâu?",
+        "zh": "我非常喜歡吃辣。那我應該去哪裡？",
+        "en": "I really like eating spicy food. So where should I go?",
+        "northTip": "「Ăn cay」是吃辣。",
+        "southTip": "越南各地對辣的接受度差異很大。"
+      },
+      {
+        "speaker": "Bạn địa phương (當地朋友)",
+        "role": "npc",
+        "viet": "Bạn nên đến miền Trung! Đồ ăn ở Huế và Đà Nẵng rất cay và đậm đà.",
+        "zh": "你應該去中部！順化和峴港的食物非常辣且重口味。",
+        "en": "You should go to the Central region! Food in Hue and Da Nang is very spicy and flavorful.",
+        "northTip": "「Đậm đà」形容食物味道濃郁、重口味。",
+        "southTip": "北越偏清淡，南越偏甜，中越才是吃辣的天堂！"
+      }
+    ],
+    "rolePlay": {
+      "userRoleZh": "遊客 (Du khách)",
+      "userRoleEn": "Tourist (Du khách)",
+      "partnerRoleZh": "當地導遊 (Hướng dẫn viên)",
+      "partnerRoleEn": "Local Guide (Hướng dẫn viên)",
+      "steps": [
+        {
+          "stepIndex": 1,
+          "partnerPromptVi": "Chào bạn, bạn muốn khám phá vùng nào của Việt Nam trước?",
+          "partnerPromptZh": "你好，你想先探索越南的哪個地區？",
+          "partnerPromptEn": "Hello, which region of Vietnam do you want to explore first?",
+          "userOptions": [
+            {
+              "id": "geo1_opt1",
+              "textVi": "Tôi muốn đi miền Bắc để xem Vịnh Hạ Long.",
+              "textZh": "我想去北部看下龍灣。",
+              "textEn": "I want to go to the North to see Ha Long Bay.",
+              "isCorrect": true,
+              "feedbackZh": "非常正確！下龍灣就在北越。",
+              "feedbackEn": "Very correct! Ha Long Bay is in the North."
+            },
+            {
+              "id": "geo1_opt2",
+              "textVi": "Tôi muốn đi miền Nam để xem Vịnh Hạ Long.",
+              "textZh": "我想去南部看下龍灣。",
+              "textEn": "I want to go to the South to see Ha Long Bay.",
+              "isCorrect": false,
+              "feedbackZh": "地理位置錯囉！下龍灣在北越，不在南越。",
+              "feedbackEn": "Wrong geography! Ha Long Bay is in the North, not the South."
+            },
+            {
+              "id": "geo1_opt3",
+              "textVi": "Tôi muốn ăn phở.",
+              "textZh": "我想吃河粉。",
+              "textEn": "I want to eat pho.",
+              "isCorrect": false,
+              "feedbackZh": "雖然河粉很好吃，但導遊問的是你想去哪個地區喔。",
+              "feedbackEn": "While pho is delicious, the guide is asking which region you want to visit."
+            }
+          ]
+        },
+        {
+          "stepIndex": 2,
+          "partnerPromptVi": "Bạn có thích ăn đồ ăn có vị ngọt không? Hay bạn thích ăn cay?",
+          "partnerPromptZh": "你喜歡吃甜的食物嗎？還是喜歡吃辣？",
+          "partnerPromptEn": "Do you like sweet food? Or do you like it spicy?",
+          "userOptions": [
+            {
+              "id": "geo2_opt1",
+              "textVi": "Tôi rất thích ăn cay. Chắc tôi hợp với đồ ăn miền Trung.",
+              "textZh": "我非常喜歡吃辣。我猜我適合中部的食物。",
+              "textEn": "I really like spicy food. I guess I'm suited for Central food.",
+              "isCorrect": true,
+              "feedbackZh": "完全正確！中越 (如順化) 是最愛吃辣的地區。",
+              "feedbackEn": "Absolutely right! Central Vietnam is known for spicy food."
+            },
+            {
+              "id": "geo2_opt2",
+              "textVi": "Tôi thích ăn cay, nên tôi sẽ đến miền Bắc.",
+              "textZh": "我喜歡吃辣，所以我會去北部。",
+              "textEn": "I like spicy food, so I will go to the North.",
+              "isCorrect": false,
+              "feedbackZh": "北越的食物口味偏清淡，不太吃辣喔！",
+              "feedbackEn": "Northern food is actually quite mild and not very spicy!"
+            },
+            {
+              "id": "geo2_opt3",
+              "textVi": "Tôi không thích thời tiết lạnh.",
+              "textZh": "我不喜歡冷的天氣。",
+              "textEn": "I don't like cold weather.",
+              "isCorrect": false,
+              "feedbackZh": "這沒有回答到導遊關於口味的問題。",
+              "feedbackEn": "This doesn't answer the guide's question about flavor preferences."
+            }
+          ]
+        }
+      ]
+    },
+    "vocabulary": [
+      {
+        "vi": "Miền Bắc",
+        "zh": "北部",
+        "en": "North",
+        "ipa": "[miən˨˩ ɓak̚˦˧˥]"
+      },
+      {
+        "vi": "Miền Trung",
+        "zh": "中部",
+        "en": "Central",
+        "ipa": "[miən˨˩ ʈuŋ˧]"
+      },
+      {
+        "vi": "Miền Nam",
+        "zh": "南部",
+        "en": "South",
+        "ipa": "[miən˨˩ naːm˧]"
+      },
+      {
+        "vi": "Thủ đô",
+        "zh": "首都",
+        "en": "Capital",
+        "ipa": "[tʰu˧˩ ɗo˧]"
+      },
+      {
+        "vi": "Nhộn nhịp",
+        "zh": "熱鬧",
+        "en": "Bustling",
+        "ipa": "[ɲon˧˨ ɲip̚˧˨]"
+      },
+      {
+        "vi": "Đậm đà",
+        "zh": "重口味/味道濃",
+        "en": "Flavorful",
+        "ipa": "[ɗəm˧˨ ɗaː˨˩]"
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "🇻🇳 跨越一千公里的文化差異",
+      "titleEn": "Cultural Differences Across 1000km",
+      "contentZh": "越南地形像一個字母「S」，長達一千六百多公里，這造就了北中南巨大的差異。性格上，北越人傳統、注重面子與儲蓄；南越人開放、樂天、及時行樂；中越人因氣候嚴峻而特別刻苦耐勞。語言上，雖然都寫一樣的字，但北中南的口音 (Giọng) 完全不同，北越發音字正腔圓，南越連音多且較為隨性，而中越的腔調則常讓南北越人也聽不懂！",
+      "contentEn": "Vietnam's 'S' shaped geography spans over 1600km, creating huge regional differences. Northerners are traditional and focus on saving; Southerners are open, optimistic, and live in the moment; Central people are resilient due to harsh weather. Linguistically, while the writing is the same, the accents (Giọng) differ wildly. The North is precise, the South is relaxed, and the Central accent can be hard even for other Vietnamese to understand!",
+      "proTipZh": "✨ 避坑：當你跟南越人提到「胡志明市」時，他們通常更喜歡稱其舊名「西貢」(Sài Gòn)。",
+      "proTipEn": "✨ Pro Tip: When talking to Southerners, they often prefer the old name 'Saigon' over 'Ho Chi Minh City'."
+    }
+  },
+  {
+    "id": "business_negotiation",
+    "category": "business",
+    "tagZh": "商業交涉",
+    "tagEn": "Business Negotiation",
+    "icon": "💼",
+    "image": "business.jpg",
+    "titleZh": "辦公室會議與合約交涉",
+    "titleEn": "Office Meetings & Contract Negotiation",
+    "titleVi": "Thương Lượng Kinh Doanh Tại Văn Phòng",
+    "summaryZh": "學習如何在越南辦公室進行專業的商業交涉，包含討論價格、合約條款與表達合作意願。",
+    "summaryEn": "Learn how to negotiate professionally in a Vietnamese office, including discussing prices, contract terms, and expressing intent to cooperate.",
+    "dialogues": [
+      {
+        "speaker": "Đối tác (合作夥伴)",
+        "role": "npc",
+        "viet": "Chào anh, rất vui được đón tiếp anh tại văn phòng công ty chúng tôi.",
+        "zh": "您好，很高興能在我們公司辦公室接待您。",
+        "en": "Hello, we are very glad to welcome you to our company's office.",
+        "northTip": "「Đón tiếp」是非常正式的「接待、迎接」用語。",
+        "southTip": "商務場合通常會用「Công ty chúng tôi」來代表「本公司」。"
+      },
+      {
+        "speaker": "Khách (訪客)",
+        "role": "learner",
+        "viet": "Chào chị, cảm ơn chị đã dành thời gian. Chúng ta có thể bắt đầu thảo luận về hợp đồng mới được không?",
+        "zh": "您好，謝謝您撥冗。我們可以開始討論新合約了嗎？",
+        "en": "Hello, thank you for your time. Can we start discussing the new contract?",
+        "northTip": "「Dành thời gian」意指撥出時間；「Hợp đồng」為合約。",
+        "southTip": "「Thảo luận」是討論的意思，常搭配「về」(關於) 使用。"
+      },
+      {
+        "speaker": "Đối tác (合作夥伴)",
+        "role": "npc",
+        "viet": "Tất nhiên rồi. Về mức giá, chúng tôi hy vọng anh có thể giảm thêm 5% nữa.",
+        "zh": "當然。關於價格，我們希望您能再降5%。",
+        "en": "Of course. Regarding the price, we hope you can reduce it by another 5%.",
+        "northTip": "「Giảm giá」是降價，交涉時很常聽到對手要求「giảm thêm」(再降)。",
+        "southTip": "「Mức giá」代表價格水位、價位。"
+      },
+      {
+        "speaker": "Khách (訪客)",
+        "role": "learner",
+        "viet": "Mức giá này đã là tốt nhất rồi. Tuy nhiên, nếu công ty đặt hàng với số lượng lớn hơn, chúng tôi sẽ xem xét.",
+        "zh": "這個價格已經是最好的了。不過，如果貴公司下更大數量的訂單，我們會考慮。",
+        "en": "This price is already the best. However, if the company places a larger order, we will consider it.",
+        "northTip": "「Số lượng lớn」指大量；「Xem xét」是非常好用的商務詞彙「考慮、審酌」。",
+        "southTip": "「Đặt hàng」是下單、訂貨的意思。"
+      },
+      {
+        "speaker": "Đối tác (合作夥伴)",
+        "role": "npc",
+        "viet": "Tuyệt vời, vậy chúng ta sẽ ký hợp đồng vào ngày mai nhé. Hợp tác vui vẻ!",
+        "zh": "太棒了，那我們明天簽約吧。合作愉快！",
+        "en": "Excellent, then we will sign the contract tomorrow. Happy cooperating!",
+        "northTip": "「Ký hợp đồng」是簽合約。",
+        "southTip": "「Hợp tác vui vẻ」是商務結束時必說的「合作愉快」。"
+      }
+    ],
+    "rolePlay": {
+      "userRoleZh": "訪客/供應商 (Khách)",
+      "userRoleEn": "Visitor/Supplier (Khách)",
+      "partnerRoleZh": "合作夥伴 (Đối tác)",
+      "partnerRoleEn": "Business Partner (Đối tác)",
+      "steps": [
+        {
+          "stepIndex": 1,
+          "partnerPromptVi": "Chào anh, rất vui được đón tiếp anh tại văn phòng công ty chúng tôi.",
+          "partnerPromptZh": "您好，很高興能在我們公司辦公室接待您。",
+          "partnerPromptEn": "Hello, we are very glad to welcome you to our company's office.",
+          "userOptions": [
+            {
+              "id": "biz1_opt1",
+              "textVi": "Chào chị. Chúng ta có thể bắt đầu thảo luận về hợp đồng mới được không?",
+              "textZh": "您好。我們可以開始討論新合約了嗎？",
+              "textEn": "Hello. Can we start discussing the new contract?",
+              "isCorrect": true,
+              "feedbackZh": "非常得體！直接切入重點，展現專業度。",
+              "feedbackEn": "Very appropriate! Getting straight to the point shows professionalism."
+            },
+            {
+              "id": "biz1_opt2",
+              "textVi": "Chào chị. Nhà vệ sinh ở đâu?",
+              "textZh": "妳好。廁所在哪裡？",
+              "textEn": "Hello. Where is the restroom?",
+              "isCorrect": false,
+              "feedbackZh": "雖然是生活用語，但在商務寒暄後直接問這個略顯突兀。",
+              "feedbackEn": "A bit abrupt right after a formal business greeting."
+            },
+            {
+              "id": "biz1_opt3",
+              "textVi": "Cảm ơn. Tôi muốn uống bia.",
+              "textZh": "謝謝。我想喝啤酒。",
+              "textEn": "Thanks. I want to drink beer.",
+              "isCorrect": false,
+              "feedbackZh": "在辦公室會議中要啤酒是非常不恰當的！",
+              "feedbackEn": "Asking for beer during an office meeting is highly inappropriate!"
+            }
+          ]
+        },
+        {
+          "stepIndex": 2,
+          "partnerPromptVi": "Về mức giá, chúng tôi hy vọng anh có thể giảm thêm 5% nữa.",
+          "partnerPromptZh": "關於價格，我們希望您能再降5%。",
+          "partnerPromptEn": "Regarding the price, we hope you can reduce it by another 5%.",
+          "userOptions": [
+            {
+              "id": "biz2_opt1",
+              "textVi": "Mức giá này đã là tốt nhất rồi. Nếu công ty đặt hàng số lượng lớn hơn, chúng tôi sẽ xem xét.",
+              "textZh": "這個價格已經是最好的了。如果貴公司大量下單，我們會考慮。",
+              "textEn": "This price is the best. If you order in larger quantities, we will consider it.",
+              "isCorrect": true,
+              "feedbackZh": "談判滿分！委婉拒絕並提出交換條件。",
+              "feedbackEn": "Perfect negotiation! Politely declining while offering a counter-condition."
+            },
+            {
+              "id": "biz2_opt2",
+              "textVi": "Không, giá quá đắt.",
+              "textZh": "不，價格太貴了。",
+              "textEn": "No, the price is too expensive.",
+              "isCorrect": false,
+              "feedbackZh": "對方是在要求你降價，所以你說「價格太貴」邏輯不通喔。",
+              "feedbackEn": "They are asking you to lower the price, so saying 'too expensive' doesn't make sense here."
+            },
+            {
+              "id": "biz2_opt3",
+              "textVi": "Tuyệt vời, hợp tác vui vẻ!",
+              "textZh": "太棒了，合作愉快！",
+              "textEn": "Excellent, happy cooperating!",
+              "isCorrect": false,
+              "feedbackZh": "對方要求砍價，直接說太棒了會讓公司虧錢啊！",
+              "feedbackEn": "Agreeing enthusiastically to a price cut might cost your company money!"
+            }
+          ]
+        }
+      ]
+    },
+    "vocabulary": [
+      {
+        "vi": "Hợp đồng",
+        "zh": "合約",
+        "en": "Contract",
+        "ipa": "[həːp̚˧˨ ɗoŋ˨˩]"
+      },
+      {
+        "vi": "Thương lượng",
+        "zh": "協商 / 談判",
+        "en": "Negotiate",
+        "ipa": "[tʰɨəŋ˧ lɨəŋ˧˨]"
+      },
+      {
+        "vi": "Đối tác",
+        "zh": "合作夥伴",
+        "en": "Partner",
+        "ipa": "[ɗoj˦˧˥ taːk̚˦˧˥]"
+      },
+      {
+        "vi": "Giảm giá",
+        "zh": "降價 / 折扣",
+        "en": "Discount",
+        "ipa": "[zaːm˧˩ zaː˦˧˥]"
+      },
+      {
+        "vi": "Số lượng",
+        "zh": "數量",
+        "en": "Quantity",
+        "ipa": "[so˦˧˥ lɨəŋ˧˨]"
+      },
+      {
+        "vi": "Ký",
+        "zh": "簽名 / 簽署",
+        "en": "Sign",
+        "ipa": "[ki˦˧˥]"
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "🇻🇳 越南商務文化：關係先行",
+      "titleEn": "Vietnamese Business Culture: Relationships First",
+      "contentZh": "在越南的商業環境中，「建立關係」(Xây dựng mối quan hệ) 非常重要。在正式進入合約談判前，通常會有適度的閒聊 (寒暄家庭、興趣等)。合約的簽署往往不是交涉的終點，而是長期合作關係的起點。此外，商務談判中保持禮貌與面子 (Thể diện) 是關鍵，直接的拒絕較少見，通常會用「Chúng tôi sẽ xem xét」(我們會考慮) 來委婉表達。",
+      "contentEn": "In Vietnam, building relationships is crucial. Formal negotiations are often preceded by small talk. Signing a contract is seen as the beginning of a long-term relationship, not the end of a deal. Saving face (Thể diện) is important, so direct refusals are rare; instead, you'll hear 'Chúng tôi sẽ xem xét' (We will consider it).",
+      "proTipZh": "✨ 避坑：雙手遞交名片 (Danh thiếp) 並仔細閱讀是基本的商務禮儀。切勿在會議上表現出過度急躁的情緒。",
+      "proTipEn": "✨ Pro Tip: Presenting and receiving business cards with both hands is basic etiquette. Avoid showing impatience during meetings."
+    }
+  },
+  {
+    "id": "factory_tour",
+    "category": "business",
+    "tagZh": "工廠視察",
+    "tagEn": "Factory Tour",
+    "icon": "🏭",
+    "image": "factory.jpg",
+    "titleZh": "越南工廠視察與生產進度討論",
+    "titleEn": "Vietnam Factory Tour & Production Progress",
+    "titleVi": "Tham Quan Nhà Máy Và Tiến Độ Sản Xuất",
+    "summaryZh": "掌握在越南工廠視察時的實用對話，包含詢問生產進度、品質控管與出貨時間。",
+    "summaryEn": "Master practical dialogue during a factory tour in Vietnam, including inquiring about production progress, quality control, and shipping time.",
+    "dialogues": [
+      {
+        "speaker": "Quản lý (管理者)",
+        "role": "learner",
+        "viet": "Xin chào, tiến độ sản xuất của lô hàng này đến đâu rồi?",
+        "zh": "你好，這批貨的生產進度到哪裡了？",
+        "en": "Hello, how is the production progress of this shipment?",
+        "northTip": "「Tiến độ sản xuất」是生產進度；「Lô hàng」是批貨。",
+        "southTip": "在工廠，這句話是巡線時最常問的經典句型。"
+      },
+      {
+        "speaker": "Quản đốc (廠長/領班)",
+        "role": "npc",
+        "viet": "Dạ, hiện tại chúng tôi đã hoàn thành 80% rồi ạ.",
+        "zh": "報告，目前我們已經完成80%了。",
+        "en": "Sir/Madam, currently we have completed 80%.",
+        "northTip": "「Hoàn thành」是完成的意思。",
+        "southTip": "「Dạ」表示尊敬的回應，下屬對上司必用。"
+      },
+      {
+        "speaker": "Quản lý (管理者)",
+        "role": "learner",
+        "viet": "Tốt lắm. Nhớ chú ý đến khâu kiểm tra chất lượng nhé, không được để xảy ra lỗi.",
+        "zh": "很好。記得注意品質檢驗環節，不能出錯。",
+        "en": "Very good. Remember to pay attention to quality control, no errors are allowed.",
+        "northTip": "「Kiểm tra chất lượng」就是品管(QC)；「Lỗi」是錯誤、瑕疵。",
+        "southTip": "「Khâu」在這裡指環節、步驟。"
+      },
+      {
+        "speaker": "Quản đốc (廠長/領班)",
+        "role": "npc",
+        "viet": "Vâng, chúng tôi luôn kiểm tra QC rất kỹ lưỡng trước khi đóng gói.",
+        "zh": "是的，我們在包裝前都會進行非常仔細的品檢。",
+        "en": "Yes, we always check QC very thoroughly before packaging.",
+        "northTip": "「Kỹ lưỡng」是仔細的；「Đóng gói」是包裝。",
+        "southTip": "工廠實務中，越南人也很習慣直接講「QC」這個縮寫。"
+      },
+      {
+        "speaker": "Quản lý (管理者)",
+        "role": "learner",
+        "viet": "Vậy khi nào có thể xuất hàng? Khách hàng đang giục rất gấp.",
+        "zh": "那什麼時候可以出貨？客戶催得很急。",
+        "en": "So when can we ship the goods? The client is rushing us.",
+        "northTip": "「Xuất hàng」是出貨；「Khách hàng」是客戶。",
+        "southTip": "「Giục」是催促；「Rất gấp」是非常緊急。"
+      },
+      {
+        "speaker": "Quản đốc (廠長/領班)",
+        "role": "npc",
+        "viet": "Dự kiến chiều thứ sáu tuần này sẽ giao cho bên vận chuyển ạ.",
+        "zh": "預計本週五下午會交給貨運方。",
+        "en": "It's expected to be handed over to the shipping company this Friday afternoon.",
+        "northTip": "「Dự kiến」是預計；「Vận chuyển」是運輸、貨運。",
+        "southTip": "交貨也常說「Giao hàng」。"
+      }
+    ],
+    "rolePlay": {
+      "userRoleZh": "主管/客戶 (Quản lý)",
+      "userRoleEn": "Manager/Client (Quản lý)",
+      "partnerRoleZh": "廠長/領班 (Quản đốc)",
+      "partnerRoleEn": "Foreman/Supervisor (Quản đốc)",
+      "steps": [
+        {
+          "stepIndex": 1,
+          "partnerPromptVi": "Chào sếp, sếp đến kiểm tra xưởng ạ?",
+          "partnerPromptZh": "老闆好，您來巡視廠房嗎？",
+          "partnerPromptEn": "Hello boss, are you here to inspect the factory?",
+          "userOptions": [
+            {
+              "id": "fac1_opt1",
+              "textVi": "Ừ, tiến độ sản xuất của lô hàng này đến đâu rồi?",
+              "textZh": "嗯，這批貨的生產進度到哪裡了？",
+              "textEn": "Yes, how is the production progress of this shipment?",
+              "isCorrect": true,
+              "feedbackZh": "非常霸氣且專業的主管提問！",
+              "feedbackEn": "Very assertive and professional manager question!"
+            },
+            {
+              "id": "fac1_opt2",
+              "textVi": "Tôi muốn đi du lịch.",
+              "textZh": "我想去旅遊。",
+              "textEn": "I want to travel.",
+              "isCorrect": false,
+              "feedbackZh": "在工廠巡視時提這個太跳tone了。",
+              "feedbackEn": "Too out of context for a factory inspection."
+            },
+            {
+              "id": "fac1_opt3",
+              "textVi": "Cho tôi một ly cà phê.",
+              "textZh": "給我一杯咖啡。",
+              "textEn": "Give me a cup of coffee.",
+              "isCorrect": false,
+              "feedbackZh": "雖然可以請下屬倒咖啡，但不是回答廠長問題的好選項。",
+              "feedbackEn": "Not the best response to the foreman's question about the inspection."
+            }
+          ]
+        },
+        {
+          "stepIndex": 2,
+          "partnerPromptVi": "Dạ, hiện tại chúng tôi đã hoàn thành 80% rồi ạ.",
+          "partnerPromptZh": "報告，目前我們已經完成80%了。",
+          "partnerPromptEn": "Currently we have completed 80%.",
+          "userOptions": [
+            {
+              "id": "fac2_opt1",
+              "textVi": "Tốt lắm. Nhớ chú ý đến khâu kiểm tra chất lượng nhé.",
+              "textZh": "很好。記得注意品質檢驗環節。",
+              "textEn": "Very good. Remember to pay attention to quality control.",
+              "isCorrect": true,
+              "feedbackZh": "完美的進度跟進與品質叮嚀！",
+              "feedbackEn": "Perfect progress follow-up and quality reminder!"
+            },
+            {
+              "id": "fac2_opt2",
+              "textVi": "Tại sao lại chậm như vậy?",
+              "textZh": "為什麼這麼慢？",
+              "textEn": "Why is it so slow?",
+              "isCorrect": false,
+              "feedbackZh": "如果80%在排程內，這樣罵人會打擊士氣喔。",
+              "feedbackEn": "If 80% is on schedule, scolding them will hurt morale."
+            },
+            {
+              "id": "fac2_opt3",
+              "textVi": "Hủy đơn hàng đi.",
+              "textZh": "取消訂單吧。",
+              "textEn": "Cancel the order.",
+              "isCorrect": false,
+              "feedbackZh": "人家都做80%了，取消訂單太可怕了！",
+              "feedbackEn": "They've done 80%, cancelling the order is a terrible idea!"
+            }
+          ]
+        }
+      ]
+    },
+    "vocabulary": [
+      {
+        "vi": "Nhà máy / Xưởng",
+        "zh": "工廠 / 廠房",
+        "en": "Factory / Workshop",
+        "ipa": "[ɲaː˨˩ maj˦˧˥]"
+      },
+      {
+        "vi": "Tiến độ",
+        "zh": "進度",
+        "en": "Progress",
+        "ipa": "[tiən˦˧˥ ɗo˧˨]"
+      },
+      {
+        "vi": "Sản xuất",
+        "zh": "生產",
+        "en": "Production",
+        "ipa": "[saːn˧˩ sʷət̚˦˧˥]"
+      },
+      {
+        "vi": "Chất lượng",
+        "zh": "品質",
+        "en": "Quality",
+        "ipa": "[t͡ɕət̚˦˧˥ lɨəŋ˧˨]"
+      },
+      {
+        "vi": "Lô hàng",
+        "zh": "批貨",
+        "en": "Shipment",
+        "ipa": "[lo˧ haːŋ˨˩]"
+      },
+      {
+        "vi": "Xuất hàng",
+        "zh": "出貨",
+        "en": "Ship goods",
+        "ipa": "[sʷət̚˦˧˥ haːŋ˨˩]"
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "🇻🇳 越南工廠管理：恩威並濟",
+      "titleEn": "Vietnamese Factory Management",
+      "contentZh": "在越南工廠管理中，直接的指令固然重要，但「帶心」更是留住基層員工的關鍵。主管或幹部在巡視時，經常會用「Anh/Chị/Em」等親切稱謂來拉近距離。此外，當地非常重視工會與勞動權益，因此在催促進度時，也需留意溝通語氣。遇到加班 (Tăng ca) 需求時，提供良好的點心或晚餐補貼，通常能有效激勵產線員工。",
+      "contentEn": "In Vietnamese factory management, winning the hearts of the workers is just as important as giving clear instructions. Managers often use friendly pronouns (Anh/Chị/Em) to build rapport. Because labor rights are highly valued, tone of communication is important when rushing progress. When overtime (Tăng ca) is needed, providing good snacks or meal allowances effectively motivates assembly line workers.",
+      "proTipZh": "✨ 避坑：當場大聲斥責 (Mắng mỏ) 員工在越南文化中會讓人極度「沒面子」，可能導致整條產線罷工，建議私下糾正。",
+      "proTipEn": "✨ Pro Tip: Publicly shouting at an employee causes a severe loss of face and could lead to a strike. It's best to correct mistakes privately."
+    }
+  },
+  {
+    "id": "family_restaurant",
+    "category": "dining",
+    "tagZh": "越式合菜",
+    "tagEn": "Family Style",
+    "icon": "🍽️",
+    "image": "restaurant.jpg",
+    "titleZh": "傳統越南餐廳點餐與特色飲料",
+    "titleEn": "Ordering at a Traditional Vietnamese Restaurant",
+    "titleVi": "Gọi Món Tại Nhà Hàng Việt Nam",
+    "summaryZh": "學習在傳統越式餐廳 (Quán ăn gia đình) 點越式合菜 (如控肉、酸湯) 與常見飲料 (生啤酒、甘蔗汁)。",
+    "summaryEn": "Learn to order family-style Vietnamese dishes and popular local drinks like fresh beer and sugarcane juice.",
+    "realMenu": {
+      "brand": "Nhà Hàng Món Việt (越南傳統家常菜館 🍚)",
+      "descriptionZh": "在地人最愛的家庭式合菜餐廳，大家一起分享道地美味。",
+      "descriptionEn": "Local family-style restaurant where dishes are shared communally.",
+      "sections": [
+        {
+          "titleZh": "🍲 經典主菜與湯品 (Món Chính & Món Canh)",
+          "titleEn": "Mains & Soups",
+          "items": [
+            {
+              "nameVi": "Thịt Kho Tộ",
+              "nameZh": "焦糖瓦煲控肉",
+              "nameEn": "Caramelized Pork in Clay Pot",
+              "price": "60k - 90k VND",
+              "descZh": "南部家庭必備！肥瘦相間的豬肉用焦糖與魚露慢火燉煮，超級下飯。",
+              "descEn": "A Southern staple. Pork belly slow-braised in caramel and fish sauce."
+            },
+            {
+              "nameVi": "Canh Chua Cá Lóc",
+              "nameZh": "越式雷魚酸湯",
+              "nameEn": "Sour Soup with Snakehead Fish",
+              "price": "50k - 80k VND",
+              "descZh": "加入羅望子、鳳梨、番茄與豆芽，酸甜開胃，通常與瓦煲肉搭配吃。",
+              "descEn": "Tangy tamarind soup with pineapple, tomatoes, and fresh herbs."
+            },
+            {
+              "nameVi": "Rau Muống Xào Tỏi",
+              "nameZh": "蒜香炒空心菜",
+              "nameEn": "Stir-fried Morning Glory with Garlic",
+              "price": "40k - 50k VND",
+              "descZh": "越南餐廳最常見的國民青菜，蒜香濃郁且口感清脆。",
+              "descEn": "The most popular vegetable dish, rich in garlic flavor and crunchy."
+            }
+          ]
+        },
+        {
+          "titleZh": "🍚 飯類 (Cơm)",
+          "titleEn": "Rice Dishes",
+          "items": [
+            {
+              "nameVi": "Cơm Trắng",
+              "nameZh": "白飯 (通常一大鍋)",
+              "nameEn": "Steamed White Rice",
+              "price": "15k - 20k VND/thố",
+              "descZh": "在合菜餐廳，白飯通常是用「Thố」(小陶鍋/碗公) 裝盛上桌分享。",
+              "descEn": "Served in a communal clay pot or large bowl to share."
+            },
+            {
+              "nameVi": "Cơm Tấm Sườn Bì Chả",
+              "nameZh": "招牌碎米飯 (排骨+肉皮+蒸蛋)",
+              "nameEn": "Broken Rice with Pork Chop",
+              "price": "45k - 70k VND",
+              "descZh": "若是簡餐店，這是南部無人不曉的經典個人餐。",
+              "descEn": "The iconic Southern dish for a quick, fulfilling personal meal."
+            }
+          ]
+        },
+        {
+          "titleZh": "🍻 必喝在地飲料 (Thức Uống)",
+          "titleEn": "Local Drinks",
+          "items": [
+            {
+              "nameVi": "Bia Hơi",
+              "nameZh": "越式生啤酒",
+              "nameEn": "Fresh Draught Beer",
+              "price": "10k - 15k VND",
+              "descZh": "北越極度盛行，新鮮未殺菌的淡啤酒，聚餐必點「Một, hai, ba, dô!」。",
+              "descEn": "Fresh, light draught beer. A staple of Northern drinking culture."
+            },
+            {
+              "nameVi": "Nước Mía",
+              "nameZh": "鮮榨甘蔗汁",
+              "nameEn": "Sugarcane Juice",
+              "price": "15k - 20k VND",
+              "descZh": "路邊攤與小吃店的神級飲料，常加入一顆金桔提味，清涼解渴。",
+              "descEn": "Freshly squeezed with a hint of calamansi. The ultimate thirst quencher."
+            },
+            {
+              "nameVi": "Trà Đá",
+              "nameZh": "冰清茶",
+              "nameEn": "Iced Tea",
+              "price": "3k - 5k VND (或免費)",
+              "descZh": "幾乎每家餐廳都會提供的冰茶，有時是免費的。",
+              "descEn": "The standard table water substitute in Vietnam, often free or very cheap."
+            }
+          ]
+        }
+      ],
+      "orderingTipsZh": [
+        "點白飯：Cho một thố cơm trắng (請給一鍋白飯)",
+        "點啤酒冰塊：Cho xin ít đá viên (請給一些冰塊 - 越南喝啤酒常加冰)",
+        "結帳必備：Em ơi, tính tiền! (服務生，買單！)"
+      ],
+      "orderingTipsEn": [
+        "Order rice: Cho một thố cơm (One pot of rice, please)",
+        "Ask for ice: Cho xin đá (Ice please - common with beer in Vietnam)",
+        "Check please: Tính tiền!"
+      ]
+    },
+    "dialogues": [
+      {
+        "speaker": "Phục vụ (服務生)",
+        "role": "npc",
+        "viet": "Dạ, hai anh chị dùng gì ạ? Có cần xem thực đơn không?",
+        "zh": "您好，兩位要用點什麼呢？需要看菜單嗎？",
+        "en": "Hello, what would you two like to have? Do you need to see the menu?",
+        "northTip": "「Thực đơn」是菜單的正式說法，口語也常直接借用英文說「Menu」。",
+        "southTip": "服務生稱呼客人常會根據目測年齡靈活使用 anh(哥)/chị(姐)。"
+      },
+      {
+        "speaker": "Khách (顧客)",
+        "role": "learner",
+        "viet": "Cho anh một phần thịt kho tộ, một tô canh chua cá lóc và đĩa rau muống xào tỏi nhé.",
+        "zh": "請給我一份瓦煲控肉、一碗雷魚酸湯，還有一盤蒜炒空心菜。",
+        "en": "Please give me one claypot pork, a bowl of sour snakehead fish soup, and a plate of garlic morning glory.",
+        "northTip": "「Rau muống xào tỏi」是從南到北餐廳必備的國民青菜。",
+        "southTip": "瓦煲肉 (Kho tộ) 與酸湯 (Canh chua) 是南越家庭餐桌的靈魂絕配。"
+      },
+      {
+        "speaker": "Phục vụ (服務生)",
+        "role": "npc",
+        "viet": "Dạ, anh chị ăn cơm trắng hay cơm rang ạ? Có uống nước gì không?",
+        "zh": "好的，哥姐吃白飯還是炒飯？要喝點什麼水嗎？",
+        "en": "Yes, do you want white rice or fried rice? Any drinks?",
+        "northTip": "炒飯在北越叫「Cơm rang」，南越叫「Cơm chiên」。",
+        "southTip": "吃合菜通常配白飯最能品嚐菜餚原味。"
+      },
+      {
+        "speaker": "Khách (顧客)",
+        "role": "learner",
+        "viet": "Cho anh một thố cơm trắng. Nước thì lấy hai ly nước mía và hai ly trà đá.",
+        "zh": "給我一鍋白飯。飲料的話拿兩杯甘蔗汁和兩杯冰茶。",
+        "en": "Give me a pot of white rice. For drinks, two sugarcane juices and two iced teas.",
+        "northTip": "「Thố」指的是餐廳裝飯用的小陶鍋或小甕。",
+        "southTip": "越南人極愛喝冰茶 (Trà đá)，經常點來解渴與漱口。"
+      },
+      {
+        "speaker": "Phục vụ (服務生)",
+        "role": "npc",
+        "viet": "Dạ vâng, anh chị đợi một chút nhé, món ăn sẽ lên ngay ạ.",
+        "zh": "好的，哥姐請稍等一下，菜馬上上來。",
+        "en": "Yes, please wait a moment, the food will be served shortly.",
+        "northTip": "「Lên món」或「Lên ngay」表示上菜。",
+        "southTip": "傳統餐廳上菜速度通常很快。"
+      }
+    ],
+    "rolePlay": {
+      "userRoleZh": "顧客 (Khách)",
+      "userRoleEn": "Customer (Khách)",
+      "partnerRoleZh": "餐廳服務生 (Phục vụ)",
+      "partnerRoleEn": "Waiter (Phục vụ)",
+      "steps": [
+        {
+          "stepIndex": 1,
+          "partnerPromptVi": "Dạ, hai anh chị dùng gì ạ? Có cần xem thực đơn không?",
+          "partnerPromptZh": "您好，兩位要用點什麼呢？需要看菜單嗎？",
+          "partnerPromptEn": "Hello, what would you two like to have? Do you need to see the menu?",
+          "userOptions": [
+            {
+              "id": "res1_opt1",
+              "textVi": "Cho anh một thịt kho tộ và canh chua nhé.",
+              "textZh": "給我一份瓦煲控肉和酸湯。",
+              "textEn": "Give me one claypot pork and sour soup.",
+              "isCorrect": true,
+              "feedbackZh": "非常道地！這兩道菜是越南合菜的經典黃金組合。",
+              "feedbackEn": "Very authentic! This is the classic golden combo of Vietnamese dining."
+            },
+            {
+              "id": "res1_opt2",
+              "textVi": "Anh muốn mua một chiếc xe máy.",
+              "textZh": "我想買一台摩托車。",
+              "textEn": "I want to buy a motorbike.",
+              "isCorrect": false,
+              "feedbackZh": "這裡是餐廳喔，買車要去車行！",
+              "feedbackEn": "This is a restaurant, not a dealership!"
+            },
+            {
+              "id": "res1_opt3",
+              "textVi": "Không cần, tôi không đói.",
+              "textZh": "不用，我不餓。",
+              "textEn": "No need, I'm not hungry.",
+              "isCorrect": false,
+              "feedbackZh": "進了餐廳卻說不餓，會讓服務生很尷尬喔。",
+              "feedbackEn": "Saying you're not hungry inside a restaurant is awkward."
+            }
+          ]
+        },
+        {
+          "stepIndex": 2,
+          "partnerPromptVi": "Dạ, anh chị ăn cơm trắng hay cơm rang ạ? Có uống nước gì không?",
+          "partnerPromptZh": "好的，哥姐吃白飯還是炒飯？要喝點什麼水嗎？",
+          "partnerPromptEn": "Yes, do you want white rice or fried rice? Any drinks?",
+          "userOptions": [
+            {
+              "id": "res2_opt1",
+              "textVi": "Cho anh một thố cơm trắng, hai ly nước mía và hai ly bia hơi.",
+              "textZh": "給我一鍋白飯，兩杯甘蔗汁和兩杯生啤酒。",
+              "textEn": "Give me a pot of white rice, two sugarcane juices, and two draught beers.",
+              "isCorrect": true,
+              "feedbackZh": "完美！點了白飯配菜，還精準點了在地最受歡迎的甘蔗汁和生啤酒。",
+              "feedbackEn": "Perfect! Ordered white rice for the dishes, plus popular local drinks."
+            },
+            {
+              "id": "res2_opt2",
+              "textVi": "Cho tôi mười bát phở.",
+              "textZh": "給我十碗河粉。",
+              "textEn": "Give me ten bowls of pho.",
+              "isCorrect": false,
+              "feedbackZh": "點太多了，而且你們只有兩個人，且沒回答到飲料的問題。",
+              "feedbackEn": "That's too much food for two people, and you missed the drink question."
+            },
+            {
+              "id": "res2_opt3",
+              "textVi": "Cho tôi một ly cà phê muối.",
+              "textZh": "給我一杯鹽咖啡。",
+              "textEn": "Give me a salted coffee.",
+              "isCorrect": false,
+              "feedbackZh": "雖然有回答飲料，但沒回答要吃飯還是炒飯喔！",
+              "feedbackEn": "You answered the drink part but forgot to specify the rice!"
+            }
+          ]
+        }
+      ]
+    },
+    "vocabulary": [
+      {
+        "vi": "Nhà hàng",
+        "zh": "餐廳",
+        "en": "Restaurant",
+        "ipa": "[ɲaː˨˩ haːŋ˨˩]"
+      },
+      {
+        "vi": "Thực đơn",
+        "zh": "菜單",
+        "en": "Menu",
+        "ipa": "[tʰɨk̚˧˨ ɗəːn˧]"
+      },
+      {
+        "vi": "Thịt kho tộ",
+        "zh": "瓦煲控肉",
+        "en": "Claypot pork",
+        "ipa": "[tʰit̚˧˨ xɔ˧ tɔ˧˨]"
+      },
+      {
+        "vi": "Canh chua",
+        "zh": "酸湯",
+        "en": "Sour soup",
+        "ipa": "[kaɲ˧ t͡ɕuə˧]"
+      },
+      {
+        "vi": "Nước mía",
+        "zh": "甘蔗汁",
+        "en": "Sugarcane juice",
+        "ipa": "[nɨək̚˧˦ miə˧˦]"
+      },
+      {
+        "vi": "Bia hơi",
+        "zh": "生啤酒",
+        "en": "Draught beer",
+        "ipa": "[biə˧ həːj˧]"
+      },
+      {
+        "vi": "Cơm trắng",
+        "zh": "白飯",
+        "en": "White rice",
+        "ipa": "[kəːm˧ ʈaŋ˧˦]"
+      },
+      {
+        "vi": "Tính tiền",
+        "zh": "結帳 / 買單",
+        "en": "Bill please",
+        "ipa": "[tin˧˦ tiən˨˩]"
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "🇻🇳 越式合菜與拼酒文化",
+      "titleEn": "Family-Style Dining & Nhậu Culture",
+      "contentZh": "在越南吃合菜 (Ăn cơm gia đình)，通常是大家共享中間的肉類與湯品，並將湯汁淋在自己的白飯上享用。如果是一群朋友去熱炒店 (Quán nhậu)，則一定會點「Bia hơi」(生啤酒) 或瓶裝啤酒，並且非常流行加冰塊喝。敬酒時大家會齊聲高喊「Một, hai, ba, Dô! (一、二、三，乾杯！)」氣氛非常熱烈。",
+      "contentEn": "In a Vietnamese family meal, dishes are shared from the center, and flavorful broths are often spooned over individual bowls of rice. In lively drinking spots (Quán nhậu), 'Bia hơi' (draught beer) is king, usually served over ice. Expect loud cheers of 'Một, hai, ba, Dô!' (1, 2, 3, Cheers!) throughout the night.",
+      "proTipZh": "✨ 避坑：餐廳桌上放的濕紙巾 (Khăn ướt) 通常是要額外收費的 (約 2,000-5,000 VND)。冰茶 (Trà đá) 有些免費，有些也會收少許費用。",
+      "proTipEn": "✨ Pro Tip: The wet wipes (Khăn ướt) on the table usually cost extra (2k-5k VND). Iced tea (Trà đá) is sometimes free, but often carries a small charge."
+    }
+  },
+  {
     "id": "cafe",
     "category": "dining",
     "tagZh": "咖啡廳必備",
@@ -70,6 +1037,80 @@ export const situationalScenarios = [
     "titleVi": "Gọi Cà Phê Tại Quán Cà Phê",
     "summaryZh": "學習點最道地的 Cà phê sữa đá (冰奶咖)、Bạc xỉu (白咖啡/多奶) 以及調整甜度冰量與內用外帶。",
     "summaryEn": "Order authentic Vietnamese Iced Milk Coffee, Bạc xỉu, adjust sweetness/ice, and choose dine-in or takeaway.",
+    
+    "realMenu": {
+      "brand": "Highlands Coffee (高原咖啡 🇻🇳)",
+      "descriptionZh": "全越最大連鎖咖啡，實際菜單點餐教學。",
+      "descriptionEn": "Vietnam's largest coffee chain menu guide.",
+      "sections": [
+        {
+          "titleZh": "☕ 傳統越南咖啡 (Phin - Cà Phê Truyền Thống)",
+          "titleEn": "Traditional Vietnamese Coffee",
+          "items": [
+            {
+              "nameVi": "Phin Sữa Đá",
+              "nameZh": "冰煉乳咖啡",
+              "nameEn": "Iced Milk Coffee",
+              "price": "29k - 39k VND",
+              "descZh": "最經典的越式滴漏咖啡加煉乳，重度提神必備。",
+              "descEn": "Classic Vietnamese iced drip coffee with condensed milk."
+            },
+            {
+              "nameVi": "Bạc Xỉu Đá",
+              "nameZh": "冰白咖啡 (多奶)",
+              "nameEn": "Iced White Coffee",
+              "price": "29k - 39k VND",
+              "descZh": "適合不常喝咖啡的人，奶香味濃郁，南部西貢特色。",
+              "descEn": "Perfect for those who prefer milkier coffee, a Saigon specialty."
+            }
+          ]
+        },
+        {
+          "titleZh": "🍵 人氣茶飲 (Trà)",
+          "titleEn": "Popular Teas",
+          "items": [
+            {
+              "nameVi": "Trà Sen Vàng",
+              "nameZh": "黃金蓮子茶",
+              "nameEn": "Golden Lotus Tea",
+              "price": "45k - 55k VND",
+              "descZh": "Highlands 招牌必點！清甜烏龍茶底搭配綿密蓮子與脆爽荸薺。",
+              "descEn": "Signature drink! Sweet oolong tea with lotus seeds and water chestnuts."
+            },
+            {
+              "nameVi": "Trà Thạch Đào",
+              "nameZh": "蜜桃果凍茶",
+              "nameEn": "Peach Jelly Tea",
+              "price": "45k - 55k VND",
+              "descZh": "清爽解渴，裡面有真實水蜜桃切塊與Q彈果凍。",
+              "descEn": "Refreshing peach tea with real peach slices and jelly."
+            }
+          ]
+        },
+        {
+          "titleZh": "🥖 輕食 (Bánh Mì / Bánh Ngọt)",
+          "titleEn": "Light Snacks",
+          "items": [
+            {
+              "nameVi": "Bánh Mì Que (Pa-tê)",
+              "nameZh": "法式麵包棍 (肝醬)",
+              "nameEn": "Baguette Stick (Pate)",
+              "price": "19k VND",
+              "descZh": "烤得酥脆的細長麵包，夾滿越式肝醬，配咖啡絕佳。",
+              "descEn": "Crispy thin baguette filled with savory Vietnamese pate."
+            }
+          ]
+        }
+      ],
+      "orderingTipsZh": [
+        "尺寸 (Size)：小杯 Size S (Nhỏ) / 中杯 Size M (Vừa) / 大杯 Size L (Lớn)",
+        "客製化：少冰 (Ít đá) / 少糖 (Ít đường) / 正常 (Bình thường)"
+      ],
+      "orderingTipsEn": [
+        "Sizes: Small S (Nhỏ) / Medium M (Vừa) / Large L (Lớn)",
+        "Customizations: Less ice (Ít đá) / Less sugar (Ít đường) / Normal (Bình thường)"
+      ]
+    },
     "dialogues": [
       {
         "speaker": "Nhân viên (店員)",
@@ -324,6 +1365,82 @@ export const situationalScenarios = [
     "titleVi": "Gọi Món Tại Quán Phở Truyền Thống",
     "summaryZh": "學會區分半熟生牛肉 (Phở tái)、全熟牛腩 (Phở chín/nạm)、加點油條 (Quẩy) 與特製半熟蛋 (Trứng chần)。",
     "summaryEn": "Order rare beef (Phở tái), well-done brisket (Phở chín/nạm), crispy crullers (Quẩy), and poached egg.",
+    
+    "realMenu": {
+      "brand": "Phở Gia Truyền (傳統河粉名店 🍜)",
+      "descriptionZh": "模擬越南街頭與名店常見的河粉菜單，掌握點肉部位。",
+      "descriptionEn": "Common menu at traditional Pho restaurants. Master the beef cuts.",
+      "sections": [
+        {
+          "titleZh": "🍲 經典牛肉河粉 (Phở Bò)",
+          "titleEn": "Classic Beef Pho",
+          "items": [
+            {
+              "nameVi": "Phở Tái",
+              "nameZh": "半熟生牛肉河粉",
+              "nameEn": "Rare Beef Pho",
+              "price": "50k - 70k VND",
+              "descZh": "切薄片的生牛肉鋪在麵上，用滾燙高湯淋熟，肉質最嫩。",
+              "descEn": "Thinly sliced rare beef cooked by the boiling broth, very tender."
+            },
+            {
+              "nameVi": "Phở Chín",
+              "nameZh": "全熟牛腩/瘦肉河粉",
+              "nameEn": "Well-done Beef Pho",
+              "price": "50k - 70k VND",
+              "descZh": "燉煮入味的全熟牛肉塊，口感紮實。",
+              "descEn": "Thoroughly cooked and stewed beef, firmer texture."
+            },
+            {
+              "nameVi": "Phở Tái Nạm",
+              "nameZh": "半熟牛+熟牛腩河粉",
+              "nameEn": "Rare & Flank Beef Pho",
+              "price": "60k - 80k VND",
+              "descZh": "雙重享受，同時吃得到軟嫩生牛與帶點油花的牛腩。",
+              "descEn": "The best of both worlds: rare beef and flavorful flank."
+            },
+            {
+              "nameVi": "Phở Đặc Biệt",
+              "nameZh": "招牌綜合河粉",
+              "nameEn": "Special Combo Pho",
+              "price": "70k - 90k VND",
+              "descZh": "什麼都有！包含生牛、熟牛、牛百葉(Sách)、牛丸(Bò Viên)、牛筋(Gân)。",
+              "descEn": "Everything included! Rare beef, brisket, tripe, meatballs, and tendon."
+            }
+          ]
+        },
+        {
+          "titleZh": "🥢 必備配菜與小吃 (Món Ăn Kèm)",
+          "titleEn": "Side Dishes",
+          "items": [
+            {
+              "nameVi": "Quẩy",
+              "nameZh": "越式油條",
+              "nameEn": "Fried Dough Sticks",
+              "price": "5k - 10k VND",
+              "descZh": "吃北越河粉必備！撕碎泡入吸滿高湯精華。",
+              "descEn": "Must-have for Northern pho. Tear and dip into the hot broth."
+            },
+            {
+              "nameVi": "Trứng Chần",
+              "nameZh": "半熟溫泉蛋 (滾湯燙)",
+              "nameEn": "Poached Egg in Broth",
+              "price": "10k VND",
+              "descZh": "用牛肉熱湯燙過的小碗半熟蛋，極致濃郁。",
+              "descEn": "A poached egg served in a small bowl of hot beef broth."
+            }
+          ]
+        }
+      ],
+      "orderingTipsZh": [
+        "如果不吃蔥：Không hành (不加蔥) / Không rau (不加生菜)",
+        "想多加肉：Thêm thịt (加肉) / Thêm bánh (加麵)"
+      ],
+      "orderingTipsEn": [
+        "No green onions: Không hành / No herbs: Không rau",
+        "Extra meat: Thêm thịt / Extra noodles: Thêm bánh"
+      ]
+    },
     "dialogues": [
       {
         "speaker": "Chủ quán (老闆)",
@@ -578,6 +1695,60 @@ export const situationalScenarios = [
     "titleVi": "Mua Bánh Mì Tại Xe Bánh Mì Vỉa Hè",
     "summaryZh": "掌握點 Bánh mì thịt (肉餡麵包)、Bánh mì trứng (煎蛋麵包)、客製加滿肝醬 (Pa-tê)、醃蘿蔔與調整辣度。",
     "summaryEn": "Customize your crispy Banh Mi with pate, savory cold cuts, fried eggs, pickled daikon, and spicy chili.",
+    
+    "realMenu": {
+      "brand": "Tiệm Bánh Mì (人氣越式法包攤 🥖)",
+      "descriptionZh": "模擬在地排隊法包名店的菜單，教你選料與客製化。",
+      "descriptionEn": "Menu from a popular local Banh Mi cart. Learn to customize your sandwich.",
+      "sections": [
+        {
+          "titleZh": "🥪 招牌口味 (Các Loại Bánh Mì)",
+          "titleEn": "Signature Banh Mi Types",
+          "items": [
+            {
+              "nameVi": "Bánh Mì Thịt (Đặc Biệt)",
+              "nameZh": "招牌綜合肉法包",
+              "nameEn": "Special Mixed Meat Banh Mi",
+              "price": "30k - 60k VND",
+              "descZh": "夾滿各色越式扎肉(Chả lụa)、燒肉、肉鬆、肝醬與醃蘿蔔，最豐盛！",
+              "descEn": "Packed with various Vietnamese cold cuts, roasted pork, pate, and pickles."
+            },
+            {
+              "nameVi": "Bánh Mì Heo Quay",
+              "nameZh": "脆皮燒肉法包",
+              "nameEn": "Roasted Pork Belly Banh Mi",
+              "price": "25k - 40k VND",
+              "descZh": "包入帶有酥脆豬皮的烤肉塊，口感層次分明，非常香。",
+              "descEn": "Filled with crispy roasted pork belly chunks. Very savory."
+            },
+            {
+              "nameVi": "Bánh Mì Ốp La",
+              "nameZh": "煎蛋法包",
+              "nameEn": "Fried Egg Banh Mi",
+              "price": "15k - 20k VND",
+              "descZh": "最常見的早餐選擇，熱騰騰的現煎荷包蛋配上一點醬油。",
+              "descEn": "Popular breakfast option: sunny-side-up eggs inside a warm baguette."
+            },
+            {
+              "nameVi": "Bánh Mì Chả Cá",
+              "nameZh": "炸魚餅法包",
+              "nameEn": "Fish Cake Banh Mi",
+              "price": "20k - 30k VND",
+              "descZh": "中南部常見口味，夾入現炸Ｑ彈魚餅與特製甜辣醬。",
+              "descEn": "Common in central/south. Includes bouncy fried fish cakes and sweet chili."
+            }
+          ]
+        }
+      ],
+      "orderingTipsZh": [
+        "辣度調整：Không cay (不辣) / Ít cay (微辣) / Nhiều ớt (多辣椒)",
+        "不吃香菜：Không ngò (不加香菜)"
+      ],
+      "orderingTipsEn": [
+        "Spiciness: Không cay (Not spicy) / Ít cay (Mild) / Nhiều ớt (Extra chili)",
+        "No cilantro: Không ngò"
+      ]
+    },
     "dialogues": [
       {
         "speaker": "Cô bán hàng (老闆娘)",

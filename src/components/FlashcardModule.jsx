@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Brain, Volume2, RotateCw, CheckCircle2, XCircle, ArrowRight, RefreshCw, Sparkles, Award } from 'lucide-react';
+import { Brain, Volume2, RotateCw, CheckCircle2, XCircle, ArrowRight, RefreshCw, Sparkles, Award, Play, Pause } from 'lucide-react';
 import { flashcardsDeck } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -45,6 +45,13 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   const [srsData, setSrsData] = useState({});
   const [audioFirstMode, setAudioFirstMode] = useState(false);
 
+  // Deck Autoplay state
+  const [isPlayingDeck, setIsPlayingDeck] = useState(false);
+  const [playMode, setPlayMode] = useState('zh-vi'); // 'zh-vi' | 'vi-zh' | 'vi-only'
+  const [playbackSpeed, setPlaybackSpeed] = useState(0.9);
+  const isPlayingDeckRef = useRef(false);
+  const timerRef = useRef(null);
+
   useEffect(() => {
     setSrsData(srsEngine.loadSrsData());
   }, []);
@@ -88,20 +95,168 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   useEffect(() => {
     setCurrentIndex(0);
     setIsFlipped(false);
+    isPlayingDeckRef.current = false;
+    if (timerRef.current) clearTimeout(timerRef.current);
+    audioEngine.stop();
+    setIsPlayingDeck(false);
   }, [selectedCategory]);
 
   useEffect(() => {
     const unsubscribe = audioEngine.subscribe((state) => {
       setActiveKey(state.isPlaying ? state.activeKey : null);
     });
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+      isPlayingDeckRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
   }, []);
 
   const currentCard = reviewDeck[currentIndex] || reviewDeck[0];
 
+  const playDeckInSequence = (index, part = 'first', currentPlayMode = playMode, speed = playbackSpeed) => {
+    if (!isPlayingDeckRef.current || index >= reviewDeck.length) {
+      setIsPlayingDeck(false);
+      isPlayingDeckRef.current = false;
+      return;
+    }
+
+    setCurrentIndex(index);
+    const card = reviewDeck[index];
+    const nativeText = learningMode === 'zh' ? card.zh : card.en;
+    const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
+
+    if (currentPlayMode === 'vi-only') {
+      setIsFlipped(false);
+      audioEngine.speak(card.viet, {
+        accent: selectedAccent,
+        lang: 'vi',
+        rate: speed,
+        key: `fc_seq_viet_${card.id}`,
+        onEnd: () => {
+          if (!isPlayingDeckRef.current) return;
+          const gap = speed < 0.85 ? 1400 : 1100;
+          timerRef.current = setTimeout(() => {
+            if (isPlayingDeckRef.current) {
+              if (index + 1 < reviewDeck.length) {
+                playDeckInSequence(index + 1, 'first', currentPlayMode, speed);
+              } else {
+                setIsPlayingDeck(false);
+                isPlayingDeckRef.current = false;
+              }
+            }
+          }, gap);
+        }
+      });
+    } else if (currentPlayMode === 'zh-vi') {
+      // 1次中文 (翻到中文釋義面) -> 1次越文 (翻回越文發音面)
+      if (part === 'first') {
+        setIsFlipped(true); // Flip to back to show meaning
+        audioEngine.speak(nativeText, {
+          lang: nativeLang,
+          rate: speed,
+          key: `fc_seq_native_${card.id}`,
+          onEnd: () => {
+            if (!isPlayingDeckRef.current) return;
+            timerRef.current = setTimeout(() => {
+              if (isPlayingDeckRef.current) {
+                setIsFlipped(false); // Flip to front for Vietnamese
+                playDeckInSequence(index, 'second', currentPlayMode, speed);
+              }
+            }, 350);
+          }
+        });
+      } else {
+        setIsFlipped(false);
+        audioEngine.speak(card.viet, {
+          accent: selectedAccent,
+          lang: 'vi',
+          rate: speed,
+          key: `fc_seq_viet_${card.id}`,
+          onEnd: () => {
+            if (!isPlayingDeckRef.current) return;
+            const gap = speed < 0.85 ? 1600 : 1300;
+            timerRef.current = setTimeout(() => {
+              if (isPlayingDeckRef.current) {
+                if (index + 1 < reviewDeck.length) {
+                  playDeckInSequence(index + 1, 'first', currentPlayMode, speed);
+                } else {
+                  setIsPlayingDeck(false);
+                  isPlayingDeckRef.current = false;
+                }
+              }
+            }, gap);
+          }
+        });
+      }
+    } else {
+      // 'vi-zh': 1次越文 (正面) -> 1次中文 (背面)
+      if (part === 'first') {
+        setIsFlipped(false);
+        audioEngine.speak(card.viet, {
+          accent: selectedAccent,
+          lang: 'vi',
+          rate: speed,
+          key: `fc_seq_viet_${card.id}`,
+          onEnd: () => {
+            if (!isPlayingDeckRef.current) return;
+            timerRef.current = setTimeout(() => {
+              if (isPlayingDeckRef.current) {
+                setIsFlipped(true);
+                playDeckInSequence(index, 'second', currentPlayMode, speed);
+              }
+            }, 350);
+          }
+        });
+      } else {
+        setIsFlipped(true);
+        audioEngine.speak(nativeText, {
+          lang: nativeLang,
+          rate: speed,
+          key: `fc_seq_native_${card.id}`,
+          onEnd: () => {
+            if (!isPlayingDeckRef.current) return;
+            const gap = speed < 0.85 ? 1600 : 1300;
+            timerRef.current = setTimeout(() => {
+              if (isPlayingDeckRef.current) {
+                if (index + 1 < reviewDeck.length) {
+                  setIsFlipped(false);
+                  playDeckInSequence(index + 1, 'first', currentPlayMode, speed);
+                } else {
+                  setIsPlayingDeck(false);
+                  isPlayingDeckRef.current = false;
+                }
+              }
+            }, gap);
+          }
+        });
+      }
+    }
+  };
+
+  const handlePlayDeck = (mode = 'zh-vi') => {
+    if (isPlayingDeck) {
+      setIsPlayingDeck(false);
+      isPlayingDeckRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+      audioEngine.stop();
+      return;
+    }
+
+    setPlayMode(mode);
+    setIsPlayingDeck(true);
+    isPlayingDeckRef.current = true;
+    playDeckInSequence(currentIndex, 'first', mode, playbackSpeed);
+  };
+
   const handlersRef = useRef({ handleCardClick: null, handleAnswer: null });
 
   const handleCardClick = () => {
+    if (isPlayingDeck) {
+      setIsPlayingDeck(false);
+      isPlayingDeckRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+    }
     const nextFlipped = !isFlipped;
     setIsFlipped(nextFlipped);
     if (!isFlipped && currentCard) {
@@ -110,6 +265,11 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   };
 
   const handleAnswer = (quality) => {
+    if (isPlayingDeck) {
+      setIsPlayingDeck(false);
+      isPlayingDeckRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+    }
     setIsFlipped(false);
     if (currentCard) {
       if (updateUserStats && quality > 0) updateUserStats(quality > 0 ? 10 : 2);
@@ -151,11 +311,17 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   }, []);
 
   const handleRestart = () => {
+    if (isPlayingDeck) {
+      setIsPlayingDeck(false);
+      isPlayingDeckRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+      audioEngine.stop();
+    }
     setCurrentIndex(0);
     setIsFlipped(false);
   };
 
-  const isCardPlaying = activeKey === `fc_${currentCard?.id}` || activeKey === currentCard?.viet;
+  const isCardPlaying = activeKey === `fc_${currentCard?.id}` || activeKey === currentCard?.viet || activeKey === `fc_seq_viet_${currentCard?.id}`;
 
   return (
     <div className="module-container">
@@ -187,6 +353,131 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
             {learningMode === 'zh' ? cat.labelZh : cat.labelEn}
           </button>
         ))}
+      </div>
+
+      {/* Continuous Unit Audio Playback Toolbar */}
+      <div style={{ maxWidth: '650px', margin: '0 auto 1rem', display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+        {/* Mode 1: Once Chinese, Once Vietnamese (中+越) */}
+        <button 
+          className={`control-btn play-full-btn ${isPlayingDeck && playMode === 'zh-vi' ? 'playing' : ''}`}
+          onClick={() => handlePlayDeck('zh-vi')}
+          style={{ 
+            background: isPlayingDeck && playMode === 'zh-vi' ? 'var(--brand-primary)' : 'var(--brand-green)', 
+            color: '#fff',
+            opacity: isPlayingDeck && playMode !== 'zh-vi' ? 0.6 : 1,
+            padding: '0.45rem 0.85rem',
+            fontSize: '0.85em',
+            fontWeight: 700,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            borderRadius: '6px',
+            border: 'none',
+            cursor: 'pointer'
+          }}
+          title={learningMode === 'zh' ? '自動翻卡：每張先播中文釋義，再翻面播越文發音 (免動手通勤聽背)' : 'Play 1x Chinese then 1x Vietnamese'}
+        >
+          {isPlayingDeck && playMode === 'zh-vi' ? <Pause size={14} /> : <Play size={14} />}
+          <span>
+            {isPlayingDeck && playMode === 'zh-vi'
+              ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
+              : (learningMode === 'zh' ? <>播放: 中+越 (一次中文一次越文)</> : <>Play: Zh → Vi</>)}
+          </span>
+        </button>
+
+        {/* Mode 2: Once Vietnamese, Once Chinese (越+中) */}
+        <button 
+          className={`control-btn play-full-btn ${isPlayingDeck && playMode === 'vi-zh' ? 'playing' : ''}`}
+          onClick={() => handlePlayDeck('vi-zh')}
+          style={{ 
+            background: isPlayingDeck && playMode === 'vi-zh' ? 'var(--brand-primary)' : 'var(--brand-gold)', 
+            color: '#fff',
+            opacity: isPlayingDeck && playMode !== 'vi-zh' ? 0.6 : 1,
+            padding: '0.45rem 0.85rem',
+            fontSize: '0.85em',
+            fontWeight: 700,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            borderRadius: '6px',
+            border: 'none',
+            cursor: 'pointer'
+          }}
+          title={learningMode === 'zh' ? '自動翻卡：每張先播越文發音，再翻面播中文釋義' : 'Play 1x Vietnamese then 1x Chinese'}
+        >
+          {isPlayingDeck && playMode === 'vi-zh' ? <Pause size={14} /> : <Play size={14} />}
+          <span>
+            {isPlayingDeck && playMode === 'vi-zh'
+              ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
+              : (learningMode === 'zh' ? <>播放: 越+中</> : <>Play: Vi → Zh</>)}
+          </span>
+        </button>
+
+        {/* Mode 3: Vietnamese Only (純越文) */}
+        <button 
+          className={`control-btn play-full-btn ${isPlayingDeck && playMode === 'vi-only' ? 'playing' : ''}`}
+          onClick={() => handlePlayDeck('vi-only')}
+          style={{ 
+            background: isPlayingDeck && playMode === 'vi-only' ? 'var(--brand-primary)' : 'var(--brand-accent, #8b5cf6)', 
+            color: '#fff',
+            opacity: isPlayingDeck && playMode !== 'vi-only' ? 0.6 : 1,
+            padding: '0.45rem 0.85rem',
+            fontSize: '0.85em',
+            fontWeight: 700,
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            borderRadius: '6px',
+            border: 'none',
+            cursor: 'pointer'
+          }}
+          title={learningMode === 'zh' ? '沉浸式純越文單字連續聽力' : 'Vietnamese Only'}
+        >
+          {isPlayingDeck && playMode === 'vi-only' ? <Pause size={14} /> : <Play size={14} />}
+          <span>
+            {isPlayingDeck && playMode === 'vi-only'
+              ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
+              : (learningMode === 'zh' ? <>播放: 純越文</> : <>Play: Viet Only</>)}
+          </span>
+        </button>
+
+        {/* Speed Toggle Chips */}
+        <div className="speed-toggle-group" style={{ display: 'inline-flex', background: 'var(--bg-secondary)', borderRadius: '6px', padding: '2px', border: '1px solid var(--border-color)' }}>
+          <button 
+            className={`speed-chip ${playbackSpeed >= 0.85 ? 'active' : ''}`}
+            onClick={() => setPlaybackSpeed(0.9)}
+            style={{
+              background: playbackSpeed >= 0.85 ? 'var(--brand-accent)' : 'transparent',
+              color: playbackSpeed >= 0.85 ? '#fff' : 'var(--text-secondary)',
+              border: 'none',
+              padding: '0.25rem 0.55rem',
+              fontSize: '0.78em',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontWeight: 600
+            }}
+            title="正常語速"
+          >
+            1.0x
+          </button>
+          <button 
+            className={`speed-chip ${playbackSpeed < 0.85 ? 'active' : ''}`}
+            onClick={() => setPlaybackSpeed(0.7)}
+            style={{
+              background: playbackSpeed < 0.85 ? 'var(--brand-accent)' : 'transparent',
+              color: playbackSpeed < 0.85 ? '#fff' : 'var(--text-secondary)',
+              border: 'none',
+              padding: '0.25rem 0.55rem',
+              fontSize: '0.78em',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontWeight: 600
+            }}
+            title="慢速精讀"
+          >
+            0.75x
+          </button>
+        </div>
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>

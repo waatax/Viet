@@ -132,6 +132,28 @@ export const AlphabetModule = ({ selectedAccent }) => {
         </p>
       </div>
 
+      {/* 知識點 完整解釋: 6 Tones & Pronunciation */}
+      <div className="educational-block" style={{ background: 'var(--bg-accent)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', marginBottom: '2rem', borderLeft: '4px solid var(--brand-gold)' }}>
+        <h3 style={{ fontSize: '1.2em', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Compass size={20} color="var(--brand-gold)" />
+          {learningMode === 'zh' ? '核心知識點：6 聲調與發音法則' : 'Key Concepts: 6 Tones & Pronunciation Rules'}
+        </h3>
+        <div style={{ display: 'grid', gap: '1.5rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+          <div>
+            <h4 style={{ fontWeight: 700, color: 'var(--brand-accent)', marginBottom: '0.5rem' }}>1. {learningMode === 'zh' ? '為什麼聲調這麼重要？' : 'Why are Tones so Important?'}</h4>
+            <p>{learningMode === 'zh' ? '越南語是聲調語言，同一個拼音只要聲調不同，意思就完全不一樣！舉例來說，「ma」可以是「鬼」(平聲)、「媽媽」(銳聲)、「墳墓」(玄聲) 或「馬」(跌聲)。' : 'Vietnamese is a tonal language. Changing the tone changes the meaning entirely! For example, "ma" can mean "ghost" (level), "mother" (sharp), "tomb" (deep), or "horse" (tumbling).'}</p>
+          </div>
+          <div>
+            <h4 style={{ fontWeight: 700, color: 'var(--brand-accent)', marginBottom: '0.5rem' }}>2. {learningMode === 'zh' ? '南北越發音差異' : 'Northern vs Southern Accents'}</h4>
+            <p>{learningMode === 'zh' ? '北越 (河內) 區分全部 6 個聲調，發音字正腔圓，並帶有「聲門阻礙」(如跌聲跟重聲)。南越 (胡志明市) 則常將「問聲」(hỏi) 和「跌聲」(ngã) 合併發音，較為平滑。' : 'The North (Hanoi) clearly distinguishes all 6 tones, utilizing glottal stops for ngã and nặng. The South (Saigon) often merges the hỏi and ngã tones, sounding smoother.'}</p>
+            <div style={{ background: 'var(--bg-main)', padding: '0.75rem', borderRadius: '4px', marginTop: '0.5rem', fontSize: '0.9em', border: '1px solid var(--border-color)' }}>
+              <strong>{learningMode === 'zh' ? '發音訣竅：' : 'Pronunciation Tip: '}</strong> 
+              {learningMode === 'zh' ? '注意「跌聲」(~) 會在中間短暫停頓再往上升；「重聲」(.) 則是非常短促有力地下沉。' : 'Pay attention to the glottal stops. The "ngã" (~) tone drops briefly and rises sharply, while the "nặng" (.) tone is short, heavy, and drops abruptly.'}
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* 6 Tones Ear-Trainer Interactive Sandbox */}
       <div style={{
         marginBottom: '2.5rem',

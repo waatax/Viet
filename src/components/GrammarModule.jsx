@@ -94,6 +94,33 @@ export const GrammarModule = ({ selectedAccent, updateUserStats }) => {
         </p>
       </div>
 
+      {/* 知識點 完整解釋: SVO & Tense Markers */}
+      <div className="educational-block" style={{ background: 'var(--bg-accent)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', marginBottom: '2rem', borderLeft: '4px solid var(--brand-primary)' }}>
+        <h3 style={{ fontSize: '1.2em', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Sparkles size={20} color="var(--brand-primary)" />
+          {learningMode === 'zh' ? '核心知識點：SVO 語序與時態標記' : 'Key Concepts: SVO Structure & Tense Markers'}
+        </h3>
+        <div style={{ display: 'grid', gap: '1.5rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
+          <div>
+            <h4 style={{ fontWeight: 700, color: 'var(--brand-accent)', marginBottom: '0.5rem' }}>1. {learningMode === 'zh' ? 'SVO 基本語序 (主詞 + 動詞 + 受詞)' : 'SVO Basic Structure (Subject + Verb + Object)'}</h4>
+            <p>{learningMode === 'zh' ? '越南語與英文和中文一樣，基本語序為 SVO。最大的不同在於「修飾語後置」，例如名詞的形容詞必須放在名詞的「後面」。' : 'Vietnamese shares the SVO structure with English. The biggest difference is that adjectives and modifiers come AFTER the noun.'}</p>
+            <div style={{ background: 'var(--bg-main)', padding: '0.75rem', borderRadius: '4px', marginTop: '0.5rem', fontSize: '0.9em', border: '1px solid var(--border-color)' }}>
+              <strong>{learningMode === 'zh' ? '例：' : 'Ex: '}</strong>Tôi (I) + ăn (eat) + táo (apple).<br/>
+              <strong>{learningMode === 'zh' ? '修飾後置：' : 'Post-modifier: '}</strong>áo (shirt) + trắng (white) = áo trắng (white shirt).
+            </div>
+          </div>
+          <div>
+            <h4 style={{ fontWeight: 700, color: 'var(--brand-accent)', marginBottom: '0.5rem' }}>2. {learningMode === 'zh' ? '三大時態助詞 (đã / đang / sẽ)' : 'The 3 Main Tense Markers (đã / đang / sẽ)'}</h4>
+            <p>{learningMode === 'zh' ? '越南語的動詞不隨時態變形，而是透過在動詞前面加上時態助詞來表示過去、現在、未來。' : 'Vietnamese verbs do not conjugate. Instead, time is indicated by placing a tense marker BEFORE the verb.'}</p>
+            <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+              <li><strong style={{ color: 'var(--brand-primary)' }}>Đã</strong> + Verb: {learningMode === 'zh' ? '過去式 (已...)' : 'Past tense (did/has done)'}</li>
+              <li><strong style={{ color: 'var(--brand-green)' }}>Đang</strong> + Verb: {learningMode === 'zh' ? '現在進行式 (正在...)' : 'Present continuous (is doing)'}</li>
+              <li><strong style={{ color: 'var(--brand-gold)' }}>Sẽ</strong> + Verb: {learningMode === 'zh' ? '未來式 (將會...)' : 'Future tense (will do)'}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* 1. Grammar Rules Grid */}
       <div className="grid-cards" style={{ marginBottom: '2.5rem' }}>
         {grammarRules.map((rule, idx) => {

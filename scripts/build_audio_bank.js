@@ -262,6 +262,20 @@ if (situationalScenarios) {
     if (sc.vocab) {
       sc.vocab.forEach(v => addPhrase(v.viet));
     }
+    // Real menu dishes & items
+    if (sc.realMenu?.sections) {
+      sc.realMenu.sections.forEach(sec => {
+        sec.items?.forEach(item => {
+          if (item.nameVi) addPhrase(item.nameVi);
+        });
+      });
+    }
+    // City guides
+    if (sc.cityGuides?.regions) {
+      sc.cityGuides.regions.forEach(reg => {
+        if (reg.nameVi) addPhrase(reg.nameVi);
+      });
+    }
   });
 }
 

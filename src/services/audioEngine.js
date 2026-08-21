@@ -250,7 +250,10 @@ class AudioEngine {
     this.stop();
 
     const accent = options.accent || 'north';
-    const cleanedText = this.cleanText(rawText);
+    const lang = options.lang || 'vi';
+    
+    // For non-Vietnamese, skip text sanitization that removes Chinese
+    const cleanedText = lang === 'vi' ? this.cleanText(rawText) : rawText.trim();
     if (!cleanedText) return;
 
     const rate = options.rate || (accent === 'south' ? 1.04 : 0.96);
@@ -266,17 +269,19 @@ class AudioEngine {
 
     if (options.onStart) options.onStart();
 
-    // 1. Priority 0: Check Pre-Bundled Audio Bank with accent awareness
-    const manifestFile = this.resolveManifestFile(cleanedText, accent) || this.resolveManifestFile(rawText, accent);
+    // 1. Priority 0: Check Pre-Bundled Audio Bank with accent awareness (only for Vietnamese)
+    if (lang === 'vi') {
+      const manifestFile = this.resolveManifestFile(cleanedText, accent) || this.resolveManifestFile(rawText, accent);
 
-    if (manifestFile) {
-      const baseUrl = import.meta.env.BASE_URL || '/';
-      const audioPath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${manifestFile}`;
-      this.playLocalFile(audioPath, rate, options)
-        .catch(() => {
-          this.fallbackSpeech(cleanedText, rate, { ...options, accent });
-        });
-      return;
+      if (manifestFile) {
+        const baseUrl = import.meta.env.BASE_URL || '/';
+        const audioPath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${manifestFile}`;
+        this.playLocalFile(audioPath, rate, options)
+          .catch(() => {
+            this.fallbackSpeech(cleanedText, rate, { ...options, accent });
+          });
+        return;
+      }
     }
 
     // 2. Fallback: Web Speech API or Online Stream
@@ -374,13 +379,26 @@ class AudioEngine {
 
         const isSouth = options.accent === 'south';
         const utterance = new SpeechSynthesisUtterance(text);
-        utterance.lang = 'vi-VN';
-        utterance.rate = Math.min(Math.max(rate, 0.7), 1.3);
-        utterance.pitch = isSouth ? 1.08 : 0.98;
+        
+        let targetLang = 'vi-VN';
+        if (options.lang === 'zh') targetLang = 'zh-TW';
+        else if (options.lang === 'en') targetLang = 'en-US';
 
-        const vietVoice = this.getVietnameseVoice();
-        if (vietVoice) {
-          utterance.voice = vietVoice;
+        utterance.lang = targetLang;
+        utterance.rate = Math.min(Math.max(rate, 0.7), 1.3);
+        utterance.pitch = isSouth && targetLang === 'vi-VN' ? 1.08 : 0.98;
+
+        if (targetLang === 'vi-VN') {
+          const vietVoice = this.getVietnameseVoice();
+          if (vietVoice) {
+            utterance.voice = vietVoice;
+          }
+        } else {
+          const voices = this.synth.getVoices() || [];
+          const voice = voices.find(v => v.lang.startsWith(options.lang === 'zh' ? 'zh' : 'en'));
+          if (voice) {
+            utterance.voice = voice;
+          }
         }
 
         utterance.onend = () => {
@@ -409,7 +427,8 @@ class AudioEngine {
     return new Promise((resolve, reject) => {
       try {
         const encodedText = encodeURIComponent(text.slice(0, 200));
-        const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=vi&client=tw-ob&q=${encodedText}`;
+        const tl = options.lang === 'zh' ? 'zh-TW' : (options.lang === 'en' ? 'en-US' : 'vi');
+        const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${tl}&client=tw-ob&q=${encodedText}`;
 
         let audio = this.audioCache.get(audioUrl);
         if (!audio) {
@@ -656,6 +675,197 @@ class AudioEngine {
 
     } catch (e) {
       console.warn('Web Audio pitch synth failed:', e);
+    }
+  }
+
+  /**
+   * Play a crystal-clear pleasant success chime (Web Audio synthesis)
+   */
+  playSuccessChime() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      if (!this.audioCtx || this.audioCtx.state === 'closed') {
+        this.audioCtx = new AudioContext();
+      }
+      if (this.audioCtx.state === 'suspended') this.audioCtx.resume();
+
+      const ctx = this.audioCtx;
+      const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+      const now = ctx.currentTime;
+
+      notes.forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + i * 0.07);
+
+        gain.gain.setValueAtTime(0.001, now + i * 0.07);
+        gain.gain.exponentialRampToValueAtTime(0.18, now + i * 0.07 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.07 + 0.35);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now + i * 0.07);
+        osc.stop(now + i * 0.07 + 0.36);
+      });
+    } catch (e) {
+      // Audio SFX fallback
+    }
+  }
+
+  /**
+   * Play dynamic combo pitch sound based on current combo count
+   */
+  playComboSound(combo = 1) {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      if (!this.audioCtx || this.audioCtx.state === 'closed') {
+        this.audioCtx = new AudioContext();
+      }
+      if (this.audioCtx.state === 'suspended') this.audioCtx.resume();
+
+      const ctx = this.audioCtx;
+      const baseFreq = 440; // A4
+      const pitchMultiplier = Math.min(Math.pow(1.08, combo - 1), 2.2);
+      const freq = baseFreq * pitchMultiplier;
+      const now = ctx.currentTime;
+
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, now);
+      osc.frequency.exponentialRampToValueAtTime(freq * 1.25, now + 0.15);
+
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.exponentialRampToValueAtTime(0.2, now + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.28);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.3);
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  /**
+   * Play exciting level-up fanfare chord
+   */
+  playLevelUpFanfare() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      if (!this.audioCtx || this.audioCtx.state === 'closed') {
+        this.audioCtx = new AudioContext();
+      }
+      if (this.audioCtx.state === 'suspended') this.audioCtx.resume();
+
+      const ctx = this.audioCtx;
+      const chords = [
+        { freqs: [523.25, 659.25, 783.99], time: 0, dur: 0.18 }, // C major
+        { freqs: [587.33, 739.99, 880.00], time: 0.20, dur: 0.18 }, // D major
+        { freqs: [659.25, 830.61, 987.77], time: 0.40, dur: 0.18 }, // E major
+        { freqs: [783.99, 987.77, 1046.50, 1318.51], time: 0.60, dur: 0.65 } // G-C major triumphal
+      ];
+
+      const now = ctx.currentTime;
+      chords.forEach(({ freqs, time, dur }) => {
+        freqs.forEach(f => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(f, now + time);
+
+          gain.gain.setValueAtTime(0.001, now + time);
+          gain.gain.exponentialRampToValueAtTime(0.15, now + time + 0.03);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + time + dur);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start(now + time);
+          osc.stop(now + time + dur + 0.05);
+        });
+      });
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  /**
+   * Play achievement badge unlock sparkle
+   */
+  playBadgeUnlockSound() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      if (!this.audioCtx || this.audioCtx.state === 'closed') {
+        this.audioCtx = new AudioContext();
+      }
+      if (this.audioCtx.state === 'suspended') this.audioCtx.resume();
+
+      const ctx = this.audioCtx;
+      const notes = [659.25, 830.61, 987.77, 1318.51, 1661.22, 1975.53]; // E major glitter
+      const now = ctx.currentTime;
+
+      notes.forEach((freq, i) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, now + i * 0.05);
+
+        gain.gain.setValueAtTime(0.001, now + i * 0.05);
+        gain.gain.exponentialRampToValueAtTime(0.16, now + i * 0.05 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + i * 0.05 + 0.4);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(now + i * 0.05);
+        osc.stop(now + i * 0.05 + 0.42);
+      });
+    } catch (e) {
+      // ignore
+    }
+  }
+
+  /**
+   * Play gentle encouraging try-again sound
+   */
+  playGentleError() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      if (!this.audioCtx || this.audioCtx.state === 'closed') {
+        this.audioCtx = new AudioContext();
+      }
+      if (this.audioCtx.state === 'suspended') this.audioCtx.resume();
+
+      const ctx = this.audioCtx;
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(320, now);
+      osc.frequency.exponentialRampToValueAtTime(220, now + 0.22);
+
+      gain.gain.setValueAtTime(0.001, now);
+      gain.gain.exponentialRampToValueAtTime(0.12, now + 0.03);
+      gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.25);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.26);
+    } catch (e) {
+      // ignore
     }
   }
 

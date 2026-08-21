@@ -21,6 +21,11 @@
     100% { box-shadow: 0 0 15px rgba(5, 150, 105, 0.4); }
 }
 
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
 .shake-error {
     animation: shakeError 0.4s cubic-bezier(.36,.07,.19,.97) both;
     border-color: var(--brand-primary) !important;
@@ -73,7 +78,7 @@
 
   --text-primary: #0f172a;
   --text-secondary: #334155;
-  --text-muted: #64748b;
+  --text-muted: #475569; /* Darkened from #64748b for AAA contrast */
   --text-inverse: #ffffff;
 
   --border-color: #e2e8f0;
@@ -81,22 +86,22 @@
   --border-highlight: #cbd5e1;
   --border-focus: #3b82f6;
 
-  /* Japanese Wairo + Vietnam Flag Accents */
+  /* Japanese Wairo + Vietnam Flag Accents (Cycle 1 Polish) */
   --brand-primary: #da251c;   /* 緋色 (Hiiro) / Vietnam Red */
   --brand-primary-rgb: 218, 37, 28;
-  --brand-gold: #d97706;      /* ?��? (Kohaku) / Warm Gold */
+  --brand-gold: #d97706;      /* ?? (Kohaku) / Warm Gold */
   --brand-gold-rgb: 217, 119, 6;
   --brand-accent: #2563eb;    /* 浅葱 / ??(Asagi/Ai) / Modern Royal Blue */
   --brand-accent-rgb: 37, 99, 235;
-  --brand-green: #059669;     /* ?��? (Matsuba) / Jade Emerald */
-  --brand-purple: #7c3aed;    /* ?�紫 (Fujimurasaki) */
+  --brand-green: #059669;     /* ?? (Matsuba) / Jade Emerald */
+  --brand-purple: #7c3aed;    /* ?�?(Fujimurasaki) */
   --brand-teal: #0891b2;
 
   /* Shadows - Organic Soft Washi Paper Elevation */
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
-  --card-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.03);
-  --card-shadow-hover: 0 14px 34px -4px rgba(15, 23, 42, 0.09), 0 4px 12px rgba(15, 23, 42, 0.04);
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --card-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --card-shadow-hover: 0 16px 36px -4px rgba(15, 23, 42, 0.1), 0 6px 14px rgba(15, 23, 42, 0.05);
   
   --glass-bg: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(255, 255, 255, 0.6);
@@ -105,10 +110,10 @@
 }
 
 /* ==========================================================================
-   Theme 2: Dark Mode (漆�? Shikkoku & �?Sumi)
+   Theme 2: Dark Mode (�? Shikkoku & ?Sumi)
    ========================================================================== */
 [data-theme="dark"] {
-  --bg-main: #0a0e17;
+  --bg-main: #0a0e17; /* Cycle 1: Deep aesthetic */
   --bg-subtle: #0f1523;
   --bg-header: rgba(10, 14, 23, 0.88);
   --bg-card: #131926;
@@ -119,7 +124,7 @@
 
   --text-primary: #f8fafc;
   --text-secondary: #cbd5e1;
-  --text-muted: #8295b3;
+  --text-muted: #94a3b8; /* Enhanced a11y contrast (Cycle 6) */
   --text-inverse: #0a0e17;
 
   --border-color: rgba(255, 255, 255, 0.08);
@@ -142,7 +147,7 @@
   --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.4);
   --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.5);
   --card-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
-  --card-shadow-hover: 0 18px 40px -6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(96, 165, 250, 0.12);
+  --card-shadow-hover: 0 18px 40px -6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(96, 165, 250, 0.15);
 
   --glass-bg: rgba(19, 25, 38, 0.85);
   --glass-border: rgba(255, 255, 255, 0.08);
@@ -156,7 +161,7 @@
 [data-font-size="large"] { --font-scale: 1.12; }
 [data-font-size="xlarge"] { --font-scale: 1.24; }
 
-/* Base Reset & Typography Standards */
+/* Base Reset & Typography Standards (Cycle 2) */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -174,8 +179,10 @@ body {
   font-family: var(--font-family);
   font-size: var(--base-font-size);
   background-color: var(--bg-main);
+  background-image: radial-gradient(circle at top right, rgba(var(--brand-accent-rgb), 0.02) 0%, transparent 40%);
   color: var(--text-primary);
-  line-height: 1.68;
+  line-height: 1.7; /* Cycle 2: Improved line height for readability */
+  letter-spacing: 0.015em; /* Cycle 2: Better kerning */
   min-height: 100vh;
   transition: background-color var(--transition-normal), color var(--transition-normal);
   overflow-x: hidden;
@@ -187,6 +194,13 @@ body {
   flex-direction: column;
   min-height: 100vh;
   position: relative;
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 }
 
 /* ==========================================================================
@@ -230,6 +244,7 @@ body {
   align-items: center;
   gap: 0.35rem;
   overflow: visible;
+  flex-wrap: wrap;
 }
 
 /* Brand Logo */
@@ -639,40 +654,42 @@ body {
 }
 
 /* ==========================================================================
-   Cards & Grid Layout
+   Cards & Grid Layout (Cycles 3 & 5: Spacing and Touch Targets)
    ========================================================================== */
 .grid-cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 1.35rem;
+  gap: 1.5rem; /* Cycle 3: Increased gap for breathing room */
 }
 
 .learning-card {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.6rem; /* Cycle 3: Increased padding */
   box-shadow: var(--card-shadow);
-  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  transition: transform var(--transition-bounce), box-shadow var(--transition-bounce), border-color var(--transition-normal);
   display: flex;
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  min-height: 44px; /* Cycle 5: Touch target standard */
 }
 
-.learning-card:hover {
-  transform: translateY(-3.5px);
+.learning-card:hover, .learning-card:focus-within {
+  transform: translateY(-4px) scale(1.015); /* Cycle 4: Micro-interaction scale */
   box-shadow: var(--card-shadow-hover);
   border-color: var(--border-highlight);
+  outline: none; /* Cycle 6: A11y focus management handled by focus-within */
 }
 
 .simulator-box {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
-  padding: 1.75rem;
+  padding: 1.85rem; /* Cycle 3: More breathing room */
   box-shadow: var(--card-shadow);
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
 }
 
 /* Character & Tone Typography */
@@ -2765,6 +2782,200 @@ p, li, h1, h2, h3, strong, small, span {
   border-radius: var(--radius-lg);
 }
 
+.vocab-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 0.85rem;
+}
+
+.vocab-card-item {
+  min-width: 0;
+  padding: 1rem;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.vocab-card-item.playing-card {
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(var(--brand-accent-rgb), 0.12);
+}
+
+.vocab-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.vocab-viet { color: var(--brand-accent); font-size: 1.12rem; font-weight: 850; }
+.vocab-phonetic { color: var(--brand-primary); font-size: 0.78rem; font-weight: 700; }
+.vocab-meaning { margin-top: 0.35rem; color: var(--text-secondary); }
+.vocab-note { margin-top: 0.65rem; color: var(--text-muted); font-size: 0.78rem; }
+
+.speaker-btn.mini-btn,
+.opt-speaker-btn {
+  min-width: var(--touch-target);
+  min-height: var(--touch-target);
+}
+
+.cultural-tips-card-wrapper {
+  padding: clamp(1rem, 2vw, 1.75rem);
+  background: linear-gradient(145deg, var(--bg-card), var(--bg-accent));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.cultural-tips-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.cultural-tip-item,
+.protip-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.protip-box {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  color: var(--text-secondary);
+  background: color-mix(in srgb, var(--brand-gold) 10%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, var(--brand-gold) 35%, var(--border-color));
+  border-radius: var(--radius-md);
+}
+
+.roleplay-progress-track {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.step-dot {
+  flex: 1;
+  height: 6px;
+  background: var(--border-highlight);
+  border-radius: 999px;
+}
+
+.step-dot.current { background: var(--brand-accent); }
+.step-dot.done { background: var(--brand-green); }
+
+.roleplay-bubble {
+  margin-bottom: 1rem;
+  padding: clamp(1rem, 2vw, 1.35rem);
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--brand-accent);
+  border-radius: var(--radius-lg);
+}
+
+.bubble-playing-active {
+  box-shadow: 0 0 0 3px rgba(var(--brand-accent-rgb), 0.13);
+}
+
+.bubble-header,
+.opt-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.7rem;
+}
+
+.speaker-name,
+.turn-label {
+  font-weight: 800;
+}
+
+.turn-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.bubble-text-vi {
+  margin-top: 0.75rem;
+  color: var(--text-primary);
+  font-size: 1.16rem;
+  font-weight: 800;
+}
+
+.bubble-text-trans,
+.opt-trans {
+  margin-top: 0.25rem;
+  color: var(--text-muted);
+  font-size: 0.86rem;
+}
+
+.user-turn-container {
+  padding: clamp(1rem, 2vw, 1.35rem);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
+.user-turn-header {
+  justify-content: space-between;
+}
+
+.speech-result-pill {
+  margin-top: 0.8rem;
+  padding: 0.7rem 0.9rem;
+  color: var(--brand-accent);
+  background: var(--bg-accent);
+  border-radius: var(--radius-sm);
+}
+
+.roleplay-opt-card {
+  min-height: 68px;
+}
+
+.opt-content {
+  min-width: 0;
+  text-align: left;
+}
+
+.opt-viet {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.opt-speaker-btn {
+  display: grid;
+  place-items: center;
+  color: var(--brand-accent);
+  background: var(--bg-accent);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.roleplay-feedback-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.roleplay-feedback-banner.success { background: color-mix(in srgb, var(--brand-green) 11%, var(--bg-card)); }
+.roleplay-feedback-banner.error { background: color-mix(in srgb, var(--brand-primary) 10%, var(--bg-card)); }
+
+.roleplay-completed-banner {
+  padding: clamp(2rem, 5vw, 4rem);
+  text-align: center;
+  background: linear-gradient(145deg, var(--bg-card), var(--bg-accent));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+}
+
 .trophy-glow { font-size: clamp(2.8rem, 7vw, 5rem); }
 .completed-desc { max-width: 46rem; margin: 0.75rem auto 1.5rem; color: var(--text-secondary); }
 .completed-actions { justify-content: center; }
@@ -2798,13 +3009,19 @@ p, li, h1, h2, h3, strong, small, span {
   .dialogue-toolbar,
   .toolbar-left,
   .toolbar-right,
-  .play-full-btn,
-  .toggle-trans-btn {
+  .toggle-trans-btn,
+  .speed-toggle-group {
     width: 100%;
   }
 
-  .speed-toggle-group {
-    width: 100%;
+  .play-full-btn {
+    flex: 1;
+    min-width: 130px;
+    justify-content: center;
+  }
+
+  .hide-mobile {
+    display: none !important;
   }
 
   .speed-chip {
@@ -2842,4 +3059,20 @@ p, li, h1, h2, h3, strong, small, span {
   align-items: center;
   gap: 0.4rem;
   font-size: 0.82rem;
+}
+
+/* MOBILE OPTIMIZATIONS BY EXPERT TEAM */
+@media (max-width: 768px) {
+  .comparison-table-wrapper { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; display: block; }
+  .comparison-table { min-width: 600px; }
+  .app-container { font-size: 14px; }
+  button { min-height: 44px; } /* Touch targets */
+  .grid-cards, .banknote-grid, .scenario-workspace-grid { grid-template-columns: 1fr !important; }
+  .learning-card { padding: 1rem; }
+  .nav-tabs { flex-wrap: wrap; justify-content: center; }
+  .nav-btn { flex: 1 1 45%; text-align: center; margin-bottom: 0.5rem; }
+}
+
+@media (max-width: 768px) {
+  table.comparison-table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; width: 100%; }
 }

@@ -252,6 +252,47 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
         </p>
       </div>
 
+      {/* Deep Cultural Educational Block */}
+      <div className="simulator-box" style={{ background: 'linear-gradient(135deg, var(--bg-card) 0%, rgba(16, 185, 129, 0.05) 100%)', borderLeft: '4px solid var(--brand-green)', marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem' }}>
+          <BookOpen size={22} color="var(--brand-green)" />
+          <h3 style={{ fontSize: '1.25em', fontWeight: 800 }}>
+            {learningMode === 'zh' ? '💡 知識點 完整解釋：年齡階級與社會距離 (Cultural Insight: Age & Hierarchy)' : '💡 Comprehensive Knowledge: Age Hierarchy & Social Distance'}
+          </h3>
+        </div>
+        <div style={{ fontSize: '0.95em', color: 'var(--text-primary)', lineHeight: 1.7 }}>
+          {learningMode === 'zh' ? (
+            <>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>為什麼沒有簡單的「你」和「我」？</strong><br/>
+                在越南文化中，語言反映了深刻的儒家思想和家庭觀念。越南人認為，整個社會就是一個「大家庭」。因此，與人交談時，第一步永遠是<strong>「判斷對方的年齡和性別」</strong>，然後將對方套入家庭關係中（例如：哥哥、姐姐、叔叔、阿姨）。
+              </p>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>🎭 鏡像對稱的自稱與尊稱：</strong><br/>
+                當你稱呼對方為「Anh（哥哥）」時，你必須自稱為「Em（弟弟/妹妹）」。這種<strong>相對關係</strong>是越南語的核心。你的稱謂不是固定的，而是隨著對話者的不同而隨時改變。這展現了越南文化中對「長幼尊卑」的極度重視。
+              </p>
+              <p style={{ margin: 0, padding: '0.75rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--brand-green)' }}>
+                <strong>🌟 社交破冰秘訣：</strong> 當你不確定對方的年紀時，通常會先稱呼對方為 <strong>「Anh」</strong> (男) 或 <strong>「Chị」</strong> (女)，表示把對方當作兄姐般尊敬。這種「把對方叫老一點點、叫尊貴一點點」的策略，是越南社交中最安全且禮貌的做法。
+              </p>
+            </>
+          ) : (
+            <>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>Why is there no simple "You" and "I"?</strong><br/>
+                In Vietnamese culture, language deeply reflects Confucian values and family-centric concepts. The society is viewed as one "extended family." Thus, the very first step in any conversation is to <strong>determine the other person's age and gender</strong>, and then apply the appropriate family kinship term (e.g., older brother, older sister, uncle, aunt).
+              </p>
+              <p style={{ marginBottom: '0.75rem' }}>
+                <strong>🎭 Mirror-Symmetric Pronouns:</strong><br/>
+                When you address someone as "Anh" (Older Brother), you must refer to yourself as "Em" (Younger Sibling). This <strong>relative relationship</strong> is the core of Vietnamese pronouns. Your pronoun isn't fixed; it changes dynamically depending on who you are talking to, illustrating the extreme importance placed on hierarchy and respect for elders.
+              </p>
+              <p style={{ margin: 0, padding: '0.75rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--brand-green)' }}>
+                <strong>🌟 Ice-breaking Tip:</strong> When you are unsure of someone's age, the safest and most polite strategy is to address them as <strong>"Anh"</strong> (for male) or <strong>"Chị"</strong> (for female). Slightly "elevating" their age and status shows respect and is the golden rule in Vietnamese social etiquette.
+              </p>
+            </>
+          )}
+        </div>
+      </div>
+
       {/* Interactive Situational Challenge */}
       <div style={{
         marginBottom: '2.5rem',

@@ -2,108 +2,11 @@ import React, { useEffect, useState, useRef } from 'react';
 import {
   Sun, Moon, Type, Flame, Trophy, Globe, Volume2, Menu, X,
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
-  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, ChevronDown, Settings2, Star
+  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, ChevronDown, Settings2, Star, Mic, Puzzle, Music, Zap, Brain, LifeBuoy, Award
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
-
-/* Icon registry used by the grouped navigation config */
-const ICON_MAP = {
-  Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
-  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked
-};
-
-/*
- * Grouped navigation structure.
- * AccentModule is placed under 'advanced' as supplementary content —
- * dialect differences are important but not the main learning track.
- */
-const NAV_GROUPS = [
-  {
-    id: 'dashboard',
-    items: [{ id: 'path', labelKey: 'tabs.path', icon: Map }]
-  },
-  {
-    id: 'basics',
-    labelKey: 'tabs.groupBasics',
-    items: [
-      { id: 'alphabet', labelKey: 'tabs.alphabet', icon: Languages },
-      { id: 'pronoun', labelKey: 'tabs.pronoun', icon: UsersRound }
-    ]
-  },
-  {
-    id: 'conv',
-    labelKey: 'tabs.groupConversation',
-    items: [
-      { id: 'phrases', labelKey: 'tabs.phrases', icon: MessageSquareText },
-      { id: 'conversation', labelKey: 'tabs.conversation', icon: MessagesSquare }
-    ]
-  },
-  {
-    id: 'practice',
-    labelKey: 'tabs.groupPractice',
-    items: [
-      { id: 'flashcards', labelKey: 'tabs.flashcards', icon: Layers3 },
-      { id: 'grammar', labelKey: 'tabs.grammar', icon: BookOpenText },
-      { id: 'quiz', labelKey: 'tabs.quiz', icon: BadgeCheck }
-    ]
-  },
-  {
-    id: 'advanced',
-    labelKey: 'tabs.groupAdvanced',
-    items: [
-      { id: 'hanviet', labelKey: 'tabs.hanviet', icon: BookOpenText },
-      { id: 'shopping', labelKey: 'tabs.shopping', icon: ShoppingBag },
-      { id: 'accent', labelKey: 'tabs.accent', icon: BookMarked }
-    ]
-  }
-];
-
-/* Dropdown sub-menu for grouped navigation */
-const NavGroup = ({ group, activeTab, setActiveTab, t }) => {
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
-
-  // Close on outside click
-  useEffect(() => {
-    const handler = (e) => { if (ref.current && !ref.current.contains(e.target)) setOpen(false); };
-    if (open) document.addEventListener('pointerdown', handler);
-    return () => document.removeEventListener('pointerdown', handler);
-  }, [open]);
-
-  const groupActive = group.items.some(item => item.id === activeTab);
-
-  return (
-    <div className={`nav-group ${open ? 'is-open' : ''}`} ref={ref}>
-      <button
-        className={`nav-group-trigger ${groupActive ? 'active' : ''}`}
-        onClick={() => setOpen(o => !o)}
-        aria-expanded={open}
-      >
-        <span>{t(group.labelKey)}</span>
-        <ChevronDown size={14} className={`chevron ${open ? 'rotated' : ''}`} />
-      </button>
-      {open && (
-        <div className="nav-group-dropdown">
-          {group.items.map(({ id, labelKey, icon: Icon }) => (
-            <button
-              key={id}
-              className={`dropdown-item ${activeTab === id ? 'active' : ''}`}
-              onClick={() => { setActiveTab(id); setOpen(false); }}
-              role="tab"
-              aria-selected={activeTab === id}
-            >
-              <Icon size={16} strokeWidth={2} aria-hidden="true" />
-              <span>{t(labelKey)}</span>
-              {/* Visual marker for supplementary dialect content */}
-              {id === 'accent' && <span className="supplement-badge">{t('tabs.groupAdvanced').includes('進') ? '補充' : 'Suppl.'}</span>}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
+import { NAV_GROUPS } from '../config/navigation';
 
 export const Navbar = ({
   theme,
@@ -114,7 +17,8 @@ export const Navbar = ({
   setActiveTab,
   userStats,
   selectedAccent,
-  setSelectedAccent
+  setSelectedAccent,
+  onOpenAchievements
 }) => {
   const { learningMode, toggleLearningMode, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -126,10 +30,8 @@ export const Navbar = ({
 
   const renderNavItems = () => (
     <>
-      {NAV_GROUPS.map(group => {
-        // Dashboard is rendered as a standalone tab button
-        if (group.id === 'dashboard') {
-          const item = group.items[0];
+      {NAV_GROUPS.flatMap(group => 
+        group.items.map(item => {
           const Icon = item.icon;
           return (
             <button
@@ -138,23 +40,14 @@ export const Navbar = ({
               onClick={() => setActiveTab(item.id)}
               role="tab"
               aria-selected={activeTab === item.id}
+              title={group.labelKey ? `${t(group.labelKey)} - ${t(item.labelKey)}` : t(item.labelKey)}
             >
               <Icon size={17} strokeWidth={2} aria-hidden="true" />
               <span>{t(item.labelKey)}</span>
             </button>
           );
-        }
-        // Other groups rendered as dropdown menus
-        return (
-          <NavGroup
-            key={group.id}
-            group={group}
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-            t={t}
-          />
-        );
-      })}
+        })
+      )}
     </>
   );
 
@@ -178,7 +71,25 @@ export const Navbar = ({
           </div>
 
           <div className="nav-mobile-actions">
-            <span className="mobile-xp"><Trophy size={15} /> {userStats.xp}</span>
+            <button
+              className="mobile-xp-btn"
+              onClick={onOpenAchievements}
+              style={{
+                background: 'rgba(234,179,8,0.15)',
+                border: '1px solid var(--brand-gold)',
+                borderRadius: 'var(--radius-full)',
+                padding: '0.3rem 0.65rem',
+                color: 'var(--brand-gold)',
+                fontWeight: 800,
+                fontSize: '0.82rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.3rem',
+                cursor: 'pointer'
+              }}
+            >
+              <Trophy size={14} /> {userStats.xp}
+            </button>
             <button
               className="icon-control"
               onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}
@@ -207,16 +118,30 @@ export const Navbar = ({
             </div>
 
             <div className="controls-group">
-              <span className="control-btn stat-pill level-pill" title="Current Level"><Star size={16} /> Lv. {currentLevel}</span>
+              <button
+                className="control-btn stat-pill level-pill"
+                onClick={onOpenAchievements}
+                title={learningMode === 'zh' ? '查看成就與等級進度' : 'View Achievements & Level'}
+                style={{ cursor: 'pointer', border: 'none' }}
+              >
+                <Star size={16} /> Lv. {currentLevel}
+              </button>
               <span className="control-btn stat-pill streak-pill" title="連續學習天數"><Flame size={16} /> {userStats.streak} {t('days')}</span>
-              <div className="stat-pill xp-pill-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--bg-accent)', padding: '0.2rem 0.5rem', borderRadius: 'var(--radius-md)' }}>
-                <span className="xp-pill-text" title="累積學習經驗值" style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85em', fontWeight: 'bold' }}>
+              <button
+                className="stat-pill xp-pill-container"
+                onClick={onOpenAchievements}
+                title={learningMode === 'zh' ? '查看成就勳章展示櫃' : 'Open Achievements Showcase'}
+                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--bg-accent)', padding: '0.2rem 0.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', cursor: 'pointer' }}
+              >
+                <span className="xp-pill-text" title="累積學習經驗值" style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85em', fontWeight: 'bold', color: 'var(--brand-gold)' }}>
                   <Trophy size={14} /> {userStats.xp} {t('xp')}
                 </span>
-                <div className="xp-progress-bar" style={{ width: '100%', height: '4px', background: 'var(--bg-primary)', borderRadius: '2px', marginTop: '2px', overflow: 'hidden' }}>
-                  <div className="xp-progress-fill" style={{ width: `${progressPercent}%`, height: '100%', background: 'var(--brand-gold)' }}></div>
+                <div className="xp-progress-bar" style={{ width: '100%', height: '4px', background: 'var(--bg-main)', borderRadius: '2px', marginTop: '2px', overflow: 'hidden' }}>
+                  <div className="xp-progress-fill" style={{ width: `${progressPercent}%`, height: '100%', background: 'var(--brand-gold)', transition: 'width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', position: 'relative' }}>
+                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)', animation: 'shimmer 2s infinite' }} />
+                  </div>
                 </div>
-              </div>
+              </button>
               <div className="font-size-selector" aria-label={t('fontSize')}>
                 <Type size={14} aria-hidden="true" />
                 {['small', 'normal', 'large', 'xlarge'].map((size, index) => (
