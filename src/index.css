@@ -94,7 +94,7 @@
   --brand-accent: #2563eb;    /* æµ…è‘± / ??(Asagi/Ai) / Modern Royal Blue */
   --brand-accent-rgb: 37, 99, 235;
   --brand-green: #059669;     /* ?? (Matsuba) / Jade Emerald */
-  --brand-purple: #7c3aed;    /* ?ç´?(Fujimurasaki) */
+  --brand-purple: #7c3aed;    /* ?ï¿½?(Fujimurasaki) */
   --brand-teal: #0891b2;
 
   /* Shadows - Organic Soft Washi Paper Elevation */
@@ -110,7 +110,7 @@
 }
 
 /* ==========================================================================
-   Theme 2: Dark Mode (æ¼? Shikkoku & ?Sumi)
+   Theme 2: Dark Mode (ï¿½? Shikkoku & ?Sumi)
    ========================================================================== */
 [data-theme="dark"] {
   --bg-main: #0a0e17; /* Cycle 1: Deep aesthetic */
@@ -196,11 +196,9 @@ body {
   position: relative;
 }
 
-@media (min-width: 1024px) {
-  .app-container {
-    flex-direction: row;
-    align-items: flex-start;
-  }
+/* Desktop Full Width Layout */
+.app-container {
+  width: 100%;
 }
 
 /* ==========================================================================
