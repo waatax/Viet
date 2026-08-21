@@ -143,10 +143,10 @@ export const RESEARCH_PANELS = [
       {
         nameZh: '真實生活情境生存語用 (High-Utility Survival Pragmatics)',
         nameEn: 'High-Utility Survival Pragmatics',
-        descZh: '聚焦越南街頭、市場、咖啡館、計程車與商務談判最高頻的 22 大真實場景，讓學習者學完當天就能實戰運用。',
-        descEn: 'Focuses on 22 authentic everyday scenarios: street food, bargaining, Grab rides, hotel, and trade.',
-        appZh: '落實於「22 大實戰情境角色扮演」與「生活急救錦囊」。',
-        appEn: 'Applied in the 22 Situational Scenarios, Role-Play, and Emergency Kit.'
+        descZh: '聚焦越南街頭、市場、咖啡館、計程車與商務談判最高頻的 26 大真實場景，讓學習者學完當天就能實戰運用。',
+        descEn: 'Focuses on 26 authentic everyday scenarios: street food, bargaining, Grab rides, hotel, and trade.',
+        appZh: '落實於「26 大實戰情境角色扮演」與「生活急救錦囊」。',
+        appEn: 'Applied in the 26 Situational Scenarios, Role-Play, and Emergency Kit.'
       }
     ]
   }
@@ -408,7 +408,7 @@ export const ScientificMethodModule = () => {
                 4. 情境產出 (Active Production)
               </h4>
               <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                在 22 大情境角色扮演、句子重組與 SM-2 間隔重複中進行主動提取，將短期記憶轉化為肌肉直覺反射。
+                在 26 大情境角色扮演、句子重組與 SM-2 間隔重複中進行主動提取，將短期記憶轉化為肌肉直覺反射。
               </p>
             </div>
           </div>

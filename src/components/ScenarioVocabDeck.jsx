@@ -14,7 +14,7 @@ export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
   const isPlayingFullRef = useRef(false);
   const timerRef = useRef(null);
 
-  const vocabList = scenario.vocab || [];
+  const vocabList = scenario.vocab || scenario.vocabulary || [];
 
   useEffect(() => {
     const unsubscribe = audioEngine.subscribe((state) => {
@@ -48,11 +48,12 @@ export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
 
     setActiveVocabIndex(index);
     const item = listToPlay[index];
+    const vietText = item.viet || item.vi;
     const nativeText = learningMode === 'zh' ? item.zh : item.en;
     const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
 
     if (currentPlayMode === 'vi-only') {
-      audioEngine.speak(item.viet, {
+      audioEngine.speak(vietText, {
         accent: selectedAccent,
         lang: 'vi',
         rate: speed,
@@ -80,7 +81,7 @@ export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
           }
         });
       } else {
-        audioEngine.speak(item.viet, {
+        audioEngine.speak(vietText, {
           accent: selectedAccent,
           lang: 'vi',
           rate: speed,
@@ -97,7 +98,7 @@ export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
     } else {
       // 'vi-zh': 1次越文 -> 1次中文 (Vietnamese first, then Chinese)
       if (part === 'first') {
-        audioEngine.speak(item.viet, {
+        audioEngine.speak(vietText, {
           accent: selectedAccent,
           lang: 'vi',
           rate: speed,
@@ -292,23 +293,25 @@ export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
 
       <div className="vocab-cards-grid">
         {vocabList.map((item, idx) => {
-          const itemKey = `vocab_${idx}_${item.viet}`;
-          const isPlaying = activeKey === itemKey || activeKey === item.viet || activeVocabIndex === idx;
+          const vietText = item.viet || item.vi;
+          const itemKey = `vocab_${idx}_${vietText}`;
+          const isPlaying = activeKey === itemKey || activeKey === vietText || activeVocabIndex === idx;
+          const phoneticText = item.phonetic || item.ipa;
           return (
             <div key={idx} className={`vocab-card-item ${isPlaying ? 'playing-card' : ''}`}>
               <div className="vocab-card-top">
-                <div className="vocab-viet">{item.viet}</div>
+                <div className="vocab-viet">{vietText}</div>
                 <button 
                   className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`} 
-                  onClick={() => handlePlayVocab(item.viet, itemKey)}
+                  onClick={() => handlePlayVocab(vietText, itemKey)}
                   title="播放單字發音"
                 >
                   <Volume2 size={15} />
                 </button>
               </div>
 
-              {item.phonetic && (
-                <div className="vocab-phonetic">{item.phonetic}</div>
+              {phoneticText && (
+                <div className="vocab-phonetic">{phoneticText}</div>
               )}
 
               <div className="vocab-meaning">

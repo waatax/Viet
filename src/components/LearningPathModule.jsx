@@ -70,7 +70,7 @@ export const LearningPathModule = ({ setActiveTab }) => {
     { id: 'science', icon: Brain, titleZh: '科學方法研究', titleEn: 'Science & SLA', descZh: '5 大跨學科學習體系', descEn: '5-Discipline SLA Hub', tone: 'purple' },
     { id: 'emergency', icon: LifeBuoy, titleZh: '生活急救錦囊', titleEn: 'Survival Audio Kit', descZh: '街頭出差一鍵出聲', descEn: 'Instant Tap-to-Speak', tone: 'red' },
     { id: 'alphabet', icon: AudioLines, titleZh: '發音聲調打底', titleEn: 'Sounds & Tones', descZh: '29 字母與 6 聲調', descEn: '29 letters & 6 tones', tone: 'blue' },
-    { id: 'conversation', icon: MessagesSquare, titleZh: '22大情境對話', titleEn: '22 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
+    { id: 'conversation', icon: MessagesSquare, titleZh: '26大情境對話', titleEn: '26 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
     { id: 'hanviet', icon: BookOpen, titleZh: '漢越同源字根', titleEn: 'Han-Viet Roots', descZh: '百大字根倍速記詞', descEn: '100 Core cognate roots', tone: 'purple' }
   ];
 

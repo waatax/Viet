@@ -1,9 +1,10 @@
-// Helper for 3 digits conversion in Vietnamese
-const readThreeDigits = (n, isLeading = false) => {
+// Helper for 3 digits conversion in Vietnamese with dialect awareness
+const readThreeDigits = (n, isLeading = false, accent = 'north') => {
   const digits = ['không', 'một', 'hai', 'ba', 'bốn', 'năm', 'sáu', 'bảy', 'tám', 'chín'];
   const hundreds = Math.floor(n / 100);
   const tens = Math.floor((n % 100) / 10);
   const ones = n % 10;
+  const zeroTensWord = accent === 'south' ? 'lẻ' : 'linh';
   
   let result = [];
   
@@ -13,7 +14,7 @@ const readThreeDigits = (n, isLeading = false) => {
   
   if (tens === 0 && ones > 0) {
     if (hundreds > 0 || !isLeading) {
-      result.push('linh ' + (ones === 4 ? 'tư' : digits[ones]));
+      result.push(zeroTensWord + ' ' + (ones === 4 ? 'tư' : digits[ones]));
     } else {
       result.push(digits[ones]);
     }
@@ -53,19 +54,19 @@ export const numberToVietnamese = (number, accent = 'north') => {
   let isLeading = true;
 
   if (billion > 0) {
-    parts.push(readThreeDigits(billion, isLeading) + ' tỷ');
+    parts.push(readThreeDigits(billion, isLeading, accent) + ' tỷ');
     isLeading = false;
   }
   if (million > 0) {
-    parts.push(readThreeDigits(million, isLeading) + ' triệu');
+    parts.push(readThreeDigits(million, isLeading, accent) + ' triệu');
     isLeading = false;
   }
   if (thousand > 0) {
-    parts.push(readThreeDigits(thousand, isLeading) + ' ' + thousandWord);
+    parts.push(readThreeDigits(thousand, isLeading, accent) + ' ' + thousandWord);
     isLeading = false;
   }
   if (remainder > 0) {
-    parts.push(readThreeDigits(remainder, isLeading));
+    parts.push(readThreeDigits(remainder, isLeading, accent));
   }
 
   const text = parts.join(' ').trim() + ' đồng';

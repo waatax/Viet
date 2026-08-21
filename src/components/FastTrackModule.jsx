@@ -32,7 +32,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Hello! (Universal)',
         hintZh: '發音如「心早」，任何場合皆適用的禮貌打招呼。',
         hintEn: 'Pronounced like "sin chow", safe for all standard greetings.',
-        hanViet: 'Xin: 請 / Chào: 朝 (問候)'
+        hanViet: '純越語 (Từ thuần Việt) · 禮貌問候'
       },
       {
         viet: 'Cảm ơn nhiều!',
@@ -40,7 +40,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Thank you very much!',
         hintZh: '「感恩」的漢越音，發音如「感溫」，加 nhiều 代表非常。',
         hintEn: 'Han-Viet for "Grateful" (Cảm ơn), "nhiều" means a lot.',
-        hanViet: 'Cảm ơn (感恩) · 多 (Nhiều)'
+        hanViet: 'Cảm ơn (感恩 · 漢越詞) · nhiều (多 · 純越語)'
       },
       {
         viet: 'Xin lỗi nhé!',
@@ -48,7 +48,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Excuse me / Sorry!',
         hintZh: '借過、不小心碰到人或叫服務生時極為好用。',
         hintEn: 'Use for apologies, excusing yourself, or getting attention.',
-        hanViet: 'Xin: 請 / Lỗi: 磊 (過失)'
+        hanViet: '純越語 (Từ thuần Việt) · 道歉 / 借過'
       },
       {
         viet: 'Dạ, vâng ạ.',
@@ -56,7 +56,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Yes, understood (very polite)',
         hintZh: '南越常說「Dạ (夜)」，北越常說「Vâng (問)」，句尾加「ạ (阿)」顯得極具教養。',
         hintEn: 'South prefers "Dạ", North prefers "Vâng", ending with "ạ" adds high respect.',
-        hanViet: 'Dạ (夜 - 遵命) / Vâng (承諾)'
+        hanViet: '純越語敬語助詞 · Dạ (南越) / Vâng (北越) / ạ (敬語尾助詞)'
       },
       {
         viet: 'Rất vui được gặp bạn!',
@@ -64,7 +64,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Nice to meet you!',
         hintZh: '初次見面自我介紹後的絕佳結尾句。',
         hintEn: 'The perfect closing line after introducing yourself.',
-        hanViet: 'Rất (甚/很) · Vui (喜樂) · Gặp (相遇)'
+        hanViet: '純越語 (Từ thuần Việt) · 禮貌結識句'
       }
     ],
     quiz: {
@@ -101,7 +101,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Please give me one iced milk coffee.',
         hintZh: '經典越式冰咖啡！Cà phê (咖啡) + sữa (奶) + đá (冰)。',
         hintEn: 'The iconic Vietnamese drink: coffee + condensed milk + ice.',
-        hanViet: 'Cà phê (咖啡) · Sữa (乳) · Đá (冰舵)'
+        hanViet: 'Cà phê (法語借詞 Café) · Sữa (乳 · 純越語) · Đá (冰/石 · 純越語)'
       },
       {
         viet: 'Cho tôi một tô Phở bò.',
@@ -109,7 +109,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Please give me a bowl of beef Phở.',
         hintZh: 'Phở bò (牛肉河粉)，Phở gà (雞肉河粉)。',
         hintEn: 'Phở bò = Beef Phở; Phở gà = Chicken Phở.',
-        hanViet: 'Phở (河粉) · Bò (牛)'
+        hanViet: 'Phở (純越語/廣東話廣府河粉借詞) · Bò (牛 · 純越語)'
       },
       {
         viet: 'Không đường, ít đá nha!',
@@ -117,7 +117,7 @@ export const FAST_TRACK_DAYS = [
         en: 'No sugar, less ice please!',
         hintZh: '不想喝太甜時的救命口訣：Không đường (無糖), Ít đá (少冰)。',
         hintEn: 'Lifesaving custom order code: Không đường (no sugar), Ít đá (less ice).',
-        hanViet: 'Không (空/無) · Đường (糖) · Ít (少) · Đá (冰)'
+        hanViet: 'Không (空 · 漢越) · Đường (糖) · Ít (少 · 純越語) · Đá (冰 · 純越語)'
       },
       {
         viet: 'Có bánh mì không?',
@@ -125,7 +125,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Do you have Bánh mì?',
         hintZh: '「Có ... không?」是萬能問句：「有沒有...？」',
         hintEn: '"Có ... không?" is the universal question pattern for "Do you have...?"',
-        hanViet: 'Có (有) · Bánh mì (麵包) · Không (空/否)'
+        hanViet: 'Có... không (純越語萬能問句) · Bánh mì (麵包)'
       },
       {
         viet: 'Ngon quá, cảm ơn nhé!',
@@ -133,7 +133,7 @@ export const FAST_TRACK_DAYS = [
         en: 'So delicious, thank you!',
         hintZh: '誇獎店家好手藝：Ngon (好吃) + quá (太...了)。',
         hintEn: 'Compliment the chef: Ngon (delicious) + quá (so/too).',
-        hanViet: 'Quá (過/太)'
+        hanViet: 'Ngon (純越語美味) · Quá (過 · 漢越) · Cảm ơn (感恩 · 漢越)'
       }
     ],
     quiz: {
@@ -170,7 +170,7 @@ export const FAST_TRACK_DAYS = [
         en: 'How much is this?',
         hintZh: '萬能問價句！Cái này (這個) + bao nhiêu tiền (多少錢)。',
         hintEn: 'Universal price inquiry: Cái này (this) + bao nhiêu tiền (how much money).',
-        hanViet: 'Bao nhiêu (幾何/多少) · Tiền (錢)'
+        hanViet: 'Bao nhiêu (多少 · 純越語) · Tiền (錢 · 漢越詞)'
       },
       {
         viet: 'Năm mươi nghìn (50k) đồng.',
@@ -178,7 +178,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Fifty thousand VND (~$2 USD).',
         hintZh: '越南人口語常省略千位說「50k (năm mươi)」。南越說「ngàn」，北越說「nghìn」。',
         hintEn: 'Often shortened to "50k". South says "ngàn", North says "nghìn".',
-        hanViet: 'Năm mươi (五十) · Nghìn/Ngàn (千) · Đồng (銅/盾)'
+        hanViet: 'Năm mươi (五十) · Đồng (銅 · 漢越詞)'
       },
       {
         viet: 'Đắt quá! Bớt chút được không?',
@@ -186,7 +186,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Too expensive! Can you give a discount?',
         hintZh: '親切微笑說這句，店家往往樂意去零頭或給折扣！',
         hintEn: 'Say this with a warm smile for an instant discount!',
-        hanViet: 'Đắt (貴) · Bớt (減省) · Được không (得否/行嗎)'
+        hanViet: 'Đắt (貴 · 純越語) · Bớt (減 · 純越語) · Được không (行嗎)'
       },
       {
         viet: 'Một trăm nghìn (100k) được không?',
@@ -194,7 +194,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Is 100k VND okay?',
         hintZh: '直接提出心中的理想還價金額。',
         hintEn: 'Directly offer your target price politely.',
-        hanViet: 'Một trăm (一百) · Nghìn (千)'
+        hanViet: 'Một trăm (一百 · 純越數詞)'
       },
       {
         viet: 'Tôi lấy cái này, tính tiền nha.',
@@ -202,7 +202,7 @@ export const FAST_TRACK_DAYS = [
         en: 'I will take this, bill please.',
         hintZh: '決定購買並示意結帳的乾脆說法。',
         hintEn: 'Ready to buy and asking for the bill.',
-        hanViet: 'Lấy (取/拿) · Tính tiền (算錢/結帳)'
+        hanViet: 'Lấy (拿 · 純越語) · Tính tiền (算錢 · Tính: 算/Tiền: 錢)'
       }
     ],
     quiz: {
@@ -239,7 +239,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Please take me to Ben Thanh Market.',
         hintZh: 'Cho tôi đến + [地點] = 請帶我去某地。',
         hintEn: '"Cho tôi đến + [Place]" = Please take me to [Place].',
-        hanViet: 'Đến (到) · Chợ (市/市場)'
+        hanViet: 'Chợ (市/市場 · 純越語) · Bến Thành (漢越: 邊城)'
       },
       {
         viet: 'Đi thẳng, rồi rẽ trái / rẽ phải.',
@@ -247,7 +247,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Go straight, then turn left / turn right.',
         hintZh: 'Đi thẳng (直走), rẽ trái (左轉), rẽ phải (右轉)。',
         hintEn: 'Đi thẳng (straight), rẽ trái (left), rẽ phải (right).',
-        hanViet: 'Thẳng (直) · Trái (左) · Phải (右)'
+        hanViet: 'Đi thẳng (直走) · rẽ trái (左轉) · rẽ phải (右轉 · 純越語方向詞)'
       },
       {
         viet: 'Dừng ở đây nhé!',
@@ -255,7 +255,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Please stop here!',
         hintZh: '看到目的地時提醒司機靠邊停車。',
         hintEn: 'Tell the driver to pull over and stop right here.',
-        hanViet: 'Dừng (停) · Ở đây (在此)'
+        hanViet: 'Dừng (停 · 純越語) · ở đây (在此)'
       },
       {
         viet: 'Bao xa nữa thì đến?',
@@ -263,7 +263,7 @@ export const FAST_TRACK_DAYS = [
         en: 'How much further until we arrive?',
         hintZh: '詢問剩餘路程與時間。',
         hintEn: 'Inquire about remaining distance and time.',
-        hanViet: 'Xa (遠) · Đến (到)'
+        hanViet: 'Xa (遠 · 純越語) · đến (到 · 純越語)'
       },
       {
         viet: 'Đến nơi rồi, cảm ơn anh!',
@@ -271,7 +271,7 @@ export const FAST_TRACK_DAYS = [
         en: 'We have arrived, thank you!',
         hintZh: '下車時的完美致謝。',
         hintEn: 'Polite farewell to driver upon arrival.',
-        hanViet: 'Nơi (所/處所)'
+        hanViet: 'Đến nơi (抵達 · 純越語) · Cảm ơn (感恩 · 漢越詞)'
       }
     ],
     quiz: {
@@ -308,7 +308,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Hello older brother / older sister (polite peer).',
         hintZh: '面對比自己稍長或初次見面的服務人員最得體的稱呼。',
         hintEn: 'Safe polite greeting for slightly older peers or restaurant staff.',
-        hanViet: 'Anh (兄) · Chị (姊)'
+        hanViet: 'Anh (兄 · 漢越同源) · Chị (姊 · 純越語親屬詞)'
       },
       {
         viet: 'Em chào Bác / Chào Cô ạ!',
@@ -316,7 +316,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Greeting senior gentlemen (Bác) or ladies (Cô).',
         hintZh: '面對長輩父母年紀者，自稱 Em 或 Cháu，稱呼對方 Bác/Cô/Chú。',
         hintEn: 'Use Bác/Cô/Chú for elders, referring to yourself as Em or Cháu.',
-        hanViet: 'Bác (伯父) · Cô (姑/姨) · Chú (叔)'
+        hanViet: 'Bác (伯 · 漢越同源) · Cô (姑 · 漢越同源) · Chú (叔 · 漢越同源)'
       },
       {
         viet: 'Em ơi, cho anh/chị gọi món!',
@@ -324,7 +324,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Excuse me, I would like to order!',
         hintZh: '越南餐廳召喚店員的萬靈丹：「Em ơi!」(像台語親切呼喚)。',
         hintEn: '"Em ơi!" is the universal pleasant call for restaurant servers.',
-        hanViet: 'Ơi (呼喚助詞)'
+        hanViet: 'Ơi (親切呼喚助詞 · 純越語) · Gọi món (點菜)'
       },
       {
         viet: 'Anh/Chị tên là gì?',
@@ -332,7 +332,7 @@ export const FAST_TRACK_DAYS = [
         en: 'What is your name?',
         hintZh: '詢問對方姓名，得體又親切。',
         hintEn: 'Politely ask the other person their name.',
-        hanViet: 'Tên (名) · Là (為/是) · Gì (何/什麼)'
+        hanViet: 'Tên (名 · 純越語) · là gì (是什麼 · 純越語)'
       },
       {
         viet: 'Tôi là người Đài Loan.',
@@ -340,7 +340,7 @@ export const FAST_TRACK_DAYS = [
         en: 'I am Taiwanese.',
         hintZh: '介紹國籍出處：Tôi là người + [國家]。',
         hintEn: 'State nationality: "Tôi là người..."',
-        hanViet: 'Đài Loan (台灣) · Người (人)'
+        hanViet: 'Đài Loan (台灣 · 漢越詞) · Người (人 · 純越語)'
       }
     ],
     quiz: {
@@ -377,7 +377,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Do you have bottled water?',
         hintZh: 'Nước suối (礦泉水)，Nước ngọt (汽水飲料)。',
         hintEn: 'Nước suối = Bottled water; Nước ngọt = Soft drinks.',
-        hanViet: 'Nước (水) · Suối (泉水)'
+        hanViet: 'Nước suối (泉水/礦泉水 · 純越語)'
       },
       {
         viet: 'Có thể thanh toán bằng thẻ không?',
@@ -385,7 +385,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Can I pay by credit card?',
         hintZh: 'Thanh toán (結算/付款) + thẻ (卡片)。',
         hintEn: 'Thanh toán (Han-Viet for pay/settle) + thẻ (card).',
-        hanViet: 'Thanh toán (清算/結算) · Thẻ (卡/卡片)'
+        hanViet: 'Thanh toán (清算/結帳 · 漢越詞) · Thẻ (卡片)'
       },
       {
         viet: 'Cho tôi xin cái túi / hóa đơn.',
@@ -393,7 +393,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Please give me a bag / receipt.',
         hintZh: 'Túi (提袋), Hóa đơn (發票/收據)。',
         hintEn: 'Túi = bag; Hóa đơn = invoice/receipt.',
-        hanViet: 'Túi (袋) · Hóa đơn (化單/發票)'
+        hanViet: 'Hóa đơn (貨單/發票 · 漢越詞: Hóa = 貨 goods, Đơn = 單) · Túi (提袋)'
       },
       {
         viet: 'Tôi có thể thử cái này được không?',
@@ -401,7 +401,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Can I try this on / try this?',
         hintZh: '在服飾店或鞋店非常實用。',
         hintEn: 'Essential for clothing and shoe stores.',
-        hanViet: 'Thử (試/嘗試)'
+        hanViet: 'Thử (試/嘗試 · 漢越詞)'
       },
       {
         viet: 'Đủ tiền rồi, cảm ơn em nhé!',
@@ -409,7 +409,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Exact amount, thank you!',
         hintZh: '付完零錢或現金時的禮貌回饋。',
         hintEn: 'Polite remark when handing exact cash.',
-        hanViet: 'Đủ (足/夠) · Tiền (錢)'
+        hanViet: 'Đủ (足夠 · 純越語) · Tiền (錢 · 漢越詞)'
       }
     ],
     quiz: {
@@ -446,7 +446,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Where is your hometown?',
         hintZh: '越南人非常熱情，聊到家鄉 (Quê) 馬上話題不斷！',
         hintEn: 'Vietnamese people love sharing about their hometown province.',
-        hanViet: 'Quê (圭/鄉里) · Ở đâu (在哪裡)'
+        hanViet: 'Quê (家鄉/故鄉 · 純越語) · ở đâu (在哪裡)'
       },
       {
         viet: 'Bạn thích ăn món Việt nào nhất?',
@@ -454,7 +454,7 @@ export const FAST_TRACK_DAYS = [
         en: 'What is your favorite Vietnamese food?',
         hintZh: 'Thích (喜歡) + nhất (第一/最)。',
         hintEn: 'Thích (to like) + nhất (Han-Viet for most/number one).',
-        hanViet: 'Thích (適/喜好) · Nhất (一/最)'
+        hanViet: 'Thích (喜歡 · 漢越詞: 適) · Nhất (一/最 · 漢越詞)'
       },
       {
         viet: 'Khi nào rảnh, mình đi cà phê nhé!',
@@ -462,7 +462,7 @@ export const FAST_TRACK_DAYS = [
         en: 'When you are free, let us go for coffee!',
         hintZh: '越南社交最經典的邀約金句！',
         hintEn: 'The quintessential Vietnamese invitation to hang out!',
-        hanViet: 'Rảnh (閒暇) · Đi cà phê (喝咖啡)'
+        hanViet: 'Rảnh (有空/閒暇 · 純越語) · Đi cà phê (喝咖啡/聚會)'
       },
       {
         viet: 'Kết bạn Zalo / Facebook với mình nha!',
@@ -470,7 +470,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Let us connect on Zalo / Facebook!',
         hintZh: 'Zalo 是越南最普及的通訊軟體 (類似台灣 LINE)。',
         hintEn: 'Zalo is the most popular messaging app in Vietnam (like LINE).',
-        hanViet: 'Kết bạn (結伴/交友)'
+        hanViet: 'Kết bạn (結伴/交友 · 漢越詞)'
       },
       {
         viet: 'Chúc bạn một ngày vui vẻ!',
@@ -478,7 +478,7 @@ export const FAST_TRACK_DAYS = [
         en: 'Wish you a wonderful and joyful day!',
         hintZh: '道別時送上滿滿祝福。',
         hintEn: 'Warm parting blessing for everyday conversation.',
-        hanViet: 'Chúc (祝) · Vui vẻ (喜悅/快活)'
+        hanViet: 'Chúc (祝 · 漢越詞) · Vui vẻ (愉快 · 純越語疊詞)'
       }
     ],
     quiz: {

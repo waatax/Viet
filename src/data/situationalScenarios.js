@@ -1,5 +1,5 @@
 /**
- * Comprehensive Situational Vietnamese Dataset (22大實戰情境全能越語數據庫)
+ * Comprehensive Situational Vietnamese Dataset (26大實戰情境全能越語數據庫 - 教科書權威版)
  * Standardized for Taiwan learners (ZH Mode) & Global English track (EN Mode)
  * Includes dialogue scripts, interactive role-play questions, vocabulary deck, and cultural tips.
  */
@@ -88,21 +88,31 @@ export const situationalScenarios = [
               "nameEn": "Hanoi",
               "descZh": "越南首都，擁有千年歷史的文化古城，步調較為悠閒。",
               "descEn": "The capital city, a thousand-year-old cultural hub with a relaxed pace.",
-              "attractions": ["Phố Cổ (三十六古街)", "Hồ Hoàn Kiếm (還劍湖)", "Văn Miếu (文廟)"]
+              "attractions": [
+                "Phố Cổ (三十六古街)",
+                "Hồ Hoàn Kiếm (還劍湖)",
+                "Văn Miếu (文廟)"
+              ]
             },
             {
               "nameZh": "下龍灣 (Hạ Long)",
               "nameEn": "Ha Long",
               "descZh": "世界自然遺產，以壯麗的石灰岩喀斯特地貌聞名。",
               "descEn": "A World Heritage site famous for its breathtaking limestone karsts.",
-              "attractions": ["Vịnh Hạ Long (下龍灣乘船)", "Hang Sửng Sốt (驚訝洞)"]
+              "attractions": [
+                "Vịnh Hạ Long (下龍灣乘船)",
+                "Hang Sửng Sốt (驚訝洞)"
+              ]
             },
             {
               "nameZh": "沙壩 (Sa Pa)",
               "nameEn": "Sapa",
               "descZh": "西北部高原小鎮，以梯田與少數民族文化著稱。",
               "descEn": "Northwestern highland town known for terraced rice fields and ethnic minorities.",
-              "attractions": ["Đỉnh Fansipan (番西邦峰)", "Bản Cát Cát (貓貓村)"]
+              "attractions": [
+                "Đỉnh Fansipan (番西邦峰)",
+                "Bản Cát Cát (貓貓村)"
+              ]
             }
           ]
         },
@@ -120,21 +130,31 @@ export const situationalScenarios = [
               "nameEn": "Da Nang",
               "descZh": "越南第三大城，以絕美海岸線與現代化設施著稱，是最宜居城市。",
               "descEn": "Vietnam's 3rd largest city, famous for beautiful coastlines and modern amenities.",
-              "attractions": ["Bà Nà Hills (巴拿山/佛手橋)", "Cầu Rồng (龍橋)", "Biển Mỹ Khê (美溪沙灘)"]
+              "attractions": [
+                "Bà Nà Hills (巴拿山/佛手橋)",
+                "Cầu Rồng (龍橋)",
+                "Biển Mỹ Khê (美溪沙灘)"
+              ]
             },
             {
               "nameZh": "會安 (Hội An)",
               "nameEn": "Hoi An",
               "descZh": "世界文化遺產，完美保留15至19世紀的傳統貿易港口風貌，夜間燈籠極美。",
               "descEn": "World Heritage site preserving a 15th-19th century trading port, famous for lanterns.",
-              "attractions": ["Phố cổ Hội An (會安古鎮)", "Chùa Cầu (日本橋)"]
+              "attractions": [
+                "Phố cổ Hội An (會安古鎮)",
+                "Chùa Cầu (日本橋)"
+              ]
             },
             {
               "nameZh": "順化 (Huế)",
               "nameEn": "Hue",
               "descZh": "越南末代王朝的古都，充滿歷史滄桑與皇城底蘊。",
               "descEn": "The ancient capital of Vietnam's last dynasty, full of imperial history.",
-              "attractions": ["Đại Nội (順化皇城)", "Lăng Tự Đức (嗣德陵)"]
+              "attractions": [
+                "Đại Nội (順化皇城)",
+                "Lăng Tự Đức (嗣德陵)"
+              ]
             }
           ]
         },
@@ -152,21 +172,31 @@ export const situationalScenarios = [
               "nameEn": "Ho Chi Minh City",
               "descZh": "越南最大城市與經濟樞紐，充滿活力、高樓與法式殖民風情。",
               "descEn": "Vietnam's largest city, vibrant and bustling with French colonial charm.",
-              "attractions": ["Nhà thờ Đức Bà (紅教堂)", "Bưu điện Trung tâm (中央郵局)", "Chợ Bến Thành (檳城市場)"]
+              "attractions": [
+                "Nhà thờ Đức Bà (紅教堂)",
+                "Bưu điện Trung tâm (中央郵局)",
+                "Chợ Bến Thành (檳城市場)"
+              ]
             },
             {
               "nameZh": "芹苴 (Cần Thơ)",
               "nameEn": "Can Tho",
               "descZh": "湄公河三角洲最大城市，體驗濃厚的水鄉澤國風情。",
               "descEn": "Largest city in the Mekong Delta, famous for water-based culture.",
-              "attractions": ["Chợ nổi Cái Răng (丐冷水上市場)", "Bến Ninh Kiều (寧橋碼頭)"]
+              "attractions": [
+                "Chợ nổi Cái Răng (丐冷水上市場)",
+                "Bến Ninh Kiều (寧橋碼頭)"
+              ]
             },
             {
               "nameZh": "富國島 (Phú Quốc)",
               "nameEn": "Phu Quoc",
               "descZh": "越南最大的島嶼，免簽證的度假勝地，擁有絕美夕陽。",
               "descEn": "Vietnam's largest island and a visa-free tropical paradise with stunning sunsets.",
-              "attractions": ["Grand World (富國大世界)", "Cáp treo Hòn Thơm (跨海纜車)"]
+              "attractions": [
+                "Grand World (富國大世界)",
+                "Cáp treo Hòn Thơm (跨海纜車)"
+              ]
             }
           ]
         }
@@ -308,40 +338,58 @@ export const situationalScenarios = [
     },
     "vocabulary": [
       {
+        "viet": "Miền Bắc",
         "vi": "Miền Bắc",
+        "phonetic": "[miən˨˩ ɓak̚˦˧˥]",
+        "ipa": "[miən˨˩ ɓak̚˦˧˥]",
         "zh": "北部",
         "en": "North",
-        "ipa": "[miən˨˩ ɓak̚˦˧˥]"
+        "hanViet": ""
       },
       {
+        "viet": "Miền Trung",
         "vi": "Miền Trung",
+        "phonetic": "[miən˨˩ ʈuŋ˧]",
+        "ipa": "[miən˨˩ ʈuŋ˧]",
         "zh": "中部",
         "en": "Central",
-        "ipa": "[miən˨˩ ʈuŋ˧]"
+        "hanViet": ""
       },
       {
+        "viet": "Miền Nam",
         "vi": "Miền Nam",
+        "phonetic": "[miən˨˩ naːm˧]",
+        "ipa": "[miən˨˩ naːm˧]",
         "zh": "南部",
         "en": "South",
-        "ipa": "[miən˨˩ naːm˧]"
+        "hanViet": ""
       },
       {
+        "viet": "Thủ đô",
         "vi": "Thủ đô",
+        "phonetic": "[tʰu˧˩ ɗo˧]",
+        "ipa": "[tʰu˧˩ ɗo˧]",
         "zh": "首都",
         "en": "Capital",
-        "ipa": "[tʰu˧˩ ɗo˧]"
+        "hanViet": ""
       },
       {
+        "viet": "Nhộn nhịp",
         "vi": "Nhộn nhịp",
+        "phonetic": "[ɲon˧˨ ɲip̚˧˨]",
+        "ipa": "[ɲon˧˨ ɲip̚˧˨]",
         "zh": "熱鬧",
         "en": "Bustling",
-        "ipa": "[ɲon˧˨ ɲip̚˧˨]"
+        "hanViet": ""
       },
       {
+        "viet": "Đậm đà",
         "vi": "Đậm đà",
+        "phonetic": "[ɗəm˧˨ ɗaː˨˩]",
+        "ipa": "[ɗəm˧˨ ɗaː˨˩]",
         "zh": "重口味/味道濃",
         "en": "Flavorful",
-        "ipa": "[ɗəm˧˨ ɗaː˨˩]"
+        "hanViet": ""
       }
     ],
     "culturalTip": {
@@ -349,6 +397,74 @@ export const situationalScenarios = [
       "titleEn": "Cultural Differences Across 1000km",
       "contentZh": "越南地形像一個字母「S」，長達一千六百多公里，這造就了北中南巨大的差異。性格上，北越人傳統、注重面子與儲蓄；南越人開放、樂天、及時行樂；中越人因氣候嚴峻而特別刻苦耐勞。語言上，雖然都寫一樣的字，但北中南的口音 (Giọng) 完全不同，北越發音字正腔圓，南越連音多且較為隨性，而中越的腔調則常讓南北越人也聽不懂！",
       "contentEn": "Vietnam's 'S' shaped geography spans over 1600km, creating huge regional differences. Northerners are traditional and focus on saving; Southerners are open, optimistic, and live in the moment; Central people are resilient due to harsh weather. Linguistically, while the writing is the same, the accents (Giọng) differ wildly. The North is precise, the South is relaxed, and the Central accent can be hard even for other Vietnamese to understand!",
+      "tipsZh": "越南地形像一個字母「S」，長達一千六百多公里，這造就了北中南巨大的差異。性格上，北越人傳統、注重面子與儲蓄；南越人開放、樂天、及時行樂；中越人因氣候嚴峻而特別刻苦耐勞。語言上，雖然都寫一樣的字，但北中南的口音 (Giọng) 完全不同，北越發音字正腔圓，南越連音多且較為隨性，而中越的腔調則常讓南北越人也聽不懂！",
+      "tipsEn": "Vietnam's 'S' shaped geography spans over 1600km, creating huge regional differences. Northerners are traditional and focus on saving; Southerners are open, optimistic, and live in the moment; Central people are resilient due to harsh weather. Linguistically, while the writing is the same, the accents (Giọng) differ wildly. The North is precise, the South is relaxed, and the Central accent can be hard even for other Vietnamese to understand!",
+      "proTipZh": "✨ 避坑：當你跟南越人提到「胡志明市」時，他們通常更喜歡稱其舊名「西貢」(Sài Gòn)。",
+      "proTipEn": "✨ Pro Tip: When talking to Southerners, they often prefer the old name 'Saigon' over 'Ho Chi Minh City'."
+    },
+    "vocab": [
+      {
+        "viet": "Miền Bắc",
+        "vi": "Miền Bắc",
+        "phonetic": "[miən˨˩ ɓak̚˦˧˥]",
+        "ipa": "[miən˨˩ ɓak̚˦˧˥]",
+        "zh": "北部",
+        "en": "North",
+        "hanViet": ""
+      },
+      {
+        "viet": "Miền Trung",
+        "vi": "Miền Trung",
+        "phonetic": "[miən˨˩ ʈuŋ˧]",
+        "ipa": "[miən˨˩ ʈuŋ˧]",
+        "zh": "中部",
+        "en": "Central",
+        "hanViet": ""
+      },
+      {
+        "viet": "Miền Nam",
+        "vi": "Miền Nam",
+        "phonetic": "[miən˨˩ naːm˧]",
+        "ipa": "[miən˨˩ naːm˧]",
+        "zh": "南部",
+        "en": "South",
+        "hanViet": ""
+      },
+      {
+        "viet": "Thủ đô",
+        "vi": "Thủ đô",
+        "phonetic": "[tʰu˧˩ ɗo˧]",
+        "ipa": "[tʰu˧˩ ɗo˧]",
+        "zh": "首都",
+        "en": "Capital",
+        "hanViet": ""
+      },
+      {
+        "viet": "Nhộn nhịp",
+        "vi": "Nhộn nhịp",
+        "phonetic": "[ɲon˧˨ ɲip̚˧˨]",
+        "ipa": "[ɲon˧˨ ɲip̚˧˨]",
+        "zh": "熱鬧",
+        "en": "Bustling",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đậm đà",
+        "vi": "Đậm đà",
+        "phonetic": "[ɗəm˧˨ ɗaː˨˩]",
+        "ipa": "[ɗəm˧˨ ɗaː˨˩]",
+        "zh": "重口味/味道濃",
+        "en": "Flavorful",
+        "hanViet": ""
+      }
+    ],
+    "culturalTips": {
+      "titleZh": "🇻🇳 跨越一千公里的文化差異",
+      "titleEn": "Cultural Differences Across 1000km",
+      "contentZh": "越南地形像一個字母「S」，長達一千六百多公里，這造就了北中南巨大的差異。性格上，北越人傳統、注重面子與儲蓄；南越人開放、樂天、及時行樂；中越人因氣候嚴峻而特別刻苦耐勞。語言上，雖然都寫一樣的字，但北中南的口音 (Giọng) 完全不同，北越發音字正腔圓，南越連音多且較為隨性，而中越的腔調則常讓南北越人也聽不懂！",
+      "contentEn": "Vietnam's 'S' shaped geography spans over 1600km, creating huge regional differences. Northerners are traditional and focus on saving; Southerners are open, optimistic, and live in the moment; Central people are resilient due to harsh weather. Linguistically, while the writing is the same, the accents (Giọng) differ wildly. The North is precise, the South is relaxed, and the Central accent can be hard even for other Vietnamese to understand!",
+      "tipsZh": "越南地形像一個字母「S」，長達一千六百多公里，這造就了北中南巨大的差異。性格上，北越人傳統、注重面子與儲蓄；南越人開放、樂天、及時行樂；中越人因氣候嚴峻而特別刻苦耐勞。語言上，雖然都寫一樣的字，但北中南的口音 (Giọng) 完全不同，北越發音字正腔圓，南越連音多且較為隨性，而中越的腔調則常讓南北越人也聽不懂！",
+      "tipsEn": "Vietnam's 'S' shaped geography spans over 1600km, creating huge regional differences. Northerners are traditional and focus on saving; Southerners are open, optimistic, and live in the moment; Central people are resilient due to harsh weather. Linguistically, while the writing is the same, the accents (Giọng) differ wildly. The North is precise, the South is relaxed, and the Central accent can be hard even for other Vietnamese to understand!",
       "proTipZh": "✨ 避坑：當你跟南越人提到「胡志明市」時，他們通常更喜歡稱其舊名「西貢」(Sài Gòn)。",
       "proTipEn": "✨ Pro Tip: When talking to Southerners, they often prefer the old name 'Saigon' over 'Ho Chi Minh City'."
     }
@@ -492,40 +608,58 @@ export const situationalScenarios = [
     },
     "vocabulary": [
       {
+        "viet": "Hợp đồng",
         "vi": "Hợp đồng",
+        "phonetic": "[həːp̚˧˨ ɗoŋ˨˩]",
+        "ipa": "[həːp̚˧˨ ɗoŋ˨˩]",
         "zh": "合約",
         "en": "Contract",
-        "ipa": "[həːp̚˧˨ ɗoŋ˨˩]"
+        "hanViet": ""
       },
       {
+        "viet": "Thương lượng",
         "vi": "Thương lượng",
+        "phonetic": "[tʰɨəŋ˧ lɨəŋ˧˨]",
+        "ipa": "[tʰɨəŋ˧ lɨəŋ˧˨]",
         "zh": "協商 / 談判",
         "en": "Negotiate",
-        "ipa": "[tʰɨəŋ˧ lɨəŋ˧˨]"
+        "hanViet": ""
       },
       {
+        "viet": "Đối tác",
         "vi": "Đối tác",
+        "phonetic": "[ɗoj˦˧˥ taːk̚˦˧˥]",
+        "ipa": "[ɗoj˦˧˥ taːk̚˦˧˥]",
         "zh": "合作夥伴",
         "en": "Partner",
-        "ipa": "[ɗoj˦˧˥ taːk̚˦˧˥]"
+        "hanViet": ""
       },
       {
+        "viet": "Giảm giá",
         "vi": "Giảm giá",
+        "phonetic": "[zaːm˧˩ zaː˦˧˥]",
+        "ipa": "[zaːm˧˩ zaː˦˧˥]",
         "zh": "降價 / 折扣",
         "en": "Discount",
-        "ipa": "[zaːm˧˩ zaː˦˧˥]"
+        "hanViet": ""
       },
       {
+        "viet": "Số lượng",
         "vi": "Số lượng",
+        "phonetic": "[so˦˧˥ lɨəŋ˧˨]",
+        "ipa": "[so˦˧˥ lɨəŋ˧˨]",
         "zh": "數量",
         "en": "Quantity",
-        "ipa": "[so˦˧˥ lɨəŋ˧˨]"
+        "hanViet": ""
       },
       {
+        "viet": "Ký",
         "vi": "Ký",
+        "phonetic": "[ki˦˧˥]",
+        "ipa": "[ki˦˧˥]",
         "zh": "簽名 / 簽署",
         "en": "Sign",
-        "ipa": "[ki˦˧˥]"
+        "hanViet": ""
       }
     ],
     "culturalTip": {
@@ -533,6 +667,74 @@ export const situationalScenarios = [
       "titleEn": "Vietnamese Business Culture: Relationships First",
       "contentZh": "在越南的商業環境中，「建立關係」(Xây dựng mối quan hệ) 非常重要。在正式進入合約談判前，通常會有適度的閒聊 (寒暄家庭、興趣等)。合約的簽署往往不是交涉的終點，而是長期合作關係的起點。此外，商務談判中保持禮貌與面子 (Thể diện) 是關鍵，直接的拒絕較少見，通常會用「Chúng tôi sẽ xem xét」(我們會考慮) 來委婉表達。",
       "contentEn": "In Vietnam, building relationships is crucial. Formal negotiations are often preceded by small talk. Signing a contract is seen as the beginning of a long-term relationship, not the end of a deal. Saving face (Thể diện) is important, so direct refusals are rare; instead, you'll hear 'Chúng tôi sẽ xem xét' (We will consider it).",
+      "tipsZh": "在越南的商業環境中，「建立關係」(Xây dựng mối quan hệ) 非常重要。在正式進入合約談判前，通常會有適度的閒聊 (寒暄家庭、興趣等)。合約的簽署往往不是交涉的終點，而是長期合作關係的起點。此外，商務談判中保持禮貌與面子 (Thể diện) 是關鍵，直接的拒絕較少見，通常會用「Chúng tôi sẽ xem xét」(我們會考慮) 來委婉表達。",
+      "tipsEn": "In Vietnam, building relationships is crucial. Formal negotiations are often preceded by small talk. Signing a contract is seen as the beginning of a long-term relationship, not the end of a deal. Saving face (Thể diện) is important, so direct refusals are rare; instead, you'll hear 'Chúng tôi sẽ xem xét' (We will consider it).",
+      "proTipZh": "✨ 避坑：雙手遞交名片 (Danh thiếp) 並仔細閱讀是基本的商務禮儀。切勿在會議上表現出過度急躁的情緒。",
+      "proTipEn": "✨ Pro Tip: Presenting and receiving business cards with both hands is basic etiquette. Avoid showing impatience during meetings."
+    },
+    "vocab": [
+      {
+        "viet": "Hợp đồng",
+        "vi": "Hợp đồng",
+        "phonetic": "[həːp̚˧˨ ɗoŋ˨˩]",
+        "ipa": "[həːp̚˧˨ ɗoŋ˨˩]",
+        "zh": "合約",
+        "en": "Contract",
+        "hanViet": ""
+      },
+      {
+        "viet": "Thương lượng",
+        "vi": "Thương lượng",
+        "phonetic": "[tʰɨəŋ˧ lɨəŋ˧˨]",
+        "ipa": "[tʰɨəŋ˧ lɨəŋ˧˨]",
+        "zh": "協商 / 談判",
+        "en": "Negotiate",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đối tác",
+        "vi": "Đối tác",
+        "phonetic": "[ɗoj˦˧˥ taːk̚˦˧˥]",
+        "ipa": "[ɗoj˦˧˥ taːk̚˦˧˥]",
+        "zh": "合作夥伴",
+        "en": "Partner",
+        "hanViet": ""
+      },
+      {
+        "viet": "Giảm giá",
+        "vi": "Giảm giá",
+        "phonetic": "[zaːm˧˩ zaː˦˧˥]",
+        "ipa": "[zaːm˧˩ zaː˦˧˥]",
+        "zh": "降價 / 折扣",
+        "en": "Discount",
+        "hanViet": ""
+      },
+      {
+        "viet": "Số lượng",
+        "vi": "Số lượng",
+        "phonetic": "[so˦˧˥ lɨəŋ˧˨]",
+        "ipa": "[so˦˧˥ lɨəŋ˧˨]",
+        "zh": "數量",
+        "en": "Quantity",
+        "hanViet": ""
+      },
+      {
+        "viet": "Ký",
+        "vi": "Ký",
+        "phonetic": "[ki˦˧˥]",
+        "ipa": "[ki˦˧˥]",
+        "zh": "簽名 / 簽署",
+        "en": "Sign",
+        "hanViet": ""
+      }
+    ],
+    "culturalTips": {
+      "titleZh": "🇻🇳 越南商務文化：關係先行",
+      "titleEn": "Vietnamese Business Culture: Relationships First",
+      "contentZh": "在越南的商業環境中，「建立關係」(Xây dựng mối quan hệ) 非常重要。在正式進入合約談判前，通常會有適度的閒聊 (寒暄家庭、興趣等)。合約的簽署往往不是交涉的終點，而是長期合作關係的起點。此外，商務談判中保持禮貌與面子 (Thể diện) 是關鍵，直接的拒絕較少見，通常會用「Chúng tôi sẽ xem xét」(我們會考慮) 來委婉表達。",
+      "contentEn": "In Vietnam, building relationships is crucial. Formal negotiations are often preceded by small talk. Signing a contract is seen as the beginning of a long-term relationship, not the end of a deal. Saving face (Thể diện) is important, so direct refusals are rare; instead, you'll hear 'Chúng tôi sẽ xem xét' (We will consider it).",
+      "tipsZh": "在越南的商業環境中，「建立關係」(Xây dựng mối quan hệ) 非常重要。在正式進入合約談判前，通常會有適度的閒聊 (寒暄家庭、興趣等)。合約的簽署往往不是交涉的終點，而是長期合作關係的起點。此外，商務談判中保持禮貌與面子 (Thể diện) 是關鍵，直接的拒絕較少見，通常會用「Chúng tôi sẽ xem xét」(我們會考慮) 來委婉表達。",
+      "tipsEn": "In Vietnam, building relationships is crucial. Formal negotiations are often preceded by small talk. Signing a contract is seen as the beginning of a long-term relationship, not the end of a deal. Saving face (Thể diện) is important, so direct refusals are rare; instead, you'll hear 'Chúng tôi sẽ xem xét' (We will consider it).",
       "proTipZh": "✨ 避坑：雙手遞交名片 (Danh thiếp) 並仔細閱讀是基本的商務禮儀。切勿在會議上表現出過度急躁的情緒。",
       "proTipEn": "✨ Pro Tip: Presenting and receiving business cards with both hands is basic etiquette. Avoid showing impatience during meetings."
     }
@@ -685,40 +887,58 @@ export const situationalScenarios = [
     },
     "vocabulary": [
       {
+        "viet": "Nhà máy / Xưởng",
         "vi": "Nhà máy / Xưởng",
+        "phonetic": "[ɲaː˨˩ maj˦˧˥]",
+        "ipa": "[ɲaː˨˩ maj˦˧˥]",
         "zh": "工廠 / 廠房",
         "en": "Factory / Workshop",
-        "ipa": "[ɲaː˨˩ maj˦˧˥]"
+        "hanViet": ""
       },
       {
+        "viet": "Tiến độ",
         "vi": "Tiến độ",
+        "phonetic": "[tiən˦˧˥ ɗo˧˨]",
+        "ipa": "[tiən˦˧˥ ɗo˧˨]",
         "zh": "進度",
         "en": "Progress",
-        "ipa": "[tiən˦˧˥ ɗo˧˨]"
+        "hanViet": ""
       },
       {
+        "viet": "Sản xuất",
         "vi": "Sản xuất",
+        "phonetic": "[saːn˧˩ sʷət̚˦˧˥]",
+        "ipa": "[saːn˧˩ sʷət̚˦˧˥]",
         "zh": "生產",
         "en": "Production",
-        "ipa": "[saːn˧˩ sʷət̚˦˧˥]"
+        "hanViet": ""
       },
       {
+        "viet": "Chất lượng",
         "vi": "Chất lượng",
+        "phonetic": "[t͡ɕət̚˦˧˥ lɨəŋ˧˨]",
+        "ipa": "[t͡ɕət̚˦˧˥ lɨəŋ˧˨]",
         "zh": "品質",
         "en": "Quality",
-        "ipa": "[t͡ɕət̚˦˧˥ lɨəŋ˧˨]"
+        "hanViet": ""
       },
       {
+        "viet": "Lô hàng",
         "vi": "Lô hàng",
+        "phonetic": "[lo˧ haːŋ˨˩]",
+        "ipa": "[lo˧ haːŋ˨˩]",
         "zh": "批貨",
         "en": "Shipment",
-        "ipa": "[lo˧ haːŋ˨˩]"
+        "hanViet": ""
       },
       {
+        "viet": "Xuất hàng",
         "vi": "Xuất hàng",
+        "phonetic": "[sʷət̚˦˧˥ haːŋ˨˩]",
+        "ipa": "[sʷət̚˦˧˥ haːŋ˨˩]",
         "zh": "出貨",
         "en": "Ship goods",
-        "ipa": "[sʷət̚˦˧˥ haːŋ˨˩]"
+        "hanViet": ""
       }
     ],
     "culturalTip": {
@@ -726,6 +946,74 @@ export const situationalScenarios = [
       "titleEn": "Vietnamese Factory Management",
       "contentZh": "在越南工廠管理中，直接的指令固然重要，但「帶心」更是留住基層員工的關鍵。主管或幹部在巡視時，經常會用「Anh/Chị/Em」等親切稱謂來拉近距離。此外，當地非常重視工會與勞動權益，因此在催促進度時，也需留意溝通語氣。遇到加班 (Tăng ca) 需求時，提供良好的點心或晚餐補貼，通常能有效激勵產線員工。",
       "contentEn": "In Vietnamese factory management, winning the hearts of the workers is just as important as giving clear instructions. Managers often use friendly pronouns (Anh/Chị/Em) to build rapport. Because labor rights are highly valued, tone of communication is important when rushing progress. When overtime (Tăng ca) is needed, providing good snacks or meal allowances effectively motivates assembly line workers.",
+      "tipsZh": "在越南工廠管理中，直接的指令固然重要，但「帶心」更是留住基層員工的關鍵。主管或幹部在巡視時，經常會用「Anh/Chị/Em」等親切稱謂來拉近距離。此外，當地非常重視工會與勞動權益，因此在催促進度時，也需留意溝通語氣。遇到加班 (Tăng ca) 需求時，提供良好的點心或晚餐補貼，通常能有效激勵產線員工。",
+      "tipsEn": "In Vietnamese factory management, winning the hearts of the workers is just as important as giving clear instructions. Managers often use friendly pronouns (Anh/Chị/Em) to build rapport. Because labor rights are highly valued, tone of communication is important when rushing progress. When overtime (Tăng ca) is needed, providing good snacks or meal allowances effectively motivates assembly line workers.",
+      "proTipZh": "✨ 避坑：當場大聲斥責 (Mắng mỏ) 員工在越南文化中會讓人極度「沒面子」，可能導致整條產線罷工，建議私下糾正。",
+      "proTipEn": "✨ Pro Tip: Publicly shouting at an employee causes a severe loss of face and could lead to a strike. It's best to correct mistakes privately."
+    },
+    "vocab": [
+      {
+        "viet": "Nhà máy / Xưởng",
+        "vi": "Nhà máy / Xưởng",
+        "phonetic": "[ɲaː˨˩ maj˦˧˥]",
+        "ipa": "[ɲaː˨˩ maj˦˧˥]",
+        "zh": "工廠 / 廠房",
+        "en": "Factory / Workshop",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tiến độ",
+        "vi": "Tiến độ",
+        "phonetic": "[tiən˦˧˥ ɗo˧˨]",
+        "ipa": "[tiən˦˧˥ ɗo˧˨]",
+        "zh": "進度",
+        "en": "Progress",
+        "hanViet": ""
+      },
+      {
+        "viet": "Sản xuất",
+        "vi": "Sản xuất",
+        "phonetic": "[saːn˧˩ sʷət̚˦˧˥]",
+        "ipa": "[saːn˧˩ sʷət̚˦˧˥]",
+        "zh": "生產",
+        "en": "Production",
+        "hanViet": ""
+      },
+      {
+        "viet": "Chất lượng",
+        "vi": "Chất lượng",
+        "phonetic": "[t͡ɕət̚˦˧˥ lɨəŋ˧˨]",
+        "ipa": "[t͡ɕət̚˦˧˥ lɨəŋ˧˨]",
+        "zh": "品質",
+        "en": "Quality",
+        "hanViet": ""
+      },
+      {
+        "viet": "Lô hàng",
+        "vi": "Lô hàng",
+        "phonetic": "[lo˧ haːŋ˨˩]",
+        "ipa": "[lo˧ haːŋ˨˩]",
+        "zh": "批貨",
+        "en": "Shipment",
+        "hanViet": ""
+      },
+      {
+        "viet": "Xuất hàng",
+        "vi": "Xuất hàng",
+        "phonetic": "[sʷət̚˦˧˥ haːŋ˨˩]",
+        "ipa": "[sʷət̚˦˧˥ haːŋ˨˩]",
+        "zh": "出貨",
+        "en": "Ship goods",
+        "hanViet": ""
+      }
+    ],
+    "culturalTips": {
+      "titleZh": "🇻🇳 越南工廠管理：恩威並濟",
+      "titleEn": "Vietnamese Factory Management",
+      "contentZh": "在越南工廠管理中，直接的指令固然重要，但「帶心」更是留住基層員工的關鍵。主管或幹部在巡視時，經常會用「Anh/Chị/Em」等親切稱謂來拉近距離。此外，當地非常重視工會與勞動權益，因此在催促進度時，也需留意溝通語氣。遇到加班 (Tăng ca) 需求時，提供良好的點心或晚餐補貼，通常能有效激勵產線員工。",
+      "contentEn": "In Vietnamese factory management, winning the hearts of the workers is just as important as giving clear instructions. Managers often use friendly pronouns (Anh/Chị/Em) to build rapport. Because labor rights are highly valued, tone of communication is important when rushing progress. When overtime (Tăng ca) is needed, providing good snacks or meal allowances effectively motivates assembly line workers.",
+      "tipsZh": "在越南工廠管理中，直接的指令固然重要，但「帶心」更是留住基層員工的關鍵。主管或幹部在巡視時，經常會用「Anh/Chị/Em」等親切稱謂來拉近距離。此外，當地非常重視工會與勞動權益，因此在催促進度時，也需留意溝通語氣。遇到加班 (Tăng ca) 需求時，提供良好的點心或晚餐補貼，通常能有效激勵產線員工。",
+      "tipsEn": "In Vietnamese factory management, winning the hearts of the workers is just as important as giving clear instructions. Managers often use friendly pronouns (Anh/Chị/Em) to build rapport. Because labor rights are highly valued, tone of communication is important when rushing progress. When overtime (Tăng ca) is needed, providing good snacks or meal allowances effectively motivates assembly line workers.",
       "proTipZh": "✨ 避坑：當場大聲斥責 (Mắng mỏ) 員工在越南文化中會讓人極度「沒面子」，可能導致整條產線罷工，建議私下糾正。",
       "proTipEn": "✨ Pro Tip: Publicly shouting at an employee causes a severe loss of face and could lead to a strike. It's best to correct mistakes privately."
     }
@@ -968,52 +1256,76 @@ export const situationalScenarios = [
     },
     "vocabulary": [
       {
+        "viet": "Nhà hàng",
         "vi": "Nhà hàng",
+        "phonetic": "[ɲaː˨˩ haːŋ˨˩]",
+        "ipa": "[ɲaː˨˩ haːŋ˨˩]",
         "zh": "餐廳",
         "en": "Restaurant",
-        "ipa": "[ɲaː˨˩ haːŋ˨˩]"
+        "hanViet": ""
       },
       {
+        "viet": "Thực đơn",
         "vi": "Thực đơn",
+        "phonetic": "[tʰɨk̚˧˨ ɗəːn˧]",
+        "ipa": "[tʰɨk̚˧˨ ɗəːn˧]",
         "zh": "菜單",
         "en": "Menu",
-        "ipa": "[tʰɨk̚˧˨ ɗəːn˧]"
+        "hanViet": ""
       },
       {
+        "viet": "Thịt kho tộ",
         "vi": "Thịt kho tộ",
+        "phonetic": "[tʰit̚˧˨ xɔ˧ tɔ˧˨]",
+        "ipa": "[tʰit̚˧˨ xɔ˧ tɔ˧˨]",
         "zh": "瓦煲控肉",
         "en": "Claypot pork",
-        "ipa": "[tʰit̚˧˨ xɔ˧ tɔ˧˨]"
+        "hanViet": ""
       },
       {
+        "viet": "Canh chua",
         "vi": "Canh chua",
+        "phonetic": "[kaɲ˧ t͡ɕuə˧]",
+        "ipa": "[kaɲ˧ t͡ɕuə˧]",
         "zh": "酸湯",
         "en": "Sour soup",
-        "ipa": "[kaɲ˧ t͡ɕuə˧]"
+        "hanViet": ""
       },
       {
+        "viet": "Nước mía",
         "vi": "Nước mía",
+        "phonetic": "[nɨək̚˧˦ miə˧˦]",
+        "ipa": "[nɨək̚˧˦ miə˧˦]",
         "zh": "甘蔗汁",
         "en": "Sugarcane juice",
-        "ipa": "[nɨək̚˧˦ miə˧˦]"
+        "hanViet": ""
       },
       {
+        "viet": "Bia hơi",
         "vi": "Bia hơi",
+        "phonetic": "[biə˧ həːj˧]",
+        "ipa": "[biə˧ həːj˧]",
         "zh": "生啤酒",
         "en": "Draught beer",
-        "ipa": "[biə˧ həːj˧]"
+        "hanViet": ""
       },
       {
+        "viet": "Cơm trắng",
         "vi": "Cơm trắng",
+        "phonetic": "[kəːm˧ ʈaŋ˧˦]",
+        "ipa": "[kəːm˧ ʈaŋ˧˦]",
         "zh": "白飯",
         "en": "White rice",
-        "ipa": "[kəːm˧ ʈaŋ˧˦]"
+        "hanViet": ""
       },
       {
+        "viet": "Tính tiền",
         "vi": "Tính tiền",
+        "phonetic": "[tin˧˦ tiən˨˩]",
+        "ipa": "[tin˧˦ tiən˨˩]",
         "zh": "結帳 / 買單",
         "en": "Bill please",
-        "ipa": "[tin˧˦ tiən˨˩]"
+        "hanViet": ""
       }
     ],
     "culturalTip": {
@@ -1021,6 +1333,92 @@ export const situationalScenarios = [
       "titleEn": "Family-Style Dining & Nhậu Culture",
       "contentZh": "在越南吃合菜 (Ăn cơm gia đình)，通常是大家共享中間的肉類與湯品，並將湯汁淋在自己的白飯上享用。如果是一群朋友去熱炒店 (Quán nhậu)，則一定會點「Bia hơi」(生啤酒) 或瓶裝啤酒，並且非常流行加冰塊喝。敬酒時大家會齊聲高喊「Một, hai, ba, Dô! (一、二、三，乾杯！)」氣氛非常熱烈。",
       "contentEn": "In a Vietnamese family meal, dishes are shared from the center, and flavorful broths are often spooned over individual bowls of rice. In lively drinking spots (Quán nhậu), 'Bia hơi' (draught beer) is king, usually served over ice. Expect loud cheers of 'Một, hai, ba, Dô!' (1, 2, 3, Cheers!) throughout the night.",
+      "tipsZh": "在越南吃合菜 (Ăn cơm gia đình)，通常是大家共享中間的肉類與湯品，並將湯汁淋在自己的白飯上享用。如果是一群朋友去熱炒店 (Quán nhậu)，則一定會點「Bia hơi」(生啤酒) 或瓶裝啤酒，並且非常流行加冰塊喝。敬酒時大家會齊聲高喊「Một, hai, ba, Dô! (一、二、三，乾杯！)」氣氛非常熱烈。",
+      "tipsEn": "In a Vietnamese family meal, dishes are shared from the center, and flavorful broths are often spooned over individual bowls of rice. In lively drinking spots (Quán nhậu), 'Bia hơi' (draught beer) is king, usually served over ice. Expect loud cheers of 'Một, hai, ba, Dô!' (1, 2, 3, Cheers!) throughout the night.",
+      "proTipZh": "✨ 避坑：餐廳桌上放的濕紙巾 (Khăn ướt) 通常是要額外收費的 (約 2,000-5,000 VND)。冰茶 (Trà đá) 有些免費，有些也會收少許費用。",
+      "proTipEn": "✨ Pro Tip: The wet wipes (Khăn ướt) on the table usually cost extra (2k-5k VND). Iced tea (Trà đá) is sometimes free, but often carries a small charge."
+    },
+    "vocab": [
+      {
+        "viet": "Nhà hàng",
+        "vi": "Nhà hàng",
+        "phonetic": "[ɲaː˨˩ haːŋ˨˩]",
+        "ipa": "[ɲaː˨˩ haːŋ˨˩]",
+        "zh": "餐廳",
+        "en": "Restaurant",
+        "hanViet": ""
+      },
+      {
+        "viet": "Thực đơn",
+        "vi": "Thực đơn",
+        "phonetic": "[tʰɨk̚˧˨ ɗəːn˧]",
+        "ipa": "[tʰɨk̚˧˨ ɗəːn˧]",
+        "zh": "菜單",
+        "en": "Menu",
+        "hanViet": ""
+      },
+      {
+        "viet": "Thịt kho tộ",
+        "vi": "Thịt kho tộ",
+        "phonetic": "[tʰit̚˧˨ xɔ˧ tɔ˧˨]",
+        "ipa": "[tʰit̚˧˨ xɔ˧ tɔ˧˨]",
+        "zh": "瓦煲控肉",
+        "en": "Claypot pork",
+        "hanViet": ""
+      },
+      {
+        "viet": "Canh chua",
+        "vi": "Canh chua",
+        "phonetic": "[kaɲ˧ t͡ɕuə˧]",
+        "ipa": "[kaɲ˧ t͡ɕuə˧]",
+        "zh": "酸湯",
+        "en": "Sour soup",
+        "hanViet": ""
+      },
+      {
+        "viet": "Nước mía",
+        "vi": "Nước mía",
+        "phonetic": "[nɨək̚˧˦ miə˧˦]",
+        "ipa": "[nɨək̚˧˦ miə˧˦]",
+        "zh": "甘蔗汁",
+        "en": "Sugarcane juice",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bia hơi",
+        "vi": "Bia hơi",
+        "phonetic": "[biə˧ həːj˧]",
+        "ipa": "[biə˧ həːj˧]",
+        "zh": "生啤酒",
+        "en": "Draught beer",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cơm trắng",
+        "vi": "Cơm trắng",
+        "phonetic": "[kəːm˧ ʈaŋ˧˦]",
+        "ipa": "[kəːm˧ ʈaŋ˧˦]",
+        "zh": "白飯",
+        "en": "White rice",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tính tiền",
+        "vi": "Tính tiền",
+        "phonetic": "[tin˧˦ tiən˨˩]",
+        "ipa": "[tin˧˦ tiən˨˩]",
+        "zh": "結帳 / 買單",
+        "en": "Bill please",
+        "hanViet": ""
+      }
+    ],
+    "culturalTips": {
+      "titleZh": "🇻🇳 越式合菜與拼酒文化",
+      "titleEn": "Family-Style Dining & Nhậu Culture",
+      "contentZh": "在越南吃合菜 (Ăn cơm gia đình)，通常是大家共享中間的肉類與湯品，並將湯汁淋在自己的白飯上享用。如果是一群朋友去熱炒店 (Quán nhậu)，則一定會點「Bia hơi」(生啤酒) 或瓶裝啤酒，並且非常流行加冰塊喝。敬酒時大家會齊聲高喊「Một, hai, ba, Dô! (一、二、三，乾杯！)」氣氛非常熱烈。",
+      "contentEn": "In a Vietnamese family meal, dishes are shared from the center, and flavorful broths are often spooned over individual bowls of rice. In lively drinking spots (Quán nhậu), 'Bia hơi' (draught beer) is king, usually served over ice. Expect loud cheers of 'Một, hai, ba, Dô!' (1, 2, 3, Cheers!) throughout the night.",
+      "tipsZh": "在越南吃合菜 (Ăn cơm gia đình)，通常是大家共享中間的肉類與湯品，並將湯汁淋在自己的白飯上享用。如果是一群朋友去熱炒店 (Quán nhậu)，則一定會點「Bia hơi」(生啤酒) 或瓶裝啤酒，並且非常流行加冰塊喝。敬酒時大家會齊聲高喊「Một, hai, ba, Dô! (一、二、三，乾杯！)」氣氛非常熱烈。",
+      "tipsEn": "In a Vietnamese family meal, dishes are shared from the center, and flavorful broths are often spooned over individual bowls of rice. In lively drinking spots (Quán nhậu), 'Bia hơi' (draught beer) is king, usually served over ice. Expect loud cheers of 'Một, hai, ba, Dô!' (1, 2, 3, Cheers!) throughout the night.",
       "proTipZh": "✨ 避坑：餐廳桌上放的濕紙巾 (Khăn ướt) 通常是要額外收費的 (約 2,000-5,000 VND)。冰茶 (Trà đá) 有些免費，有些也會收少許費用。",
       "proTipEn": "✨ Pro Tip: The wet wipes (Khăn ướt) on the table usually cost extra (2k-5k VND). Iced tea (Trà đá) is sometimes free, but often carries a small charge."
     }
@@ -1037,7 +1435,6 @@ export const situationalScenarios = [
     "titleVi": "Gọi Cà Phê Tại Quán Cà Phê",
     "summaryZh": "學習點最道地的 Cà phê sữa đá (冰奶咖)、Bạc xỉu (白咖啡/多奶) 以及調整甜度冰量與內用外帶。",
     "summaryEn": "Order authentic Vietnamese Iced Milk Coffee, Bạc xỉu, adjust sweetness/ice, and choose dine-in or takeaway.",
-    
     "realMenu": {
       "brand": "Highlands Coffee (高原咖啡 🇻🇳)",
       "descriptionZh": "全越最大連鎖咖啡，實際菜單點餐教學。",
@@ -1274,71 +1671,208 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Cà phê sữa đá",
+        "vi": "Cà phê sữa đá",
+        "phonetic": "[ka fe sɯə da]",
+        "ipa": "[ka fe sɯə da]",
         "zh": "冰牛奶咖啡（加煉乳）",
         "en": "Iced coffee with condensed milk",
-        "phonetic": "[ka fe sɯə da]",
-        "note": "越南國寶級飲品"
+        "hanViet": ""
       },
       {
         "viet": "Cà phê đen đá",
+        "vi": "Cà phê đen đá",
+        "phonetic": "[ka fe dɛn da]",
+        "ipa": "[ka fe dɛn da]",
         "zh": "冰黑咖啡",
         "en": "Iced black coffee",
-        "phonetic": "[ka fe dɛn da]",
-        "note": "濃郁不加奶"
+        "hanViet": ""
       },
       {
         "viet": "Bạc xỉu",
+        "vi": "Bạc xỉu",
+        "phonetic": "[bak siw]",
+        "ipa": "[bak siw]",
         "zh": "白咖啡（多奶少咖啡）",
         "en": "White coffee (more milk)",
-        "phonetic": "[bak siw]",
-        "note": "南越經典甜香"
+        "hanViet": ""
       },
       {
         "viet": "Cà phê trứng",
+        "vi": "Cà phê trứng",
+        "phonetic": "[ka fe tɯŋ]",
+        "ipa": "[ka fe tɯŋ]",
         "zh": "蛋咖啡",
         "en": "Egg coffee",
-        "phonetic": "[ka fe tɯŋ]",
-        "note": "河內必喝特色"
+        "hanViet": ""
       },
       {
         "viet": "Ít đường",
+        "vi": "Ít đường",
+        "phonetic": "[it dɯəŋ]",
+        "ipa": "[it dɯəŋ]",
         "zh": "少糖 / 微糖",
         "en": "Less sugar",
-        "phonetic": "[it dɯəŋ]",
-        "note": "點飲料必背詞"
+        "hanViet": ""
       },
       {
         "viet": "Nhiều đá",
+        "vi": "Nhiều đá",
+        "phonetic": "[ɲiəw da]",
+        "ipa": "[ɲiəw da]",
         "zh": "多冰",
         "en": "Extra ice",
-        "phonetic": "[ɲiəw da]",
-        "note": "炎熱氣候專用"
+        "hanViet": ""
       },
       {
         "viet": "Không lấy đá",
+        "vi": "Không lấy đá",
+        "phonetic": "[xoŋ ləj da]",
+        "ipa": "[xoŋ ləj da]",
         "zh": "去冰 / 不加冰",
         "en": "No ice",
-        "phonetic": "[xoŋ ləj da]",
-        "note": "冷飲去冰"
+        "hanViet": ""
       },
       {
         "viet": "Mang đi / Mang về",
+        "vi": "Mang đi / Mang về",
+        "phonetic": "[maŋ di / maŋ ve]",
+        "ipa": "[maŋ di / maŋ ve]",
         "zh": "外帶",
         "en": "Takeaway / To go",
-        "phonetic": "[maŋ di / maŋ ve]",
-        "note": "南越講 mang đi，北越講 mang về"
+        "hanViet": ""
       },
       {
         "viet": "Uống tại đây",
+        "vi": "Uống tại đây",
+        "phonetic": "[uəŋ taːj dəj]",
+        "ipa": "[uəŋ taːj dəj]",
         "zh": "內用 / 在此飲用",
         "en": "Dine in / For here",
-        "phonetic": "[uəŋ taːj dəj]",
-        "note": "在店內享用"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南咖啡館在地文化與秘笈",
       "titleEn": "Vietnamese Cafe Culture & Etiquette",
+      "contentZh": [
+        "叫店員請用「Em ơi!」(年輕店員) 或「Anh ơi / Chị ơi」，切勿直接大喊「Waiter」。",
+        "越南的咖啡普遍預設加入香甜濃厚的煉乳 (Sữa đặc)，若不嗜甜，務必提醒「Ít đường」(少糖) 或「Ít sữa」(少奶)。",
+        "在傳統咖啡館，通常會免費附上一大杯清涼消暑的淡香綠茶「Trà đá」(冰茶)。"
+      ],
+      "contentEn": [
+        "Address staff with friendly pronouns: \"Em ơi!\" (younger staff) or \"Anh ơi / Chị ơi\".",
+        "Vietnamese coffee comes standard with sweet condensed milk (Sữa đặc). Ask for \"Ít đường\" (less sugar) if you prefer milder sweetness.",
+        "Traditional cafes always serve a complimentary iced fragrant tea known as \"Trà đá\"."
+      ],
+      "tipsZh": [
+        "叫店員請用「Em ơi!」(年輕店員) 或「Anh ơi / Chị ơi」，切勿直接大喊「Waiter」。",
+        "越南的咖啡普遍預設加入香甜濃厚的煉乳 (Sữa đặc)，若不嗜甜，務必提醒「Ít đường」(少糖) 或「Ít sữa」(少奶)。",
+        "在傳統咖啡館，通常會免費附上一大杯清涼消暑的淡香綠茶「Trà đá」(冰茶)。"
+      ],
+      "tipsEn": [
+        "Address staff with friendly pronouns: \"Em ơi!\" (younger staff) or \"Anh ơi / Chị ơi\".",
+        "Vietnamese coffee comes standard with sweet condensed milk (Sữa đặc). Ask for \"Ít đường\" (less sugar) if you prefer milder sweetness.",
+        "Traditional cafes always serve a complimentary iced fragrant tea known as \"Trà đá\"."
+      ],
+      "proTipZh": "✨ 避坑：越南有些精品文青店結帳要先付，街頭小店通常是喝完離開前再喊「Em ơi tính tiền」(結帳)！",
+      "proTipEn": "✨ Pro Tip: Trendy cafes require payment at counter first, while street cafes charge after finishing when you call \"Tính tiền\"!"
+    },
+    "vocabulary": [
+      {
+        "viet": "Cà phê sữa đá",
+        "vi": "Cà phê sữa đá",
+        "phonetic": "[ka fe sɯə da]",
+        "ipa": "[ka fe sɯə da]",
+        "zh": "冰牛奶咖啡（加煉乳）",
+        "en": "Iced coffee with condensed milk",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cà phê đen đá",
+        "vi": "Cà phê đen đá",
+        "phonetic": "[ka fe dɛn da]",
+        "ipa": "[ka fe dɛn da]",
+        "zh": "冰黑咖啡",
+        "en": "Iced black coffee",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bạc xỉu",
+        "vi": "Bạc xỉu",
+        "phonetic": "[bak siw]",
+        "ipa": "[bak siw]",
+        "zh": "白咖啡（多奶少咖啡）",
+        "en": "White coffee (more milk)",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cà phê trứng",
+        "vi": "Cà phê trứng",
+        "phonetic": "[ka fe tɯŋ]",
+        "ipa": "[ka fe tɯŋ]",
+        "zh": "蛋咖啡",
+        "en": "Egg coffee",
+        "hanViet": ""
+      },
+      {
+        "viet": "Ít đường",
+        "vi": "Ít đường",
+        "phonetic": "[it dɯəŋ]",
+        "ipa": "[it dɯəŋ]",
+        "zh": "少糖 / 微糖",
+        "en": "Less sugar",
+        "hanViet": ""
+      },
+      {
+        "viet": "Nhiều đá",
+        "vi": "Nhiều đá",
+        "phonetic": "[ɲiəw da]",
+        "ipa": "[ɲiəw da]",
+        "zh": "多冰",
+        "en": "Extra ice",
+        "hanViet": ""
+      },
+      {
+        "viet": "Không lấy đá",
+        "vi": "Không lấy đá",
+        "phonetic": "[xoŋ ləj da]",
+        "ipa": "[xoŋ ləj da]",
+        "zh": "去冰 / 不加冰",
+        "en": "No ice",
+        "hanViet": ""
+      },
+      {
+        "viet": "Mang đi / Mang về",
+        "vi": "Mang đi / Mang về",
+        "phonetic": "[maŋ di / maŋ ve]",
+        "ipa": "[maŋ di / maŋ ve]",
+        "zh": "外帶",
+        "en": "Takeaway / To go",
+        "hanViet": ""
+      },
+      {
+        "viet": "Uống tại đây",
+        "vi": "Uống tại đây",
+        "phonetic": "[uəŋ taːj dəj]",
+        "ipa": "[uəŋ taːj dəj]",
+        "zh": "內用 / 在此飲用",
+        "en": "Dine in / For here",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南咖啡館在地文化與秘笈",
+      "titleEn": "Vietnamese Cafe Culture & Etiquette",
+      "contentZh": [
+        "叫店員請用「Em ơi!」(年輕店員) 或「Anh ơi / Chị ơi」，切勿直接大喊「Waiter」。",
+        "越南的咖啡普遍預設加入香甜濃厚的煉乳 (Sữa đặc)，若不嗜甜，務必提醒「Ít đường」(少糖) 或「Ít sữa」(少奶)。",
+        "在傳統咖啡館，通常會免費附上一大杯清涼消暑的淡香綠茶「Trà đá」(冰茶)。"
+      ],
+      "contentEn": [
+        "Address staff with friendly pronouns: \"Em ơi!\" (younger staff) or \"Anh ơi / Chị ơi\".",
+        "Vietnamese coffee comes standard with sweet condensed milk (Sữa đặc). Ask for \"Ít đường\" (less sugar) if you prefer milder sweetness.",
+        "Traditional cafes always serve a complimentary iced fragrant tea known as \"Trà đá\"."
+      ],
       "tipsZh": [
         "叫店員請用「Em ơi!」(年輕店員) 或「Anh ơi / Chị ơi」，切勿直接大喊「Waiter」。",
         "越南的咖啡普遍預設加入香甜濃厚的煉乳 (Sữa đặc)，若不嗜甜，務必提醒「Ít đường」(少糖) 或「Ít sữa」(少奶)。",
@@ -1365,7 +1899,6 @@ export const situationalScenarios = [
     "titleVi": "Gọi Món Tại Quán Phở Truyền Thống",
     "summaryZh": "學會區分半熟生牛肉 (Phở tái)、全熟牛腩 (Phở chín/nạm)、加點油條 (Quẩy) 與特製半熟蛋 (Trứng chần)。",
     "summaryEn": "Order rare beef (Phở tái), well-done brisket (Phở chín/nạm), crispy crullers (Quẩy), and poached egg.",
-    
     "realMenu": {
       "brand": "Phở Gia Truyền (傳統河粉名店 🍜)",
       "descriptionZh": "模擬越南街頭與名店常見的河粉菜單，掌握點肉部位。",
@@ -1604,71 +2137,208 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Phở bò tái",
+        "vi": "Phở bò tái",
+        "phonetic": "[fə bɔ taːj]",
+        "ipa": "[fə bɔ taːj]",
         "zh": "生牛肉河粉（半熟嫩肉）",
         "en": "Rare beef pho",
-        "phonetic": "[fə bɔ taːj]",
-        "note": "牛肉粉招牌"
+        "hanViet": ""
       },
       {
         "viet": "Phở nạm / chín",
+        "vi": "Phở nạm / chín",
+        "phonetic": "[fə nam / cin]",
+        "ipa": "[fə nam / cin]",
         "zh": "牛腩 / 全熟熟牛肉",
         "en": "Flank / Well-done beef",
-        "phonetic": "[fə nam / cin]",
-        "note": "熟肉軟嫩"
+        "hanViet": ""
       },
       {
         "viet": "Phở gà",
+        "vi": "Phở gà",
+        "phonetic": "[fə ga]",
+        "ipa": "[fə ga]",
         "zh": "雞肉河粉",
         "en": "Chicken pho",
-        "phonetic": "[fə ga]",
-        "note": "湯頭清甜"
+        "hanViet": ""
       },
       {
         "viet": "Quẩy",
+        "vi": "Quẩy",
+        "phonetic": "[kwəj]",
+        "ipa": "[kwəj]",
         "zh": "油條（河粉必配）",
         "en": "Fried crullers",
-        "phonetic": "[kwəj]",
-        "note": "泡在熱湯中吸飽湯汁"
+        "hanViet": ""
       },
       {
         "viet": "Trứng chần",
+        "vi": "Trứng chần",
+        "phonetic": "[tɯŋ cən]",
+        "ipa": "[tɯŋ cən]",
         "zh": "半熟溫泉蛋（牛骨湯浸泡）",
         "en": "Poached egg in broth",
-        "phonetic": "[tɯŋ cən]",
-        "note": "老饕加點吃法"
+        "hanViet": ""
       },
       {
         "viet": "Ngò gai",
+        "vi": "Ngò gai",
+        "phonetic": "[ŋɔ gaːj]",
+        "ipa": "[ŋɔ gaːj]",
         "zh": "刺芫荽（越南香草）",
         "en": "Culantro / Long coriander",
-        "phonetic": "[ŋɔ gaːj]",
-        "note": "河粉經典香草"
+        "hanViet": ""
       },
       {
         "viet": "Hành hoa / Hành lá",
+        "vi": "Hành hoa / Hành lá",
+        "phonetic": "[haɲ hwa]",
+        "ipa": "[haɲ hwa]",
         "zh": "蔥花 / 綠青蔥",
         "en": "Scallions / Spring onion",
-        "phonetic": "[haɲ hwa]",
-        "note": "滿滿鋪在碗頂"
+        "hanViet": ""
       },
       {
         "viet": "Giá đỗ",
+        "vi": "Giá đỗ",
+        "phonetic": "[za do]",
+        "ipa": "[za do]",
         "zh": "豆芽菜",
         "en": "Bean sprouts",
-        "phonetic": "[za do]",
-        "note": "南越常生吃，北越常汆燙"
+        "hanViet": ""
       },
       {
         "viet": "Tương ớt / Tương đen",
+        "vi": "Tương ớt / Tương đen",
+        "phonetic": "[tɯəŋ ət]",
+        "ipa": "[tɯəŋ ət]",
         "zh": "辣椒醬 / 海鮮甜麵醬",
         "en": "Chili sauce / Hoisin sauce",
-        "phonetic": "[tɯəŋ ət]",
-        "note": "南越必備沾醬"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "品嚐正統越南河粉老饕吃法",
       "titleEn": "How to Eat Pho Like a Local",
+      "contentZh": [
+        "先喝一口原汁原味的牛骨高湯，品味純粹清甜，再擠入檸檬汁 (Chanh) 與加入生辣椒片 (Ớt tươi)。",
+        "南越吃法會將九層塔 (Húng quế) 與刺芫荽 (Ngò gai) 用手撕碎丟入熱湯中激發香氣。",
+        "「Quẩy」(油條) 剛炸出來金黃酥脆，壓入湯裡浸泡 3 秒吸收牛骨濃湯，口感極其驚艷！"
+      ],
+      "contentEn": [
+        "Sip the pure bone broth first before adding lime wedges and fresh chili slices.",
+        "In Southern Vietnam, tear fresh basil leaves and culantro by hand into the steaming broth to release aromatic oils.",
+        "Dip crispy fried crullers (Quẩy) into the rich broth for 3 seconds for the ultimate local taste!"
+      ],
+      "tipsZh": [
+        "先喝一口原汁原味的牛骨高湯，品味純粹清甜，再擠入檸檬汁 (Chanh) 與加入生辣椒片 (Ớt tươi)。",
+        "南越吃法會將九層塔 (Húng quế) 與刺芫荽 (Ngò gai) 用手撕碎丟入熱湯中激發香氣。",
+        "「Quẩy」(油條) 剛炸出來金黃酥脆，壓入湯裡浸泡 3 秒吸收牛骨濃湯，口感極其驚艷！"
+      ],
+      "tipsEn": [
+        "Sip the pure bone broth first before adding lime wedges and fresh chili slices.",
+        "In Southern Vietnam, tear fresh basil leaves and culantro by hand into the steaming broth to release aromatic oils.",
+        "Dip crispy fried crullers (Quẩy) into the rich broth for 3 seconds for the ultimate local taste!"
+      ],
+      "proTipZh": "✨ 避坑：北越人吃河粉偏好清澈湯頭只加蒜醋與辣椒醬；南越人則熱愛加大量黑甜醬 (Tương đen) 與生豆芽，各具特色！",
+      "proTipEn": "✨ Pro Tip: Northern pho prefers clear broth with garlic vinegar, while Southern pho loves sweet hoisin sauce and fresh herbs!"
+    },
+    "vocabulary": [
+      {
+        "viet": "Phở bò tái",
+        "vi": "Phở bò tái",
+        "phonetic": "[fə bɔ taːj]",
+        "ipa": "[fə bɔ taːj]",
+        "zh": "生牛肉河粉（半熟嫩肉）",
+        "en": "Rare beef pho",
+        "hanViet": ""
+      },
+      {
+        "viet": "Phở nạm / chín",
+        "vi": "Phở nạm / chín",
+        "phonetic": "[fə nam / cin]",
+        "ipa": "[fə nam / cin]",
+        "zh": "牛腩 / 全熟熟牛肉",
+        "en": "Flank / Well-done beef",
+        "hanViet": ""
+      },
+      {
+        "viet": "Phở gà",
+        "vi": "Phở gà",
+        "phonetic": "[fə ga]",
+        "ipa": "[fə ga]",
+        "zh": "雞肉河粉",
+        "en": "Chicken pho",
+        "hanViet": ""
+      },
+      {
+        "viet": "Quẩy",
+        "vi": "Quẩy",
+        "phonetic": "[kwəj]",
+        "ipa": "[kwəj]",
+        "zh": "油條（河粉必配）",
+        "en": "Fried crullers",
+        "hanViet": ""
+      },
+      {
+        "viet": "Trứng chần",
+        "vi": "Trứng chần",
+        "phonetic": "[tɯŋ cən]",
+        "ipa": "[tɯŋ cən]",
+        "zh": "半熟溫泉蛋（牛骨湯浸泡）",
+        "en": "Poached egg in broth",
+        "hanViet": ""
+      },
+      {
+        "viet": "Ngò gai",
+        "vi": "Ngò gai",
+        "phonetic": "[ŋɔ gaːj]",
+        "ipa": "[ŋɔ gaːj]",
+        "zh": "刺芫荽（越南香草）",
+        "en": "Culantro / Long coriander",
+        "hanViet": ""
+      },
+      {
+        "viet": "Hành hoa / Hành lá",
+        "vi": "Hành hoa / Hành lá",
+        "phonetic": "[haɲ hwa]",
+        "ipa": "[haɲ hwa]",
+        "zh": "蔥花 / 綠青蔥",
+        "en": "Scallions / Spring onion",
+        "hanViet": ""
+      },
+      {
+        "viet": "Giá đỗ",
+        "vi": "Giá đỗ",
+        "phonetic": "[za do]",
+        "ipa": "[za do]",
+        "zh": "豆芽菜",
+        "en": "Bean sprouts",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tương ớt / Tương đen",
+        "vi": "Tương ớt / Tương đen",
+        "phonetic": "[tɯəŋ ət]",
+        "ipa": "[tɯəŋ ət]",
+        "zh": "辣椒醬 / 海鮮甜麵醬",
+        "en": "Chili sauce / Hoisin sauce",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "品嚐正統越南河粉老饕吃法",
+      "titleEn": "How to Eat Pho Like a Local",
+      "contentZh": [
+        "先喝一口原汁原味的牛骨高湯，品味純粹清甜，再擠入檸檬汁 (Chanh) 與加入生辣椒片 (Ớt tươi)。",
+        "南越吃法會將九層塔 (Húng quế) 與刺芫荽 (Ngò gai) 用手撕碎丟入熱湯中激發香氣。",
+        "「Quẩy」(油條) 剛炸出來金黃酥脆，壓入湯裡浸泡 3 秒吸收牛骨濃湯，口感極其驚艷！"
+      ],
+      "contentEn": [
+        "Sip the pure bone broth first before adding lime wedges and fresh chili slices.",
+        "In Southern Vietnam, tear fresh basil leaves and culantro by hand into the steaming broth to release aromatic oils.",
+        "Dip crispy fried crullers (Quẩy) into the rich broth for 3 seconds for the ultimate local taste!"
+      ],
       "tipsZh": [
         "先喝一口原汁原味的牛骨高湯，品味純粹清甜，再擠入檸檬汁 (Chanh) 與加入生辣椒片 (Ớt tươi)。",
         "南越吃法會將九層塔 (Húng quế) 與刺芫荽 (Ngò gai) 用手撕碎丟入熱湯中激發香氣。",
@@ -1695,7 +2365,6 @@ export const situationalScenarios = [
     "titleVi": "Mua Bánh Mì Tại Xe Bánh Mì Vỉa Hè",
     "summaryZh": "掌握點 Bánh mì thịt (肉餡麵包)、Bánh mì trứng (煎蛋麵包)、客製加滿肝醬 (Pa-tê)、醃蘿蔔與調整辣度。",
     "summaryEn": "Customize your crispy Banh Mi with pate, savory cold cuts, fried eggs, pickled daikon, and spicy chili.",
-    
     "realMenu": {
       "brand": "Tiệm Bánh Mì (人氣越式法包攤 🥖)",
       "descriptionZh": "模擬在地排隊法包名店的菜單，教你選料與客製化。",
@@ -1912,71 +2581,208 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Bánh mì thịt",
+        "vi": "Bánh mì thịt",
+        "phonetic": "[baɲ mi tʰit]",
+        "ipa": "[baɲ mi tʰit]",
         "zh": "豬肉綜合法國麵包",
         "en": "Pork meat banh mi",
-        "phonetic": "[baɲ mi tʰit]",
-        "note": "最經典國民款式"
+        "hanViet": ""
       },
       {
         "viet": "Bánh mì ốp la / trứng",
+        "vi": "Bánh mì ốp la / trứng",
+        "phonetic": "[baɲ mi op la]",
+        "ipa": "[baɲ mi op la]",
         "zh": "雙煎蛋法國麵包",
         "en": "Fried egg banh mi",
-        "phonetic": "[baɲ mi op la]",
-        "note": "現煎荷包蛋香氣四溢"
+        "hanViet": ""
       },
       {
         "viet": "Bánh mì chả lụa",
+        "vi": "Bánh mì chả lụa",
+        "phonetic": "[baɲ mi ca luə]",
+        "ipa": "[baɲ mi ca luə]",
         "zh": "越式白扎肉法國麵包",
         "en": "Vietnamese pork sausage banh mi",
-        "phonetic": "[baɲ mi ca luə]",
-        "note": "扎肉 Q 彈無比"
+        "hanViet": ""
       },
       {
         "viet": "Bánh mì heo quay",
+        "vi": "Bánh mì heo quay",
+        "phonetic": "[baɲ mi hɛw kwaːj]",
+        "ipa": "[baɲ mi hɛw kwaːj]",
         "zh": "脆皮烤乳豬法國麵包",
         "en": "Crispy roast pork banh mi",
-        "phonetic": "[baɲ mi hɛw kwaːj]",
-        "note": "肉皮香脆多汁"
+        "hanViet": ""
       },
       {
         "viet": "Pa-tê",
+        "vi": "Pa-tê",
+        "phonetic": "[pa te]",
+        "ipa": "[pa te]",
         "zh": "豬肝醬（靈魂抹醬）",
         "en": "Liver pate",
-        "phonetic": "[pa te]",
-        "note": "滋潤酥脆麵包"
+        "hanViet": ""
       },
       {
         "viet": "Bơ",
+        "vi": "Bơ",
+        "phonetic": "[bə]",
+        "ipa": "[bə]",
         "zh": "越式黃油美乃滋",
         "en": "Vietnamese mayonnaise/butter",
-        "phonetic": "[bə]",
-        "note": "蛋黃打發濃郁"
+        "hanViet": ""
       },
       {
         "viet": "Đồ chua",
+        "vi": "Đồ chua",
+        "phonetic": "[do cuə]",
+        "ipa": "[do cuə]",
         "zh": "酸甜醃紅白蘿蔔絲",
         "en": "Pickled daikon and carrots",
-        "phonetic": "[do cuə]",
-        "note": "爽口解膩必備"
+        "hanViet": ""
       },
       {
         "viet": "Rau mùi / Ngò rí",
+        "vi": "Rau mùi / Ngò rí",
+        "phonetic": "[zaw muj / ŋɔ zi]",
+        "ipa": "[zaw muj / ŋɔ zi]",
         "zh": "香菜 / 芫荽",
         "en": "Cilantro / Coriander",
-        "phonetic": "[zaw muj / ŋɔ zi]",
-        "note": "北越叫 rau mùi，南越叫 ngò"
+        "hanViet": ""
       },
       {
         "viet": "Không lấy ớt",
+        "vi": "Không lấy ớt",
+        "phonetic": "[xoŋ ləj ət]",
+        "ipa": "[xoŋ ləj ət]",
         "zh": "不要辣椒 / 不加辣",
         "en": "No chili",
-        "phonetic": "[xoŋ ləj ət]",
-        "note": "怕辣必背金句"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "法國殖民演變出的世界名物：越式法包",
       "titleEn": "The Story Behind Banh Mi",
+      "contentZh": [
+        "越式法包 (Bánh mì) 融合了法國長棍麵包的酥脆外皮與越南在地大米粉配方，口感外極度酥脆、內裡輕盈鬆軟。",
+        "好吃的法包核心在於攤主自製的豬肝肉醬 (Pa-tê) 與手工蛋黃美乃滋 (Bơ trứng)。",
+        "現買現吃是最高享受！攤販通常會在小烤箱或炭火上把麵包重新烤熱 1 分鐘後才夾料。"
+      ],
+      "contentEn": [
+        "Banh Mi combines the French baguette crust with Vietnamese rice flour for an ultra-crispy outside and airy inside.",
+        "The secret soul lies in homemade liver pate (Pa-tê) and golden egg yolk butter spread.",
+        "Always eat it fresh! Vendors toast the bread on small grills before stuffing it with ingredients."
+      ],
+      "tipsZh": [
+        "越式法包 (Bánh mì) 融合了法國長棍麵包的酥脆外皮與越南在地大米粉配方，口感外極度酥脆、內裡輕盈鬆軟。",
+        "好吃的法包核心在於攤主自製的豬肝肉醬 (Pa-tê) 與手工蛋黃美乃滋 (Bơ trứng)。",
+        "現買現吃是最高享受！攤販通常會在小烤箱或炭火上把麵包重新烤熱 1 分鐘後才夾料。"
+      ],
+      "tipsEn": [
+        "Banh Mi combines the French baguette crust with Vietnamese rice flour for an ultra-crispy outside and airy inside.",
+        "The secret soul lies in homemade liver pate (Pa-tê) and golden egg yolk butter spread.",
+        "Always eat it fresh! Vendors toast the bread on small grills before stuffing it with ingredients."
+      ],
+      "proTipZh": "✨ 避坑：越南的生朝天椒 (Ớt hiểm) 辣度驚人，吃微辣請說「cho ít ớt」(少放辣)，完全不吃辣講「không ăn cay」！",
+      "proTipEn": "✨ Pro Tip: Fresh bird’s eye chilies are fiery hot. Ask for \"Ít ớt\" (little chili) or \"Không ăn cay\" (no spicy)!"
+    },
+    "vocabulary": [
+      {
+        "viet": "Bánh mì thịt",
+        "vi": "Bánh mì thịt",
+        "phonetic": "[baɲ mi tʰit]",
+        "ipa": "[baɲ mi tʰit]",
+        "zh": "豬肉綜合法國麵包",
+        "en": "Pork meat banh mi",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bánh mì ốp la / trứng",
+        "vi": "Bánh mì ốp la / trứng",
+        "phonetic": "[baɲ mi op la]",
+        "ipa": "[baɲ mi op la]",
+        "zh": "雙煎蛋法國麵包",
+        "en": "Fried egg banh mi",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bánh mì chả lụa",
+        "vi": "Bánh mì chả lụa",
+        "phonetic": "[baɲ mi ca luə]",
+        "ipa": "[baɲ mi ca luə]",
+        "zh": "越式白扎肉法國麵包",
+        "en": "Vietnamese pork sausage banh mi",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bánh mì heo quay",
+        "vi": "Bánh mì heo quay",
+        "phonetic": "[baɲ mi hɛw kwaːj]",
+        "ipa": "[baɲ mi hɛw kwaːj]",
+        "zh": "脆皮烤乳豬法國麵包",
+        "en": "Crispy roast pork banh mi",
+        "hanViet": ""
+      },
+      {
+        "viet": "Pa-tê",
+        "vi": "Pa-tê",
+        "phonetic": "[pa te]",
+        "ipa": "[pa te]",
+        "zh": "豬肝醬（靈魂抹醬）",
+        "en": "Liver pate",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bơ",
+        "vi": "Bơ",
+        "phonetic": "[bə]",
+        "ipa": "[bə]",
+        "zh": "越式黃油美乃滋",
+        "en": "Vietnamese mayonnaise/butter",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đồ chua",
+        "vi": "Đồ chua",
+        "phonetic": "[do cuə]",
+        "ipa": "[do cuə]",
+        "zh": "酸甜醃紅白蘿蔔絲",
+        "en": "Pickled daikon and carrots",
+        "hanViet": ""
+      },
+      {
+        "viet": "Rau mùi / Ngò rí",
+        "vi": "Rau mùi / Ngò rí",
+        "phonetic": "[zaw muj / ŋɔ zi]",
+        "ipa": "[zaw muj / ŋɔ zi]",
+        "zh": "香菜 / 芫荽",
+        "en": "Cilantro / Coriander",
+        "hanViet": ""
+      },
+      {
+        "viet": "Không lấy ớt",
+        "vi": "Không lấy ớt",
+        "phonetic": "[xoŋ ləj ət]",
+        "ipa": "[xoŋ ləj ət]",
+        "zh": "不要辣椒 / 不加辣",
+        "en": "No chili",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "法國殖民演變出的世界名物：越式法包",
+      "titleEn": "The Story Behind Banh Mi",
+      "contentZh": [
+        "越式法包 (Bánh mì) 融合了法國長棍麵包的酥脆外皮與越南在地大米粉配方，口感外極度酥脆、內裡輕盈鬆軟。",
+        "好吃的法包核心在於攤主自製的豬肝肉醬 (Pa-tê) 與手工蛋黃美乃滋 (Bơ trứng)。",
+        "現買現吃是最高享受！攤販通常會在小烤箱或炭火上把麵包重新烤熱 1 分鐘後才夾料。"
+      ],
+      "contentEn": [
+        "Banh Mi combines the French baguette crust with Vietnamese rice flour for an ultra-crispy outside and airy inside.",
+        "The secret soul lies in homemade liver pate (Pa-tê) and golden egg yolk butter spread.",
+        "Always eat it fresh! Vendors toast the bread on small grills before stuffing it with ingredients."
+      ],
       "tipsZh": [
         "越式法包 (Bánh mì) 融合了法國長棍麵包的酥脆外皮與越南在地大米粉配方，口感外極度酥脆、內裡輕盈鬆軟。",
         "好吃的法包核心在於攤主自製的豬肝肉醬 (Pa-tê) 與手工蛋黃美乃滋 (Bơ trứng)。",
@@ -2157,57 +2963,172 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Ốc hương xào bơ tỏi",
+        "vi": "Ốc hương xào bơ tỏi",
+        "phonetic": "[ok hɯəŋ saːw bə tɔj]",
+        "ipa": "[ok hɯəŋ saːw bə tɔj]",
         "zh": "大蒜奶油炒香螺",
         "en": "Garlic butter sweet snails",
-        "phonetic": "[ok hɯəŋ saːw bə tɔj]",
-        "note": "下酒必點頭牌"
+        "hanViet": ""
       },
       {
         "viet": "Tôm nướng muối ớt",
+        "vi": "Tôm nướng muối ớt",
+        "phonetic": "[tom nɯəŋ muəj ət]",
+        "ipa": "[tom nɯəŋ muəj ət]",
         "zh": "鹽烤辣椒鮮蝦",
         "en": "Salt & chili grilled prawns",
-        "phonetic": "[tom nɯəŋ muəj ət]",
-        "note": "鹹香辣鮮"
+        "hanViet": ""
       },
       {
         "viet": "Mực nướng sa tế",
+        "vi": "Mực nướng sa tế",
+        "phonetic": "[mɯk nɯəŋ sa te]",
+        "ipa": "[mɯk nɯəŋ sa te]",
         "zh": "沙茶烤魷魚",
         "en": "Grilled squid with satay",
-        "phonetic": "[mɯk nɯəŋ sa te]",
-        "note": "焦香彈牙"
+        "hanViet": ""
       },
       {
         "viet": "Nghêu hấp sả",
+        "vi": "Nghêu hấp sả",
+        "phonetic": "[ŋew həp sa]",
+        "ipa": "[ŋew həp sa]",
         "zh": "香茅清蒸蛤蜊",
         "en": "Steamed clams with lemongrass",
-        "phonetic": "[ŋew həp sa]",
-        "note": "湯汁清爽甘甜"
+        "hanViet": ""
       },
       {
         "viet": "Càng ghẹ rang muối",
+        "vi": "Càng ghẹ rang muối",
+        "phonetic": "[kaːŋ ɣɛ zaːŋ muəj]",
+        "ipa": "[kaːŋ ɣɛ zaːŋ muəj]",
         "zh": "鹽焗花蟹鉗",
         "en": "Salt-roasted crab claws",
-        "phonetic": "[kaːŋ ɣɛ zaːŋ muəj]",
-        "note": "肉厚鮮甜"
+        "hanViet": ""
       },
       {
         "viet": "Một, hai, ba, dô!",
+        "vi": "Một, hai, ba, dô!",
+        "phonetic": "[mot haːj ba zo]",
+        "ipa": "[mot haːj ba zo]",
         "zh": "一、二、三，乾杯！",
         "en": "One, two, three, cheers!",
-        "phonetic": "[mot haːj ba zo]",
-        "note": "越南聚餐靈魂口號"
+        "hanViet": ""
       },
       {
         "viet": "Tính tiền / Thanh toán",
+        "vi": "Tính tiền / Thanh toán",
+        "phonetic": "[tiɲ tiən / tʰaɲ twaːn]",
+        "ipa": "[tiɲ tiən / tʰaɲ twaːn]",
         "zh": "結帳 / 買單",
         "en": "Check the bill / Pay",
-        "phonetic": "[tiɲ tiən / tʰaɲ twaːn]",
-        "note": "用完餐結帳"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "深入西貢「Nhậu」(熱炒喝酒) 夜市排檔文化",
       "titleEn": "Saigon Nhậu Seafood Culture",
+      "contentZh": [
+        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
+        "喝啤酒時服務員會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
+        "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
+      ],
+      "contentEn": [
+        "Drinking and eating snails (Ăn ốc nhậu) is a core social lifestyle in Vietnam, seated on colorful plastic stools.",
+        "Waiters constantly replenish large cylindrical ice blocks directly into beer glasses to keep it ice-cold.",
+        "Join the infectious cheer: \"Một, hai, ba, dô!\" before taking sips with friends."
+      ],
+      "tipsZh": [
+        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
+        "喝啤酒時服務員會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
+        "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
+      ],
+      "tipsEn": [
+        "Drinking and eating snails (Ăn ốc nhậu) is a core social lifestyle in Vietnam, seated on colorful plastic stools.",
+        "Waiters constantly replenish large cylindrical ice blocks directly into beer glasses to keep it ice-cold.",
+        "Join the infectious cheer: \"Một, hai, ba, dô!\" before taking sips with friends."
+      ],
+      "proTipZh": "✨ 避坑：大排檔桌上放的濕紙巾 (Khăn lạnh) 與花生小菜通常不是免費的，有用才會計費 (約 2,000 - 5,000 VND)，不用不收費。",
+      "proTipEn": "✨ Pro Tip: Wet towels (Khăn lạnh) and peanuts on the table are charged if used (around 3k-5k VND), left untouched are free."
+    },
+    "vocabulary": [
+      {
+        "viet": "Ốc hương xào bơ tỏi",
+        "vi": "Ốc hương xào bơ tỏi",
+        "phonetic": "[ok hɯəŋ saːw bə tɔj]",
+        "ipa": "[ok hɯəŋ saːw bə tɔj]",
+        "zh": "大蒜奶油炒香螺",
+        "en": "Garlic butter sweet snails",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tôm nướng muối ớt",
+        "vi": "Tôm nướng muối ớt",
+        "phonetic": "[tom nɯəŋ muəj ət]",
+        "ipa": "[tom nɯəŋ muəj ət]",
+        "zh": "鹽烤辣椒鮮蝦",
+        "en": "Salt & chili grilled prawns",
+        "hanViet": ""
+      },
+      {
+        "viet": "Mực nướng sa tế",
+        "vi": "Mực nướng sa tế",
+        "phonetic": "[mɯk nɯəŋ sa te]",
+        "ipa": "[mɯk nɯəŋ sa te]",
+        "zh": "沙茶烤魷魚",
+        "en": "Grilled squid with satay",
+        "hanViet": ""
+      },
+      {
+        "viet": "Nghêu hấp sả",
+        "vi": "Nghêu hấp sả",
+        "phonetic": "[ŋew həp sa]",
+        "ipa": "[ŋew həp sa]",
+        "zh": "香茅清蒸蛤蜊",
+        "en": "Steamed clams with lemongrass",
+        "hanViet": ""
+      },
+      {
+        "viet": "Càng ghẹ rang muối",
+        "vi": "Càng ghẹ rang muối",
+        "phonetic": "[kaːŋ ɣɛ zaːŋ muəj]",
+        "ipa": "[kaːŋ ɣɛ zaːŋ muəj]",
+        "zh": "鹽焗花蟹鉗",
+        "en": "Salt-roasted crab claws",
+        "hanViet": ""
+      },
+      {
+        "viet": "Một, hai, ba, dô!",
+        "vi": "Một, hai, ba, dô!",
+        "phonetic": "[mot haːj ba zo]",
+        "ipa": "[mot haːj ba zo]",
+        "zh": "一、二、三，乾杯！",
+        "en": "One, two, three, cheers!",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tính tiền / Thanh toán",
+        "vi": "Tính tiền / Thanh toán",
+        "phonetic": "[tiɲ tiən / tʰaɲ twaːn]",
+        "ipa": "[tiɲ tiən / tʰaɲ twaːn]",
+        "zh": "結帳 / 買單",
+        "en": "Check the bill / Pay",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "深入西貢「Nhậu」(熱炒喝酒) 夜市排檔文化",
+      "titleEn": "Saigon Nhậu Seafood Culture",
+      "contentZh": [
+        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
+        "喝啤酒時服務員會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
+        "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
+      ],
+      "contentEn": [
+        "Drinking and eating snails (Ăn ốc nhậu) is a core social lifestyle in Vietnam, seated on colorful plastic stools.",
+        "Waiters constantly replenish large cylindrical ice blocks directly into beer glasses to keep it ice-cold.",
+        "Join the infectious cheer: \"Một, hai, ba, dô!\" before taking sips with friends."
+      ],
       "tipsZh": [
         "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
         "喝啤酒時服務員會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
@@ -2388,43 +3309,130 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Trà sữa trân châu",
+        "vi": "Trà sữa trân châu",
+        "phonetic": "[ca sɯə cən cəw]",
+        "ipa": "[ca sɯə cən cəw]",
         "zh": "珍珠奶茶",
         "en": "Bubble milk tea",
-        "phonetic": "[ca sɯə cən cəw]",
-        "note": "高人氣飲品"
+        "hanViet": ""
       },
       {
         "viet": "Trân châu đường đen",
+        "vi": "Trân châu đường đen",
+        "phonetic": "[cən cəw dɯəŋ dɛn]",
+        "ipa": "[cən cəw dɯəŋ dɛn]",
         "zh": "黑糖珍珠",
         "en": "Brown sugar boba",
-        "phonetic": "[cən cəw dɯəŋ dɛn]",
-        "note": "軟糯香甜"
+        "hanViet": ""
       },
       {
         "viet": "Chè bưởi",
+        "vi": "Chè bưởi",
+        "phonetic": "[cɛ bɯəj]",
+        "ipa": "[cɛ bɯəj]",
         "zh": "柚皮綠豆甜湯",
         "en": "Pomelo sweet soup",
-        "phonetic": "[cɛ bɯəj]",
-        "note": "口感爽脆椰香濃郁"
+        "hanViet": ""
       },
       {
         "viet": "Chè ba màu",
+        "vi": "Chè ba màu",
+        "phonetic": "[cɛ ba maːw]",
+        "ipa": "[cɛ ba maːw]",
         "zh": "三色冰（紅豆/綠豆/粉粿/椰奶）",
         "en": "Three-color dessert",
-        "phonetic": "[cɛ ba maːw]",
-        "note": "南越經典消暑冰品"
+        "hanViet": ""
       },
       {
         "viet": "Phần trăm (%)",
+        "vi": "Phần trăm (%)",
+        "phonetic": "[fən cam]",
+        "ipa": "[fən cam]",
         "zh": "百分比",
         "en": "Percent",
-        "phonetic": "[fən cam]",
-        "note": "指定甜度冰量必備"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南手搖飲盛況與百年甜湯 Chè",
       "titleEn": "Vietnam Boba Craze & Historic Chè",
+      "contentZh": [
+        "越南年輕人極度熱愛台灣奶茶（KOI Thé, Gong Cha, Phê La 等），甜度建議選 30% 或 50%，預設 100% 全糖通常非常甜。",
+        "傳統甜湯「Chè」有數十種款式，熱食滋補、冷食配碎冰消暑，是越南文化中歷史悠久的國民點心。"
+      ],
+      "contentEn": [
+        "Boba tea is massive in Vietnam. We recommend 30% or 50% sugar as 100% is very sweet.",
+        "Traditional Chè has dozens of varieties featuring lotus seeds, coconut milk, jelly, and pomelo rind."
+      ],
+      "tipsZh": [
+        "越南年輕人極度熱愛台灣奶茶（KOI Thé, Gong Cha, Phê La 等），甜度建議選 30% 或 50%，預設 100% 全糖通常非常甜。",
+        "傳統甜湯「Chè」有數十種款式，熱食滋補、冷食配碎冰消暑，是越南文化中歷史悠久的國民點心。"
+      ],
+      "tipsEn": [
+        "Boba tea is massive in Vietnam. We recommend 30% or 50% sugar as 100% is very sweet.",
+        "Traditional Chè has dozens of varieties featuring lotus seeds, coconut milk, jelly, and pomelo rind."
+      ],
+      "proTipZh": "✨ 避坑：買 Chè 時店家會給一小碗甜湯和一小碗碎冰，自己一勺一勺把碎冰加進甜湯裡攪拌吃，最能保持爽脆！",
+      "proTipEn": "✨ Pro Tip: When eating Chè, spoon crushed ice gradually into the bowl to keep toppings crispy!"
+    },
+    "vocabulary": [
+      {
+        "viet": "Trà sữa trân châu",
+        "vi": "Trà sữa trân châu",
+        "phonetic": "[ca sɯə cən cəw]",
+        "ipa": "[ca sɯə cən cəw]",
+        "zh": "珍珠奶茶",
+        "en": "Bubble milk tea",
+        "hanViet": ""
+      },
+      {
+        "viet": "Trân châu đường đen",
+        "vi": "Trân châu đường đen",
+        "phonetic": "[cən cəw dɯəŋ dɛn]",
+        "ipa": "[cən cəw dɯəŋ dɛn]",
+        "zh": "黑糖珍珠",
+        "en": "Brown sugar boba",
+        "hanViet": ""
+      },
+      {
+        "viet": "Chè bưởi",
+        "vi": "Chè bưởi",
+        "phonetic": "[cɛ bɯəj]",
+        "ipa": "[cɛ bɯəj]",
+        "zh": "柚皮綠豆甜湯",
+        "en": "Pomelo sweet soup",
+        "hanViet": ""
+      },
+      {
+        "viet": "Chè ba màu",
+        "vi": "Chè ba màu",
+        "phonetic": "[cɛ ba maːw]",
+        "ipa": "[cɛ ba maːw]",
+        "zh": "三色冰（紅豆/綠豆/粉粿/椰奶）",
+        "en": "Three-color dessert",
+        "hanViet": ""
+      },
+      {
+        "viet": "Phần trăm (%)",
+        "vi": "Phần trăm (%)",
+        "phonetic": "[fən cam]",
+        "ipa": "[fən cam]",
+        "zh": "百分比",
+        "en": "Percent",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南手搖飲盛況與百年甜湯 Chè",
+      "titleEn": "Vietnam Boba Craze & Historic Chè",
+      "contentZh": [
+        "越南年輕人極度熱愛台灣奶茶（KOI Thé, Gong Cha, Phê La 等），甜度建議選 30% 或 50%，預設 100% 全糖通常非常甜。",
+        "傳統甜湯「Chè」有數十種款式，熱食滋補、冷食配碎冰消暑，是越南文化中歷史悠久的國民點心。"
+      ],
+      "contentEn": [
+        "Boba tea is massive in Vietnam. We recommend 30% or 50% sugar as 100% is very sweet.",
+        "Traditional Chè has dozens of varieties featuring lotus seeds, coconut milk, jelly, and pomelo rind."
+      ],
       "tipsZh": [
         "越南年輕人極度熱愛台灣奶茶（KOI Thé, Gong Cha, Phê La 等），甜度建議選 30% 或 50%，預設 100% 全糖通常非常甜。",
         "傳統甜湯「Chè」有數十種款式，熱食滋補、冷食配碎冰消暑，是越南文化中歷史悠久的國民點心。"
@@ -2612,57 +3620,172 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Hộ chiếu",
+        "vi": "Hộ chiếu",
+        "phonetic": "[ho ciəw]",
+        "ipa": "[ho ciəw]",
         "zh": "護照",
         "en": "Passport",
-        "phonetic": "[ho ciəw]",
-        "note": "出國必備身份證件"
+        "hanViet": ""
       },
       {
         "viet": "Thẻ lên máy bay",
+        "vi": "Thẻ lên máy bay",
+        "phonetic": "[tʰɛ len maːj baːj]",
+        "ipa": "[tʰɛ len maːj baːj]",
         "zh": "登機證 / 登機牌",
         "en": "Boarding pass",
-        "phonetic": "[tʰɛ len maːj baːj]",
-        "note": "登機必備"
+        "hanViet": ""
       },
       {
         "viet": "Hành lý ký gửi",
+        "vi": "Hành lý ký gửi",
+        "phonetic": "[haɲ li ki ɣɯj]",
+        "ipa": "[haɲ li ki ɣɯj]",
         "zh": "托運行李",
         "en": "Checked luggage",
-        "phonetic": "[haɲ li ki ɣɯj]",
-        "note": "大件行李"
+        "hanViet": ""
       },
       {
         "viet": "Hành lý xách tay",
+        "vi": "Hành lý xách tay",
+        "phonetic": "[haɲ li saːk taːj]",
+        "ipa": "[haɲ li saːk taːj]",
         "zh": "隨身手提行李",
         "en": "Carry-on baggage",
-        "phonetic": "[haɲ li saːk taːj]",
-        "note": "限重 7kg 通常"
+        "hanViet": ""
       },
       {
         "viet": "Ghế cạnh cửa sổ",
+        "vi": "Ghế cạnh cửa sổ",
+        "phonetic": "[ɣe kaɲ kɯə so]",
+        "ipa": "[ɣe kaɲ kɯə so]",
         "zh": "靠窗座位",
         "en": "Window seat",
-        "phonetic": "[ɣe kaɲ kɯə so]",
-        "note": "風景極佳"
+        "hanViet": ""
       },
       {
         "viet": "Ghế gần lối đi",
+        "vi": "Ghế gần lối đi",
+        "phonetic": "[ɣe ɣən loj di]",
+        "ipa": "[ɣe ɣən loj di]",
         "zh": "靠走道座位",
         "en": "Aisle seat",
-        "phonetic": "[ɣe ɣən loj di]",
-        "note": "進出方便"
+        "hanViet": ""
       },
       {
         "viet": "Cửa ra máy bay",
+        "vi": "Cửa ra máy bay",
+        "phonetic": "[kɯə za maːj baːj]",
+        "ipa": "[kɯə za maːj baːj]",
         "zh": "登機門 / 登機口",
         "en": "Boarding gate",
-        "phonetic": "[kɯə za maːj baːj]",
-        "note": "登機處"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南國際機場過關注意事項",
       "titleEn": "Vietnam Airport & Customs Tips",
+      "contentZh": [
+        "越南海關規定入境攜帶現金超過 5,000 美金或 15,000,000 越南盾需主動申報。",
+        "出海關時準備好電子簽證 (E-Visa) 列印紙本與回程機票行程單，能大幅加快通關速度。",
+        "離開機場建議在航廈內叫 Grab 或搭乘正規排班計程車 (Vinasun / Mai Linh)，切勿跟隨航廈外拉客的野雞車司機。"
+      ],
+      "contentEn": [
+        "Customs requires declaration if carrying over $5,000 USD or 15 million VND cash.",
+        "Keep printed copies of your E-Visa and return ticket ready for smooth immigration check.",
+        "Book rides inside the terminal via Grab app or official taxi queues (Vinasun / Mai Linh) to avoid scams."
+      ],
+      "tipsZh": [
+        "越南海關規定入境攜帶現金超過 5,000 美金或 15,000,000 越南盾需主動申報。",
+        "出海關時準備好電子簽證 (E-Visa) 列印紙本與回程機票行程單，能大幅加快通關速度。",
+        "離開機場建議在航廈內叫 Grab 或搭乘正規排班計程車 (Vinasun / Mai Linh)，切勿跟隨航廈外拉客的野雞車司機。"
+      ],
+      "tipsEn": [
+        "Customs requires declaration if carrying over $5,000 USD or 15 million VND cash.",
+        "Keep printed copies of your E-Visa and return ticket ready for smooth immigration check.",
+        "Book rides inside the terminal via Grab app or official taxi queues (Vinasun / Mai Linh) to avoid scams."
+      ],
+      "proTipZh": "✨ 避坑：過海關時請保持嚴肅、遵守動線，現在越南海關現代化規範嚴格，絕不需要主動給小費！",
+      "proTipEn": "✨ Pro Tip: Follow immigration lines normally, modern Vietnam airport terminals strictly forbid informal tips."
+    },
+    "vocabulary": [
+      {
+        "viet": "Hộ chiếu",
+        "vi": "Hộ chiếu",
+        "phonetic": "[ho ciəw]",
+        "ipa": "[ho ciəw]",
+        "zh": "護照",
+        "en": "Passport",
+        "hanViet": ""
+      },
+      {
+        "viet": "Thẻ lên máy bay",
+        "vi": "Thẻ lên máy bay",
+        "phonetic": "[tʰɛ len maːj baːj]",
+        "ipa": "[tʰɛ len maːj baːj]",
+        "zh": "登機證 / 登機牌",
+        "en": "Boarding pass",
+        "hanViet": ""
+      },
+      {
+        "viet": "Hành lý ký gửi",
+        "vi": "Hành lý ký gửi",
+        "phonetic": "[haɲ li ki ɣɯj]",
+        "ipa": "[haɲ li ki ɣɯj]",
+        "zh": "托運行李",
+        "en": "Checked luggage",
+        "hanViet": ""
+      },
+      {
+        "viet": "Hành lý xách tay",
+        "vi": "Hành lý xách tay",
+        "phonetic": "[haɲ li saːk taːj]",
+        "ipa": "[haɲ li saːk taːj]",
+        "zh": "隨身手提行李",
+        "en": "Carry-on baggage",
+        "hanViet": ""
+      },
+      {
+        "viet": "Ghế cạnh cửa sổ",
+        "vi": "Ghế cạnh cửa sổ",
+        "phonetic": "[ɣe kaɲ kɯə so]",
+        "ipa": "[ɣe kaɲ kɯə so]",
+        "zh": "靠窗座位",
+        "en": "Window seat",
+        "hanViet": ""
+      },
+      {
+        "viet": "Ghế gần lối đi",
+        "vi": "Ghế gần lối đi",
+        "phonetic": "[ɣe ɣən loj di]",
+        "ipa": "[ɣe ɣən loj di]",
+        "zh": "靠走道座位",
+        "en": "Aisle seat",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cửa ra máy bay",
+        "vi": "Cửa ra máy bay",
+        "phonetic": "[kɯə za maːj baːj]",
+        "ipa": "[kɯə za maːj baːj]",
+        "zh": "登機門 / 登機口",
+        "en": "Boarding gate",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南國際機場過關注意事項",
+      "titleEn": "Vietnam Airport & Customs Tips",
+      "contentZh": [
+        "越南海關規定入境攜帶現金超過 5,000 美金或 15,000,000 越南盾需主動申報。",
+        "出海關時準備好電子簽證 (E-Visa) 列印紙本與回程機票行程單，能大幅加快通關速度。",
+        "離開機場建議在航廈內叫 Grab 或搭乘正規排班計程車 (Vinasun / Mai Linh)，切勿跟隨航廈外拉客的野雞車司機。"
+      ],
+      "contentEn": [
+        "Customs requires declaration if carrying over $5,000 USD or 15 million VND cash.",
+        "Keep printed copies of your E-Visa and return ticket ready for smooth immigration check.",
+        "Book rides inside the terminal via Grab app or official taxi queues (Vinasun / Mai Linh) to avoid scams."
+      ],
       "tipsZh": [
         "越南海關規定入境攜帶現金超過 5,000 美金或 15,000,000 越南盾需主動申報。",
         "出海關時準備好電子簽證 (E-Visa) 列印紙本與回程機票行程單，能大幅加快通關速度。",
@@ -2852,57 +3975,172 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Nhận phòng / Check-in",
+        "vi": "Nhận phòng / Check-in",
+        "phonetic": "[ɲən fɔŋ]",
+        "ipa": "[ɲən fɔŋ]",
         "zh": "辦理入住",
         "en": "Check-in",
-        "phonetic": "[ɲən fɔŋ]",
-        "note": "到店手續"
+        "hanViet": ""
       },
       {
         "viet": "Trả phòng / Check-out",
+        "vi": "Trả phòng / Check-out",
+        "phonetic": "[ca fɔŋ]",
+        "ipa": "[ca fɔŋ]",
         "zh": "退房結帳",
         "en": "Check-out",
-        "phonetic": "[ca fɔŋ]",
-        "note": "離開飯店"
+        "hanViet": ""
       },
       {
         "viet": "Phòng đơn",
+        "vi": "Phòng đơn",
+        "phonetic": "[fɔŋ dən]",
+        "ipa": "[fɔŋ dən]",
         "zh": "單人房",
         "en": "Single room",
-        "phonetic": "[fɔŋ dən]",
-        "note": "一張單人床"
+        "hanViet": ""
       },
       {
         "viet": "Phòng đôi",
+        "vi": "Phòng đôi",
+        "phonetic": "[fɔŋ doj]",
+        "ipa": "[fɔŋ doj]",
         "zh": "雙人房",
         "en": "Double / Twin room",
-        "phonetic": "[fɔŋ doj]",
-        "note": "雙人床或兩張單人床"
+        "hanViet": ""
       },
       {
         "viet": "Tiền đặt cọc",
+        "vi": "Tiền đặt cọc",
+        "phonetic": "[tiən dat kɔk]",
+        "ipa": "[tiən dat kɔk]",
         "zh": "押金 / 保證金",
         "en": "Deposit",
-        "phonetic": "[tiən dat kɔk]",
-        "note": "退房時歸還"
+        "hanViet": ""
       },
       {
         "viet": "Mật khẩu Wi-Fi",
+        "vi": "Mật khẩu Wi-Fi",
+        "phonetic": "[mat kʰəw]",
+        "ipa": "[mat kʰəw]",
         "zh": "無線網路密碼",
         "en": "Wi-Fi password",
-        "phonetic": "[mat kʰəw]",
-        "note": "上網必問"
+        "hanViet": ""
       },
       {
         "viet": "Thang máy",
+        "vi": "Thang máy",
+        "phonetic": "[tʰaːŋ maːj]",
+        "ipa": "[tʰaːŋ maːj]",
         "zh": "電梯",
         "en": "Elevator / Lift",
-        "phonetic": "[tʰaːŋ maːj]",
-        "note": "搭電梯上樓"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南飯店住宿實用技巧",
       "titleEn": "Vietnam Hotel Stay Guide",
+      "contentZh": [
+        "辦理入住時飯店櫃台會要求暫時保留護照登記，或複印後立即歸還原件（部分星級飯店可要求當場複印後退回）。",
+        "冰箱內的 Mini Bar 飲料零食大多額外收費，免費的瓶裝水通常放置在書桌或洗手台上，瓶身標有「Complimentary / Miễn phí」。",
+        "退房時間普遍為中午 12:00，需要延遲退房可提前致電櫃台詢問「Trả phòng muộn」。"
+      ],
+      "contentEn": [
+        "Hotels will hold passports for police registration or photocopy them upon check-in.",
+        "Mini-bar items in fridge are chargeable. Free water bottles are usually marked \"Complimentary / Miễn phí\".",
+        "Standard check-out is 12:00 PM. Ask front desk for \"Trả phòng muộn\" (late check-out) if needed."
+      ],
+      "tipsZh": [
+        "辦理入住時飯店櫃台會要求暫時保留護照登記，或複印後立即歸還原件（部分星級飯店可要求當場複印後退回）。",
+        "冰箱內的 Mini Bar 飲料零食大多額外收費，免費的瓶裝水通常放置在書桌或洗手台上，瓶身標有「Complimentary / Miễn phí」。",
+        "退房時間普遍為中午 12:00，需要延遲退房可提前致電櫃台詢問「Trả phòng muộn」。"
+      ],
+      "tipsEn": [
+        "Hotels will hold passports for police registration or photocopy them upon check-in.",
+        "Mini-bar items in fridge are chargeable. Free water bottles are usually marked \"Complimentary / Miễn phí\".",
+        "Standard check-out is 12:00 PM. Ask front desk for \"Trả phòng muộn\" (late check-out) if needed."
+      ],
+      "proTipZh": "✨ 避坑：越南電壓為 220V，插座大多為雙圓孔或雙扁孔通用型，台灣雙扁插頭可直接插，但高功率電器需注意電壓相容性！",
+      "proTipEn": "✨ Pro Tip: Vietnam uses 220V electricity with universal two-pin sockets compatible with most US/Taiwan dual-voltage chargers."
+    },
+    "vocabulary": [
+      {
+        "viet": "Nhận phòng / Check-in",
+        "vi": "Nhận phòng / Check-in",
+        "phonetic": "[ɲən fɔŋ]",
+        "ipa": "[ɲən fɔŋ]",
+        "zh": "辦理入住",
+        "en": "Check-in",
+        "hanViet": ""
+      },
+      {
+        "viet": "Trả phòng / Check-out",
+        "vi": "Trả phòng / Check-out",
+        "phonetic": "[ca fɔŋ]",
+        "ipa": "[ca fɔŋ]",
+        "zh": "退房結帳",
+        "en": "Check-out",
+        "hanViet": ""
+      },
+      {
+        "viet": "Phòng đơn",
+        "vi": "Phòng đơn",
+        "phonetic": "[fɔŋ dən]",
+        "ipa": "[fɔŋ dən]",
+        "zh": "單人房",
+        "en": "Single room",
+        "hanViet": ""
+      },
+      {
+        "viet": "Phòng đôi",
+        "vi": "Phòng đôi",
+        "phonetic": "[fɔŋ doj]",
+        "ipa": "[fɔŋ doj]",
+        "zh": "雙人房",
+        "en": "Double / Twin room",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tiền đặt cọc",
+        "vi": "Tiền đặt cọc",
+        "phonetic": "[tiən dat kɔk]",
+        "ipa": "[tiən dat kɔk]",
+        "zh": "押金 / 保證金",
+        "en": "Deposit",
+        "hanViet": ""
+      },
+      {
+        "viet": "Mật khẩu Wi-Fi",
+        "vi": "Mật khẩu Wi-Fi",
+        "phonetic": "[mat kʰəw]",
+        "ipa": "[mat kʰəw]",
+        "zh": "無線網路密碼",
+        "en": "Wi-Fi password",
+        "hanViet": ""
+      },
+      {
+        "viet": "Thang máy",
+        "vi": "Thang máy",
+        "phonetic": "[tʰaːŋ maːj]",
+        "ipa": "[tʰaːŋ maːj]",
+        "zh": "電梯",
+        "en": "Elevator / Lift",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南飯店住宿實用技巧",
+      "titleEn": "Vietnam Hotel Stay Guide",
+      "contentZh": [
+        "辦理入住時飯店櫃台會要求暫時保留護照登記，或複印後立即歸還原件（部分星級飯店可要求當場複印後退回）。",
+        "冰箱內的 Mini Bar 飲料零食大多額外收費，免費的瓶裝水通常放置在書桌或洗手台上，瓶身標有「Complimentary / Miễn phí」。",
+        "退房時間普遍為中午 12:00，需要延遲退房可提前致電櫃台詢問「Trả phòng muộn」。"
+      ],
+      "contentEn": [
+        "Hotels will hold passports for police registration or photocopy them upon check-in.",
+        "Mini-bar items in fridge are chargeable. Free water bottles are usually marked \"Complimentary / Miễn phí\".",
+        "Standard check-out is 12:00 PM. Ask front desk for \"Trả phòng muộn\" (late check-out) if needed."
+      ],
       "tipsZh": [
         "辦理入住時飯店櫃台會要求暫時保留護照登記，或複印後立即歸還原件（部分星級飯店可要求當場複印後退回）。",
         "冰箱內的 Mini Bar 飲料零食大多額外收費，免費的瓶裝水通常放置在書桌或洗手台上，瓶身標有「Complimentary / Miễn phí」。",
@@ -3083,57 +4321,172 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Tài xế / Bác tài",
+        "vi": "Tài xế / Bác tài",
+        "phonetic": "[taːj se / baːk taːj]",
+        "ipa": "[taːj se / baːk taːj]",
         "zh": "司機大哥 / 司機師傅",
         "en": "Driver",
-        "phonetic": "[taːj se / baːk taːj]",
-        "note": "親切稱謂"
+        "hanViet": ""
       },
       {
         "viet": "Biển số xe",
+        "vi": "Biển số xe",
+        "phonetic": "[biən so sɛ]",
+        "ipa": "[biən so sɛ]",
         "zh": "車牌號碼",
         "en": "License plate",
-        "phonetic": "[biən so sɛ]",
-        "note": "上車前必核對"
+        "hanViet": ""
       },
       {
         "viet": "Đi thẳng",
+        "vi": "Đi thẳng",
+        "phonetic": "[di tʰaŋ]",
+        "ipa": "[di tʰaŋ]",
         "zh": "直走",
         "en": "Go straight",
-        "phonetic": "[di tʰaŋ]",
-        "note": "指路基本指令"
+        "hanViet": ""
       },
       {
         "viet": "Rẽ trái / Quẹo trái",
+        "vi": "Rẽ trái / Quẹo trái",
+        "phonetic": "[zɛ caːj / kwɛw caːj]",
+        "ipa": "[zɛ caːj / kwɛw caːj]",
         "zh": "左轉",
         "en": "Turn left",
-        "phonetic": "[zɛ caːj / kwɛw caːj]",
-        "note": "北越講 rẽ，南越講 quẹo"
+        "hanViet": ""
       },
       {
         "viet": "Rẽ phải / Quẹo phải",
+        "vi": "Rẽ phải / Quẹo phải",
+        "phonetic": "[zɛ faːj / kwɛw faːj]",
+        "ipa": "[zɛ faːj / kwɛw faːj]",
         "zh": "右轉",
         "en": "Turn right",
-        "phonetic": "[zɛ faːj / kwɛw faːj]",
-        "note": "北越講 rẽ，南越講 quẹo"
+        "hanViet": ""
       },
       {
         "viet": "Ngã tư / Ngã ba",
+        "vi": "Ngã tư / Ngã ba",
+        "phonetic": "[ŋa tɯ / ŋa ba]",
+        "ipa": "[ŋa tɯ / ŋa ba]",
         "zh": "十字路口 / 三叉路口",
         "en": "Crossroad / T-junction",
-        "phonetic": "[ŋa tɯ / ŋa ba]",
-        "note": "重要地標"
+        "hanViet": ""
       },
       {
         "viet": "Dừng lại ở đây",
+        "vi": "Dừng lại ở đây",
+        "phonetic": "[zɯŋ laːj ə dəj]",
+        "ipa": "[zɯŋ laːj ə dəj]",
         "zh": "停在這裡 / 靠邊停",
         "en": "Stop here / Pull over",
-        "phonetic": "[zɯŋ laːj ə dəj]",
-        "note": "下車必講"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南搭車叫車必知要訣",
       "titleEn": "Grab & Taxi Tips in Vietnam",
+      "contentZh": [
+        "在越南出行強烈推薦使用 **Grab** 應用程式叫車（汽車 GrabCar 或摩托計程車 GrabBike），價格透明固定，不必擔心被繞路或跳表動手腳。",
+        "搭乘 GrabBike（摩托車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
+        "如果路邊攔計程車，請認準兩大正規車隊：白色綠底的 **Mai Linh**（美靈計程車）或綠紅線條的 **Vinasun**。"
+      ],
+      "contentEn": [
+        "Grab is the safest way to travel in Vietnam. Fixed fares avoid meter scams.",
+        "When taking GrabBike (scooter taxi), always wear the provided helmet by law.",
+        "If hailing street taxis, only choose reputable brands: Mai Linh (Green) or Vinasun (White with red/green lines)."
+      ],
+      "tipsZh": [
+        "在越南出行強烈推薦使用 **Grab** 應用程式叫車（汽車 GrabCar 或摩托計程車 GrabBike），價格透明固定，不必擔心被繞路或跳表動手腳。",
+        "搭乘 GrabBike（摩托車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
+        "如果路邊攔計程車，請認準兩大正規車隊：白色綠底的 **Mai Linh**（美靈計程車）或綠紅線條的 **Vinasun**。"
+      ],
+      "tipsEn": [
+        "Grab is the safest way to travel in Vietnam. Fixed fares avoid meter scams.",
+        "When taking GrabBike (scooter taxi), always wear the provided helmet by law.",
+        "If hailing street taxis, only choose reputable brands: Mai Linh (Green) or Vinasun (White with red/green lines)."
+      ],
+      "proTipZh": "✨ 避坑：下車前切記檢查後座與車門置物格，避免手機或皮夾遺落車上！",
+      "proTipEn": "✨ Pro Tip: Always double-check the back seat before getting out to ensure your phone or wallet is not left behind!"
+    },
+    "vocabulary": [
+      {
+        "viet": "Tài xế / Bác tài",
+        "vi": "Tài xế / Bác tài",
+        "phonetic": "[taːj se / baːk taːj]",
+        "ipa": "[taːj se / baːk taːj]",
+        "zh": "司機大哥 / 司機師傅",
+        "en": "Driver",
+        "hanViet": ""
+      },
+      {
+        "viet": "Biển số xe",
+        "vi": "Biển số xe",
+        "phonetic": "[biən so sɛ]",
+        "ipa": "[biən so sɛ]",
+        "zh": "車牌號碼",
+        "en": "License plate",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đi thẳng",
+        "vi": "Đi thẳng",
+        "phonetic": "[di tʰaŋ]",
+        "ipa": "[di tʰaŋ]",
+        "zh": "直走",
+        "en": "Go straight",
+        "hanViet": ""
+      },
+      {
+        "viet": "Rẽ trái / Quẹo trái",
+        "vi": "Rẽ trái / Quẹo trái",
+        "phonetic": "[zɛ caːj / kwɛw caːj]",
+        "ipa": "[zɛ caːj / kwɛw caːj]",
+        "zh": "左轉",
+        "en": "Turn left",
+        "hanViet": ""
+      },
+      {
+        "viet": "Rẽ phải / Quẹo phải",
+        "vi": "Rẽ phải / Quẹo phải",
+        "phonetic": "[zɛ faːj / kwɛw faːj]",
+        "ipa": "[zɛ faːj / kwɛw faːj]",
+        "zh": "右轉",
+        "en": "Turn right",
+        "hanViet": ""
+      },
+      {
+        "viet": "Ngã tư / Ngã ba",
+        "vi": "Ngã tư / Ngã ba",
+        "phonetic": "[ŋa tɯ / ŋa ba]",
+        "ipa": "[ŋa tɯ / ŋa ba]",
+        "zh": "十字路口 / 三叉路口",
+        "en": "Crossroad / T-junction",
+        "hanViet": ""
+      },
+      {
+        "viet": "Dừng lại ở đây",
+        "vi": "Dừng lại ở đây",
+        "phonetic": "[zɯŋ laːj ə dəj]",
+        "ipa": "[zɯŋ laːj ə dəj]",
+        "zh": "停在這裡 / 靠邊停",
+        "en": "Stop here / Pull over",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南搭車叫車必知要訣",
+      "titleEn": "Grab & Taxi Tips in Vietnam",
+      "contentZh": [
+        "在越南出行強烈推薦使用 **Grab** 應用程式叫車（汽車 GrabCar 或摩托計程車 GrabBike），價格透明固定，不必擔心被繞路或跳表動手腳。",
+        "搭乘 GrabBike（摩托車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
+        "如果路邊攔計程車，請認準兩大正規車隊：白色綠底的 **Mai Linh**（美靈計程車）或綠紅線條的 **Vinasun**。"
+      ],
+      "contentEn": [
+        "Grab is the safest way to travel in Vietnam. Fixed fares avoid meter scams.",
+        "When taking GrabBike (scooter taxi), always wear the provided helmet by law.",
+        "If hailing street taxis, only choose reputable brands: Mai Linh (Green) or Vinasun (White with red/green lines)."
+      ],
       "tipsZh": [
         "在越南出行強烈推薦使用 **Grab** 應用程式叫車（汽車 GrabCar 或摩托計程車 GrabBike），價格透明固定，不必擔心被繞路或跳表動手腳。",
         "搭乘 GrabBike（摩托車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
@@ -3323,57 +4676,172 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Xoài cát Hòa Lộc",
+        "vi": "Xoài cát Hòa Lộc",
+        "phonetic": "[swaːj kaːt hwa lok]",
+        "ipa": "[swaːj kaːt hwa lok]",
         "zh": "和祿金芒（頂級香甜芒果）",
         "en": "Hoa Loc Sweet Mango",
-        "phonetic": "[swaːj kaːt hwa lok]",
-        "note": "果肉厚實無絲"
+        "hanViet": ""
       },
       {
         "viet": "Thanh long",
+        "vi": "Thanh long",
+        "phonetic": "[tʰaɲ loŋ]",
+        "ipa": "[tʰaɲ loŋ]",
         "zh": "火龍果（紅肉/白肉）",
         "en": "Dragon fruit",
-        "phonetic": "[tʰaɲ loŋ]",
-        "note": "平順省盛產"
+        "hanViet": ""
       },
       {
         "viet": "Sầu riêng",
+        "vi": "Sầu riêng",
+        "phonetic": "[səw ziəŋ]",
+        "ipa": "[səw ziəŋ]",
         "zh": "榴槤（金枕頭/Ri6）",
         "en": "Durian",
-        "phonetic": "[səw ziəŋ]",
-        "note": "果王極品"
+        "hanViet": ""
       },
       {
         "viet": "Măng cụt",
+        "vi": "Măng cụt",
+        "phonetic": "[maŋ kut]",
+        "ipa": "[maŋ kut]",
         "zh": "山竹（果后）",
         "en": "Mangosteen",
-        "phonetic": "[maŋ kut]",
-        "note": "清甜解熱"
+        "hanViet": ""
       },
       {
         "viet": "Dừa xiêm",
+        "vi": "Dừa xiêm",
+        "phonetic": "[zɯə siəm]",
+        "ipa": "[zɯə siəm]",
         "zh": "綠暹羅香椰（椰子水）",
         "en": "Fresh sweet coconut",
-        "phonetic": "[zɯə siəm]",
-        "note": "椰子水甘甜爽口"
+        "hanViet": ""
       },
       {
         "viet": "Bao nhiêu một ký?",
+        "vi": "Bao nhiêu một ký?",
+        "phonetic": "[baːw ɲiəw mot ki]",
+        "ipa": "[baːw ɲiəw mot ki]",
         "zh": "一公斤多少錢？",
         "en": "How much per kilo?",
-        "phonetic": "[baːw ɲiəw mot ki]",
-        "note": "問價必學"
+        "hanViet": ""
       },
       {
         "viet": "Bớt cho em một chút",
+        "vi": "Bớt cho em một chút",
+        "phonetic": "[bət cɔ ɛm mot cut]",
+        "ipa": "[bət cɔ ɛm mot cut]",
         "zh": "算我便宜一點嘛",
         "en": "Give me a little discount please",
-        "phonetic": "[bət cɔ ɛm mot cut]",
-        "note": "禮貌殺價金句"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南市集殺價藝術與好彩頭文化",
       "titleEn": "Market Bargaining & Etiquette",
+      "contentZh": [
+        "在傳統市場殺價請務必保持**微笑與禮貌**，通常可嘗試從 7 折到 8 折左右開始談。觀光夜市（如濱城市場）標價偏高，有較大議價空間。",
+        "早晨第一位顧客叫「Mở hàng」(開市客)，越南攤主非常看重第一筆交易是否順利成交，代表當天的運勢好彩頭。",
+        "買水果時可主動要求攤主現場切開試吃「Cho em ăn thử một miếng」(讓我試吃一塊)。"
+      ],
+      "contentEn": [
+        "Bargain with a friendly smile. Starting at 70-80% of original quote is a good rule of thumb in tourist markets.",
+        "Early morning buyers are \"Mở hàng\" (first customer). Vendors cherish closing this deal for good day luck.",
+        "Feel free to ask for a free sample slice: \"Cho em ăn thử một miếng\"."
+      ],
+      "tipsZh": [
+        "在傳統市場殺價請務必保持**微笑與禮貌**，通常可嘗試從 7 折到 8 折左右開始談。觀光夜市（如濱城市場）標價偏高，有較大議價空間。",
+        "早晨第一位顧客叫「Mở hàng」(開市客)，越南攤主非常看重第一筆交易是否順利成交，代表當天的運勢好彩頭。",
+        "買水果時可主動要求攤主現場切開試吃「Cho em ăn thử một miếng」(讓我試吃一塊)。"
+      ],
+      "tipsEn": [
+        "Bargain with a friendly smile. Starting at 70-80% of original quote is a good rule of thumb in tourist markets.",
+        "Early morning buyers are \"Mở hàng\" (first customer). Vendors cherish closing this deal for good day luck.",
+        "Feel free to ask for a free sample slice: \"Cho em ăn thử một miếng\"."
+      ],
+      "proTipZh": "✨ 避坑：早晨成為第一位客人 (Mở hàng) 時，若大幅殺價成功後切勿隨意棄單不買，會被認為帶來晦氣喔！",
+      "proTipEn": "✨ Pro Tip: If you are the first customer of the day, do not back out after bargaining successfully as it brings bad superstition."
+    },
+    "vocabulary": [
+      {
+        "viet": "Xoài cát Hòa Lộc",
+        "vi": "Xoài cát Hòa Lộc",
+        "phonetic": "[swaːj kaːt hwa lok]",
+        "ipa": "[swaːj kaːt hwa lok]",
+        "zh": "和祿金芒（頂級香甜芒果）",
+        "en": "Hoa Loc Sweet Mango",
+        "hanViet": ""
+      },
+      {
+        "viet": "Thanh long",
+        "vi": "Thanh long",
+        "phonetic": "[tʰaɲ loŋ]",
+        "ipa": "[tʰaɲ loŋ]",
+        "zh": "火龍果（紅肉/白肉）",
+        "en": "Dragon fruit",
+        "hanViet": ""
+      },
+      {
+        "viet": "Sầu riêng",
+        "vi": "Sầu riêng",
+        "phonetic": "[səw ziəŋ]",
+        "ipa": "[səw ziəŋ]",
+        "zh": "榴槤（金枕頭/Ri6）",
+        "en": "Durian",
+        "hanViet": ""
+      },
+      {
+        "viet": "Măng cụt",
+        "vi": "Măng cụt",
+        "phonetic": "[maŋ kut]",
+        "ipa": "[maŋ kut]",
+        "zh": "山竹（果后）",
+        "en": "Mangosteen",
+        "hanViet": ""
+      },
+      {
+        "viet": "Dừa xiêm",
+        "vi": "Dừa xiêm",
+        "phonetic": "[zɯə siəm]",
+        "ipa": "[zɯə siəm]",
+        "zh": "綠暹羅香椰（椰子水）",
+        "en": "Fresh sweet coconut",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bao nhiêu một ký?",
+        "vi": "Bao nhiêu một ký?",
+        "phonetic": "[baːw ɲiəw mot ki]",
+        "ipa": "[baːw ɲiəw mot ki]",
+        "zh": "一公斤多少錢？",
+        "en": "How much per kilo?",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bớt cho em một chút",
+        "vi": "Bớt cho em một chút",
+        "phonetic": "[bət cɔ ɛm mot cut]",
+        "ipa": "[bət cɔ ɛm mot cut]",
+        "zh": "算我便宜一點嘛",
+        "en": "Give me a little discount please",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南市集殺價藝術與好彩頭文化",
+      "titleEn": "Market Bargaining & Etiquette",
+      "contentZh": [
+        "在傳統市場殺價請務必保持**微笑與禮貌**，通常可嘗試從 7 折到 8 折左右開始談。觀光夜市（如濱城市場）標價偏高，有較大議價空間。",
+        "早晨第一位顧客叫「Mở hàng」(開市客)，越南攤主非常看重第一筆交易是否順利成交，代表當天的運勢好彩頭。",
+        "買水果時可主動要求攤主現場切開試吃「Cho em ăn thử một miếng」(讓我試吃一塊)。"
+      ],
+      "contentEn": [
+        "Bargain with a friendly smile. Starting at 70-80% of original quote is a good rule of thumb in tourist markets.",
+        "Early morning buyers are \"Mở hàng\" (first customer). Vendors cherish closing this deal for good day luck.",
+        "Feel free to ask for a free sample slice: \"Cho em ăn thử một miếng\"."
+      ],
       "tipsZh": [
         "在傳統市場殺價請務必保持**微笑與禮貌**，通常可嘗試從 7 折到 8 折左右開始談。觀光夜市（如濱城市場）標價偏高，有較大議價空間。",
         "早晨第一位顧客叫「Mở hàng」(開市客)，越南攤主非常看重第一筆交易是否順利成交，代表當天的運勢好彩頭。",
@@ -3554,43 +5022,136 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Hâm nóng",
+        "vi": "Hâm nóng",
+        "phonetic": "[həm nɔŋ]",
+        "ipa": "[həm nɔŋ]",
         "zh": "微波加熱",
         "en": "Microwave / Reheat",
-        "phonetic": "[həm nɔŋ]",
-        "note": "超商熟食必用"
+        "hanViet": ""
       },
       {
         "viet": "Túi nilon / Bao xốp",
+        "vi": "Túi nilon / Bao xốp",
+        "phonetic": "[tuj ni lɔn / baːw sop]",
+        "ipa": "[tuj ni lɔn / baːw sop]",
         "zh": "塑膠袋 / 塑膠提袋",
         "en": "Plastic bag",
-        "phonetic": "[tuj ni lɔn / baːw sop]",
-        "note": "裝零食飲料"
+        "hanViet": ""
       },
       {
         "viet": "Nước nóng",
+        "vi": "Nước nóng",
+        "phonetic": "[nɯək nɔŋ]",
+        "ipa": "[nɯək nɔŋ]",
         "zh": "熱水（泡泡麵）",
         "en": "Hot boiling water",
-        "phonetic": "[nɯək nɔŋ]",
-        "note": "超商免費提供"
+        "hanViet": ""
       },
       {
         "viet": "Quét mã QR",
+        "vi": "Quét mã QR",
+        "phonetic": "[kwɛt ma QR]",
+        "ipa": "[kwɛt ma QR]",
         "zh": "掃描 QR Code 付款",
         "en": "Scan QR code to pay",
-        "phonetic": "[kwɛt ma QR]",
-        "note": "行動支付必備"
+        "hanViet": ""
       },
       {
         "viet": "Hóa đơn",
+        "vi": "Hóa đơn",
+        "phonetic": "[hwa dən]",
+        "ipa": "[hwa dən]",
         "zh": "發票 / 收據",
         "en": "Receipt / Invoice",
-        "phonetic": "[hwa dən]",
-        "note": "購物憑證"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南 24 小時便利商店文化",
       "titleEn": "24h Convenience Store Scene",
+      "contentZh": [
+        "越南城市的 Circle K, GS25, FamilyMart 通常設有冷氣充足的二樓用餐座位區與免費 Wi-Fi，是學生與旅人避暑好去處。",
+        "店內提供現煮越南冰咖啡 (Cà phê sữa đá)、微波飯糰熱狗與現泡麵條服務。",
+        "越南目前全面普及 VietQR 銀行手機無卡掃碼支付，便利商店 100% 支援掃碼。"
+      ],
+      "contentEn": [
+        "Circle K and GS25 in Vietnam feature spacious 2nd-floor AC seating areas with free Wi-Fi.",
+        "They offer freshly made iced milk coffee, heated snacks, and instant noodle boiling counters.",
+        "Cashless QR payments via bank apps are widely accepted across all stores."
+      ],
+      "tipsZh": [
+        "越南城市的 Circle K, GS25, FamilyMart 通常設有冷氣充足的二樓用餐座位區與免費 Wi-Fi，是學生與旅人避暑好去處。",
+        "店內提供現煮越南冰咖啡 (Cà phê sữa đá)、微波飯糰熱狗與現泡麵條服務。",
+        "越南目前全面普及 VietQR 銀行手機無卡掃碼支付，便利商店 100% 支援掃碼。"
+      ],
+      "tipsEn": [
+        "Circle K and GS25 in Vietnam feature spacious 2nd-floor AC seating areas with free Wi-Fi.",
+        "They offer freshly made iced milk coffee, heated snacks, and instant noodle boiling counters.",
+        "Cashless QR payments via bank apps are widely accepted across all stores."
+      ],
+      "proTipZh": "✨ 避坑：部分小額找零 (如 500 VND 或 1,000 VND) 有時店員會以一粒水果糖代替找零，這在越南是常見的習俗喔！",
+      "proTipEn": "✨ Pro Tip: Very small change (e.g. 500 VND) may sometimes be given as hard candy if coins are scarce."
+    },
+    "vocabulary": [
+      {
+        "viet": "Hâm nóng",
+        "vi": "Hâm nóng",
+        "phonetic": "[həm nɔŋ]",
+        "ipa": "[həm nɔŋ]",
+        "zh": "微波加熱",
+        "en": "Microwave / Reheat",
+        "hanViet": ""
+      },
+      {
+        "viet": "Túi nilon / Bao xốp",
+        "vi": "Túi nilon / Bao xốp",
+        "phonetic": "[tuj ni lɔn / baːw sop]",
+        "ipa": "[tuj ni lɔn / baːw sop]",
+        "zh": "塑膠袋 / 塑膠提袋",
+        "en": "Plastic bag",
+        "hanViet": ""
+      },
+      {
+        "viet": "Nước nóng",
+        "vi": "Nước nóng",
+        "phonetic": "[nɯək nɔŋ]",
+        "ipa": "[nɯək nɔŋ]",
+        "zh": "熱水（泡泡麵）",
+        "en": "Hot boiling water",
+        "hanViet": ""
+      },
+      {
+        "viet": "Quét mã QR",
+        "vi": "Quét mã QR",
+        "phonetic": "[kwɛt ma QR]",
+        "ipa": "[kwɛt ma QR]",
+        "zh": "掃描 QR Code 付款",
+        "en": "Scan QR code to pay",
+        "hanViet": ""
+      },
+      {
+        "viet": "Hóa đơn",
+        "vi": "Hóa đơn",
+        "phonetic": "[hwa dən]",
+        "ipa": "[hwa dən]",
+        "zh": "發票 / 收據",
+        "en": "Receipt / Invoice",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南 24 小時便利商店文化",
+      "titleEn": "24h Convenience Store Scene",
+      "contentZh": [
+        "越南城市的 Circle K, GS25, FamilyMart 通常設有冷氣充足的二樓用餐座位區與免費 Wi-Fi，是學生與旅人避暑好去處。",
+        "店內提供現煮越南冰咖啡 (Cà phê sữa đá)、微波飯糰熱狗與現泡麵條服務。",
+        "越南目前全面普及 VietQR 銀行手機無卡掃碼支付，便利商店 100% 支援掃碼。"
+      ],
+      "contentEn": [
+        "Circle K and GS25 in Vietnam feature spacious 2nd-floor AC seating areas with free Wi-Fi.",
+        "They offer freshly made iced milk coffee, heated snacks, and instant noodle boiling counters.",
+        "Cashless QR payments via bank apps are widely accepted across all stores."
+      ],
       "tipsZh": [
         "越南城市的 Circle K, GS25, FamilyMart 通常設有冷氣充足的二樓用餐座位區與免費 Wi-Fi，是學生與旅人避暑好去處。",
         "店內提供現煮越南冰咖啡 (Cà phê sữa đá)、微波飯糰熱狗與現泡麵條服務。",
@@ -3780,50 +5341,154 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Thuốc hạ sốt",
+        "vi": "Thuốc hạ sốt",
+        "phonetic": "[tʰuək ha sot]",
+        "ipa": "[tʰuək ha sot]",
         "zh": "退燒藥 (Paracetamol)",
         "en": "Fever reducer",
-        "phonetic": "[tʰuək ha sot]",
-        "note": "發燒必備"
+        "hanViet": ""
       },
       {
         "viet": "Đau đầu",
+        "vi": "Đau đầu",
+        "phonetic": "[daːw dəw]",
+        "ipa": "[daːw dəw]",
         "zh": "頭痛",
         "en": "Headache",
-        "phonetic": "[daːw dəw]",
-        "note": "常見症狀"
+        "hanViet": ""
       },
       {
         "viet": "Đau họng",
+        "vi": "Đau họng",
+        "phonetic": "[daːw hɔŋ]",
+        "ipa": "[daːw hɔŋ]",
         "zh": "喉嚨痛",
         "en": "Sore throat",
-        "phonetic": "[daːw hɔŋ]",
-        "note": "感冒徵兆"
+        "hanViet": ""
       },
       {
         "viet": "Đau bụng / Tiêu chảy",
+        "vi": "Đau bụng / Tiêu chảy",
+        "phonetic": "[daːw buŋ / tiəw caːj]",
+        "ipa": "[daːw buŋ / tiəw caːj]",
         "zh": "肚子痛 / 腹瀉拉肚子",
         "en": "Stomachache / Diarrhea",
-        "phonetic": "[daːw buŋ / tiəw caːj]",
-        "note": "水土不服必備"
+        "hanViet": ""
       },
       {
         "viet": "Thuốc dị ứng",
+        "vi": "Thuốc dị ứng",
+        "phonetic": "[tʰuək zi ɯŋ]",
+        "ipa": "[tʰuək zi ɯŋ]",
         "zh": "過敏藥",
         "en": "Antihistamine / Allergy medicine",
-        "phonetic": "[tʰuək zi ɯŋ]",
-        "note": "抗過敏"
+        "hanViet": ""
       },
       {
         "viet": "Trước khi ăn / Sau khi ăn",
+        "vi": "Trước khi ăn / Sau khi ăn",
+        "phonetic": "[cɯək kʰi aːn / saːw kʰi aːn]",
+        "ipa": "[cɯək kʰi aːn / saːw kʰi aːn]",
         "zh": "飯前 / 飯後",
         "en": "Before meals / After meals",
-        "phonetic": "[cɯək kʰi aːn / saːw kʰi aːn]",
-        "note": "服藥時間"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "在越南購買藥品安心指南",
       "titleEn": "Buying Medicine in Vietnam Safely",
+      "contentZh": [
+        "越南各大城市隨處可見大型正規連鎖藥局（如 **Pharmacity**, **Nhà Thuốc Long Châu**, **An Khang**），明碼實價且藥劑師專業。",
+        "出國水土不服時，常見常備藥包括感冒退燒藥 (Panadol / Paracetamol)、止瀉腸胃藥 (Smecta / Berberin) 與止癢防蚊膏 (Remos)。",
+        "買藥時如果不確定越南語發音，也可以直接用手機出示藥物通用學名或外盒照片。"
+      ],
+      "contentEn": [
+        "Reputable nationwide pharmacy chains like Pharmacity and Long Chau have licensed English-speaking staff.",
+        "Common travel medicines: Panadol (fever/pain), Berberin/Smecta (diarrhea), and Remos (mosquito repellent).",
+        "Showing photos of generic chemical names or packaging is very effective if language barrier occurs."
+      ],
+      "tipsZh": [
+        "越南各大城市隨處可見大型正規連鎖藥局（如 **Pharmacity**, **Nhà Thuốc Long Châu**, **An Khang**），明碼實價且藥劑師專業。",
+        "出國水土不服時，常見常備藥包括感冒退燒藥 (Panadol / Paracetamol)、止瀉腸胃藥 (Smecta / Berberin) 與止癢防蚊膏 (Remos)。",
+        "買藥時如果不確定越南語發音，也可以直接用手機出示藥物通用學名或外盒照片。"
+      ],
+      "tipsEn": [
+        "Reputable nationwide pharmacy chains like Pharmacity and Long Chau have licensed English-speaking staff.",
+        "Common travel medicines: Panadol (fever/pain), Berberin/Smecta (diarrhea), and Remos (mosquito repellent).",
+        "Showing photos of generic chemical names or packaging is very effective if language barrier occurs."
+      ],
+      "proTipZh": "✨ 避坑：若發燒超過 39 度或伴隨劇烈腹痛，請立即前往大醫院急診，切勿僅靠成藥拖延病情！",
+      "proTipEn": "✨ Pro Tip: If high fever persists over 39°C, visit an international hospital emergency room immediately."
+    },
+    "vocabulary": [
+      {
+        "viet": "Thuốc hạ sốt",
+        "vi": "Thuốc hạ sốt",
+        "phonetic": "[tʰuək ha sot]",
+        "ipa": "[tʰuək ha sot]",
+        "zh": "退燒藥 (Paracetamol)",
+        "en": "Fever reducer",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đau đầu",
+        "vi": "Đau đầu",
+        "phonetic": "[daːw dəw]",
+        "ipa": "[daːw dəw]",
+        "zh": "頭痛",
+        "en": "Headache",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đau họng",
+        "vi": "Đau họng",
+        "phonetic": "[daːw hɔŋ]",
+        "ipa": "[daːw hɔŋ]",
+        "zh": "喉嚨痛",
+        "en": "Sore throat",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đau bụng / Tiêu chảy",
+        "vi": "Đau bụng / Tiêu chảy",
+        "phonetic": "[daːw buŋ / tiəw caːj]",
+        "ipa": "[daːw buŋ / tiəw caːj]",
+        "zh": "肚子痛 / 腹瀉拉肚子",
+        "en": "Stomachache / Diarrhea",
+        "hanViet": ""
+      },
+      {
+        "viet": "Thuốc dị ứng",
+        "vi": "Thuốc dị ứng",
+        "phonetic": "[tʰuək zi ɯŋ]",
+        "ipa": "[tʰuək zi ɯŋ]",
+        "zh": "過敏藥",
+        "en": "Antihistamine / Allergy medicine",
+        "hanViet": ""
+      },
+      {
+        "viet": "Trước khi ăn / Sau khi ăn",
+        "vi": "Trước khi ăn / Sau khi ăn",
+        "phonetic": "[cɯək kʰi aːn / saːw kʰi aːn]",
+        "ipa": "[cɯək kʰi aːn / saːw kʰi aːn]",
+        "zh": "飯前 / 飯後",
+        "en": "Before meals / After meals",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "在越南購買藥品安心指南",
+      "titleEn": "Buying Medicine in Vietnam Safely",
+      "contentZh": [
+        "越南各大城市隨處可見大型正規連鎖藥局（如 **Pharmacity**, **Nhà Thuốc Long Châu**, **An Khang**），明碼實價且藥劑師專業。",
+        "出國水土不服時，常見常備藥包括感冒退燒藥 (Panadol / Paracetamol)、止瀉腸胃藥 (Smecta / Berberin) 與止癢防蚊膏 (Remos)。",
+        "買藥時如果不確定越南語發音，也可以直接用手機出示藥物通用學名或外盒照片。"
+      ],
+      "contentEn": [
+        "Reputable nationwide pharmacy chains like Pharmacity and Long Chau have licensed English-speaking staff.",
+        "Common travel medicines: Panadol (fever/pain), Berberin/Smecta (diarrhea), and Remos (mosquito repellent).",
+        "Showing photos of generic chemical names or packaging is very effective if language barrier occurs."
+      ],
       "tipsZh": [
         "越南各大城市隨處可見大型正規連鎖藥局（如 **Pharmacity**, **Nhà Thuốc Long Châu**, **An Khang**），明碼實價且藥劑師專業。",
         "出國水土不服時，常見常備藥包括感冒退燒藥 (Panadol / Paracetamol)、止瀉腸胃藥 (Smecta / Berberin) 與止癢防蚊膏 (Remos)。",
@@ -4004,43 +5669,130 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Bệnh viện",
+        "vi": "Bệnh viện",
+        "phonetic": "[ɓəɲ viən]",
+        "ipa": "[ɓəɲ viən]",
         "zh": "醫院",
         "en": "Hospital",
-        "phonetic": "[ɓəɲ viən]",
-        "note": "醫療機構"
+        "hanViet": ""
       },
       {
         "viet": "Phòng khám",
+        "vi": "Phòng khám",
+        "phonetic": "[fɔŋ kʰaːm]",
+        "ipa": "[fɔŋ kʰaːm]",
         "zh": "診所 / 門診部",
         "en": "Clinic",
-        "phonetic": "[fɔŋ kʰaːm]",
-        "note": "社區就醫處"
+        "hanViet": ""
       },
       {
         "viet": "Bác sĩ / Y tá",
+        "vi": "Bác sĩ / Y tá",
+        "phonetic": "[baːk si / i ta]",
+        "ipa": "[baːk si / i ta]",
         "zh": "醫生 / 護士",
         "en": "Doctor / Nurse",
-        "phonetic": "[baːk si / i ta]",
-        "note": "醫護人員"
+        "hanViet": ""
       },
       {
         "viet": "Đo huyết áp",
+        "vi": "Đo huyết áp",
+        "phonetic": "[do hwiət aːp]",
+        "ipa": "[do hwiət aːp]",
         "zh": "量血壓",
         "en": "Measure blood pressure",
-        "phonetic": "[do hwiət aːp]",
-        "note": "基礎健檢"
+        "hanViet": ""
       },
       {
         "viet": "Đơn thuốc",
+        "vi": "Đơn thuốc",
+        "phonetic": "[dən tʰuək]",
+        "ipa": "[dən tʰuək]",
         "zh": "處方箋 / 藥單",
         "en": "Prescription",
-        "phonetic": "[dən tʰuək]",
-        "note": "憑單領藥"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "在越南就醫就診必備常識",
       "titleEn": "Visiting Hospitals in Vietnam",
+      "contentZh": [
+        "外國旅客在越南就醫建議選擇國際綜合醫院（如河內/胡志明市的 **Vinmec**, **FV Hospital**, **Raffles Medical**），具備多語種翻譯服務。",
+        "就醫時請務必索取詳細診斷證明書 (Giấy chẩn đoán) 與正規稅務發票 (Hóa đơn đỏ VAT)，以便回國後向全民健保與海外旅遊平安險申請理賠。"
+      ],
+      "contentEn": [
+        "International hospitals (Vinmec, FV Hospital, Raffles) offer English, French, and Chinese services.",
+        "Always request official medical diagnosis reports and Red Invoices (Hóa đơn VAT) for overseas travel insurance claims."
+      ],
+      "tipsZh": [
+        "外國旅客在越南就醫建議選擇國際綜合醫院（如河內/胡志明市的 **Vinmec**, **FV Hospital**, **Raffles Medical**），具備多語種翻譯服務。",
+        "就醫時請務必索取詳細診斷證明書 (Giấy chẩn đoán) 與正規稅務發票 (Hóa đơn đỏ VAT)，以便回國後向全民健保與海外旅遊平安險申請理賠。"
+      ],
+      "tipsEn": [
+        "International hospitals (Vinmec, FV Hospital, Raffles) offer English, French, and Chinese services.",
+        "Always request official medical diagnosis reports and Red Invoices (Hóa đơn VAT) for overseas travel insurance claims."
+      ],
+      "proTipZh": "✨ 避坑：越南公立大醫院病患較多，急診可撥打 **115** 叫救護車，但市區尖峰時間叫 Grab 往往比等救護車更快抵達醫院！",
+      "proTipEn": "✨ Pro Tip: Dial 115 for ambulance, but booking a Grab directly is often faster during city traffic jams."
+    },
+    "vocabulary": [
+      {
+        "viet": "Bệnh viện",
+        "vi": "Bệnh viện",
+        "phonetic": "[ɓəɲ viən]",
+        "ipa": "[ɓəɲ viən]",
+        "zh": "醫院",
+        "en": "Hospital",
+        "hanViet": ""
+      },
+      {
+        "viet": "Phòng khám",
+        "vi": "Phòng khám",
+        "phonetic": "[fɔŋ kʰaːm]",
+        "ipa": "[fɔŋ kʰaːm]",
+        "zh": "診所 / 門診部",
+        "en": "Clinic",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bác sĩ / Y tá",
+        "vi": "Bác sĩ / Y tá",
+        "phonetic": "[baːk si / i ta]",
+        "ipa": "[baːk si / i ta]",
+        "zh": "醫生 / 護士",
+        "en": "Doctor / Nurse",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đo huyết áp",
+        "vi": "Đo huyết áp",
+        "phonetic": "[do hwiət aːp]",
+        "ipa": "[do hwiət aːp]",
+        "zh": "量血壓",
+        "en": "Measure blood pressure",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đơn thuốc",
+        "vi": "Đơn thuốc",
+        "phonetic": "[dən tʰuək]",
+        "ipa": "[dən tʰuək]",
+        "zh": "處方箋 / 藥單",
+        "en": "Prescription",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "在越南就醫就診必備常識",
+      "titleEn": "Visiting Hospitals in Vietnam",
+      "contentZh": [
+        "外國旅客在越南就醫建議選擇國際綜合醫院（如河內/胡志明市的 **Vinmec**, **FV Hospital**, **Raffles Medical**），具備多語種翻譯服務。",
+        "就醫時請務必索取詳細診斷證明書 (Giấy chẩn đoán) 與正規稅務發票 (Hóa đơn đỏ VAT)，以便回國後向全民健保與海外旅遊平安險申請理賠。"
+      ],
+      "contentEn": [
+        "International hospitals (Vinmec, FV Hospital, Raffles) offer English, French, and Chinese services.",
+        "Always request official medical diagnosis reports and Red Invoices (Hóa đơn VAT) for overseas travel insurance claims."
+      ],
       "tipsZh": [
         "外國旅客在越南就醫建議選擇國際綜合醫院（如河內/胡志明市的 **Vinmec**, **FV Hospital**, **Raffles Medical**），具備多語種翻譯服務。",
         "就醫時請務必索取詳細診斷證明書 (Giấy chẩn đoán) 與正規稅務發票 (Hóa đơn đỏ VAT)，以便回國後向全民健保與海外旅遊平安險申請理賠。"
@@ -4228,50 +5980,154 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Gội đầu dưỡng sinh",
+        "vi": "Gội đầu dưỡng sinh",
+        "phonetic": "[ɣoj dəw zɯəŋ siɲ]",
+        "ipa": "[ɣoj dəw zɯəŋ siɲ]",
         "zh": "越式草本養生洗頭",
         "en": "Vietnamese herbal hair spa",
-        "phonetic": "[ɣoj dəw zɯəŋ siɲ]",
-        "note": "極致放鬆體驗"
+        "hanViet": ""
       },
       {
         "viet": "Lấy ráy tai",
+        "vi": "Lấy ráy tai",
+        "phonetic": "[ləj zaːj taːj]",
+        "ipa": "[ləj zaːj taːj]",
         "zh": "掏耳朵 / 採耳",
         "en": "Ear cleaning",
-        "phonetic": "[ləj zaːj taːj]",
-        "note": "特色放鬆環節"
+        "hanViet": ""
       },
       {
         "viet": "Mát-xa cổ vai gáy",
+        "vi": "Mát-xa cổ vai gáy",
+        "phonetic": "[maːt sa ko vaːj ɣaːj]",
+        "ipa": "[maːt sa ko vaːj ɣaːj]",
         "zh": "肩頸穴位按摩",
         "en": "Neck and shoulder massage",
-        "phonetic": "[maːt sa ko vaːj ɣaːj]",
-        "note": "緩解久坐疲勞"
+        "hanViet": ""
       },
       {
         "viet": "Mạnh hơn một chút",
+        "vi": "Mạnh hơn một chút",
+        "phonetic": "[maɲ hən mot cut]",
+        "ipa": "[maɲ hən mot cut]",
         "zh": "再重一點點 / 力道加強",
         "en": "A bit harder please",
-        "phonetic": "[maɲ hən mot cut]",
-        "note": "調整力道"
+        "hanViet": ""
       },
       {
         "viet": "Nhẹ thôi / Nhẹ hơn",
+        "vi": "Nhẹ thôi / Nhẹ hơn",
+        "phonetic": "[ɲɛ tʰoj / ɲɛ hən]",
+        "ipa": "[ɲɛ tʰoj / ɲɛ hən]",
         "zh": "輕一點 / 溫柔一點",
         "en": "Gently / Softer please",
-        "phonetic": "[ɲɛ tʰoj / ɲɛ hən]",
-        "note": "怕痛必講"
+        "hanViet": ""
       },
       {
         "viet": "Tiền tip / Tiền boa",
+        "vi": "Tiền tip / Tiền boa",
+        "phonetic": "[tiən tip / tiən bwa]",
+        "ipa": "[tiən tip / tiən bwa]",
         "zh": "小費",
         "en": "Tip",
-        "phonetic": "[tiən tip / tiən bwa]",
-        "note": "給予服務員獎勵"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越式洗頭 (Gội đầu dưỡng sinh) 頂級體驗秘密",
       "titleEn": "The Magic of Vietnamese Herbal Hair Spa",
+      "contentZh": [
+        "越式洗頭使用皂角 (Bồ kết)、香茅 (Sả)、葡萄柚皮 (Vỏ bưởi) 等天然草藥熬煮成溫熱香湯，能深層清潔頭皮、安神助眠。",
+        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環循環瀑布沖水。",
+        "建議提前 1 天電話或粉絲專頁預約，避免熱門時段現場久候。"
+      ],
+      "contentEn": [
+        "Herbal hair spa uses natural boiled ingredients: honeylocust (Bồ kết), lemongrass, and pomelo rind for scalp wellness.",
+        "Full service includes facial cleanse, cucumber mask, ear pampering, hot towel neck massage, and halo water waterfall.",
+        "Booking in advance via Facebook page or hotline is recommended for popular spas."
+      ],
+      "tipsZh": [
+        "越式洗頭使用皂角 (Bồ kết)、香茅 (Sả)、葡萄柚皮 (Vỏ bưởi) 等天然草藥熬煮成溫熱香湯，能深層清潔頭皮、安神助眠。",
+        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環循環瀑布沖水。",
+        "建議提前 1 天電話或粉絲專頁預約，避免熱門時段現場久候。"
+      ],
+      "tipsEn": [
+        "Herbal hair spa uses natural boiled ingredients: honeylocust (Bồ kết), lemongrass, and pomelo rind for scalp wellness.",
+        "Full service includes facial cleanse, cucumber mask, ear pampering, hot towel neck massage, and halo water waterfall.",
+        "Booking in advance via Facebook page or hotline is recommended for popular spas."
+      ],
+      "proTipZh": "✨ 避坑：掏耳朵過程若感到酸脹或緊張，可隨時說「Nhẹ thôi」(輕一點)，技師會立刻放輕動作！",
+      "proTipEn": "✨ Pro Tip: If ear cleaning feels ticklish or too intense, say \"Nhẹ thôi\" (gently) anytime!"
+    },
+    "vocabulary": [
+      {
+        "viet": "Gội đầu dưỡng sinh",
+        "vi": "Gội đầu dưỡng sinh",
+        "phonetic": "[ɣoj dəw zɯəŋ siɲ]",
+        "ipa": "[ɣoj dəw zɯəŋ siɲ]",
+        "zh": "越式草本養生洗頭",
+        "en": "Vietnamese herbal hair spa",
+        "hanViet": ""
+      },
+      {
+        "viet": "Lấy ráy tai",
+        "vi": "Lấy ráy tai",
+        "phonetic": "[ləj zaːj taːj]",
+        "ipa": "[ləj zaːj taːj]",
+        "zh": "掏耳朵 / 採耳",
+        "en": "Ear cleaning",
+        "hanViet": ""
+      },
+      {
+        "viet": "Mát-xa cổ vai gáy",
+        "vi": "Mát-xa cổ vai gáy",
+        "phonetic": "[maːt sa ko vaːj ɣaːj]",
+        "ipa": "[maːt sa ko vaːj ɣaːj]",
+        "zh": "肩頸穴位按摩",
+        "en": "Neck and shoulder massage",
+        "hanViet": ""
+      },
+      {
+        "viet": "Mạnh hơn một chút",
+        "vi": "Mạnh hơn một chút",
+        "phonetic": "[maɲ hən mot cut]",
+        "ipa": "[maɲ hən mot cut]",
+        "zh": "再重一點點 / 力道加強",
+        "en": "A bit harder please",
+        "hanViet": ""
+      },
+      {
+        "viet": "Nhẹ thôi / Nhẹ hơn",
+        "vi": "Nhẹ thôi / Nhẹ hơn",
+        "phonetic": "[ɲɛ tʰoj / ɲɛ hən]",
+        "ipa": "[ɲɛ tʰoj / ɲɛ hən]",
+        "zh": "輕一點 / 溫柔一點",
+        "en": "Gently / Softer please",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tiền tip / Tiền boa",
+        "vi": "Tiền tip / Tiền boa",
+        "phonetic": "[tiən tip / tiən bwa]",
+        "ipa": "[tiən tip / tiən bwa]",
+        "zh": "小費",
+        "en": "Tip",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越式洗頭 (Gội đầu dưỡng sinh) 頂級體驗秘密",
+      "titleEn": "The Magic of Vietnamese Herbal Hair Spa",
+      "contentZh": [
+        "越式洗頭使用皂角 (Bồ kết)、香茅 (Sả)、葡萄柚皮 (Vỏ bưởi) 等天然草藥熬煮成溫熱香湯，能深層清潔頭皮、安神助眠。",
+        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環循環瀑布沖水。",
+        "建議提前 1 天電話或粉絲專頁預約，避免熱門時段現場久候。"
+      ],
+      "contentEn": [
+        "Herbal hair spa uses natural boiled ingredients: honeylocust (Bồ kết), lemongrass, and pomelo rind for scalp wellness.",
+        "Full service includes facial cleanse, cucumber mask, ear pampering, hot towel neck massage, and halo water waterfall.",
+        "Booking in advance via Facebook page or hotline is recommended for popular spas."
+      ],
       "tipsZh": [
         "越式洗頭使用皂角 (Bồ kết)、香茅 (Sả)、葡萄柚皮 (Vỏ bưởi) 等天然草藥熬煮成溫熱香湯，能深層清潔頭皮、安神助眠。",
         "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環循環瀑布沖水。",
@@ -4461,50 +6317,154 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Căn hộ / Chung cư",
+        "vi": "Căn hộ / Chung cư",
+        "phonetic": "[kaːn ho / cuŋ kɯ]",
+        "ipa": "[kaːn ho / cuŋ kɯ]",
         "zh": "公寓 / 住宅大樓",
         "en": "Apartment / Condominium",
-        "phonetic": "[kaːn ho / cuŋ kɯ]",
-        "note": "現代住宅"
+        "hanViet": ""
       },
       {
         "viet": "Tiền thuê mỗi tháng",
+        "vi": "Tiền thuê mỗi tháng",
+        "phonetic": "[tiən tʰwe moj tʰaːŋ]",
+        "ipa": "[tiən tʰwe moj tʰaːŋ]",
         "zh": "每月租金",
         "en": "Monthly rent",
-        "phonetic": "[tiən tʰwe moj tʰaːŋ]",
-        "note": "定期房租"
+        "hanViet": ""
       },
       {
         "viet": "Hợp đồng thuê nhà",
+        "vi": "Hợp đồng thuê nhà",
+        "phonetic": "[həp doŋ tʰwe ɲa]",
+        "ipa": "[həp doŋ tʰwe ɲa]",
         "zh": "租屋合約",
         "en": "Lease agreement",
-        "phonetic": "[həp doŋ tʰwe ɲa]",
-        "note": "法律保障文件"
+        "hanViet": ""
       },
       {
         "viet": "Tiền điện / Tiền nước",
+        "vi": "Tiền điện / Tiền nước",
+        "phonetic": "[tiən diən / tiən nɯək]",
+        "ipa": "[tiən diən / tiən nɯək]",
         "zh": "電費 / 水費",
         "en": "Electricity / Water bill",
-        "phonetic": "[tiən diən / tiən nɯək]",
-        "note": "每月生活開銷"
+        "hanViet": ""
       },
       {
         "viet": "Đầy đủ nội thất",
+        "vi": "Đầy đủ nội thất",
+        "phonetic": "[dəj du noj tʰət]",
+        "ipa": "[dəj du noj tʰət]",
         "zh": "家具家電齊全",
         "en": "Fully furnished",
-        "phonetic": "[dəj du noj tʰət]",
-        "note": "拎包入住"
+        "hanViet": ""
       },
       {
         "viet": "Tạm trú",
+        "vi": "Tạm trú",
+        "phonetic": "[taːm cu]",
+        "ipa": "[taːm cu]",
         "zh": "暫住登記（外國人申報）",
         "en": "Temporary residence registration",
-        "phonetic": "[taːm cu]",
-        "note": "合法居留必辦"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "外國人在越南租房法律與暫住證須知",
       "titleEn": "Renting in Vietnam & Police Registration",
+      "contentZh": [
+        "外國人在越南租房，房東依法必須在入住 24 小時內向當地公安申報**暫住登記 (Đăng ký tạm trú)**，以利日後申請工作證 (Work Permit) 或居留證 (TRC)。",
+        "簽約時務必逐項核對家具電器清單 (Biên bản bàn giao)，並拍照記錄水表 (Đồng hồ nước) 與電表 (Đồng hồ điện) 初度數。",
+        "水電收費標準：公寓住宅通常依官方階梯電價或合約約定價格計費。"
+      ],
+      "contentEn": [
+        "Landlords must register foreign tenants with local police for Temporary Residence (Đăng ký tạm trú) within 24h.",
+        "Inspect furniture inventory and take photos of electric/water meters upon moving in.",
+        "Deposit is usually 1-2 months, refunded upon lease termination."
+      ],
+      "tipsZh": [
+        "外國人在越南租房，房東依法必須在入住 24 小時內向當地公安申報**暫住登記 (Đăng ký tạm trú)**，以利日後申請工作證 (Work Permit) 或居留證 (TRC)。",
+        "簽約時務必逐項核對家具電器清單 (Biên bản bàn giao)，並拍照記錄水表 (Đồng hồ nước) 與電表 (Đồng hồ điện) 初度數。",
+        "水電收費標準：公寓住宅通常依官方階梯電價或合約約定價格計費。"
+      ],
+      "tipsEn": [
+        "Landlords must register foreign tenants with local police for Temporary Residence (Đăng ký tạm trú) within 24h.",
+        "Inspect furniture inventory and take photos of electric/water meters upon moving in.",
+        "Deposit is usually 1-2 months, refunded upon lease termination."
+      ],
+      "proTipZh": "✨ 避坑：簽約前務必確認退租條款，一般提早 30 天通知即可無損拿回全部押金！",
+      "proTipEn": "✨ Pro Tip: Ensure the contract states 30 days advance notice for full deposit refund upon departure."
+    },
+    "vocabulary": [
+      {
+        "viet": "Căn hộ / Chung cư",
+        "vi": "Căn hộ / Chung cư",
+        "phonetic": "[kaːn ho / cuŋ kɯ]",
+        "ipa": "[kaːn ho / cuŋ kɯ]",
+        "zh": "公寓 / 住宅大樓",
+        "en": "Apartment / Condominium",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tiền thuê mỗi tháng",
+        "vi": "Tiền thuê mỗi tháng",
+        "phonetic": "[tiən tʰwe moj tʰaːŋ]",
+        "ipa": "[tiən tʰwe moj tʰaːŋ]",
+        "zh": "每月租金",
+        "en": "Monthly rent",
+        "hanViet": ""
+      },
+      {
+        "viet": "Hợp đồng thuê nhà",
+        "vi": "Hợp đồng thuê nhà",
+        "phonetic": "[həp doŋ tʰwe ɲa]",
+        "ipa": "[həp doŋ tʰwe ɲa]",
+        "zh": "租屋合約",
+        "en": "Lease agreement",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tiền điện / Tiền nước",
+        "vi": "Tiền điện / Tiền nước",
+        "phonetic": "[tiən diən / tiən nɯək]",
+        "ipa": "[tiən diən / tiən nɯək]",
+        "zh": "電費 / 水費",
+        "en": "Electricity / Water bill",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đầy đủ nội thất",
+        "vi": "Đầy đủ nội thất",
+        "phonetic": "[dəj du noj tʰət]",
+        "ipa": "[dəj du noj tʰət]",
+        "zh": "家具家電齊全",
+        "en": "Fully furnished",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tạm trú",
+        "vi": "Tạm trú",
+        "phonetic": "[taːm cu]",
+        "ipa": "[taːm cu]",
+        "zh": "暫住登記（外國人申報）",
+        "en": "Temporary residence registration",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "外國人在越南租房法律與暫住證須知",
+      "titleEn": "Renting in Vietnam & Police Registration",
+      "contentZh": [
+        "外國人在越南租房，房東依法必須在入住 24 小時內向當地公安申報**暫住登記 (Đăng ký tạm trú)**，以利日後申請工作證 (Work Permit) 或居留證 (TRC)。",
+        "簽約時務必逐項核對家具電器清單 (Biên bản bàn giao)，並拍照記錄水表 (Đồng hồ nước) 與電表 (Đồng hồ điện) 初度數。",
+        "水電收費標準：公寓住宅通常依官方階梯電價或合約約定價格計費。"
+      ],
+      "contentEn": [
+        "Landlords must register foreign tenants with local police for Temporary Residence (Đăng ký tạm trú) within 24h.",
+        "Inspect furniture inventory and take photos of electric/water meters upon moving in.",
+        "Deposit is usually 1-2 months, refunded upon lease termination."
+      ],
       "tipsZh": [
         "外國人在越南租房，房東依法必須在入住 24 小時內向當地公安申報**暫住登記 (Đăng ký tạm trú)**，以利日後申請工作證 (Work Permit) 或居留證 (TRC)。",
         "簽約時務必逐項核對家具電器清單 (Biên bản bàn giao)，並拍照記錄水表 (Đồng hồ nước) 與電表 (Đồng hồ điện) 初度數。",
@@ -4685,50 +6645,154 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Danh thiếp",
+        "vi": "Danh thiếp",
+        "phonetic": "[zaɲ tʰiəp]",
+        "ipa": "[zaɲ tʰiəp]",
         "zh": "名片 / 商業名片",
         "en": "Business card / Namecard",
-        "phonetic": "[zaɲ tʰiəp]",
-        "note": "商務必備"
+        "hanViet": ""
       },
       {
         "viet": "Đối tác",
+        "vi": "Đối tác",
+        "phonetic": "[doj taːk]",
+        "ipa": "[doj taːk]",
         "zh": "合作夥伴 / 對方客戶",
         "en": "Partner / Counterpart",
-        "phonetic": "[doj taːk]",
-        "note": "商業關係"
+        "hanViet": ""
       },
       {
         "viet": "Hợp đồng",
+        "vi": "Hợp đồng",
+        "phonetic": "[həp doŋ]",
+        "ipa": "[həp doŋ]",
         "zh": "商業合約",
         "en": "Contract",
-        "phonetic": "[həp doŋ]",
-        "note": "法律文件"
+        "hanViet": ""
       },
       {
         "viet": "Hợp tác kinh doanh",
+        "vi": "Hợp tác kinh doanh",
+        "phonetic": "[həp taːk kiɲ zwaːɲ]",
+        "ipa": "[həp taːk kiɲ zwaːɲ]",
         "zh": "商務合作",
         "en": "Business cooperation",
-        "phonetic": "[həp taːk kiɲ zwaːɲ]",
-        "note": "共創雙贏"
+        "hanViet": ""
       },
       {
         "viet": "Tiến độ giao hàng",
+        "vi": "Tiến độ giao hàng",
+        "phonetic": "[tiən do zaːw haːŋ]",
+        "ipa": "[tiən do zaːw haːŋ]",
         "zh": "交貨進度 / 出貨日程",
         "en": "Delivery schedule",
-        "phonetic": "[tiən do zaːw haːŋ]",
-        "note": "供應鏈關鍵"
+        "hanViet": ""
       },
       {
         "viet": "Phương thức thanh toán",
+        "vi": "Phương thức thanh toán",
+        "phonetic": "[fɯəŋ tʰɯk tʰaɲ twaːn]",
+        "ipa": "[fɯəŋ tʰɯk tʰaɲ twaːn]",
         "zh": "付款方式 (LC / TT)",
         "en": "Payment method",
-        "phonetic": "[fɯəŋ tʰɯk tʰaɲ twaːn]",
-        "note": "財務結算"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南商務談判禮儀與社交文化",
       "titleEn": "Vietnamese Business Culture & Etiquette",
+      "contentZh": [
+        "初次見面交換名片時，請務必使用**雙手遞交與接收**，並先仔細端詳對方的姓名與職務頭銜以示尊重。",
+        "會議開始前，越方通常會準備熱茶 (Trà nóng) 或水果點心，喝茶寒暄是建立私人信賴關係 (Mối quan hệ) 的關鍵環節。",
+        "商務宴請 (Tiệc chiêu đãi) 是落實合作的重要推手，席間敬酒碰杯能大幅拉近雙方信任感。"
+      ],
+      "contentEn": [
+        "Always exchange business cards with BOTH hands and a slight nod, examining card details respectfully.",
+        "Drinking hot tea and casual chat before meetings helps build essential business relationships (Quan hệ).",
+        "Business dinners and banquets are crucial for sealing deals and fostering trust."
+      ],
+      "tipsZh": [
+        "初次見面交換名片時，請務必使用**雙手遞交與接收**，並先仔細端詳對方的姓名與職務頭銜以示尊重。",
+        "會議開始前，越方通常會準備熱茶 (Trà nóng) 或水果點心，喝茶寒暄是建立私人信賴關係 (Mối quan hệ) 的關鍵環節。",
+        "商務宴請 (Tiệc chiêu đãi) 是落實合作的重要推手，席間敬酒碰杯能大幅拉近雙方信任感。"
+      ],
+      "tipsEn": [
+        "Always exchange business cards with BOTH hands and a slight nod, examining card details respectfully.",
+        "Drinking hot tea and casual chat before meetings helps build essential business relationships (Quan hệ).",
+        "Business dinners and banquets are crucial for sealing deals and fostering trust."
+      ],
+      "proTipZh": "✨ 避坑：談判時避免當面直接強烈否定對方讓對方「失面子」，宜採委婉溝通「Chúng ta hãy cùng xem xét lại」(讓我們一起再研擬研擬)！",
+      "proTipEn": "✨ Pro Tip: Avoid direct confrontation in meetings to preserve \"Face\" (Thể diện). Frame concerns constructively."
+    },
+    "vocabulary": [
+      {
+        "viet": "Danh thiếp",
+        "vi": "Danh thiếp",
+        "phonetic": "[zaɲ tʰiəp]",
+        "ipa": "[zaɲ tʰiəp]",
+        "zh": "名片 / 商業名片",
+        "en": "Business card / Namecard",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đối tác",
+        "vi": "Đối tác",
+        "phonetic": "[doj taːk]",
+        "ipa": "[doj taːk]",
+        "zh": "合作夥伴 / 對方客戶",
+        "en": "Partner / Counterpart",
+        "hanViet": ""
+      },
+      {
+        "viet": "Hợp đồng",
+        "vi": "Hợp đồng",
+        "phonetic": "[həp doŋ]",
+        "ipa": "[həp doŋ]",
+        "zh": "商業合約",
+        "en": "Contract",
+        "hanViet": ""
+      },
+      {
+        "viet": "Hợp tác kinh doanh",
+        "vi": "Hợp tác kinh doanh",
+        "phonetic": "[həp taːk kiɲ zwaːɲ]",
+        "ipa": "[həp taːk kiɲ zwaːɲ]",
+        "zh": "商務合作",
+        "en": "Business cooperation",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tiến độ giao hàng",
+        "vi": "Tiến độ giao hàng",
+        "phonetic": "[tiən do zaːw haːŋ]",
+        "ipa": "[tiən do zaːw haːŋ]",
+        "zh": "交貨進度 / 出貨日程",
+        "en": "Delivery schedule",
+        "hanViet": ""
+      },
+      {
+        "viet": "Phương thức thanh toán",
+        "vi": "Phương thức thanh toán",
+        "phonetic": "[fɯəŋ tʰɯk tʰaɲ twaːn]",
+        "ipa": "[fɯəŋ tʰɯk tʰaɲ twaːn]",
+        "zh": "付款方式 (LC / TT)",
+        "en": "Payment method",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南商務談判禮儀與社交文化",
+      "titleEn": "Vietnamese Business Culture & Etiquette",
+      "contentZh": [
+        "初次見面交換名片時，請務必使用**雙手遞交與接收**，並先仔細端詳對方的姓名與職務頭銜以示尊重。",
+        "會議開始前，越方通常會準備熱茶 (Trà nóng) 或水果點心，喝茶寒暄是建立私人信賴關係 (Mối quan hệ) 的關鍵環節。",
+        "商務宴請 (Tiệc chiêu đãi) 是落實合作的重要推手，席間敬酒碰杯能大幅拉近雙方信任感。"
+      ],
+      "contentEn": [
+        "Always exchange business cards with BOTH hands and a slight nod, examining card details respectfully.",
+        "Drinking hot tea and casual chat before meetings helps build essential business relationships (Quan hệ).",
+        "Business dinners and banquets are crucial for sealing deals and fostering trust."
+      ],
       "tipsZh": [
         "初次見面交換名片時，請務必使用**雙手遞交與接收**，並先仔細端詳對方的姓名與職務頭銜以示尊重。",
         "會議開始前，越方通常會準備熱茶 (Trà nóng) 或水果點心，喝茶寒暄是建立私人信賴關係 (Mối quan hệ) 的關鍵環節。",
@@ -4909,64 +6973,190 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Cứu tôi với!",
+        "vi": "Cứu tôi với!",
+        "phonetic": "[kɯw toj vəj]",
+        "ipa": "[kɯw toj vəj]",
         "zh": "救我！/ 救命！",
         "en": "Help me! / Save me!",
-        "phonetic": "[kɯw toj vəj]",
-        "note": "極度緊急大喊"
+        "hanViet": ""
       },
       {
         "viet": "Giúp tôi với!",
+        "vi": "Giúp tôi với!",
+        "phonetic": "[zup toj vəj]",
+        "ipa": "[zup toj vəj]",
         "zh": "幫幫我！",
         "en": "Please help me!",
-        "phonetic": "[zup toj vəj]",
-        "note": "日常求助"
+        "hanViet": ""
       },
       {
         "viet": "Đồn công an",
+        "vi": "Đồn công an",
+        "phonetic": "[don koŋ aːn]",
+        "ipa": "[don koŋ aːn]",
         "zh": "公安局 / 派出所 / 警察局",
         "en": "Police station",
-        "phonetic": "[don koŋ aːn]",
-        "note": "報案地點"
+        "hanViet": ""
       },
       {
         "viet": "Mất hộ chiếu",
+        "vi": "Mất hộ chiếu",
+        "phonetic": "[mat ho ciəw]",
+        "ipa": "[mat ho ciəw]",
         "zh": "遺失護照",
         "en": "Lost passport",
-        "phonetic": "[mat ho ciəw]",
-        "note": "急難救助"
+        "hanViet": ""
       },
       {
         "viet": "Lập biên bản",
+        "vi": "Lập biên bản",
+        "phonetic": "[ləp biən baːn]",
+        "ipa": "[ləp biən baːn]",
         "zh": "製作報案筆錄 / 官方證明",
         "en": "File a police report",
-        "phonetic": "[ləp biən baːn]",
-        "note": "補辦證件必備"
+        "hanViet": ""
       },
       {
         "viet": "113",
+        "vi": "113",
+        "phonetic": "[mot mot ba]",
+        "ipa": "[mot mot ba]",
         "zh": "報警電話 (113)",
         "en": "Police hotline (113)",
-        "phonetic": "[mot mot ba]",
-        "note": "全越報警專線"
+        "hanViet": ""
       },
       {
         "viet": "114",
+        "vi": "114",
+        "phonetic": "[mot mot bon]",
+        "ipa": "[mot mot bon]",
         "zh": "消防火警 (114)",
         "en": "Fire department (114)",
-        "phonetic": "[mot mot bon]",
-        "note": "火警電話"
+        "hanViet": ""
       },
       {
         "viet": "115",
+        "vi": "115",
+        "phonetic": "[mot mot naːm]",
+        "ipa": "[mot mot naːm]",
         "zh": "救護車急救 (115)",
         "en": "Ambulance (115)",
-        "phonetic": "[mot mot naːm]",
-        "note": "醫療救護"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南急難求助與駐外代表處聯絡清單",
       "titleEn": "Vietnam Emergency Hotlines & Embassy Contact",
+      "contentZh": [
+        "**三大官方緊急電話**：警察報案撥 **113**、火警救援撥 **114**、救護醫療撥 **115**。",
+        "在街頭行走或搭乘機車時，務必將隨身包包斜背在靠內側人行道方向，切勿邊走邊拿手機看，防範飛車搶奪。",
+        "駐越南台北經濟文化辦事處 (河內)：+84-24-3833-5501；駐胡志明市台北經濟文化辦事處：+84-28-3834-9160。"
+      ],
+      "contentEn": [
+        "Emergency numbers: Police **113**, Fire **114**, Ambulance **115**.",
+        "Cross-body bags should be worn facing away from street traffic to prevent snatching.",
+        "Taipei Economic and Cultural Office (TECO) Hotline: Hanoi (+84-24-3833-5501), HCMC (+84-28-3834-9160)."
+      ],
+      "tipsZh": [
+        "**三大官方緊急電話**：警察報案撥 **113**、火警救援撥 **114**、救護醫療撥 **115**。",
+        "在街頭行走或搭乘機車時，務必將隨身包包斜背在靠內側人行道方向，切勿邊走邊拿手機看，防範飛車搶奪。",
+        "駐越南台北經濟文化辦事處 (河內)：+84-24-3833-5501；駐胡志明市台北經濟文化辦事處：+84-28-3834-9160。"
+      ],
+      "tipsEn": [
+        "Emergency numbers: Police **113**, Fire **114**, Ambulance **115**.",
+        "Cross-body bags should be worn facing away from street traffic to prevent snatching.",
+        "Taipei Economic and Cultural Office (TECO) Hotline: Hanoi (+84-24-3833-5501), HCMC (+84-28-3834-9160)."
+      ],
+      "proTipZh": "✨ 避坑：出國前請將護照相片頁與簽證影印 2 份分開存放，並存一份電子檔在手機雲端，遇緊急狀況能最快完成補發手續！",
+      "proTipEn": "✨ Pro Tip: Keep printed copies of your passport and visa separate from your main luggage for emergency replacement."
+    },
+    "vocabulary": [
+      {
+        "viet": "Cứu tôi với!",
+        "vi": "Cứu tôi với!",
+        "phonetic": "[kɯw toj vəj]",
+        "ipa": "[kɯw toj vəj]",
+        "zh": "救我！/ 救命！",
+        "en": "Help me! / Save me!",
+        "hanViet": ""
+      },
+      {
+        "viet": "Giúp tôi với!",
+        "vi": "Giúp tôi với!",
+        "phonetic": "[zup toj vəj]",
+        "ipa": "[zup toj vəj]",
+        "zh": "幫幫我！",
+        "en": "Please help me!",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đồn công an",
+        "vi": "Đồn công an",
+        "phonetic": "[don koŋ aːn]",
+        "ipa": "[don koŋ aːn]",
+        "zh": "公安局 / 派出所 / 警察局",
+        "en": "Police station",
+        "hanViet": ""
+      },
+      {
+        "viet": "Mất hộ chiếu",
+        "vi": "Mất hộ chiếu",
+        "phonetic": "[mat ho ciəw]",
+        "ipa": "[mat ho ciəw]",
+        "zh": "遺失護照",
+        "en": "Lost passport",
+        "hanViet": ""
+      },
+      {
+        "viet": "Lập biên bản",
+        "vi": "Lập biên bản",
+        "phonetic": "[ləp biən baːn]",
+        "ipa": "[ləp biən baːn]",
+        "zh": "製作報案筆錄 / 官方證明",
+        "en": "File a police report",
+        "hanViet": ""
+      },
+      {
+        "viet": "113",
+        "vi": "113",
+        "phonetic": "[mot mot ba]",
+        "ipa": "[mot mot ba]",
+        "zh": "報警電話 (113)",
+        "en": "Police hotline (113)",
+        "hanViet": ""
+      },
+      {
+        "viet": "114",
+        "vi": "114",
+        "phonetic": "[mot mot bon]",
+        "ipa": "[mot mot bon]",
+        "zh": "消防火警 (114)",
+        "en": "Fire department (114)",
+        "hanViet": ""
+      },
+      {
+        "viet": "115",
+        "vi": "115",
+        "phonetic": "[mot mot naːm]",
+        "ipa": "[mot mot naːm]",
+        "zh": "救護車急救 (115)",
+        "en": "Ambulance (115)",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南急難求助與駐外代表處聯絡清單",
+      "titleEn": "Vietnam Emergency Hotlines & Embassy Contact",
+      "contentZh": [
+        "**三大官方緊急電話**：警察報案撥 **113**、火警救援撥 **114**、救護醫療撥 **115**。",
+        "在街頭行走或搭乘機車時，務必將隨身包包斜背在靠內側人行道方向，切勿邊走邊拿手機看，防範飛車搶奪。",
+        "駐越南台北經濟文化辦事處 (河內)：+84-24-3833-5501；駐胡志明市台北經濟文化辦事處：+84-28-3834-9160。"
+      ],
+      "contentEn": [
+        "Emergency numbers: Police **113**, Fire **114**, Ambulance **115**.",
+        "Cross-body bags should be worn facing away from street traffic to prevent snatching.",
+        "Taipei Economic and Cultural Office (TECO) Hotline: Hanoi (+84-24-3833-5501), HCMC (+84-28-3834-9160)."
+      ],
       "tipsZh": [
         "**三大官方緊急電話**：警察報案撥 **113**、火警救援撥 **114**、救護醫療撥 **115**。",
         "在街頭行走或搭乘機車時，務必將隨身包包斜背在靠內側人行道方向，切勿邊走邊拿手機看，防範飛車搶奪。",
@@ -5103,43 +7293,63 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Làm quen",
+        "vi": "Làm quen",
+        "phonetic": "[lam kwɛn]",
+        "ipa": "[lam kwɛn]",
         "zh": "結識 / 做朋友",
         "en": "Get acquainted / make friends",
-        "phonetic": "[lam kwɛn]",
-        "note": "初次見面核心詞"
+        "hanViet": ""
       },
       {
         "viet": "Rất vui được gặp bạn",
+        "vi": "Rất vui được gặp bạn",
+        "phonetic": "[zət vuj dɯək ɣəp baːn]",
+        "ipa": "[zət vuj dɯək ɣəp baːn]",
         "zh": "很高興遇見你",
         "en": "Nice to meet you",
-        "phonetic": "[zət vuj dɯək ɣəp baːn]",
-        "note": "社交禮貌標準句"
+        "hanViet": ""
       },
       {
         "viet": "Kết bạn Zalo",
+        "vi": "Kết bạn Zalo",
+        "phonetic": "[ket baːn za lo]",
+        "ipa": "[ket baːn za lo]",
         "zh": "加 Zalo 好友",
         "en": "Add on Zalo",
-        "phonetic": "[ket baːn za lo]",
-        "note": "越南通訊必備"
+        "hanViet": ""
       },
       {
         "viet": "Số điện thoại",
+        "vi": "Số điện thoại",
+        "phonetic": "[so diəŋ twaːj]",
+        "ipa": "[so diəŋ twaːj]",
         "zh": "電話號碼",
         "en": "Phone number",
-        "phonetic": "[so diəŋ twaːj]",
-        "note": "簡稱 SĐT"
+        "hanViet": ""
       },
       {
         "viet": "Mới chuyển đến",
+        "vi": "Mới chuyển đến",
+        "phonetic": "[məj cwiən den]",
+        "ipa": "[məj cwiən den]",
         "zh": "剛搬來 / 剛調派過來",
         "en": "Just moved here",
-        "phonetic": "[məj cwiən den]",
-        "note": "描述旅居背景"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南初見社交與加好友禮儀",
       "titleEn": "First Meeting & Social Etiquette in Vietnam",
+      "contentZh": [
+        "在越南結識新朋友，通常在寒暄幾句後便會主動詢問「Cho mình xin Zalo」(加個 Zalo 吧)，這是非常友好熱情的表現。",
+        "初次見面如果不確定對方年紀，可以先用禮貌中性的「Mình - Bạn」(我與你) 或禮貌尊稱「Anh / Chị」，確定年齡後再調整稱謂。",
+        "越南人對外國朋友通常非常熱情好奇，常會聊到工作、學越文原因與婚姻狀況，這在當地是拉近距離的日常關心。"
+      ],
+      "contentEn": [
+        "Exchanging Zalo contacts early in a conversation is standard friendly behavior.",
+        "When age is uncertain, use polite \"Mình - Bạn\" before establishing age hierarchy.",
+        "Asking about origin, career, and family is a warm way Vietnamese people build rapport."
+      ],
       "tipsZh": [
         "在越南結識新朋友，通常在寒暄幾句後便會主動詢問「Cho mình xin Zalo」(加個 Zalo 吧)，這是非常友好熱情的表現。",
         "初次見面如果不確定對方年紀，可以先用禮貌中性的「Mình - Bạn」(我與你) 或禮貌尊稱「Anh / Chị」，確定年齡後再調整稱謂。",
@@ -5149,7 +7359,82 @@ export const situationalScenarios = [
         "Exchanging Zalo contacts early in a conversation is standard friendly behavior.",
         "When age is uncertain, use polite \"Mình - Bạn\" before establishing age hierarchy.",
         "Asking about origin, career, and family is a warm way Vietnamese people build rapport."
-      ]
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
+    },
+    "vocabulary": [
+      {
+        "viet": "Làm quen",
+        "vi": "Làm quen",
+        "phonetic": "[lam kwɛn]",
+        "ipa": "[lam kwɛn]",
+        "zh": "結識 / 做朋友",
+        "en": "Get acquainted / make friends",
+        "hanViet": ""
+      },
+      {
+        "viet": "Rất vui được gặp bạn",
+        "vi": "Rất vui được gặp bạn",
+        "phonetic": "[zət vuj dɯək ɣəp baːn]",
+        "ipa": "[zət vuj dɯək ɣəp baːn]",
+        "zh": "很高興遇見你",
+        "en": "Nice to meet you",
+        "hanViet": ""
+      },
+      {
+        "viet": "Kết bạn Zalo",
+        "vi": "Kết bạn Zalo",
+        "phonetic": "[ket baːn za lo]",
+        "ipa": "[ket baːn za lo]",
+        "zh": "加 Zalo 好友",
+        "en": "Add on Zalo",
+        "hanViet": ""
+      },
+      {
+        "viet": "Số điện thoại",
+        "vi": "Số điện thoại",
+        "phonetic": "[so diəŋ twaːj]",
+        "ipa": "[so diəŋ twaːj]",
+        "zh": "電話號碼",
+        "en": "Phone number",
+        "hanViet": ""
+      },
+      {
+        "viet": "Mới chuyển đến",
+        "vi": "Mới chuyển đến",
+        "phonetic": "[məj cwiən den]",
+        "ipa": "[məj cwiən den]",
+        "zh": "剛搬來 / 剛調派過來",
+        "en": "Just moved here",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南初見社交與加好友禮儀",
+      "titleEn": "First Meeting & Social Etiquette in Vietnam",
+      "contentZh": [
+        "在越南結識新朋友，通常在寒暄幾句後便會主動詢問「Cho mình xin Zalo」(加個 Zalo 吧)，這是非常友好熱情的表現。",
+        "初次見面如果不確定對方年紀，可以先用禮貌中性的「Mình - Bạn」(我與你) 或禮貌尊稱「Anh / Chị」，確定年齡後再調整稱謂。",
+        "越南人對外國朋友通常非常熱情好奇，常會聊到工作、學越文原因與婚姻狀況，這在當地是拉近距離的日常關心。"
+      ],
+      "contentEn": [
+        "Exchanging Zalo contacts early in a conversation is standard friendly behavior.",
+        "When age is uncertain, use polite \"Mình - Bạn\" before establishing age hierarchy.",
+        "Asking about origin, career, and family is a warm way Vietnamese people build rapport."
+      ],
+      "tipsZh": [
+        "在越南結識新朋友，通常在寒暄幾句後便會主動詢問「Cho mình xin Zalo」(加個 Zalo 吧)，這是非常友好熱情的表現。",
+        "初次見面如果不確定對方年紀，可以先用禮貌中性的「Mình - Bạn」(我與你) 或禮貌尊稱「Anh / Chị」，確定年齡後再調整稱謂。",
+        "越南人對外國朋友通常非常熱情好奇，常會聊到工作、學越文原因與婚姻狀況，這在當地是拉近距離的日常關心。"
+      ],
+      "tipsEn": [
+        "Exchanging Zalo contacts early in a conversation is standard friendly behavior.",
+        "When age is uncertain, use polite \"Mình - Bạn\" before establishing age hierarchy.",
+        "Asking about origin, career, and family is a warm way Vietnamese people build rapport."
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
     }
   },
   {
@@ -5239,43 +7524,61 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Thời tiết",
+        "vi": "Thời tiết",
+        "phonetic": "[tʰəj tiət]",
+        "ipa": "[tʰəj tiət]",
         "zh": "天氣",
         "en": "Weather",
-        "phonetic": "[tʰəj tiət]",
-        "note": "閒聊常用話題"
+        "hanViet": ""
       },
       {
         "viet": "Mùa mưa / Mùa khô",
+        "vi": "Mùa mưa / Mùa khô",
+        "phonetic": "[muə muə / muə xo]",
+        "ipa": "[muə muə / muə xo]",
         "zh": "雨季 / 乾季",
         "en": "Rainy season / Dry season",
-        "phonetic": "[muə muə / muə xo]",
-        "note": "越南熱帶氣候"
+        "hanViet": ""
       },
       {
         "viet": "Cuối tuần",
+        "vi": "Cuối tuần",
+        "phonetic": "[kwoj twən]",
+        "ipa": "[kwoj twən]",
         "zh": "週末",
         "en": "Weekend",
-        "phonetic": "[kwoj twən]",
-        "note": "安排休閒"
+        "hanViet": ""
       },
       {
         "viet": "Rảnh rỗi",
+        "vi": "Rảnh rỗi",
+        "phonetic": "[zaɲ zoːj]",
+        "ipa": "[zaɲ zoːj]",
         "zh": "空閒 / 有空",
         "en": "Free / At leisure",
-        "phonetic": "[zaɲ zoːj]",
-        "note": "問時間"
+        "hanViet": ""
       },
       {
         "viet": "Ngon tuyệt vời",
+        "vi": "Ngon tuyệt vời",
+        "phonetic": "[ŋɔn twiət vəj]",
+        "ipa": "[ŋɔn twiət vəj]",
         "zh": "美味極了",
         "en": "Delicious / Wonderful",
-        "phonetic": "[ŋɔn twiət vəj]",
-        "note": "稱讚美食"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南人的閒聊與週末休閒習慣",
       "titleEn": "Vietnamese Chit-chat & Weekend Culture",
+      "contentZh": [
+        "越南人碰面最常問「Ăn cơm chưa?」(吃飯了嗎？) 或「Dạo này khỏe không?」(最近好嗎？)，類似中文的親切問候。",
+        "「Đi dạo」(散步漫遊) 與「Cà phê bệt」(席地而坐的街頭咖啡) 是年輕人最愛的平民休閒。"
+      ],
+      "contentEn": [
+        "\"Ăn cơm chưa?\" (Have you eaten?) is the classic friendly greeting.",
+        "Sidewalk cafes and walking streets are popular spots for social relaxation."
+      ],
       "tipsZh": [
         "越南人碰面最常問「Ăn cơm chưa?」(吃飯了嗎？) 或「Dạo này khỏe không?」(最近好嗎？)，類似中文的親切問候。",
         "「Đi dạo」(散步漫遊) 與「Cà phê bệt」(席地而坐的街頭咖啡) 是年輕人最愛的平民休閒。"
@@ -5283,7 +7586,78 @@ export const situationalScenarios = [
       "tipsEn": [
         "\"Ăn cơm chưa?\" (Have you eaten?) is the classic friendly greeting.",
         "Sidewalk cafes and walking streets are popular spots for social relaxation."
-      ]
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
+    },
+    "vocabulary": [
+      {
+        "viet": "Thời tiết",
+        "vi": "Thời tiết",
+        "phonetic": "[tʰəj tiət]",
+        "ipa": "[tʰəj tiət]",
+        "zh": "天氣",
+        "en": "Weather",
+        "hanViet": ""
+      },
+      {
+        "viet": "Mùa mưa / Mùa khô",
+        "vi": "Mùa mưa / Mùa khô",
+        "phonetic": "[muə muə / muə xo]",
+        "ipa": "[muə muə / muə xo]",
+        "zh": "雨季 / 乾季",
+        "en": "Rainy season / Dry season",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cuối tuần",
+        "vi": "Cuối tuần",
+        "phonetic": "[kwoj twən]",
+        "ipa": "[kwoj twən]",
+        "zh": "週末",
+        "en": "Weekend",
+        "hanViet": ""
+      },
+      {
+        "viet": "Rảnh rỗi",
+        "vi": "Rảnh rỗi",
+        "phonetic": "[zaɲ zoːj]",
+        "ipa": "[zaɲ zoːj]",
+        "zh": "空閒 / 有空",
+        "en": "Free / At leisure",
+        "hanViet": ""
+      },
+      {
+        "viet": "Ngon tuyệt vời",
+        "vi": "Ngon tuyệt vời",
+        "phonetic": "[ŋɔn twiət vəj]",
+        "ipa": "[ŋɔn twiət vəj]",
+        "zh": "美味極了",
+        "en": "Delicious / Wonderful",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南人的閒聊與週末休閒習慣",
+      "titleEn": "Vietnamese Chit-chat & Weekend Culture",
+      "contentZh": [
+        "越南人碰面最常問「Ăn cơm chưa?」(吃飯了嗎？) 或「Dạo này khỏe không?」(最近好嗎？)，類似中文的親切問候。",
+        "「Đi dạo」(散步漫遊) 與「Cà phê bệt」(席地而坐的街頭咖啡) 是年輕人最愛的平民休閒。"
+      ],
+      "contentEn": [
+        "\"Ăn cơm chưa?\" (Have you eaten?) is the classic friendly greeting.",
+        "Sidewalk cafes and walking streets are popular spots for social relaxation."
+      ],
+      "tipsZh": [
+        "越南人碰面最常問「Ăn cơm chưa?」(吃飯了嗎？) 或「Dạo này khỏe không?」(最近好嗎？)，類似中文的親切問候。",
+        "「Đi dạo」(散步漫遊) 與「Cà phê bệt」(席地而坐的街頭咖啡) 是年輕人最愛的平民休閒。"
+      ],
+      "tipsEn": [
+        "\"Ăn cơm chưa?\" (Have you eaten?) is the classic friendly greeting.",
+        "Sidewalk cafes and walking streets are popular spots for social relaxation."
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
     }
   },
   {
@@ -5373,43 +7747,61 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Sở thích",
+        "vi": "Sở thích",
+        "phonetic": "[səː tʰik]",
+        "ipa": "[səː tʰik]",
         "zh": "興趣 / 愛好",
         "en": "Hobby",
-        "phonetic": "[səː tʰik]",
-        "note": "漢越詞「所好」"
+        "hanViet": ""
       },
       {
         "viet": "Hát Karaoke",
+        "vi": "Hát Karaoke",
+        "phonetic": "[hat ka ra o ke]",
+        "ipa": "[hat ka ra o ke]",
         "zh": "唱卡拉OK",
         "en": "Sing Karaoke",
-        "phonetic": "[hat ka ra o ke]",
-        "note": "越南國民娛樂"
+        "hanViet": ""
       },
       {
         "viet": "Nghe nhạc",
+        "vi": "Nghe nhạc",
+        "phonetic": "[ŋɛ ɲaːk]",
+        "ipa": "[ŋɛ ɲaːk]",
         "zh": "聽音樂",
         "en": "Listen to music",
-        "phonetic": "[ŋɛ ɲaːk]",
-        "note": "休閒詞彙"
+        "hanViet": ""
       },
       {
         "viet": "Chụp ảnh / Chụp hình",
+        "vi": "Chụp ảnh / Chụp hình",
+        "phonetic": "[cup aɲ / cup hïŋ]",
+        "ipa": "[cup aɲ / cup hïŋ]",
         "zh": "拍照 / 攝影",
         "en": "Take photos",
-        "phonetic": "[cup aɲ / cup hïŋ]",
-        "note": "北越 chụp ảnh, 南越 chụp hình"
+        "hanViet": ""
       },
       {
         "viet": "Xem phim",
+        "vi": "Xem phim",
+        "phonetic": "[sɛm fim]",
+        "ipa": "[sɛm fim]",
         "zh": "看電影",
         "en": "Watch movies",
-        "phonetic": "[sɛm fim]",
-        "note": "娛樂日常"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南熱門休閒與 Karaoke 文化",
       "titleEn": "Vietnamese Leisure & Karaoke Culture",
+      "contentZh": [
+        "在越南，唱 Karaoke 是慶祝生日、下班聚會與朋友聯絡感情的頭號活動，包廂通常配有豐盛的水果拼盤與啤酒小吃。",
+        "外國朋友若能開口哼唱一兩句當地流行歌曲，會立刻拉近與越南朋友的心理距離！"
+      ],
+      "contentEn": [
+        "Karaoke is the most popular social entertainment in Vietnam for celebrations and team bonding.",
+        "Singing a local Vietnamese hit will instantly win you great appreciation among friends."
+      ],
       "tipsZh": [
         "在越南，唱 Karaoke 是慶祝生日、下班聚會與朋友聯絡感情的頭號活動，包廂通常配有豐盛的水果拼盤與啤酒小吃。",
         "外國朋友若能開口哼唱一兩句當地流行歌曲，會立刻拉近與越南朋友的心理距離！"
@@ -5417,7 +7809,78 @@ export const situationalScenarios = [
       "tipsEn": [
         "Karaoke is the most popular social entertainment in Vietnam for celebrations and team bonding.",
         "Singing a local Vietnamese hit will instantly win you great appreciation among friends."
-      ]
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
+    },
+    "vocabulary": [
+      {
+        "viet": "Sở thích",
+        "vi": "Sở thích",
+        "phonetic": "[səː tʰik]",
+        "ipa": "[səː tʰik]",
+        "zh": "興趣 / 愛好",
+        "en": "Hobby",
+        "hanViet": ""
+      },
+      {
+        "viet": "Hát Karaoke",
+        "vi": "Hát Karaoke",
+        "phonetic": "[hat ka ra o ke]",
+        "ipa": "[hat ka ra o ke]",
+        "zh": "唱卡拉OK",
+        "en": "Sing Karaoke",
+        "hanViet": ""
+      },
+      {
+        "viet": "Nghe nhạc",
+        "vi": "Nghe nhạc",
+        "phonetic": "[ŋɛ ɲaːk]",
+        "ipa": "[ŋɛ ɲaːk]",
+        "zh": "聽音樂",
+        "en": "Listen to music",
+        "hanViet": ""
+      },
+      {
+        "viet": "Chụp ảnh / Chụp hình",
+        "vi": "Chụp ảnh / Chụp hình",
+        "phonetic": "[cup aɲ / cup hïŋ]",
+        "ipa": "[cup aɲ / cup hïŋ]",
+        "zh": "拍照 / 攝影",
+        "en": "Take photos",
+        "hanViet": ""
+      },
+      {
+        "viet": "Xem phim",
+        "vi": "Xem phim",
+        "phonetic": "[sɛm fim]",
+        "ipa": "[sɛm fim]",
+        "zh": "看電影",
+        "en": "Watch movies",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南熱門休閒與 Karaoke 文化",
+      "titleEn": "Vietnamese Leisure & Karaoke Culture",
+      "contentZh": [
+        "在越南，唱 Karaoke 是慶祝生日、下班聚會與朋友聯絡感情的頭號活動，包廂通常配有豐盛的水果拼盤與啤酒小吃。",
+        "外國朋友若能開口哼唱一兩句當地流行歌曲，會立刻拉近與越南朋友的心理距離！"
+      ],
+      "contentEn": [
+        "Karaoke is the most popular social entertainment in Vietnam for celebrations and team bonding.",
+        "Singing a local Vietnamese hit will instantly win you great appreciation among friends."
+      ],
+      "tipsZh": [
+        "在越南，唱 Karaoke 是慶祝生日、下班聚會與朋友聯絡感情的頭號活動，包廂通常配有豐盛的水果拼盤與啤酒小吃。",
+        "外國朋友若能開口哼唱一兩句當地流行歌曲，會立刻拉近與越南朋友的心理距離！"
+      ],
+      "tipsEn": [
+        "Karaoke is the most popular social entertainment in Vietnam for celebrations and team bonding.",
+        "Singing a local Vietnamese hit will instantly win you great appreciation among friends."
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
     }
   },
   {
@@ -5507,43 +7970,61 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Đá cầu",
+        "vi": "Đá cầu",
+        "phonetic": "[da kəw]",
+        "ipa": "[da kəw]",
         "zh": "踢毽子（越南國技）",
         "en": "Shuttlecock kicking",
-        "phonetic": "[da kəw]",
-        "note": "全民熱門運動"
+        "hanViet": ""
       },
       {
         "viet": "Cầu lông",
+        "vi": "Cầu lông",
+        "phonetic": "[kəw loŋ]",
+        "ipa": "[kəw loŋ]",
         "zh": "羽毛球",
         "en": "Badminton",
-        "phonetic": "[kəw loŋ]",
-        "note": "動詞用 đánh cầu lông"
+        "hanViet": ""
       },
       {
         "viet": "Bóng đá",
+        "vi": "Bóng đá",
+        "phonetic": "[ɓɔŋ da]",
+        "ipa": "[ɓɔŋ da]",
         "zh": "足球",
         "en": "Football / Soccer",
-        "phonetic": "[ɓɔŋ da]",
-        "note": "越南狂熱運動之王"
+        "hanViet": ""
       },
       {
         "viet": "Chạy bộ",
+        "vi": "Chạy bộ",
+        "phonetic": "[caːj ɓo]",
+        "ipa": "[caːj ɓo]",
         "zh": "跑步 / 慢跑",
         "en": "Jogging / Running",
-        "phonetic": "[caːj ɓo]",
-        "note": "晨昏公園常見"
+        "hanViet": ""
       },
       {
         "viet": "Tập gym",
+        "vi": "Tập gym",
+        "phonetic": "[təp dʑim]",
+        "ipa": "[təp dʑim]",
         "zh": "健身 / 健身房重訓",
         "en": "Gym workout / Fitness",
-        "phonetic": "[təp dʑim]",
-        "note": "現代年輕人日常"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南獨特的「踢毽子」與運動社交文化",
       "titleEn": "Vietnamese Shuttlecock & Sports Culture",
+      "contentZh": [
+        "越南的「Đá cầu」(踢毽子) 是一項具備高度技巧的體育運動，毽子使用特殊彈簧羽毛，腳法華麗，曾多次奪得世界冠軍。",
+        "越南人對「Bóng đá」(足球) 擁有極致狂熱，國家隊獲勝時整座城市會徹夜舉行「Đi bão」(騎機車搖紅旗狂歡遊行)。"
+      ],
+      "contentEn": [
+        "Đá cầu (shuttlecock) is a national sport played skillfully in parks across the country.",
+        "Football (Bóng đá) triggers immense national passion, often celebrated by festive \"Đi bão\" parades."
+      ],
       "tipsZh": [
         "越南的「Đá cầu」(踢毽子) 是一項具備高度技巧的體育運動，毽子使用特殊彈簧羽毛，腳法華麗，曾多次奪得世界冠軍。",
         "越南人對「Bóng đá」(足球) 擁有極致狂熱，國家隊獲勝時整座城市會徹夜舉行「Đi bão」(騎機車搖紅旗狂歡遊行)。"
@@ -5551,7 +8032,78 @@ export const situationalScenarios = [
       "tipsEn": [
         "Đá cầu (shuttlecock) is a national sport played skillfully in parks across the country.",
         "Football (Bóng đá) triggers immense national passion, often celebrated by festive \"Đi bão\" parades."
-      ]
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
+    },
+    "vocabulary": [
+      {
+        "viet": "Đá cầu",
+        "vi": "Đá cầu",
+        "phonetic": "[da kəw]",
+        "ipa": "[da kəw]",
+        "zh": "踢毽子（越南國技）",
+        "en": "Shuttlecock kicking",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cầu lông",
+        "vi": "Cầu lông",
+        "phonetic": "[kəw loŋ]",
+        "ipa": "[kəw loŋ]",
+        "zh": "羽毛球",
+        "en": "Badminton",
+        "hanViet": ""
+      },
+      {
+        "viet": "Bóng đá",
+        "vi": "Bóng đá",
+        "phonetic": "[ɓɔŋ da]",
+        "ipa": "[ɓɔŋ da]",
+        "zh": "足球",
+        "en": "Football / Soccer",
+        "hanViet": ""
+      },
+      {
+        "viet": "Chạy bộ",
+        "vi": "Chạy bộ",
+        "phonetic": "[caːj ɓo]",
+        "ipa": "[caːj ɓo]",
+        "zh": "跑步 / 慢跑",
+        "en": "Jogging / Running",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tập gym",
+        "vi": "Tập gym",
+        "phonetic": "[təp dʑim]",
+        "ipa": "[təp dʑim]",
+        "zh": "健身 / 健身房重訓",
+        "en": "Gym workout / Fitness",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南獨特的「踢毽子」與運動社交文化",
+      "titleEn": "Vietnamese Shuttlecock & Sports Culture",
+      "contentZh": [
+        "越南的「Đá cầu」(踢毽子) 是一項具備高度技巧的體育運動，毽子使用特殊彈簧羽毛，腳法華麗，曾多次奪得世界冠軍。",
+        "越南人對「Bóng đá」(足球) 擁有極致狂熱，國家隊獲勝時整座城市會徹夜舉行「Đi bão」(騎機車搖紅旗狂歡遊行)。"
+      ],
+      "contentEn": [
+        "Đá cầu (shuttlecock) is a national sport played skillfully in parks across the country.",
+        "Football (Bóng đá) triggers immense national passion, often celebrated by festive \"Đi bão\" parades."
+      ],
+      "tipsZh": [
+        "越南的「Đá cầu」(踢毽子) 是一項具備高度技巧的體育運動，毽子使用特殊彈簧羽毛，腳法華麗，曾多次奪得世界冠軍。",
+        "越南人對「Bóng đá」(足球) 擁有極致狂熱，國家隊獲勝時整座城市會徹夜舉行「Đi bão」(騎機車搖紅旗狂歡遊行)。"
+      ],
+      "tipsEn": [
+        "Đá cầu (shuttlecock) is a national sport played skillfully in parks across the country.",
+        "Football (Bóng đá) triggers immense national passion, often celebrated by festive \"Đi bão\" parades."
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
     }
   },
   {
@@ -5641,43 +8193,61 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Báo cáo",
+        "vi": "Báo cáo",
+        "phonetic": "[ɓaːw kaːw]",
+        "ipa": "[ɓaːw kaːw]",
         "zh": "報告 / 匯報",
         "en": "Report",
-        "phonetic": "[ɓaːw kaːw]",
-        "note": "漢越詞「報告」"
+        "hanViet": ""
       },
       {
         "viet": "Tiến độ",
+        "vi": "Tiến độ",
+        "phonetic": "[tiən do]",
+        "ipa": "[tiən do]",
         "zh": "進度",
         "en": "Progress / Schedule",
-        "phonetic": "[tiən do]",
-        "note": "專案管理必備"
+        "hanViet": ""
       },
       {
         "viet": "Xin nghỉ phép",
+        "vi": "Xin nghỉ phép",
+        "phonetic": "[sin ŋi fɛp]",
+        "ipa": "[sin ŋi fɛp]",
         "zh": "請假 / 請年假",
         "en": "Request leave / Take time off",
-        "phonetic": "[sin ŋi fɛp]",
-        "note": "人資日常"
+        "hanViet": ""
       },
       {
         "viet": "Họp",
+        "vi": "Họp",
+        "phonetic": "[hɔp]",
+        "ipa": "[hɔp]",
         "zh": "開會 / 會議",
         "en": "Meeting",
-        "phonetic": "[hɔp]",
-        "note": "職場核心動詞"
+        "hanViet": ""
       },
       {
         "viet": "Tài liệu",
+        "vi": "Tài liệu",
+        "phonetic": "[taːj liəw]",
+        "ipa": "[taːj liəw]",
         "zh": "文件 / 資料",
         "en": "Documents / Materials",
-        "phonetic": "[taːj liəw]",
-        "note": "漢越詞「資料」"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南職場溝通與請假禮儀",
       "titleEn": "Workplace Communication & Leave Etiquette in Vietnam",
+      "contentZh": [
+        "在越南職場中向主管報告時，開頭加上「Dạ thưa [稱謂]...」並以「ạ」結尾，能展現出極高的職業素養與對長官的敬重。",
+        "若需請病假或事假，通常需提前向直屬主管（Quản lý / Trưởng phòng）發送 Zalo 訊息或 Email 報備，並由同事協同交接當日緊急事務。"
+      ],
+      "contentEn": [
+        "Using \"Dạ thưa...\" and \"ạ\" shows high professional respect when reporting to managers.",
+        "Requesting leave is typically done in advance via formal email or direct Zalo notification."
+      ],
       "tipsZh": [
         "在越南職場中向主管報告時，開頭加上「Dạ thưa [稱謂]...」並以「ạ」結尾，能展現出極高的職業素養與對長官的敬重。",
         "若需請病假或事假，通常需提前向直屬主管（Quản lý / Trưởng phòng）發送 Zalo 訊息或 Email 報備，並由同事協同交接當日緊急事務。"
@@ -5685,7 +8255,78 @@ export const situationalScenarios = [
       "tipsEn": [
         "Using \"Dạ thưa...\" and \"ạ\" shows high professional respect when reporting to managers.",
         "Requesting leave is typically done in advance via formal email or direct Zalo notification."
-      ]
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
+    },
+    "vocabulary": [
+      {
+        "viet": "Báo cáo",
+        "vi": "Báo cáo",
+        "phonetic": "[ɓaːw kaːw]",
+        "ipa": "[ɓaːw kaːw]",
+        "zh": "報告 / 匯報",
+        "en": "Report",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tiến độ",
+        "vi": "Tiến độ",
+        "phonetic": "[tiən do]",
+        "ipa": "[tiən do]",
+        "zh": "進度",
+        "en": "Progress / Schedule",
+        "hanViet": ""
+      },
+      {
+        "viet": "Xin nghỉ phép",
+        "vi": "Xin nghỉ phép",
+        "phonetic": "[sin ŋi fɛp]",
+        "ipa": "[sin ŋi fɛp]",
+        "zh": "請假 / 請年假",
+        "en": "Request leave / Take time off",
+        "hanViet": ""
+      },
+      {
+        "viet": "Họp",
+        "vi": "Họp",
+        "phonetic": "[hɔp]",
+        "ipa": "[hɔp]",
+        "zh": "開會 / 會議",
+        "en": "Meeting",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tài liệu",
+        "vi": "Tài liệu",
+        "phonetic": "[taːj liəw]",
+        "ipa": "[taːj liəw]",
+        "zh": "文件 / 資料",
+        "en": "Documents / Materials",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南職場溝通與請假禮儀",
+      "titleEn": "Workplace Communication & Leave Etiquette in Vietnam",
+      "contentZh": [
+        "在越南職場中向主管報告時，開頭加上「Dạ thưa [稱謂]...」並以「ạ」結尾，能展現出極高的職業素養與對長官的敬重。",
+        "若需請病假或事假，通常需提前向直屬主管（Quản lý / Trưởng phòng）發送 Zalo 訊息或 Email 報備，並由同事協同交接當日緊急事務。"
+      ],
+      "contentEn": [
+        "Using \"Dạ thưa...\" and \"ạ\" shows high professional respect when reporting to managers.",
+        "Requesting leave is typically done in advance via formal email or direct Zalo notification."
+      ],
+      "tipsZh": [
+        "在越南職場中向主管報告時，開頭加上「Dạ thưa [稱謂]...」並以「ạ」結尾，能展現出極高的職業素養與對長官的敬重。",
+        "若需請病假或事假，通常需提前向直屬主管（Quản lý / Trưởng phòng）發送 Zalo 訊息或 Email 報備，並由同事協同交接當日緊急事務。"
+      ],
+      "tipsEn": [
+        "Using \"Dạ thưa...\" and \"ạ\" shows high professional respect when reporting to managers.",
+        "Requesting leave is typically done in advance via formal email or direct Zalo notification."
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
     }
   },
   {
@@ -5775,43 +8416,61 @@ export const situationalScenarios = [
     "vocab": [
       {
         "viet": "Thuê xe máy",
+        "vi": "Thuê xe máy",
+        "phonetic": "[tʰwe sɛ maːj]",
+        "ipa": "[tʰwe sɛ maːj]",
         "zh": "租機車",
         "en": "Rent a motorbike",
-        "phonetic": "[tʰwe sɛ maːj]",
-        "note": "自由行必備技能"
+        "hanViet": ""
       },
       {
         "viet": "Xe ga",
+        "vi": "Xe ga",
+        "phonetic": "[sɛ ɣa]",
+        "ipa": "[sɛ ɣa]",
         "zh": "自動變速速克達 (Scooter)",
         "en": "Automatic scooter",
-        "phonetic": "[sɛ ɣa]",
-        "note": "免換檔最好騎"
+        "hanViet": ""
       },
       {
         "viet": "Xe số",
+        "vi": "Xe số",
+        "phonetic": "[sɛ so]",
+        "ipa": "[sɛ so]",
         "zh": "打檔機車",
         "en": "Manual / Semi-auto motorbike",
-        "phonetic": "[sɛ so]",
-        "note": "爬坡省油首選"
+        "hanViet": ""
       },
       {
         "viet": "Mũ bảo hiểm / Nón bảo hiểm",
+        "vi": "Mũ bảo hiểm / Nón bảo hiểm",
+        "phonetic": "[mu ɓaːw hiəm / nɔn ɓaːw hiəm]",
+        "ipa": "[mu ɓaːw hiəm / nɔn ɓaːw hiəm]",
         "zh": "安全帽",
         "en": "Helmet",
-        "phonetic": "[mu ɓaːw hiəm / nɔn ɓaːw hiəm]",
-        "note": "騎車必戴"
+        "hanViet": ""
       },
       {
         "viet": "Đặt cọc",
+        "vi": "Đặt cọc",
+        "phonetic": "[daːt kaːwk]",
+        "ipa": "[daːt kaːwk]",
         "zh": "押金 / 訂金",
         "en": "Deposit",
-        "phonetic": "[daːt kaːwk]",
-        "note": "漢越詞「定閣」"
+        "hanViet": ""
       }
     ],
     "culturalTips": {
       "titleZh": "越南自由行機車租借與交通常識",
       "titleEn": "Motorbike Rentals & Traffic Tips in Vietnam",
+      "contentZh": [
+        "在越南租機車時，務必先檢查煞車 (Thắng xe)、大燈、喇叭以及車身原有刮痕，並向店家確認就近的加油站位置 (Cây xăng)。",
+        "越南規定騎機車所有乘客必須全程佩戴安全帽 (Mũ/Nón bảo hiểm)，且市區限速通常為 40~50 km/h。"
+      ],
+      "contentEn": [
+        "Always check brakes, lights, horns and fuel before riding a rented motorbike.",
+        "Helmets are mandatory by law for both drivers and pillion passengers in Vietnam."
+      ],
       "tipsZh": [
         "在越南租機車時，務必先檢查煞車 (Thắng xe)、大燈、喇叭以及車身原有刮痕，並向店家確認就近的加油站位置 (Cây xăng)。",
         "越南規定騎機車所有乘客必須全程佩戴安全帽 (Mũ/Nón bảo hiểm)，且市區限速通常為 40~50 km/h。"
@@ -5819,7 +8478,78 @@ export const situationalScenarios = [
       "tipsEn": [
         "Always check brakes, lights, horns and fuel before riding a rented motorbike.",
         "Helmets are mandatory by law for both drivers and pillion passengers in Vietnam."
-      ]
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
+    },
+    "vocabulary": [
+      {
+        "viet": "Thuê xe máy",
+        "vi": "Thuê xe máy",
+        "phonetic": "[tʰwe sɛ maːj]",
+        "ipa": "[tʰwe sɛ maːj]",
+        "zh": "租機車",
+        "en": "Rent a motorbike",
+        "hanViet": ""
+      },
+      {
+        "viet": "Xe ga",
+        "vi": "Xe ga",
+        "phonetic": "[sɛ ɣa]",
+        "ipa": "[sɛ ɣa]",
+        "zh": "自動變速速克達 (Scooter)",
+        "en": "Automatic scooter",
+        "hanViet": ""
+      },
+      {
+        "viet": "Xe số",
+        "vi": "Xe số",
+        "phonetic": "[sɛ so]",
+        "ipa": "[sɛ so]",
+        "zh": "打檔機車",
+        "en": "Manual / Semi-auto motorbike",
+        "hanViet": ""
+      },
+      {
+        "viet": "Mũ bảo hiểm / Nón bảo hiểm",
+        "vi": "Mũ bảo hiểm / Nón bảo hiểm",
+        "phonetic": "[mu ɓaːw hiəm / nɔn ɓaːw hiəm]",
+        "ipa": "[mu ɓaːw hiəm / nɔn ɓaːw hiəm]",
+        "zh": "安全帽",
+        "en": "Helmet",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đặt cọc",
+        "vi": "Đặt cọc",
+        "phonetic": "[daːt kaːwk]",
+        "ipa": "[daːt kaːwk]",
+        "zh": "押金 / 訂金",
+        "en": "Deposit",
+        "hanViet": ""
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "越南自由行機車租借與交通常識",
+      "titleEn": "Motorbike Rentals & Traffic Tips in Vietnam",
+      "contentZh": [
+        "在越南租機車時，務必先檢查煞車 (Thắng xe)、大燈、喇叭以及車身原有刮痕，並向店家確認就近的加油站位置 (Cây xăng)。",
+        "越南規定騎機車所有乘客必須全程佩戴安全帽 (Mũ/Nón bảo hiểm)，且市區限速通常為 40~50 km/h。"
+      ],
+      "contentEn": [
+        "Always check brakes, lights, horns and fuel before riding a rented motorbike.",
+        "Helmets are mandatory by law for both drivers and pillion passengers in Vietnam."
+      ],
+      "tipsZh": [
+        "在越南租機車時，務必先檢查煞車 (Thắng xe)、大燈、喇叭以及車身原有刮痕，並向店家確認就近的加油站位置 (Cây xăng)。",
+        "越南規定騎機車所有乘客必須全程佩戴安全帽 (Mũ/Nón bảo hiểm)，且市區限速通常為 40~50 km/h。"
+      ],
+      "tipsEn": [
+        "Always check brakes, lights, horns and fuel before riding a rented motorbike.",
+        "Helmets are mandatory by law for both drivers and pillion passengers in Vietnam."
+      ],
+      "proTipZh": "",
+      "proTipEn": ""
     }
   }
 ];

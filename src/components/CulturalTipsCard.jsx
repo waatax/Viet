@@ -4,11 +4,14 @@ import { useLanguage } from '../context/LanguageContext';
 
 export const CulturalTipsCard = ({ scenario }) => {
   const { learningMode } = useLanguage();
-  const tipsData = scenario.culturalTips;
+  const tipsData = scenario.culturalTips || scenario.culturalTip;
 
   if (!tipsData) return null;
 
-  const tipsList = learningMode === 'zh' ? tipsData.tipsZh : tipsData.tipsEn;
+  const rawTips = learningMode === 'zh' 
+    ? (tipsData.tipsZh || (tipsData.contentZh ? [tipsData.contentZh] : [])) 
+    : (tipsData.tipsEn || (tipsData.contentEn ? [tipsData.contentEn] : []));
+  const tipsList = Array.isArray(rawTips) ? rawTips : (rawTips ? [rawTips] : []);
   const proTip = learningMode === 'zh' ? tipsData.proTipZh : tipsData.proTipEn;
 
   return (

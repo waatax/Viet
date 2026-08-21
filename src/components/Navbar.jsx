@@ -59,7 +59,10 @@ export const Navbar = ({
             <button className="brand-logo" onClick={() => setActiveTab('path')} aria-label={t('brandName')}>
               <span className="flag-badge" aria-hidden="true"><span>★</span> VIỆT</span>
               <span className="brand-copy">
-                <strong>{t('brandName')}</strong>
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                  <strong>{t('brandName')}</strong>
+                  <span style={{ fontSize: '0.65rem', fontWeight: 800, background: 'rgba(234, 179, 8, 0.18)', color: 'var(--brand-gold)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-full)', padding: '0.05rem 0.4rem', lineHeight: 1.3 }}>v2.5</span>
+                </span>
                 <small>{t('brandSub')}</small>
               </span>
             </button>
