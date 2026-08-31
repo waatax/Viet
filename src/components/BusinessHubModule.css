@@ -1,0 +1,289 @@
+/* BusinessHubModule.css */
+
+.business-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.business-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  background: var(--bg-card);
+  padding: 0.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.biz-nav-tab {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.86rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.biz-nav-tab:hover {
+  background: var(--bg-accent);
+  color: var(--brand-primary);
+}
+
+.biz-nav-tab.active {
+  background: var(--brand-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(218, 37, 28, 0.3);
+}
+
+/* Negotiation Arena Card */
+.negotiation-arena-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.trust-gauge-container {
+  background: var(--bg-input);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.trust-gauge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.trust-bar-bg {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-main);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+.trust-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s;
+}
+
+.partner-bubble {
+  background: var(--bg-accent);
+  border-left: 4px solid var(--brand-primary);
+  padding: 1.25rem;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.partner-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  font-size: 0.9rem;
+}
+
+.dialogue-choice-btn {
+  background: var(--bg-card-subtle);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.dialogue-choice-btn:hover {
+  border-color: var(--brand-primary);
+  background: var(--bg-accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.dialogue-choice-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* VAT Invoice Card */
+.invoice-sample-box {
+  background: #fffdf5;
+  color: #1e293b;
+  border: 2px dashed #d97706;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: var(--font-family-mono);
+  box-shadow: 0 4px 15px rgba(217, 119, 6, 0.1);
+}
+
+[data-theme="dark"] .invoice-sample-box {
+  background: #1e1e24;
+  color: #f1f5f9;
+  border-color: #f59e0b;
+}
+
+/* Zalo Message Bubble */
+.zalo-message-card {
+  background: var(--bg-card);
+  border: 1.5px solid #0068ff;
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 6px 20px rgba(0, 104, 255, 0.08);
+}
+
+.zalo-bubble-box {
+  background: rgba(0, 104, 255, 0.05);
+  border: 1px solid rgba(0, 104, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+[data-theme="dark"] .zalo-bubble-box {
+  background: rgba(0, 104, 255, 0.12);
+  border-color: rgba(0, 104, 255, 0.35);
+}
+
+/* Dual City Split Cards */
+.city-compare-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.city-profile-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1.5px solid var(--border-color);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+.city-profile-card.hanoi {
+  border-top: 5px solid #dc2626;
+}
+
+.city-profile-card.hcmc {
+  border-top: 5px solid #2563eb;
+}
+
+/* Currency Blitz Speed Box */
+.currency-blitz-arena {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.08), rgba(218, 37, 28, 0.08));
+  border: 2px solid var(--brand-gold);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 12px 36px rgba(234, 179, 8, 0.15);
+}
+
+.timer-countdown {
+  font-size: 2.2rem;
+  font-weight: 900;
+  font-family: var(--font-family-mono);
+  color: var(--brand-primary);
+}
+
+.blitz-combo-badge {
+  background: linear-gradient(90deg, #ef4444, #f59e0b);
+  color: #ffffff;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  font-weight: 900;
+  font-size: 1rem;
+  animation: bounce 1s infinite alternate;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.blitz-options-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+}
+
+.blitz-option-btn {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-bounce);
+}
+
+.blitz-option-btn:hover {
+  border-color: var(--brand-gold);
+  background: var(--bg-accent);
+  transform: scale(1.03);
+}
+
+/* Factory Floor Directive Cards */
+.factory-directives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.factory-term-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all var(--transition-normal);
+}
+
+.factory-term-card:hover {
+  border-color: var(--brand-accent);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}

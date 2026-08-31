@@ -18,13 +18,17 @@ export const Navbar = ({
   userStats,
   selectedAccent,
   setSelectedAccent,
-  onOpenAchievements
+  onOpenAchievements,
+  onOpenDailyQuests
 }) => {
   const { learningMode, toggleLearningMode, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   
   const { currentXpInLevel, requiredXpForNextLevel, progressPercent } = gamificationEngine.getLevelProgress(userStats.xp);
   const currentLevel = gamificationEngine.calculateLevel(userStats.xp);
+  const shieldsCount = gamificationEngine.loadStreakShields();
+  const dailyQuests = gamificationEngine.getDailyQuests();
+  const completedQuestsCount = dailyQuests.filter(q => q.completed).length;
 
   useEffect(() => setMenuOpen(false), [activeTab]);
 
@@ -76,6 +80,26 @@ export const Navbar = ({
           <div className="nav-mobile-actions">
             <button
               className="mobile-xp-btn"
+              onClick={onOpenDailyQuests}
+              title="每日任務"
+              style={{
+                background: 'rgba(239, 68, 68, 0.15)',
+                border: '1px solid var(--brand-primary)',
+                borderRadius: 'var(--radius-full)',
+                padding: '0.3rem 0.6rem',
+                color: 'var(--brand-primary)',
+                fontWeight: 800,
+                fontSize: '0.82rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                cursor: 'pointer'
+              }}
+            >
+              🎯 {completedQuestsCount}/{dailyQuests.length}
+            </button>
+            <button
+              className="mobile-xp-btn"
               onClick={onOpenAchievements}
               style={{
                 background: 'rgba(234,179,8,0.15)',
@@ -121,6 +145,25 @@ export const Navbar = ({
             </div>
 
             <div className="controls-group">
+              {/* Daily Quests HUD Button */}
+              <button
+                className="control-btn stat-pill"
+                onClick={onOpenDailyQuests}
+                title={learningMode === 'zh' ? '查看每日任務與打卡防護罩' : 'View Daily Quests & Streak Shields'}
+                style={{
+                  cursor: 'pointer',
+                  background: 'rgba(239, 68, 68, 0.12)',
+                  border: '1px solid var(--brand-primary)',
+                  color: 'var(--brand-primary)',
+                  fontWeight: 800
+                }}
+              >
+                🎯 任務 {completedQuestsCount}/{dailyQuests.length}
+                <span style={{ fontSize: '0.78rem', color: 'var(--brand-gold)', marginLeft: '0.2rem' }}>
+                  🛡️{shieldsCount}
+                </span>
+              </button>
+
               <button
                 className="control-btn stat-pill level-pill"
                 onClick={onOpenAchievements}

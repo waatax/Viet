@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Users, HelpCircle, CheckCircle, Volume2, Sparkles, UserCheck, ArrowRight, BookOpen } from 'lucide-react';
-import { pronounKinshipData } from '../data/vietnameseData';
+import { Users, HelpCircle, CheckCircle, Volume2, Sparkles, UserCheck, ArrowRight, BookOpen, ShieldCheck, Award, Briefcase } from 'lucide-react';
+import { pronounKinshipData, corporatePronounHierarchy, politenessRules } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -553,6 +553,79 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* 🌟 越南現代職場階層與專業尊榮敬稱體系 (Corporate Hierarchy & Professional Respect) */}
+        <div style={{ marginTop: '2.5rem', borderTop: '2px dashed var(--border-color)', paddingTop: '1.75rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.8rem' }}>
+            <Briefcase color="var(--brand-primary)" size={22} />
+            <h4 style={{ fontSize: '1.2em', fontWeight: 900, margin: 0, color: 'var(--text-primary)' }}>
+              {learningMode === 'zh' ? '👔 越南現代職場長幼階層與專業敬稱體系 (Corporate Respect Matrix)' : '👔 Corporate Hierarchy & Professional Respect Matrix'}
+            </h4>
+          </div>
+          <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', marginBottom: '1.25rem', lineHeight: 1.5 }}>
+            {learningMode === 'zh'
+              ? '在越南商務生態中，「稱謂得體（Xưng hô đúng mực）」是贏得合作夥伴尊重（Respect）與建立信任的第一步。切忌使用疏離生硬的「Tôi / Bạn」，應依據職級與年齡精準稱呼：'
+              : 'In Vietnamese corporate culture, respectful and accurate addressing (Xưng hô) is the cornerstone of professional dignity and trust.'}
+          </p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem', marginBottom: '1.75rem' }}>
+            {corporatePronounHierarchy.map((corp, cIdx) => (
+              <div
+                key={cIdx}
+                style={{
+                  background: 'var(--bg-input)',
+                  padding: '1.1rem 1.25rem',
+                  borderRadius: 'var(--radius-md)',
+                  borderLeft: '4px solid var(--brand-primary)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.4rem'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <strong style={{ fontSize: '1.05rem', color: 'var(--brand-primary)' }}>
+                    {corp.roleVi}
+                  </strong>
+                  <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                    {learningMode === 'zh' ? corp.roleZh : ''}
+                  </span>
+                </div>
+                <div style={{ fontSize: '0.95rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                  🗣️ 稱呼對方：<span style={{ color: 'var(--brand-green)' }}>"{corp.addressingVi}"</span>
+                </div>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                  🙋 自稱搭配：<span style={{ fontWeight: 700 }}>"{corp.selfVi}"</span>
+                </div>
+                <small style={{ fontSize: '0.82rem', color: 'var(--text-muted)', lineHeight: 1.4, marginTop: '0.2rem' }}>
+                  💡 {learningMode === 'zh' ? corp.descZh : corp.descEn}
+                </small>
+              </div>
+            ))}
+          </div>
+
+          {/* 4 Golden Rules */}
+          <div style={{ background: 'var(--bg-accent)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', border: '1.5px solid var(--brand-gold)' }}>
+            <h5 style={{ margin: '0 0 0.75rem', fontSize: '1.05rem', fontWeight: 900, color: 'var(--brand-gold)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <ShieldCheck size={18} />
+              {learningMode === 'zh' ? '越南現代商務禮貌溝通四大黃金法則 (Politeness & Respect)' : '4 Golden Rules of Professional Respect'}
+            </h5>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.85rem' }}>
+              {politenessRules.map((pRule, rIdx) => (
+                <div key={rIdx} style={{ background: 'var(--bg-card)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+                  <strong style={{ display: 'block', fontSize: '0.9rem', color: 'var(--brand-primary)', marginBottom: '0.3rem' }}>
+                    {learningMode === 'zh' ? pRule.ruleZh : pRule.ruleEn}
+                  </strong>
+                  <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', lineHeight: 1.4 }}>
+                    {pRule.descZh}
+                  </div>
+                  <div style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--brand-accent)', background: 'var(--bg-input)', padding: '0.35rem 0.5rem', borderRadius: 'var(--radius-xs)' }}>
+                    💬 {pRule.sampleVi}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

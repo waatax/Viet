@@ -1,16 +1,91 @@
 /**
  * gamificationEngine.js
- * Handles Octalysis gamification logic (XP, Levels, Streaks, Daily Progress, Achievements).
+ * Handles Octalysis gamification logic (XP, Levels, Streaks, Daily Quests, Streak Shields, Achievements).
  */
 
 export const LEVEL_THRESHOLDS = [
-  0, 100, 250, 500, 1000, 2000, 3500, 5500, 8000, 12000, 18000
+  0, 100, 250, 500, 1000, 2000, 3500, 5500, 8000, 12000, 18000, 25000, 35000
 ];
 
 export const DAILY_GOAL_PRESETS = [
   { id: 'casual', labelZh: '輕鬆休閒 (5分鐘)', labelEn: 'Casual (5 min)', targetXp: 30, icon: '🌱' },
   { id: 'regular', labelZh: '標準穩健 (15分鐘)', labelEn: 'Regular (15 min)', targetXp: 80, icon: '⚡' },
   { id: 'intensive', labelZh: '極速沉浸 (30分鐘)', labelEn: 'Intensive (30 min)', targetXp: 150, icon: '🔥' }
+];
+
+export const QUEST_POOL = [
+  {
+    id: 'quest_negotiation',
+    icon: '🥊',
+    titleZh: '完成一場商務談判決戰',
+    titleEn: 'Complete a Business Negotiation Battle',
+    descZh: '在商務競技場中與越南夥伴達成雙贏合作協議',
+    descEn: 'Achieve a win-win deal in the Negotiation Arena',
+    target: 1,
+    category: 'business',
+    rewardXp: 40,
+    checkEvent: (event) => event?.type === 'BUSINESS_DEAL_WON'
+  },
+  {
+    id: 'quest_currency_blitz',
+    icon: '⚡',
+    titleZh: '百萬貨幣極速盲測達 3 連擊',
+    titleEn: 'Achieve 3+ Combo in Currency Blitz',
+    descZh: '在 10 秒倒數計時中正確換算越南盾與黑話',
+    descEn: 'Decode VND amounts and slang in rapid-fire mode',
+    target: 1,
+    category: 'currency',
+    rewardXp: 35,
+    checkEvent: (event) => event?.type === 'CURRENCY_BLITZ_STREAK' && event.combo >= 3
+  },
+  {
+    id: 'quest_srs_review',
+    icon: '🧠',
+    titleZh: '完成 5 張 SM-2 智能閃卡複習',
+    titleEn: 'Review 5 SM-2 Flashcards',
+    descZh: '強化大腦神經元長期記憶保存率',
+    descEn: 'Boost long-term retention with spaced repetition',
+    target: 5,
+    category: 'memory',
+    rewardXp: 30,
+    checkEvent: (event) => event?.type === 'SRS_CARD_REVIEWED'
+  },
+  {
+    id: 'quest_tone_game',
+    icon: '🎵',
+    titleZh: '聲調聽力特訓 3 連勝',
+    titleEn: '3-Streak in Tone Mastery Game',
+    descZh: '精準辨識平玄銳問跌重 6 大聲調',
+    descEn: 'Identify Vietnamese tones accurately',
+    target: 1,
+    category: 'phonetics',
+    rewardXp: 35,
+    checkEvent: (event) => event?.type === 'TONE_COMBO' && event.combo >= 3
+  },
+  {
+    id: 'quest_sentence_build',
+    icon: '🧩',
+    titleZh: '成功拼裝 3 句完整越南語',
+    titleEn: 'Construct 3 Vietnamese Sentences',
+    descZh: '在拼句特訓中精準掌握 SVO 與後置修飾語法',
+    descEn: 'Assemble full sentences with post-modifier syntax',
+    target: 3,
+    category: 'grammar',
+    rewardXp: 35,
+    checkEvent: (event) => event?.type === 'SENTENCE_BUILD_ONE'
+  },
+  {
+    id: 'quest_shadowing',
+    icon: '🎙️',
+    titleZh: '完成 1 句真人語速影子跟讀',
+    titleEn: 'Complete 1 AI Shadowing Practice',
+    descZh: '開口跟讀母語音檔並取得 75 分以上成績',
+    descEn: 'Speak out loud and achieve 75%+ shadowing score',
+    target: 1,
+    category: 'phonetics',
+    rewardXp: 40,
+    checkEvent: (event) => event?.type === 'SHADOWING_DONE' && event.score >= 75
+  }
 ];
 
 export const ACHIEVEMENTS_LIST = [
@@ -24,6 +99,83 @@ export const ACHIEVEMENTS_LIST = [
     category: 'milestone',
     bonusXp: 20,
     check: (stats) => (stats.xp || 0) > 0
+  },
+  {
+    id: 'deal_maker',
+    icon: '💼',
+    titleZh: '商務談判大師',
+    titleEn: 'Master Negotiator',
+    descZh: '在商業談判競技場中贏得雙贏合約並獲得 80%+ 夥伴信任！',
+    descEn: 'Won a strategic business deal with 80%+ partner trust!',
+    category: 'business',
+    bonusXp: 60,
+    check: (stats, event) => event?.type === 'BUSINESS_DEAL_WON' && event.trust >= 80
+  },
+  {
+    id: 'vat_master',
+    icon: '🧾',
+    titleZh: '加值稅發票專家',
+    titleEn: 'VAT Invoice Master',
+    descZh: '完全掌握加值稅紅發票 (Hóa đơn đỏ) 開立四要素與稅號報帳！',
+    descEn: 'Mastered official VAT Red Invoice issuance and MST tax filings!',
+    category: 'business',
+    bonusXp: 50,
+    check: (stats, event) => event?.type === 'VAT_STUDIED'
+  },
+  {
+    id: 'nhau_legend',
+    icon: '🍻',
+    titleZh: '酒桌千杯不醉',
+    titleEn: 'Nhậu Legend',
+    descZh: '熟稔越南 1-2-3 Dô 乾杯禮儀與優雅擋酒應酬話術！',
+    descEn: 'Mastered Vietnamese 1-2-3 Dô toasts and tactful alcohol moderation!',
+    category: 'social',
+    bonusXp: 45,
+    check: (stats, event) => event?.type === 'NHAU_STUDIED'
+  },
+  {
+    id: 'factory_boss',
+    icon: '🏭',
+    titleZh: '智慧產線指揮官',
+    titleEn: 'Factory Plant Boss',
+    descZh: '掌握工業區、工安防護、品管 KCS 與產線排班全套越語指令！',
+    descEn: 'Mastered industrial park, EHS, QC, and shift production directives!',
+    category: 'business',
+    bonusXp: 50,
+    check: (stats, event) => event?.type === 'FACTORY_STUDIED'
+  },
+  {
+    id: 'currency_blitz_master',
+    icon: '⚡',
+    titleZh: '百萬心算神手',
+    titleEn: 'Currency Blitz Master',
+    descZh: '在百萬貨幣極速盲測中達成 5 連擊 (Combo 5+)，黑話秒換算！',
+    descEn: 'Achieved a 5+ Combo in the Rapid Currency & Slang Blitz!',
+    category: 'survival',
+    bonusXp: 50,
+    check: (stats, event) => event?.type === 'CURRENCY_BLITZ_STREAK' && event.combo >= 5
+  },
+  {
+    id: 'quest_champion',
+    icon: '🎯',
+    titleZh: '每日任務全壘打',
+    titleEn: 'Daily Quest Champion',
+    descZh: '成功通關並領取當日全部 3 項每日階梯式挑戰任務！',
+    descEn: 'Completed and claimed all 3 daily quests in a single day!',
+    category: 'habit',
+    bonusXp: 60,
+    check: (stats, event) => event?.type === 'QUEST_ALL_CLAIMED'
+  },
+  {
+    id: 'shield_guardian',
+    icon: '🛡️',
+    titleZh: '時空守護者',
+    titleEn: 'Streak Shield Guardian',
+    descZh: '擁有或啟動連續打卡防護罩，守護累積的學習火焰！',
+    descEn: 'Activated a Streak Shield to protect continuous learning momentum!',
+    category: 'habit',
+    bonusXp: 30,
+    check: (stats, event) => event?.type === 'SHIELD_USED' || event?.type === 'SHIELD_BOUGHT'
   },
   {
     id: 'tone_hunter',
@@ -173,8 +325,6 @@ export const ACHIEVEMENTS_LIST = [
 export const gamificationEngine = {
   /**
    * Calculate user level based on total XP
-   * @param {number} xp 
-   * @returns {number} Current level (1-indexed)
    */
   calculateLevel: (xp) => {
     let level = 1;
@@ -190,8 +340,6 @@ export const gamificationEngine = {
 
   /**
    * Get progress to the next level
-   * @param {number} xp 
-   * @returns {Object} { currentXpInLevel, requiredXpForNextLevel, progressPercent }
    */
   getLevelProgress: (xp) => {
     const currentLevel = gamificationEngine.calculateLevel(xp);
@@ -210,20 +358,55 @@ export const gamificationEngine = {
   },
 
   /**
-   * Process login to calculate streak
-   * @param {string} lastLoginDateString 
-   * @param {number} currentStreak 
-   * @returns {Object} { newStreak, newLastLoginDate, streakUpdated }
+   * Load streak shields count from localStorage
+   */
+  loadStreakShields: () => {
+    try {
+      const saved = localStorage.getItem('viet_streak_shields');
+      return saved !== null ? parseInt(saved, 10) : 1; // Default 1 free shield
+    } catch {
+      return 1;
+    }
+  },
+
+  /**
+   * Save streak shields count to localStorage
+   */
+  saveStreakShields: (count) => {
+    try {
+      localStorage.setItem('viet_streak_shields', count.toString());
+    } catch (e) {
+      // ignore
+    }
+  },
+
+  /**
+   * Buy a streak shield using XP
+   */
+  buyStreakShield: (currentXp, shieldCost = 120) => {
+    if (currentXp < shieldCost) {
+      return { success: false, reason: 'NOT_ENOUGH_XP' };
+    }
+    const currentShields = gamificationEngine.loadStreakShields();
+    if (currentShields >= 3) {
+      return { success: false, reason: 'MAX_SHIELDS' };
+    }
+    gamificationEngine.saveStreakShields(currentShields + 1);
+    return { success: true, newShields: currentShields + 1, remainingXp: currentXp - shieldCost };
+  },
+
+  /**
+   * Process login to calculate streak with Streak Shield Auto-Protection
    */
   processLoginStreak: (lastLoginDateString, currentStreak) => {
     const today = new Date().toDateString();
     
     if (!lastLoginDateString) {
-      return { newStreak: 1, newLastLoginDate: today, streakUpdated: true };
+      return { newStreak: 1, newLastLoginDate: today, streakUpdated: true, shieldConsumed: false };
     }
 
     if (lastLoginDateString === today) {
-      return { newStreak: currentStreak, newLastLoginDate: today, streakUpdated: false };
+      return { newStreak: currentStreak, newLastLoginDate: today, streakUpdated: false, shieldConsumed: false };
     }
 
     const lastDate = new Date(lastLoginDateString);
@@ -232,10 +415,157 @@ export const gamificationEngine = {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 
     if (diffDays === 1) {
-      return { newStreak: currentStreak + 1, newLastLoginDate: today, streakUpdated: true };
+      return { newStreak: currentStreak + 1, newLastLoginDate: today, streakUpdated: true, shieldConsumed: false };
     } else {
-      return { newStreak: 1, newLastLoginDate: today, streakUpdated: true };
+      // Missed 1+ days: Check if streak shield is available
+      const shields = gamificationEngine.loadStreakShields();
+      if (shields > 0 && currentStreak > 1) {
+        gamificationEngine.saveStreakShields(shields - 1);
+        return { 
+          newStreak: currentStreak, // Shield preserved streak!
+          newLastLoginDate: today, 
+          streakUpdated: true, 
+          shieldConsumed: true 
+        };
+      } else {
+        return { newStreak: 1, newLastLoginDate: today, streakUpdated: true, shieldConsumed: false };
+      }
     }
+  },
+
+  /**
+   * Load or generate 3 deterministic daily quests for today
+   */
+  getDailyQuests: () => {
+    const todayStr = new Date().toISOString().slice(0, 10);
+    try {
+      const saved = localStorage.getItem('viet_daily_quests');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.date === todayStr && Array.isArray(parsed.quests)) {
+          return parsed.quests;
+        }
+      }
+    } catch (e) {
+      // ignore
+    }
+
+    // Generate 3 quests based on date hash
+    let hash = 0;
+    for (let i = 0; i < todayStr.length; i++) {
+      hash = (hash << 5) - hash + todayStr.charCodeAt(i);
+      hash |= 0;
+    }
+    const absHash = Math.abs(hash);
+
+    const selectedIdxs = [
+      absHash % QUEST_POOL.length,
+      (absHash + 2) % QUEST_POOL.length,
+      (absHash + 4) % QUEST_POOL.length
+    ];
+
+    // Ensure unique 3 quests
+    const uniqueQuests = [];
+    const used = new Set();
+    selectedIdxs.forEach(idx => {
+      let cur = idx;
+      while (used.has(cur)) {
+        cur = (cur + 1) % QUEST_POOL.length;
+      }
+      used.add(cur);
+      const baseQuest = QUEST_POOL[cur];
+      uniqueQuests.push({
+        id: baseQuest.id,
+        icon: baseQuest.icon,
+        titleZh: baseQuest.titleZh,
+        titleEn: baseQuest.titleEn,
+        descZh: baseQuest.descZh,
+        descEn: baseQuest.descEn,
+        target: baseQuest.target,
+        progress: 0,
+        rewardXp: baseQuest.rewardXp,
+        completed: false,
+        claimed: false
+      });
+    });
+
+    const questData = { date: todayStr, quests: uniqueQuests };
+    try {
+      localStorage.setItem('viet_daily_quests', JSON.stringify(questData));
+    } catch (e) {
+      // ignore
+    }
+
+    return uniqueQuests;
+  },
+
+  /**
+   * Update daily quest progress based on action event
+   */
+  processQuestEvent: (event) => {
+    if (!event || !event.type) return { updatedQuests: [], newlyCompleted: [] };
+    const quests = gamificationEngine.getDailyQuests();
+    let hasChanges = false;
+    const newlyCompleted = [];
+
+    const updated = quests.map(q => {
+      if (q.completed) return q;
+      const base = QUEST_POOL.find(p => p.id === q.id);
+      if (base && base.checkEvent && base.checkEvent(event)) {
+        const increment = event.increment || 1;
+        const newProgress = Math.min(q.target, q.progress + increment);
+        const isNowCompleted = newProgress >= q.target;
+        if (isNowCompleted && !q.completed) {
+          newlyCompleted.push(q);
+        }
+        hasChanges = true;
+        return {
+          ...q,
+          progress: newProgress,
+          completed: isNowCompleted
+        };
+      }
+      return q;
+    });
+
+    if (hasChanges) {
+      const todayStr = new Date().toISOString().slice(0, 10);
+      try {
+        localStorage.setItem('viet_daily_quests', JSON.stringify({ date: todayStr, quests: updated }));
+      } catch (e) {
+        // ignore
+      }
+    }
+
+    return { updatedQuests: updated, newlyCompleted };
+  },
+
+  /**
+   * Claim reward for a completed daily quest
+   */
+  claimDailyQuest: (questId) => {
+    const quests = gamificationEngine.getDailyQuests();
+    let claimedXp = 0;
+    let allClaimed = false;
+
+    const updated = quests.map(q => {
+      if (q.id === questId && q.completed && !q.claimed) {
+        claimedXp = q.rewardXp;
+        return { ...q, claimed: true };
+      }
+      return q;
+    });
+
+    allClaimed = updated.every(q => q.claimed);
+
+    const todayStr = new Date().toISOString().slice(0, 10);
+    try {
+      localStorage.setItem('viet_daily_quests', JSON.stringify({ date: todayStr, quests: updated }));
+    } catch (e) {
+      // ignore
+    }
+
+    return { success: claimedXp > 0, claimedXp, allClaimed, updatedQuests: updated };
   },
 
   /**
@@ -252,9 +582,6 @@ export const gamificationEngine = {
 
   /**
    * Check for newly unlocked achievements
-   * @param {Object} stats - { xp, streak, ... }
-   * @param {Object} event - Optional triggering event { type, combo, day, score, ... }
-   * @returns {Array} List of newly unlocked achievements
    */
   checkAchievements: (stats, event = null) => {
     const unlockedIds = new Set(gamificationEngine.loadUnlockedAchievements());
@@ -282,7 +609,6 @@ export const gamificationEngine = {
 
   /**
    * Check if a 10% critical success triggers
-   * @returns {boolean}
    */
   isCriticalSuccess: () => {
     return Math.random() < 0.10;

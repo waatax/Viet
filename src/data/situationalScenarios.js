@@ -7,8 +7,23 @@
 export const scenarioCategories = [
   {
     "id": "all",
-    "labelZh": "全部情境 (22個)",
-    "labelEn": "All Scenarios (22)"
+    "labelZh": "全部情境 (43個)",
+    "labelEn": "All Scenarios (43)"
+  },
+  {
+    "id": "business",
+    "labelZh": "💼 職場商務 (22個)",
+    "labelEn": "💼 Business & Commerce (22)"
+  },
+  {
+    "id": "dining",
+    "labelZh": "🍜 餐飲美食 (6個)",
+    "labelEn": "🍜 Food & Dining (6)"
+  },
+  {
+    "id": "travel",
+    "labelZh": "✈️ 旅遊出行 (5個)",
+    "labelEn": "✈️ Travel & Transport (5)"
   },
   {
     "id": "meeting",
@@ -21,16 +36,6 @@ export const scenarioCategories = [
     "labelEn": "💬 Small Talk"
   },
   {
-    "id": "travel",
-    "labelZh": "✈️ 旅遊出行",
-    "labelEn": "✈️ Travel & Transport"
-  },
-  {
-    "id": "dining",
-    "labelZh": "🍜 餐飲美食",
-    "labelEn": "🍜 Food & Dining"
-  },
-  {
     "id": "leisure",
     "labelZh": "🎮 興趣休閒",
     "labelEn": "🎮 Hobbies & Leisure"
@@ -39,11 +44,6 @@ export const scenarioCategories = [
     "id": "sports",
     "labelZh": "⚽ 運動健身",
     "labelEn": "⚽ Sports & Fitness"
-  },
-  {
-    "id": "business",
-    "labelZh": "💼 職場工作",
-    "labelEn": "💼 Business & Work"
   },
   {
     "id": "health",
@@ -8551,5 +8551,2097 @@ export const situationalScenarios = [
       "proTipZh": "",
       "proTipEn": ""
     }
+  },
+{
+  "id": "biz_trade_show_secc",
+  "category": "business",
+  "tagZh": "商展拓銷",
+  "tagEn": "Trade Shows & Pitch",
+  "icon": "🎪",
+  "image": "business.jpg",
+  "titleZh": "國際商展攤位接待、產品介紹與名片交換",
+  "titleEn": "SECC Trade Show Booth Greeting, Product Pitch & Card Exchange",
+  "titleVi": "Đón Tiếp Gian Hàng Triển Lãm, Giới Thiệu Sản Phẩm & Trao Danh Thiếp",
+  "summaryZh": "在胡志明市 SECC 展覽館接待國際買家：迎賓問候、遞送型錄 (Catalogue)、解說技術認證與交換名片及 Zalo。",
+  "summaryEn": "Host buyers at SECC Expo: welcome visitors, distribute catalogues, present ISO/CE certifications, and exchange Zalo/cards.",
+  "dialogues": [
+    {
+      "speaker": "Đại diện Gian hàng (參展商)",
+      "role": "learner",
+      "viet": "Dạ xin chào anh! Chào mừng anh ghé thăm gian hàng của công ty chúng tôi tại triển lãm SECC.",
+      "zh": "您好！歡迎光臨參觀我們在 SECC 展覽會的攤位。",
+      "en": "Hello! Welcome to visit our company booth at the SECC exhibition.",
+      "northTip": "「Gian hàng」即展位、攤位；「Triển lãm」為展覽會。",
+      "southTip": "展會迎賓開頭常用「Dạ xin chào」展現滿滿誠意。"
+    },
+    {
+      "speaker": "Khách tham quan (買家)",
+      "role": "npc",
+      "viet": "Chào bạn. Công ty tôi đang tìm nguồn cung cấp linh kiện điện tử chất lượng cao. Bên bạn có catalogue không?",
+      "zh": "你好。我們公司正在尋找高品質的電子零件供應商。你們有型錄嗎？",
+      "en": "Hello. My company is looking for high-quality electronic components. Do you have a catalogue?",
+      "northTip": "「Nguồn cung cấp」指供應來源；「Linh kiện điện tử」為電子零件。",
+      "southTip": "買家索取型錄是開展商務交涉的第一步。"
+    },
+    {
+      "speaker": "Đại diện Gian hàng (參展商)",
+      "role": "learner",
+      "viet": "Dạ có ạ! Em xin gửi anh cuốn catalogue mới nhất. Tất cả sản phẩm bên em đều đạt chuẩn ISO 9001 và chứng nhận CE.",
+      "zh": "有的！送您我們最新版型錄。我們所有產品均符合 ISO 9001 標準並取得 CE 認證。",
+      "en": "Yes! Here is our latest catalogue. All our products meet ISO 9001 and have CE certification.",
+      "northTip": "「Đạt chuẩn」(達到標準)、「Chứng nhận」(認證)。",
+      "southTip": "強調國際認證能迅速建立海外買家信任。"
+    },
+    {
+      "speaker": "Khách tham quan (買家)",
+      "role": "npc",
+      "viet": "Rất ấn tượng! Anh cho tôi xin danh thiếp và số Zalo để tối nay trao đổi thêm về báo giá nhé.",
+      "zh": "令人印象深刻！請給我一張名片和 Zalo 號碼，今晚好進一步討論報價。",
+      "en": "Very impressive! Please give me your business card and Zalo number to discuss pricing tonight.",
+      "northTip": "「Danh thiếp」(名片)；「Zalo」是越南商務第一通訊軟體。",
+      "southTip": "當天晚上加 Zalo 發送報價單是展會轉單黃金法則。"
+    },
+    {
+      "speaker": "Đại diện Gian hàng (參展商)",
+      "role": "learner",
+      "viet": "Dạ vâng, em xin gửi anh danh thiếp bằng hai tay ạ. Tối nay em sẽ nhắn tin gửi bảng giá chi tiết cho anh ngay!",
+      "zh": "好的，雙手遞上我的名片。今晚我會立刻發送詳細價格表給您！",
+      "en": "Certainly, here is my card with both hands. I will message you the detailed price list tonight!",
+      "northTip": "「Trao bằng hai tay」(雙手遞交) 是越南商務重要禮儀。",
+      "southTip": "「Bảng giá chi tiết」即詳細報價單。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "參展代表 (Đại diện)",
+    "userRoleEn": "Exhibitor Rep (Đại diện)",
+    "partnerRoleZh": "國際買家 (Khách tham quan)",
+    "partnerRoleEn": "Buyer (Khách tham quan)",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Chào bạn. Công ty tôi đang tìm nhà cung cấp linh kiện đạt chuẩn ISO. Bên bạn có tài liệu không?",
+        "partnerPromptZh": "你好。我們公司在找符合 ISO 標準的零件供應商。你們有相關資料嗎？",
+        "partnerPromptEn": "Hello. We are looking for ISO-certified suppliers. Do you have documentation?",
+        "userOptions": [
+          {
+            "id": "secc_opt1",
+            "textVi": "Dạ có ạ! Em xin gửi anh cuốn catalogue và chứng nhận ISO 9001 của công ty em.",
+            "textZh": "有的！送上我們公司的型錄與 ISO 9001 認證文件給您。",
+            "textEn": "Yes! Here is our catalogue and ISO 9001 certificate.",
+            "isCorrect": true,
+            "feedbackZh": "非常專業！立刻遞上型錄與權威認證，精準回應買家需求。",
+            "feedbackEn": "Professional response directly providing requested documentation."
+          },
+          {
+            "id": "secc_opt2",
+            "textVi": "Không có, anh tự lên website xem đi.",
+            "textZh": "沒有耶，你自己上官網看吧。",
+            "textEn": "No, check our website yourself.",
+            "isCorrect": false,
+            "feedbackZh": "嚴重失禮！商展現場必須熱情主動提供資料。",
+            "feedbackEn": "Unprofessional and rude to a potential buyer."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Gian hàng",
+      "vi": "Gian hàng",
+      "phonetic": "[zaːn˧ haːŋ˨˩]",
+      "ipa": "[zaːn˧ haːŋ˨˩]",
+      "zh": "展覽攤位 / 展位",
+      "en": "Exhibition Booth",
+      "hanViet": "Gian (間) + Hàng (行)"
+    },
+    {
+      "viet": "Danh thiếp",
+      "vi": "Danh thiếp",
+      "phonetic": "[zaɲ˧ tʰiəp̚˦˧˥]",
+      "ipa": "[zaɲ˧ tʰiəp̚˦˧˥]",
+      "zh": "名片 / 商務名片",
+      "en": "Business Card",
+      "hanViet": "Danh (名) + Thiếp (帖)"
+    },
+    {
+      "viet": "Catalogue",
+      "vi": "Catalogue",
+      "phonetic": "[ka-ta-lo]",
+      "ipa": "[ka-ta-lo]",
+      "zh": "產品型錄 / 宣傳手冊",
+      "en": "Product Catalogue",
+      "hanViet": ""
+    },
+    {
+      "viet": "Chứng nhận",
+      "vi": "Chứng nhận",
+      "phonetic": "[tɕɨŋ˦˧˥ ɲən˧˨]",
+      "ipa": "[tɕɨŋ˦˧˥ ɲən˧˨]",
+      "zh": "證書 / 認證",
+      "en": "Certification",
+      "hanViet": "Chứng (證) + Nhận (認)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🎪 越南大型展覽會接待與名片禮儀",
+    "titleEn": "Exhibition Lead Capture & Business Card Etiquette in Vietnam",
+    "contentZh": "在胡志明市 SECC 或河內 ICE 參展時，交換名片必須「雙手遞交、正面朝向對方」，接過名片後切忌立刻塞入口袋，應認真閱讀 3~5 秒。此外，第一時間加買家 Zalo 並在當晚發送問候訊息與 PDF 型錄，能將展會成交率提升 3 倍以上！",
+    "contentEn": "Always exchange business cards with both hands facing the recipient. Connecting on Zalo on the same day and sending PDF catalogues within 2 hours multiplies conversion rates.",
+    "proTipZh": "✨ 秘笈：在展位放一盒高品質薄荷糖或台灣特色點心，能大幅增加買家停留洽談的時間！",
+    "proTipEn": "✨ Pro Tip: High quality mints or snacks at your booth significantly increase visitor dwell time."
   }
+},
+{
+  "id": "biz_rfq_pricing",
+  "category": "business",
+  "tagZh": "採購議價",
+  "tagEn": "RFQ & Pricing",
+  "icon": "💵",
+  "image": "business.jpg",
+  "titleZh": "詢價報價 (RFQ)、大宗採購折扣與 MOQ 議價",
+  "titleEn": "RFQ Quotation, Bulk Volume Discount & MOQ Negotiation",
+  "titleVi": "Yêu Cầu Báo Giá (RFQ), Chiết Khấu Số Lượng & Thương Lượng MOQ",
+  "summaryZh": "商務採購核心：核對 FOB Cát Lái 港口交貨價格、協商大宗採購折讓比率與首批試產起訂量 (MOQ)。",
+  "summaryEn": "Core procurement: verify FOB Cat Lai port pricing, negotiate volume discounts, and set trial MOQ.",
+  "dialogues": [
+    {
+      "speaker": "Trưởng phòng Mua hàng (採購經理)",
+      "role": "npc",
+      "viet": "Chào anh, chúng tôi đã nhận được bản yêu cầu báo giá (RFQ) cho đơn hàng 50.000 sản phẩm.",
+      "zh": "您好，我們已經收到您針對 50,000 件訂單的詢價單 (RFQ)。",
+      "en": "Hello, we received your RFQ for the 50,000 unit order.",
+      "northTip": "「Yêu cầu báo giá」即國際貿易常用的 RFQ (Request for Quotation)。",
+      "southTip": "大型採購通常由 Trưởng phòng Mua hàng 主導談判。"
+    },
+    {
+      "speaker": "Giám đốc Kinh doanh (業務總監)",
+      "role": "learner",
+      "viet": "Báo giá hiện tại theo điều kiện FOB Cảng Cát Lái là bao nhiêu? Nếu chúng tôi tăng số lượng lên 100.000 cái thì có mức chiết khấu tốt hơn không?",
+      "zh": "目前 FOB 蓋萊港 (Cát Lái) 條件下的報價是多少？如果我們把數量增加到 10 萬件，有更好的折扣嗎？",
+      "en": "What is the FOB Cat Lai Port price? If we increase quantity to 100,000 units, is there a better discount?",
+      "northTip": "「Cảng Cát Lái」是胡志明市最大的貨櫃集裝箱港口。",
+      "southTip": "「Chiết khấu」為商業折扣，等於打折優惠。"
+    },
+    {
+      "speaker": "Trưởng phòng Mua hàng (採購經理)",
+      "role": "npc",
+      "viet": "Đơn giá hiện tại là 8.5 USD/cái. Nếu anh đặt 100.000 cái, chúng tôi có thể chiết khấu 6%, còn 8.0 USD/cái.",
+      "zh": "目前單價為每件 8.5 美金。如果您訂購 10 萬件，我們可折讓 6%，降至每件 8.0 美金。",
+      "en": "Unit price is $8.50. For 100,000 units, we can discount 6% down to $8.00/unit.",
+      "northTip": "「Đơn giá」(單價)；「Chiết khấu 6%」(折讓 6%)。",
+      "southTip": "以大量採購爭取降價是雙贏基本策略。"
+    },
+    {
+      "speaker": "Giám đốc Kinh doanh (業務總監)",
+      "role": "learner",
+      "viet": "Mức giá 8.0 USD rất hợp lý. Về điều khoản thanh toán, chúng tôi sẽ đặt cọc 30% T/T và thanh toán 70% còn lại khi nhận vận đơn B/L.",
+      "zh": "8.0 美金非常合理。關於付款條件，我們將電匯 30% 訂金，並在收到提單 (B/L) 副本時支付 70% 尾款。",
+      "en": "$8.00 is very reasonable. For payment terms, we will pay 30% T/T deposit and 70% upon B/L copy.",
+      "northTip": "「Đặt cọc」(付訂金)、「Vận đơn B/L」(海運提單)。",
+      "southTip": "T/T 30% cọc + 70% B/L 是台越外貿最標準付款條款。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "買方業務總監 (Giám đốc)",
+    "userRoleEn": "Commercial Director",
+    "partnerRoleZh": "工廠採購主管 (Trưởng phòng)",
+    "partnerRoleEn": "Procurement Manager",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Nếu quý công ty đặt 100.000 cái, chúng tôi có thể giảm đơn giá xuống 8.0 USD/cái. Anh thấy thế nào?",
+        "partnerPromptZh": "如果貴公司下單 10 萬件，我們可將單價降至 8.0 美金。您覺得如何？",
+        "partnerPromptEn": "For 100,000 units, we can reduce unit price to $8.00. What do you think?",
+        "userOptions": [
+          {
+            "id": "rfq_opt1",
+            "textVi": "Mức giá 8.0 USD rất hợp lý. Chúng tôi đồng ý và sẽ tiến hành làm hợp đồng thanh toán 30% T/T.",
+            "textZh": "8.0 美金很合理。我們同意並將開始擬定 30% T/T 訂金合約。",
+            "textEn": "Very reasonable. We agree and will draft the 30% T/T contract.",
+            "isCorrect": true,
+            "feedbackZh": "完美敲定！鎖定優惠單價並立即確認標準付款條款。",
+            "feedbackEn": "Perfect agreement locking favorable unit price with standard payment terms."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Báo giá",
+      "vi": "Báo giá",
+      "phonetic": "[ɓaːw˦˧˥ zaː˦˧˥]",
+      "ipa": "[ɓaːw˦˧˥ zaː˦˧˥]",
+      "zh": "報價單 / 報價",
+      "en": "Quotation / Quote",
+      "hanViet": "Báo (報) + Giá (價)"
+    },
+    {
+      "viet": "Chiết khấu",
+      "vi": "Chiết khấu",
+      "phonetic": "[tɕiət̚˦˧˥ kʰəw˦˧˥]",
+      "ipa": "[tɕiət̚˦˧˥ kʰəw˦˧˥]",
+      "zh": "折扣 / 折讓",
+      "en": "Discount / Rebate",
+      "hanViet": "Chiết (折) + Khấu (扣)"
+    },
+    {
+      "viet": "Đơn giá",
+      "vi": "Đơn giá",
+      "phonetic": "[ɗəːn˧ zaː˦˧˥]",
+      "ipa": "[ɗəːn˧ zaː˦˧˥]",
+      "zh": "單價 / 每單位價格",
+      "en": "Unit Price",
+      "hanViet": "Đơn (單) + Giá (價)"
+    },
+    {
+      "viet": "Đặt cọc",
+      "vi": "Đặt cọc",
+      "phonetic": "[ɗat̚˧˨ kawk͡p̚˧˨]",
+      "ipa": "[ɗat̚˧˨ kawk͡p̚˧˨]",
+      "zh": "付訂金 / 押金",
+      "en": "Deposit / Prepayment",
+      "hanViet": ""
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "💵 越南商務採購之付款條件與報價眉角",
+    "titleEn": "Payment Terms & Negotiation Practices in Vietnam",
+    "contentZh": "在越南進行大宗外貿交易，報價時務必問清是「含稅價」(Đã bao gồm VAT) 還是「未稅價」(Chưa bao gồm VAT)，以及交貨條件是工廠交貨 (Ex-work)、FOB 還是 CIF。付款條件以 T/T 電匯訂金 30% 最為普遍，若金額超過 10 萬美元則建議開立不可撤銷信用狀 (L/C không hủy ngang)。",
+    "contentEn": "Always clarify if pricing is inclusive of 10% VAT and verify Incoterms (FOB/CIF). 30% T/T deposit is standard, while larger deals utilize Irrevocable Letters of Credit (L/C).",
+    "proTipZh": "✨ 避坑：簽約前務必在合約中載明美金與越盾之匯率基準日，避免匯率波動損失！",
+    "proTipEn": "✨ Pro Tip: Specify the FX exchange rate benchmark date in the contract to avoid currency fluctuation risks."
+  }
+},
+{
+  "id": "biz_oem_odm_contract",
+  "category": "business",
+  "tagZh": "代工製造",
+  "tagEn": "OEM / ODM Specs",
+  "icon": "⚙️",
+  "image": "business.jpg",
+  "titleZh": "OEM 代工與 ODM 客製化規格洽談",
+  "titleEn": "OEM Manufacturing, ODM Custom Specs & NDA Signing",
+  "titleVi": "Đàm Phán Gia Công OEM, Thiết Kế ODM & Ký Thỏa Thuận Bảo Mật NDA",
+  "summaryZh": "工程代工交涉：確認模具費 (Chi phí khuôn mẫu)、工程公差 (Dung sai kỹ thuật)、試產打樣與簽署保密協定 (NDA)。",
+  "summaryEn": "OEM/ODM manufacturing: tooling costs, engineering tolerances, sample prototyping, and NDA confidentiality agreements.",
+  "dialogues": [
+    {
+      "speaker": "Kỹ sư trưởng (總工程師)",
+      "role": "npc",
+      "viet": "Chào anh, chúng tôi đã xem qua bản vẽ kỹ thuật CAD của bên anh. Nhà máy hoàn toàn có thể gia công OEM theo tiêu chuẩn này.",
+      "zh": "您好，我們已經審查了貴方的 CAD 工程圖。工廠完全具備依照此標準進行 OEM 代工的能力。",
+      "en": "Hello, we reviewed your CAD technical drawings. Our factory is fully equipped for OEM production under these specs.",
+      "northTip": "「Bản vẽ kỹ thuật」(工程圖紙)；「Gia công」(代工/加工)。",
+      "southTip": "「Kỹ sư trưởng」為廠內技術最高負責人。"
+    },
+    {
+      "speaker": "Đại diện Đài Loan (台方代表)",
+      "role": "learner",
+      "viet": "Tuyệt vời. Chi phí mở khuôn mẫu mới là bao nhiêu và thời gian thử nghiệm mẫu (Prototyping) mất bao lâu?",
+      "zh": "太好了。開新模具的費用是多少？樣品打樣試產需要多長時間？",
+      "en": "Great. What is the new tooling mold cost and prototype sample lead time?",
+      "northTip": "「Mở khuôn」(開模)；「Mẫu thử」(測試樣品)。",
+      "southTip": "開模費用與樣品交期是 ODM 專案成敗核心。"
+    },
+    {
+      "speaker": "Kỹ sư trưởng (總工程師)",
+      "role": "npc",
+      "viet": "Chi phí khuôn khoảng 5.000 USD, thời gian làm mẫu là 15 ngày. Nếu đơn hàng chính thức đạt 50.000 cái, chúng tôi sẽ hoàn trả 100% tiền khuôn.",
+      "zh": "模具費用約 5,000 美金，打樣週期 15 天。若後續正式大貨訂單達到 50,000 件，我們將 100% 全額返還模具費。",
+      "en": "Mold cost is $5,000, sample lead time is 15 days. If the mass order reaches 50,000 units, mold cost is 100% refunded.",
+      "northTip": "「Hoàn trả」(退還/返還)；「Đơn hàng chính thức」(正式訂單)。",
+      "southTip": "大單返還模具費是製造業常見的雙贏激勵機制。"
+    },
+    {
+      "speaker": "Đại diện Đài Loan (台方代表)",
+      "role": "learner",
+      "viet": "Đồng ý. Trước khi gửi chi tiết thông số và file 3D, chúng ta hãy ký Thỏa thuận Bảo mật Thông tin (NDA) trước nhé.",
+      "zh": "同意。在傳送詳細規格與 3D 檔案之前，我們先簽署保密協定 (NDA) 吧。",
+      "en": "Agreed. Before sending full 3D specs, let us sign the Non-Disclosure Agreement (NDA) first.",
+      "northTip": "「Thỏa thuận bảo mật thông tin」即保密協定 NDA。",
+      "southTip": "保護智慧財產權是跨國研發代工必經步驟。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "台商技術代表",
+    "userRoleEn": "Technical Rep",
+    "partnerRoleZh": "工廠總工程師",
+    "partnerRoleEn": "Lead Engineer",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Trước khi tiến hành mở khuôn, anh có yêu cầu gì về mặt pháp lý và bảo mật không?",
+        "partnerPromptZh": "在開始開模之前，您在法律與保密方面有什麼要求嗎？",
+        "partnerPromptEn": "Before opening the mold, do you have any legal or confidentiality requirements?",
+        "userOptions": [
+          {
+            "id": "oem_opt1",
+            "textVi": "Chúng tôi cần hai bên ký kết Thỏa thuận Bảo mật Thông tin (NDA) để bảo vệ quyền sở hữu trí tuệ.",
+            "textZh": "我們需要雙方簽署保密協定 (NDA) 以保護智慧財產權。",
+            "textEn": "We need both parties to sign an NDA to protect intellectual property.",
+            "isCorrect": true,
+            "feedbackZh": "非常標準！跨國代工前務必簽署 NDA 保障專利與設計圖。",
+            "feedbackEn": "Correct standard procedure to protect proprietary designs before tooling."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Gia công",
+      "vi": "Gia công",
+      "phonetic": "[zaː˧ kəwŋm˧]",
+      "ipa": "[zaː˧ kəwŋm˧]",
+      "zh": "代工 / 加工製造",
+      "en": "OEM Processing",
+      "hanViet": "Gia (加) + Công (工)"
+    },
+    {
+      "viet": "Khuôn mẫu",
+      "vi": "Khuôn mẫu",
+      "phonetic": "[kʰuən˧ məw˦˧˥]",
+      "ipa": "[kʰuən˧ məw˦˧˥]",
+      "zh": "模具 / 鋼模",
+      "en": "Tooling Mold",
+      "hanViet": "Khuôn (模) + Mẫu (樣)"
+    },
+    {
+      "viet": "Bảo mật",
+      "vi": "Bảo mật",
+      "phonetic": "[ɓaːw˧˩ mət̚˧˨]",
+      "ipa": "[ɓaːw˧˩ mət̚˧˨]",
+      "zh": "保密 / 機密保護",
+      "en": "Confidentiality",
+      "hanViet": "Bảo (保) + Mật (密)"
+    },
+    {
+      "viet": "Thông số",
+      "vi": "Thông số",
+      "phonetic": "[tʰəwŋm˧ so˦˧˥]",
+      "ipa": "[tʰəwŋm˧ so˦˧˥]",
+      "zh": "技術參數 / 規格",
+      "en": "Specifications / Parameters",
+      "hanViet": "Thông (通) + Số (數)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "⚙️ 越南工廠 OEM/ODM 代工合作要訣",
+    "titleEn": "OEM / ODM Collaboration Guidelines in Vietnam",
+    "contentZh": "越南製造業正迅速從單純組裝代工 (CM) 轉型至高精密 OEM/ODM。在委託越南工廠開模時，應明確定義公差範圍 (Dung sai)、試產打樣次數、以及達標後模具費返還機制。簽署正式雙語 (越英或越中) NDA 是保障技術圖紙外流的基本法律屏障。",
+    "contentEn": "When tooling in Vietnam, define engineering tolerances, prototype revision cycles, and mold refund quotas clearly in a bilingual NDA.",
+    "proTipZh": "✨ 秘笈：樣品確認後，務必由雙方主管在封樣件（Golden Sample）上親筆簽名封存作為驗貨標準！",
+    "proTipEn": "✨ Pro Tip: Both parties should sign and seal the approved Golden Sample as the ultimate inspection benchmark."
+  }
+},
+{
+  "id": "biz_vat_invoice_tax",
+  "category": "business",
+  "tagZh": "稅務發票",
+  "tagEn": "VAT Red Invoice",
+  "icon": "🧾",
+  "image": "business.jpg",
+  "titleZh": "開立電子加值稅紅發票 (Hóa đơn đỏ) 與公司稅號報帳",
+  "titleEn": "Requesting Official VAT Red Invoices & Corporate Tax Reimbursement",
+  "titleVi": "Xuất Hóa Đơn Điện Tử GTGT (Hóa Đơn Đỏ) & Kê Khai Mã Số Thuế",
+  "summaryZh": "越南報帳法規：索取 10% 加值稅電子紅發票 (Hóa đơn điện tử)、提供公司統一稅號 (MST)、核對發票內容與 Email 接收。",
+  "summaryEn": "Vietnam tax compliance: obtain 10% VAT electronic red invoices, supply Tax ID (MST), and verify e-invoice email delivery.",
+  "dialogues": [
+    {
+      "speaker": "Khách công tác (出差商務客)",
+      "role": "learner",
+      "viet": "Em ơi, công ty anh cần xuất hóa đơn đỏ (hóa đơn GTGT) cho toàn bộ chi phí lưu trú và ăn uống đợt này.",
+      "zh": "小姐，我們公司需要為這次的所有住宿與餐飲費用開立加值稅紅發票。",
+      "en": "Excuse me, our company needs an official VAT red invoice for all accommodation and dining expenses.",
+      "northTip": "「Hóa đơn đỏ」(紅發票) 是越南最權威的正式報稅憑證。",
+      "southTip": "飯店、餐廳結帳時必須主動要求，否則一般只會給收據。"
+    },
+    {
+      "speaker": "Thu ngân khách sạn (櫃檯會計)",
+      "role": "npc",
+      "viet": "Dạ được ạ. Anh vui lòng cung cấp Tên công ty, Mã số thuế (MST), Địa chỉ và Email để bên em xuất hóa đơn điện tử.",
+      "zh": "好的。請您提供公司全稱、統一稅號 (MST)、登記地址與電子信箱，我們立刻開立電子發票。",
+      "en": "Certainly. Please provide your full Company Name, Tax Code (MST), Address, and Email for e-invoicing.",
+      "northTip": "「Mã số thuế」(MST) 相當於台灣的公司統一編號（統編）。",
+      "southTip": "越南現已全面實施電子發票（Hóa đơn điện tử）。"
+    },
+    {
+      "speaker": "Khách công tác (出差商務客)",
+      "role": "learner",
+      "viet": "Đây là danh thiếp có đầy đủ thông tin xuất hóa đơn của công ty anh. Tổng số tiền đã gồm thuế VAT 10% rồi đúng không?",
+      "zh": "這是印有我們公司完整開票資訊的名片。總金額已經包含 10% 增值稅了對吧？",
+      "en": "Here is our card with complete billing details. The total amount is inclusive of 10% VAT, correct?",
+      "northTip": "「Đã gồm thuế VAT」(已含稅) 需反覆確認。",
+      "southTip": "出差報帳如果拿到未含稅單據將無法抵扣企業所得稅。"
+    },
+    {
+      "speaker": "Thu ngân khách sạn (櫃檯會計)",
+      "role": "npc",
+      "viet": "Dạ đúng rồi ạ, giá đã bao gồm VAT. Hệ thống sẽ tự động gửi file hóa đơn PDF và XML vào email của anh trong vòng 15 phút.",
+      "zh": "沒錯，價格已含稅。系統將在 15 分鐘內自動將 PDF 與 XML 發票檔案發送到您的信箱。",
+      "en": "Yes, price includes VAT. Our system will email the PDF and XML invoice files within 15 minutes.",
+      "northTip": "「File PDF và XML」是越南稅務局認可的標準發票格式。",
+      "southTip": "收到發票後務必核對稅號與統編是否完全一致。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "出差主管",
+    "userRoleEn": "Business Traveler",
+    "partnerRoleZh": "飯店會計出納",
+    "partnerRoleEn": "Cashier Accountant",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Anh có cần xuất hóa đơn tài chính cho công ty không ạ?",
+        "partnerPromptZh": "請問您需要為公司開立正式財務發票嗎？",
+        "partnerPromptEn": "Do you need an official financial invoice for your company?",
+        "userOptions": [
+          {
+            "id": "vat_opt1",
+            "textVi": "Dạ có, công ty tôi cần xuất hóa đơn đỏ. Đây là thông tin mã số thuế (MST) của bên tôi.",
+            "textZh": "是的，我們公司需要開紅發票。這是我們的統一稅號 (MST) 資訊。",
+            "textEn": "Yes, we need a red invoice. Here is our Tax ID (MST) information.",
+            "isCorrect": true,
+            "feedbackZh": "正確！清楚表達開立紅發票需求並主動提供 MST 稅號。",
+            "feedbackEn": "Correct! Clearly requested VAT invoice and provided company Tax ID."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Hóa đơn đỏ",
+      "vi": "Hóa đơn đỏ",
+      "phonetic": "[hwaː˦˧˥ ɗəːn˧ ɗɔ˧˩]",
+      "ipa": "[hwaː˦˧˥ ɗəːn˧ ɗɔ˧˩]",
+      "zh": "加值稅紅發票 / 統一發票",
+      "en": "Official VAT Red Invoice",
+      "hanViet": "Hóa (化) + Đơn (單)"
+    },
+    {
+      "viet": "Mã số thuế",
+      "vi": "Mã số thuế",
+      "phonetic": "[maː˦˧˥ so˦˧˥ tʰwe˦˧˥]",
+      "ipa": "[maː˦˧˥ so˦˧˥ tʰwe˦˧˥]",
+      "zh": "公司統一稅號 (MST / 統編)",
+      "en": "Tax Identification Number (MST)",
+      "hanViet": "Mã (碼) + Số (數) + Thuế (稅)"
+    },
+    {
+      "viet": "Thuế GTGT",
+      "vi": "Thuế GTGT",
+      "phonetic": "[tʰwe˦˧˥ zaː˧ tɕi˧˨ zaː˧ təwŋm˧]",
+      "ipa": "[tʰwe˦˧˥ zaː˧ tɕi˧˨ zaː˧ təwŋm˧]",
+      "zh": "加值型營業稅 (VAT 10%)",
+      "en": "Value-Added Tax (VAT)",
+      "hanViet": "Thuế (稅) + Giá trị gia tăng"
+    },
+    {
+      "viet": "Báo nợ",
+      "vi": "Báo nợ",
+      "phonetic": "[ɓaːw˦˧˥ nəː˧˨]",
+      "ipa": "[ɓaːw˦˧˥ nəː˧˨]",
+      "zh": "核銷報帳 / 扣款憑證",
+      "en": "Expense Filing / Debit Advice",
+      "hanViet": "Báo (報) + Nợ (負/債)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🧾 越南加值稅紅發票 (Hóa đơn đỏ) 報帳法則",
+    "titleEn": "Essential Red Invoice Accounting Rules in Vietnam",
+    "contentZh": "在越南，一般收據 (Phiếu thu / Hóa đơn bán lẻ) 在法律上「不能」作為企業所得稅扣抵憑證。唯有具備稅務總局認證碼之電子發票 (Hóa đơn điện tử có mã của cơ quan thuế) 才能合法核銷報帳。開票時必須確認公司名稱與營業執照一字不差，並核對 10 位或 13 位之 MST 稅號。",
+    "contentEn": "Retail receipts cannot be used for corporate tax deduction in Vietnam. Only official e-invoices with General Department of Taxation verification codes are valid for deductible expenses.",
+    "proTipZh": "✨ 秘笈：將公司的開票四要素（名稱、稅號、地址、信箱）存成手機記事本圖片，結帳時直接出示給店員拍照即可！",
+    "proTipEn": "✨ Pro Tip: Save your company billing 4-elements as a smartphone image to show cashiers instantly."
+  }
+},
+{
+  "id": "biz_factory_audit_qc",
+  "category": "business",
+  "tagZh": "廠房品管",
+  "tagEn": "Factory Audit & QC",
+  "icon": "🏭",
+  "image": "business.jpg",
+  "titleZh": "工廠產線驗廠、品管抽檢與不良品處置",
+  "titleEn": "Factory Audit Walkthrough, QC Sampling & Defect Management",
+  "titleVi": "Kiểm Toán Nhà Xưởng, Lấy Mẫu Kiểm Tra KCS & Xử Lý Phế Phẩm NG",
+  "summaryZh": "廠房實務稽核：穿戴工安護具、巡視車間產能 (Năng suất chuyền)、抽檢不良率 (Tỷ lệ lỗi) 與擬定預防改善對策。",
+  "summaryEn": "On-site factory audit: inspect PPE safety, evaluate line productivity, test defect rate (NG), and formulate corrective actions.",
+  "dialogues": [
+    {
+      "speaker": "Giám đốc Nhà máy (廠長)",
+      "role": "npc",
+      "viet": "Chào đoàn chuyên gia. Trước khi vào khu vực xưởng sản xuất, xin mời tất cả mọi người đội mũ bảo hộ và mang giày bảo hộ.",
+      "zh": "歡迎專家代表團。在進入生產車間之前，請大家戴上安全帽並穿上防護鞋。",
+      "en": "Welcome audit delegation. Before entering the production floor, please put on safety helmets and shoes.",
+      "northTip": "「Mũ bảo hộ」(安全帽)；「Giày bảo hộ」(勞保防護鞋)。",
+      "southTip": "遵守工安規範 (An toàn lao động) 是進入外資廠房第一鐵律。"
+    },
+    {
+      "speaker": "Chuyên gia Đánh giá (稽核主管)",
+      "role": "learner",
+      "viet": "Cảm ơn anh. Chúng tôi muốn kiểm tra quy trình kiểm soát chất lượng (KCS) trên chuyền 2 và xem báo cáo tỷ lệ phế phẩm tuần qua.",
+      "zh": "謝謝廠長。我們想檢查 2 號產線的品質管制 (QC) 流程，並查閱上週的不良品率 (NG率) 報告。",
+      "en": "Thank you. We would like to inspect QC procedures on Line 2 and review last week's defect rate report.",
+      "northTip": "「KCS」(Kiểm tra chất lượng sản phẩm) 是越南品管代名詞。",
+      "southTip": "「Tỷ lệ phế phẩm」即產線 NG 不良率。"
+    },
+    {
+      "speaker": "Giám đốc Nhà máy (廠長)",
+      "role": "npc",
+      "viet": "Chuyền 2 đang vận hành tự động hóa 80%, tỷ lệ lỗi duy trì ổn định ở mức 0.3%, thấp hơn nhiều so với tiêu chuẩn 1% của hợp đồng.",
+      "zh": "2 號產線目前實現 80% 自動化運轉，不良率穩定保持在 0.3%，遠低於合約規定的 1% 上限標準。",
+      "en": "Line 2 operates at 80% automation, maintaining defect rate stably at 0.3%, well below the contract 1% ceiling.",
+      "northTip": "「Vận hành」(運轉/運行)；「Tự động hóa」(自動化)。",
+      "southTip": "低於標準的良率是工廠向買家展現實力的最佳佐證。"
+    },
+    {
+      "speaker": "Chuyên gia Đánh giá (稽核主管)",
+      "role": "learner",
+      "viet": "Rất xuất sắc! Hệ thống 5S và lưu kho của xưởng rất ngăn nắp. Chúng tôi sẽ đánh giá đạt tiêu chuẩn nghiệm thu loại A.",
+      "zh": "非常優秀！廠房的 5S 管理與庫存倉儲非常整潔有序。我們將評定為 A 級驗收合格標準。",
+      "en": "Excellent! The 5S management and warehousing are very tidy. We will rate this as Grade A audit approval.",
+      "northTip": "「Hệ thống 5S」(5S管理體系)；「Lưu kho」(倉儲庫存)。",
+      "southTip": "給予工廠管理團隊肯定有助於深化日後外派配合默契。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "驗廠稽核專家",
+    "userRoleEn": "Audit Specialist",
+    "partnerRoleZh": "越南廠長",
+    "partnerRoleEn": "Plant Manager",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Đây là sổ ghi chép kiểm tra KCS và biên bản xử lý linh kiện lỗi của xưởng. Anh có câu hỏi gì không?",
+        "partnerPromptZh": "這是廠裡的品管 (QC) 記錄簿與不良品處置報告。您有任何問題嗎？",
+        "partnerPromptEn": "Here is our QC inspection log and defect handling record. Any questions?",
+        "userOptions": [
+          {
+            "id": "qc_opt1",
+            "textVi": "Hồ sơ ghi chép rất chi tiết và tuân thủ ISO. Tôi đánh giá cao quy trình kiểm soát chất lượng của xưởng.",
+            "textZh": "紀錄非常詳細且符合 ISO 標準。我高度讚賞廠方的品質控制流程。",
+            "textEn": "Very detailed records complying with ISO. I appreciate your quality control process.",
+            "isCorrect": true,
+            "feedbackZh": "專業客觀！認可工廠嚴謹制度，建立良好合作關係。",
+            "feedbackEn": "Professional praise acknowledging strict plant standards."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Kiểm toán",
+      "vi": "Kiểm toán",
+      "phonetic": "[kiəm˧˩ twaːn˦˧˥]",
+      "ipa": "[kiəm˧˩ twaːn˦˧˥]",
+      "zh": "驗廠稽核 / 審計",
+      "en": "Factory Audit / Inspection",
+      "hanViet": "Kiểm (檢) + Toán (算)"
+    },
+    {
+      "viet": "KCS",
+      "vi": "KCS",
+      "phonetic": "[ka-ce-es]",
+      "ipa": "[ka-ce-es]",
+      "zh": "品質檢驗 / 品管 (QC)",
+      "en": "Quality Control (QC)",
+      "hanViet": "Kiểm tra chất lượng sản phẩm"
+    },
+    {
+      "viet": "Phế phẩm",
+      "vi": "Phế phẩm",
+      "phonetic": "[fe˦˧˥ fəm˧˩]",
+      "ipa": "[fe˦˧˥ fəm˧˩]",
+      "zh": "不良品 / 報廢品 (NG)",
+      "en": "Defective Goods (NG)",
+      "hanViet": "Phế (廢) + Phẩm (品)"
+    },
+    {
+      "viet": "Năng suất",
+      "vi": "Năng suất",
+      "phonetic": "[naŋ˧ swət̚˦˧˥]",
+      "ipa": "[naŋ˧ swət̚˦˧˥]",
+      "zh": "產能 / 生產效率",
+      "en": "Productivity / Output",
+      "hanViet": "Năng (能) + Suất (率)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🏭 台越製造業驗廠與工廠管理眉角",
+    "titleEn": "Factory Inspection & Manufacturing Culture in Vietnam",
+    "contentZh": "越南是全球重要製造代工基地，台商在外派管理工廠時，需嚴格遵守 5S、工安衛生與消防規範。在與越南基層班長 (Trưởng chuyền) 和工人溝通時，切忌在眾人面前大聲斥責（避免傷及自尊失去面子），應採「恩威並濟、私下指導」的管理策略。",
+    "contentEn": "When managing factory operations in Vietnam, maintain strict 5S and safety rules. Avoid public scolding to preserve worker self-esteem; adopt a respectful, private guidance approach.",
+    "proTipZh": "✨ 秘笈：在車間設立「優秀員工之星」獎勵榜與激勵獎金，能顯著提升產線出勤率與穩定度！",
+    "proTipEn": "✨ Pro Tip: Establish an Employee of the Month bonus board to dramatically improve line attendance and retention."
+  }
+},
+{
+  "id": "biz_customs_logistics",
+  "category": "business",
+  "tagZh": "海關物流",
+  "tagEn": "Customs & Logistics",
+  "icon": "🚢",
+  "image": "business.jpg",
+  "titleZh": "進出口海關報關、貨櫃裝箱與提單交期",
+  "titleEn": "Customs Clearance, Container Logistics & Bill of Lading (B/L)",
+  "titleVi": "Kê Khai Hải Quan Xuất Nhập Khẩu, Đóng Container & Vận Đơn B/L",
+  "summaryZh": "跨國貿易物流：掌握蓋萊港 (Cát Lái) / 海防港 (Hải Phòng) 報關程序、裝箱單 (Packing List) 與避免延滯費 (Demurrage)。",
+  "summaryEn": "International freight logistics: Cat Lai & Hai Phong customs clearance, Packing Lists, Bill of Lading, and avoiding demurrage fees.",
+  "dialogues": [
+    {
+      "speaker": "Nhân viên Xuất Nhập Khẩu (報關專員)",
+      "role": "npc",
+      "viet": "Chào anh, lô hàng 2 container linh kiện từ Đài Loan đã cập cảng Cát Lái sáng nay.",
+      "zh": "您好，從台灣運來的 2 個貨櫃零件今早已經抵達胡志明市蓋萊港 (Cát Lái)。",
+      "en": "Hello, the 2-container shipment from Taiwan arrived at Cat Lai Port this morning.",
+      "northTip": "「Cập cảng」(進港靠泊)；「Lô hàng」(整批貨物)。",
+      "southTip": "胡志明市進出口主要走 Cát Lái，河內則走 Hải Phòng 港。"
+    },
+    {
+      "speaker": "Giám đốc Logistics (物流總監)",
+      "role": "learner",
+      "viet": "Tuyệt vời. Hồ sơ hải quan bao gồm Hóa đơn thương mại (Invoice), Bảng kê đóng gói (Packing List) và C/O đã hoàn tất chưa?",
+      "zh": "太好了。包含商業發票 (Invoice)、裝箱清單 (Packing List) 與產地證明 (C/O) 的報關文件都齊全了嗎？",
+      "en": "Great. Are all customs documents including Invoice, Packing List, and C/O completed?",
+      "northTip": "「Bảng kê đóng gói」(裝箱單)；「C/O」(產地證明書)。",
+      "southTip": "產地證明 C/O 攸關台越雙邊關稅減免優惠。"
+    },
+    {
+      "speaker": "Nhân viên Xuất Nhập Khẩu (報關專員)",
+      "role": "npc",
+      "viet": "Dạ đầy đủ rồi ạ. Chi cục hải quan đang tiến hành kiểm hóa luồng xanh, dự kiến chiều mai sẽ thông quan và kéo container về xưởng.",
+      "zh": "全部齊全。海關分局目前正在走綠線通關程序，預計明午即可完成清關並把貨櫃拖回工廠。",
+      "en": "All set. Customs is processing via Green Channel; clearance is expected by tomorrow afternoon to haul containers to the factory.",
+      "northTip": "「Luồng xanh」(綠線免驗通關)、「Thông quan」(清關放行)。",
+      "southTip": "綠線通關最快，黃線查單證，紅線則需 100% 開箱實體查驗。"
+    },
+    {
+      "speaker": "Giám đốc Logistics (物流總監)",
+      "role": "learner",
+      "viet": "Rất tốt. Hãy điều phối đội xe tải sẵn sàng để bốc dỡ hàng ngay, tránh phát sinh phí lưu kho (Demurrage) nhé.",
+      "zh": "很好。請調度好卡車車隊隨時準備卸貨，避免產生港口貨櫃延滯費 (Demurrage)。",
+      "en": "Very good. Coordinate the trucking fleet for immediate unloading to avoid container demurrage fees.",
+      "northTip": "「Bốc dỡ hàng」(裝卸貨物)；「Phí lưu kho」(滯港費)。",
+      "southTip": "及時還櫃是控制國際供應鏈成本的關鍵要點。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "供應鏈主管",
+    "userRoleEn": "Supply Chain Manager",
+    "partnerRoleZh": "貨代物流專員",
+    "partnerRoleEn": "Freight Forwarder",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Lô hàng đã về đến cảng, anh muốn làm thủ tục thông quan luồng nào?",
+        "partnerPromptZh": "貨物已到港，您希望如何推進報關手續？",
+        "partnerPromptEn": "Shipment has arrived at port. How should we proceed with customs clearance?",
+        "userOptions": [
+          {
+            "id": "log_opt1",
+            "textVi": "Hồ sơ của chúng tôi hoàn toàn hợp lệ, hãy nộp tờ khai điện tử để thông quan luồng xanh nhanh nhất.",
+            "textZh": "我們的文件完全合法合規，請立即提交電子申報以爭取最快綠線通關。",
+            "textEn": "Our documents are fully compliant; submit e-declaration for fastest Green Channel clearance.",
+            "isCorrect": true,
+            "feedbackZh": "非常專業！精準掌握合規電子申報與綠線通關要領。",
+            "feedbackEn": "Professional command ensuring smooth Green Channel e-customs clearance."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Hải quan",
+      "vi": "Hải quan",
+      "phonetic": "[haːj˧˩ kwaːn˧]",
+      "ipa": "[haːj˧˩ kwaːn˧]",
+      "zh": "海關 / 關稅局",
+      "en": "Customs Authority",
+      "hanViet": "Hải (海) + Quan (關)"
+    },
+    {
+      "viet": "Thông quan",
+      "vi": "Thông quan",
+      "phonetic": "[tʰəwŋm˧ kwaːn˧]",
+      "ipa": "[tʰəwŋm˧ kwaːn˧]",
+      "zh": "海關清關 / 放行",
+      "en": "Customs Clearance",
+      "hanViet": "Thông (通) + Quan (關)"
+    },
+    {
+      "viet": "Vận đơn",
+      "vi": "Vận đơn",
+      "phonetic": "[vən˧˨ ɗəːn˧]",
+      "ipa": "[vən˧˨ ɗəːn˧]",
+      "zh": "提單 (B/L) / 貨運單",
+      "en": "Bill of Lading (B/L)",
+      "hanViet": "Vận (運) + Đơn (單)"
+    },
+    {
+      "viet": "Container",
+      "vi": "Container",
+      "phonetic": "[kɔŋ-te-nơ]",
+      "ipa": "[kɔŋ-te-nơ]",
+      "zh": "貨櫃 / 集裝箱",
+      "en": "Shipping Container",
+      "hanViet": ""
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🚢 越南進出口通關與港口物流實務",
+    "titleEn": "Vietnam Port Logistics & Customs Flow (Cat Lai & Hai Phong)",
+    "contentZh": "南越進出口主要依賴胡志明市蓋萊港 (Cát Lái) 與巴地頭頓蓋梅深水港 (Cái Mép)，北越則以海防港 (Hải Phòng) 為中樞。越南海關實行「綠線 (Luồng xanh 免驗)、黃線 (Luồng vàng 審單)、紅線 (Luồng đỏ 查驗)」三級通關制度。保持文件一致性是確保綠線通關、杜絕海關卡關的唯一法門。",
+    "contentEn": "Vietnam operates a 3-tier customs system: Green (Immediate clearance), Yellow (Document review), and Red (Physical inspection). Data consistency across Invoices and B/L is essential for fast Green-tier approval.",
+    "proTipZh": "✨ 秘笈：提單上的收貨人抬頭與統編必須與越南公司的營業執照完全一致，錯一個英文字母都可能導致無法清關！",
+    "proTipEn": "✨ Pro Tip: Consignee name and MST on the B/L must match the Vietnamese business license letter-for-letter."
+  }
+},
+{
+  "id": "biz_nhau_banquet",
+  "category": "business",
+  "tagZh": "商務應酬",
+  "tagEn": "Banquet & Nhậu",
+  "icon": "🍻",
+  "image": "business.jpg",
+  "titleZh": "商務宴請、酒桌應酬祝酒與座位禮儀",
+  "titleEn": "Business Banquet, 'Nhậu' Toasting Rituals & Dining Etiquette",
+  "titleVi": "Tiệc Chiêu Đãi Đối Tác, Nghi Thức Chúc Rượu & Văn Hóa Nhậu",
+  "summaryZh": "商務人脈沉澱：學會正式晚宴座位安排、雙手敬酒致意、齊喊「1, 2, 3, Dô!」與優雅表達酒量防線。",
+  "summaryEn": "Corporate dining etiquette: banquet seating hierarchy, two-handed toasts, '1-2-3 Dô' cheers, and tactful drinking moderation.",
+  "dialogues": [
+    {
+      "speaker": "Chủ tịch Tập đoàn (董事長)",
+      "role": "npc",
+      "viet": "Rất vinh hạnh được đón tiếp phái đoàn doanh nghiệp Đài Loan tại TP.HCM! Xin mời anh Chen ngồi vào vị trí danh dự này.",
+      "zh": "非常榮幸在胡志明市接待台灣企業考察團！請陳總坐上這個貴賓主座。",
+      "en": "Great honor to host our Taiwanese delegation in HCMC! Please take this seat of honor, Mr. Chen.",
+      "northTip": "「Vị trí danh dự」(榮譽主賓席) 通常面向大門。",
+      "southTip": "商務宴請主人會親自引導貴賓入座以示敬重。"
+    },
+    {
+      "speaker": "Trưởng đoàn Đài Loan (台方團長)",
+      "role": "learner",
+      "viet": "Dạ, cảm ơn Chủ tịch Vũ đã tiếp đón vô cùng nồng hậu! Chúng tôi rất trân trọng tình cảm và sự chu đáo của quý tập đoàn.",
+      "zh": "謝謝武董事長無比熱情的款待！我們非常珍惜貴集團的深厚情誼與周到安排。",
+      "en": "Thank you Chairman Vu for the warm reception! We deeply appreciate your gracious hospitality.",
+      "northTip": "「Nồng hậu」(熱情濃厚)；「Tình cảm」(人際情誼)。",
+      "southTip": "在越南商務文化中，表達對主方「Tình cảm」的感謝能大幅增進好感。"
+    },
+    {
+      "speaker": "Chủ tịch Tập đoàn (董事長)",
+      "role": "npc",
+      "viet": "Nào, tất cả anh em cùng nâng ly! Một, hai, ba, dô! Hai, ba, dô! Trăm phần trăm vì sự hợp tác thành công rực rỡ!",
+      "zh": "來，大家一起舉杯！一、二、三，乾！二、三，乾！百分之百乾杯，慶祝我們合作圓滿成功！",
+      "en": "Come on everyone, raise your glasses! 1, 2, 3, Cheers! 100% bottoms up for our brilliant cooperation!",
+      "northTip": "「Một, hai, ba, dô!」是全越南共通的酒桌靈魂口號。",
+      "southTip": "首杯通常全員 100% 乾杯以示團結。"
+    },
+    {
+      "speaker": "Trưởng đoàn Đài Loan (台方團長)",
+      "role": "learner",
+      "viet": "Dạ, chúc Chủ tịch Vũ sức khỏe dồi dào, chúc quý tập đoàn vạn sự như ý và kinh doanh đại phát tài!",
+      "zh": "祝武董事長身體健康、貴集團萬事如意、生意大發財！",
+      "en": "Wishing Chairman Vu abundant health, and your group immense prosperity and thriving business!",
+      "northTip": "「Sức khỏe dồi dào」(健康充沛) 是最得體的敬酒祝福詞。",
+      "southTip": "雙手敬酒、杯緣略低於對方杯緣展現高超社交教養。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "出差貴賓團長",
+    "userRoleEn": "Chief Guest",
+    "partnerRoleZh": "越南集團董事長",
+    "partnerRoleEn": "Chairman Host",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Nào anh Chen, chúng ta cùng cạn ly đầu tiên 100% chúc mừng tình hữu nghị hai bên nhé!",
+        "partnerPromptZh": "來陳總，我們一起乾了這第一杯 100%，慶祝雙方友誼長存！",
+        "partnerPromptEn": "Come Mr. Chen, let us finish our first glass 100% to celebrate our partnership!",
+        "userOptions": [
+          {
+            "id": "nhau_opt1",
+            "textVi": "Dạ vâng! Kính chúc Chủ tịch và quý công ty ngày càng phát triển thịnh vượng! Một, hai, ba, dô!",
+            "textZh": "好的！敬祝董事長與貴公司日益繁榮昌盛！一、二、三，乾！",
+            "textEn": "Yes! Wishing the Chairman and your company thriving prosperity! 1, 2, 3, Cheers!",
+            "isCorrect": true,
+            "feedbackZh": "豪爽得體！首杯給足主人面子，氣氛瞬間熱絡！",
+            "feedbackEn": "Masterclass in hospitality etiquette honoring the host on the opening toast."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Nâng ly",
+      "vi": "Nâng ly",
+      "phonetic": "[nəŋ˧ li˧]",
+      "ipa": "[nəŋ˧ li˧]",
+      "zh": "舉杯祝酒 / 碰杯",
+      "en": "Raise a Glass / Toast",
+      "hanViet": ""
+    },
+    {
+      "viet": "Chiêu đãi",
+      "vi": "Chiêu đãi",
+      "phonetic": "[tɕiəw˧ ɗaːj˦˧˥]",
+      "ipa": "[tɕiəw˧ ɗaːj˦˧˥]",
+      "zh": "款待 / 設宴招待",
+      "en": "Host a Banquet / Treat",
+      "hanViet": "Chiêu (招) + Đãi (待)"
+    },
+    {
+      "viet": "Trăm phần trăm",
+      "vi": "Trăm phần trăm",
+      "phonetic": "[tɕam˧ fən˨˩ tɕam˧]",
+      "ipa": "[tɕam˧ fən˨˩ tɕam˧]",
+      "zh": "百分之百 / 乾杯 (Bottoms up)",
+      "en": "100% / Bottoms up",
+      "hanViet": ""
+    },
+    {
+      "viet": "Thịnh vượng",
+      "vi": "Thịnh vượng",
+      "phonetic": "[tʰiɲ˧˨ vɨəŋ˧˨]",
+      "ipa": "[tʰiɲ˧˨ vɨəŋ˧˨]",
+      "zh": "繁榮昌盛 / 興旺發達",
+      "en": "Prosperity / Thriving",
+      "hanViet": "Thịnh (盛) + Vượng (旺)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🍻 越南商務酒桌 (Nhậu) 核心潛規則",
+    "titleEn": "The Social Dynamics of Vietnamese Business Dining",
+    "contentZh": "在越南商務生態中，「酒桌」(Bàn nhậu) 是快速建立「私交信任 (Tình cảm)」的最強催化劑。許多在會議室無法鬆口的商務條款，常在酒酣耳熱之際取得共識。敬酒時切記：右手拿杯、左手扶底，自己杯緣略低於長官杯緣。若不勝酒力，喝完第一杯後可誠懇告知「Tửu lượng tôi kém」(我酒量弱) 並改敬汽水茶水。",
+    "contentEn": "Social drinking builds emotional rapport essential for closing deals in Vietnam. Always hold your glass with both hands with your rim slightly lower than senior hosts.",
+    "proTipZh": "✨ 秘笈：宴席進行到中段時，藉故上洗手間悄悄把帳單結清，會讓越南合作夥伴對你刮目相看！",
+    "proTipEn": "✨ Pro Tip: Settling the bill discreetly during a bathroom break earns tremendous respect from local partners."
+  }
+},
+{
+  "id": "biz_bank_finance",
+  "category": "business",
+  "tagZh": "銀行金流",
+  "tagEn": "Banking & Finance",
+  "icon": "🏦",
+  "image": "business.jpg",
+  "titleZh": "越南銀行開戶、跨國匯款與企業信用狀",
+  "titleEn": "Corporate Banking Setup, Cross-Border Remittance & LC Issuance",
+  "titleVi": "Mở Tài Khoản Ngân Hàng Doanh Nghiệp, Chuyển Tiền & Mở Thư Tín Dụng L/C",
+  "summaryZh": "外派財務運作：辦理企業外幣與越盾帳戶開戶、開立不可撤銷信用狀 (L/C) 與向銀行申辦跨國結匯手續。",
+  "summaryEn": "Corporate treasury: open foreign currency and VND bank accounts, issue Irrevocable Letters of Credit (L/C), and international wire transfers.",
+  "dialogues": [
+    {
+      "speaker": "Giao dịch viên Ngân hàng (銀行行員)",
+      "role": "npc",
+      "viet": "Kính chào anh, Ngân hàng Vietcombank có thể hỗ trợ gì cho doanh nghiệp có vốn đầu tư nước ngoài (FDI) của anh ạ?",
+      "zh": "您好，請問 Vietcombank 越南外貿銀行能為貴外商直接投資 (FDI) 企業提供什麼協助？",
+      "en": "Welcome, how can Vietcombank assist your Foreign Direct Investment (FDI) enterprise today?",
+      "northTip": "「Doanh nghiệp FDI」為外商投資企業簡稱。",
+      "southTip": "Vietcombank, BIDV, Techcombank 是越南三大主流外貿銀行。"
+    },
+    {
+      "speaker": "Giám đốc Tài chính (財務長)",
+      "role": "learner",
+      "viet": "Chúng tôi muốn mở tài khoản vốn đầu tư trực tiếp (DICA) bằng USD và tài khoản thanh toán bằng VND cho công ty mới thành lập.",
+      "zh": "我們想為新成立的公司開設 USD 直接投資資本帳戶 (DICA) 以及 VND 活期結算帳戶。",
+      "en": "We want to open a Direct Investment Capital Account (DICA) in USD and a VND payment account for our new entity.",
+      "northTip": "「Tài khoản vốn đầu tư」(資本帳戶 DICA) 依越南法規必須專款專用。",
+      "southTip": "所有外資資本金注資必須透過 DICA 資本帳戶匯入。"
+    },
+    {
+      "speaker": "Giao dịch viên Ngân hàng (銀行行員)",
+      "role": "npc",
+      "viet": "Dạ vâng, anh vui lòng xuất trình Giấy chứng nhận đầu tư (IRC), Giấy đăng ký doanh nghiệp (ERC) và hộ chiếu của người đại diện pháp luật.",
+      "zh": "好的，請出示投資許可證 (IRC)、企業登記證 (ERC) 以及法定代表人的護照原件。",
+      "en": "Certainly, please present your Investment Certificate (IRC), Enterprise Certificate (ERC), and Legal Representative passport.",
+      "northTip": "「IRC」與「ERC」是越南外資開戶兩大核心執照。",
+      "southTip": "「Người đại diện pháp luật」即公司法定代表人。"
+    },
+    {
+      "speaker": "Giám đốc Tài chính (財務長)",
+      "role": "learner",
+      "viet": "Hồ sơ của chúng tôi đã công chứng hợp lệ. Ngoài ra chúng tôi muốn mở hạn mức Tín dụng thư (L/C) 500.000 USD để nhập khẩu máy móc.",
+      "zh": "我們所有文件均已完成合法公證。另外我們想開立 50 萬美元信用狀 (L/C) 額度以進口生產設備機器。",
+      "en": "Our documents are notarized. We also want to establish a $500,000 Letter of Credit (L/C) facility for machinery imports.",
+      "northTip": "「Công chứng」(公證認證)；「Tín dụng thư L/C」(信用狀)。",
+      "southTip": "進口大型重機設備多採用 L/C 確保交易安全。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "企業財務長",
+    "userRoleEn": "Chief Financial Officer",
+    "partnerRoleZh": "銀行客戶經理",
+    "partnerRoleEn": "Bank Relationship Manager",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Để làm thủ tục chuyển tiền lợi nhuận về Đài Loan sau quyết toán thuế, doanh nghiệp cần chuẩn bị những gì?",
+        "partnerPromptZh": "在完成年度稅務結算後，企業欲將利潤匯回台灣需準備哪些文件？",
+        "partnerPromptEn": "What documents are required to remit post-tax corporate profits back to Taiwan?",
+        "userOptions": [
+          {
+            "id": "fin_opt1",
+            "textVi": "Chúng tôi đã hoàn thành nghĩa vụ nộp thuế và có báo cáo tài chính đã kiểm toán độc lập theo quy định của Ngân hàng Nhà nước.",
+            "textZh": "我們已履行全部納稅義務，並備齊經獨立審計之年度財務報告，符合越南國家銀行匯出法規。",
+            "textEn": "We fulfilled all tax obligations and prepared audited financial reports complying with State Bank of Vietnam regulations.",
+            "isCorrect": true,
+            "feedbackZh": "回答無懈可擊！完全掌握外商跨國利潤匯回的合法合規程序。",
+            "feedbackEn": "Flawless compliance answer matching State Bank of Vietnam profit repatriation rules."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Tài khoản",
+      "vi": "Tài khoản",
+      "phonetic": "[taːj˨˩ kʰwaːn˧˩]",
+      "ipa": "[taːj˨˩ kʰwaːn˧˩]",
+      "zh": "銀行帳戶 / 帳號",
+      "en": "Bank Account",
+      "hanViet": "Tài (財) + Khoản (款)"
+    },
+    {
+      "viet": "Tín dụng thư",
+      "vi": "Tín dụng thư",
+      "phonetic": "[tin˦˧˥ zuŋ˧˨ tʰɨ˧]",
+      "ipa": "[tin˦˧˥ zuŋ˧˨ tʰɨ˧]",
+      "zh": "信用狀 (L/C)",
+      "en": "Letter of Credit (L/C)",
+      "hanViet": "Tín (信) + Dụng (用) + Thư (書)"
+    },
+    {
+      "viet": "Chuyển tiền",
+      "vi": "Chuyển tiền",
+      "phonetic": "[tɕwiən˧˩ tiən˨˩]",
+      "ipa": "[tɕwiən˧˩ tiən˨˩]",
+      "zh": "匯款 / 轉帳",
+      "en": "Wire Transfer / Remittance",
+      "hanViet": "Chuyển (轉) + Tiền (錢)"
+    },
+    {
+      "viet": "Tỷ giá",
+      "vi": "Tỷ giá",
+      "phonetic": "[ti˧˩ zaː˦˧˥]",
+      "ipa": "[ti˧˩ zaː˦˧˥]",
+      "zh": "匯率 / 外匯牌價",
+      "en": "Exchange Rate",
+      "hanViet": "Tỷ (比) + Giá (價)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🏦 越南外資金融外匯管理與資金進出法規",
+    "titleEn": "Foreign Exchange & Capital Repatriation Regulations in Vietnam",
+    "contentZh": "越南實施嚴格之外匯管制 (Quản lý ngoại hối)。外商直接投資企業必須在註冊所在地之商業銀行開設專用的「直接投資資本帳戶 (DICA)」，所有註冊資本金、外債借款與年度稅後利潤匯回均必須經由此帳戶運作。保留完整的完稅證明 (Biên lai nộp thuế) 與審計報告是合法結匯出境的先決條件。",
+    "contentEn": "Vietnam strictly regulates foreign exchange. Foreign enterprises must route all registered capital and profit repatriation through dedicated Direct Investment Capital Accounts (DICA).",
+    "proTipZh": "✨ 秘笈：在越南開戶時，公司印章（Con dấu pháp nhân）極具法律效力，蓋印位置與清晰度需與銀行印鑑卡完全一致！",
+    "proTipEn": "✨ Pro Tip: Corporate company stamp chops carry immense legal power in banking; stamp positioning must match signature cards perfectly."
+  }
+},
+{
+  "id": "biz_hiring_labor",
+  "category": "business",
+  "tagZh": "人資招募",
+  "tagEn": "Recruitment & Labor",
+  "icon": "👥",
+  "image": "business.jpg",
+  "titleZh": "工廠招募招工、勞動合約與加班排班",
+  "titleEn": "Factory Recruitment, Labor Contracts & Overtime Shift Planning",
+  "titleVi": "Tuyển Dụng Lao Động Nhà Máy, Ký Hợp Đồng & Bố Trí Tăng Ca",
+  "summaryZh": "廠房人資管理：招聘車間技術工、核定底薪與全勤津貼 (Phụ cấp chuyên cần)、簽署勞動合約與安排合法加班 (Tăng ca)。",
+  "summaryEn": "HR factory operations: hire line technicians, structure basic wages and attendance allowances, execute labor contracts, and schedule legal OT shifts.",
+  "dialogues": [
+    {
+      "speaker": "Trưởng phòng Nhân sự HR (人資主管)",
+      "role": "npc",
+      "viet": "Thưa Tổng Giám Đốc, để chuẩn bị cho kế hoạch mở rộng chuyền sản xuất mới, xưởng chúng ta cần tuyển thêm 100 công nhân may và 10 kỹ thuật viên.",
+      "zh": "報告總經理，為了配合新產線擴產計畫，我們廠需要額外招聘 100 名車縫工與 10 名技術工程師。",
+      "en": "General Director, for our line expansion, we need to recruit 100 machine operators and 10 technicians.",
+      "northTip": "「Công nhân may」(成衣車縫工)；「Kỹ thuật viên」(技術員)。",
+      "southTip": "平陽、同奈工業區招工競爭激烈，薪資福利結構是關鍵。"
+    },
+    {
+      "speaker": "Tổng Giám Đốc (總經理)",
+      "role": "learner",
+      "viet": "Mức lương cơ bản và các khoản phụ cấp (chuyên cần, nhà ở, xăng xe) hiện tại chúng ta đề xuất thế nào so với mặt bằng chung trong KCN?",
+      "zh": "我們目前規劃的底薪與各項津貼（全勤、住房、油資補貼）比起工業區整體行情如何？",
+      "en": "How does our proposed basic salary and allowances (attendance, housing, gas) compare to the industrial park benchmark?",
+      "northTip": "「Lương cơ bản」(基本工資/底薪)；「Phụ cấp」(津貼補貼)。",
+      "southTip": "提供完善津貼（全勤、餐費）能有效降低工廠離職率。"
+    },
+    {
+      "speaker": "Trưởng phòng Nhân sự HR (人資主管)",
+      "role": "npc",
+      "viet": "Dạ, mức lương cơ bản bên mình cao hơn mức lương tối thiểu vùng 15%, cộng với đóng bảo hiểm xã hội (BHXH) đầy đủ nên người lao động rất hào hứng ứng tuyển.",
+      "zh": "我們的底薪高於地區最低法定工資 15%，加上依法全額投保社會保險 (BHXH)，因此求職者應徵非常踴躍。",
+      "en": "Our basic wage is 15% above the regional minimum, and we cover full social insurance (BHXH), attracting strong applicant interest.",
+      "northTip": "「Lương tối thiểu vùng」(地區最低工資)；「Bảo hiểm xã hội BHXH」(社保)。",
+      "southTip": "合規繳納 BHXH 是越南員工最看重的核心權益之一。"
+    },
+    {
+      "speaker": "Tổng Giám Đốc (總經理)",
+      "role": "learner",
+      "viet": "Rất tốt. Nhớ thỏa thuận rõ trong hợp đồng lao động về quy định làm thêm giờ (tăng ca) và thưởng lương tháng 13 theo luật lao động nhé.",
+      "zh": "很好。記得在勞動合約中明確載明加班規範與年終第 13 個月薪資獎金，嚴格遵守勞動法。",
+      "en": "Very good. Ensure the labor contract clearly states overtime rules and 13th-month Tet bonus pursuant to labor laws.",
+      "northTip": "「Thưởng lương tháng 13」(年終第13個月薪資獎金)。",
+      "southTip": "「Luật lao động」(勞動法規) 是台商外派幹部必備合規常識。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "外派總經理",
+    "userRoleEn": "General Director",
+    "partnerRoleZh": "越南人資經理",
+    "partnerRoleEn": "HR Manager",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Để khuyến khích công nhân tăng ca kịp tiến độ xuất hàng tháng này, chúng ta nên có chính sách phụ cấp thế nào?",
+        "partnerPromptZh": "為了鼓勵工人配合加班趕上本月的出貨進度，我們應該採取怎樣的津貼政策？",
+        "partnerPromptEn": "To motivate workers for overtime to meet this month's shipping deadline, what allowance policy should we apply?",
+        "userOptions": [
+          {
+            "id": "hr_opt1",
+            "textVi": "Chi trả tiền tăng ca 150% ngày thường, 200% ngày nghỉ theo luật, cộng thêm suất ăn tối miễn phí chất lượng cao.",
+            "textZh": "依勞動法平日支付 150%、休息日 200% 加班費，並額外提供高規格免費營養晚餐。",
+            "textEn": "Pay legal 150% weekday / 200% weekend OT rates, plus high quality complimentary hot dinners.",
+            "isCorrect": true,
+            "feedbackZh": "管理滿分！完全符合越南勞動法規，兼顧福利與產線士氣。",
+            "feedbackEn": "Exemplary management ensuring legal compliance while boosting worker morale."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Tuyển dụng",
+      "vi": "Tuyển dụng",
+      "phonetic": "[twiən˧˩ zuŋ˧˨]",
+      "ipa": "[twiən˧˩ zuŋ˧˨]",
+      "zh": "招聘 / 招募人員",
+      "en": "Recruitment / Hiring",
+      "hanViet": "Tuyển (選) + Dụng (用)"
+    },
+    {
+      "viet": "Tăng ca",
+      "vi": "Tăng ca",
+      "phonetic": "[taŋ˧ kaː˧]",
+      "ipa": "[taŋ˧ kaː˧]",
+      "zh": "加班 (Overtime)",
+      "en": "Overtime (OT)",
+      "hanViet": "Tăng (增) + Ca (班/班次)"
+    },
+    {
+      "viet": "Phụ cấp",
+      "vi": "Phụ cấp",
+      "phonetic": "[fu˧˨ kəp̚˦˧˥]",
+      "ipa": "[fu˧˨ kəp̚˦˧˥]",
+      "zh": "津貼 / 補貼",
+      "en": "Allowance / Subsidy",
+      "hanViet": "Phụ (附/副) + Cấp (給)"
+    },
+    {
+      "viet": "Lương tháng 13",
+      "vi": "Lương tháng 13",
+      "phonetic": "[lɨəŋ˧ tʰaːŋ˦˧˥]",
+      "ipa": "[lɨəŋ˧ tʰaːŋ˦˧˥]",
+      "zh": "第13個月薪資 (年終獎金)",
+      "en": "13th Month Salary (Tet Bonus)",
+      "hanViet": "Lương (糧/薪) + Tháng 13"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "👥 越南工廠人資管理與春節獎金 (Lương tháng 13) 文化",
+    "titleEn": "Labor Management & 13th-Month Tet Bonus in Vietnam",
+    "contentZh": "在越南管理製造業團隊，農曆春節前的「第 13 個月薪資 (Lương tháng 13)」具有極高的文化重要性，幾乎被視為法定標準福利。每年尾牙 (Tiệc tất niên)，公司若能舉辦摸彩大獎並及時發放返鄉年終獎金，將大幅提高年後返工率 (Tỷ lệ quay lại làm việc)。",
+    "contentEn": "The 13th-month Tet bonus is a paramount cultural institution in Vietnamese labor management. Hosting Year-End party raffles ensures high post-Tet worker return rates.",
+    "proTipZh": "✨ 秘笈：每逢越南婦女節 (20/10) 或國際婦女節 (8/3)，為女性員工準備小禮物或鮮花，能創造極強的向心力！",
+    "proTipEn": "✨ Pro Tip: Gifting flowers on Vietnamese Women's Day (Oct 20) generates tremendous goodwill among female factory workers."
+  }
+},
+{
+  "id": "biz_exclusive_agency",
+  "category": "business",
+  "tagZh": "經銷通路",
+  "tagEn": "Distributorship",
+  "icon": "🤝",
+  "image": "business.jpg",
+  "titleZh": "獨家經銷代理權、年度業績目標與市場拓展",
+  "titleEn": "Exclusive Distributorship, Annual Sales Quotas & Channel Strategy",
+  "titleVi": "Ký Hợp Đồng Đại Lý Độc Quyền, Chỉ Tiêu Doanh Số & Mở Rộng Thị Trường",
+  "summaryZh": "通路拓展戰略：簽署分區獨家總代理合約 (Đại lý độc quyền)、設定季度 KPI 採購承諾與行銷補貼分攤。",
+  "summaryEn": "Channel expansion: negotiate regional exclusive distribution contracts, quarterly sales quotas (KPIs), and co-marketing subsidies.",
+  "dialogues": [
+    {
+      "speaker": "Nhà Phân phối Việt Nam (越南經銷商)",
+      "role": "npc",
+      "viet": "Chào anh, công ty chúng tôi có hơn 500 đại lý cấp 2 trên toàn quốc và muốn xin làm nhà phân phối độc quyền cho thương hiệu của anh tại Việt Nam.",
+      "zh": "您好，我們在全越南擁有超過 500 家二級經銷商通路，希望能爭取貴品牌在越南的獨家總代理權。",
+      "en": "Hello, we have over 500 Tier-2 dealers nationwide and want to become your exclusive distributor in Vietnam.",
+      "northTip": "「Nhà phân phối」(經銷商)；「Đại lý độc quyền」(獨家代理)。",
+      "southTip": "越南通路結構分為 Nhà phân phối (總代) 與 Đại lý cấp 1/cấp 2 (分銷商)。"
+    },
+    {
+      "speaker": "Giám đốc Phát triển Thị trường (市場總監)",
+      "role": "learner",
+      "viet": "Chúng tôi rất hoan nghênh. Để được cấp quyền độc quyền toàn quốc, chỉ tiêu doanh số (Target) năm đầu tiên của bên chị là bao nhiêu?",
+      "zh": "我們非常歡迎。為了取得全越南獨家代理權，您承諾的第一年年度銷售目標 (Target) 是多少？",
+      "en": "We welcome this. To grant nationwide exclusivity, what is your first-year sales target commitment?",
+      "northTip": "「Chỉ tiêu doanh số」(銷售目標/KPI 額度)。",
+      "southTip": "以銷量承諾換取獨家保護是品牌方必談的核心條件。"
+    },
+    {
+      "speaker": "Nhà Phân phối Việt Nam (越南經銷商)",
+      "role": "npc",
+      "viet": "Chúng tôi cam kết doanh số năm đầu tối thiểu 1.000.000 USD, chia đều cho 4 quý. Đổi lại, bên anh hỗ trợ 5% chi phí quảng cáo tiếp thị nhé.",
+      "zh": "我們承諾第一年最低銷售額為 100 萬美金，平均分攤至 4 個季度。作為交換，希望貴方能補貼 5% 的行銷推廣廣告費。",
+      "en": "We commit to a minimum of $1,000,000 in Year 1 across 4 quarters. In return, we request 5% co-marketing support.",
+      "northTip": "「Chi phí quảng cáo tiếp thị」(廣告行銷費用)。",
+      "southTip": "提供行銷補貼 (MKT subsidy) 能激勵經銷商鋪貨推廣。"
+    },
+    {
+      "speaker": "Giám đốc Phát triển Thị trường (市場總監)",
+      "role": "learner",
+      "viet": "Thỏa thuận rất công bằng. Chúng tôi sẽ soạn thảo hợp đồng khung có điều khoản đánh giá KPI định kỳ hàng quý. Chúc mừng hợp tác!",
+      "zh": "這個協議非常公平。我們將擬定框架合約並加入每季定期 KPI 評核條款。祝我們合作成功！",
+      "en": "Very fair agreement. We will draft the framework contract with quarterly KPI review clauses. Cheers to our cooperation!",
+      "northTip": "「Hợp đồng khung」(框架合約)；「Đánh giá định kỳ」(定期考核)。",
+      "southTip": "設有解約與續約門檻的獨家合約才能保障品牌長遠利益。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "品牌外貿總監",
+    "userRoleEn": "Brand Director",
+    "partnerRoleZh": "越南總代經理",
+    "partnerRoleEn": "Distributor GM",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Nếu quý 1 bên em vượt 120% chỉ tiêu doanh số, thương hiệu có chính sách thưởng chiết khấu thêm không?",
+        "partnerPromptZh": "如果第 1 季我們超額完成 120% 銷售目標，品牌方有額外的業績獎勵折讓政策嗎？",
+        "partnerPromptEn": "If we exceed our Q1 target by 120%, does the brand offer an additional rebate bonus?",
+        "userOptions": [
+          {
+            "id": "dist_opt1",
+            "textVi": "Tất nhiên rồi! Chúng tôi sẽ thưởng thêm 2% chiết khấu vào đơn hàng tiếp theo để khuyến khích đại lý.",
+            "textZh": "當然！我們會在下一批訂單中額外給予 2% 折扣獎勵，以激勵經銷夥伴。",
+            "textEn": "Certainly! We will award an extra 2% rebate on the subsequent order to reward your achievement.",
+            "isCorrect": true,
+            "feedbackZh": "激勵滿分！階梯式超額返利能激發經銷商最大賣貨動能。",
+            "feedbackEn": "Excellent incentive structure aligning distributor motivation with brand growth."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Độc quyền",
+      "vi": "Độc quyền",
+      "phonetic": "[ɗəwk͡p̚˧˨ kwiən˨˩]",
+      "ipa": "[ɗəwk͡p̚˧˨ kwiən˨˩]",
+      "zh": "獨家 / 獨占代理權",
+      "en": "Exclusive Rights",
+      "hanViet": "Độc (獨) + Quyền (權)"
+    },
+    {
+      "viet": "Doanh số",
+      "vi": "Doanh số",
+      "phonetic": "[zaːɲ˧ so˦˧˥]",
+      "ipa": "[zaːɲ˧ so˦˧˥]",
+      "zh": "營業額 / 銷售額",
+      "en": "Sales Turnover / Revenue",
+      "hanViet": "Doanh (營) + Số (數)"
+    },
+    {
+      "viet": "Phân phối",
+      "vi": "Phân phối",
+      "phonetic": "[fən˧ foj˦˧˥]",
+      "ipa": "[fən˧ foj˦˧˥]",
+      "zh": "分銷 / 經銷配送",
+      "en": "Distribution",
+      "hanViet": "Phân (分) + Phối (配)"
+    },
+    {
+      "viet": "Tiếp thị",
+      "vi": "Tiếp thị",
+      "phonetic": "[tiəp̚˦˧˥ tʰi˧˨]",
+      "ipa": "[tiəp̚˦˧˥ tʰi˧˨]",
+      "zh": "行銷 / 市場推廣 (Marketing)",
+      "en": "Marketing",
+      "hanViet": "Tiếp (接) + Thị (市)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🤝 越南經銷通路商務博弈與市場開拓",
+    "titleEn": "Building Sustainable Distribution Channels in Vietnam",
+    "contentZh": "越南市場地形狹長，北越（河內）、中越（峴港）、南越（胡志明市）三大區域消費者偏好與通路體系截然不同。許多品牌會先給予「區域獨家」(Độc quyền vùng)，待經銷商連續 2~3 季達到 KPI 目標後，再升級為「全越南獨家總代理」(Tổng đại lý toàn quốc)，既能降低市場試錯風險，又能充分激勵經銷團隊。",
+    "contentEn": "Given Vietnam's regional diversity, brands often begin with regional exclusivity (North/South) before upgrading to nationwide master distributorship upon hitting quarterly KPIs.",
+    "proTipZh": "✨ 秘笈：在獨家經銷合約中明確寫入「若連續 2 季未達 70% 目標，自動轉為非獨家普通經銷」之落日條款！",
+    "proTipEn": "✨ Pro Tip: Include a sunset clause converting exclusivity into regular status if KPIs fall below 70% for two consecutive quarters."
+  }
+},
+{
+  "id": "biz_factory_lease",
+  "category": "business",
+  "tagZh": "廠房租賃",
+  "tagEn": "Factory & Land Lease",
+  "icon": "🏗️",
+  "image": "business.jpg",
+  "titleZh": "工業區土地租賃、標準廠房挑選與基礎設施談判",
+  "titleEn": "Industrial Land & Ready-Built Factory (RBF) Lease Negotiation",
+  "titleVi": "Thuê Đất Công Nghiệp, Chọn Nhà Xưởng Xây Sẵn & Đàm Phán Hạ Tầng",
+  "summaryZh": "外資設廠選址：挑選平陽/北寧標準廠房 (RBF)、洽談每平米月租金 ($/m2/tháng)、變壓站容量 (KVA) 與廢水排放指標。",
+  "summaryEn": "Factory site selection: negotiate ready-built factory (RBF) rent in Binh Duong/Bac Ninh, power substation KVA capacity, and wastewater quota.",
+  "dialogues": [
+    {
+      "speaker": "Đại diện Chủ đầu tư KCN (園區招商主管)",
+      "role": "npc",
+      "viet": "Kính chào đoàn doanh nghiệp Đài Loan! Khu công nghiệp VSIP chúng tôi xin giới thiệu cụm nhà xưởng xây sẵn (RBF) diện tích 5.000 m2 vừa hoàn thiện.",
+      "zh": "熱烈歡迎台灣企業代表團！我們 VSIP 工業園區向各位介紹剛竣工的 5,000 平方公尺標準廠房 (RBF) 區塊。",
+      "en": "Welcome Taiwanese delegation! Our VSIP Industrial Park introduces our newly completed 5,000 m2 Ready-Built Factory (RBF).",
+      "northTip": "「Chủ đầu tư KCN」指工業區開發運營商；「Nhà xưởng xây sẵn」即標準廠房。",
+      "southTip": "平陽、同奈是台商租賃標準廠房最密集的聚落。"
+    },
+    {
+      "speaker": "Tổng Giám Đốc Doanh nghiệp (設廠總經理)",
+      "role": "learner",
+      "viet": "Mức giá thuê hiện tại là bao nhiêu USD một mét vuông mỗi tháng? Giá này đã bao gồm phí quản lý hạ tầng và tiền bảo dưỡng chưa?",
+      "zh": "目前每平方公尺月租金是多少美金？此價格是否已包含基礎設施管理費與維護費？",
+      "en": "What is the monthly rental rate per square meter in USD? Does this include infrastructure management and maintenance fees?",
+      "northTip": "「Giá thuê」(租金價格)；「Phí quản lý hạ tầng」(園區基建管理費)。",
+      "southTip": "詢問租金時務必確認管理費（通常約 $0.05~$0.08/m2/月）是否內含。"
+    },
+    {
+      "speaker": "Đại diện Chủ đầu tư KCN (園區招商主管)",
+      "role": "npc",
+      "viet": "Đơn giá thuê là 4.8 USD/m2/tháng. Xưởng có sẵn trạm biến áp 1.000 KVA và công suất đấu nối xử lý nước thải 50 m3/ngày đêm.",
+      "zh": "租金單價為每平方公尺每月 4.8 美金。廠房配備獨立 1,000 KVA 變電站，並提供每日 50 立方公尺之廢水納管處理額度。",
+      "en": "Rent is $4.80/m2/month. Equipped with a 1,000 KVA substation and 50 m3/day wastewater connection capacity.",
+      "northTip": "「Trạm biến áp」(變壓站)；「Đấu nối」(管網對接/納管)。",
+      "southTip": "電子與精密機械業特別看重電力供應穩定度與污水排放指標。"
+    },
+    {
+      "speaker": "Tổng Giám Đốc Doanh nghiệp (設廠總經理)",
+      "role": "learner",
+      "viet": "Nếu chúng tôi ký hợp đồng thuê dài hạn 5 năm, chủ đầu tư có hỗ trợ miễn phí tiền thuê 3 tháng đầu để chúng tôi lắp đặt máy móc không?",
+      "zh": "如果我們簽署 5 年長期租賃合約，開發商能否給予前 3 個月裝修免租期，方便我們進駐安裝生產機台？",
+      "en": "If we sign a 5-year long lease, can the developer grant a 3-month rent-free fit-out period for machinery setup?",
+      "northTip": "「Miễn phí tiền thuê」(免租期 / Rent-free period)。",
+      "southTip": "爭取 2~3 個月裝機免租期是租廠房談判的必備籌碼。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "投資設廠決策人",
+    "userRoleEn": "Investment Director",
+    "partnerRoleZh": "工業區開發商代表",
+    "partnerRoleEn": "Park Developer Rep",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Nếu quý công ty cam kết ký hợp đồng 5 năm và đặt cọc 6 tháng, bên em sẽ xem xét chính sách ưu đãi.",
+        "partnerPromptZh": "若貴公司承諾簽約 5 年並支付 6 個月押金，我們將考慮給予優惠政策。",
+        "partnerPromptEn": "If you commit to a 5-year lease and 6-month deposit, we will review incentive concessions.",
+        "userOptions": [
+          {
+            "id": "lease_opt1",
+            "textVi": "Chúng tôi đồng ý đặt cọc 6 tháng, đổi lại KCN cần hỗ trợ 3 tháng miễn phí lắp đặt máy móc và miễn phí quản lý năm đầu.",
+            "textZh": "我們同意支付 6 個月押金，但園區需給予 3 個月設備安裝免租期並免除首年管理費。",
+            "textEn": "We agree to the 6-month deposit, provided you grant 3-month rent-free setup and waive Year-1 management fees.",
+            "isCorrect": true,
+            "feedbackZh": "談判滿分！以充足押金換取免租期與管理費折讓，實現完美雙贏。",
+            "feedbackEn": "Masterful commercial concession trading long deposit for rent-free fit-out."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Nhà xưởng xây sẵn",
+      "vi": "Nhà xưởng xây sẵn",
+      "phonetic": "[ɲaː˨˩ sɨəŋ˧˩ səj˧ san˦˧˥]",
+      "ipa": "[ɲaː˨˩ sɨəŋ˧˩ səj˧ san˦˧˥]",
+      "zh": "標準廠房 (RBF)",
+      "en": "Ready-Built Factory (RBF)",
+      "hanViet": "Nhà (家/房) + Xưởng (廠)"
+    },
+    {
+      "viet": "Trạm biến áp",
+      "vi": "Trạm biến áp",
+      "phonetic": "[tɕam˧˨ ɓiən˦˧˥ aːp̚˦˧˥]",
+      "ipa": "[tɕam˧˨ ɓiən˦˧˥ aːp̚˦˧˥]",
+      "zh": "變電站 / 變壓站 (KVA)",
+      "en": "Power Substation (KVA)",
+      "hanViet": "Trạm (站) + Biến (變) + Áp (壓)"
+    },
+    {
+      "viet": "Đấu nối",
+      "vi": "Đấu nối",
+      "phonetic": "[ɗəw˦˧˥ noj˦˧˥]",
+      "ipa": "[ɗəw˦˧˥ noj˦˧˥]",
+      "zh": "管線銜接 / 納管連接",
+      "en": "Grid / Pipeline Connection",
+      "hanViet": ""
+    },
+    {
+      "viet": "Miễn phí tiền thuê",
+      "vi": "Miễn phí tiền thuê",
+      "phonetic": "[miən˦˧˥ fi˦˧˥ tiən˨˩ tʰwe˧]",
+      "ipa": "[miən˦˧˥ fi˦˧˥ tiən˨˩ tʰwe˧]",
+      "zh": "免租期 (裝修裝機免租)",
+      "en": "Rent-Free Fit-Out Period",
+      "hanViet": "Miễn (免) + Phí (費)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🏗️ 越南工業區 (KCN) 租廠設廠核心評估指南",
+    "titleEn": "Industrial Park Site Selection & Lease Due Diligence in Vietnam",
+    "contentZh": "在越南租賃標準廠房或購買 50 年土地使用權 (Quyền sử dụng đất)，需重點審查：1. 園區是否具備合法「1/500 細部規劃批文」與完整環評執照；2. 廠房是否已取得「消防驗收合格證 (Nghiệm thu PCCC)」；3. 雙十連休與重大節慶用電調度支援。合約應以越英或越中雙語對照簽署。",
+    "contentEn": "When leasing factory space in Vietnam, verify 1/500 zoning approvals, master Fire Safety (PCCC) acceptance certificates, and environmental quota limits.",
+    "proTipZh": "✨ 秘笈：交屋前務必實地測試地坪承重（Tải trọng sàn - 通常標準為 2~3 噸/m2）與廠房滴水簷高度（Chiều cao thông thủy）！",
+    "proTipEn": "✨ Pro Tip: Always test floor loading capacity (2-3 tons/m2) and eave clearance height before signing handover protocols."
+  }
+},
+{
+  "id": "biz_bank_loan",
+  "category": "business",
+  "tagZh": "銀行貸款",
+  "tagEn": "Bank Loans & Credit",
+  "icon": "💰",
+  "image": "business.jpg",
+  "titleZh": "企業銀行融資貸款、抵押授信與利率協商",
+  "titleEn": "Corporate Bank Loans, Collateral Credit Lines & Interest Rate Negotiation",
+  "titleVi": "Vay Vốn Ngân Hàng Doanh Nghiệp, Hạn Mức Tín Dụng & Lãi Suất Thế Chấp",
+  "summaryZh": "企業融資操盤：向銀行申辦中期設備貸款 (Vay trung hạn) 與營運週轉金額度 (Hạn mức vốn lưu động)、抵押土地廠房並敲定浮動/固定利率。",
+  "summaryEn": "Corporate financing: secure machinery term loans and working capital credit lines, pledge land/assets, and negotiate fixed vs floating rates.",
+  "dialogues": [
+    {
+      "speaker": "Giám đốc Khách hàng Doanh nghiệp (銀行企金主管)",
+      "role": "npc",
+      "viet": "Kính chào anh! Ngân hàng chúng tôi đã hoàn tất thẩm định báo cáo tài chính của doanh nghiệp FDI bên anh.",
+      "zh": "您好！我們銀行已經完成對貴外商直接投資 (FDI) 企業的財務報告徵信與授信審查。",
+      "en": "Hello! Our bank completed credit due diligence on your FDI corporate financial statements.",
+      "northTip": "「Thẩm định」(審定/徵信審查)；「Doanh nghiệp FDI」(外商投資企業)。",
+      "southTip": "越南大型商業銀行如 Vietcombank, BIDV, CTBC, Cathay 均有台資企業專屬企金團隊。"
+    },
+    {
+      "speaker": "Giám đốc Tài chính CFO (財務長)",
+      "role": "learner",
+      "viet": "Chào anh. Chúng tôi muốn vay trung hạn 2.000.000 USD để mua sắm dây chuyền sản xuất và xin cấp hạn mức vốn lưu động 1.000.000 USD.",
+      "zh": "您好。我們希望申請 200 萬美元中期貸款用於採購自動化產線，並申請 100 萬美元營運週轉金授信額度。",
+      "en": "We want to apply for a $2M medium-term loan for production lines and a $1M working capital credit facility.",
+      "northTip": "「Vay trung hạn」(中期貸款 3-5 年)；「Hạn mức vốn lưu động」(營運週轉金授信)。",
+      "southTip": "「Mua sắm dây chuyền」指產線機台設備採購。"
+    },
+    {
+      "speaker": "Giám đốc Khách hàng Doanh nghiệp (銀行企金主管)",
+      "role": "npc",
+      "viet": "Ngân hàng duyệt cấp khoản vay với lãi suất ưu đãi USD là 5.5%/năm cho năm đầu, tài sản thế chấp là quyền thuê đất và toàn bộ máy móc hình thành trong tương lai.",
+      "zh": "銀行批准核貸，首年美元優惠利率為年息 5.5%，抵押品為土地租賃權與未來購置之全套機械設備。",
+      "en": "We approved the loan at 5.5%/year USD preferential rate for Year 1, collateralized by land lease rights and future equipment.",
+      "northTip": "「Lãi suất ưu đãi」(優惠利率)；「Tài sản thế chấp」(抵押資產)。",
+      "southTip": "在越南，興建中廠房與未來機械可作為「Tài sản hình thành trong tương lai」設定抵押。"
+    },
+    {
+      "speaker": "Giám đốc Tài chính CFO (財務長)",
+      "role": "learner",
+      "viet": "Mức lãi suất 5.5% rất cạnh tranh. Thời hạn giải ngân (Disbursement) từng đợt theo tiến độ giao máy móc sẽ tiến hành thế nào?",
+      "zh": "5.5% 利率很有競爭力。按照機台到廠進度分期撥款 (Disbursement) 的放款流程將如何進行？",
+      "en": "5.5% is very competitive. How will the phased disbursement schedule proceed according to machinery delivery?",
+      "northTip": "「Giải ngân」(撥款/出款) 是銀行放款的核心專業術語。",
+      "southTip": "分期撥款需出示設備採購合約、進口海關單據與驗收紀錄。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "企業財務長 CFO",
+    "userRoleEn": "Corporate CFO",
+    "partnerRoleZh": "銀行企金總監",
+    "partnerRoleEn": "Bank VP",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Để tiến hành giải ngân đợt 1 cho nhà cung cấp máy móc, doanh nghiệp cần xuất trình những chứng từ gì?",
+        "partnerPromptZh": "為了向機台設備供應商發放第一批撥款，企業需要出示哪些憑證？",
+        "partnerPromptEn": "What documents must the enterprise present to disburse Batch 1 to the equipment vendor?",
+        "userOptions": [
+          {
+            "id": "loan_opt1",
+            "textVi": "Chúng tôi sẽ cung cấp hợp đồng mua bán, hóa đơn thương mại, tờ khai hải quan thông quan và biên bản nghiệm thu thiết bị.",
+            "textZh": "我們將提供買賣合約、商業發票、海關清關申報單以及設備驗收報告。",
+            "textEn": "We will provide the sales contract, commercial invoice, customs declaration, and equipment acceptance protocol.",
+            "isCorrect": true,
+            "feedbackZh": "完全合規！憑證齊全能確保銀行在 24 小時內順利撥款。",
+            "feedbackEn": "Flawless compliance answer matching banking disbursement standards."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Hạn mức tín dụng",
+      "vi": "Hạn mức tín dụng",
+      "phonetic": "[haːn˧˨ mɨk̚˦˧˥ tin˦˧˥ zuŋ˧˨]",
+      "ipa": "[haːn˧˨ mɨk̚˦˧˥ tin˦˧˥ zuŋ˧˨]",
+      "zh": "授信額度 / 信用額度",
+      "en": "Credit Facility / Line",
+      "hanViet": "Hạn (限) + Mức + Tín (信) + Dụng (用)"
+    },
+    {
+      "viet": "Thế chấp",
+      "vi": "Thế chấp",
+      "phonetic": "[tʰe˦˧˥ tɕəp̚˦˧˥]",
+      "ipa": "[tʰe˦˧˥ tɕəp̚˦˧˥]",
+      "zh": "抵押 / 擔保設定",
+      "en": "Collateral / Mortgage",
+      "hanViet": "Thế (替/質) + Chấp (執)"
+    },
+    {
+      "viet": "Giải ngân",
+      "vi": "Giải ngân",
+      "phonetic": "[zaːj˧˩ ŋən˧]",
+      "ipa": "[zaːj˧˩ ŋən˧]",
+      "zh": "銀行撥款 / 放款出款",
+      "en": "Loan Disbursement",
+      "hanViet": "Giải (解) + Ngân (銀/金)"
+    },
+    {
+      "viet": "Lãi suất",
+      "vi": "Lãi suất",
+      "phonetic": "[laːj˦˧˥ swət̚˦˧˥]",
+      "ipa": "[laːj˦˧˥ swət̚˦˧˥]",
+      "zh": "貸款利率 (年息/月息)",
+      "en": "Interest Rate",
+      "hanViet": "Lãi + Suất (率)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "💰 越南外資企業銀行融資與外債登記法規",
+    "titleEn": "Banking Regulations & Foreign Loan Registration in Vietnam",
+    "contentZh": "外商在越南融資主要分為：在地商業銀行授信與海外母公司跨境股東借款 (Vay vốn nước ngoài)。依據越南國家銀行 (SBV) 法規，凡期限超過 1 年之中長期中外借款，必須在簽約後 30 天內向國家銀行辦理「外債登記 (Đăng ký khoản vay nước ngoài)」，否則將面臨無法合法還本付息的重大合規風險。",
+    "contentEn": "Cross-border medium/long-term shareholder loans exceeding 1 year must be officially registered with the State Bank of Vietnam (SBV) within 30 days of signing.",
+    "proTipZh": "✨ 秘笈：向當地外資銀行申請授信時，出示台灣母公司之公司保證函 (Corporate Guarantee) 可大幅壓低融資利差！",
+    "proTipEn": "✨ Pro Tip: Providing a Parent Corporate Guarantee from Taiwan significantly reduces lending interest margins in Vietnam."
+  }
+},
+{
+  "id": "biz_epc_construction",
+  "category": "business",
+  "tagZh": "營造建廠",
+  "tagEn": "Construction EPC",
+  "icon": "🏢",
+  "image": "business.jpg",
+  "titleZh": "營造建設總承包 (EPC) 與廠房鋼構施工進度",
+  "titleEn": "EPC General Contractor, Steel Structure Construction & Handover",
+  "titleVi": "Tổng Thầu Xây Dựng EPC, Thi Công Nhà Thép Tiền Chế & Nghiệm Thu Công Trình",
+  "summaryZh": "工程建廠全流程：簽署統包合約 (Hợp đồng EPC)、鋼結構安裝 (Nhà thép tiền chế)、工期里程碑 (Tiến độ) 與工程保固期 (Bảo hành 24 tháng)。",
+  "summaryEn": "Factory construction EPC: turnkey design-build contracts, pre-engineered steel buildings, milestone payments, and 24-month structural warranty.",
+  "dialogues": [
+    {
+      "speaker": "Tổng Thầu Xây Dựng EPC (營造總承包商)",
+      "role": "npc",
+      "viet": "Kính chào Chủ đầu tư! Chúng tôi đã hoàn thiện thiết kế cơ sở và xin được Giấy phép xây dựng (GPXD) cho nhà xưởng 10.000 m2.",
+      "zh": "業主您好！我們已經完成基礎工程設計，並順利取得 10,000 平方公尺新廠房的正式施工許可證 (GPXD)。",
+      "en": "Welcome Investor! We finalized the basic design and obtained the Construction Permit (GPXD) for the 10,000 m2 factory.",
+      "northTip": "「Chủ đầu tư」(業主/出資方)；「Giấy phép xây dựng GPXD」(建照/施工許可證)。",
+      "southTip": "在越南自建廠房必須取得省級建設廳核發之 GPXD 才能合法動工。"
+    },
+    {
+      "speaker": "Trưởng ban Quản lý Dự án (專案工程處長)",
+      "role": "learner",
+      "viet": "Tiến độ lắp dựng khung nhà thép tiền chế và đổ bê tông sàn xưởng sẽ hoàn thành trong bao nhiêu ngày?",
+      "zh": "鋼結構主體框架吊裝與廠房地坪混凝土澆置預計在多少天內完工？",
+      "en": "In how many days will the pre-engineered steel erection and concrete floor pouring be completed?",
+      "northTip": "「Khung nhà thép tiền chế」(鋼結構廠房預製框架)；「Đổ bê tông」(澆置混凝土)。",
+      "southTip": "鋼結構因施工迅速、耐用度高，是越南製造業建廠主流。"
+    },
+    {
+      "speaker": "Tổng Thầu Xây Dựng EPC (營造總承包商)",
+      "role": "npc",
+      "viet": "Chúng tôi cam kết hoàn thành phần thô trong 60 ngày và hoàn thiện toàn bộ công trình để bàn giao đưa vào hoạt động sau 120 ngày.",
+      "zh": "我們承諾在 60 天內完成主體結構粗胚工程，並在 120 天後全案完工驗收交屋，正式交付投產運營。",
+      "en": "We commit to finishing structural rough-in within 60 days, and full project handover ready for operation in 120 days.",
+      "northTip": "「Bàn giao」(驗收交屋/移交)；「Đưa vào hoạt động」(正式投產運營)。",
+      "southTip": "工程合約通常設有延誤工期違約金條款（Phạt chậm tiến độ）。"
+    },
+    {
+      "speaker": "Trưởng ban Quản lý Dự án (專案工程處長)",
+      "role": "learner",
+      "viet": "Tốt lắm. Điều khoản thanh toán sẽ giải ngân theo 5 đợt nghiệm thu, giữ lại 5% tiền bảo hành công trình trong vòng 24 tháng.",
+      "zh": "很好。工程款將按照 5 個驗收里程碑節點分期支付，並保留 5% 工程保固金，保固期為 24 個月。",
+      "en": "Very well. Payments will disburse across 5 acceptance milestones, retaining 5% warranty holdback for 24 months.",
+      "northTip": "「Tiền bảo hành」(工程保固金/質保金)；「Nghiệm thu」(驗收)。",
+      "southTip": "扣留 5% 保固金是確保總承包商在漏水或結構瑕疵時能及時修繕的國際慣例。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "建廠專案處長",
+    "userRoleEn": "Project Director",
+    "partnerRoleZh": "EPC 營造總承包總經理",
+    "partnerRoleEn": "EPC Contractor GM",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Nếu trong quá trình thi công có phát sinh thay đổi thiết kế từ phía chủ đầu tư, thủ tục sẽ xử lý ra sao?",
+        "partnerPromptZh": "若在施工過程中業主提出設計變更 (Design Change)，流程該如何處理？",
+        "partnerPromptEn": "If design changes are requested by the client during construction, how is the process handled?",
+        "userOptions": [
+          {
+            "id": "epc_opt1",
+            "textVi": "Hai bên phải lập Phụ lục Hợp đồng ghi rõ khối lượng phát sinh, chi phí và thời gian điều chỉnh trước khi thi công.",
+            "textZh": "雙方必須簽署合約補充協議 (Phụ lục)，明確載明追加工程量、費用與工期調整，經雙方確認後方可施工。",
+            "textEn": "Both parties must execute a Contract Addendum detailing scope changes, pricing, and schedule adjustments prior to execution.",
+            "isCorrect": true,
+            "feedbackZh": "完全符合營造管理規範！白紙黑字簽署補充協議能有效杜絕工程追加款糾紛。",
+            "feedbackEn": "Professional construction governance establishing clear change-order addendums."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Tổng thầu EPC",
+      "vi": "Tổng thầu EPC",
+      "phonetic": "[təwŋm˧˩ tʰəw˨˩ e-pe-ce]",
+      "ipa": "[təwŋm˧˩ tʰəw˨˩ e-pe-ce]",
+      "zh": "EPC 統包總承包商 (設計+採購+施工)",
+      "en": "EPC General Contractor",
+      "hanViet": "Tổng (總) + Thầu (包/攬)"
+    },
+    {
+      "viet": "Giấy phép xây dựng",
+      "vi": "Giấy phép xây dựng",
+      "phonetic": "[zəj˦˧˥ fɛp̚˦˧˥ səj˧ zɨŋ˧˨]",
+      "ipa": "[zəj˦˧˥ fɛp̚˦˧˥ səj˧ zɨŋ˧˨]",
+      "zh": "建照 / 施工許可證 (GPXD)",
+      "en": "Construction Permit (GPXD)",
+      "hanViet": "Giấy + Phép (法) + Xây dựng (建設)"
+    },
+    {
+      "viet": "Nhà thép tiền chế",
+      "vi": "Nhà thép tiền chế",
+      "phonetic": "[ɲaː˨˩ tʰɛp̚˦˧˥ tiən˨˩ tɕe˦˧˥]",
+      "ipa": "[ɲaː˨˩ tʰɛp̚˦˧˥ tiən˨˩ tɕe˦˧˥]",
+      "zh": "預製鋼結構廠房 (PEB)",
+      "en": "Pre-Engineered Steel Building",
+      "hanViet": "Nhà + Thép (鐵/鋼) + Tiền chế (預製)"
+    },
+    {
+      "viet": "Bàn giao",
+      "vi": "Bàn giao",
+      "phonetic": "[ɓaːn˨˩ zaːw˧]",
+      "ipa": "[ɓaːn˨˩ zaːw˧]",
+      "zh": "竣工移交 / 驗收交屋",
+      "en": "Project Handover",
+      "hanViet": "Bàn (盤) + Giao (交)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🏢 越南建廠營造總承包 (EPC) 招標眉角",
+    "titleEn": "Factory Construction & EPC General Contractor Contracting in Vietnam",
+    "contentZh": "在越南自建廠房，選擇具備「一級營造資質執照 (Chứng chỉ năng lực hoạt động xây dựng Hạng 1)」之優質總承包商至關重要。營造合約必須載明雨季 (Mùa mưa) 防汛應變計畫、工安保險、以及如期取得「竣工圖紙審批與驗收文件 (Hồ sơ hoàn công)」之法律義務，以便後續順利辦理房屋所有權狀 (Sổ hồng)。",
+    "contentEn": "Choose contractors holding Grade-1 construction licenses. Construction contracts must include monsoon contingency plans and guarantee delivery of official As-Built dossiers (Hoàn công) for property ownership titling.",
+    "proTipZh": "✨ 秘笈：每週五定期召開工程進度三方協調會（業主、監造單位 Tư vấn giám sát、營造商），能確保工期零延誤！",
+    "proTipEn": "✨ Pro Tip: Convene weekly tripartite site progress meetings (Owner, Supervision Consultant, Contractor) to ensure zero schedule slippage."
+  }
+},
+{
+  "id": "biz_environmental_permit",
+  "category": "business",
+  "tagZh": "環評環保",
+  "tagEn": "Environmental Permit",
+  "icon": "🌱",
+  "image": "business.jpg",
+  "titleZh": "環評報告評估 (ĐTM)、廢水排放與環保合規審查",
+  "titleEn": "Environmental Impact Assessment (EIA/ĐTM) & Wastewater Compliance",
+  "titleVi": "Lập Báo Cáo Đánh Giá Tác Động Môi Trường (ĐTM) & Giấy Phép Môi Trường",
+  "summaryZh": "廠房環保法規：申辦環評報告 (ĐTM) 與環境許可證 (GPMT)、工業廢水標準納管 (QCVN 40) 與危險廢棄物申報處置。",
+  "summaryEn": "Environmental compliance: prepare EIA/ĐTM reports, obtain Environmental Permits (GPMT), meet QCVN industrial wastewater standards, and manage hazardous waste.",
+  "dialogues": [
+    {
+      "speaker": "Chuyên gia Tư vấn Môi trường (環保顧問專家)",
+      "role": "npc",
+      "viet": "Chào Ban Giám Đốc! Theo Luật Bảo vệ Môi trường mới, dự án sản xuất xi mạ và dệt may của bên anh thuộc nhóm nguy cơ gây ô nhiễm cao, bắt buộc phải lập Báo cáo ĐTM.",
+      "zh": "各位長官好！依據越南新修訂之《環境保護法》，貴公司的電鍍與紡織印染專案屬於高污染潛在風險類別，依法強制編制環評報告 (ĐTM)。",
+      "en": "Hello Leadership! Under Vietnam's Environmental Protection Law, your electroplating and textile project falls under high-impact category, requiring an EIA/ĐTM Report.",
+      "northTip": "「ĐTM」(Đánh giá tác động môi trường) 是越南環評最高規格報告。",
+      "southTip": "紡織、染色、電鍍、化工在越南審查環評極為嚴格。"
+    },
+    {
+      "speaker": "Giám đốc EHS Công ty (環安衛處長)",
+      "role": "learner",
+      "viet": "Hệ thống xử lý nước thải sơ bộ của nhà máy chúng tôi đạt chuẩn B theo QCVN 40 trước khi xả vào trạm xử lý nước thải tập trung của KCN được không?",
+      "zh": "我們廠內的初級廢水處理系統在排放進入工業區集中污水處理廠之前，達到 QCVN 40 的 B 級標準可以符合納管要求嗎？",
+      "en": "Can our on-site pretreatment system meet QCVN 40 Column B standard before discharging into the industrial park central facility?",
+      "northTip": "「QCVN 40」是越南工業廢水國家技術標準（A級直排自然水體，B級排入園區集中處理廠）。",
+      "southTip": "大部分工業園區要求廠商自建預處理設施達到 B 級標準後再對接納管。"
+    },
+    {
+      "speaker": "Chuyên gia Tư vấn Môi trường (環保顧問專家)",
+      "role": "npc",
+      "viet": "Hoàn toàn phù hợp ạ! Chúng tôi sẽ hoàn thiện hồ sơ xin cấp Giấy phép Môi trường (GPMT) và trình Sở Tài nguyên và Môi trường thẩm định trong tháng này.",
+      "zh": "完全符合規範！我們將在本月備齊申請《環境許可證 (GPMT)》之全套文件，送交省級資源環境廳 (Sở TN&MT) 組織專家評審審批。",
+      "en": "Perfect! We will finalize the Environmental Permit (GPMT) application and submit it to the Department of Natural Resources & Environment (DONRE) this month.",
+      "northTip": "「Sở Tài nguyên và Môi trường」(DONRE / 資源環境廳) 是環評審批主管機關。",
+      "southTip": "「Giấy phép Môi trường GPMT」現已整合多項傳統環保排污許可證。"
+    },
+    {
+      "speaker": "Giám đốc EHS Công ty (環安衛處長)",
+      "role": "learner",
+      "viet": "Về rác thải nguy hại (dầu mỡ thải, hóa chất), chúng tôi đã ký hợp đồng với đơn vị có chức năng xử lý được Bộ cấp phép.",
+      "zh": "關於危險廢棄物（廢油、廢化學品溶劑），我們已與取得自然資源環境部核可的專業清運處理單位完成簽約。",
+      "en": "For hazardous waste (waste oil, chemical solvents), we contracted a Ministry-licensed disposal company.",
+      "northTip": "「Rác thải nguy hại」(危險廢棄物) 必須專門分類、上鎖儲存並定期申報產量。",
+      "southTip": "保留危廢聯單 (Chứng từ chất thải nguy hại) 是防範環保重罰的關鍵。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "廠房環安衛總監",
+    "userRoleEn": "EHS Director",
+    "partnerRoleZh": "省資源環境廳稽查員",
+    "partnerRoleEn": "DONRE Inspector",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Đoàn kiểm tra môi trường yêu cầu xuất trình Giấy phép xả thải và sổ nhật ký vận hành trạm xử lý nước thải.",
+        "partnerPromptZh": "環保檢查組要求出示排污許可證以及污水處理站日常運轉操作日誌。",
+        "partnerPromptEn": "The environmental inspection team requests the discharge permit and wastewater operation logs.",
+        "userOptions": [
+          {
+            "id": "env_opt1",
+            "textVi": "Dạ, kính gửi đoàn kiểm tra Giấy phép Môi trường hợp lệ và nhật ký quan trắc nước thải tự động online 24/7.",
+            "textZh": "報告長官，這是我們合法有效的《環境許可證》以及 24/7 連線傳輸之廢水自動連續監測日誌。",
+            "textEn": "Here is our valid Environmental Permit and 24/7 continuous online wastewater monitoring log.",
+            "isCorrect": true,
+            "feedbackZh": "無懈可擊！主動出示連線監測數據與合法許可證，展現一流合規水準。",
+            "feedbackEn": "Flawless compliance response presenting continuous monitoring telemetry logs."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Báo cáo ĐTM",
+      "vi": "Báo cáo ĐTM",
+      "phonetic": "[ɓaːw˦˧˥ kaːw˦˧˥ đe-te-em]",
+      "ipa": "[ɓaːw˦˧˥ kaːw˦˧˥ đe-te-em]",
+      "zh": "環境影響評估報告 (環評 / ĐTM)",
+      "en": "EIA Environmental Impact Report",
+      "hanViet": "Báo cáo Đánh giá Tác động Môi trường"
+    },
+    {
+      "viet": "Giấy phép Môi trường",
+      "vi": "Giấy phép Môi trường",
+      "phonetic": "[zəj˦˧˥ fɛp̚˦˧˥ moj˧ tɕɨəŋ˨˩]",
+      "ipa": "[zəj˦˧˥ fɛp̚˦˧˥ moj˧ tɕɨəŋ˨˩]",
+      "zh": "環境許可證 (GPMT)",
+      "en": "Environmental Permit (GPMT)",
+      "hanViet": "Giấy + Phép + Môi trường (環境)"
+    },
+    {
+      "viet": "Xử lý nước thải",
+      "vi": "Xử lý nước thải",
+      "phonetic": "[sɨ˧˩ li˦˧˥ nɨək̚˦˧˥ tʰaːj˧˩]",
+      "ipa": "[sɨ˧˩ li˦˧˥ nɨək̚˦˧˥ tʰaːj˧˩]",
+      "zh": "工業廢水處理 / 污水淨化",
+      "en": "Wastewater Treatment",
+      "hanViet": "Xử lý (處理) + Nước thải (排水)"
+    },
+    {
+      "viet": "Chất thải nguy hại",
+      "vi": "Chất thải nguy hại",
+      "phonetic": "[tɕət̚˦˧˥ tʰaːj˧˩ ŋwi˧ haːj˧˨]",
+      "ipa": "[tɕət̚˦˧˥ tʰaːj˧˩ ŋwi˧ haːj˧˨]",
+      "zh": "危險廢棄物 / 有害廢棄物",
+      "en": "Hazardous Industrial Waste",
+      "hanViet": "Chất (質) + Thải + Nguy hại (危害)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🌱 越南製造業環保法規執法趨勢與處罰避坑",
+    "titleEn": "Environmental Regulations & Enforcement Trends in Vietnam",
+    "contentZh": "近年來越南政府對外資企業之環保稽查極其嚴苛，未具備《環境許可證》擅自投產最高可面臨 20 億越南盾罰鍰乃至勒令停產停業。企業務必落實：1. 設置雨污分流管網；2. 廠內危廢儲存間需防滲漏並張貼危險標誌；3. 產量達標時依法安裝廢水/廢氣「自動連續在線監測系統 (Quan trắc tự động liên tục)」並即時連線至環境廳數據中心。",
+    "contentEn": "Vietnam strictly enforces environmental laws; operating without permits can trigger VND 2B fines and shutdowns. Implement stormwater/sewage separation, leak-proof hazardous rooms, and continuous telemetry systems.",
+    "proTipZh": "✨ 秘笈：每季定期委託具備 VIMCERTS 認證的第三方檢測實驗室進行排污採樣監測並出具報告，留檔備查！",
+    "proTipEn": "✨ Pro Tip: Contract VIMCERTS-accredited third-party labs for quarterly sampling reports to safeguard against surprise audits."
+  }
+},
+{
+  "id": "biz_fire_safety_pccc",
+  "category": "business",
+  "tagZh": "消防審驗",
+  "tagEn": "Fire Safety PCCC",
+  "icon": "🚒",
+  "image": "business.jpg",
+  "titleZh": "消防工程審批 (PCCC)、噴淋系統與消防驗收",
+  "titleEn": "Fire Safety Design Appraisal (PCCC), Sprinklers & Police Inspection",
+  "titleVi": "Thẩm Duyệt Thiết Kế Phòng Cháy Chữa Cháy (PCCC) & Nghiệm Thu Công An",
+  "summaryZh": "廠房投產前置：申請消防設計審批 (Thẩm duyệt PCCC)、安裝自動噴淋系統 (Sprinkler)、防火塗料與通過公安局消防實地驗收。",
+  "summaryEn": "Pre-operational fire compliance: secure PCCC design appraisal, install automatic sprinklers, fireproof coatings, and pass Police Fire Acceptance Inspection.",
+  "dialogues": [
+    {
+      "speaker": "Kỹ sư Tư vấn PCCC (消防顧問工程師)",
+      "role": "npc",
+      "viet": "Kính chào Tổng Giám Đốc! Bản vẽ thiết kế hệ thống Phòng cháy chữa cháy (PCCC) của nhà xưởng đã được Cục Cảnh sát PCCC phê duyệt thẩm duyệt.",
+      "zh": "總經理好！我們廠房的消防系統設計圖紙已經正式通過公安局消防警察局的圖紙審查與審批 (Thẩm duyệt PCCC)。",
+      "en": "General Director! Our factory Fire Protection (PCCC) design drawings have been officially approved by the Fire Police Bureau.",
+      "northTip": "「PCCC」(Phòng cháy chữa cháy) 是全越南最重要的工廠安檢審核代名詞。",
+      "southTip": "「Thẩm duyệt thiết kế PCCC」是開工前不可或缺的前置法定審批文件。"
+    },
+    {
+      "speaker": "Giám đốc Nhà máy (廠長)",
+      "role": "learner",
+      "viet": "Hệ thống chữa cháy tự động Sprinkler, vách ngăn chống cháy và sơn chống cháy kết cấu thép đã hoàn thành 100% chưa?",
+      "zh": "自動噴淋滅火系統 (Sprinkler)、防火隔牆與鋼結構防火塗料工程是否已 100% 施工完畢？",
+      "en": "Are the automatic sprinkler system, fire-rated partition walls, and steel intumescent paint 100% installed?",
+      "northTip": "「Hệ thống chữa cháy tự động」(自動滅火系統)；「Sơn chống cháy」(防火塗料)。",
+      "southTip": "鋼結構耐火時限（通常要求 60~120 分鐘）是消防驗收最核心指標。"
+    },
+    {
+      "speaker": "Kỹ sư Tư vấn PCCC (消防顧問工程師)",
+      "role": "npc",
+      "viet": "Dạ toàn bộ đã lắp đặt xong. Bể nước ngầm cứu hỏa 400 m3 và 2 máy bơm diesel dự phòng đã chạy thử nghiệm áp lực đạt chuẩn.",
+      "zh": "全部安裝完畢。400 立方公尺的專用消防蓄水池與 2 台備用柴油消防泵已完成加壓試車測試，水壓完全達標。",
+      "en": "All installed. The 400 m3 underground fire reservoir and 2 backup diesel pumps successfully completed pressure testing.",
+      "northTip": "「Bể nước cứu hỏa」(消防水池)；「Máy bơm」(消防加壓水泵)。",
+      "southTip": "實地驗收時公安消防警察會親自啟動測試水泵噴水壓力與警報聯動。"
+    },
+    {
+      "speaker": "Giám đốc Nhà máy (廠長)",
+      "role": "learner",
+      "viet": "Rất tốt. Hãy làm việc với Phòng Cảnh sát PCCC tỉnh để tổ chức kiểm tra nghiệm thu thực địa vào tuần sau để kịp ngày khai trương.",
+      "zh": "太好了。請儘快與省公安消防局協調，安排在下週進行現場實地驗收檢查，確保廠房如期正式開業投產。",
+      "en": "Very good. Coordinate with the Provincial Fire Police to schedule the on-site acceptance inspection next week for our grand opening.",
+      "northTip": "「Nghiệm thu thực địa」(實地現場驗收)；「Biên bản nghiệm thu」(驗收合格紀錄)。",
+      "southTip": "取得「Văn bản nghiệm thu PCCC」是工廠合法投產運營的最後一張關鍵王牌。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "外派廠長",
+    "userRoleEn": "Plant Manager",
+    "partnerRoleZh": "公安消防局驗收長官",
+    "partnerRoleEn": "Fire Police Inspector",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Đoàn kiểm tra PCCC sẽ kích hoạt chuông báo cháy và thử nghiệm áp lực vòi phun nước ở chuyền 1.",
+        "partnerPromptZh": "消防檢查組將觸發手動火警警報鈴，並現場測試 1 號產線消防栓水帶的噴水壓力。",
+        "partnerPromptEn": "The fire inspection team will trigger the alarm bell and test fire hose nozzle pressure at Line 1.",
+        "userOptions": [
+          {
+            "id": "pccc_opt1",
+            "textVi": "Dạ kính mời cán bộ kiểm tra. Đội PCCC cơ sở của xưởng đã túc trực và hệ thống bơm tự động sẵn sàng 100%.",
+            "textZh": "請長官檢驗。廠內基層消防應變自衛隊已全體待命，自動加壓泵浦系統 100% 準備就緒。",
+            "textEn": "Please proceed. Our on-site volunteer fire brigade is on standby and automatic pump systems are 100% ready.",
+            "isCorrect": true,
+            "feedbackZh": "應對沉著自信！訓練有素的基層消防自衛隊能給消防長官留下極佳印象。",
+            "feedbackEn": "Confident, disciplined response demonstrating on-site emergency readiness."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Phòng cháy chữa cháy (PCCC)",
+      "vi": "Phòng cháy chữa cháy (PCCC)",
+      "phonetic": "[fawŋ˨˩ tɕaːj˦˧˥ tɕɨə˦˧˥ tɕaːj˦˧˥]",
+      "ipa": "[fawŋ˨˩ tɕaːj˦˧˥ tɕɨə˦˧˥ tɕaːj˦˧˥]",
+      "zh": "消防 / 消防滅火工程 (PCCC)",
+      "en": "Fire Safety & Firefighting (PCCC)",
+      "hanViet": "Phòng (防) + Cháy + Chữa + Cháy"
+    },
+    {
+      "viet": "Thẩm duyệt PCCC",
+      "vi": "Thẩm duyệt PCCC",
+      "phonetic": "[tʰəm˧˩ zwiət̚˧˨]",
+      "ipa": "[tʰəm˧˩ zwiət̚˧˨]",
+      "zh": "消防設計審定與審批",
+      "en": "Fire Safety Design Approval",
+      "hanViet": "Thẩm (審) + Duyệt (閱)"
+    },
+    {
+      "viet": "Hệ thống Sprinkler",
+      "vi": "Hệ thống Sprinkler",
+      "phonetic": "[he˧˨ tʰəwŋm˦˧˥ spriŋ-kler]",
+      "ipa": "[he˧˨ tʰəwŋm˦˧˥ spriŋ-kler]",
+      "zh": "自動灑水噴淋滅火系統",
+      "en": "Automatic Sprinkler System",
+      "hanViet": "Hệ thống (系統)"
+    },
+    {
+      "viet": "Nghiệm thu PCCC",
+      "vi": "Nghiệm thu PCCC",
+      "phonetic": "[ŋiəm˧˨ tʰu˧]",
+      "ipa": "[ŋiəm˧˨ tʰu˧]",
+      "zh": "消防驗收合格認可",
+      "en": "Fire Acceptance Inspection",
+      "hanViet": "Nghiệm (驗) + Thu (收)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🚒 越南工廠消防 (PCCC) 驗收最嚴法規與避坑指南",
+    "titleEn": "Fire Safety (PCCC) Inspection Standards & Compliance in Vietnam",
+    "contentZh": "越南現行 QCVN 06:2022/BXD 消防建築技術標準被譽為史上最嚴格法規。自建或租賃廠房投產前，必須依序完成：1. 消防設計審批圖 (Thẩm duyệt)；2. 取得合格防火塗料與防火門檢驗證明；3. 通過公安局消防警察實地聯動測試並取得《消防驗收合格批文 (Văn bản nghiệm thu PCCC)》。未獲批文擅自使用將被斷電並勒令停業！",
+    "contentEn": "Vietnam enforces rigorous QCVN 06 fire standards. Factories must secure Design Approval, certified fire-rated materials, and official Police Acceptance Dossiers prior to launch.",
+    "proTipZh": "✨ 秘笈：廠房走道與緊急出口標示（Đèn Exit & Đèn sự cố 蓄電應急照明燈）務必保證 24 小時充飽電且不得堆放任何棧板貨物！",
+    "proTipEn": "✨ Pro Tip: Emergency exit illuminated signs and backup battery lights must be kept fully charged with exit aisles 100% unobstructed."
+  }
+},
+{
+  "id": "biz_work_permit_trc",
+  "category": "business",
+  "tagZh": "外派居留",
+  "tagEn": "Work Permit & TRC",
+  "icon": "🛂",
+  "image": "business.jpg",
+  "titleZh": "外籍幹部工作證 (Work Permit) 與三年暫住卡申辦",
+  "titleEn": "Expatriate Work Permit & 3-Year Temporary Residence Card (TRC)",
+  "titleVi": "Xin Giấy Phép Lao Động (Work Permit) & Thẻ Tạm Trú (TRC) Cho Chuyên Gia",
+  "summaryZh": "台商幹部外派合法合規：申報外籍專家用人需求批文 (Giải trình nhu cầu lao động)、辦理 2 年工作證與領取 3 年暫住卡 (TRC)。",
+  "summaryEn": "Legal expat deployment: file foreign labor quota justifications, secure 2-year Work Permits, and obtain 3-year Temporary Residence Cards (TRC).",
+  "dialogues": [
+    {
+      "speaker": "Chuyên viên Pháp lý & Visa (人資法務專員)",
+      "role": "npc",
+      "viet": "Chào Tổng Giám Đốc! Bộ Lao động - Thương binh và Xã hội đã phê duyệt Công văn chấp thuận nhu cầu sử dụng lao động nước ngoài cho 5 vị trí chuyên gia Đài Loan của bên mình.",
+      "zh": "總經理好！勞動榮軍與社會部已經正式核准我們公司 5 位台灣專家引進的「外國勞工用人需求公文批文」。",
+      "en": "General Director! The Ministry of Labor has approved the Foreign Labor Quota approval letter for our 5 Taiwanese specialists.",
+      "northTip": "「Công văn chấp thuận nhu cầu」(用人需求核准公文) 是辦理工作證第一步。",
+      "southTip": "外派主管在入境前 30 天必須先取得省級勞動廳之用人額度批文。"
+    },
+    {
+      "speaker": "Tổng Giám Đốc (總經理)",
+      "role": "learner",
+      "viet": "Hồ sơ xin cấp Giấy phép lao động (Work Permit) cho các kỹ sư bao gồm Lý lịch tư pháp, Bằng đại học và Giấy xác nhận kinh nghiệm 3 năm đã hợp pháp hóa lãnh sự chưa?",
+      "zh": "工程師們申辦工作證 (Work Permit) 的良民證、大學畢業證書與 3 年工作經驗證明文件，都已經完成台灣外交部與越南代表處的駐外使館認證了嗎？",
+      "en": "Have our engineers' Work Permit documents—including Police Clearance, University Degrees, and 3-Year Experience Letters—been consularly legalized?",
+      "northTip": "「Hợp pháp hóa lãnh sự」(駐外使館公證/領事認證) 是跨國文件法定要求。",
+      "southTip": "「Lý lịch tư pháp」(良民證/無犯罪紀錄證明) 效期通常為 6 個月。"
+    },
+    {
+      "speaker": "Chuyên viên Pháp lý & Visa (人資法務專員)",
+      "role": "npc",
+      "viet": "Dạ toàn bộ đã được dịch thuật công chứng sang tiếng Việt. Sở Lao động sẽ cấp Giấy phép lao động thời hạn 2 năm trong vòng 10 ngày làm việc.",
+      "zh": "全部文件均已完成越文公證翻譯。省勞動廳將在 10 個工作天內核發 2 年期正式工作證。",
+      "en": "All documents are translated and notarized in Vietnamese. The Department of Labor will issue 2-year Work Permits within 10 business days.",
+      "northTip": "「Dịch thuật công chứng」(公證翻譯)；「Giấy phép lao động」(Work Permit)。",
+      "southTip": "工作證最長效期為 2 年，期滿可辦理延期手續。"
+    },
+    {
+      "speaker": "Tổng Giám Đốc (總經理)",
+      "role": "learner",
+      "viet": "Sau khi có Work Permit, hãy nộp hồ sơ lên Cục Quản lý Xuất nhập cảnh để xin cấp Thẻ Tạm Trú (TRC ký hiệu LĐ2) thời hạn 2 năm để các chuyên gia xuất nhập cảnh miễn visa nhé.",
+      "zh": "取得工作證後，請立即向公安部出入境管理局遞件申請 2 年期暫住卡 (TRC 代號 LĐ2)，讓外派幹部享有免簽證多次往返越南的便利。",
+      "en": "Once we have the Work Permit, submit to the Immigration Department for 2-year Temporary Residence Cards (TRC - LĐ2) for visa-free entry.",
+      "northTip": "「Thẻ Tạm Trú TRC」(暫住卡) 相當於越南外籍人士居留證。",
+      "southTip": "持有 TRC 即可不限次數免簽進出越南，並可憑證在越南銀行開設個人外幣帳戶與租屋。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "外派總經理",
+    "userRoleEn": "General Director",
+    "partnerRoleZh": "出入境管理局移民官",
+    "partnerRoleEn": "Immigration Officer",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Hồ sơ xin cấp Thẻ Tạm Trú LĐ2 của chuyên gia đã đầy đủ hộ chiếu gốc, mẫu đơn NA8 và Giấy phép lao động chưa?",
+        "partnerPromptZh": "申辦專家 LĐ2 暫住卡的文件是否已備齊護照原件、NA8 申請表與工作證原件？",
+        "partnerPromptEn": "Does the LĐ2 TRC application include the original passport, NA8 form, and original Work Permit?",
+        "userOptions": [
+          {
+            "id": "trc_opt1",
+            "textVi": "Dạ đầy đủ rồi ạ. Kính gửi cán bộ hồ sơ gốc và tờ khai tạm trú trực tuyến của công an phường.",
+            "textZh": "全部齊全。呈上完整正本文件與當地派出所之線上外籍人士暫住登記申報單。",
+            "textEn": "All set. Submitting original documents and the local police online residence registration slip.",
+            "isCorrect": true,
+            "feedbackZh": "完全合規！線上暫住登記與 NA8 申報齊全，順利領取 2 年期 TRC 暫住卡！",
+            "feedbackEn": "Flawless immigration submission securing the 2-year TRC residence card."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Giấy phép lao động",
+      "vi": "Giấy phép lao động",
+      "phonetic": "[zəj˦˧˥ fɛp̚˦˧˥ laːw˧ ɗəwŋm˧˨]",
+      "ipa": "[zəj˦˧˥ fɛp̚˦˧˥ laːw˧ ɗəwŋm˧˨]",
+      "zh": "工作證 (Work Permit)",
+      "en": "Work Permit",
+      "hanViet": "Giấy + Phép + Lao động (勞動)"
+    },
+    {
+      "viet": "Thẻ tạm trú",
+      "vi": "Thẻ tạm trú",
+      "phonetic": "[tʰɛ˧˩ taːm˧˨ tɕu˦˧˥]",
+      "ipa": "[tʰɛ˧˩ taːm˧˨ tɕu˦˧˥]",
+      "zh": "外籍人士暫住卡 (TRC)",
+      "en": "Temporary Residence Card (TRC)",
+      "hanViet": "Thẻ (卡) + Tạm (暫) + Trú (住)"
+    },
+    {
+      "viet": "Hợp pháp hóa lãnh sự",
+      "vi": "Hợp pháp hóa lãnh sự",
+      "phonetic": "[həːp̚˧˨ faːp̚˦˧˥ hwaː˦˧˥ laːɲ˦˧˥ sɨ˧˨]",
+      "ipa": "[həːp̚˧˨ faːp̚˦˧˥ hwaː˦˧˥ laːɲ˦˧˥ sɨ˧˨]",
+      "zh": "領事認證 / 外交使館公證",
+      "en": "Consular Legalization",
+      "hanViet": "Hợp pháp hóa (合法化) + Lãnh sự (領事)"
+    },
+    {
+      "viet": "Lý lịch tư pháp",
+      "vi": "Lý lịch tư pháp",
+      "phonetic": "[li˦˧˥ lit̚˧˨ tɨ˧ faːp̚˦˧˥]",
+      "ipa": "[li˦˧˥ lit̚˧˨ tɨ˧ faːp̚˦˧˥]",
+      "zh": "良民證 / 無犯罪紀錄證明",
+      "en": "Police Clearance Certificate",
+      "hanViet": "Lý lịch (履歷) + Tư pháp (司法)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🛂 越南外派幹部工作簽證、工作證與暫住卡合規要訣",
+    "titleEn": "Expat Visa, Work Permit & Residency Compliance in Vietnam",
+    "contentZh": "外派幹部切勿持「旅遊簽證 (DL)」或僅持「商務簽證 (DN)」長期在越南工廠從事實質勞動與日常管理，否則將面臨重罰、沒收非法所得與驅逐出境 (Trục xuất)。標準合規路徑為：商務簽入境 -> 申請勞動用人配額批文 -> 辦理 Work Permit 工作證 -> 換發 2~3 年期 Thẻ Tạm Trú (TRC) 暫住卡。",
+    "contentEn": "Never engage in full-time management on tourist or ordinary business visas. Always follow the legal sequence: Quota Approval -> Work Permit -> 2-3 Year TRC Residence Card.",
+    "proTipZh": "✨ 秘笈：持有 TRC 暫住卡後，即可在越南合法報考或換發越南汽車/機車駕照（Đổi bằng lái xe）！",
+    "proTipEn": "✨ Pro Tip: With a valid TRC, expats can legally convert their home driving license into a Vietnamese Driver's License."
+  }
+},
+{
+  "id": "biz_tax_audit_transfer_pricing",
+  "category": "business",
+  "tagZh": "稅務稽查",
+  "tagEn": "Tax Audit & Transfer Pricing",
+  "icon": "📊",
+  "image": "business.jpg",
+  "titleZh": "國稅局稅務稽查、移轉訂價與反避稅抗辯",
+  "titleEn": "Tax Audit Defense, Transfer Pricing Documentation & FDI Compliance",
+  "titleVi": "Thanh Tra Thuế Doanh Nghiệp FDI, Chống Chuyển Giá & Giải Trình Quyết Toán",
+  "summaryZh": "外資稅務實戰：迎戰越南稅務總局年度稽查 (Thanh tra thuế)、編制移轉訂價三層文檔 (Transfer Pricing Local File) 與捍衛關聯交易合理性。",
+  "summaryEn": "Tax audit defense: prepare for General Department of Taxation audits, compile 3-tier Transfer Pricing local files, and justify intercompany cross-border transactions.",
+  "dialogues": [
+    {
+      "speaker": "Trưởng đoàn Thanh tra Thuế (國稅局稽查組長)",
+      "role": "npc",
+      "viet": "Kính chào Ban Giám Đốc. Theo Quyết định thanh tra thuế, chúng tôi sẽ tiến hành thanh tra quyết toán Thuế TNDN và kiểm tra giao dịch liên kết của công ty trong 3 năm qua.",
+      "zh": "各位主管好。依據稅務局稽查決定書，我們將對貴公司過去 3 年的企業所得稅 (CIT) 結算申報與跨國關聯交易展開全面查帳稽查。",
+      "en": "Greetings Leadership. Pursuant to our Tax Audit Decision, we will audit corporate income tax filings and transfer pricing transactions over the past 3 years.",
+      "northTip": "「Thanh tra thuế」(稅務專案稽查) 是越南國稅局對外資企業的重要審查程序。",
+      "southTip": "「Giao dịch liên kết」指跨國母子公司之間的關聯方交易。"
+    },
+    {
+      "speaker": "Tổng Giám Đốc CFO (財務長)",
+      "role": "learner",
+      "viet": "Dạ, chúng tôi hoàn toàn hợp tác. Công ty đã chuẩn bị đầy đủ Hồ sơ Quốc gia (Local File), Hồ sơ Toàn cầu (Master File) và Báo cáo lợi nhuận theo Nghị định 132.",
+      "zh": "我們全力配合。公司已依據越南政府第 132 號法令，備齊本地文檔 (Local File)、主體文檔 (Master File) 以及常規交易利潤率分析報告。",
+      "en": "We are fully cooperative. We prepared the Local File, Master File, and benchmark profit margin studies per Decree 132.",
+      "northTip": "「Nghị định 132」是越南現行最權威之移轉訂價反避稅法令。",
+      "southTip": "備齊 Transfer Pricing 移轉訂價報告能免除被稅局直接逕行核定利潤率（Ấn định thuế）。"
+    },
+    {
+      "speaker": "Trưởng đoàn Thanh tra Thuế (國稅局稽查組長)",
+      "role": "npc",
+      "viet": "Chúng tôi cần giải trình chi tiết về khoản phí bản quyền công nghệ (Royalty fee) 3% và phí hỗ trợ quản lý kỹ thuật trả về công ty mẹ tại Đài Loan.",
+      "zh": "我們需要貴方就支付給台灣母公司 3% 的技術權利金 (Royalty Fee) 以及管理技術諮詢服務費提供具體商業實質佐證說明。",
+      "en": "We require detailed justification regarding the 3% technology royalty fee and management service fees paid to Taiwan parent HQ.",
+      "northTip": "「Phí bản quyền」(權利金)；「Công ty mẹ」(母公司)。",
+      "southTip": "向母公司支付的管理費若無具體工時紀錄或產出報告，容易被稅局全額剔除不可抵扣。"
+    },
+    {
+      "speaker": "Tổng Giám Đốc CFO (財務長)",
+      "role": "learner",
+      "viet": "Chúng tôi có đầy đủ hợp đồng chuyển giao công nghệ đã đăng ký với Bộ Khoa học & Công nghệ, kèm nhật ký công tác của chuyên gia và chứng từ nộp thuế nhà thầu (FCT).",
+      "zh": "我們備齊向科技部完成登記之技術移轉合約，並附有台灣專家的出差工時日誌以及代扣代繳之外國承包商稅 (FCT) 完稅證明憑證。",
+      "en": "We hold tech transfer contracts registered with MOST, specialist timesheets, and Foreign Contractor Tax (FCT) withholding receipts.",
+      "northTip": "「Thuế nhà thầu FCT」(外國承包商稅) 是跨國支付服務費與權利金必扣稅賦。",
+      "southTip": "憑證鏈完整是抵禦稅局補稅罰款的最佳護城河。"
+    }
+  ],
+  "rolePlay": {
+    "userRoleZh": "企業財務長 CFO",
+    "userRoleEn": "Corporate CFO",
+    "partnerRoleZh": "稅務稽查長官",
+    "partnerRoleEn": "Senior Tax Inspector",
+    "steps": [
+      {
+        "stepIndex": 1,
+        "partnerPromptVi": "Khoản chi phí lãi vay vượt mức trần 30% EBITDA theo quy định sẽ bị loại trừ khi tính thuế TNDN, anh có ý kiến gì không?",
+        "partnerPromptZh": "超過規定 EBITDA 30% 上限門檻的利息支出將在計算企業所得稅時予以剔除，您對此有何說明？",
+        "partnerPromptEn": "Net interest expense exceeding the 30% EBITDA ceiling will be disallowed for CIT deductions. Any comments?",
+        "userOptions": [
+          {
+            "id": "tax_opt1",
+            "textVi": "Chúng tôi đồng ý loại trừ phần vượt trần năm nay và xin chuyển phần chi phí lãi vay này sang khấu trừ trong 5 năm tiếp theo theo luật định.",
+            "textZh": "我們同意在今年度剔除超額部分，並依法將該筆利息支出結轉至未來 5 年內繼續遞延扣除。",
+            "textEn": "We agree to disallow the excess this year and request carrying forward the disallowed interest to the next 5 consecutive years per regulations.",
+            "isCorrect": true,
+            "feedbackZh": "深諳稅法！精準運用 5 年利息結轉扣除規定，既維護稅務合規又為企業守住稅務利益。",
+            "feedbackEn": "Brilliant tax response leveraging the 5-year interest expense carry-forward rules."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Thanh tra thuế",
+      "vi": "Thanh tra thuế",
+      "phonetic": "[tʰaɲ˧ tɕaː˧ tʰwe˦˧˥]",
+      "ipa": "[tʰaɲ˧ tɕaː˧ tʰwe˦˧˥]",
+      "zh": "稅務稽查 / 稅務查帳",
+      "en": "Tax Audit / Inspection",
+      "hanViet": "Thanh tra (清查) + Thuế (稅)"
+    },
+    {
+      "viet": "Giao dịch liên kết",
+      "vi": "Giao dịch liên kết",
+      "phonetic": "[zaːw˧ zit̚˧˨ liən˧ ket̚˦˧˥]",
+      "ipa": "[zaːw˧ zit̚˧˨ liən˧ ket̚˦˧˥]",
+      "zh": "關聯交易 / 關係人交易 (Transfer Pricing)",
+      "en": "Related-Party Transaction",
+      "hanViet": "Giao dịch (交易) + Liên kết (連結)"
+    },
+    {
+      "viet": "Thuế nhà thầu (FCT)",
+      "vi": "Thuế nhà thầu (FCT)",
+      "phonetic": "[tʰwe˦˧˥ ɲaː˨˩ tʰəw˨˩]",
+      "ipa": "[tʰwe˦˧˥ ɲaː˨˩ tʰəw˨˩]",
+      "zh": "外國承包商稅 (FCT)",
+      "en": "Foreign Contractor Tax (FCT)",
+      "hanViet": "Thuế + Nhà thầu"
+    },
+    {
+      "viet": "Quyết toán thuế",
+      "vi": "Quyết toán thuế",
+      "phonetic": "[kwiət̚˦˧˥ twaːn˦˧˥ tʰwe˦˧˥]",
+      "ipa": "[kwiət̚˦˧˥ twaːn˦˧˥ tʰwe˦˧˥]",
+      "zh": "年度稅務結算 / 申報清算",
+      "en": "Annual Tax Finalization",
+      "hanViet": "Quyết toán (決算) + Thuế (稅)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "📊 越南外商投資企業 (FDI) 稅務稽查與移轉訂價反避稅",
+    "titleEn": "FDI Tax Audit Defense & Transfer Pricing Rules (Decree 132) in Vietnam",
+    "contentZh": "越南稅務局近年重點鎖定跨國 FDI 企業進行「反避稅稽查 (Chống chuyển giá)」，特別關注：1. 連續虧損但產能持續擴張；2. 跨國母子公司利息支出超過 EBITDA 30% 上限；3. 境外管理諮詢費與特許權利金。企業每年與年度所得稅申報同時提交「關聯交易申報表 (Phụ lục giao dịch liên kết)」，是避免直接被稅局重估核定的關鍵。",
+    "contentEn": "Vietnam actively targets FDI transfer pricing. Ensure robust local documentation for management fees, intercompany loans (30% EBITDA cap), and intellectual property royalties under Decree 132.",
+    "proTipZh": "✨ 秘笈：在向海外母公司支付技術諮詢服務費前，務必妥善存檔專家的護照出入境章、工作電郵、視訊會議紀錄與技術報告作為商業實質憑證！",
+    "proTipEn": "✨ Pro Tip: Archive specialist passport entry stamps, email deliverables, and technical reports to prove commercial substance for foreign service fees."
+  }
+}
 ];

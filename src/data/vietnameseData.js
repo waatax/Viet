@@ -164,6 +164,503 @@ export const vietnameseTones = [
   }
 ];
 
+// 2.1 越南語 12 大單母音 (12 Single Vowels)
+export const vietnameseSingleVowels = [
+  {
+    vowel: 'a',
+    ipa: '[aː]',
+    length: 'long',
+    lip: 'unrounded',
+    descZh: '長母音 a，開口度最大，舌位居中，類似國語「阿」長音。',
+    descEn: 'Long open central unrounded vowel, like "a" in father.',
+    examples: [
+      { vi: 'Ba', zh: '爸爸 / 數字3', en: 'Father / Three' },
+      { vi: 'Nhà', zh: '家 / 房屋', en: 'House / Home' },
+      { vi: 'Cá', zh: '魚', en: 'Fish' }
+    ]
+  },
+  {
+    vowel: 'ă',
+    ipa: '[a]',
+    length: 'short',
+    lip: 'unrounded',
+    descZh: '短母音 a，嘴巴同樣張大但發音極短促，不能單獨成字，後方必接尾子音。',
+    descEn: 'Short open central vowel, requires a final consonant.',
+    examples: [
+      { vi: 'Ăn', zh: '吃', en: 'To eat' },
+      { vi: 'Bắt', zh: '抓 / 逮捕', en: 'To catch / Arrest' },
+      { vi: 'Tắm', zh: '洗澡', en: 'To bathe' }
+    ]
+  },
+  {
+    vowel: 'â',
+    ipa: '[ə]',
+    length: 'short',
+    lip: 'unrounded',
+    descZh: '短母音 â，嘴巴微開自然放鬆，類似短促的「ㄜ」，不能單獨成字。',
+    descEn: 'Short mid central vowel, like "u" in cup/bun.',
+    examples: [
+      { vi: 'Âm', zh: '聲音 / 陰', en: 'Sound / Yin' },
+      { vi: 'Cân', zh: '公斤 / 秤重', en: 'Kilogram / Weigh' },
+      { vi: 'Tất', zh: '襪子 / 全部', en: 'Socks / All' }
+    ]
+  },
+  {
+    vowel: 'e',
+    ipa: '[ɛ]',
+    length: 'long',
+    lip: 'unrounded',
+    descZh: '前半開長母音，嘴唇扁平，開口度比 ê 大，類似英文 "bed" 中的 e。',
+    descEn: 'Open-mid front unrounded vowel, like "e" in bed.',
+    examples: [
+      { vi: 'Em', zh: '弟妹 / 晚輩 (你/我)', en: 'Junior sibling / You' },
+      { vi: 'Mẹ', zh: '母親 / 媽媽', en: 'Mother' },
+      { vi: 'Xe', zh: '車子', en: 'Vehicle / Car' }
+    ]
+  },
+  {
+    vowel: 'ê',
+    ipa: '[e]',
+    length: 'long',
+    lip: 'unrounded',
+    descZh: '前半閉長母音，嘴角向兩側拉開成微笑狀，類似國語「ㄝ」。',
+    descEn: 'Close-mid front unrounded vowel, like "ay" in say.',
+    examples: [
+      { vi: 'Bê', zh: '小牛 / 端拿', en: 'Calf / To carry' },
+      { vi: 'Ghế', zh: '椅子', en: 'Chair' },
+      { vi: 'Điệu', zh: '韻律 / 聲調', en: 'Melody / Rhythm' }
+    ]
+  },
+  {
+    vowel: 'i',
+    ipa: '[i]',
+    length: 'long',
+    lip: 'unrounded',
+    descZh: '前高閉長母音「短 i (i ngắn)」，嘴角拉開，類似國語「一」。',
+    descEn: 'Close front unrounded vowel, like "ee" in see.',
+    examples: [
+      { vi: 'Đi', zh: '走 / 去', en: 'To go / Walk' },
+      { vi: 'Tìm', zh: '尋找', en: 'To seek / Find' },
+      { vi: 'Chín', zh: '數字9 / 煮熟', en: 'Nine / Ripe' }
+    ]
+  },
+  {
+    vowel: 'y',
+    ipa: '[i]',
+    length: 'long',
+    lip: 'unrounded',
+    descZh: '長母音「長 y (i dài)」，發音與 i 完全相同，常出現在特定雙母音 (yê, ay, ây) 或外來語。',
+    descEn: 'Long "i dài", phonetically identical to "i ngắn".',
+    examples: [
+      { vi: 'Yêu', zh: '愛', en: 'To love' },
+      { vi: 'Y tá', zh: '護士', en: 'Nurse' },
+      { vi: 'Mỹ', zh: '美國 / 美麗', en: 'America / Beauty' }
+    ]
+  },
+  {
+    vowel: 'o',
+    ipa: '[ɔ]',
+    length: 'long',
+    lip: 'rounded',
+    descZh: '後半開圓唇母音，嘴唇圓張如雞蛋形，發「喔」長音。',
+    descEn: 'Open-mid back rounded vowel, like "aw" in saw.',
+    examples: [
+      { vi: 'Ong', zh: '蜜蜂', en: 'Bee' },
+      { vi: 'Học', zh: '學習', en: 'To study' },
+      { vi: 'Ngon', zh: '好吃 / 美味', en: 'Delicious' }
+    ]
+  },
+  {
+    vowel: 'ô',
+    ipa: '[o]',
+    length: 'long',
+    lip: 'rounded',
+    descZh: '後半閉圓唇母音，嘴唇聚圓成小孔，發「歐」音。',
+    descEn: 'Close-mid back rounded vowel, like "o" in boat.',
+    examples: [
+      { vi: 'Ô', zh: '雨傘 / 格子', en: 'Umbrella / Cell' },
+      { vi: 'Cô', zh: '姑姑 / 女老師', en: 'Aunt / Miss' },
+      { vi: 'Tốt', zh: '良好 / 好', en: 'Good / Fine' }
+    ]
+  },
+  {
+    vowel: 'ơ',
+    ipa: '[əː]',
+    length: 'long',
+    lip: 'unrounded',
+    descZh: '長母音 ơ，嘴巴自然微開，舌身放平發長「ㄜ」音（與短 âm â 呈長短對立）。',
+    descEn: 'Long mid central unrounded vowel, longer counterpart of â.',
+    examples: [
+      { vi: 'Ơn', zh: '恩惠 / 感恩', en: 'Favor / Gratitude' },
+      { vi: 'Cơm', zh: '米飯 / 便當', en: 'Cooked rice' },
+      { vi: 'Bơ', zh: '奶油 / 酪梨', en: 'Butter / Avocado' }
+    ]
+  },
+  {
+    vowel: 'u',
+    ipa: '[u]',
+    length: 'long',
+    lip: 'rounded',
+    descZh: '後高閉圓唇母音，雙唇極力向前突出嘟圓，發「烏」音。',
+    descEn: 'Close back rounded vowel, like "oo" in moon.',
+    examples: [
+      { vi: 'Uống', zh: '喝', en: 'To drink' },
+      { vi: 'Mua', zh: '買', en: 'To buy' },
+      { vi: 'Thu', zh: '秋天 / 收取', en: 'Autumn / Collect' }
+    ]
+  },
+  {
+    vowel: 'ư',
+    ipa: '[ɨ]',
+    length: 'long',
+    lip: 'unrounded',
+    descZh: '後高閉不圓唇母音，嘴角向兩邊拉開微笑，喉頭發「烏」音。',
+    descEn: 'Close central unrounded vowel, "u" pronounced with smiling flat lips.',
+    examples: [
+      { vi: 'Ước', zh: '願望 / 期望', en: 'Wish / Hope' },
+      { vi: 'Thực', zh: '真實 / 食物', en: 'Real / Food' },
+      { vi: 'Mực', zh: '墨水 / 烏賊', en: 'Ink / Squid' }
+    ]
+  }
+];
+
+// 2.2 越南語 11 大複子音 (11 Compound Initial Consonants)
+export const vietnameseCompoundConsonants = [
+  {
+    cluster: 'ch',
+    ipa: '[c] / [tɕ]',
+    organZh: '舌面前硬顎塞音',
+    descZh: '舌面前部緊貼硬顎，不送氣爆破，類似國語「ㄐ/ㄓ」的不送氣音。',
+    descEn: 'Voiceless palatal stop, like "ch" in chair but unaspirated.',
+    examples: [
+      { vi: 'Chào', zh: '問候 / 打招呼', en: 'Hello / Greet' },
+      { vi: 'Chợ', zh: '傳統市場', en: 'Market' },
+      { vi: 'Chó', zh: '狗', en: 'Dog' }
+    ]
+  },
+  {
+    cluster: 'gh',
+    ipa: '[ɣ]',
+    organZh: '舌根軟顎濁擦音',
+    descZh: '與單子音 g 發音完全相同，只在母音 i, e, ê 前拼寫為 gh。',
+    descEn: 'Voiced velar fricative, used exclusively before i, e, ê.',
+    examples: [
+      { vi: 'Ghế', zh: '椅子', en: 'Chair' },
+      { vi: 'Ghi', zh: '記錄 / 登記', en: 'Record / Note' },
+      { vi: 'Ghé', zh: '順道拜訪', en: 'Drop by' }
+    ]
+  },
+  {
+    cluster: 'gi',
+    ipa: '[z] (北) / [j] (南)',
+    organZh: '齒齦濁擦音 (北) / 硬顎半母音 (南)',
+    descZh: '北越讀如同英文 Z 的濁摩擦音 [z]，南越讀如同英文 Y 的半母音 [j]。',
+    descEn: 'North: /z/ as in zoo; South: /j/ as in yes.',
+    examples: [
+      { vi: 'Giờ', zh: '小時 / 時間', en: 'Hour / Time' },
+      { vi: 'Giày', zh: '鞋子', en: 'Shoes' },
+      { vi: 'Giá', zh: '價格 / 豆芽', en: 'Price / Bean sprouts' }
+    ]
+  },
+  {
+    cluster: 'kh',
+    ipa: '[x]',
+    organZh: '舌根軟顎清擦音',
+    descZh: '舌根抬起接近軟顎形成窄縫摩擦出氣，類似德語 "Bach" 或國語「ㄏ」加重摩擦。',
+    descEn: 'Voiceless velar fricative, like "ch" in Scottish loch.',
+    examples: [
+      { vi: 'Không', zh: '不 / 零 / 沒', en: 'No / Not / Zero' },
+      { vi: 'Khách', zh: '客人 / 旅客', en: 'Guest / Customer' },
+      { vi: 'Khó', zh: '困難 / 難', en: 'Difficult / Hard' }
+    ]
+  },
+  {
+    cluster: 'nh',
+    ipa: '[ɲ]',
+    organZh: '舌面前硬顎鼻音',
+    descZh: '舌面緊貼硬顎從鼻腔共鳴出聲，類似西語 "ñ" 或日語「にゃ (nya)」。',
+    descEn: 'Palatal nasal, like "ñ" in Spanish señor or "ny" in canyon.',
+    examples: [
+      { vi: 'Nhà', zh: '家 / 房屋', en: 'House / Family' },
+      { vi: 'Nhỏ', zh: '小 / 年幼', en: 'Small / Young' },
+      { vi: 'Nhiều', zh: '很多', en: 'Many / Much' }
+    ]
+  },
+  {
+    cluster: 'ng / ngh',
+    ipa: '[ŋ]',
+    organZh: '舌根軟顎鼻音',
+    descZh: '字首發後鼻音「ㄥ (ng)」，舌根閉合軟顎由鼻腔出氣；母音 i, e, ê 前拼為 ngh。',
+    descEn: 'Velar nasal /ŋ/ like "singing" but at the beginning of words.',
+    examples: [
+      { vi: 'Ngon', zh: '好吃 / 棒', en: 'Delicious / Great' },
+      { vi: 'Nghe', zh: '聽', en: 'To listen / Hear' },
+      { vi: 'Nghỉ', zh: '休息 / 請假', en: 'To rest / Leave' }
+    ]
+  },
+  {
+    cluster: 'ph',
+    ipa: '[f]',
+    organZh: '唇齒清擦音',
+    descZh: '上齒輕觸下唇吹氣發音，與國語「ㄈ」或英文 "f" 完全相同。',
+    descEn: 'Voiceless labiodental fricative, like "f" in phone.',
+    examples: [
+      { vi: 'Phở', zh: '越南河粉', en: 'Pho noodle soup' },
+      { vi: 'Phố', zh: '街道 / 市區', en: 'Street / Town' },
+      { vi: 'Phát', zh: '發放 / 發展', en: 'Distribute / Develop' }
+    ]
+  },
+  {
+    cluster: 'qu',
+    ipa: '[kʷ] (北) / [w] (南)',
+    organZh: '圓唇舌根塞音',
+    descZh: '北越發 [kw] 雙唇收圓不送氣，南越常軟化為類似英文 "w" 的 [w]。',
+    descEn: 'North: /kw/ as in quick; South: softened to /w/ as in water.',
+    examples: [
+      { vi: 'Quá', zh: '太...了 / 非常', en: 'Too / Very' },
+      { vi: 'Quà', zh: '禮物 / 點心', en: 'Gift / Snack' },
+      { vi: 'Quận', zh: '郡 / 區 (行政區)', en: 'District' }
+    ]
+  },
+  {
+    cluster: 'th',
+    ipa: '[tʰ]',
+    organZh: '舌尖齒齦強送氣清塞音',
+    descZh: '【核心重難點】舌尖抵上齒齦後強力吐氣，與國語「ㄊ」相同，嚴禁發成英文 th。',
+    descEn: 'Strongly aspirated /tʰ/, like "t" in top. Never pronounce as English "th"!',
+    examples: [
+      { vi: 'Thịt', zh: '肉', en: 'Meat' },
+      { vi: 'Thơm', zh: '香味 / 鳳梨', en: 'Fragrant / Pineapple' },
+      { vi: 'Thưa', zh: '敬稟 / 稀疏', en: 'Respected / Formal greeting' }
+    ]
+  },
+  {
+    cluster: 'tr',
+    ipa: '[ʈ] (南) / [c] (北)',
+    organZh: '舌尖捲舌塞音 (南) / 舌面前塞音 (北)',
+    descZh: '南越標準捲舌發 [ʈ] (類似國語「ㄓ」)，北越習慣同化讀成平舌 [c] (同 ch)。',
+    descEn: 'South: Retroflex /ʈ/; North: Merged with /c/ (same as ch).',
+    examples: [
+      { vi: 'Trà', zh: '茶葉 / 飲品', en: 'Tea' },
+      { vi: 'Trắng', zh: '白色', en: 'White' },
+      { vi: 'Trong', zh: '在...裡面 / 清澈', en: 'Inside / Clear' }
+    ]
+  }
+];
+
+// 2.3 越南語 8 大尾子音 (8 Final Consonants / Âm cuối)
+export const vietnameseFinalConsonants = [
+  {
+    category: 'nasal',
+    titleZh: '鼻音韻尾 (4個)：氣流從鼻腔共鳴自然延長',
+    titleEn: 'Nasal Finals (4): Resonates through nasal cavity',
+    items: [
+      {
+        final: '-m',
+        ipa: '[-m]',
+        descZh: '雙唇緊閉收尾，形成閉唇鼻音，如 Cơm (飯), Đêm (夜), Tắm (洗澡)。',
+        descEn: 'Bilabial nasal closure.',
+        examples: [{ vi: 'Cơm', zh: '飯' }, { vi: 'Đêm', zh: '夜晚' }, { vi: 'Làm', zh: '工作' }]
+      },
+      {
+        final: '-n',
+        ipa: '[-n]',
+        descZh: '舌尖抵住上齒齦收尾，如 Tiền (錢), Bạn (朋友), Ăn (吃)。',
+        descEn: 'Alveolar nasal closure.',
+        examples: [{ vi: 'Tiền', zh: '錢' }, { vi: 'Bạn', zh: '朋友' }, { vi: 'Bún', zh: '米線' }]
+      },
+      {
+        final: '-ng',
+        ipa: '[-ŋ]',
+        descZh: '舌根抵住軟顎發後鼻音，如 Sáng (早晨), Uống (喝), Vâng (是的)。',
+        descEn: 'Velar nasal closure.',
+        examples: [{ vi: 'Sáng', zh: '早晨' }, { vi: 'Uống', zh: '喝' }, { vi: 'Đường', zh: '道路/糖' }]
+      },
+      {
+        final: '-nh',
+        ipa: '[-ɲ]',
+        descZh: '舌面貼硬顎發前鼻音，常搭配 a, i, ê，如 Nhanh (快), Tính (計算), Bệnh (生病)。',
+        descEn: 'Palatal nasal closure after a, i, ê.',
+        examples: [{ vi: 'Nhanh', zh: '快速' }, { vi: 'Tính', zh: '計算' }, { vi: 'Bánh', zh: '糕餅/麵包' }]
+      }
+    ]
+  },
+  {
+    category: 'stop',
+    titleZh: '入聲阻氣塞音 (4個)：【只做口形不爆破，只搭配 Sắc 銳聲 與 Nặng 重聲】',
+    titleEn: 'Unreleased Stop Finals (4): Cutoff airflow abruptly (Only with Sắc & Nặng tones)',
+    items: [
+      {
+        final: '-p',
+        ipa: '[-p̚]',
+        descZh: '雙唇緊閉截斷氣流不爆破，如 Đẹp (漂亮), Tiếp (繼續), Hộp (盒子)。',
+        descEn: 'Unreleased bilabial stop.',
+        examples: [{ vi: 'Đẹp', zh: '美麗 / 漂亮' }, { vi: 'Tiếp', zh: '接待 / 繼續' }, { vi: 'Gặp', zh: '遇見' }]
+      },
+      {
+        final: '-t',
+        ipa: '[-t̚]',
+        descZh: '舌尖抵上齒齦急剎截斷氣流，如 Hết (結束), Tốt (好), Mát (涼爽)。',
+        descEn: 'Unreleased alveolar stop.',
+        examples: [{ vi: 'Hết', zh: '完畢 / 結束' }, { vi: 'Tốt', zh: '良好' }, { vi: 'Ít', zh: '少' }]
+      },
+      {
+        final: '-c',
+        ipa: '[-k̚]',
+        descZh: '舌根抵軟顎急停氣流，如 Nước (水), Học (學習), Bắc (北方)。',
+        descEn: 'Unreleased velar stop.',
+        examples: [{ vi: 'Nước', zh: '水 / 國家' }, { vi: 'Học', zh: '學習' }, { vi: 'Việc', zh: '事情 / 工作' }]
+      },
+      {
+        final: '-ch',
+        ipa: '[-c̚]',
+        descZh: '舌面緊貼硬顎急剎，如 Khách (客人), Thích (喜歡), Sách (書本)。',
+        descEn: 'Unreleased palatal stop after a, i, ê.',
+        examples: [{ vi: 'Khách', zh: '客人' }, { vi: 'Thích', zh: '喜歡' }, { vi: 'Sách', zh: '書籍' }]
+      }
+    ]
+  }
+];
+
+// 2.4 越南語 32 大核心雙母音與三母音 (Diphthongs & Triphthongs)
+export const vietnameseDiphthongsTriphthongs = [
+  {
+    group: 'core3',
+    titleZh: '🌟 三大基石主要雙母音 (重音在前，滑向後母音)',
+    titleEn: '3 Core Principal Diphthongs',
+    items: [
+      {
+        pattern: 'ia / iê / yê / ya',
+        ipa: '[iə]',
+        descZh: '從 i 滑向 ơ/a。無尾音拼 ia/ya (Bia, Khuya)；有尾音拼 iê/yê (Tiền, Yêu)。',
+        examples: [{ vi: 'Bia', zh: '啤酒' }, { vi: 'Tiền', zh: '金錢' }, { vi: 'Yêu', zh: '愛' }, { vi: 'Khuya', zh: '深夜' }]
+      },
+      {
+        pattern: 'ua / uô',
+        ipa: '[uə]',
+        descZh: '從 u 滑向 ơ/a。無尾音拼 ua (Mua)；有尾音拼 uô (Uống, Cuộc)。',
+        examples: [{ vi: 'Mua', zh: '購買' }, { vi: 'Uống', zh: '喝' }, { vi: 'Cuộc', zh: '賽事 / 局面' }]
+      },
+      {
+        pattern: 'ưa / ươ',
+        ipa: '[ɨə]',
+        descZh: '從 ư 滑向 ơ/a。無尾音拼 ưa (Mưa, Sữa)；有尾音拼 ươ (Đường, Nước)。',
+        examples: [{ vi: 'Mưa', zh: '下雨' }, { vi: 'Sữa', zh: '牛奶' }, { vi: 'Đường', zh: '道路 / 砂糖' }]
+      }
+    ]
+  },
+  {
+    group: 'other_diphthongs',
+    titleZh: '🎶 實用次要雙母音群 (滑音結尾)',
+    titleEn: 'Practical Secondary Diphthongs',
+    items: [
+      { pattern: 'ai', ipa: '[aːj]', descZh: '長 a 滑向 i，如 Hai (數字2), Mai (明天)', examples: [{ vi: 'Hai', zh: '數字二' }, { vi: 'Mai', zh: '明天' }] },
+      { pattern: 'ao', ipa: '[aːw]', descZh: '長 a 滑向 u/o，如 Chào (問好), Cao (高)', examples: [{ vi: 'Chào', zh: '問候' }, { vi: 'Cao', zh: '高大' }] },
+      { pattern: 'au', ipa: '[aw]', descZh: '短 a 滑向 u，發音短促，如 Sau (之後), Sáu (數字6)', examples: [{ vi: 'Sau', zh: '之後' }, { vi: 'Sáu', zh: '數字六' }] },
+      { pattern: 'âu', ipa: '[əw]', descZh: '短 â 滑向 u，如 Đâu (哪裡), Nấu (烹煮)', examples: [{ vi: 'Đâu', zh: '哪裡' }, { vi: 'Nấu', zh: '烹飪' }] },
+      { pattern: 'ay', ipa: '[aj]', descZh: '短 a 滑向 i，如 Tay (手), Bay (飛翔)', examples: [{ vi: 'Tay', zh: '手臂' }, { vi: 'Bay', zh: '起飛' }] },
+      { pattern: 'ây', ipa: '[əj]', descZh: '短 â 滑向 i，如 Đây (這裡), Cây (樹木)', examples: [{ vi: 'Đây', zh: '這裡' }, { vi: 'Cây', zh: '樹木' }] },
+      { pattern: 'eo', ipa: '[ɛw]', descZh: 'e 滑向 o，如 Kéo (拉/剪刀), Đeo (佩戴)', examples: [{ vi: 'Kéo', zh: '剪刀' }, { vi: 'Mèo', zh: '貓咪' }] },
+      { pattern: 'êu', ipa: '[ew]', descZh: 'ê 滑向 u，如 Nếu (如果), Đều (都/均勻)', examples: [{ vi: 'Nếu', zh: '如果' }, { vi: 'Đều', zh: '全部 / 規律' }] },
+      { pattern: 'oi', ipa: '[ɔj]', descZh: 'o 滑向 i，如 Nói (說話), Hỏi (詢問)', examples: [{ vi: 'Nói', zh: '說話' }, { vi: 'Hỏi', zh: '詢問' }] },
+      { pattern: 'ôi', ipa: '[oj]', descZh: 'ô 滑向 i，如 Tôi (我), Tối (晚上)', examples: [{ vi: 'Tôi', zh: '我' }, { vi: 'Tối', zh: '夜晚' }] },
+      { pattern: 'ơi', ipa: '[əːj]', descZh: 'ơ 滑向 i，如 Ơi (呼喚詞), Chơi (玩耍)', examples: [{ vi: 'Ơi', zh: '呼喚語 (Em ơi)' }, { vi: 'Chơi', zh: '玩樂' }] },
+      { pattern: 'ui', ipa: '[uj]', descZh: 'u 滑向 i，如 Vui (高興/快樂), Túi (口袋/包包)', examples: [{ vi: 'Vui', zh: '高興' }, { vi: 'Túi', zh: '手提包' }] },
+      { pattern: 'ưi', ipa: '[ɨj]', descZh: 'ư 滑向 i，如 Gửi (寄送), Ngửi (聞氣味)', examples: [{ vi: 'Gửi', zh: '郵寄 / 傳送' }, { vi: 'Ngửi', zh: '嗅聞' }] },
+      { pattern: 'ưu', ipa: '[ɨw]', descZh: 'ư 滑向 u，如 Rượu (酒類), Bưu điện (郵局)', examples: [{ vi: 'Rượu', zh: '酒類' }, { vi: 'Lưu', zh: '保留 / 儲存' }] }
+    ]
+  },
+  {
+    group: 'triphthongs',
+    titleZh: '💎 核心三母音組合 (Triphthongs)',
+    titleEn: 'Key Triphthongs',
+    items: [
+      { pattern: 'iêu / yêu', ipa: '[iəw]', descZh: '如 Nhiều (很多), Yêu (愛), Hiểu (理解)', examples: [{ vi: 'Nhiều', zh: '很多' }, { vi: 'Hiểu', zh: '明白 / 理解' }, { vi: 'Yêu', zh: '愛戀' }] },
+      { pattern: 'uôi', ipa: '[uəj]', descZh: '如 Cuối (結尾), Muối (食用鹽), Tuổi (歲數)', examples: [{ vi: 'Cuối', zh: '最後 / 週末' }, { vi: 'Muối', zh: '鹽巴' }, { vi: 'Tuổi', zh: '年齡' }] },
+      { pattern: 'ươi', ipa: '[ɨəj]', descZh: '如 Người (人), Mười (數字10), Cười (微笑)', examples: [{ vi: 'Người', zh: '人 / 人民' }, { vi: 'Mười', zh: '數字十' }, { vi: 'Cười', zh: '笑容' }] },
+      { pattern: 'ươu', ipa: '[ɨəw]', descZh: '如 Rượu (酒類), Hươu (鹿)', examples: [{ vi: 'Rượu', zh: '酒' }, { vi: 'Hươu', zh: '梅花鹿' }] },
+      { pattern: 'oai', ipa: '[waːj]', descZh: '如 Ngoài (外面), Khoai (番薯)', examples: [{ vi: 'Ngoài', zh: '外部 / 外面' }, { vi: 'Điện thoại', zh: '電話' }] },
+      { pattern: 'uay', ipa: '[waj]', descZh: '如 Quay (旋轉 / 拍攝), Váy quay', examples: [{ vi: 'Quay', zh: '旋轉 / 錄影' }] }
+    ]
+  }
+];
+
+// 2.5 六大聲調極致對比組 (Tone Minimal Pairs Master Deck)
+export const toneMinimalPairs = [
+  {
+    base: 'Ma',
+    pairs: [
+      { toneName: 'Thanh Ngang (平)', word: 'Ma', ipa: '[maː]', meaningZh: '鬼', meaningEn: 'Ghost' },
+      { toneName: 'Thanh Huyền (玄)', word: 'Mà', ipa: '[maː˨˩]', meaningZh: '但是 / 卻', meaningEn: 'But / Yet' },
+      { toneName: 'Thanh Sắc (銳)', word: 'Má', ipa: '[maː˧˥]', meaningZh: '媽媽 (南越) / 臉頰', meaningEn: 'Mother (South) / Cheek' },
+      { toneName: 'Thanh Hỏi (問)', word: 'Mả', ipa: '[maː˧˩˧]', meaningZh: '墳墓', meaningEn: 'Tomb / Grave' },
+      { toneName: 'Thanh Ngã (跌)', word: 'Mã', ipa: '[maː˧ˀ˥]', meaningZh: '馬 (漢越) / 代碼', meaningEn: 'Horse / Code' },
+      { toneName: 'Thanh Nặng (重)', word: 'Mạ', ipa: '[maː˨˩ˀ]', meaningZh: '秧苗 / 鍍金', meaningEn: 'Rice seedling / Plating' }
+    ]
+  },
+  {
+    base: 'Ba',
+    pairs: [
+      { toneName: 'Thanh Ngang (平)', word: 'Ba', ipa: '[baː]', meaningZh: '數字 3 / 爸爸', meaningEn: 'Three / Father' },
+      { toneName: 'Thanh Huyền (玄)', word: 'Bà', ipa: '[baː˨˩]', meaningZh: '奶奶 / 夫人', meaningEn: 'Grandmother / Madam' },
+      { toneName: 'Thanh Sắc (銳)', word: 'Bá', ipa: '[baː˧˥]', meaningZh: '伯父 / 稱霸', meaningEn: 'Uncle / Dominate' },
+      { toneName: 'Thanh Hỏi (問)', word: 'Bả', ipa: '[baː˧˩˧]', meaningZh: '誘餌 / 毒餌', meaningEn: 'Bait / Poison bait' },
+      { toneName: 'Thanh Ngã (跌)', word: 'Bã', ipa: '[baː˧ˀ˥]', meaningZh: '殘渣 / 豆腐渣', meaningEn: 'Residue / Dregs' },
+      { toneName: 'Thanh Nặng (重)', word: 'Bạ', ipa: '[baː˨˩ˀ]', meaningZh: '隨便 (bạ đâu hay đó)', meaningEn: 'Careless / Random' }
+    ]
+  },
+  {
+    base: 'Ca',
+    pairs: [
+      { toneName: 'Thanh Ngang (平)', word: 'Ca', ipa: '[kaː]', meaningZh: '歌唱 / 水杯 / 班次', meaningEn: 'To sing / Pitcher / Shift' },
+      { toneName: 'Thanh Huyền (玄)', word: 'Cà', ipa: '[kaː˨˩]', meaningZh: '茄子 / 研磨', meaningEn: 'Eggplant / Grind' },
+      { toneName: 'Thanh Sắc (銳)', word: 'Cá', ipa: '[kaː˧˥]', meaningZh: '魚', meaningEn: 'Fish' },
+      { toneName: 'Thanh Hỏi (問)', word: 'Cả', ipa: '[kaː˧˩˧]', meaningZh: '全部 / 長兄', meaningEn: 'All / Eldest' },
+      { toneName: 'Thanh Ngã (跌)', word: 'Cã', ipa: '[kaː˧ˀ˥]', meaningZh: '無言無聲 (cãi cã)', meaningEn: 'Silent argue' },
+      { toneName: 'Thanh Nặng (重)', word: 'Cạ', ipa: '[kaː˨˩ˀ]', meaningZh: '搭檔 / 摩擦', meaningEn: 'Partner / Rub against' }
+    ]
+  },
+  {
+    base: 'La',
+    pairs: [
+      { toneName: 'Thanh Ngang (平)', word: 'La', ipa: '[laː]', meaningZh: '吶喊 / 責罵', meaningEn: 'To shout / Scold' },
+      { toneName: 'Thanh Huyền (玄)', word: 'Là', ipa: '[laː˨˩]', meaningZh: '是 (be動詞) / 熨衣服', meaningEn: 'To be / To iron' },
+      { toneName: 'Thanh Sắc (銳)', word: 'Lá', ipa: '[laː˧˥]', meaningZh: '樹葉 / 張 (量詞)', meaningEn: 'Leaf / Sheet classifier' },
+      { toneName: 'Thanh Hỏi (問)', word: 'Lả', ipa: '[laː˧˩˧]', meaningZh: '疲憊乏力 (mệt lả)', meaningEn: 'Exhausted / Faint' },
+      { toneName: 'Thanh Ngã (跌)', word: 'Lã', ipa: '[laː˧ˀ˥]', meaningZh: '生水 / 清水 (nước lã)', meaningEn: 'Plain unboiled water' },
+      { toneName: 'Thanh Nặng (重)', word: 'Lạ', ipa: '[laː˨˩ˀ]', meaningZh: '奇怪 / 陌生', meaningEn: 'Strange / Unfamiliar' }
+    ]
+  }
+];
+
+// 2.6 外國人常犯發音與聲調四大地雷 (Common Pronunciation Pitfalls)
+export const tonePitfallGuide = [
+  {
+    pitfallZh: '1. Hỏi (問聲) 與 Ngã (跌聲) 的混淆',
+    pitfallEn: '1. Confusion between Hỏi and Ngã',
+    descZh: '在河內標準音中，Ngã (~) 有極為鮮明的「喉頭短暫煞車」緊縮感；Hỏi (̉) 則是平緩下沉後微揚。但在南越胡志明市，兩者通常合併發為溫和的問聲。',
+    tipZh: '北越訣竅：發跌聲時腹部稍微縮一下打個嗝；南越訣竅：全部當成問聲即可自然聽懂！'
+  },
+  {
+    pitfallZh: '2. Nặng (重聲) 下點音不夠短促',
+    pitfallEn: '2. Nặng tone not dropped or truncated sharply enough',
+    descZh: '外國人常把重聲發成國語的四聲 (去聲 51)，但在越語中重聲是「極度短促、音高低 (21)、腹部截斷」的頓音。',
+    tipZh: '發重聲時像胸口挨了一拳，瞬間把聲音縮住收掉！'
+  },
+  {
+    pitfallZh: '3. 忽略入聲尾子音 (-p, -t, -c, -ch) 的無爆破阻氣',
+    pitfallEn: '3. Releasing airflow on stop finals (-p, -t, -c, -ch)',
+    descZh: '發 Đẹp (漂亮) 時千萬不要發出 "p" 的氣流；發 Hết (結束) 時舌尖頂住上牙齦即可，不可噴出 "t" 氣流。',
+    tipZh: '只做嘴形，死死憋住氣流！'
+  },
+  {
+    pitfallZh: '4. 長短母音 (a vs ă, ơ vs â) 長度區別不足',
+    pitfallEn: '4. Vowel duration neglect (a vs ă, ơ vs â)',
+    descZh: '「Tai (耳朵)」長度是「Tay (手臂)」的兩倍；「Can (勸阻)」與「Cân (公斤)」長短分明，長短不同會導致完全不同的單字意思！',
+    tipZh: '長母音拉長 1.5 倍拍子，短母音急促帶過。'
+  }
+];
+
 // 3. 南北越口音對比 (Accent Comparison: Hanoi vs Saigon)
 export const accentDifferences = {
   overviewZh: '越南語主要由三大方言體系構成：北越（以河內首都音為規範標準，聲調區分嚴謹）、中越（順化歷史音，聲調低沉喉音重）與南越（胡志明市商業音，發音輕快軟化）。掌握南北音變與詞彙對照，無論在北部政教檢定或南部經商投資皆能遊刃有餘。',
@@ -1502,6 +1999,86 @@ export const pronounKinshipData = [
     descEn: 'Friend / Peer / Classmate of similar age',
     mySelfZh: 'Tôi (我) / Mình (親切的我)',
     mySelfEn: 'Tôi / Mình'
+  }
+];
+
+// 6.1 越南現代職場階層與專業敬稱體系 (Corporate Hierarchy & Professional Respect)
+export const corporatePronounHierarchy = [
+  {
+    roleVi: 'Tổng Giám Đốc (TGĐ / CEO)',
+    roleZh: '總經理 / 執行長',
+    addressingVi: 'Anh/Chị Tổng Giám Đốc (hoặc Bác/Chú nếu lớn tuổi)',
+    selfVi: 'Em (nếu nhỏ tuổi hơn) / Tôi (khi phát biểu trang trọng)',
+    descZh: '向總經理匯報工作，開頭必用「Dạ, thưa Anh/Chị Tổng Giám Đốc」，自稱「Em」展現謙遜與親和。',
+    descEn: 'Address CEO as Anh/Chị Tổng Giám Đốc, self-refer as Em for respectful rapport.'
+  },
+  {
+    roleVi: 'Phó Tổng Giám Đốc',
+    roleZh: '副總經理 / 副總',
+    addressingVi: 'Anh/Chị Phó Tổng',
+    selfVi: 'Em / Chúng em (phòng ban)',
+    descZh: '稱呼副總裁簡潔尊稱「Anh/Chị Phó Tổng」，代表部門發言時自稱「Chúng em (我們)」。',
+    descEn: 'Shortened as Anh/Chị Phó Tổng; self-refer as Chúng em when speaking for team.'
+  },
+  {
+    roleVi: 'Chủ tịch Hội đồng Quản trị',
+    roleZh: '董事長 / 董事會主席',
+    addressingVi: 'Chủ tịch / Kính thưa Chủ tịch [Tên]',
+    selfVi: 'Em / Tôi / Chúng tôi',
+    descZh: '對董事長敬稱「Chủ tịch」，正式演說或宴席敬酒時使用「Kính thưa Chủ tịch」。',
+    descEn: 'Address Chairman as Chủ tịch or formal Kính thưa Chủ tịch.'
+  },
+  {
+    roleVi: 'Trưởng phòng / Giám đốc Bộ phận',
+    roleZh: '處長 / 部門經理',
+    addressingVi: 'Anh/Chị Trưởng phòng [Tên]',
+    selfVi: 'Em',
+    descZh: '跨部門協調時加上職銜稱呼「Anh Trưởng phòng」，能迅速拉近專業協同距離。',
+    descEn: 'Cross-functional coordination: use Anh/Chị Trưởng phòng with department name.'
+  },
+  {
+    roleVi: 'Quản đốc / Giám đốc Nhà máy',
+    roleZh: '廠長 / 車間總管',
+    addressingVi: 'Anh/Chị Quản đốc / Giám đốc xưởng',
+    selfVi: 'Em',
+    descZh: '廠房巡檢時向廠長打招呼，展現對現場管理最高領導者的尊重。',
+    descEn: 'Factory walkthrough: address plant manager as Quản đốc or Giám đốc xưởng.'
+  },
+  {
+    roleVi: 'Quý Đối tác / Quý Khách hàng',
+    roleZh: '合作夥伴 / 尊貴客戶',
+    addressingVi: 'Quý công ty / Quý anh chị / Quý vị',
+    selfVi: 'Công ty chúng tôi / Bên em',
+    descZh: '商務書信、正式郵件與合約談判中代表公司的權威雙方稱謂。',
+    descEn: 'Formal business correspondence: Quý công ty (Your company) vs Bên em (Our company).'
+  }
+];
+
+// 6.2 越南現代商務禮貌溝通四大黃金法則 (4 Golden Rules of Professional Respect)
+export const politenessRules = [
+  {
+    ruleZh: '1. 開口必用「Dạ / Thưa」禮貌起手',
+    ruleEn: '1. Pre-speech Politeness (Dạ / Thưa)',
+    descZh: '在越南，無論回答「是」或「不是」，面對長官、客戶或長輩，第一字一定說「Dạ (是的/好的)」。單獨說「Có / Đúng」會被視為冷淡生硬。',
+    sampleVi: 'Dạ, báo cáo này em đã kiểm tra kỹ rồi ạ.'
+  },
+  {
+    ruleZh: '2. 句尾必加「ạ」尊崇敬語尾助詞',
+    ruleEn: '2. End-of-Sentence Respect Particle (ạ)',
+    descZh: '「ạ」是越語靈魂敬語，只要對象是長輩、客戶或主管，句尾必須帶「ạ」表示敬重（如 Chào anh ạ, Cảm ơn chị ạ, Vâng ạ）。',
+    sampleVi: 'Em xin gửi bảng báo giá chi tiết qua email cho anh ạ!'
+  },
+  {
+    ruleZh: '3. 避免冷漠疏離的「Tôi - Bạn」',
+    ruleEn: '3. Avoid Stiff "Tôi - Bạn" in Partnerships',
+    descZh: '教科書常教的「Tôi (我) - Bạn (你)」在真實越南職場顯得十分生疏冷酷。高情商溝通一律使用「Em - Anh/Chị」或「Bên em - Quý đối tác」。',
+    sampleVi: 'Bên em rất mong được hợp tác lâu dài với quý công ty ạ.'
+  },
+  {
+    ruleZh: '4. 南北方言溫暖尾助詞（nhé vs nha）',
+    ruleEn: '4. Regional Warmth Particles (nhé vs nha)',
+    descZh: '商務叮嚀或邀約時，河內習慣加溫柔的「nhé」，胡志明市習慣加熱情的「nha / nghen」，能瞬間拉近人際信任。',
+    sampleVi: 'Hà Nội: "Anh em mình cùng cố gắng nhé!" / Sài Gòn: "Mai hẹn uống cà phê nha anh!"'
   }
 ];
 

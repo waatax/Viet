@@ -1,13 +1,13 @@
 import {
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
   Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, Zap, Brain, LifeBuoy,
-  Music, Puzzle, Mic
+  Music, Puzzle, Mic, Briefcase
 } from 'lucide-react';
 
 export const MODULE_IDS = [
-  'path', 'fasttrack', 'science', 'emergency', 'alphabet', 'tonegame', 'pronoun',
+  'path', 'fasttrack', 'business', 'emergency', 'alphabet', 'tonegame', 'pronoun',
   'phrases', 'conversation', 'flashcards', 'grammar', 'sentence', 'quiz',
-  'shadowing', 'hanviet', 'shopping', 'accent'
+  'shadowing', 'hanviet', 'shopping', 'accent', 'science'
 ];
 
 export const NAV_GROUPS = [
@@ -22,6 +22,7 @@ export const NAV_GROUPS = [
     labelKey: 'tabs.groupFastTrack',
     items: [
       { id: 'fasttrack', labelKey: 'tabs.fasttrack', icon: Zap },
+      { id: 'business', labelKey: 'tabs.business', icon: Briefcase },
       { id: 'emergency', labelKey: 'tabs.emergency', icon: LifeBuoy }
     ]
   },
@@ -72,4 +73,3 @@ export const NAV_GROUPS = [
 ];
 
 export const ALL_NAV_ITEMS = NAV_GROUPS.flatMap(group => group.items);
-

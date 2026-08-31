@@ -4,10 +4,17 @@ import crypto from 'crypto';
 import { 
   vietnameseAlphabet, 
   vietnameseTones, 
+  vietnameseSingleVowels,
+  vietnameseCompoundConsonants,
+  vietnameseFinalConsonants,
+  vietnameseDiphthongsTriphthongs,
+  toneMinimalPairs,
   accentDifferences, 
   numbersAndCurrency, 
   hanVietRoots, 
   pronounKinshipData, 
+  corporatePronounHierarchy,
+  politenessRules,
   multiScenarios, 
   practicalPhrases, 
   flashcardsDeck, 
@@ -16,6 +23,19 @@ import {
   quizzes 
 } from '../src/data/vietnameseData.js';
 import { situationalScenarios } from '../src/data/situationalScenarios.js';
+import {
+  tradeShowGuide,
+  dualCityBusinessGuide,
+  zaloNetworkingGuide,
+  interactiveNegotiations,
+  executiveSurvivalGuide,
+  smartFactoryGuide,
+  nhauCultureGuide,
+  currencyBlitzQuestions,
+  executiveHanVietRoots,
+  realWorldCommercialDocuments,
+  businessProficiencyTest
+} from '../src/data/businessData.js';
 
 const audioDir = path.resolve('public/audio');
 if (!fs.existsSync(audioDir)) {
@@ -123,6 +143,93 @@ if (vietnameseAlphabet) {
     addPhrase(item.example);
     const charFirst = item.char.split(' ')[0];
     addPhrase(charFirst);
+  });
+}
+
+// 3.1 Single Vowels
+if (vietnameseSingleVowels) {
+  vietnameseSingleVowels.forEach(sv => {
+    addPhrase(sv.vowel);
+    if (sv.examples) {
+      sv.examples.forEach(ex => addPhrase(ex.vi));
+    }
+  });
+}
+
+// 3.2 Compound Consonants
+if (vietnameseCompoundConsonants) {
+  vietnameseCompoundConsonants.forEach(cc => {
+    addPhrase(cc.cluster);
+    if (cc.examples) {
+      cc.examples.forEach(ex => addPhrase(ex.vi));
+    }
+  });
+}
+
+// 3.3 Final Consonants
+if (vietnameseFinalConsonants) {
+  vietnameseFinalConsonants.forEach(grp => {
+    if (grp.items) {
+      grp.items.forEach(it => {
+        if (it.examples) {
+          it.examples.forEach(ex => addPhrase(ex.vi));
+        }
+      });
+    }
+  });
+}
+
+// 3.4 Diphthongs & Triphthongs
+if (vietnameseDiphthongsTriphthongs) {
+  vietnameseDiphthongsTriphthongs.forEach(grp => {
+    if (grp.items) {
+      grp.items.forEach(it => {
+        if (it.examples) {
+          it.examples.forEach(ex => addPhrase(ex.vi));
+        }
+      });
+    }
+  });
+}
+
+// 3.5 Tone Minimal Pairs
+if (toneMinimalPairs) {
+  toneMinimalPairs.forEach(mp => {
+    if (mp.pairs) {
+      mp.pairs.forEach(p => addPhrase(p.word));
+    }
+  });
+}
+
+// 3.6 Corporate Pronouns & Politeness Rules
+if (corporatePronounHierarchy) {
+  corporatePronounHierarchy.forEach(cp => {
+    addPhrase(cp.roleVi);
+    addPhrase(cp.addressingVi);
+    addPhrase(cp.selfVi);
+  });
+}
+if (politenessRules) {
+  politenessRules.forEach(pr => {
+    if (pr.sampleVi) addPhrase(pr.sampleVi);
+  });
+}
+
+// 3.7 Real-World Commercial Documents & Exam
+if (realWorldCommercialDocuments) {
+  realWorldCommercialDocuments.forEach(doc => {
+    if (doc.headerVi) addPhrase(doc.headerVi);
+    if (doc.clauses) {
+      doc.clauses.forEach(cl => {
+        if (cl.titleVi) addPhrase(cl.titleVi);
+        if (cl.contentVi) addPhrase(cl.contentVi);
+      });
+    }
+  });
+}
+if (businessProficiencyTest) {
+  businessProficiencyTest.forEach(test => {
+    if (test.questionVi) addPhrase(test.questionVi);
   });
 }
 
@@ -289,6 +396,52 @@ if (quizzes) {
         if (opt.viet) addPhrase(opt.viet);
       });
     }
+  });
+}
+
+// 12. Business & Trade Show Data
+if (tradeShowGuide?.stages) {
+  tradeShowGuide.stages.forEach(stg => {
+    stg.phrases.forEach(p => addPhrase(p.viet));
+  });
+}
+if (dualCityBusinessGuide?.cities) {
+  dualCityBusinessGuide.cities.forEach(c => {
+    c.mustKnowPhrases.forEach(p => addPhrase(p.viet));
+  });
+}
+if (zaloNetworkingGuide?.templates) {
+  zaloNetworkingGuide.templates.forEach(t => addPhrase(t.viet));
+}
+if (interactiveNegotiations) {
+  interactiveNegotiations.forEach(n => {
+    n.steps.forEach(st => {
+      addPhrase(st.partnerSpeech);
+      st.options.forEach(opt => addPhrase(opt.viet));
+    });
+  });
+}
+if (executiveSurvivalGuide) {
+  executiveSurvivalGuide.forEach(g => {
+    g.phrases.forEach(p => addPhrase(p.viet));
+  });
+}
+if (smartFactoryGuide?.zones) {
+  smartFactoryGuide.zones.forEach(z => {
+    if (z.terms) {
+      z.terms.forEach(t => {
+        addPhrase(t.viet);
+        addPhrase(t.example);
+      });
+    }
+  });
+}
+if (nhauCultureGuide?.chants) {
+  nhauCultureGuide.chants.forEach(c => addPhrase(c.viet));
+}
+if (executiveHanVietRoots) {
+  executiveHanVietRoots.forEach(r => {
+    r.examples.forEach(e => addPhrase(e.vi));
   });
 }
 

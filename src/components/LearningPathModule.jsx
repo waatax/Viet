@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
   Compass, CheckCircle, Circle, Target, BookOpen, ArrowRight, Flag, Sparkles,
   AudioLines, MessagesSquare, ShoppingBag, GraduationCap, Play, Route, Brain, Clock, Layers3,
-  Zap, LifeBuoy, ShieldCheck, Award
+  Zap, LifeBuoy, ShieldCheck, Award, Briefcase
 } from 'lucide-react';
 import { learningPath, flashcardsDeck } from '../data/vietnameseData';
 import { srsEngine } from '../services/srsEngine';
@@ -66,6 +66,7 @@ export const LearningPathModule = ({ setActiveTab }) => {
   const currentStage = learningPath.find(s => !completed.includes(s.id));
 
   const quickStarts = [
+    { id: 'business', icon: Briefcase, titleZh: '商務出差旗艦', titleEn: 'Business & FDI Hub', descZh: '談判·紅發票·工廠巡檢·應酬', descEn: 'Negotiation, Invoices & Factory', tone: 'gold' },
     { id: 'fasttrack', icon: Zap, titleZh: '7天生活速成', titleEn: '7-Day Fast-Track', descZh: '35 句高頻破冰實戰', descEn: '35 Survival Phrases', tone: 'gold' },
     { id: 'science', icon: Brain, titleZh: '科學方法研究', titleEn: 'Science & SLA', descZh: '5 大跨學科學習體系', descEn: '5-Discipline SLA Hub', tone: 'purple' },
     { id: 'emergency', icon: LifeBuoy, titleZh: '生活急救錦囊', titleEn: 'Survival Audio Kit', descZh: '街頭出差一鍵出聲', descEn: 'Instant Tap-to-Speak', tone: 'red' },

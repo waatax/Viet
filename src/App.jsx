@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { ArrowUp, Settings2, Sparkles, Trophy, Award, X } from 'lucide-react';
+import { ArrowUp, Settings2, Sparkles, Trophy, Award, X, Target } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { useLanguage } from './context/LanguageContext';
@@ -10,6 +10,7 @@ import { MODULE_IDS } from './config/navigation';
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
 const FastTrackModule = lazyNamed(() => import('./components/FastTrackModule'), 'default');
+const BusinessHubModule = lazyNamed(() => import('./components/BusinessHubModule'), 'default');
 const ScientificMethodModule = lazyNamed(() => import('./components/ScientificMethodModule'), 'default');
 const EmergencyKitModule = lazyNamed(() => import('./components/EmergencyKitModule'), 'default');
 const AlphabetModule = lazyNamed(() => import('./components/AlphabetModule'), 'AlphabetModule');
@@ -26,6 +27,7 @@ const ShadowingModule = lazyNamed(() => import('./components/ShadowingModule'), 
 const SentenceBuilderModule = lazyNamed(() => import('./components/SentenceBuilderModule'), 'default');
 const ToneGameModule = lazyNamed(() => import('./components/ToneGameModule'), 'default');
 const AchievementsModal = lazyNamed(() => import('./components/AchievementsModal'), 'default');
+const DailyQuestModal = lazyNamed(() => import('./components/DailyQuestModal'), 'default');
 
 const getModuleFromHash = () => {
   const moduleId = window.location.hash.replace(/^#\/?/, '');
@@ -56,8 +58,9 @@ export function App() {
   // Show Back To Top Button
   const [showBackToTop, setShowBackToTop] = useState(false);
 
-  // Achievements Modal Open State
+  // Modals Open State
   const [isAchievementsModalOpen, setIsAchievementsModalOpen] = useState(false);
+  const [isDailyQuestsOpen, setIsDailyQuestsOpen] = useState(false);
 
   // User Gamification Stats
   const [userStats, setUserStats] = useState(() => {
@@ -94,12 +97,16 @@ export function App() {
     localStorage.setItem('viet_user_stats', JSON.stringify(userStats));
   }, [userStats]);
 
-  // Effect: Process Daily Login Streak
+  // Effect: Process Daily Login Streak & Shield Protection
   useEffect(() => {
     setUserStats(prev => {
-      const { newStreak, newLastLoginDate, streakUpdated } = gamificationEngine.processLoginStreak(prev.lastLoginDate, prev.streak);
+      const { newStreak, newLastLoginDate, streakUpdated, shieldConsumed } = gamificationEngine.processLoginStreak(prev.lastLoginDate, prev.streak);
       const updated = streakUpdated ? { ...prev, streak: newStreak, lastLoginDate: newLastLoginDate } : prev;
       
+      if (shieldConsumed) {
+        audioEngine.playStreakShieldSound();
+      }
+
       // Check streak achievements
       if (streakUpdated) {
         const newBadges = gamificationEngine.checkAchievements(updated);
@@ -144,10 +151,18 @@ export function App() {
       action = { type: 'ADD_XP', payload: action };
     }
 
-    if (action.type === 'ADD_XP') {
+    // Process daily quest progression
+    if (action && action.type) {
+      const questResult = gamificationEngine.processQuestEvent(action);
+      if (questResult.newlyCompleted.length > 0) {
+        audioEngine.playQuestCompleteSound();
+      }
+    }
+
+    if (action.type === 'ADD_XP' || action.payload) {
       setUserStats(prev => {
         const oldLevel = gamificationEngine.calculateLevel(prev.xp);
-        const newXp = prev.xp + (action.payload || 0);
+        const newXp = Math.max(0, prev.xp + (action.payload || 0));
         const newLevel = gamificationEngine.calculateLevel(newXp);
         const newStats = { ...prev, xp: newXp };
 
@@ -196,6 +211,7 @@ export function App() {
         selectedAccent={selectedAccent}
         setSelectedAccent={setSelectedAccent}
         onOpenAchievements={() => setIsAchievementsModalOpen(true)}
+        onOpenDailyQuests={() => setIsDailyQuestsOpen(true)}
       />
 
       {/* Main Learning Module View */}
@@ -204,6 +220,7 @@ export function App() {
           <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
             {activeTab === 'path' && <LearningPathModule setActiveTab={setActiveTab} />}
             {activeTab === 'fasttrack' && <FastTrackModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'business' && <BusinessHubModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'science' && <ScientificMethodModule />}
             {activeTab === 'emergency' && <EmergencyKitModule selectedAccent={selectedAccent} />}
             {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} />}
@@ -360,6 +377,16 @@ export function App() {
         />
       </Suspense>
 
+      {/* Daily Quests Modal */}
+      <Suspense fallback={null}>
+        <DailyQuestModal
+          userStats={userStats}
+          updateUserStats={updateUserStats}
+          isOpen={isDailyQuestsOpen}
+          onClose={() => setIsDailyQuestsOpen(false)}
+        />
+      </Suspense>
+
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
@@ -367,17 +394,26 @@ export function App() {
             <div style={{ fontWeight: 800, fontSize: '1.05em', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
               <span>🇻🇳 越語學習通 (科學研究團隊旗艦版) · Chào Việt Nam!</span>
               <span style={{ fontSize: '0.72rem', fontWeight: 800, background: 'rgba(234, 179, 8, 0.15)', color: 'var(--brand-gold)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-full)', padding: '0.1rem 0.5rem' }}>
-                v2.5.0 教科書權威版
+                v2.6.0 商務出差旗艦版
               </span>
             </div>
             <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
               {learningMode === 'zh' 
-                ? '第二語言習得 (SLA) · 漢越音音韻體系 · SM-2 間隔重複 · 八角行為遊戲化心理學 · 打造大眾快樂溝通旗艦' 
-                : 'SLA Methodology · Sino-Vietnamese Cognates · SM-2 Retention · Octalysis Gamification'}
+                ? '第二語言習得 (SLA) · 漢越音音韻體系 · SM-2 間隔重複 · 八角行為遊戲化 · 商務出差外派實戰旗艦' 
+                : 'SLA Methodology · Sino-Vietnamese Cognates · SM-2 Retention · Octalysis Gamification · Business Travel & FDI Hub'}
             </div>
           </div>
 
           <div className="footer-settings-controls" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
+            <button
+              className="secondary-action"
+              onClick={() => setIsDailyQuestsOpen(true)}
+              style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+            >
+              <Target size={14} color="var(--brand-primary)" />
+              <span>{learningMode === 'zh' ? '每日挑戰看板' : 'Daily Quests'}</span>
+            </button>
+
             <button
               className="secondary-action"
               onClick={() => setIsAchievementsModalOpen(true)}
@@ -389,11 +425,11 @@ export function App() {
 
             <button
               className="secondary-action"
-              onClick={() => setActiveTab('science')}
+              onClick={() => setActiveTab('business')}
               style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
             >
               <Sparkles size={14} color="var(--brand-primary)" />
-              <span>{learningMode === 'zh' ? '科學方法中心' : 'Science Hub'}</span>
+              <span>{learningMode === 'zh' ? '商務出差中心' : 'Business Hub'}</span>
             </button>
 
             {/* Accent Preference */}

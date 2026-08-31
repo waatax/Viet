@@ -41,8 +41,10 @@ export const translations = {
       shadowing: 'AI 跟讀評分',
       sentence: '句子重組特訓',
       tonegame: '聲調聽力特訓',
+      business: '商務出差',
       // Navigation group labels
       groupFastTrack: '⚡ 速成',
+      groupBusiness: '💼 商務',
       groupBasics: '🔤 基礎',
       groupConversation: '💬 會話',
       groupPractice: '🎯 練習',
@@ -117,8 +119,10 @@ export const translations = {
       shadowing: 'AI Shadowing',
       sentence: 'Sentence Builder',
       tonegame: 'Tone Mastery',
+      business: 'Business Hub',
       // Navigation group labels
       groupFastTrack: '⚡ Fast-Track',
+      groupBusiness: '💼 Business',
       groupBasics: '🔤 Basics',
       groupConversation: '💬 Conversation',
       groupPractice: '🎯 Practice',
