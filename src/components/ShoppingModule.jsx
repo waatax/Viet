@@ -628,6 +628,200 @@ export const ShoppingModule = ({ selectedAccent }) => {
           )}
         </div>
       )}
+
+      {/* ==================================================== */}
+      {/* TAB 5: MARKET HAGGLING SIMULATOR & BANKNOTE TRAPS */}
+      {/* ==================================================== */}
+      {activeTabSub === 'haggling' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          {/* Banknote Recognition Traps Warning */}
+          <div style={{
+            background: 'rgba(239, 68, 68, 0.08)',
+            border: '2px solid rgba(239, 68, 68, 0.35)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '1.5rem'
+          }}>
+            <h3 style={{ margin: '0 0 0.5rem', color: '#ef4444', fontSize: '1.2rem', fontWeight: 900, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              ⚠️ 旅越出差絕對防踩雷：兩大「孿生塑膠鈔票」致命混淆陷阱！
+            </h3>
+            <p style={{ margin: '0 0 1rem', fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+              越南盾是塑膠鈔（Polymer），在昏暗光線（如夜市、計程車、酒吧）下極度容易付錯，價差高達 25 倍！
+            </p>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+              <div style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+                <div style={{ fontWeight: 800, color: '#2563eb', fontSize: '1.05rem', marginBottom: '0.3rem' }}>
+                  🚨 陷阱一：20.000đ vs 500.000đ (同為藍色系)
+                </div>
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                  <strong>2 萬盾 (約 25 台幣)</strong> 與 <strong>50 萬盾 (約 640 台幣)</strong> 都是天藍/青藍色！付計程車費時無數遊客把 50 萬當成 2 萬整張遞出去。
+                  <br /><span style={{ color: '#ef4444', fontWeight: 700 }}>辨識密技：50 萬鈔票面積明顯最大，且印有胡志明故居金黃色防偽窗。</span>
+                </div>
+              </div>
+
+              <div style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
+                <div style={{ fontWeight: 800, color: '#d97706', fontSize: '1.05rem', marginBottom: '0.3rem' }}>
+                  🚨 陷阱二：10.000đ vs 200.000đ (同為棕紅色系)
+                </div>
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                  <strong>1 萬盾 (約 13 台幣，黃褐色)</strong> 與 <strong>20 萬盾 (約 260 台幣，紅棕色)</strong> 色溫接近。
+                  <br /><span style={{ color: '#ef4444', fontWeight: 700 }}>辨識密技：1 萬盾是最小面額的塑膠鈔，背面印有海上採油鑽油平台。</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Interactive Haggling Simulator Box */}
+          <div style={{
+            background: 'var(--bg-card)',
+            border: '2px solid var(--brand-gold)',
+            borderRadius: 'var(--radius-lg)',
+            padding: '1.75rem',
+            boxShadow: 'var(--card-shadow)'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
+              <div>
+                <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--brand-gold)', textTransform: 'uppercase' }}>
+                  🤝 市場實戰議價互動沙盒
+                </span>
+                <h3 style={{ fontSize: '1.35rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.2rem 0' }}>
+                  {currentHaggle.nameZh}
+                </h3>
+                <div style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+                  攤販開價：<strong style={{ color: '#ef4444' }}>{currentHaggle.initialPrice}</strong> · 合理目標底價：<strong style={{ color: 'var(--brand-green)' }}>{currentHaggle.targetFairPrice}</strong>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: '0.5rem' }}>
+                {HAGGLE_ITEMS.map((it, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => { setHaggleItemIdx(idx); handleResetHaggle(); }}
+                    style={{
+                      padding: '0.4rem 0.8rem',
+                      borderRadius: 'var(--radius-sm)',
+                      border: haggleItemIdx === idx ? '2px solid var(--brand-gold)' : '1px solid var(--border-color)',
+                      background: haggleItemIdx === idx ? 'var(--bg-accent)' : 'var(--bg-main)',
+                      fontWeight: 700,
+                      cursor: 'pointer'
+                    }}
+                  >
+                    商品 {idx + 1}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Vendor Opening Dialogue */}
+            <div style={{
+              background: 'var(--bg-main)',
+              border: '1px solid var(--border-color)',
+              borderRadius: 'var(--radius-md)',
+              padding: '1rem 1.25rem',
+              marginBottom: '1.5rem',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '1rem'
+            }}>
+              <div>
+                <div style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--brand-gold)', marginBottom: '0.25rem' }}>
+                  👵 老闆開價 (點擊播放)：
+                </div>
+                <div style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--brand-primary)' }}>
+                  {currentHaggle.vendorOpenVi}
+                </div>
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                  {currentHaggle.vendorOpenZh}
+                </div>
+              </div>
+              <button
+                className="speaker-btn"
+                onClick={() => handleSpeakText(currentHaggle.vendorOpenVi)}
+              >
+                <Volume2 size={18} />
+              </button>
+            </div>
+
+            {/* Tension Meter */}
+            <div style={{ marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.82rem', fontWeight: 800, marginBottom: '0.35rem' }}>
+                <span style={{ color: '#ef4444' }}>💢 翻臉走人 (0%)</span>
+                <span style={{ color: 'var(--brand-gold)' }}>🤝 老闆心理意向溫度計 ({vendorMood}%)</span>
+                <span style={{ color: 'var(--brand-green)' }}>🎉 成交賣出 (100%)</span>
+              </div>
+              <div style={{ width: '100%', height: '10px', background: 'var(--bg-main)', borderRadius: 'var(--radius-full)', overflow: 'hidden' }}>
+                <div style={{
+                  width: `${vendorMood}%`,
+                  height: '100%',
+                  background: vendorMood >= 60 ? 'var(--brand-green)' : vendorMood >= 35 ? 'var(--brand-gold)' : '#ef4444',
+                  transition: 'all 0.4s ease'
+                }} />
+              </div>
+            </div>
+
+            {/* Choose Your Bargaining Response */}
+            <div style={{ marginBottom: '1.5rem' }}>
+              <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.6rem' }}>
+                🗣️ 選擇你的議價策略 (點擊直接出招)：
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.75rem' }}>
+                {currentHaggle.options.map((opt, oIdx) => (
+                  <button
+                    key={oIdx}
+                    onClick={() => handleHaggleChoose(opt)}
+                    style={{
+                      background: 'var(--bg-main)',
+                      border: '1.5px solid var(--border-color)',
+                      borderRadius: 'var(--radius-md)',
+                      padding: '0.85rem 1rem',
+                      textAlign: 'left',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '0.3rem',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    <strong style={{ fontSize: '0.92rem', color: 'var(--brand-accent)' }}>{opt.labelZh}</strong>
+                    <span style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>{opt.viet}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Conversation Log */}
+            {haggleLog.length > 0 && (
+              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '1rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.6rem' }}>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--text-muted)' }}>對話回顧</span>
+                  <button onClick={handleResetHaggle} style={{ background: 'none', border: 'none', color: 'var(--brand-accent)', cursor: 'pointer', fontSize: '0.82rem', fontWeight: 700 }}>重設情境</button>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  {haggleLog.map((log, lIdx) => (
+                    <div
+                      key={lIdx}
+                      style={{
+                        padding: '0.6rem 0.9rem',
+                        borderRadius: 'var(--radius-sm)',
+                        background: log.speaker === 'you' ? 'var(--bg-accent)' : 'var(--bg-main)',
+                        alignSelf: log.speaker === 'you' ? 'flex-end' : 'flex-start',
+                        maxWidth: '85%'
+                      }}
+                    >
+                      <div style={{ fontSize: '0.95rem', fontWeight: 800, color: log.speaker === 'you' ? 'var(--brand-accent)' : 'var(--brand-gold)' }}>
+                        {log.speaker === 'you' ? '👤 你：' : '👵 老闆：'}{log.vi}
+                      </div>
+                      <div style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>{log.zh}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

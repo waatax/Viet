@@ -11,6 +11,7 @@ const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ 
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
 const FastTrackModule = lazyNamed(() => import('./components/FastTrackModule'), 'default');
 const BusinessHubModule = lazyNamed(() => import('./components/BusinessHubModule'), 'default');
+const MacroPolModule = lazy(() => import('./components/MacroPolModule'));
 const ScientificMethodModule = lazyNamed(() => import('./components/ScientificMethodModule'), 'default');
 const EmergencyKitModule = lazyNamed(() => import('./components/EmergencyKitModule'), 'default');
 const AlphabetModule = lazyNamed(() => import('./components/AlphabetModule'), 'AlphabetModule');
@@ -219,21 +220,22 @@ export function App() {
         <ErrorBoundary>
           <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
             {activeTab === 'path' && <LearningPathModule setActiveTab={setActiveTab} />}
+            {activeTab === 'macropol' && <MacroPolModule />}
             {activeTab === 'fasttrack' && <FastTrackModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'business' && <BusinessHubModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'science' && <ScientificMethodModule />}
-            {activeTab === 'emergency' && <EmergencyKitModule selectedAccent={selectedAccent} />}
-            {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} />}
+            {activeTab === 'emergency' && <EmergencyKitModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} />}
-            {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} />}
+            {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'conversation' && <ConversationModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} />}
+            {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'flashcards' && <FlashcardModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'grammar' && <GrammarModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'hanviet' && <HanVietModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'pronoun' && <PronounModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'quiz' && <QuizModule userStats={userStats} updateUserStats={updateUserStats} selectedAccent={selectedAccent} />}
-            {activeTab === 'shadowing' && <ShadowingModule selectedAccent={selectedAccent} />}
+            {activeTab === 'shadowing' && <ShadowingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'sentence' && <SentenceBuilderModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'tonegame' && <ToneGameModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
           </Suspense>

@@ -1,3 +1,87 @@
+
+export const mouthPhoneticGuide = [
+  {
+    symbol: 'ng / ngh',
+    titleZh: '舌根鼻音 (Velar Nasal)',
+    taiwanZh: '類似台語「黃」的字首，或「鋼」的結尾鼻音 [ŋ]',
+    tipZh: '⚠️ 絕非 n 也不是 g！發音時舌後部抬起貼住軟腭，氣流從鼻腔送出，嘴巴微開，發出鼻哼聲。',
+    pitfallZh: '新手容易讀成「eng」或加一個濁音「g」，切記不要把舌後部彈開。',
+    examples: [{ vi: 'người', zh: '人' }, { vi: 'ngon', zh: '好吃' }, { vi: 'nghe', zh: '聽' }]
+  },
+  {
+    symbol: 'nh',
+    titleZh: '舌面硬腭鼻音 (Palatal Nasal)',
+    taiwanZh: '類似國語注音「ㄋㄧ」的快速合成，或西班牙語 ñ [ɲ]',
+    tipZh: '舌面前部大面積平貼在硬腭（天花板前端），兩側閉合，氣流通過鼻腔釋放。',
+    pitfallZh: '常被誤讀為單純的「n」。發音時嘴角請向兩側拉開微笑。',
+    examples: [{ vi: 'nhà', zh: '家/房子' }, { vi: 'nhiều', zh: '很多' }, { vi: 'nhớ', zh: '想念/記得' }]
+  },
+  {
+    symbol: 'th',
+    titleZh: '舌尖清送氣塞音 (Aspirated Alveolar Stop)',
+    taiwanZh: '完全等同於國語注音「ㄊ」[tʰ]，強烈吐氣！',
+    tipZh: '⚠️ 絕對不要發成英文的咬舌音「th」！越南語的 th 是舌尖輕觸上齒齦，強烈送出氣流。可在嘴前放衛生紙測試，衛生紙必須明顯飄起。',
+    pitfallZh: '不要咬舌頭！它是強送氣的「ㄊ」。',
+    examples: [{ vi: 'thịt', zh: '肉' }, { vi: 'thứ', zh: '星期/次序' }, { vi: 'thấy', zh: '看見' }]
+  },
+  {
+    symbol: 'ph',
+    titleZh: '唇齒清擦音 (Labiodental Fricative)',
+    taiwanZh: '等同於英文 "f" 或國語注音「ㄈ」[f]',
+    tipZh: '上排門牙輕觸下唇內側，氣流從縫隙摩擦而出。',
+    pitfallZh: '不要讀成注音「ㄆ」！歷史上是雙唇送氣音，但現代越語完全讀為「f」。',
+    examples: [{ vi: 'phở', zh: '越南河粉' }, { vi: 'phim', zh: '電影' }, { vi: 'phố', zh: '街道' }]
+  },
+  {
+    symbol: 'kh',
+    titleZh: '舌根清擦音 (Velar Fricative)',
+    taiwanZh: '類似台語「氣」的微摩擦，或德語 Bach 的 ch [x]',
+    tipZh: '舌後部抬高靠近軟腭形成窄縫，氣流摩擦而出，類似清喉嚨或深沉的國語「ㄏ」。',
+    pitfallZh: '切記不要讀成爆破音「k」！它是持續的摩擦音。',
+    examples: [{ vi: 'không', zh: '不/沒有' }, { vi: 'khách', zh: '客人' }, { vi: 'khỏe', zh: '健康' }]
+  },
+  {
+    symbol: 'tr',
+    titleZh: '舌尖捲舌塞擦音 (Retroflex)',
+    taiwanZh: '北越讀注音「ㄗ/ㄐ」，南越明顯捲舌讀「ㄔ/ㄓ」[ʈ / tɕ]',
+    tipZh: '北越完全與 ch 合流，讀不捲舌的清塞擦音；南越則舌尖捲向硬腭，發出清脆捲舌音。',
+    pitfallZh: '若學河內腔，讀成 ch (ㄗ) 即可；學西貢腔請微微捲舌。',
+    examples: [{ vi: 'trà', zh: '茶' }, { vi: 'trời', zh: '天空/天氣' }, { vi: 'trắng', zh: '白色' }]
+  },
+  {
+    symbol: 'ch',
+    titleZh: '舌面前清塞擦音 (Palatal Stop/Affricate)',
+    taiwanZh: '類似國語注音「ㄐ」或「ㄗ」，不送氣 [c / tɕ]',
+    tipZh: '舌面前部緊貼硬腭前端，阻住氣流後輕輕放開，不送氣，聲音乾淨俐落。',
+    pitfallZh: '注意不要吐氣成「ㄑ」，要像國語「雞」的起始音但不帶強風。',
+    examples: [{ vi: 'chào', zh: '問候/你好' }, { vi: 'chị', zh: '姐姐' }, { vi: 'chợ', zh: '傳統市場' }]
+  },
+  {
+    symbol: 'ư',
+    titleZh: '舌後閉不圓唇元音 (High Back Unrounded Vowel)',
+    taiwanZh: '發「ㄧ」的嘴角向兩邊拉開，舌頭往後縮發「ㄨ」[ɯ]',
+    tipZh: '嘴角用力向兩旁咧開（像咬牙微笑），舌根向後上方收縮，發出低悶「ㄜ/ㄨ」音。',
+    pitfallZh: '嘴唇千萬不能噘圓！一噘圓就變成 u 了。',
+    examples: [{ vi: 'nước', zh: '水/國家' }, { vi: 'từ', zh: '詞語/從' }, { vi: 'mực', zh: '墨水/魷魚' }]
+  },
+  {
+    symbol: 'ơ',
+    titleZh: '舌中半開不圓唇元音 (Mid Central Vowel)',
+    taiwanZh: '類似國語注音「ㄜ」，嘴唇完全放鬆 [əː]',
+    tipZh: '長元音，發音時口腔自然半開，舌身放平，聲音平穩綿長。',
+    pitfallZh: '與短元音 â 的區別在於：ơ 是長音，â 是急促短音。',
+    examples: [{ vi: 'cơm', zh: '米飯' }, { vi: 'bơ', zh: '奶油/酪梨' }, { vi: 'cảm ơn', zh: '感謝' }]
+  },
+  {
+    symbol: 'â / ă',
+    titleZh: '超短元音對立組 (Short Vowels)',
+    taiwanZh: 'â 似極短的「ㄜ」，ă 似極短的「ㄚ」[ə / a]',
+    tipZh: '這兩個字母頭頂都有帽子或小碗符號，標記它們是「急促短音」，必須緊湊短促地收尾。',
+    pitfallZh: '不可拖長音！越語長短音具有區別詞義功能（例如 tai 耳朵 vs tay 手臂）。',
+    examples: [{ vi: 'tân', zh: '新 (短)' }, { vi: 'bắt', zh: '抓/捉 (短)' }, { vi: 'sân', zh: '球場 (短)' }]
+  }
+];
+
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Volume2, Music, Sparkles, Filter, Info, Play, Activity,
@@ -160,6 +244,13 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
         >
           <BookOpen size={17} />
           <span>{learningMode === 'zh' ? '🔤 29字母與單母音' : '🔤 Alphabet & Vowels'}</span>
+        </button>
+        <button
+          className={`biz-nav-tab ${activePhoneticTab === 'mouth' ? 'active' : ''}`}
+          onClick={() => setActivePhoneticTab('mouth')}
+        >
+          <Sparkles size={17} />
+          <span>{learningMode === 'zh' ? '👄 10大難音口型祕訣' : '👄 Articulation Guide'}</span>
         </button>
         <button
           className={`biz-nav-tab ${activePhoneticTab === 'compound' ? 'active' : ''}`}
@@ -345,6 +436,114 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
                 );
               })}
             </div>
+          </div>
+        </div>
+      )}
+
+      
+      {/* ==================================================== */}
+      {/* TAB: MOUTH SHAPE & TONGUE ANATOMICAL GUIDE */}
+      {/* ==================================================== */}
+      {activePhoneticTab === 'mouth' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          <div style={{ background: 'var(--bg-accent)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', borderLeft: '4px solid var(--brand-primary)' }}>
+            <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              👄 華語母語者 10 大難發音：口型、舌位與注音對照全攻略
+            </h3>
+            <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.94rem', lineHeight: 1.6 }}>
+              許多外國人學越語常因「用國語發音肌肉硬套」而產生嚴重口音。掌握以下 10 個關鍵口型舌位要訣，就能徹底打通發音關卡！
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
+            {mouthPhoneticGuide.map((item, idx) => (
+              <div
+                key={idx}
+                className="mouth-phonetic-card"
+                style={{
+                  background: 'var(--bg-card)',
+                  border: '1.5px solid var(--border-color)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '1.25rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.65rem',
+                  boxShadow: 'var(--card-shadow)'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '1.75rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
+                    {item.symbol}
+                  </span>
+                  <span style={{
+                    fontSize: '0.8rem',
+                    fontWeight: 800,
+                    padding: '0.2rem 0.6rem',
+                    borderRadius: 'var(--radius-xs)',
+                    background: 'rgba(37, 99, 235, 0.12)',
+                    color: 'var(--brand-accent)'
+                  }}>
+                    {item.titleZh}
+                  </span>
+                </div>
+
+                <div style={{
+                  background: 'var(--bg-main)',
+                  padding: '0.5rem 0.75rem',
+                  borderRadius: 'var(--radius-xs)',
+                  fontSize: '0.85rem',
+                  fontWeight: 700,
+                  color: 'var(--brand-gold)',
+                  border: '1px solid var(--border-color)'
+                }}>
+                  🇹🇼 母語直覺映射：{item.taiwanZh}
+                </div>
+
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                  {item.tipZh}
+                </div>
+
+                <div style={{
+                  fontSize: '0.82rem',
+                  color: '#ef4444',
+                  background: 'rgba(239, 68, 68, 0.08)',
+                  padding: '0.45rem 0.65rem',
+                  borderRadius: 'var(--radius-xs)',
+                  lineHeight: 1.4
+                }}>
+                  💡 避坑重點：{item.pitfallZh}
+                </div>
+
+                <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '0.5rem', marginTop: 'auto' }}>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-muted)', marginBottom: '0.35rem' }}>
+                    經典示範單字 (點擊聆聽)：
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
+                    {item.examples.map((ex, exIdx) => (
+                      <button
+                        key={exIdx}
+                        onClick={() => handleSpeak(ex.vi, "mouth_" + idx + "_" + exIdx)}
+                        style={{
+                          background: 'var(--bg-input)',
+                          border: '1px solid var(--border-color)',
+                          borderRadius: 'var(--radius-xs)',
+                          padding: '0.3rem 0.65rem',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          fontSize: '0.84rem'
+                        }}
+                      >
+                        <strong style={{ color: 'var(--brand-primary)' }}>{ex.vi}</strong>
+                        <span style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>({ex.zh})</span>
+                        <Volume2 size={12} color="var(--brand-accent)" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       )}

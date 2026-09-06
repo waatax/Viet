@@ -5,7 +5,7 @@ import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import './ShadowingModule.css';
 
-const ShadowingModule = ({ selectedAccent = 'north' }) => {
+const ShadowingModule = ({ selectedAccent = 'north', updateUserStats }) => {
   const { learningMode } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [phrases, setPhrases] = useState([]);
@@ -147,8 +147,16 @@ const ShadowingModule = ({ selectedAccent = 'north' }) => {
     });
 
     const calculatedAcc = targetWords.length > 0 ? Math.round((matches / targetWords.length) * 100) : 0;
-    // Cap at 100
-    setAccuracy(Math.min(calculatedAcc, 100));
+    const finalAcc = Math.min(calculatedAcc, 100);
+    setAccuracy(finalAcc);
+    if (finalAcc >= 80) {
+      audioEngine.playSuccessChime();
+      if (updateUserStats) updateUserStats({ type: 'ADD_XP', payload: 20 });
+    } else if (finalAcc >= 50) {
+      if (updateUserStats) updateUserStats({ type: 'ADD_XP', payload: 10 });
+    } else {
+      audioEngine.playGentleError();
+    }
   };
 
   const currentPhrase = phrases[currentIndex];

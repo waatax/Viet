@@ -61,6 +61,7 @@ export const SentenceBuilderModule = ({ selectedAccent = 'north', updateUserStat
 
   const handleSelectBlock = (block) => {
     if (isCorrect !== null) return;
+    audioEngine.speak(block.word, { accent: selectedAccent });
     setWordBlocks(prev => prev.filter(b => b.id !== block.id));
     setSelectedBlocks(prev => [...prev, block]);
   };

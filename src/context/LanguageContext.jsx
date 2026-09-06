@@ -42,7 +42,9 @@ export const translations = {
       sentence: '句子重組特訓',
       tonegame: '聲調聽力特訓',
       business: '商務出差',
+      macropol: '越南政經',
       // Navigation group labels
+      groupMacro: '🏛️ 政經',
       groupFastTrack: '⚡ 速成',
       groupBusiness: '💼 商務',
       groupBasics: '🔤 基礎',
@@ -120,7 +122,9 @@ export const translations = {
       sentence: 'Sentence Builder',
       tonegame: 'Tone Mastery',
       business: 'Business Hub',
+      macropol: 'Vietnam Politics & Economy',
       // Navigation group labels
+      groupMacro: '🏛️ Macro',
       groupFastTrack: '⚡ Fast-Track',
       groupBusiness: '💼 Business',
       groupBasics: '🔤 Basics',

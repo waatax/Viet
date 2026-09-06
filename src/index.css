@@ -3074,3 +3074,164 @@ p, li, h1, h2, h3, strong, small, span {
 @media (max-width: 768px) {
   table.comparison-table { display: block; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; width: 100%; }
 }
+
+/* ==========================================================================
+   Comprehensive UI/UX Upgrade: 6-Tone Color System & Interactive Design Tokens
+   ========================================================================== */
+:root {
+  --tone-ngang: #3b82f6; /* 平聲 Ngang - 蔚藍 44 */
+  --tone-huyen: #10b981; /* 玄聲 Huyền - 翠綠 31 */
+  --tone-sac: #ef4444;   /* 銳聲 Sắc - 緋紅 35 */
+  --tone-hoi: #f59e0b;   /* 問聲 Hỏi - 琥珀金 31-12 */
+  --tone-nga: #8b5cf6;   /* 跌聲 Ngã - 紫羅蘭 35-45 */
+  --tone-nang: #64748b;  /* 重聲 Nặng - 石板墨 21 */
+}
+
+/* 6-Tone Pill Badges */
+.tone-chip-ngang { background: rgba(59, 130, 246, 0.12); color: var(--tone-ngang); border: 1px solid var(--tone-ngang); }
+.tone-chip-huyen { background: rgba(16, 185, 129, 0.12); color: var(--tone-huyen); border: 1px solid var(--tone-huyen); }
+.tone-chip-sac { background: rgba(239, 68, 68, 0.12); color: var(--tone-sac); border: 1px solid var(--tone-sac); }
+.tone-chip-hoi { background: rgba(245, 158, 11, 0.12); color: var(--tone-hoi); border: 1px solid var(--tone-hoi); }
+.tone-chip-nga { background: rgba(139, 92, 246, 0.12); color: var(--tone-nga); border: 1px solid var(--tone-nga); }
+.tone-chip-nang { background: rgba(100, 116, 139, 0.12); color: var(--tone-nang); border: 1px solid var(--tone-nang); }
+
+/* Audio Playing State Glow & Pulse */
+@keyframes audio-glow-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.audio-playing-glow {
+  animation: audio-glow-pulse 1.3s infinite ease-in-out !important;
+  border-color: var(--brand-accent) !important;
+}
+
+/* Dynamic Pitch Contour Traveling Animation */
+@keyframes pitch-glide-anim {
+  0% { transform: scale(1); filter: drop-shadow(0 0 2px #fff); }
+  50% { transform: scale(1.4); filter: drop-shadow(0 0 8px #fbbf24); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 2px #fff); }
+}
+
+.pitch-travel-dot {
+  animation: pitch-glide-anim 0.8s ease-in-out infinite;
+}
+
+/* Categorized Navigation 2.0 */
+.nav-categories-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-x: auto;
+  padding: 0.15rem 0;
+  scrollbar-width: none;
+}
+.nav-categories-bar::-webkit-scrollbar { display: none; }
+
+.nav-cat-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.nav-cat-btn:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+}
+
+.nav-cat-btn.active {
+  background: var(--brand-accent);
+  color: #fff;
+  border-color: var(--brand-accent);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+}
+
+/* Sub-Module Secondary Bar */
+.subnav-modules-bar {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  padding: 0.4rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.subnav-modules-bar::-webkit-scrollbar { display: none; }
+
+.subnav-item-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--bg-main);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.subnav-item-chip:hover {
+  background: var(--bg-accent);
+  color: var(--text-primary);
+  border-color: var(--brand-accent);
+}
+
+.subnav-item-chip.active {
+  background: var(--bg-accent);
+  color: var(--brand-accent);
+  font-weight: 800;
+  border-color: var(--brand-accent);
+  box-shadow: 0 1px 4px rgba(37, 99, 235, 0.12);
+}
+
+/* Fast Track & Module Cards Upgrade */
+.interactive-micro-quiz {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+/* Mouth Shape & Tongue Anatomical Phonetics */
+.mouth-phonetic-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.mouth-phonetic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Haggling Dynamic Reaction Bar */
+.haggling-meter {
+  height: 10px;
+  background: var(--bg-input);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+.haggling-meter-fill {
+  height: 100%;
+  transition: width 0.4s ease, background-color 0.4s ease;
+}
+

@@ -157,14 +157,14 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
 
   const PRONOUN_SCENARIOS = [
     {
-      titleZh: '☕ 情境一：咖啡廳點餐',
+      titleZh: '☕ 情境一：咖啡廳點餐 (男顧客 vs 年輕女店員)',
       titleEn: '☕ Scenario 1: Coffee Shop',
       descZh: '你是一位 28 歲的男士，來到河內咖啡廳。接待你的店員是一位大約 20 歲的年輕女大學生。你應該如何自稱並稱呼對方？',
       descEn: 'You are a 28yo man at a Hanoi cafe. The barista is a 20yo young lady. How do you address yourselves?',
       optionsZh: [
-        'A. 我稱「Anh (哥)」，稱對方「Em (妹/晚輩)」',
-        'B. 我稱「Em (弟)」，稱對方「Chị (姐)」',
-        'C. 我稱「Chú (叔)」，稱對方「Cháu (侄)」',
+        'A. 我自稱「Anh (哥)」，稱對方「Em (妹/晚輩)」',
+        'B. 我自稱「Em (弟)」，稱對方「Chị (姐)」',
+        'C. 我自稱「Chú (叔)」，稱對方「Cháu (侄)」',
         'D. 雙方皆自稱「Tôi」'
       ],
       optionsEn: [
@@ -177,7 +177,7 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
       explainZh: '✓ 完全正確！面對比自己年幼的女性店員，男性自稱 Anh (哥哥)，親切稱呼對方為 Em (弟妹輩)，是最道地有禮的點餐方式。'
     },
     {
-      titleZh: '🛵 情境二：搭乘 Grab 摩托車',
+      titleZh: '🛵 情境二：搭乘 Grab 摩托車 (青年乘客 vs 銀髮老司機)',
       titleEn: '🛵 Scenario 2: Grab Ride',
       descZh: '你是一位 25 歲的乘客，接單的 Grab 司機是一位大約 65 歲、頭髮花白的長輩爺爺。你該如何打招呼並自稱？',
       descEn: 'You are a 25yo rider. Your Grab driver is a 65yo elderly senior with white hair. How should you greet him?',
@@ -197,7 +197,7 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
       explainZh: '✓ 完全正確！面對爺爺輩或年長於父母的長輩，晚輩應自稱 Cháu，並尊敬地稱呼對方為 Bác (伯父) 或 Ông (爺爺)。'
     },
     {
-      titleZh: '💼 情境三：初次商務會議',
+      titleZh: '💼 情境三：初次商務會議 (外商主管協商)',
       titleEn: '💼 Scenario 3: Business Meeting',
       descZh: '你在胡志明市參加跨國企業合作會議，首次拜訪 45 歲的越南男性總經理。最得體且具備專業禮節的自稱與稱謂是？',
       descEn: 'You are at a corporate meeting meeting a 45yo Vietnamese Managing Director for the first time.',
@@ -215,6 +215,106 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
       ],
       answer: 0,
       explainZh: '✓ 完全正確！商務初次見面可用禮貌客氣的 Tôi (本人) 或 Em，並尊稱對方為 Anh (長輩先生) 或 Quý công ty (貴公司)。'
+    },
+    {
+      titleZh: '🏭 情境四：台商工廠車間巡檢 (40歲主管 vs 22歲作業員)',
+      titleEn: '🏭 Scenario 4: Factory Inspection',
+      descZh: '身為 40 歲的台商車間主管，你在產線上指導 22 歲的越南產線女工（Công nhân）。最符合越南工廠文化且展現親和力的稱謂是？',
+      descEn: 'As a 40yo supervisor guiding a 22yo factory worker, how should you address her?',
+      optionsZh: [
+        'A. 主管自稱「Anh (哥)」，稱呼工人「Em (妹)」',
+        'B. 主管自稱「Tôi」，稱呼工人「Bà」',
+        'C. 主管自稱「Em」，稱呼工人「Chị」',
+        'D. 雙方皆直呼其名，不加稱謂'
+      ],
+      optionsEn: [
+        'A. Supervisor: Anh, Worker: Em',
+        'B. Supervisor: Tôi, Worker: Bà',
+        'C. Supervisor: Em, Worker: Chị',
+        'D. Only names'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！在越南台商或外商製造業，上司對下屬普遍自稱「Anh/Chị」，並稱呼員工「Em」，既具備家庭式溫暖又維持管理權威。'
+    },
+    {
+      titleZh: '🛍️ 情境五：傳統市場買菜問價 (30歲青年 vs 55歲菜攤阿姨)',
+      titleEn: '🛍️ Scenario 5: Wet Market Haggling',
+      descZh: '30 歲的你走進濱城市場（Chợ Bến Thành），向一位 55 歲賣芒果的攤販阿姨問價。最親切、能討得老闆歡心的稱呼是？',
+      descEn: 'You (30yo) asking a 55yo female market vendor about fruit prices. How to address her?',
+      optionsZh: [
+        'A. 自稱「Em (晚輩)」，稱呼對方為「Cô (阿姨/姑姑)」',
+        'B. 自稱「Anh」，稱呼對方為「Em」',
+        'C. 自稱「Ông」，稱呼對方為「Bà」',
+        'D. 自稱「Bác」，稱呼對方為「Cháu」'
+      ],
+      optionsEn: [
+        'A. Me: Em, You: Cô (Auntie)',
+        'B. Me: Anh, You: Em',
+        'C. Me: Ông, You: Bà',
+        'D. Me: Bác, You: Cháu'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！稱呼年紀相當於父母輩的女性攤販為「Cô」，自稱「Em」，在市場非常討喜，甚至更容易拿到折扣！'
+    },
+    {
+      titleZh: '🍻 情境六：同儕下班聚餐敬酒 (同齡同事之間)',
+      titleEn: '🍻 Scenario 6: After-work Beers',
+      descZh: '下班後與同部門幾位年齡相仿（都是 26 歲）的越南同事在熱炒店聚餐，彼此平輩互動時最自然友好的稱謂是？',
+      descEn: 'Having drinks with peer colleagues of the same age (26yo). What pronouns are most natural?',
+      optionsZh: [
+        'A. 稱對方「Bạn / Cậu」，自稱「Mình / Tôi」',
+        'B. 稱對方「Bác」，自稱「Cháu」',
+        'C. 稱對方「Thầy」，自稱「Trò」',
+        'D. 稱對方「Con」，自稱「Cha」'
+      ],
+      optionsEn: [
+        'A. You: Bạn/Cậu, Me: Mình/Tôi',
+        'B. You: Bác, Me: Cháu',
+        'C. You: Thầy, Me: Trò',
+        'D. You: Con, Me: Cha'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！年齡相仿的同輩朋友，使用 Bạn-Mình 或 Cậu-Mình 是非常自然、平等的親密稱呼。'
+    },
+    {
+      titleZh: '🎓 情境七：向大學教授請益 (大學生 vs 55歲男教授)',
+      titleEn: '🎓 Scenario 7: Asking Professor',
+      descZh: '下課後你向任教的大學男教授請益越南語語法問題。學生對老師的專屬尊稱與自稱是什麼？',
+      descEn: 'Asking your male university professor a question. What is the dedicated teacher-student pronoun?',
+      optionsZh: [
+        'A. 尊稱老師為「Thầy」，學生自稱「Em」',
+        'B. 稱老師為「Anh」，學生自稱「Em」',
+        'C. 稱老師為「Bạn」，學生自稱「Mình」',
+        'D. 稱老師為「Chú」，學生自稱「Cháu」'
+      ],
+      optionsEn: [
+        'A. Professor: Thầy, Student: Em',
+        'B. Professor: Anh, Student: Em',
+        'C. Professor: Bạn, Student: Mình',
+        'D. Professor: Chú, Student: Cháu'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！越南文化極度尊師重道，男老師稱「Thầy」，女老師稱「Cô」，學生一律自稱「Em」。'
+    },
+    {
+      titleZh: '🏮 情境八：拜訪越南朋友父母 (初次踏入朋友家中)',
+      titleEn: '🏮 Scenario 8: Visiting Friend Family',
+      descZh: '你受邀到越南朋友家中作客，首次見到朋友 60 歲的父母雙親。晚輩進門打招呼的最規範用語是？',
+      descEn: 'Visiting a Vietnamese friend home and meeting their 60yo parents for the first time.',
+      optionsZh: [
+        'A. 自稱「Cháu」，向伯父伯母敬稱「Cháu chào Hai Bác ạ!」',
+        'B. 自稱「Em」，說「Chào hai anh chị」',
+        'C. 自稱「Tôi」，說「Xin chào hai người」',
+        'D. 自稱「Con」，說「Chào bố mẹ」'
+      ],
+      optionsEn: [
+        'A. Me: Cháu, Greeting: Cháu chào Hai Bác ạ!',
+        'B. Me: Em, Greeting: Chào hai anh chị',
+        'C. Me: Tôi, Greeting: Xin chào hai người',
+        'D. Me: Con, Greeting: Chào bố mẹ'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！初次拜訪朋友父母，稱呼 Hai Bác (雙親二位伯長輩)，晚輩自稱 Cháu，句尾加「ạ」是最具教養的展現！'
     }
   ];
 

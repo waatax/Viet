@@ -270,8 +270,45 @@ export const QuizModule = ({ userStats, updateUserStats, selectedAccent }) => {
           <h3 style={{ fontSize: '1.8em', fontWeight: 900, marginBottom: '0.5rem' }}>
             {learningMode === 'zh' ? '恭喜完成 iVPT 模擬測驗！' : 'Quiz Completed!'}
           </h3>
-          <div style={{ fontSize: '1.3em', fontWeight: 800, color: 'var(--brand-gold)', marginBottom: '1.5rem' }}>
+          <div style={{ fontSize: '1.3em', fontWeight: 800, color: 'var(--brand-gold)', marginBottom: '1rem' }}>
             {learningMode === 'zh' ? `總分：${score} / ${activeDeck.length} 題 (${Math.round((score/activeDeck.length)*100)}分)` : `Score: ${score} / ${activeDeck.length} (${Math.round((score/activeDeck.length)*100)}%)`}
+          </div>
+
+          {/* CEFR Diagnostic Card */}
+          <div style={{
+            background: 'var(--bg-main)',
+            border: '1.5px solid var(--border-color)',
+            borderRadius: 'var(--radius-md)',
+            padding: '1.25rem',
+            maxWidth: '520px',
+            margin: '0 auto 1.75rem',
+            textAlign: 'left'
+          }}>
+            <div style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--brand-accent)', marginBottom: '0.35rem' }}>
+              📊 iVPT / CEFR 認證能力診斷：
+            </div>
+            {Math.round((score / activeDeck.length) * 100) >= 90 ? (
+              <div style={{ fontSize: '0.95rem', color: 'var(--brand-green)', fontWeight: 700, lineHeight: 1.5 }}>
+                🌟 <strong>評估等級：CEFR A2 ~ B1 獨立交流級</strong>
+                <p style={{ margin: '0.25rem 0 0', color: 'var(--text-secondary)', fontSize: '0.88rem', fontWeight: 'normal' }}>
+                  聽力音感與語法架構極為敏銳！具備越南出差、咖啡廳獨立點餐與市場討價還價的流暢溝通能力。
+                </p>
+              </div>
+            ) : Math.round((score / activeDeck.length) * 100) >= 70 ? (
+              <div style={{ fontSize: '0.95rem', color: 'var(--brand-gold)', fontWeight: 700, lineHeight: 1.5 }}>
+                🚀 <strong>評估等級：CEFR A1 基礎入門達標</strong>
+                <p style={{ margin: '0.25rem 0 0', color: 'var(--text-secondary)', fontSize: '0.88rem', fontWeight: 'normal' }}>
+                  基礎字根與核心稱謂掌握扎實。建議多到「26大情境對話」加強長句連續聽力！
+                </p>
+              </div>
+            ) : (
+              <div style={{ fontSize: '0.95rem', color: '#ef4444', fontWeight: 700, lineHeight: 1.5 }}>
+                🌱 <strong>評估等級：準備起步階段</strong>
+                <p style={{ margin: '0.25rem 0 0', color: 'var(--text-secondary)', fontSize: '0.88rem', fontWeight: 'normal' }}>
+                  建議前往「聲調聽力特訓 2.0」加強 6 大聲調辨析，並使用「7天生活速成」鞏固日常短句。
+                </p>
+              </div>
+            )}
           </div>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>

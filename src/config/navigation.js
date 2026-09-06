@@ -1,11 +1,11 @@
 import {
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
   Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, Zap, Brain, LifeBuoy,
-  Music, Puzzle, Mic, Briefcase
+  Music, Puzzle, Mic, Briefcase, Landmark
 } from 'lucide-react';
 
 export const MODULE_IDS = [
-  'path', 'fasttrack', 'business', 'emergency', 'alphabet', 'tonegame', 'pronoun',
+  'path', 'macropol', 'fasttrack', 'business', 'emergency', 'alphabet', 'tonegame', 'pronoun',
   'phrases', 'conversation', 'flashcards', 'grammar', 'sentence', 'quiz',
   'shadowing', 'hanviet', 'shopping', 'accent', 'science'
 ];
@@ -15,6 +15,13 @@ export const NAV_GROUPS = [
     id: 'dashboard',
     items: [
       { id: 'path', labelKey: 'tabs.path', icon: Map }
+    ]
+  },
+  {
+    id: 'macropol',
+    labelKey: 'tabs.groupMacro',
+    items: [
+      { id: 'macropol', labelKey: 'tabs.macropol', icon: Landmark }
     ]
   },
   {

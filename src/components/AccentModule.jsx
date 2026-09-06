@@ -37,7 +37,81 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
     }, 750);
   };
 
-  const categories = ['all', ...new Set(accentDifferences.wordComparisonMatrix.map(w => w.category))];
+
+  // Dialect Blind Listening Quiz State
+  const [accentQuizIdx, setAccentQuizIdx] = useState(0);
+  const [accentQuizSelected, setAccentQuizSelected] = useState(null);
+  const [accentQuizScore, setAccentQuizScore] = useState(0);
+
+  const ACCENT_QUIZ_QUESTIONS = [
+    {
+      word: 'vào',
+      accent: 'south',
+      audioText: 'vào',
+      meaningZh: '進入 (Vào)',
+      explainZh: '🌴 西貢腔特色：「v」常被發為「d/y」音，聽起來像「yào」。北越則發標準的清脆「v」音。'
+    },
+    {
+      word: 'dạ',
+      accent: 'north',
+      audioText: 'dạ',
+      meaningZh: '應答敬語 (Dạ)',
+      explainZh: '🏛️ 河內腔特色：「d」與「gi」完全合流為「z」音，聽起來像「zạ」。南越則發「y」音 (yạ)。'
+    },
+    {
+      word: 'trời',
+      accent: 'south',
+      audioText: 'trời',
+      meaningZh: '天空 / 天氣 (Trời)',
+      explainZh: '🌴 西貢腔特色：「tr」發清晰捲舌音 [ʈ]；河內腔則完全合流為不捲舌的「ch (z)」音。'
+    },
+    {
+      word: 'sữa',
+      accent: 'south',
+      audioText: 'sữa',
+      meaningZh: '牛奶 (Sữa - 跌聲)',
+      explainZh: '🌴 西貢腔特色：問聲 (Hỏi) 與跌聲 (Ngã) 合流為同一個聲調，無喉塞跳躍感。北越則有明顯的喉門中斷 (glottal stop)。'
+    },
+    {
+      word: 'rất',
+      accent: 'north',
+      audioText: 'rất',
+      meaningZh: '非常 (Rất)',
+      explainZh: '🏛️ 河內腔特色：「r」讀為清脆「z」音 (zất)；南越讀閃音或捲舌 [r/ʐ] 音。'
+    },
+    {
+      word: 'ngủ',
+      accent: 'north',
+      audioText: 'ngủ',
+      meaningZh: '睡覺 (Ngủ - 問聲)',
+      explainZh: '🏛️ 河內腔特色：問聲降後微揚 (31-12)，調值飽滿；南越問聲則平緩微降。'
+    }
+  ];
+
+  const currentAccentQuiz = ACCENT_QUIZ_QUESTIONS[accentQuizIdx];
+
+  const handlePlayAccentQuizAudio = () => {
+    audioEngine.speak(currentAccentQuiz.word, { accent: currentAccentQuiz.accent });
+  };
+
+  const handleAccentGuess = (guessedAccent) => {
+    if (accentQuizSelected !== null) return;
+    setAccentQuizSelected(guessedAccent);
+    const isCorrect = guessedAccent === currentAccentQuiz.accent;
+    if (isCorrect) {
+      setAccentQuizScore(s => s + 1);
+      audioEngine.playSuccessChime();
+    } else {
+      audioEngine.playGentleError();
+    }
+  };
+
+  const nextAccentQuiz = () => {
+    setAccentQuizSelected(null);
+    setAccentQuizIdx(prev => (prev + 1) % ACCENT_QUIZ_QUESTIONS.length);
+  };
+
+    const categories = ['all', ...new Set(accentDifferences.wordComparisonMatrix.map(w => w.category))];
 
   const filteredMatrix = accentDifferences.wordComparisonMatrix.filter(item => {
     const matchesCat = selectedCategory === 'all' || item.category === selectedCategory;
@@ -588,6 +662,132 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
           </div>
         </div>
       )}
+
+      {/* ==================================================== */}
+      {/* TAB 5: DIALECT BLIND LISTENING QUIZ */}
+      {/* ==================================================== */}
+      {activeSubTab === 'quiz' && (
+        <div style={{
+          background: 'var(--bg-card)',
+          border: '1.5px solid var(--brand-accent)',
+          borderRadius: 'var(--radius-lg)',
+          padding: '2rem',
+          maxWidth: '680px',
+          margin: '0 auto',
+          boxShadow: 'var(--card-shadow)'
+        }}>
+          <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase' }}>
+              🎧 耳朵靈敏度盲測 · 第 {accentQuizIdx + 1} / {ACCENT_QUIZ_QUESTIONS.length} 題
+            </span>
+            <h3 style={{ fontSize: '1.4rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.3rem 0' }}>
+              這句發音究竟是「河內腔」還是「西貢腔」？
+            </h3>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem' }}>
+              單字：<strong style={{ fontSize: '1.2rem', color: 'var(--brand-primary)' }}>{currentAccentQuiz.word}</strong> ({currentAccentQuiz.meaningZh})
+            </p>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.75rem' }}>
+            <button
+              className="speaker-btn audio-playing-glow"
+              onClick={handlePlayAccentQuizAudio}
+              style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'var(--brand-accent)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', border: 'none', boxShadow: '0 8px 24px rgba(139, 92, 246, 0.35)' }}
+              title="點擊聆聽神秘發音"
+            >
+              <Volume2 size={36} />
+            </button>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+            <button
+              onClick={() => handleAccentGuess('north')}
+              disabled={accentQuizSelected !== null}
+              style={{
+                padding: '1rem',
+                borderRadius: 'var(--radius-md)',
+                border: accentQuizSelected === 'north'
+                  ? (currentAccentQuiz.accent === 'north' ? '2px solid var(--brand-green)' : '2px solid #ef4444')
+                  : '1.5px solid var(--border-color)',
+                background: accentQuizSelected === 'north'
+                  ? (currentAccentQuiz.accent === 'north' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)')
+                  : 'var(--bg-main)',
+                cursor: accentQuizSelected ? 'default' : 'pointer',
+                fontWeight: 800,
+                fontSize: '1.05rem',
+                color: 'var(--text-primary)'
+              }}
+            >
+              🏛️ 河內北越腔 (North)
+            </button>
+
+            <button
+              onClick={() => handleAccentGuess('south')}
+              disabled={accentQuizSelected !== null}
+              style={{
+                padding: '1rem',
+                borderRadius: 'var(--radius-md)',
+                border: accentQuizSelected === 'south'
+                  ? (currentAccentQuiz.accent === 'south' ? '2px solid var(--brand-green)' : '2px solid #ef4444')
+                  : '1.5px solid var(--border-color)',
+                background: accentQuizSelected === 'south'
+                  ? (currentAccentQuiz.accent === 'south' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)')
+                  : 'var(--bg-main)',
+                cursor: accentQuizSelected ? 'default' : 'pointer',
+                fontWeight: 800,
+                fontSize: '1.05rem',
+                color: 'var(--text-primary)'
+              }}
+            >
+              🌴 西貢南越腔 (South)
+            </button>
+          </div>
+
+          {accentQuizSelected !== null && (
+            <div style={{
+              background: 'var(--bg-main)',
+              borderLeft: `4px solid ${accentQuizSelected === currentAccentQuiz.accent ? 'var(--brand-green)' : '#ef4444'}`,
+              padding: '1.25rem',
+              borderRadius: 'var(--radius-sm)',
+              marginBottom: '1.5rem',
+              animation: 'floatUp 0.3s ease-out'
+            }}>
+              <div style={{ fontWeight: 800, color: accentQuizSelected === currentAccentQuiz.accent ? 'var(--brand-green)' : '#ef4444', marginBottom: '0.4rem', fontSize: '1.05rem' }}>
+                {accentQuizSelected === currentAccentQuiz.accent ? '✓ 恭喜答對！聽力非常敏銳！' : '✕ 答錯囉！'}
+                （正確為：{currentAccentQuiz.accent === 'north' ? '🏛️ 河內北越腔' : '🌴 西貢南越腔'}）
+              </div>
+              <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+                {currentAccentQuiz.explainZh}
+              </p>
+            </div>
+          )}
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--brand-gold)' }}>
+              累計答對：{accentQuizScore} / {ACCENT_QUIZ_QUESTIONS.length}
+            </span>
+            <button
+              onClick={nextAccentQuiz}
+              style={{
+                padding: '0.55rem 1.25rem',
+                borderRadius: 'var(--radius-full)',
+                background: 'var(--brand-accent)',
+                color: '#fff',
+                fontWeight: 800,
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}
+            >
+              <span>下一題</span>
+              <ArrowRight size={16} />
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

@@ -1,3 +1,70 @@
+export const EXPANDED_GRAMMAR_RULES = [
+  {
+    titleZh: '1. 基本 SVO 語序 (主詞 + 動詞 + 受詞)',
+    titleEn: '1. Basic SVO Word Order',
+    descriptionZh: '基本語序與中文完全相同，動詞不隨人稱、性別變形，直接以原形表達。',
+    descriptionEn: 'Follows Subject + Verb + Object without verbal conjugation.',
+    exampleVi: 'Tôi ăn cơm.',
+    exampleZh: 'Tôi (我) + ăn (吃) + cơm (飯) = 我吃飯。'
+  },
+  {
+    titleZh: '2. 形容詞後置修飾原則 (重要！)',
+    titleEn: '2. Post-nominal Adjective Rule',
+    descriptionZh: '與中文完全相反！形容詞、定語必須放置在名詞的「後面」進行修飾。',
+    descriptionEn: 'Adjectives strictly follow the noun they modify.',
+    exampleVi: 'Cà phê sữa đá',
+    exampleZh: 'Cà phê (咖啡) + sữa (奶) + đá (冰) = 冰奶咖啡。'
+  },
+  {
+    titleZh: '3. 三大時態標記 (Đã / Đang / Sẽ)',
+    titleEn: '3. Tense Markers (Đã / Đang / Sẽ)',
+    descriptionZh: '動詞前放置時態助詞：Đã (已/過去)、Đang (正在/進行)、Sẽ (將要/未來)。',
+    descriptionEn: 'Pre-verbal aspect particles: Đã (past), Đang (progressive), Sẽ (future).',
+    exampleVi: 'Tôi đang học tiếng Việt.',
+    exampleZh: 'Tôi đang học tiếng Việt. (我正在學越南語。)'
+  },
+  {
+    titleZh: '4. 被動與受益語氣 (Bị vs Được)',
+    titleEn: '4. Passive (Bị vs Được)',
+    descriptionZh: '遭遇不幸、非自願負面用 Bị；獲得好處、幸運正面用 Được。',
+    descriptionEn: 'Use Bị for adverse experiences, Được for fortunate ones.',
+    exampleVi: 'Anh ấy được thăng chức, còn tôi bị phạt.',
+    exampleZh: 'Được thăng chức (升遷) vs Bị phạt (被罰)。'
+  },
+  {
+    titleZh: '5. 經典量詞體系 (Cái, Con, Người, Chiếc)',
+    titleEn: '5. Classifier System',
+    descriptionZh: '「數詞 + 量詞 + 名詞」：cái (物品), con (動物/活物), người (人), chiếc (車船/成雙之一)。',
+    descriptionEn: 'Numeral + Classifier + Noun syntax.',
+    exampleVi: 'Hai con cá và một cái bàn.',
+    exampleZh: 'Hai con cá (兩條魚) + một cái bàn (一張桌子)。'
+  },
+  {
+    titleZh: '6. 萬能是非疑問句 (Có ... không?)',
+    titleEn: '6. Yes/No Questions (Có ... không?)',
+    descriptionZh: '句型：主詞 + Có + 動詞/形容詞 + Không? (意為「有沒有...？/ 是否...？」)。',
+    descriptionEn: 'Universal question structure: S + có + V/Adj + không?',
+    exampleVi: 'Bạn có khỏe không?',
+    exampleZh: 'Bạn có khỏe không? (你身體好嗎？)'
+  },
+  {
+    titleZh: '7. 三大否定詞 (Không, Chưa, Đừng)',
+    titleEn: '7. Negation Words (Không, Chưa, Đừng)',
+    descriptionZh: 'Không (不/非事實)、Chưa (尚未/將來可能發生)、Đừng (別/請勿/祈使句否定)。',
+    descriptionEn: 'Không (no/not), Chưa (not yet), Đừng (do not/imperative).',
+    exampleVi: 'Tôi chưa ăn cơm, đừng lo!',
+    exampleZh: 'Chưa ăn (尚未吃) · Đừng lo (別擔心)。'
+  },
+  {
+    titleZh: '8. 方向與動態介詞 (Đi, Đến, Về, Ở)',
+    titleEn: '8. Motion & Prepositions',
+    descriptionZh: 'Đi (去)、Đến/Tới (到達)、Về (返回家鄉)、Ở (在某處)。回到家鄉必用 Về。',
+    descriptionEn: 'Đi (go), Đến (arrive), Về (return home), Ở (at/in).',
+    exampleVi: 'Tôi đi làm, tối về nhà ở Hà Nội.',
+    exampleZh: 'Đi làm (去上班) · Về nhà (回家) · Ở Hà Nội (在河內)。'
+  }
+];
+
 import React, { useState, useEffect } from 'react';
 import { Layers, Puzzle, CheckCircle, RefreshCw, Volume2, ArrowRight, Sparkles, CheckCircle2, XCircle } from 'lucide-react';
 import { grammarRules, interactivePuzzles } from '../data/vietnameseData';
@@ -123,7 +190,7 @@ export const GrammarModule = ({ selectedAccent, updateUserStats }) => {
 
       {/* 1. Grammar Rules Grid */}
       <div className="grid-cards" style={{ marginBottom: '2.5rem' }}>
-        {grammarRules.map((rule, idx) => {
+        {EXPANDED_GRAMMAR_RULES.map((rule, idx) => {
           const ruleKey = `grammar_rule_${idx}`;
           const isPlaying = activeKey === ruleKey;
           return (
@@ -141,7 +208,7 @@ export const GrammarModule = ({ selectedAccent, updateUserStats }) => {
                 </span>
                 <button
                   className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
-                  onClick={() => playSpeech(rule.exampleZh || rule.exampleEn, ruleKey)}
+                  onClick={() => playSpeech(rule.exampleVi, ruleKey)}
                   title="聆聽範例發音"
                 >
                   <Volume2 size={15} />

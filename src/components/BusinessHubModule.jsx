@@ -385,15 +385,40 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginTop: '0.5rem' }}>
               {tradeShowGuide.expoVenues.map((venue, idx) => (
                 <div key={idx} style={{ background: 'var(--bg-input)', padding: '1rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--brand-primary)' }}>
-                  <strong style={{ display: 'block', color: 'var(--text-primary)', fontSize: '0.98rem', marginBottom: '0.3rem' }}>
-                    {learningMode === 'zh' ? venue.nameZh : venue.nameEn}
-                  </strong>
-                  <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.4rem', lineHeight: 1.5 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
+                    <strong style={{ display: 'block', color: 'var(--text-primary)', fontSize: '0.98rem', marginBottom: '0.2rem' }}>
+                      {learningMode === 'zh' ? venue.nameZh : venue.nameEn}
+                    </strong>
+                    <button
+                      className={`speaker-btn mini-btn ${activeKey === `venue-name-${idx}` ? 'playing' : ''}`}
+                      onClick={() => handleSpeak(venue.nameVi, `venue-name-${idx}`)}
+                      title="朗讀展館越文全名"
+                      aria-label="朗讀展館越文名稱"
+                      style={{ width: '28px', height: '28px' }}
+                    >
+                      <Volume2 size={14} />
+                    </button>
+                  </div>
+                  <div style={{ fontSize: '0.85rem', color: 'var(--brand-primary)', fontWeight: 700, marginBottom: '0.35rem' }}>
+                    {venue.nameVi}
+                  </div>
+                  <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.45rem', lineHeight: 1.5 }}>
                     {venue.descZh}
                   </div>
-                  <small style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                    📍 {venue.addressVi}
-                  </small>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem', background: 'var(--bg-card)', padding: '0.4rem 0.6rem', borderRadius: 'var(--radius-xs)' }}>
+                    <small style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                      📍 {venue.addressVi}
+                    </small>
+                    <button
+                      className={`speaker-btn mini-btn ${activeKey === `venue-addr-${idx}` ? 'playing' : ''}`}
+                      onClick={() => handleSpeak(venue.addressVi, `venue-addr-${idx}`)}
+                      title="朗讀地址 (搭計程車/問路使用)"
+                      aria-label="朗讀地址"
+                      style={{ width: '24px', height: '24px' }}
+                    >
+                      <Volume2 size={12} />
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -425,10 +450,22 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
           <div className="negotiation-arena-card">
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
               <span style={{ fontSize: '2rem' }}>{tradeShowGuide.stages[activeExpoStageIdx].icon}</span>
-              <div>
-                <h4 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 900, color: 'var(--text-primary)' }}>
-                  {learningMode === 'zh' ? tradeShowGuide.stages[activeExpoStageIdx].stageNameZh : tradeShowGuide.stages[activeExpoStageIdx].stageNameEn}
-                </h4>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <h4 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 900, color: 'var(--text-primary)' }}>
+                    {learningMode === 'zh' ? tradeShowGuide.stages[activeExpoStageIdx].stageNameZh : tradeShowGuide.stages[activeExpoStageIdx].stageNameEn}
+                  </h4>
+                  {tradeShowGuide.stages[activeExpoStageIdx].stageNameVi && (
+                    <button
+                      className={`speaker-btn mini-btn ${activeKey === `expo-stg-${activeExpoStageIdx}` ? 'playing' : ''}`}
+                      onClick={() => handleSpeak(tradeShowGuide.stages[activeExpoStageIdx].stageNameVi, `expo-stg-${activeExpoStageIdx}`)}
+                      title="朗讀階段越文名稱"
+                      style={{ width: '28px', height: '28px' }}
+                    >
+                      <Volume2 size={14} />
+                    </button>
+                  )}
+                </div>
                 <p style={{ margin: '0.2rem 0 0', color: 'var(--brand-gold)', fontSize: '0.88rem', fontWeight: 700 }}>
                   💡 {tradeShowGuide.stages[activeExpoStageIdx].tipsZh}
                 </p>
@@ -453,7 +490,7 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                       {phrase.viet}
                     </span>
                     <button
-                      className="speaker-btn"
+                      className={`speaker-btn ${activeKey === `expo-${activeExpoStageIdx}-${pIdx}` ? 'playing' : ''}`}
                       onClick={() => handleSpeak(phrase.viet, `expo-${activeExpoStageIdx}-${pIdx}`)}
                       aria-label="播放發音"
                     >
@@ -494,9 +531,20 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                     <span style={{ fontSize: '2rem' }}>{city.icon}</span>
                     <div>
-                      <h4 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 900, color: 'var(--text-primary)' }}>
-                        {learningMode === 'zh' ? city.cityNameZh : city.cityNameEn}
-                      </h4>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <h4 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 900, color: 'var(--text-primary)' }}>
+                          {learningMode === 'zh' ? city.cityNameZh : city.cityNameEn}
+                        </h4>
+                        <button
+                          className={`speaker-btn mini-btn ${activeKey === `city-name-${city.id}` ? 'playing' : ''}`}
+                          onClick={() => handleSpeak(city.cityNameVi, `city-name-${city.id}`)}
+                          title="朗讀城市越文名稱"
+                          aria-label="朗讀城市全名"
+                          style={{ width: '26px', height: '26px' }}
+                        >
+                          <Volume2 size={13} />
+                        </button>
+                      </div>
                       <small style={{ color: 'var(--text-muted)' }}>{city.cityNameVi}</small>
                     </div>
                   </div>
@@ -531,7 +579,12 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                         <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-primary)' }}>{phrase.viet}</div>
                         <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{phrase.zh}</div>
                       </div>
-                      <button className="speaker-btn" onClick={() => handleSpeak(phrase.viet, `city-${city.id}-${idx}`)}>
+                      <button
+                        className={`speaker-btn ${activeKey === `city-${city.id}-${idx}` ? 'playing' : ''}`}
+                        onClick={() => handleSpeak(phrase.viet, `city-${city.id}-${idx}`)}
+                        aria-label="播放金句發音"
+                        title="朗讀金句"
+                      >
                         <Volume2 size={15} />
                       </button>
                     </div>
@@ -569,29 +622,42 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                   <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 900, color: '#0068ff' }}>
                     {learningMode === 'zh' ? tpl.titleZh : tpl.titleEn}
                   </h4>
-                  <button
-                    onClick={() => handleCopyZalo(tpl.viet, idx)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.4rem',
-                      background: 'rgba(0, 104, 255, 0.12)',
-                      border: '1px solid #0068ff',
-                      color: '#0068ff',
-                      padding: '0.35rem 0.8rem',
-                      borderRadius: 'var(--radius-full)',
-                      fontWeight: 800,
-                      fontSize: '0.82rem',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    {copiedZaloIdx === idx ? <><Check size={14} /> 已複製到剪貼簿</> : <><Copy size={14} /> 一鍵複製範本</>}
-                  </button>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <button
+                      className={`speaker-btn mini-btn ${activeKey === `zalo-tpl-${idx}` ? 'playing' : ''}`}
+                      onClick={() => handleSpeak(tpl.viet, `zalo-tpl-${idx}`)}
+                      title="朗讀 Zalo 訊息"
+                      aria-label="朗讀範本發音"
+                      style={{ width: '30px', height: '30px' }}
+                    >
+                      <Volume2 size={15} />
+                    </button>
+                    <button
+                      onClick={() => handleCopyZalo(tpl.viet, idx)}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.4rem',
+                        background: 'rgba(0, 104, 255, 0.12)',
+                        border: '1px solid #0068ff',
+                        color: '#0068ff',
+                        padding: '0.35rem 0.8rem',
+                        borderRadius: 'var(--radius-full)',
+                        fontWeight: 800,
+                        fontSize: '0.82rem',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      {copiedZaloIdx === idx ? <><Check size={14} /> 已複製到剪貼簿</> : <><Copy size={14} /> 一鍵複製範本</>}
+                    </button>
+                  </div>
                 </div>
 
                 <div className="zalo-bubble-box">
-                  <div style={{ fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
-                    "{tpl.viet}"
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                    <div style={{ fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.5 }}>
+                      "{tpl.viet}"
+                    </div>
                   </div>
                   <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', borderTop: '1px dashed rgba(0,104,255,0.3)', paddingTop: '0.4rem' }}>
                     <strong>中文意譯：</strong> {tpl.zh}
@@ -600,7 +666,7 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
 
                 <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                   <button
-                    className="secondary-action"
+                    className={`secondary-action ${activeKey === `zalo-tpl-${idx}` ? 'playing' : ''}`}
                     onClick={() => handleSpeak(tpl.viet, `zalo-tpl-${idx}`)}
                     style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', padding: '0.4rem 0.8rem', fontSize: '0.85rem' }}
                   >
@@ -655,9 +721,19 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
               <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#44403c', whiteSpace: 'pre-line', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
                 {realWorldCommercialDocuments[activeDocIdx].docTypeVi}
               </div>
-              <h4 style={{ margin: '0.75rem 0 0', fontSize: '1.15rem', fontWeight: 900, color: '#1c1917', whiteSpace: 'pre-line' }}>
-                {realWorldCommercialDocuments[activeDocIdx].headerVi}
-              </h4>
+              <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.6rem', marginTop: '0.75rem' }}>
+                <h4 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 900, color: '#1c1917', whiteSpace: 'pre-line' }}>
+                  {realWorldCommercialDocuments[activeDocIdx].headerVi}
+                </h4>
+                <button
+                  className={`speaker-btn mini-btn ${activeKey === `doc-header-${activeDocIdx}` ? 'playing' : ''}`}
+                  onClick={() => handleSpeak(realWorldCommercialDocuments[activeDocIdx].headerVi, `doc-header-${activeDocIdx}`)}
+                  title="朗讀公文/合約抬頭"
+                  aria-label="朗讀抬頭發音"
+                >
+                  <Volume2 size={16} />
+                </button>
+              </div>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -676,13 +752,25 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <strong style={{ fontSize: '0.98rem', color: 'var(--brand-primary)' }}>
-                      📌 {clause.clauseNo}: {clause.titleVi}
-                    </strong>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                      <strong style={{ fontSize: '0.98rem', color: 'var(--brand-primary)' }}>
+                        📌 {clause.clauseNo}: {clause.titleVi}
+                      </strong>
+                      <button
+                        className={`speaker-btn mini-btn ${activeKey === `doc-title-${activeDocIdx}-${cIdx}` ? 'playing' : ''}`}
+                        onClick={() => handleSpeak(clause.titleVi, `doc-title-${activeDocIdx}-${cIdx}`)}
+                        title="朗讀條款標題"
+                        aria-label="朗讀條款標題"
+                        style={{ width: '24px', height: '24px' }}
+                      >
+                        <Volume2 size={12} />
+                      </button>
+                    </div>
                     <button
-                      className="speaker-btn mini-btn"
+                      className={`speaker-btn mini-btn ${activeKey === `doc-${activeDocIdx}-${cIdx}` ? 'playing' : ''}`}
                       onClick={() => handleSpeak(clause.contentVi, `doc-${activeDocIdx}-${cIdx}`)}
                       title="朗讀條款內容"
+                      aria-label="朗讀條款內容"
                     >
                       <Volume2 size={15} />
                     </button>
@@ -797,7 +885,7 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                       "{currentBattle.steps[currentStepIdx].partnerSpeech}"
                     </div>
                     <button
-                      className="speaker-btn"
+                      className={`speaker-btn ${activeKey === `partner-speech-${currentStepIdx}` ? 'playing' : ''}`}
                       onClick={() => handleSpeak(currentBattle.steps[currentStepIdx].partnerSpeech, `partner-speech-${currentStepIdx}`)}
                       aria-label="播放發音"
                     >
@@ -820,20 +908,34 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                       className="dialogue-choice-btn"
                       onClick={() => handleNegotiationChoice(opt)}
                     >
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
-                        <span style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
+                        <span style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)', flex: 1 }}>
                           💬 {opt.viet}
                         </span>
-                        <span style={{
-                          fontSize: '0.8rem',
-                          fontWeight: 800,
-                          padding: '0.15rem 0.5rem',
-                          borderRadius: 'var(--radius-full)',
-                          background: opt.trustDelta > 0 ? 'rgba(5, 150, 105, 0.15)' : 'rgba(218, 37, 28, 0.15)',
-                          color: opt.trustDelta > 0 ? 'var(--brand-green)' : 'var(--brand-primary)'
-                        }}>
-                          {opt.trustDelta > 0 ? `+${opt.trustDelta}% 信任` : `${opt.trustDelta}% 信任`}
-                        </span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
+                          <button
+                            type="button"
+                            className={`speaker-btn mini-btn ${activeKey === `opt-speech-${opt.id}` ? 'playing' : ''}`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleSpeak(opt.viet, `opt-speech-${opt.id}`);
+                            }}
+                            title="點擊試聽此回覆對話發音"
+                            aria-label="試聽發音"
+                          >
+                            <Volume2 size={15} />
+                          </button>
+                          <span style={{
+                            fontSize: '0.8rem',
+                            fontWeight: 800,
+                            padding: '0.15rem 0.5rem',
+                            borderRadius: 'var(--radius-full)',
+                            background: opt.trustDelta > 0 ? 'rgba(5, 150, 105, 0.15)' : 'rgba(218, 37, 28, 0.15)',
+                            color: opt.trustDelta > 0 ? 'var(--brand-green)' : 'var(--brand-primary)'
+                          }}>
+                            {opt.trustDelta > 0 ? `+${opt.trustDelta}% 信任` : `${opt.trustDelta}% 信任`}
+                          </span>
+                        </div>
                       </div>
                       <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
                         {learningMode === 'zh' ? opt.zh : opt.en}
@@ -942,8 +1044,18 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                 <h4 style={{ fontSize: '1.2rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0 0 0.5rem' }}>
                   {learningMode === 'zh' ? businessProficiencyTest[examIdx].questionZh : businessProficiencyTest[examIdx].questionEn}
                 </h4>
-                <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--brand-primary)', background: 'var(--bg-input)', padding: '0.85rem', borderRadius: 'var(--radius-sm)' }}>
-                  "{businessProficiencyTest[examIdx].questionVi}"
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-input)', padding: '0.85rem 1.1rem', borderRadius: 'var(--radius-sm)', gap: '0.75rem' }}>
+                  <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--brand-primary)' }}>
+                    "{businessProficiencyTest[examIdx].questionVi}"
+                  </div>
+                  <button
+                    className={`speaker-btn ${activeKey === `exam-q-${examIdx}` ? 'playing' : ''}`}
+                    onClick={() => handleSpeak(businessProficiencyTest[examIdx].questionVi, `exam-q-${examIdx}`)}
+                    title="朗讀越文題目"
+                    aria-label="朗讀題目"
+                  >
+                    <Volume2 size={18} />
+                  </button>
                 </div>
               </div>
 
@@ -972,9 +1084,26 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                     onClick={() => handleExamAnswer(optIdx)}
                     className="dialogue-choice-btn"
                   >
-                    <span style={{ fontSize: '0.98rem', fontWeight: 800, color: 'var(--text-primary)' }}>
-                      {String.fromCharCode(65 + optIdx)}. {opt}
-                    </span>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', gap: '0.5rem' }}>
+                      <span style={{ fontSize: '0.98rem', fontWeight: 800, color: 'var(--text-primary)', flex: 1 }}>
+                        {String.fromCharCode(65 + optIdx)}. {opt}
+                      </span>
+                      {/[a-zA-Zà-ỹÀ-Ỹ]/.test(opt) && (
+                        <button
+                          type="button"
+                          className={`speaker-btn mini-btn ${activeKey === `exam-opt-${examIdx}-${optIdx}` ? 'playing' : ''}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSpeak(opt, `exam-opt-${examIdx}-${optIdx}`);
+                          }}
+                          title="朗讀選項發音"
+                          aria-label="朗讀選項"
+                          style={{ width: '28px', height: '28px', flexShrink: 0 }}
+                        >
+                          <Volume2 size={14} />
+                        </button>
+                      )}
+                    </div>
                   </button>
                 ))}
               </div>
@@ -1057,12 +1186,21 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                 <span style={{ fontSize: '0.8rem', color: 'var(--brand-gold)' }}>點擊欄位一鍵複製</span>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                <div>
+                <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem' }}>
                   <span style={{ color: 'var(--text-muted)' }}>1. Tên công ty (公司抬頭全稱): </span>
                   <strong>CÔNG TY TNHH PRECISION INNOVATION VIỆT NAM</strong>
                   <button
+                    className={`speaker-btn mini-btn ${activeKey === 'invoice-comp' ? 'playing' : ''}`}
+                    onClick={() => handleSpeak('CÔNG TY TNHH PRECISION INNOVATION VIỆT NAM', 'invoice-comp')}
+                    title="朗讀公司全稱"
+                    style={{ width: '26px', height: '26px' }}
+                  >
+                    <Volume2 size={13} />
+                  </button>
+                  <button
                     onClick={() => handleCopy('CÔNG TY TNHH PRECISION INNOVATION VIỆT NAM', 'name')}
-                    style={{ marginLeft: '0.5rem', background: 'transparent', border: 'none', cursor: 'pointer' }}
+                    style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
+                    title="複製公司抬頭"
                   >
                     {copiedField === 'name' ? <Check size={14} color="var(--brand-green)" /> : <Copy size={14} />}
                   </button>
@@ -1073,16 +1211,26 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                   <button
                     onClick={() => handleCopy('3702891234', 'mst')}
                     style={{ marginLeft: '0.5rem', background: 'transparent', border: 'none', cursor: 'pointer' }}
+                    title="複製統一稅號"
                   >
                     {copiedField === 'mst' ? <Check size={14} color="var(--brand-green)" /> : <Copy size={14} />}
                   </button>
                 </div>
-                <div>
+                <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '0.35rem' }}>
                   <span style={{ color: 'var(--text-muted)' }}>3. Địa chỉ (公司登記地址): </span>
                   <span>Đường số 8, KCN VSIP 1, TP. Dĩ An, Tỉnh Bình Dương</span>
                   <button
+                    className={`speaker-btn mini-btn ${activeKey === 'invoice-addr' ? 'playing' : ''}`}
+                    onClick={() => handleSpeak('Đường số 8, KCN VSIP 1, TP. Dĩ An, Tỉnh Bình Dương', 'invoice-addr')}
+                    title="朗讀登記地址"
+                    style={{ width: '26px', height: '26px' }}
+                  >
+                    <Volume2 size={13} />
+                  </button>
+                  <button
                     onClick={() => handleCopy('Đường số 8, KCN VSIP 1, TP. Dĩ An, Tỉnh Bình Dương', 'addr')}
-                    style={{ marginLeft: '0.5rem', background: 'transparent', border: 'none', cursor: 'pointer' }}
+                    style={{ background: 'transparent', border: 'none', cursor: 'pointer' }}
+                    title="複製登記地址"
                   >
                     {copiedField === 'addr' ? <Check size={14} color="var(--brand-green)" /> : <Copy size={14} />}
                   </button>
@@ -1093,6 +1241,7 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                   <button
                     onClick={() => handleCopy('accounting.vn@precision-tw.com', 'email')}
                     style={{ marginLeft: '0.5rem', background: 'transparent', border: 'none', cursor: 'pointer' }}
+                    title="複製 Email"
                   >
                     {copiedField === 'email' ? <Check size={14} color="var(--brand-green)" /> : <Copy size={14} />}
                   </button>
@@ -1139,9 +1288,10 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                           {phrase.viet}
                         </span>
                         <button
-                          className="speaker-btn"
+                          className={`speaker-btn ${activeKey === `travel-${item.id}-${pIdx}` ? 'playing' : ''}`}
                           onClick={() => handleSpeak(phrase.viet, `travel-${item.id}-${pIdx}`)}
                           aria-label="播放發音"
+                          title="朗讀發音"
                         >
                           <Volume2 size={16} />
                         </button>
@@ -1170,9 +1320,20 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
             </h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '0.75rem' }}>
               {smartFactoryGuide.zones[0].parks.map((p, i) => (
-                <div key={i} style={{ background: 'var(--bg-input)', padding: '0.85rem', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--brand-primary)' }}>
-                  <strong style={{ display: 'block', color: 'var(--text-primary)', marginBottom: '0.2rem' }}>{p.name}</strong>
-                  <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{p.descZh}</span>
+                <div key={i} style={{ background: 'var(--bg-input)', padding: '0.85rem', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--brand-primary)', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
+                  <div>
+                    <strong style={{ display: 'block', color: 'var(--text-primary)', marginBottom: '0.2rem' }}>{p.name}</strong>
+                    <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{p.descZh}</span>
+                  </div>
+                  <button
+                    className={`speaker-btn mini-btn ${activeKey === `park-${i}` ? 'playing' : ''}`}
+                    onClick={() => handleSpeak(p.name, `park-${i}`)}
+                    title="朗讀工業區名稱"
+                    aria-label="朗讀名稱"
+                    style={{ width: '28px', height: '28px', flexShrink: 0 }}
+                  >
+                    <Volume2 size={14} />
+                  </button>
                 </div>
               ))}
             </div>
@@ -1209,9 +1370,10 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                     {t.viet}
                   </span>
                   <button
-                    className="speaker-btn"
+                    className={`speaker-btn ${activeKey === `factory-${selectedZoneIdx}-${idx}` ? 'playing' : ''}`}
                     onClick={() => handleSpeak(t.viet, `factory-${selectedZoneIdx}-${idx}`)}
                     aria-label="播放發音"
+                    title="朗讀術語發音"
                   >
                     <Volume2 size={16} />
                   </button>
@@ -1219,8 +1381,19 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                 <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--brand-primary)' }}>
                   {learningMode === 'zh' ? t.zh : t.en}
                 </div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', background: 'var(--bg-input)', padding: '0.5rem', borderRadius: 'var(--radius-xs)', marginTop: '0.3rem' }}>
-                  <span style={{ fontWeight: 700 }}>範例句：</span> {t.example}
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', background: 'var(--bg-input)', padding: '0.6rem 0.8rem', borderRadius: 'var(--radius-xs)', marginTop: '0.3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
+                  <div style={{ flex: 1, lineHeight: 1.45 }}>
+                    <span style={{ fontWeight: 800, color: 'var(--brand-primary)' }}>範例句：</span> {t.example}
+                  </div>
+                  <button
+                    className={`speaker-btn mini-btn ${activeKey === `factory-ex-${selectedZoneIdx}-${idx}` ? 'playing' : ''}`}
+                    onClick={() => handleSpeak(t.example, `factory-ex-${selectedZoneIdx}-${idx}`)}
+                    title="朗讀工廠實戰例句"
+                    aria-label="朗讀例句發音"
+                    style={{ width: '28px', height: '28px', flexShrink: 0 }}
+                  >
+                    <Volume2 size={14} />
+                  </button>
                 </div>
               </div>
             ))}
@@ -1355,8 +1528,19 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                 <h4 style={{ margin: '0 0 0.5rem', fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-primary)' }}>
                   {learningMode === 'zh' ? currencyBlitzQuestions[blitzIdx].questionZh : currencyBlitzQuestions[blitzIdx].questionEn}
                 </h4>
-                <div style={{ fontSize: '1rem', color: 'var(--brand-primary)', fontWeight: 800 }}>
-                  "{currencyBlitzQuestions[blitzIdx].questionVi}"
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem', background: 'var(--bg-input)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)' }}>
+                  <div style={{ fontSize: '1.05rem', color: 'var(--brand-primary)', fontWeight: 800 }}>
+                    "{currencyBlitzQuestions[blitzIdx].questionVi}"
+                  </div>
+                  <button
+                    className={`speaker-btn mini-btn ${activeKey === `blitz-q-${blitzIdx}` ? 'playing' : ''}`}
+                    onClick={() => handleSpeak(currencyBlitzQuestions[blitzIdx].questionVi, `blitz-q-${blitzIdx}`)}
+                    title="朗讀越文題目"
+                    aria-label="朗讀題目"
+                    style={{ width: '30px', height: '30px', flexShrink: 0 }}
+                  >
+                    <Volume2 size={15} />
+                  </button>
                 </div>
               </div>
 
@@ -1384,7 +1568,22 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                     onClick={() => handleBlitzAnswer(optIdx)}
                     className="blitz-option-btn"
                   >
-                    {opt}
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.4rem', width: '100%' }}>
+                      <span>{opt}</span>
+                      {/[a-zA-Zà-ỹÀ-Ỹ]/.test(opt) && (
+                        <span
+                          role="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSpeak(opt, `blitz-opt-${blitzIdx}-${optIdx}`);
+                          }}
+                          style={{ display: 'inline-flex', alignItems: 'center', padding: '0.2rem', cursor: 'pointer', color: 'var(--brand-primary)' }}
+                          title="試聽選項"
+                        >
+                          <Volume2 size={14} />
+                        </span>
+                      )}
+                    </div>
                   </button>
                 ))}
               </div>
@@ -1411,9 +1610,19 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
             {executiveHanVietRoots.map((root, idx) => (
               <div key={idx} className="factory-term-card">
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '1.2rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
-                    {root.root}
-                  </span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ fontSize: '1.2rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
+                      {root.root}
+                    </span>
+                    <button
+                      className={`speaker-btn mini-btn ${activeKey === `hanviet-root-${idx}` ? 'playing' : ''}`}
+                      onClick={() => handleSpeak(root.root, `hanviet-root-${idx}`)}
+                      title="朗讀字根發音"
+                      style={{ width: '24px', height: '24px' }}
+                    >
+                      <Volume2 size={12} />
+                    </button>
+                  </div>
                   <span style={{ fontSize: '0.85rem', color: 'var(--brand-gold)', fontWeight: 700 }}>
                     {root.meaningZh}
                   </span>

@@ -297,13 +297,17 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      if (e.code === 'Space') {
+      if (e.code === 'Space' || e.code === 'Enter') {
         e.preventDefault();
         handlersRef.current.handleCardClick();
-      } else if (e.code === 'ArrowRight' || e.code === 'KeyD') {
-        handlersRef.current.handleAnswer(4);
-      } else if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
+      } else if (e.code === 'Digit1' || e.code === 'Numpad1' || e.code === 'ArrowLeft' || e.code === 'KeyA') {
         handlersRef.current.handleAnswer(0);
+      } else if (e.code === 'Digit2' || e.code === 'Numpad2') {
+        handlersRef.current.handleAnswer(3);
+      } else if (e.code === 'Digit3' || e.code === 'Numpad3' || e.code === 'ArrowRight' || e.code === 'KeyD') {
+        handlersRef.current.handleAnswer(4);
+      } else if (e.code === 'Digit4' || e.code === 'Numpad4') {
+        handlersRef.current.handleAnswer(5);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -590,36 +594,42 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
       <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1rem' }}>
         <button 
           className="control-btn"
-          style={{ background: '#ef4444', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.95em', fontWeight: 700 }}
+          style={{ background: '#ef4444', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
           onClick={() => handleAnswer(0)}
-          title="鍵盤快捷鍵: ← 左方向鍵"
+          title="鍵盤快捷鍵: 1 或 ←"
         >
-          {learningMode === 'zh' ? '生疏 (Again) - 1d' : 'Again - 1d'}
+          <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>1</span>
+          <span>{learningMode === 'zh' ? '生疏 (Again) · 1d' : 'Again · 1d'}</span>
         </button>
 
         <button 
           className="control-btn"
-          style={{ background: '#f59e0b', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.95em', fontWeight: 700 }}
+          style={{ background: '#f59e0b', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
           onClick={() => handleAnswer(3)}
+          title="鍵盤快捷鍵: 2"
         >
-          {learningMode === 'zh' ? '困難 (Hard) - 3d' : 'Hard - 3d'}
+          <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>2</span>
+          <span>{learningMode === 'zh' ? '困難 (Hard) · 3d' : 'Hard · 3d'}</span>
         </button>
 
         <button 
           className="control-btn"
-          style={{ background: '#3b82f6', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.95em', fontWeight: 700 }}
+          style={{ background: '#3b82f6', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
           onClick={() => handleAnswer(4)}
-          title="鍵盤快捷鍵: → 右方向鍵"
+          title="鍵盤快捷鍵: 3 或 →"
         >
-          {learningMode === 'zh' ? '良好 (Good) - 6d' : 'Good - 6d'}
+          <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>3</span>
+          <span>{learningMode === 'zh' ? '良好 (Good) · 6d' : 'Good · 6d'}</span>
         </button>
 
         <button 
           className="control-btn"
-          style={{ background: 'var(--brand-green)', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.95em', fontWeight: 700 }}
+          style={{ background: 'var(--brand-green)', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
           onClick={() => handleAnswer(5)}
+          title="鍵盤快捷鍵: 4"
         >
-          {learningMode === 'zh' ? '容易 (Easy) - 14d+' : 'Easy - 14d+'}
+          <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>4</span>
+          <span>{learningMode === 'zh' ? '容易 (Easy) · 14d+' : 'Easy · 14d+'}</span>
         </button>
       </div>
     </div>

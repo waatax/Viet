@@ -1,3 +1,103 @@
+
+export const HAN_VIET_SOUND_RULES = [
+  {
+    categoryZh: '雙唇音 (幫/滂/並母)',
+    categoryEn: 'Labial Consonants',
+    chineseZh: '中文 b / p (注音 ㄅ / ㄆ)',
+    taiwanZh: '台語 b / p',
+    vietShift: '➔ 越語 B / P / PH',
+    ruleZh: '古漢語幫母多轉為 B，滂母多轉為 PH (讀 f 音)。',
+    examples: [
+      { han: '北', vi: 'Bắc', note: '國語: ㄅㄟˇ · 越語: Bắc' },
+      { han: '報', vi: 'Báo', note: '國語: ㄅㄠˋ · 越語: Báo' },
+      { han: '平', vi: 'Bình', note: '國語: ㄆㄧㄥˊ · 越語: Bình' },
+      { han: '普', vi: 'Phổ', note: '國語: ㄆㄨˇ · 越語: Phổ' },
+      { han: '法', vi: 'Pháp', note: '國語: ㄈㄚˇ / 台語: huat · 越語: Pháp' },
+      { han: '風', vi: 'Phong', note: '國語: ㄈㄥ · 越語: Phong' }
+    ]
+  },
+  {
+    categoryZh: '舌尖中音 (端/透/定母)',
+    categoryEn: 'Alveolar Consonants',
+    chineseZh: '中文 d / t (注音 ㄉ / ㄊ)',
+    taiwanZh: '台語 d / t',
+    vietShift: '➔ 越語 Đ / TH',
+    ruleZh: '古端母、定母轉為越語 Đ (d帶橫線)；透母轉為強送氣 TH (同注音ㄊ)。',
+    examples: [
+      { han: '大', vi: 'Đại', note: '國語: ㄉㄚˋ · 越語: Đại' },
+      { han: '動', vi: 'Động', note: '國語: ㄉㄨㄥˋ · 越語: Động' },
+      { han: '道', vi: 'Đạo', note: '國語: ㄉㄠˋ · 越語: Đạo' },
+      { han: '通', vi: 'Thông', note: '國語: ㄊㄨㄥ · 越語: Thông' },
+      { han: '天', vi: 'Thiên', note: '國語: ㄊㄧㄢ · 越語: Thiên' },
+      { han: '體', vi: 'Thể', note: '國語: ㄊㄧˇ · 越語: Thể' }
+    ]
+  },
+  {
+    categoryZh: '舌根清音 (見/群母)',
+    categoryEn: 'Velar Consonants',
+    chineseZh: '中文 g / k (注音 ㄍ / ㄎ)',
+    taiwanZh: '台語 k',
+    vietShift: '➔ 越語 C / K / QU',
+    ruleZh: '見母字在越語中大量轉為 C、K 或圓唇的 Qu。',
+    examples: [
+      { han: '國', vi: 'Quốc', note: '國語: ㄍㄨㄛˊ / 台語: kok · 越語: Quốc' },
+      { han: '軍', vi: 'Quân', note: '國語: ㄐㄩㄣ / 台語: kun · 越語: Quân' },
+      { han: '經', vi: 'Kinh', note: '國語: ㄐㄧㄥ / 台語: keng · 越語: Kinh' },
+      { han: '結', vi: 'Kết', note: '國語: ㄐㄧㄝˊ / 台語: kiat · 越語: Kết' },
+      { han: '公', vi: 'Công', note: '國語: ㄍㄨㄥ · 越語: Công' },
+      { han: '金', vi: 'Kim', note: '國語: ㄐㄧㄣ · 越語: Kim' }
+    ]
+  },
+  {
+    categoryZh: '舌根擦音 (溪母)',
+    categoryEn: 'Aspirated Velar Consonants',
+    chineseZh: '中文 k / h (注音 ㄎ / ㄏ)',
+    taiwanZh: '台語 kh',
+    vietShift: '➔ 越語 KH',
+    ruleZh: '溪母字在越語幾乎百分之百對應 KH (喉嚨摩擦音)！台語讀 kh 的字特別準！',
+    examples: [
+      { han: '開', vi: 'Khai', note: '國語: ㄎㄞ / 台語: khui · 越語: Khai' },
+      { han: '考', vi: 'Khảo', note: '國語: ㄎㄠˇ / 台語: khó · 越語: Khảo' },
+      { han: '空', vi: 'Không', note: '國語: ㄎㄨㄥ / 台語: khong · 越語: Không' },
+      { han: '客', vi: 'Khách', note: '國語: ㄎㄜˋ / 台語: kheh · 越語: Khách' },
+      { han: '科', vi: 'Khoa', note: '國語: ㄎㄜ / 台語: kho · 越語: Khoa' },
+      { han: '氣', vi: 'Khí', note: '國語: ㄑㄧˋ / 台語: khì · 越語: Khí' }
+    ]
+  },
+  {
+    categoryZh: '鼻音與日母 (疑母 / 日母)',
+    categoryEn: 'Nasal & Palatal Consonants',
+    chineseZh: '中文 ng- / r- (注音 ㄖ)',
+    taiwanZh: '台語 ng / j',
+    vietShift: '➔ 越語 NG(H) / NH',
+    ruleZh: '疑母轉為字首 NG/NGH；日母字（人、日、如）在越語一律轉為 NH！',
+    examples: [
+      { han: '人', vi: 'Nhân', note: '國語: ㄖㄣˊ / 台語: jîn · 越語: Nhân' },
+      { han: '日', vi: 'Nhật', note: '國語: ㄖˋ / 台語: ji̍t · 越語: Nhật' },
+      { han: '入', vi: 'Nhập', note: '國語: ㄖㄨˋ / 台語: ji̍p · 越語: Nhập' },
+      { han: '語', vi: 'Ngữ', note: '國語: ㄩˇ / 台語: gí · 越語: Ngữ' },
+      { han: '義', vi: 'Nghĩa', note: '國語: ㄧˋ / 台語: gī · 越語: Nghĩa' },
+      { han: '業', vi: 'Nghiệp', note: '國語: ㄧㄝˋ / 台語: gia̍p · 越語: Nghiệp' }
+    ]
+  },
+  {
+    categoryZh: '入聲促音韻尾 (-p, -t, -c, -ch)',
+    categoryEn: 'Checked Entering Tones (Ru Sheng)',
+    chineseZh: '國語丟失入聲 (轉為各聲調)',
+    taiwanZh: '台語/粵語/客語完整保留 -p, -t, -k',
+    vietShift: '➔ 越語 -P, -T, -C, -CH',
+    ruleZh: '【重磅規律】台語或客語有短促入聲的字，在越語中必然結尾為 p/t/c/ch，且只能帶銳聲 (Sắc) 或重聲 (Nặng)！',
+    examples: [
+      { han: '國', vi: 'Quốc', note: '台語: kok (入聲) ➔ 越語 -c + 銳聲' },
+      { han: '學', vi: 'Học', note: '台語: ha̍k (入聲) ➔ 越語 -c + 重聲' },
+      { han: '十', vi: 'Thập', note: '台語: tsa̍p (入聲) ➔ 越語 -p + 重聲' },
+      { han: '八', vi: 'Bát', note: '台語: pat (入聲) ➔ 越語 -t + 銳聲' },
+      { han: '合', vi: 'Hợp', note: '台語: ha̍p (入聲) ➔ 越語 -p + 重聲' },
+      { han: '一', vi: 'Nhất', note: '台語: it (入聲) ➔ 越語 -t + 銳聲' }
+    ]
+  }
+];
+
 import React, { useState, useEffect } from 'react';
 import { BookOpen, Search, Volume2, Sparkles, Award, ArrowRight, Layers, HelpCircle } from 'lucide-react';
 import { hanVietRoots } from '../data/vietnameseData';
@@ -8,6 +108,7 @@ import { gamificationEngine } from '../utils/gamificationEngine';
 export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
   const { learningMode, loc } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
+  const [activeHanTab, setActiveHanTab] = useState('roots'); // 'roots' | 'rules' | 'combiner' | 'falsefriends'
   const [selectedRoot, setSelectedRoot] = useState(hanVietRoots[0]);
   const [activeKey, setActiveKey] = useState(null);
 
@@ -240,7 +341,38 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
         </div>
       </div>
 
-      {/* Search Bar */}
+      
+      {/* Sub Navigation Bar for Han-Viet Hub */}
+      <div style={{ display: 'flex', gap: '0.6rem', marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+        {[
+          { id: 'roots', labelZh: '📖 1. 百大核心字根庫', labelEn: '1. 100 Core Roots' },
+          { id: 'rules', labelZh: '⚡ 2. 聲母音變與入聲對應密碼', labelEn: '2. Sound-Shift Matrix' },
+          { id: 'combiner', labelZh: '🧪 3. 詞素煉金合成台', labelEn: '3. Morpheme Combiner' },
+          { id: 'falsefriends', labelZh: '⚠️ 4. 假朋友避坑排雷', labelEn: '4. False Friends Drill' }
+        ].map(t => (
+          <button
+            key={t.id}
+            className={`control-btn ${activeHanTab === t.id ? 'active' : ''}`}
+            style={{
+              background: activeHanTab === t.id ? 'var(--brand-accent)' : 'var(--bg-card)',
+              color: activeHanTab === t.id ? '#fff' : 'inherit',
+              padding: '0.5rem 1rem',
+              fontWeight: 800,
+              fontSize: '0.88rem'
+            }}
+            onClick={() => setActiveHanTab(t.id)}
+          >
+            {learningMode === 'zh' ? t.labelZh : t.labelEn}
+          </button>
+        ))}
+      </div>
+
+      {/* ==================================================== */}
+      {/* TAB 1: 100 CORE ROOTS EXPLORER */}
+      {/* ==================================================== */}
+      {activeHanTab === 'roots' && (
+        <>
+          {/* Search Bar */}
       <div style={{ margin: '1.5rem 0' }}>
         <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', padding: '0.75rem 1.2rem', border: '1.5px solid var(--border-color)', boxShadow: 'var(--shadow-xs)' }}>
           <Search size={18} color="var(--text-muted)" style={{ marginRight: '0.75rem' }} />
@@ -259,7 +391,97 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
         </div>
       </div>
 
-      {/* Morpheme Combiner Tutorial & Workbench */}
+      
+        </>
+      )}
+
+      {/* ==================================================== */}
+      {/* TAB: SOUND-SHIFT RULES MATRIX */}
+      {/* ==================================================== */}
+      {activeHanTab === 'rules' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginBottom: '2.5rem' }}>
+          <div style={{ background: 'var(--bg-accent)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', borderLeft: '4px solid var(--brand-accent)' }}>
+            <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              ⚡ 中古漢語 ➔ 現代越語聲母音變與入聲對照規律
+            </h3>
+            <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.94rem', lineHeight: 1.6 }}>
+              語言學家整理的「音變對應羅塞塔石碑」！利用台語、客家話或國語發音，即可一秒推算出越南語對應的字首子音與尾音。
+            </p>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
+            {HAN_VIET_SOUND_RULES.map((rule, idx) => (
+              <div
+                key={idx}
+                style={{
+                  background: 'var(--bg-card)',
+                  border: '1.5px solid var(--border-color)',
+                  borderRadius: 'var(--radius-md)',
+                  padding: '1.25rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.65rem',
+                  boxShadow: 'var(--card-shadow)'
+                }}
+              >
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <strong style={{ fontSize: '1.1rem', color: 'var(--brand-primary)' }}>
+                    {rule.categoryZh}
+                  </strong>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 900, color: 'var(--brand-gold)', background: 'var(--bg-main)', padding: '0.2rem 0.55rem', borderRadius: 'var(--radius-xs)', border: '1px solid var(--border-color)' }}>
+                    {rule.vietShift}
+                  </span>
+                </div>
+
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                  {rule.chineseZh} · {rule.taiwanZh}
+                </div>
+
+                <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.45 }}>
+                  {rule.ruleZh}
+                </div>
+
+                <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '0.6rem', marginTop: 'auto' }}>
+                  <div style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-muted)', marginBottom: '0.4rem' }}>
+                    經典示範詞 (點擊聽標準發音)：
+                  </div>
+                  <div style={{ display: 'flex', gap: '0.45rem', flexWrap: 'wrap' }}>
+                    {rule.examples.map((ex, exIdx) => (
+                      <button
+                        key={exIdx}
+                        onClick={() => playWord(ex.vi, `rule_${idx}_${exIdx}`)}
+                        style={{
+                          background: 'var(--bg-input)',
+                          border: '1px solid var(--border-color)',
+                          borderRadius: 'var(--radius-xs)',
+                          padding: '0.3rem 0.65rem',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.35rem',
+                          fontSize: '0.84rem'
+                        }}
+                        title={ex.note}
+                      >
+                        <span style={{ fontWeight: 800, color: 'var(--brand-gold)' }}>{ex.han}</span>
+                        <strong style={{ color: 'var(--brand-primary)' }}>{ex.vi}</strong>
+                        <Volume2 size={12} color="var(--brand-accent)" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* ==================================================== */}
+      {/* TAB 3: MORPHEME COMBINER */}
+      {/* ==================================================== */}
+      {activeHanTab === 'combiner' && (
+        <div>
+          {/* Morpheme Combiner Tutorial & Workbench */}
       <div className="section-header" style={{ marginTop: '3rem', marginBottom: '1.5rem', borderBottom: '2px solid var(--border-color)', paddingBottom: '0.5rem' }}>
         <h2 className="section-title">
           <Sparkles color="var(--brand-gold)" />
@@ -341,7 +563,15 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
         </div>
       </div>
 
-      {/* False Friends Drill Quiz */}
+      </div>
+      )}
+
+      {/* ==================================================== */}
+      {/* TAB 4: FALSE FRIENDS DRILL */}
+      {/* ==================================================== */}
+      {activeHanTab === 'falsefriends' && (
+        <div>
+          {/* False Friends Drill Quiz */}
       <div style={{
         marginBottom: '2rem',
         padding: '1.25rem',
@@ -414,8 +644,11 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
           </div>
         )}
       </div>
+    </div>
+  )}
 
       {/* Main Grid: Left Root List + Right Detail Compounds */}
+      {activeHanTab === 'roots' && (
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.75rem' }}>
         {/* Left: Root Picker Cards */}
         <div>
@@ -556,6 +789,7 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
           </div>
         )}
       </div>
+      )}
     </div>
   );
 };

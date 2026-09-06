@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Search, Volume2, Bookmark, Check, Sparkles, Filter, ChevronDown, Play, Pause, Layers } from 'lucide-react';
+import { BookOpen, Copy, Search, Volume2, Bookmark, Check, Sparkles, Filter, ChevronDown, Play, Pause, Layers } from 'lucide-react';
 import { practicalPhrases } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -42,6 +42,13 @@ export const PhrasesModule = ({ selectedAccent }) => {
     }
   });
   const [activeKey, setActiveKey] = useState(null);
+  const [copiedText, setCopiedText] = useState(null);
+
+  const handleCopyText = (text) => {
+    navigator.clipboard?.writeText(text);
+    setCopiedText(text);
+    setTimeout(() => setCopiedText(null), 1800);
+  };
 
   useEffect(() => {
     localStorage.setItem('viet_saved_phrases', JSON.stringify(savedPhrases));
@@ -504,14 +511,32 @@ export const PhrasesModule = ({ selectedAccent }) => {
                 💡 {learningMode === 'zh' ? `情境：${phrase.usageZh}` : `Usage: ${phrase.usageEn}`}
               </div>
 
-              <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <button 
-                  className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
-                  onClick={() => handleSpeak(phrase.viet, phraseKey)}
-                  title={t('common.listen')}
-                >
-                  <Volume2 size={16} />
-                </button>
+              <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '0.5rem', borderTop: '1px solid var(--border-color)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <button 
+                    className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
+                    onClick={() => handleSpeak(phrase.viet, phraseKey)}
+                    title={t('common.listen')}
+                  >
+                    <Volume2 size={15} />
+                  </button>
+                  <button
+                    className="speaker-btn mini-btn"
+                    onClick={() => audioEngine.speak(phrase.viet, { accent: selectedAccent, rate: 0.72 })}
+                    title="0.75x 慢速精聽"
+                    style={{ fontSize: '0.72rem', fontWeight: 800, padding: '0.2rem 0.4rem' }}
+                  >
+                    0.75x
+                  </button>
+                  <button
+                    className="speaker-btn mini-btn"
+                    onClick={() => handleCopyText(phrase.viet)}
+                    title="複製越語句子"
+                    style={{ color: copiedText === phrase.viet ? 'var(--brand-green)' : 'inherit' }}
+                  >
+                    {copiedText === phrase.viet ? <Check size={14} /> : <Copy size={14} />}
+                  </button>
+                </div>
                 <span style={{ fontSize: '0.75em', color: 'var(--text-muted)' }}>
                   #{idx + 1}
                 </span>

@@ -1,5 +1,48 @@
+
+export const FAST_TRACK_DRILLS = {
+  1: { sentence: 'Rất vui được gặp bạn!', words: ['Rất', 'vui', 'được', 'gặp', 'bạn!'], meaningZh: '很高興認識你！' },
+  2: { sentence: 'Cho tôi một ly cà phê sữa đá.', words: ['Cho', 'tôi', 'một', 'ly', 'cà phê', 'sữa đá.'], meaningZh: '請給我一杯冰奶咖啡。' },
+  3: { sentence: 'Cái này bao nhiêu tiền một ký?', words: ['Cái này', 'bao nhiêu', 'tiền', 'một ký?'], meaningZh: '這個一公斤多少錢？' },
+  4: { sentence: 'Làm ơn cho tôi đến địa chỉ này.', words: ['Làm ơn', 'cho tôi', 'đến', 'địa chỉ', 'này.'], meaningZh: '請帶我到這個地址。' },
+  5: { sentence: 'Chào anh, em là người Đài Loan.', words: ['Chào', 'anh,', 'em là', 'người', 'Đài Loan.'], meaningZh: '哥你好，我是台灣人。' },
+  6: { sentence: 'Hôm nay thời tiết đẹp quá nhỉ?', words: ['Hôm nay', 'thời tiết', 'đẹp', 'quá', 'nhỉ?'], meaningZh: '今天天氣真好呢？' },
+  7: { sentence: 'Làm ơn giúp tôi với cảnh sát!', words: ['Làm ơn', 'giúp tôi', 'với,', 'cảnh sát!'], meaningZh: '請幫幫我，叫警察！' }
+};
+
+export const FAST_TRACK_CULTURE_TIPS = {
+  1: {
+    dos: '見面微點頭微笑；晚輩向長輩問好雙手交疊微鞠躬，句尾加「ạ」。',
+    donts: '切勿隨意觸摸成年人或小孩子的頭部，頭在越南文化被視為神聖尊嚴象徵。'
+  },
+  2: {
+    dos: '咖啡店免費提供淡茉莉茶（Trà đá），喝完店員會一直免費續杯。',
+    donts: '如果不耐甜，千萬不要什麼都不說，一定要交代「Ít đường」或「Ít sữa」。'
+  },
+  3: {
+    dos: '在觀光夜市殺價請保持親切微笑，通常從原價 7~8 折開始出價最適當。',
+    donts: '清晨早晨店家開門時，切忌「只問不買」或大刀殺價，越南人相信這會影響整天運勢。'
+  },
+  4: {
+    dos: '搭 Grab 叫車前請確認車牌號碼與司機頭像相符再上車。',
+    donts: '在街頭路邊看手機導航時，隨時注意身後飛車，避免單手把手機懸在路側。'
+  },
+  5: {
+    dos: '無法判斷年齡時，稱呼男士「Anh」、女士「Chị」，自稱「Em」，保證禮貌得體。',
+    donts: '切忌隨便用「Tôi - Bạn」跟長輩或主管講話，會顯得冷淡或失禮。'
+  },
+  6: {
+    dos: '越南朋友熱情敬酒時，雙手舉杯，輕碰杯沿低於對方表示尊重，齊喊「1, 2, 3, Dô!」。',
+    donts: '不要用腳尖指人或指食物，在越南文化中用腳指物是極不尊重的行為。'
+  },
+  7: {
+    dos: '護照簽證留好手機備份翻拍；遇到警察求助說「Làm ơn gọi cảnh sát」。',
+    donts: '緊急時不要慌張大喊，出示手機上的地址或急救字卡最迅速精確。'
+  }
+};
+
 import React, { useState, useEffect } from 'react';
 import {
+  Eye, EyeOff, Puzzle, ThumbsUp, ThumbsDown,
   Zap, Calendar, CheckCircle2, Circle, Volume2, Sparkles, Trophy,
   ArrowRight, ShieldCheck, HelpCircle, Heart, Star, Award, ChevronRight, Play, MessageSquare, Lightbulb, Users
 } from 'lucide-react';
@@ -505,6 +548,43 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats }) =
     }
   });
 
+  const [blurMode, setBlurMode] = useState(false);
+  const [puzzleSelected, setPuzzleSelected] = useState([]);
+  const [puzzleDone, setPuzzleDone] = useState(false);
+  
+  // Reset puzzle when activeDayIdx changes
+  useEffect(() => {
+    setPuzzleSelected([]);
+    setPuzzleDone(false);
+  }, [activeDayIdx]);
+
+  const currentDrill = FAST_TRACK_DRILLS[currentDay.day] || FAST_TRACK_DRILLS[1];
+  const currentCulture = FAST_TRACK_CULTURE_TIPS[currentDay.day] || FAST_TRACK_CULTURE_TIPS[1];
+
+  const handlePuzzleSelect = (word) => {
+    if (puzzleDone || puzzleSelected.includes(word)) return;
+    const nextSelected = [...puzzleSelected, word];
+    setPuzzleSelected(nextSelected);
+
+    if (nextSelected.length === currentDrill.words.length) {
+      const isCorrect = nextSelected.join(' ') === currentDrill.words.join(' ');
+      if (isCorrect) {
+        setPuzzleDone(true);
+        audioEngine.playSuccessChime();
+        if (updateUserStats) updateUserStats({ type: 'ADD_XP', payload: 15 });
+        setTimeout(() => {
+          handlePlayAudio(currentDrill.sentence);
+        }, 300);
+      } else {
+        audioEngine.playGentleError();
+      }
+    }
+  };
+
+  const handlePuzzleReset = () => {
+    setPuzzleSelected([]);
+    setPuzzleDone(false);
+  };
   const [quizState, setQuizState] = useState({
     selectedOption: null,
     isSubmitted: false,
@@ -740,7 +820,28 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats }) =
           <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <Sparkles size={18} color="var(--brand-gold)" />
             {learningMode === 'zh' ? '今日核心溝通金句 (點擊發音聆聽)' : 'Essential Communicative Phrases (Tap to Listen)'}
-          </h3>
+            </h3>
+            <button
+              onClick={() => setBlurMode(!blurMode)}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                background: blurMode ? 'var(--brand-accent)' : 'var(--bg-accent)',
+                color: blurMode ? '#fff' : 'var(--text-secondary)',
+                border: '1px solid var(--border-color)',
+                borderRadius: 'var(--radius-full)',
+                padding: '0.35rem 0.8rem',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              {blurMode ? <EyeOff size={15} /> : <Eye size={15} />}
+              <span>{blurMode ? '聽力盲測模式 (點擊解除遮蔽)' : '聽力遮蔽模式 (Audio-First)'}</span>
+            </button>
+          </div>
+          <div style={{ display: 'none' }}>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
             {currentDay.phrases.map((phrase, pIdx) => (
@@ -851,6 +952,149 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats }) =
             </div>
           </div>
         )}
+
+        
+        {/* Interactive Sentence Builder Micro-Drill */}
+        <div style={{
+          background: 'var(--bg-card)',
+          border: '1.5px solid var(--brand-accent)',
+          borderRadius: 'var(--radius-lg)',
+          padding: '1.5rem',
+          marginBottom: '2rem',
+          boxShadow: 'var(--card-shadow)'
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.85rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--brand-accent)', fontWeight: 800 }}>
+              <Puzzle size={20} />
+              <span style={{ fontSize: '1.15rem' }}>
+                {learningMode === 'zh' ? '今日金句拼裝挑戰 (點擊積木排序)' : 'Sentence Builder Micro-Drill'}
+              </span>
+            </div>
+            <button
+              onClick={handlePuzzleReset}
+              style={{
+                background: 'transparent',
+                border: '1px solid var(--border-color)',
+                borderRadius: 'var(--radius-xs)',
+                padding: '0.25rem 0.6rem',
+                fontSize: '0.8rem',
+                color: 'var(--text-muted)',
+                cursor: 'pointer'
+              }}
+            >
+              重置積木
+            </button>
+          </div>
+
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.94rem', margin: '0 0 1rem' }}>
+            🎯 請將下列單字塊組裝為：<strong>「{currentDrill.meaningZh}」</strong>
+          </p>
+
+          {/* User Assembled Sentence Tray */}
+          <div style={{
+            minHeight: '52px',
+            background: 'var(--bg-main)',
+            border: puzzleDone ? '2px solid var(--brand-green)' : '2px dashed var(--border-color)',
+            borderRadius: 'var(--radius-md)',
+            padding: '0.6rem 0.9rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            flexWrap: 'wrap',
+            marginBottom: '1rem'
+          }}>
+            {puzzleSelected.length === 0 && !puzzleDone && (
+              <span style={{ color: 'var(--text-muted)', fontSize: '0.88rem' }}>點擊下方單字塊完成句子...</span>
+            )}
+            {puzzleSelected.map((word, wIdx) => (
+              <span
+                key={wIdx}
+                style={{
+                  background: puzzleDone ? 'var(--brand-green)' : 'var(--brand-accent)',
+                  color: '#fff',
+                  fontWeight: 800,
+                  fontSize: '0.95rem',
+                  padding: '0.35rem 0.75rem',
+                  borderRadius: 'var(--radius-xs)',
+                  animation: 'floatUp 0.3s ease-out'
+                }}
+              >
+                {word}
+              </span>
+            ))}
+            {puzzleDone && (
+              <span style={{ color: 'var(--brand-green)', fontWeight: 800, fontSize: '0.92rem', marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                <CheckCircle2 size={18} /> 恭喜拼出正確句子！(+15 XP)
+              </span>
+            )}
+          </div>
+
+          {/* Shuffled Source Words Grid */}
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+            {currentDrill.words.map((w, idx) => {
+              const isUsed = puzzleSelected.includes(w);
+              return (
+                <button
+                  key={idx}
+                  onClick={() => handlePuzzleSelect(w)}
+                  disabled={isUsed || puzzleDone}
+                  style={{
+                    padding: '0.5rem 1rem',
+                    borderRadius: 'var(--radius-sm)',
+                    border: '1.5px solid var(--border-color)',
+                    background: isUsed ? 'var(--bg-input)' : 'var(--bg-card)',
+                    color: isUsed ? 'var(--text-muted)' : 'var(--text-primary)',
+                    fontWeight: 700,
+                    fontSize: '0.95rem',
+                    cursor: isUsed || puzzleDone ? 'default' : 'pointer',
+                    opacity: isUsed ? 0.4 : 1,
+                    transition: 'all 0.15s ease'
+                  }}
+                >
+                  {w}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Culture Dos and Don'ts Card */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+          gap: '1rem',
+          marginBottom: '2rem'
+        }}>
+          <div style={{
+            background: 'rgba(16, 185, 129, 0.08)',
+            border: '1.5px solid rgba(16, 185, 129, 0.3)',
+            borderRadius: 'var(--radius-md)',
+            padding: '1.25rem'
+          }}>
+            <div style={{ color: 'var(--brand-green)', fontWeight: 900, display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.5rem' }}>
+              <ThumbsUp size={18} />
+              <span>今日文化推薦做法 (DO)</span>
+            </div>
+            <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.55 }}>
+              {currentCulture.dos}
+            </p>
+          </div>
+
+          <div style={{
+            background: 'rgba(239, 68, 68, 0.08)',
+            border: '1.5px solid rgba(239, 68, 68, 0.3)',
+            borderRadius: 'var(--radius-md)',
+            padding: '1.25rem'
+          }}>
+            <div style={{ color: '#ef4444', fontWeight: 900, display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.5rem' }}>
+              <ThumbsDown size={18} />
+              <span>今日文化避坑禁忌 (DON'T)</span>
+            </div>
+            <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.55 }}>
+              {currentCulture.donts}
+            </p>
+          </div>
+        </div>
 
         {/* Micro-Check Quiz Section */}
         <div style={{

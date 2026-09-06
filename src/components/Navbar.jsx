@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
-  Sun, Moon, Type, Flame, Trophy, Globe, Volume2, Menu, X,
+  Sun, Moon, Type, Flame, Trophy, Globe, Menu, X,
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
-  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, ChevronDown, Settings2, Star, Mic, Puzzle, Music, Zap, Brain, LifeBuoy, Award
+  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, Settings2, Star, Mic, Puzzle, Music, Zap, Brain, LifeBuoy, Award, Briefcase, ChevronRight
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
@@ -30,30 +30,29 @@ export const Navbar = ({
   const dailyQuests = gamificationEngine.getDailyQuests();
   const completedQuestsCount = dailyQuests.filter(q => q.completed).length;
 
+  const currentGroup = useMemo(() => {
+    return NAV_GROUPS.find(g => g.items.some(item => item.id === activeTab)) || NAV_GROUPS[0];
+  }, [activeTab]);
+
+  const [selectedGroupId, setSelectedGroupId] = useState(currentGroup.id);
+
+  useEffect(() => {
+    setSelectedGroupId(currentGroup.id);
+  }, [currentGroup.id]);
+
   useEffect(() => setMenuOpen(false), [activeTab]);
 
-  const renderNavItems = () => (
-    <>
-      {NAV_GROUPS.flatMap(group => 
-        group.items.map(item => {
-          const Icon = item.icon;
-          return (
-            <button
-              key={item.id}
-              className={`tab-item ${activeTab === item.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(item.id)}
-              role="tab"
-              aria-selected={activeTab === item.id}
-              title={group.labelKey ? `${t(group.labelKey)} - ${t(item.labelKey)}` : t(item.labelKey)}
-            >
-              <Icon size={17} strokeWidth={2} aria-hidden="true" />
-              <span>{t(item.labelKey)}</span>
-            </button>
-          );
-        })
-      )}
-    </>
-  );
+  const activeGroupObj = useMemo(() => {
+    return NAV_GROUPS.find(g => g.id === selectedGroupId) || currentGroup;
+  }, [selectedGroupId, currentGroup]);
+
+  const handleSelectGroup = (group) => {
+    setSelectedGroupId(group.id);
+    const hasActiveItem = group.items.some(it => it.id === activeTab);
+    if (!hasActiveItem && group.items.length > 0) {
+      setActiveTab(group.items[0].id);
+    }
+  };
 
   return (
     <header className="header-container">
@@ -65,15 +64,44 @@ export const Navbar = ({
               <span className="brand-copy">
                 <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
                   <strong>{t('brandName')}</strong>
-                  <span style={{ fontSize: '0.65rem', fontWeight: 800, background: 'rgba(234, 179, 8, 0.18)', color: 'var(--brand-gold)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-full)', padding: '0.05rem 0.4rem', lineHeight: 1.3 }}>v2.5</span>
+                  <span style={{ fontSize: '0.65rem', fontWeight: 800, background: 'rgba(234, 179, 8, 0.18)', color: 'var(--brand-gold)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-full)', padding: '0.05rem 0.4rem', lineHeight: 1.3 }}>v2.6</span>
                 </span>
                 <small>{t('brandSub')}</small>
               </span>
             </button>
 
-            {/* Desktop Top Navigation Bar (Directly to the right of Brand Logo) */}
-            <div className="desktop-nav-modules" role="tablist" aria-label={learningMode === 'zh' ? '學習模組導覽' : 'Learning modules navigation'}>
-              {renderNavItems()}
+            {/* Desktop Top Level Category Group Navigation */}
+            <div className="nav-categories-bar" role="tablist" aria-label={learningMode === 'zh' ? '分類導覽' : 'Category navigation'}>
+              {NAV_GROUPS.map(group => {
+                const isGroupActive = activeGroupObj.id === group.id;
+                const groupLabel = group.labelKey ? t(group.labelKey) : t('tabs.path');
+                const Icon = group.items[0]?.icon || Map;
+                return (
+                  <button
+                    key={group.id}
+                    className={`nav-cat-btn ${isGroupActive ? 'active' : ''}`}
+                    onClick={() => handleSelectGroup(group)}
+                    role="tab"
+                    aria-selected={isGroupActive}
+                    title={groupLabel}
+                  >
+                    <Icon size={15} strokeWidth={2.2} />
+                    <span>{groupLabel}</span>
+                    {group.items.length > 1 && (
+                      <span style={{
+                        fontSize: '0.7rem',
+                        opacity: 0.8,
+                        background: isGroupActive ? 'rgba(255,255,255,0.25)' : 'var(--bg-card-hover)',
+                        padding: '0.05rem 0.35rem',
+                        borderRadius: 'var(--radius-full)',
+                        marginLeft: '0.1rem'
+                      }}>
+                        {group.items.length}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
@@ -101,6 +129,7 @@ export const Navbar = ({
             <button
               className="mobile-xp-btn"
               onClick={onOpenAchievements}
+              title="成就展示"
               style={{
                 background: 'rgba(234,179,8,0.15)',
                 border: '1px solid var(--brand-gold)',
@@ -145,7 +174,6 @@ export const Navbar = ({
             </div>
 
             <div className="controls-group">
-              {/* Daily Quests HUD Button */}
               <button
                 className="control-btn stat-pill"
                 onClick={onOpenDailyQuests}
@@ -210,12 +238,88 @@ export const Navbar = ({
         </div>
       </nav>
 
-      {/* Mobile Bottom Navigation Bar (Visible only on mobile screens) */}
-      <div className={`tabs-navigation mobile-only-tabs ${menuOpen ? 'settings-open' : ''}`}>
-        <div className="tabs-wrapper" role="tablist" aria-label={learningMode === 'zh' ? '學習模組' : 'Learning modules'}>
-          {renderNavItems()}
+      {/* Subnav Module Bar: Displays Sub-items of Active Group */}
+      {activeGroupObj && activeGroupObj.items.length > 0 && (
+        <div className="subnav-modules-bar">
+          <span style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.25rem', paddingRight: '0.4rem', borderRight: '1px solid var(--border-color)' }}>
+            {activeGroupObj.labelKey ? t(activeGroupObj.labelKey) : t('tabs.path')} <ChevronRight size={13} />
+          </span>
+          {activeGroupObj.items.map(item => {
+            const Icon = item.icon;
+            const isItemActive = activeTab === item.id;
+            return (
+              <button
+                key={item.id}
+                className={`subnav-item-chip ${isItemActive ? 'active' : ''}`}
+                onClick={() => setActiveTab(item.id)}
+                role="tab"
+                aria-selected={isItemActive}
+              >
+                <Icon size={14} />
+                <span>{t(item.labelKey)}</span>
+              </button>
+            );
+          })}
         </div>
-      </div>
+      )}
+
+      {/* Mobile Menu Drawer Organized by Groups */}
+      {menuOpen && (
+        <div className="mobile-nav-grouped-drawer" style={{
+          background: 'var(--bg-card)',
+          borderBottom: '2px solid var(--border-color)',
+          padding: '1rem',
+          maxHeight: '75vh',
+          overflowY: 'auto'
+        }}>
+          {NAV_GROUPS.map(group => (
+            <div key={group.id} style={{ marginBottom: '1.2rem' }}>
+              <div style={{
+                fontSize: '0.85rem',
+                fontWeight: 800,
+                color: 'var(--brand-primary)',
+                marginBottom: '0.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}>
+                {group.labelKey ? t(group.labelKey) : t('tabs.path')}
+              </div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: '0.5rem' }}>
+                {group.items.map(item => {
+                  const Icon = item.icon;
+                  const isItemActive = activeTab === item.id;
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => { setActiveTab(item.id); setMenuOpen(false); }}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.45rem',
+                        padding: '0.6rem 0.8rem',
+                        borderRadius: 'var(--radius-sm)',
+                        border: isItemActive ? '1.5px solid var(--brand-accent)' : '1px solid var(--border-color)',
+                        background: isItemActive ? 'var(--bg-accent)' : 'var(--bg-main)',
+                        color: isItemActive ? 'var(--brand-accent)' : 'var(--text-primary)',
+                        fontWeight: isItemActive ? 800 : 600,
+                        fontSize: '0.88rem',
+                        cursor: 'pointer',
+                        textAlign: 'left'
+                      }}
+                    >
+                      <Icon size={16} />
+                      <span>{t(item.labelKey)}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </header>
   );
 };
+
+export default Navbar;

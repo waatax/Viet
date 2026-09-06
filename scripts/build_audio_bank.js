@@ -65,11 +65,16 @@ function getHash(text) {
 }
 
 const audioSet = new Set();
+const rawToCleanMap = new Map();
 function addPhrase(text) {
   if (!text) return;
   const cleaned = cleanText(text);
   if (cleaned && cleaned.length > 0) {
     audioSet.add(cleaned);
+    const trimmed = String(text).trim();
+    if (trimmed) {
+      rawToCleanMap.set(trimmed, cleaned);
+    }
   }
 }
 
@@ -345,13 +350,15 @@ if (interactivePuzzles) {
   });
 }
 
-// 10. Situational Scenarios (Dialogue 1, Dialogue 2, RolePlay Steps & Options, Vocab)
+// 10. Situational Scenarios (Dialogue 1, Dialogue 2, RolePlay Steps & Options, Vocab, Titles, CityGuides, Menus)
 if (situationalScenarios) {
   situationalScenarios.forEach(sc => {
+    if (sc.titleVi) addPhrase(sc.titleVi);
+
     // Both dialogue sections
     if (sc.dialogueSections) {
       sc.dialogueSections.forEach(sec => {
-        sec.lines.forEach(l => addPhrase(l.viet));
+        sec.lines?.forEach(l => addPhrase(l.viet));
       });
     }
     // Backward compatibility check
@@ -362,12 +369,15 @@ if (situationalScenarios) {
     if (sc.rolePlay?.steps) {
       sc.rolePlay.steps.forEach(st => {
         addPhrase(st.partnerPromptVi);
-        st.userOptions.forEach(opt => addPhrase(opt.textVi));
+        st.userOptions?.forEach(opt => addPhrase(opt.textVi));
       });
     }
     // Core vocabulary
     if (sc.vocab) {
       sc.vocab.forEach(v => addPhrase(v.viet));
+    }
+    if (sc.vocabulary) {
+      sc.vocabulary.forEach(v => addPhrase(v.viet));
     }
     // Real menu dishes & items
     if (sc.realMenu?.sections) {
@@ -381,6 +391,9 @@ if (situationalScenarios) {
     if (sc.cityGuides?.regions) {
       sc.cityGuides.regions.forEach(reg => {
         if (reg.nameVi) addPhrase(reg.nameVi);
+        reg.cities?.forEach(c => {
+          if (c.nameVi) addPhrase(c.nameVi);
+        });
       });
     }
   });
@@ -400,14 +413,22 @@ if (quizzes) {
 }
 
 // 12. Business & Trade Show Data
+if (tradeShowGuide?.expoVenues) {
+  tradeShowGuide.expoVenues.forEach(v => {
+    addPhrase(v.nameVi);
+    addPhrase(v.addressVi);
+  });
+}
 if (tradeShowGuide?.stages) {
   tradeShowGuide.stages.forEach(stg => {
-    stg.phrases.forEach(p => addPhrase(p.viet));
+    if (stg.stageNameVi) addPhrase(stg.stageNameVi);
+    stg.phrases?.forEach(p => addPhrase(p.viet));
   });
 }
 if (dualCityBusinessGuide?.cities) {
   dualCityBusinessGuide.cities.forEach(c => {
-    c.mustKnowPhrases.forEach(p => addPhrase(p.viet));
+    if (c.cityNameVi) addPhrase(c.cityNameVi);
+    c.mustKnowPhrases?.forEach(p => addPhrase(p.viet));
   });
 }
 if (zaloNetworkingGuide?.templates) {
@@ -415,19 +436,26 @@ if (zaloNetworkingGuide?.templates) {
 }
 if (interactiveNegotiations) {
   interactiveNegotiations.forEach(n => {
-    n.steps.forEach(st => {
+    n.steps?.forEach(st => {
       addPhrase(st.partnerSpeech);
-      st.options.forEach(opt => addPhrase(opt.viet));
+      st.options?.forEach(opt => addPhrase(opt.viet));
     });
   });
 }
 if (executiveSurvivalGuide) {
   executiveSurvivalGuide.forEach(g => {
-    g.phrases.forEach(p => addPhrase(p.viet));
+    g.phrases?.forEach(p => addPhrase(p.viet));
+    if (g.sampleInvoiceTemplate) {
+      addPhrase(g.sampleInvoiceTemplate.companyNameVi);
+      addPhrase(g.sampleInvoiceTemplate.addressVi);
+    }
   });
 }
 if (smartFactoryGuide?.zones) {
   smartFactoryGuide.zones.forEach(z => {
+    if (z.parks) {
+      z.parks.forEach(p => addPhrase(p.name));
+    }
     if (z.terms) {
       z.terms.forEach(t => {
         addPhrase(t.viet);
@@ -441,14 +469,75 @@ if (nhauCultureGuide?.chants) {
 }
 if (executiveHanVietRoots) {
   executiveHanVietRoots.forEach(r => {
-    r.examples.forEach(e => addPhrase(e.vi));
+    addPhrase(r.root);
+    r.examples?.forEach(e => addPhrase(e.vi));
+  });
+}
+if (realWorldCommercialDocuments) {
+  realWorldCommercialDocuments.forEach(doc => {
+    if (doc.docTypeVi) addPhrase(doc.docTypeVi);
+    if (doc.headerVi) addPhrase(doc.headerVi);
+    doc.clauses?.forEach(cl => {
+      if (cl.titleVi) addPhrase(cl.titleVi);
+      if (cl.contentVi) addPhrase(cl.contentVi);
+    });
+  });
+}
+if (businessProficiencyTest) {
+  businessProficiencyTest.forEach(test => {
+    if (test.questionVi) addPhrase(test.questionVi);
+    test.options?.forEach(opt => {
+      if (typeof opt === 'string' && /[a-zA-Zà-ỹÀ-Ỹ]/.test(opt)) {
+        addPhrase(opt);
+      }
+    });
+  });
+}
+if (currencyBlitzQuestions) {
+  currencyBlitzQuestions.forEach(q => {
+    if (q.questionVi) addPhrase(q.questionVi);
+    q.options?.forEach(opt => {
+      if (typeof opt === 'string' && /[a-zA-Zà-ỹÀ-Ỹ]/.test(opt)) {
+        addPhrase(opt);
+      }
+    });
   });
 }
 
+// 13. Tone Game Combinations
+const baseSyllables = ['ma', 'ba', 'ca', 'la', 'ta', 'nha', 'kha', 'pha', 'da', 'hoa'];
+const toneIds = ['ngang', 'huyen', 'sac', 'hoi', 'nga', 'nang'];
+baseSyllables.forEach(base => {
+  toneIds.forEach(tone => {
+    let word = base;
+    if (tone === 'huyen') word = word.replace('a', 'à');
+    if (tone === 'sac') word = word.replace('a', 'á');
+    if (tone === 'hoi') word = word.replace('a', 'ả');
+    if (tone === 'nga') word = word.replace('a', 'ã');
+    if (tone === 'nang') word = word.replace('a', 'ạ');
+    addPhrase(word);
+  });
+});
+
+// 14. FastTrack & Emergency Kit Modules
+try {
+  const fastTrackContent = fs.readFileSync(path.resolve('src/components/FastTrackModule.jsx'), 'utf8');
+  const emergencyContent = fs.readFileSync(path.resolve('src/components/EmergencyKitModule.jsx'), 'utf8');
+  const vietRegex = /viet:\s*['"`]([^'"`]+)['"`]/g;
+  let match;
+  while ((match = vietRegex.exec(fastTrackContent)) !== null) {
+    addPhrase(match[1]);
+  }
+  while ((match = vietRegex.exec(emergencyContent)) !== null) {
+    addPhrase(match[1]);
+  }
+} catch (e) {
+  console.warn('Could not read FastTrack or Emergency kit components:', e);
+}
 
 console.log(`Total unique phrases to prepare for full audio bank: ${audioSet.size}`);
 
-async function fetchAudioWithRetry(text, retries = 4) {
+async function fetchAudioSingleChunk(text, retries = 4) {
   const url = `https://translate.google.com/translate_tts?ie=UTF-8&tl=vi&client=tw-ob&q=${encodeURIComponent(text)}`;
   for (let i = 0; i < retries; i++) {
     try {
@@ -459,19 +548,61 @@ async function fetchAudioWithRetry(text, retries = 4) {
       });
       if (res.ok) {
         const buffer = await res.arrayBuffer();
-        if (buffer.byteLength > 500) {
+        if (buffer.byteLength > 200) {
           return Buffer.from(buffer);
         }
       }
     } catch (e) {
-      // delay before retry
-      await new Promise(r => setTimeout(r, 600 * (i + 1)));
+      await new Promise(r => setTimeout(r, 500 * (i + 1)));
     }
   }
   return null;
 }
 
-const manifest = {};
+async function fetchAudioWithRetry(text) {
+  if (!text) return null;
+  if (text.length <= 150) {
+    return await fetchAudioSingleChunk(text);
+  }
+  
+  // Split long texts by punctuation (. ! ? ;)
+  const sentences = text.match(/[^.!?;\n]+[.!?;\n]*/g) || [text];
+  const chunks = [];
+  let currentChunk = '';
+  
+  for (const s of sentences) {
+    if ((currentChunk + ' ' + s).length > 140) {
+      if (currentChunk.trim()) chunks.push(currentChunk.trim());
+      currentChunk = s;
+    } else {
+      currentChunk += (currentChunk ? ' ' : '') + s;
+    }
+  }
+  if (currentChunk.trim()) chunks.push(currentChunk.trim());
+  
+  const audioBuffers = [];
+  for (const chunk of chunks) {
+    const buf = await fetchAudioSingleChunk(chunk);
+    if (buf) {
+      audioBuffers.push(buf);
+    }
+    await new Promise(r => setTimeout(r, 60));
+  }
+  
+  if (audioBuffers.length > 0) {
+    return Buffer.concat(audioBuffers);
+  }
+  return null;
+}
+
+const manifestPath = path.resolve('src/data/audioManifest.json');
+let manifest = {};
+if (fs.existsSync(manifestPath)) {
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+  } catch (e) {}
+}
+
 const phrases = Array.from(audioSet);
 
 async function run() {
@@ -487,7 +618,7 @@ async function run() {
 
     manifest[phrase] = filename;
 
-    if (fs.existsSync(filepath) && fs.statSync(filepath).size > 500) {
+    if (fs.existsSync(filepath) && fs.statSync(filepath).size > 200) {
       skippedCount++;
       continue;
     }
@@ -507,8 +638,13 @@ async function run() {
     await new Promise(r => setTimeout(r, 90));
   }
 
+  // Also map all raw text inputs to their audio filenames
+  rawToCleanMap.forEach((cleaned, raw) => {
+    const hash = getHash(cleaned);
+    manifest[raw] = `${hash}.mp3`;
+  });
+
   // Write manifest file to src/data/audioManifest.json
-  const manifestPath = path.resolve('src/data/audioManifest.json');
   fs.writeFileSync(manifestPath, JSON.stringify(manifest, null, 2));
 
   console.log(`\n========================================`);

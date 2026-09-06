@@ -52,6 +52,7 @@ export const tradeShowGuide = {
   stages: [
     {
       id: 'booth_setup',
+      stageNameVi: 'Dựng gian hàng & Chuẩn bị hậu cần',
       stageNameZh: '1. 佈展進場與後勤設置 (Dựng gian hàng & Chuẩn bị)',
       stageNameEn: '1. Booth Setup & Logistics',
       icon: '🔨',
@@ -85,6 +86,7 @@ export const tradeShowGuide = {
     },
     {
       id: 'greeting_leads',
+      stageNameVi: 'Đón tiếp khách tham quan & Thu thập Lead',
       stageNameZh: '2. 攤位熱情迎賓與線索獲取 (Đón tiếp & Thu thập Lead)',
       stageNameEn: '2. Greeting Visitors & Lead Capture',
       icon: '🤝',
@@ -118,6 +120,7 @@ export const tradeShowGuide = {
     },
     {
       id: 'demo_pitch',
+      stageNameVi: 'Thuyết trình sản phẩm & Năng lực OEM',
       stageNameZh: '3. 產品解說、技術參數與 OEM 能力 (Thuyết trình & OEM/ODM)',
       stageNameEn: '3. Product Demo & OEM Capabilities',
       icon: '⚙️',
@@ -151,6 +154,7 @@ export const tradeShowGuide = {
     },
     {
       id: 'follow_up',
+      stageNameVi: 'Theo dõi sau triển lãm & Hẹn gặp Zalo',
       stageNameZh: '4. 會後跟進、Zalo 聯繫與預約拜訪 (Follow-up & Hẹn gặp)',
       stageNameEn: '4. Post-Show Follow-up & Office Visit',
       icon: '📲',
@@ -380,6 +384,16 @@ export const interactiveNegotiations = [
             partnerResponse: 'Đề xuất phân kỳ này rất thực tế và tạo động lực cho đội ngũ sales của em! Em đồng ý phương án này!',
             feedbackZh: '🎉 高超商務分段博弈！以「區域試水 + 階梯式績效解鎖」既控制風險又激勵合作夥伴，完全符合胡志明市的務實商業邏輯！',
             feedbackEn: 'Brilliant milestone negotiation! Phased regional exclusivity reduced risk while aligning commercial incentives.'
+          },
+          {
+            id: 'hcmc_opt1_too_harsh',
+            viet: '500.000 USD là quá ít, không đủ chi phí bên tôi. Nếu không cam kết ít nhất 2 triệu USD thì bên tôi không giao quyền độc quyền.',
+            zh: '50 萬美金太少了，根本不夠我們成本。如果不承諾至少 200 萬美金，我們不會給予任何獨家代理權。',
+            en: '$500k is far too little. If you cannot commit at least $2M, we will not grant exclusive rights.',
+            trustDelta: -25,
+            partnerResponse: 'Anh nói chuyện thiếu thiện chí như vậy thì chúng ta khó mà hợp tác lâu dài được.',
+            feedbackZh: '❌ 態度過於強硬生冷，未給予對方階梯式成長空間，容易破壞潛在經銷合作！',
+            feedbackEn: 'Too aggressive. Demanded unrealistic targets without flexible phasing, hurting relationship.'
           }
         ]
       }
@@ -410,6 +424,16 @@ export const interactiveNegotiations = [
             partnerResponse: 'Cảm ơn anh đã tin tưởng. Nếu là hợp tác chiến lược lâu dài, chúng tôi có thể cùng bàn bạc thêm.',
             feedbackZh: '✅ 完美！先給予品質肯定，再以長期夥伴與大單數量爭取折讓空間。',
             feedbackEn: 'Praised quality first, then leveraged volume for concession.'
+          },
+          {
+            id: 'opt1_aggressive',
+            viet: 'Giá 12 USD là quá đắt, xưởng bên cạnh báo cho tôi chỉ có 9 USD thôi. Anh phải giảm xuống 9.5 USD thì tôi mới ký hợp đồng.',
+            zh: '12 美金太貴了，隔壁廠報價只要 9 美金。你必須降到 9.5 美金我才簽合約。',
+            en: '$12 is way too expensive, competitor quoted $9. You must drop to $9.5 for me to sign.',
+            trustDelta: -25,
+            partnerResponse: 'Chất lượng bên xưởng khác không thể so với chúng tôi được. Anh so sánh như vậy là không công bằng.',
+            feedbackZh: '❌ 拿低質競品施壓砍價，容易引起越南合作夥伴反感並損害信任！',
+            feedbackEn: 'Unfairly compared with cheap low-quality competitors, hurting trust.'
           }
         ]
       }
@@ -440,6 +464,16 @@ export const interactiveNegotiations = [
             partnerResponse: 'Cảm ơn anh đã thấu hiểu. Tôi sẽ đích thân đốc thúc tổ KCS tăng ca tối nay để kịp tiến độ!',
             feedbackZh: '✅ 高度同理心結合明確執行指令，讓廠長主動全力配合趕工！',
             feedbackEn: 'High empathy with actionable plan.'
+          },
+          {
+            id: 'q1_blame',
+            viet: 'Tỷ lệ lỗi 4.5% là hoàn toàn không thể chấp nhận được! Nếu chậm giao hàng một ngày, bên anh phải bồi thường toàn bộ thiệt hại theo hợp đồng.',
+            zh: '4.5% 不良率完全無法接受！只要延誤交期一天，貴方必須依約全額賠償一切損失。',
+            en: '4.5% defect rate is unacceptable! For every day delayed, you must compensate full liquidated damages.',
+            trustDelta: -30,
+            partnerResponse: 'Anh làm việc cứng nhắc như vậy thì cứ chiếu theo điều khoản phạt hợp đồng mà xử lý, chúng tôi không tăng ca nữa.',
+            feedbackZh: '❌ 危機時刻直接厲聲究責索賠，導致現場廠長消極抵抗，無法解決交期燃眉之急！',
+            feedbackEn: 'Aggressive penalty threats provoked passive resistance instead of speeding up recovery.'
           }
         ]
       }
@@ -470,6 +504,16 @@ export const interactiveNegotiations = [
             partnerResponse: 'Tuyệt vời quá! Đề xuất thanh toán trước 3 tháng rất hấp dẫn. Em xin duyệt mức giá này cho công ty anh ngay ạ!',
             feedbackZh: '🎉 漂亮談判！利用「多人數 x 長週期 x 預付現金」換取極致性價比包套！',
             feedbackEn: 'Bundled volume and prepayment for optimal corporate terms.'
+          },
+          {
+            id: 'h1_unreasonable',
+            viet: 'Khách sạn bên cạnh giá chỉ có 800 nghìn thôi. Chị Mai giảm xuống 800 nghìn cho chúng tôi được không?',
+            zh: '隔壁飯店每晚才 80 萬盾。梅經理能降到 80 萬盾給我們嗎？',
+            en: 'Nearby hotel charges only 800k. Can you match 800k for us?',
+            trustDelta: -20,
+            partnerResponse: 'Dạ phân khúc bên em là 4 sao tiêu chuẩn quốc tế, không thể giảm xuống mức giá của nhà nghỉ bình dân được ạ.',
+            feedbackZh: '❌ 忽視星級飯店硬體與服務成本，殺價幅度過大且缺乏互惠籌碼。',
+            feedbackEn: 'Unrealistic lowball offer ignored standard international service costs.'
           }
         ]
       }
@@ -500,6 +544,16 @@ export const interactiveNegotiations = [
             partnerResponse: 'Haha, anh nói rất chân tình và chuyên nghiệp! Nào, một, hai, ba, dô!',
             feedbackZh: '🏆 滿分應酬情商！首杯給足面子乾杯，同時禮貌設定後續防線，既豪爽又專業！',
             feedbackEn: 'Honored host on first toast while setting professional boundaries.'
+          },
+          {
+            id: 'nhau_toast_refuse_abruptly',
+            viet: 'Tôi không biết uống bia rượu đâu, anh cứ uống đi, tôi uống nước lọc.',
+            zh: '我不會喝任何酒類，你們自己喝就好，我喝白開水。',
+            en: 'I do not drink at all, you go ahead and drink, I will just drink water.',
+            trustDelta: -25,
+            partnerResponse: 'Bữa tiệc mừng hợp tác mà anh nói vậy thì hơi cụt hứng quá rồi.',
+            feedbackZh: '❌ 過於生硬直接拒絕，完全澆熄現場熱烈氣氛與東道主好意。',
+            feedbackEn: 'Abruptly refused host hospitality, dampening the celebratory banquet atmosphere.'
           }
         ]
       }
