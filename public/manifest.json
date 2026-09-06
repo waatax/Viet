@@ -1,0 +1,20 @@
+{
+  "name": "越語學習通 | Chào Việt Nam! 專業越南語旗艦平台",
+  "short_name": "越語學習通",
+  "description": "全方位權威越南語學習平台：29字母發音、6大聲調SVG音高分析、南北越口音差異、數字百億貨幣購物模擬、26大實戰情境會話、SM-2間隔記憶閃卡與iVPT檢定測驗。",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0e17",
+  "theme_color": "#0a0e17",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%23da251c%22/><text y=%22.75em%22 x=%2250%25%22 font-size=%2260%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>🇻🇳</text></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "lifestyle", "productivity"],
+  "lang": "zh-TW"
+}

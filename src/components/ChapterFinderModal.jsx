@@ -5,12 +5,14 @@ import {
 } from 'lucide-react';
 import { SYLLABUS_REGISTRY, SYLLABUS_CATEGORIES } from '../config/syllabusRegistry';
 import { useLanguage } from '../context/LanguageContext';
+import { audioEngine } from '../services/audioEngine';
 import './ChapterFinderModal.css';
 
 export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter }) {
   const { learningMode, t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCardIndex, setSelectedCardIndex] = useState(0);
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -19,27 +21,43 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
         inputRef.current?.focus();
       }, 100);
       document.body.style.overflow = 'hidden';
+      setSelectedCardIndex(0);
     } else {
       document.body.style.overflow = '';
       setSearchQuery('');
       setSelectedCategory('all');
+      setSelectedCardIndex(0);
     }
     return () => {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
 
-  // Keyboard shortcut listener: ESC to close
+  // Keyboard shortcut listener: ESC to close, Arrow keys to navigate, Enter to select
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (!isOpen) return;
       if (e.key === 'Escape') {
+        audioEngine.playHaptic('tap');
         onClose();
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        audioEngine.playHaptic('tap');
+        setSelectedCardIndex(prev => Math.min(prev + 1, Math.max(0, filteredChapters.length - 1)));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        audioEngine.playHaptic('tap');
+        setSelectedCardIndex(prev => Math.max(prev - 1, 0));
+      } else if (e.key === 'Enter') {
+        if (filteredChapters[selectedCardIndex]) {
+          e.preventDefault();
+          handleItemClick(filteredChapters[selectedCardIndex]);
+        }
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, filteredChapters, selectedCardIndex]);
 
   // Filter items
   const filteredChapters = useMemo(() => {
@@ -68,6 +86,7 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
   if (!isOpen) return null;
 
   const handleItemClick = (chapter) => {
+    audioEngine.playHaptic('selection');
     onSelectChapter(chapter);
     onClose();
   };
@@ -75,6 +94,7 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
   return (
     <div className="chapter-finder-backdrop" onClick={onClose} role="dialog" aria-modal="true">
       <div className="chapter-finder-sheet" onClick={(e) => e.stopPropagation()}>
+        <div className="ios-sheet-grabber finder-grabber" />
         {/* Header Bar */}
         <div className="finder-header">
           <div className="finder-title-area">
@@ -84,7 +104,7 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
             </div>
             <h2>{learningMode === 'zh' ? '想學哪個章節？快速搜尋直達' : 'Find Any Lesson & Jump Directly'}</h2>
           </div>
-          <button className="finder-close-btn" onClick={onClose} aria-label="Close modal">
+          <button className="finder-close-btn" onClick={() => { audioEngine.playHaptic('tap'); onClose(); }} aria-label="Close modal">
             <X size={20} />
           </button>
         </div>
@@ -97,15 +117,15 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
             type="text"
             className="finder-search-input"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e) => { setSearchQuery(e.target.value); setSelectedCardIndex(0); }}
             placeholder={learningMode === 'zh' ? '輸入關鍵字搜尋：例如「咖啡」、「海關」、「紅發票」、「談判」、「聲調」...' : 'Search chapters, e.g. "coffee", "customs", "invoice", "tones"...'}
           />
           {searchQuery && (
-            <button className="finder-clear-btn" onClick={() => setSearchQuery('')} aria-label="Clear search">
+            <button className="finder-clear-btn" onClick={() => { audioEngine.playHaptic('tap'); setSearchQuery(''); setSelectedCardIndex(0); }} aria-label="Clear search">
               <X size={16} />
             </button>
           )}
-          <div className="finder-kbd-hint">ESC 關閉</div>
+          <div className="finder-kbd-hint">ESC 關閉 · ↑↓ 導航 · Enter 選取</div>
         </div>
 
         {/* Category Pills */}
@@ -116,7 +136,7 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
               <button
                 key={cat.id}
                 className={`finder-cat-chip ${isActive ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(cat.id)}
+                onClick={() => { audioEngine.playHaptic('selection'); setSelectedCategory(cat.id); setSelectedCardIndex(0); }}
               >
                 <span>{learningMode === 'zh' ? cat.labelZh : cat.labelVi}</span>
               </button>
@@ -128,7 +148,7 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
         <div className="finder-results-bar">
           <span>{learningMode === 'zh' ? `找到 ${filteredChapters.length} 個課程章節` : `Found ${filteredChapters.length} chapters`}</span>
           {searchQuery && (
-            <button className="clear-filter-link" onClick={() => { setSearchQuery(''); setSelectedCategory('all'); }}>
+            <button className="clear-filter-link" onClick={() => { audioEngine.playHaptic('tap'); setSearchQuery(''); setSelectedCategory('all'); setSelectedCardIndex(0); }}>
               {learningMode === 'zh' ? '重設搜尋' : 'Reset search'}
             </button>
           )}
@@ -142,10 +162,11 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
               <small>{learningMode === 'zh' ? '試試其他關鍵字，或點擊上方「全部章節」查看完整清單' : 'Try searching different keywords or select All Chapters'}</small>
             </div>
           ) : (
-            filteredChapters.map(chapter => (
+            filteredChapters.map((chapter, idx) => (
               <div
                 key={chapter.id}
-                className="finder-card-item"
+                className={`finder-card-item ${idx === selectedCardIndex ? 'keyboard-active' : ''}`}
+                onMouseEnter={() => setSelectedCardIndex(idx)}
                 onClick={() => handleItemClick(chapter)}
               >
                 <div className="card-top-row">

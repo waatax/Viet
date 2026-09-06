@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Design System - 越�?學�???(Ch?o Việt Nam! / VietMaster Pro)
-   Aesthetics: Japanese Wabi-Sabi Minimalism + Modern Ergonomic Visual Polish
+   Design System - 越語學習通 (Chào Việt Nam! / VietMaster Pro)
+   Aesthetics: Apple HIG + Japanese Wabi-Sabi Precision
    Dimensions: Responsive Layout, Audio Waveform Synth, Real VND Polymer Colors
    ========================================================================== */
 
@@ -43,28 +43,36 @@
   --font-scale: 1;
   --base-font-size: calc(15.5px * var(--font-scale));
 
-  /* Refined Typography */
-  --font-family: 'Be Vietnam Pro', 'Noto Sans TC', system-ui, -apple-system, sans-serif;
-  --font-family-display: 'Plus Jakarta Sans', 'Noto Sans TC', var(--font-family);
-  --font-family-mono: 'Outfit', 'SF Mono', monospace;
+  /* Apple HIG Typography Hierarchy */
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Be Vietnam Pro", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+  --font-family-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", "Be Vietnam Pro", "PingFang TC", sans-serif;
+  --font-family-mono: "SF Mono", "Outfit", Menlo, Monaco, Consolas, monospace;
 
-  /* Cubic-bezier Micro Transitions */
+  /* Apple Spring & Micro Transitions */
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-slow: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --spring-smooth: cubic-bezier(0.2, 0.9, 0.3, 1);
+  --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Radius System */
-  --radius-xs: 6px;
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  /* Apple HIG Continuous Squircle Radius System */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-xl: 34px;
   --radius-full: 9999px;
+
+  /* Safe Area Insets */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
 }
 
 /* ==========================================================================
-   Theme 1: Light Mode (?��? Washi & ?�白 Tsukishiro)
+   Theme 1: Light Mode (Apple Frost Tsukishiro)
    ========================================================================== */
 [data-theme="light"] {
   --bg-main: #f8fafc;
@@ -78,7 +86,7 @@
 
   --text-primary: #0f172a;
   --text-secondary: #334155;
-  --text-muted: #475569; /* Darkened from #64748b for AAA contrast */
+  --text-muted: #475569;
   --text-inverse: #ffffff;
 
   --border-color: #e2e8f0;
@@ -86,18 +94,18 @@
   --border-highlight: #cbd5e1;
   --border-focus: #3b82f6;
 
-  /* Japanese Wairo + Vietnam Flag Accents (Cycle 1 Polish) */
-  --brand-primary: #da251c;   /* 緋色 (Hiiro) / Vietnam Red */
+  /* Apple System & Vietnam Flag Accents */
+  --brand-primary: #da251c;
   --brand-primary-rgb: 218, 37, 28;
-  --brand-gold: #d97706;      /* ?? (Kohaku) / Warm Gold */
+  --brand-gold: #d97706;
   --brand-gold-rgb: 217, 119, 6;
-  --brand-accent: #2563eb;    /* 浅葱 / ??(Asagi/Ai) / Modern Royal Blue */
+  --brand-accent: #2563eb;
   --brand-accent-rgb: 37, 99, 235;
-  --brand-green: #059669;     /* ?? (Matsuba) / Jade Emerald */
-  --brand-purple: #7c3aed;    /* ?�?(Fujimurasaki) */
+  --brand-green: #059669;
+  --brand-purple: #7c3aed;
   --brand-teal: #0891b2;
 
-  /* Shadows - Organic Soft Washi Paper Elevation */
+  /* Shadows - Organic Elevation & Specular Reflection */
   --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
   --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
   --card-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
@@ -110,10 +118,10 @@
 }
 
 /* ==========================================================================
-   Theme 2: Dark Mode (�? Shikkoku & ?Sumi)
+   Theme 2: Dark Mode (Apple Deep Obsidian & Space Black)
    ========================================================================== */
 [data-theme="dark"] {
-  --bg-main: #0a0e17; /* Cycle 1: Deep aesthetic */
+  --bg-main: #0a0e17;
   --bg-subtle: #0f1523;
   --bg-header: rgba(10, 14, 23, 0.88);
   --bg-card: #131926;
@@ -194,11 +202,96 @@ body {
   flex-direction: column;
   min-height: 100vh;
   position: relative;
+  width: 100%;
 }
 
-/* Desktop Full Width Layout */
-.app-container {
+/* Apple Native Tactile Active Press Feedback */
+button:active:not(:disabled),
+.clickable:active,
+.nav-cat-btn:active,
+.subnav-item-chip:active,
+.bottom-nav-item:active,
+.speaker-btn:active,
+.finder-cat-chip:active,
+.finder-card-item:active,
+.secondary-action:active,
+.primary-action:active {
+  transform: scale(0.965);
+  transition: transform 0.1s var(--spring-smooth);
+}
+
+/* ==========================================================================
+   Apple Design Award / iOS HIG Master Sheet Modal System
+   ========================================================================== */
+.ios-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 1.25rem;
+  animation: iosFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ios-sheet-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.08);
   width: 100%;
+  max-width: 680px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  animation: iosScaleUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.ios-sheet-grabber {
+  width: 38px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--text-muted);
+  opacity: 0.35;
+  margin: 0.75rem auto 0.3rem;
+  flex-shrink: 0;
+}
+
+@keyframes iosFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes iosScaleUp {
+  from { opacity: 0; transform: scale(0.94) translateY(8px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes iosSlideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .ios-sheet-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .ios-sheet-card {
+    max-width: 100%;
+    max-height: 92vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 28px;
+    border-top-right-radius: 28px;
+    padding-bottom: max(1.5rem, var(--safe-bottom));
+    animation: iosSlideUp 0.36s cubic-bezier(0.16, 1, 0.3, 1);
+  }
 }
 
 /* ==========================================================================
@@ -208,8 +301,9 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  padding-top: var(--safe-top);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   background-color: var(--bg-header);
   border-bottom: 1px solid var(--border-color);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);

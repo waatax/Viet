@@ -10,6 +10,18 @@ export const AchievementsModal = ({ userStats, isOpen, onClose }) => {
   const { learningMode } = useLanguage();
   const [filter, setFilter] = useState('all'); // 'all' | 'unlocked' | 'locked'
 
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        audioEngine.playHaptic('tap');
+        onClose();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const unlockedIds = new Set(gamificationEngine.loadUnlockedAchievements());
@@ -25,53 +37,39 @@ export const AchievementsModal = ({ userStats, isOpen, onClose }) => {
 
   const handleBadgeClick = (badge) => {
     if (unlockedIds.has(badge.id)) {
+      audioEngine.playHaptic('success');
       audioEngine.playBadgeUnlockSound();
+    } else {
+      audioEngine.playHaptic('tap');
     }
   };
 
   return (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      background: 'rgba(0, 0, 0, 0.75)',
-      backdropFilter: 'blur(8px)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      zIndex: 99999,
-      padding: '1.25rem'
-    }}>
-      <div style={{
-        background: 'var(--bg-card)',
-        border: '2px solid var(--brand-gold)',
-        borderRadius: 'var(--radius-lg)',
-        maxWidth: '720px',
-        width: '100%',
-        maxHeight: '90vh',
-        overflowY: 'auto',
-        position: 'relative',
-        boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
-        padding: '2rem'
-      }}>
+    <div className="ios-sheet-backdrop" onClick={() => { audioEngine.playHaptic('tap'); onClose(); }} role="dialog" aria-modal="true">
+      <div className="ios-sheet-card" style={{ maxWidth: '740px', padding: '1.75rem', overflowY: 'auto' }} onClick={(e) => e.stopPropagation()}>
+        <div className="ios-sheet-grabber" />
+        
         {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={() => { audioEngine.playHaptic('tap'); onClose(); }}
           style={{
             position: 'absolute',
             top: '1.25rem',
             right: '1.25rem',
-            background: 'transparent',
-            border: 'none',
+            background: 'var(--bg-subtle)',
+            border: '1px solid var(--border-color)',
             color: 'var(--text-muted)',
             cursor: 'pointer',
-            padding: '0.4rem',
-            borderRadius: 'var(--radius-full)'
+            padding: '0.45rem',
+            borderRadius: 'var(--radius-full)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 10
           }}
+          aria-label="Close"
         >
-          <X size={24} />
+          <X size={20} />
         </button>
 
         {/* Header Stats */}

@@ -286,32 +286,10 @@ export function App() {
 
       {/* Level-Up Celebration Modal */}
       {levelUpData && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(0, 0, 0, 0.75)',
-          backdropFilter: 'blur(6px)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 9999,
-          padding: '1rem'
-        }}>
-          <div style={{
-            background: 'var(--bg-card)',
-            border: '2px solid var(--brand-gold)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '2.5rem 2rem',
-            maxWidth: '440px',
-            width: '100%',
-            textAlign: 'center',
-            boxShadow: '0 20px 50px rgba(234, 179, 8, 0.35)',
-            animation: 'glowSuccess 1.5s infinite alternate'
-          }}>
-            <div style={{ fontSize: '3.5rem', marginBottom: '0.5rem' }}>🏆✨</div>
+        <div className="ios-sheet-backdrop" onClick={() => { audioEngine.playHaptic('tap'); setLevelUpData(null); }} role="dialog" aria-modal="true">
+          <div className="ios-sheet-card" style={{ maxWidth: '440px', textAlign: 'center', padding: '2.5rem 2rem', border: '2px solid var(--brand-gold)' }} onClick={(e) => e.stopPropagation()}>
+            <div className="ios-sheet-grabber" />
+            <div style={{ fontSize: '3.5rem', margin: '0.5rem 0 0.3rem' }}>🏆✨</div>
             <h2 style={{ fontSize: '1.8rem', fontWeight: 900, color: 'var(--brand-gold)', margin: '0 0 0.5rem' }}>
               LEVEL UP!
             </h2>
@@ -329,7 +307,7 @@ export function App() {
             <button
               className="primary-action"
               style={{ width: '100%', padding: '0.85rem', fontSize: '1.05rem', fontWeight: 800 }}
-              onClick={() => setLevelUpData(null)}
+              onClick={() => { audioEngine.playHaptic('success'); setLevelUpData(null); }}
             >
               繼續征服越語 🚀
             </button>
@@ -339,32 +317,10 @@ export function App() {
 
       {/* Achievement Unlocked Sparkle Modal */}
       {unlockedBadgeData && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(0, 0, 0, 0.75)',
-          backdropFilter: 'blur(6px)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          zIndex: 99999,
-          padding: '1rem'
-        }}>
-          <div style={{
-            background: 'var(--bg-card)',
-            border: '2px solid var(--brand-gold)',
-            borderRadius: 'var(--radius-lg)',
-            padding: '2.5rem 2rem',
-            maxWidth: '440px',
-            width: '100%',
-            textAlign: 'center',
-            boxShadow: '0 20px 50px rgba(234, 179, 8, 0.35)',
-            position: 'relative'
-          }}>
-            <div style={{ fontSize: '4rem', marginBottom: '0.5rem', animation: 'bounce 1s infinite' }}>
+        <div className="ios-sheet-backdrop" onClick={() => { audioEngine.playHaptic('tap'); setUnlockedBadgeData(null); }} role="dialog" aria-modal="true">
+          <div className="ios-sheet-card" style={{ maxWidth: '440px', textAlign: 'center', padding: '2.5rem 2rem', border: '2px solid var(--brand-gold)' }} onClick={(e) => e.stopPropagation()}>
+            <div className="ios-sheet-grabber" />
+            <div style={{ fontSize: '4rem', margin: '0.5rem 0 0.3rem', animation: 'bounce 1s infinite' }}>
               {unlockedBadgeData.icon}
             </div>
             <div style={{ fontSize: '0.85rem', fontWeight: 800, color: 'var(--brand-gold)', textTransform: 'uppercase', marginBottom: '0.3rem' }}>
@@ -392,7 +348,7 @@ export function App() {
             <button
               className="primary-action"
               style={{ width: '100%', padding: '0.8rem', fontSize: '1.05rem', fontWeight: 800 }}
-              onClick={() => setUnlockedBadgeData(null)}
+              onClick={() => { audioEngine.playHaptic('success'); setUnlockedBadgeData(null); }}
             >
               太棒了，收下勳章 🎖️
             </button>
@@ -435,20 +391,20 @@ export function App() {
             <div style={{ fontWeight: 800, fontSize: '1.05em', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
               <span>🇻🇳 越語學習通 (科學研究團隊旗艦版) · Chào Việt Nam!</span>
               <span style={{ fontSize: '0.72rem', fontWeight: 800, background: 'rgba(234, 179, 8, 0.15)', color: 'var(--brand-gold)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-full)', padding: '0.1rem 0.5rem' }}>
-                v2.6.0 商務出差旗艦版
+                v2.7.0 iOS HIG 榮耀旗艦版
               </span>
             </div>
             <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
               {learningMode === 'zh' 
-                ? '第二語言習得 (SLA) · 漢越音音韻體系 · SM-2 間隔重複 · 八角行為遊戲化 · 商務出差外派實戰旗艦' 
-                : 'SLA Methodology · Sino-Vietnamese Cognates · SM-2 Retention · Octalysis Gamification · Business Travel & FDI Hub'}
+                ? '第二語言習得 (SLA) · 漢越音音韻體系 · SM-2 間隔重複 · 八角行為遊戲化 · Apple HIG 觸覺聲學工藝' 
+                : 'SLA Methodology · Sino-Vietnamese Cognates · SM-2 Retention · Octalysis Gamification · Apple HIG Acoustic Haptics'}
             </div>
           </div>
 
           <div className="footer-settings-controls" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
             <button
               className="secondary-action"
-              onClick={() => setIsDailyQuestsOpen(true)}
+              onClick={() => { audioEngine.playHaptic('tap'); setIsDailyQuestsOpen(true); }}
               style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
             >
               <Target size={14} color="var(--brand-primary)" />
@@ -457,7 +413,7 @@ export function App() {
 
             <button
               className="secondary-action"
-              onClick={() => setIsAchievementsModalOpen(true)}
+              onClick={() => { audioEngine.playHaptic('tap'); setIsAchievementsModalOpen(true); }}
               style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
             >
               <Trophy size={14} color="var(--brand-gold)" />
@@ -466,7 +422,7 @@ export function App() {
 
             <button
               className="secondary-action"
-              onClick={() => setActiveTab('business')}
+              onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('business'); }}
               style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
             >
               <Sparkles size={14} color="var(--brand-primary)" />
@@ -481,14 +437,14 @@ export function App() {
               </span>
               <button
                 className={`accent-chip ${selectedAccent === 'north' ? 'active' : ''}`}
-                onClick={() => setSelectedAccent('north')}
+                onClick={() => { audioEngine.playHaptic('tap'); setSelectedAccent('north'); }}
                 style={{ cursor: 'pointer' }}
               >
                 {t('northAccent')}
               </button>
               <button
                 className={`accent-chip ${selectedAccent === 'south' ? 'active' : ''}`}
-                onClick={() => setSelectedAccent('south')}
+                onClick={() => { audioEngine.playHaptic('tap'); setSelectedAccent('south'); }}
                 style={{ cursor: 'pointer' }}
               >
                 {t('southAccent')}

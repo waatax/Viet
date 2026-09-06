@@ -41,8 +41,128 @@ class AudioEngine {
       if (this.synth) {
         this.synth.onvoiceschanged = () => this.initVoices();
       }
+      this.setupUserGestureUnlock();
     }
   }
+
+  setupUserGestureUnlock() {
+    if (typeof window === 'undefined') return;
+    const unlock = () => {
+      this.getAudioContext();
+      window.removeEventListener('touchstart', unlock, true);
+      window.removeEventListener('touchend', unlock, true);
+      window.removeEventListener('click', unlock, true);
+    };
+    window.addEventListener('touchstart', unlock, true);
+    window.addEventListener('touchend', unlock, true);
+    window.addEventListener('click', unlock, true);
+  }
+
+  getAudioContext() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return null;
+      if (!this.audioCtx || this.audioCtx.state === 'closed') {
+        this.audioCtx = new AudioContext();
+      }
+      if (this.audioCtx.state === 'suspended') {
+        this.audioCtx.resume().catch(() => {});
+      }
+      return this.audioCtx;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  /**
+   * Apple HIG Tactile Micro-Acoustic & Haptic Vibration Engine
+   * Provides hyper-responsive tangible feedback for tabs, buttons, correct/incorrect actions.
+   */
+  playHaptic(type = 'tap') {
+    try {
+      // 1. Device physical vibration if supported (Android, PWA, Chrome on mobile)
+      if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        if (type === 'tap') navigator.vibrate(8);
+        else if (type === 'selection') navigator.vibrate(12);
+        else if (type === 'success') navigator.vibrate([15, 40, 20]);
+        else if (type === 'warning') navigator.vibrate([30, 30, 40]);
+        else if (type === 'celebrate') navigator.vibrate([20, 50, 20, 50, 40]);
+      }
+
+      // 2. Synthesize Apple Taptic micro-acoustic clicks via Web Audio
+      const ctx = this.getAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      if (type === 'tap') {
+        // Ultra-short iOS keyboard click (12ms)
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1100, now);
+        osc.frequency.exponentialRampToValueAtTime(600, now + 0.012);
+
+        gain.gain.setValueAtTime(0.045, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.012);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.014);
+      } else if (type === 'selection') {
+        // iOS picker wheel subtle acoustic tick (15ms)
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(880, now);
+        osc.frequency.exponentialRampToValueAtTime(440, now + 0.015);
+
+        gain.gain.setValueAtTime(0.055, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.015);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.018);
+      } else if (type === 'success') {
+        // Warm iOS subtle dual chime
+        [587.33, 880].forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.06);
+
+          gain.gain.setValueAtTime(0.001, now + idx * 0.06);
+          gain.gain.exponentialRampToValueAtTime(0.12, now + idx * 0.06 + 0.01);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.06 + 0.2);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + idx * 0.06);
+          osc.stop(now + idx * 0.06 + 0.22);
+        });
+      } else if (type === 'warning') {
+        // Soft double-thump error dampener
+        [220, 180].forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+
+          gain.gain.setValueAtTime(0.07, now + idx * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + idx * 0.08 + 0.06);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + idx * 0.08);
+          osc.stop(now + idx * 0.08 + 0.07);
+        });
+      }
+    } catch (e) {
+      // ignore silently
+    }
+  }
+
 
   initManifest() {
     if (this.manifest) {

@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
+import { audioEngine } from '../services/audioEngine';
 import { NAV_GROUPS } from '../config/navigation';
 
 export const Navbar = ({
@@ -48,6 +49,7 @@ export const Navbar = ({
   }, [selectedGroupId, currentGroup]);
 
   const handleSelectGroup = (group) => {
+    audioEngine.playHaptic('selection');
     setSelectedGroupId(group.id);
     const hasActiveItem = group.items.some(it => it.id === activeTab);
     if (!hasActiveItem && group.items.length > 0) {
@@ -61,7 +63,7 @@ export const Navbar = ({
         <div className="nav-content">
           <div className="nav-brand-and-modules">
             {/* Brand Logo */}
-            <button className="brand-logo" onClick={() => setActiveTab('path')} aria-label={t('brandName')}>
+            <button className="brand-logo" onClick={() => { audioEngine.playHaptic('tap'); setActiveTab('path'); }} aria-label={t('brandName')}>
               <span className="flag-badge" aria-hidden="true"><span>★</span> VIỆT</span>
               <span className="brand-copy">
                 <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
@@ -227,7 +229,7 @@ export const Navbar = ({
               <button
                 key={item.id}
                 className={`subnav-item-chip ${isItemActive ? 'active' : ''}`}
-                onClick={() => setActiveTab(item.id)}
+                onClick={() => { audioEngine.playHaptic('selection'); setActiveTab(item.id); }}
                 role="tab"
                 aria-selected={isItemActive}
               >
@@ -246,7 +248,7 @@ export const Navbar = ({
             <span className="mobile-drawer-title">
               {learningMode === 'zh' ? '📚 全站模組選單' : '📚 All Learning Modules'}
             </span>
-            <button className="mobile-drawer-close" onClick={() => setMenuOpen(false)}>
+            <button className="mobile-drawer-close" onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(false); }}>
               <X size={18} />
             </button>
           </div>
@@ -254,7 +256,7 @@ export const Navbar = ({
           {/* Quick Chapter Finder Trigger inside drawer */}
           <button
             className="mobile-drawer-finder-btn"
-            onClick={() => { setMenuOpen(false); onOpenChapterFinder(); }}
+            onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(false); onOpenChapterFinder(); }}
           >
             <Search size={16} />
             <span>{learningMode === 'zh' ? '🔍 開啟全域章節速查盤 (100+ 章節)' : '🔍 Open Chapter Finder (100+ Lessons)'}</span>
@@ -274,7 +276,7 @@ export const Navbar = ({
                     <button
                       key={item.id}
                       className={`mobile-drawer-item-btn ${isItemActive ? 'active' : ''}`}
-                      onClick={() => { setActiveTab(item.id); setMenuOpen(false); }}
+                      onClick={() => { audioEngine.playHaptic('selection'); setActiveTab(item.id); setMenuOpen(false); }}
                     >
                       <Icon size={16} />
                       <span>{t(item.labelKey)}</span>
@@ -291,7 +293,7 @@ export const Navbar = ({
       <div className="mobile-bottom-nav" role="navigation" aria-label="行動端主要導航">
         <button
           className={`bottom-nav-item ${activeTab === 'path' ? 'active' : ''}`}
-          onClick={() => { setActiveTab('path'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('path'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
           <Map size={20} />
           <span>學習首頁</span>
@@ -300,7 +302,7 @@ export const Navbar = ({
 
         <button
           className="bottom-nav-item finder-trigger-bottom"
-          onClick={onOpenChapterFinder}
+          onClick={() => { audioEngine.playHaptic('tap'); onOpenChapterFinder(); }}
         >
           <div className="bottom-finder-icon-wrap">
             <Search size={20} />
@@ -310,7 +312,7 @@ export const Navbar = ({
 
         <button
           className={`bottom-nav-item ${activeTab === 'macropol' ? 'active' : ''}`}
-          onClick={() => { setActiveTab('macropol'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('macropol'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
           <Landmark size={20} />
           <span>越南政經</span>
@@ -319,7 +321,7 @@ export const Navbar = ({
 
         <button
           className={`bottom-nav-item ${activeTab === 'business' ? 'active' : ''}`}
-          onClick={() => { setActiveTab('business'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('business'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
           <Briefcase size={20} />
           <span>商務旗艦</span>
@@ -328,7 +330,7 @@ export const Navbar = ({
 
         <button
           className={`bottom-nav-item ${menuOpen ? 'active' : ''}`}
-          onClick={() => setMenuOpen(prev => !prev)}
+          onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(prev => !prev); }}
         >
           <Menu size={20} />
           <span>全部目錄</span>

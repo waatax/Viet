@@ -255,11 +255,17 @@
   position: relative;
 }
 
-.finder-card-item:hover {
+.finder-card-item:hover,
+.finder-card-item.keyboard-active {
   transform: translateY(-2px);
   border-color: var(--brand-accent);
-  box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.15), 0 2px 6px rgba(0, 0, 0, 0.05);
   background: var(--bg-card-hover);
+  box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.22);
+}
+
+.finder-card-item.keyboard-active {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 1px;
 }
 
 .card-top-row {
