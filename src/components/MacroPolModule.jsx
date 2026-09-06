@@ -11,6 +11,8 @@ import {
   macroKpiMetrics,
   fiveYearWeeklyUsdVndData,
   fiveYearWeeklyTwdVndData,
+  fiveYearSbvPolicyRatesData,
+  fiveYearMacroEconomicData,
   sbvPolicyRates,
   commercialBankRates,
   tradeAndCustomsData,
@@ -66,10 +68,10 @@ export default function MacroPolModule() {
     return () => window.removeEventListener('viet_jump_chapter', handleJump);
   }, []);
 
-  // ── Chart State ──
-  const [currencyPair, setCurrencyPair] = useState('USD_VND'); // 'USD_VND' | 'TWD_VND'
+  // ── Chart State (USD_VND | TWD_VND | SBV_RATES | GDP_CPI | TRADE_FDI | VN_INDEX) ──
+  const [chartMode, setChartMode] = useState('USD_VND');
+  const currencyPair = chartMode === 'TWD_VND' ? 'TWD_VND' : 'USD_VND';
   const [timeframe, setTimeframe] = useState('5Y'); // '5Y' | '2Y' | '1Y' | '12W'
-  const [chartSubtab, setChartSubtab] = useState('usdvnd'); // 'usdvnd' | 'sbv' | 'rates_spread' | 'trade_balance'
   const [hoveredDataPoint, setHoveredDataPoint] = useState(null);
 
   // ── Bank Matrix Filter State ──
@@ -118,36 +120,90 @@ export default function MacroPolModule() {
     audioEngine.speak(text, { accent: 'north', key: key || text });
   };
 
-  // ── Filter Chart Data based on Currency Pair & Timeframe ──
-  const activeRawData = currencyPair === 'TWD_VND' ? fiveYearWeeklyTwdVndData : fiveYearWeeklyUsdVndData;
+  // ── Filter Chart Data based on Chart Mode & Timeframe ──
+  const activeRawData = useMemo(() => {
+    switch (chartMode) {
+      case 'USD_VND':
+        return fiveYearWeeklyUsdVndData;
+      case 'TWD_VND':
+        return fiveYearWeeklyTwdVndData;
+      case 'SBV_RATES':
+        return fiveYearSbvPolicyRatesData;
+      case 'GDP_CPI':
+      case 'TRADE_FDI':
+      case 'VN_INDEX':
+        return fiveYearMacroEconomicData;
+      default:
+        return fiveYearWeeklyUsdVndData;
+    }
+  }, [chartMode]);
 
   const filteredChartData = useMemo(() => {
-    if (timeframe === '12W') {
-      return activeRawData.slice(-12);
+    const isWeekly = chartMode === 'USD_VND' || chartMode === 'TWD_VND';
+    if (isWeekly) {
+      if (timeframe === '12W') return activeRawData.slice(-12);
+      if (timeframe === '1Y') return activeRawData.slice(-52);
+      if (timeframe === '2Y') return activeRawData.slice(-104);
+      return activeRawData; // 5Y
+    } else {
+      if (timeframe === '12W') return activeRawData.slice(-4);
+      if (timeframe === '1Y') return activeRawData.slice(-6);
+      if (timeframe === '2Y') return activeRawData.slice(-10);
+      return activeRawData; // 5Y
     }
-    if (timeframe === '1Y') {
-      return activeRawData.slice(-52);
-    }
-    if (timeframe === '2Y') {
-      return activeRawData.slice(-104);
-    }
-    return activeRawData; // 5Y
-  }, [timeframe, activeRawData]);
+  }, [timeframe, activeRawData, chartMode]);
 
   // Chart stats min / max
   const chartStats = useMemo(() => {
     if (!filteredChartData.length) {
-      return { min: 0, max: 0, current: 0, start: 0, change: '0.00', currentItem: null };
+      return { min: 0, max: 0, current: 0, start: 0, change: '0.00', currentItem: null, unit: '' };
     }
-    const values = filteredChartData.map(d => d.close);
-    const min = Math.min(...values);
-    const max = Math.max(...values);
     const currentItem = filteredChartData[filteredChartData.length - 1];
-    const current = currentItem.close;
-    const start = filteredChartData[0].close;
-    const change = (((current - start) / start) * 100).toFixed(2);
-    return { min, max, current, start, change, currentItem };
-  }, [filteredChartData]);
+    const startItem = filteredChartData[0];
+
+    if (chartMode === 'USD_VND' || chartMode === 'TWD_VND') {
+      const values = filteredChartData.map(d => d.close);
+      const min = Math.min(...values);
+      const max = Math.max(...values);
+      const current = currentItem.close;
+      const start = startItem.close;
+      const change = (((current - start) / start) * 100).toFixed(2);
+      return { min, max, current, start, change, currentItem, unit: '₫' };
+    } else if (chartMode === 'SBV_RATES') {
+      const allVals = filteredChartData.flatMap(d => [d.refinancing, d.rediscount, d.big4Deposit12m, d.shortLoan]);
+      const min = Math.min(...allVals);
+      const max = Math.max(...allVals);
+      const current = currentItem.refinancing;
+      const start = startItem.refinancing;
+      const change = (current - start).toFixed(2);
+      return { min, max, current, start, change, currentItem, unit: '%' };
+    } else if (chartMode === 'GDP_CPI') {
+      const allVals = filteredChartData.flatMap(d => [d.gdpGrowth, d.cpi]);
+      const min = Math.min(...allVals);
+      const max = Math.max(...allVals);
+      const current = currentItem.gdpGrowth;
+      const start = startItem.gdpGrowth;
+      const change = (current - start).toFixed(2);
+      return { min, max, current, start, change, currentItem, unit: '%' };
+    } else if (chartMode === 'TRADE_FDI') {
+      const allVals = filteredChartData.flatMap(d => [d.tradeSurplus, d.fdiDisbursed]);
+      const min = Math.min(...allVals);
+      const max = Math.max(...allVals);
+      const current = currentItem.tradeSurplus;
+      const start = startItem.tradeSurplus;
+      const change = (current - start).toFixed(2);
+      return { min, max, current, start, change, currentItem, unit: '$B' };
+    } else if (chartMode === 'VN_INDEX') {
+      const values = filteredChartData.map(d => d.vnIndex);
+      const min = Math.min(...values);
+      const max = Math.max(...values);
+      const current = currentItem.vnIndex;
+      const start = startItem.vnIndex;
+      const change = (((current - start) / start) * 100).toFixed(2);
+      return { min, max, current, start, change, currentItem, unit: 'pts' };
+    }
+    return { min: 0, max: 0, current: 0, start: 0, change: '0.00', currentItem, unit: '' };
+  }, [filteredChartData, chartMode]);
 
   // ── Filter Bank Rates ──
   const filteredBankRates = useMemo(() => {
@@ -420,35 +476,46 @@ export default function MacroPolModule() {
         </div>
       </div>
 
-      {/* ── 5. Main Section: 5-Year Weekly USD/VND & TWD/VND Radar & Charts ── */}
+      {/* ── 5. Main Section: 5-Year Weekly USD/VND & TWD/VND, SBV Rates & Macro Radar & Charts ── */}
       {activeSection === 'radar' && (
         <section className="macro-section macro-container">
           <div className="macro-section-header">
             <div>
-              <div className="macro-section-pretitle">WEEKLY FX & CROSS-CURRENCY MONITOR</div>
+              <div className="macro-section-pretitle">
+                {chartMode === 'USD_VND' || chartMode === 'TWD_VND'
+                  ? 'WEEKLY FX & CROSS-CURRENCY MONITOR'
+                  : chartMode === 'SBV_RATES'
+                  ? 'STATE BANK OF VIETNAM & COMMERCIAL RATES BENCHMARK'
+                  : chartMode === 'GDP_CPI'
+                  ? 'MACRO ECONOMIC GROWTH & INFLATION MONITOR'
+                  : chartMode === 'TRADE_FDI'
+                  ? 'CUSTOMS TRADE BALANCE & FDI DISBURSED CAPITAL'
+                  : 'HO CHI MINH STOCK EXCHANGE BENCHMARK INDEX'}
+              </div>
               <h2 className="macro-section-title">
-                {currencyPair === 'USD_VND' ? (
-                  <>📈 {t.fxSectionTitle}</>
-                ) : (
-                  <>🇹🇼 {t.twdSectionTitle}</>
-                )}
+                {chartMode === 'USD_VND' && <>💵 {t.fxSectionTitle}</>}
+                {chartMode === 'TWD_VND' && <>🇹🇼 {t.twdSectionTitle}</>}
+                {chartMode === 'SBV_RATES' && <>🏛️ {t.sbvSectionTitle}</>}
+                {chartMode === 'GDP_CPI' && <>📊 {t.gdpSectionTitle}</>}
+                {chartMode === 'TRADE_FDI' && <>🚢 {t.tradeFdiSectionTitle}</>}
+                {chartMode === 'VN_INDEX' && <>📈 {t.vnIndexSectionTitle}</>}
               </h2>
             </div>
             <div className="macro-chart-actions">
-              {/* Currency Pair Toggle */}
+              {/* Multi-mode switcher pills */}
               <div className="macro-pair-pills">
-                <button
-                  className={`macro-pair-btn ${currencyPair === 'USD_VND' ? 'active' : ''}`}
-                  onClick={() => { setCurrencyPair('USD_VND'); setHoveredDataPoint(null); }}
-                >
-                  {t.pairUsd}
-                </button>
-                <button
-                  className={`macro-pair-btn ${currencyPair === 'TWD_VND' ? 'active' : ''}`}
-                  onClick={() => { setCurrencyPair('TWD_VND'); setHoveredDataPoint(null); }}
-                >
-                  {t.pairTwd}
-                </button>
+                {Object.entries(t.chartModeTabs).map(([key, label]) => (
+                  <button
+                    key={key}
+                    className={`macro-pair-btn ${chartMode === key ? 'active' : ''}`}
+                    onClick={() => {
+                      setChartMode(key);
+                      setHoveredDataPoint(null);
+                    }}
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
 
               {/* Timeframe selector pills */}
@@ -469,34 +536,85 @@ export default function MacroPolModule() {
           {/* Chart Quick Stats Strip */}
           <div className="macro-chart-stats-strip">
             <div className="chart-stat-item">
-              <span className="stat-label">{t.statsCurrent}</span>
+              <span className="stat-label">
+                {chartMode === 'USD_VND' || chartMode === 'TWD_VND'
+                  ? t.statsCurrent
+                  : chartMode === 'SBV_RATES'
+                  ? (macroLang === 'vi' ? 'Lãi suất hiện hành (Tái cấp vốn)' : '現行基準利率 (再融資)')
+                  : chartMode === 'GDP_CPI'
+                  ? (macroLang === 'vi' ? 'GDP quý gần nhất' : '最新季度實質 GDP')
+                  : chartMode === 'TRADE_FDI'
+                  ? (macroLang === 'vi' ? 'Cán cân xuất siêu' : '最新貨物累計順差')
+                  : (macroLang === 'vi' ? 'Điểm số VN-Index' : '最新指數點位')}
+              </span>
               <span className="stat-val">
-                {currencyPair === 'USD_VND' ? (
-                  <b>{chartStats.current.toLocaleString()} ₫</b>
-                ) : (
-                  <b>{chartStats.current} ₫</b>
+                {chartMode === 'USD_VND' && <b>{chartStats.current.toLocaleString()} ₫</b>}
+                {chartMode === 'TWD_VND' && (
+                  <>
+                    <b>{chartStats.current} ₫</b>
+                    {chartStats.currentItem && (
+                      <small className="stat-sub"> (10.000₫ = {chartStats.currentItem.inverse} NT$)</small>
+                    )}
+                  </>
                 )}
-                {currencyPair === 'TWD_VND' && chartStats.currentItem && (
-                  <small className="stat-sub"> (10.000₫ = {chartStats.currentItem.inverse} NT$)</small>
+                {chartMode === 'SBV_RATES' && (
+                  <>
+                    <b className="text-gold">{chartStats.current?.toFixed(2)}%</b>
+                    <small className="stat-sub"> (12M: {chartStats.currentItem?.big4Deposit12m?.toFixed(2)}% · 短貸: {chartStats.currentItem?.shortLoan?.toFixed(2)}%)</small>
+                  </>
+                )}
+                {chartMode === 'GDP_CPI' && (
+                  <>
+                    <b className="text-green">+{chartStats.current?.toFixed(2)}%</b>
+                    <small className="stat-sub"> (CPI: {chartStats.currentItem?.cpi?.toFixed(2)}%)</small>
+                  </>
+                )}
+                {chartMode === 'TRADE_FDI' && (
+                  <>
+                    <b className="text-blue">+${chartStats.current} B</b>
+                    <small className="stat-sub"> (FDI: ${chartStats.currentItem?.fdiDisbursed} B)</small>
+                  </>
+                )}
+                {chartMode === 'VN_INDEX' && (
+                  <b className="text-green">{chartStats.current?.toLocaleString()} pts</b>
                 )}
               </span>
             </div>
+
             <div className="chart-stat-item">
               <span className="stat-label">{t.statsChange}</span>
               <span className={`stat-val ${parseFloat(chartStats.change) >= 0 ? 'text-up' : 'text-down'}`}>
-                {parseFloat(chartStats.change) >= 0 ? `+${chartStats.change}%` : `${chartStats.change}%`}
+                {chartMode === 'SBV_RATES' || chartMode === 'GDP_CPI' ? (
+                  `${parseFloat(chartStats.change) >= 0 ? '+' : ''}${chartStats.change} %pt`
+                ) : chartMode === 'TRADE_FDI' ? (
+                  `${parseFloat(chartStats.change) >= 0 ? '+$' : '-$'}${Math.abs(chartStats.change)} B`
+                ) : (
+                  `${parseFloat(chartStats.change) >= 0 ? '+' : ''}${chartStats.change}%`
+                )}
               </span>
             </div>
+
             <div className="chart-stat-item">
               <span className="stat-label">{t.statsHigh}</span>
               <span className="stat-val text-gold">
-                {currencyPair === 'USD_VND' ? `${chartStats.max.toLocaleString()} ₫` : `${chartStats.max} ₫`}
+                {chartMode === 'USD_VND' && `${chartStats.max.toLocaleString()} ₫`}
+                {chartMode === 'TWD_VND' && `${chartStats.max} ₫`}
+                {chartMode === 'SBV_RATES' && `${chartStats.max.toFixed(2)}%`}
+                {chartMode === 'GDP_CPI' && `+${chartStats.max.toFixed(2)}%`}
+                {chartMode === 'TRADE_FDI' && `$${chartStats.max} B`}
+                {chartMode === 'VN_INDEX' && `${chartStats.max.toLocaleString()} pts`}
               </span>
             </div>
+
             <div className="chart-stat-item">
               <span className="stat-label">{t.statsLow}</span>
               <span className="stat-val text-green">
-                {currencyPair === 'USD_VND' ? `${chartStats.min.toLocaleString()} ₫` : `${chartStats.min} ₫`}
+                {chartMode === 'USD_VND' && `${chartStats.min.toLocaleString()} ₫`}
+                {chartMode === 'TWD_VND' && `${chartStats.min} ₫`}
+                {chartMode === 'SBV_RATES' && `${chartStats.min.toFixed(2)}%`}
+                {chartMode === 'GDP_CPI' && `${chartStats.min.toFixed(2)}%`}
+                {chartMode === 'TRADE_FDI' && `${chartStats.min >= 0 ? '$' + chartStats.min : '-$' + Math.abs(chartStats.min)} B`}
+                {chartMode === 'VN_INDEX' && `${chartStats.min.toLocaleString()} pts`}
               </span>
             </div>
           </div>
@@ -507,47 +625,50 @@ export default function MacroPolModule() {
               {(() => {
                 const width = 1000;
                 const height = 360;
-                const padding = { top: 30, right: 30, bottom: 40, left: 65 };
+                const padding = { top: 30, right: 30, bottom: 40, left: 70 };
                 const chartW = width - padding.left - padding.right;
                 const chartH = height - padding.top - padding.bottom;
 
                 const data = filteredChartData;
                 if (!data.length) return null;
 
-                const minVal = chartStats.min * 0.99;
-                const maxVal = chartStats.max * 1.01;
-                const valRange = maxVal - minVal || 1;
+                let minVal, maxVal;
+                if (chartMode === 'USD_VND' || chartMode === 'TWD_VND') {
+                  minVal = chartStats.min * 0.99;
+                  maxVal = chartStats.max * 1.01;
+                } else if (chartMode === 'SBV_RATES') {
+                  minVal = 2.0;
+                  maxVal = Math.ceil(chartStats.max + 0.5);
+                } else if (chartMode === 'GDP_CPI') {
+                  minVal = Math.floor(chartStats.min - 1);
+                  maxVal = Math.ceil(chartStats.max + 1);
+                } else if (chartMode === 'TRADE_FDI') {
+                  minVal = Math.min(0, Math.floor(chartStats.min - 1));
+                  maxVal = Math.ceil(chartStats.max + 2);
+                } else if (chartMode === 'VN_INDEX') {
+                  minVal = Math.floor(chartStats.min * 0.95);
+                  maxVal = Math.ceil(chartStats.max * 1.03);
+                } else {
+                  minVal = chartStats.min;
+                  maxVal = chartStats.max;
+                }
 
-                const getX = (idx) => padding.left + (idx / (data.length - 1)) * chartW;
+                const valRange = maxVal - minVal || 1;
+                const getX = (idx) => padding.left + (idx / Math.max(1, data.length - 1)) * chartW;
                 const getY = (val) => padding.top + chartH - ((val - minVal) / valRange) * chartH;
 
-                // Build path for Close line
-                const linePoints = data.map((d, i) => `${getX(i)},${getY(d.close)}`).join(' ');
-                const areaPoints = `${getX(0)},${padding.top + chartH} ` +
-                  linePoints +
-                  ` ${getX(data.length - 1)},${padding.top + chartH}`;
-
-                // Secondary line (Central rate for USD, or botRate for TWD)
-                const blackPoints = currencyPair === 'USD_VND'
-                  ? data.map((d, i) => `${getX(i)},${getY(d.blackMarket || d.close)}`).join(' ')
-                  : null;
-
-                const centralPoints = currencyPair === 'USD_VND'
-                  ? data.map((d, i) => `${getX(i)},${getY(d.central || d.close)}`).join(' ')
-                  : null;
-
-                const botPoints = currencyPair === 'TWD_VND'
-                  ? data.map((d, i) => `${getX(i)},${getY(d.botRate || d.close)}`).join(' ')
-                  : null;
-
-                // Generate Y-axis grid values
+                // 5 horizontal grid steps
                 const gridSteps = [
                   minVal,
                   minVal + valRange * 0.25,
                   minVal + valRange * 0.5,
                   minVal + valRange * 0.75,
                   maxVal
-                ].map(v => Math.round(v));
+                ];
+
+                // Check if zero line should be rendered
+                const hasZeroLine = minVal < 0 && maxVal > 0;
+                const zeroY = getY(0);
 
                 return (
                   <svg
@@ -556,111 +677,317 @@ export default function MacroPolModule() {
                     preserveAspectRatio="none"
                   >
                     <defs>
-                      <linearGradient id="chartAreaGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor={currencyPair === 'USD_VND' ? '#3b82f6' : '#10b981'} stopOpacity="0.4" />
-                        <stop offset="100%" stopColor={currencyPair === 'USD_VND' ? '#3b82f6' : '#10b981'} stopOpacity="0.0" />
+                      <linearGradient id="chartAreaGradUsd" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.4" />
+                        <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
                       </linearGradient>
-                      <linearGradient id="chartLineGrad" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stopColor={currencyPair === 'USD_VND' ? '#60a5fa' : '#34d399'} />
-                        <stop offset="50%" stopColor="#f59e0b" />
-                        <stop offset="100%" stopColor={currencyPair === 'USD_VND' ? '#ef4444' : '#3b82f6'} />
+                      <linearGradient id="chartAreaGradTwd" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#10b981" stopOpacity="0.4" />
+                        <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
+                      </linearGradient>
+                      <linearGradient id="chartAreaGradGold" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.35" />
+                        <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.0" />
+                      </linearGradient>
+                      <linearGradient id="chartAreaGradCyan" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.4" />
+                        <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.0" />
+                      </linearGradient>
+                      <linearGradient id="chartAreaGradEmerald" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#10b981" stopOpacity="0.35" />
+                        <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
                       </linearGradient>
                     </defs>
 
                     {/* Horizontal Grid lines */}
-                    {gridSteps.map(gridVal => (
-                      <g key={gridVal}>
+                    {gridSteps.map((gridVal, gIdx) => {
+                      const yPos = getY(gridVal);
+                      let label = '';
+                      if (chartMode === 'USD_VND') label = `${Math.round(gridVal).toLocaleString()}₫`;
+                      else if (chartMode === 'TWD_VND') label = `${Math.round(gridVal)}₫`;
+                      else if (chartMode === 'SBV_RATES' || chartMode === 'GDP_CPI') label = `${gridVal.toFixed(1)}%`;
+                      else if (chartMode === 'TRADE_FDI') label = `$${gridVal.toFixed(1)}B`;
+                      else if (chartMode === 'VN_INDEX') label = `${Math.round(gridVal).toLocaleString()}p`;
+
+                      return (
+                        <g key={`grid-${gIdx}`}>
+                          <line
+                            x1={padding.left}
+                            y1={yPos}
+                            x2={width - padding.right}
+                            y2={yPos}
+                            stroke="var(--macro-border)"
+                            strokeDasharray="4 4"
+                            strokeWidth="1"
+                          />
+                          <text
+                            x={padding.left - 10}
+                            y={yPos + 4}
+                            fill="var(--macro-muted)"
+                            fontSize="11"
+                            textAnchor="end"
+                            fontFamily="monospace"
+                          >
+                            {label}
+                          </text>
+                        </g>
+                      );
+                    })}
+
+                    {/* Zero baseline if range crosses 0 */}
+                    {hasZeroLine && (
+                      <g>
                         <line
                           x1={padding.left}
-                          y1={getY(gridVal)}
+                          y1={zeroY}
                           x2={width - padding.right}
-                          y2={getY(gridVal)}
-                          stroke="var(--macro-border)"
-                          strokeDasharray="4 4"
-                          strokeWidth="1"
+                          y2={zeroY}
+                          stroke="#ef4444"
+                          strokeDasharray="3 3"
+                          strokeWidth="1.5"
+                          opacity="0.85"
                         />
                         <text
-                          x={padding.left - 10}
-                          y={getY(gridVal) + 4}
-                          fill="var(--macro-muted)"
-                          fontSize="11"
-                          textAnchor="end"
+                          x={width - padding.right + 5}
+                          y={zeroY + 4}
+                          fill="#ef4444"
+                          fontSize="10"
                           fontFamily="monospace"
                         >
-                          {currencyPair === 'USD_VND' ? gridVal.toLocaleString() : `${gridVal}₫`}
+                          0.0
                         </text>
                       </g>
-                    ))}
-
-                    {/* Area Fill */}
-                    <polygon points={areaPoints} fill="url(#chartAreaGrad)" />
-
-                    {/* Secondary lines */}
-                    {blackPoints && (
-                      <polyline
-                        points={blackPoints}
-                        fill="none"
-                        stroke="#a855f7"
-                        strokeWidth="1.8"
-                        strokeDasharray="5 3"
-                        opacity="0.75"
-                      />
                     )}
 
-                    {centralPoints && (
-                      <polyline
-                        points={centralPoints}
-                        fill="none"
-                        stroke="#14b8a6"
-                        strokeWidth="1.8"
-                        strokeDasharray="3 3"
-                        opacity="0.8"
-                      />
+                    {/* ── MODE 1: USD_VND ── */}
+                    {chartMode === 'USD_VND' && (
+                      <>
+                        <polygon
+                          points={`${getX(0)},${padding.top + chartH} ` +
+                            data.map((d, i) => `${getX(i)},${getY(d.close)}`).join(' ') +
+                            ` ${getX(data.length - 1)},${padding.top + chartH}`}
+                          fill="url(#chartAreaGradUsd)"
+                        />
+                        {/* Central rate */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.central || d.close)}`).join(' ')}
+                          fill="none"
+                          stroke="#14b8a6"
+                          strokeWidth="1.8"
+                          strokeDasharray="3 3"
+                          opacity="0.8"
+                        />
+                        {/* Black market */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.blackMarket || d.close)}`).join(' ')}
+                          fill="none"
+                          stroke="#a855f7"
+                          strokeWidth="1.8"
+                          strokeDasharray="5 3"
+                          opacity="0.75"
+                        />
+                        {/* Main VCB Close */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.close)}`).join(' ')}
+                          fill="none"
+                          stroke="#3b82f6"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </>
                     )}
 
-                    {botPoints && (
-                      <polyline
-                        points={botPoints}
-                        fill="none"
-                        stroke="#f59e0b"
-                        strokeWidth="1.8"
-                        strokeDasharray="4 4"
-                        opacity="0.8"
-                      />
+                    {/* ── MODE 2: TWD_VND ── */}
+                    {chartMode === 'TWD_VND' && (
+                      <>
+                        <polygon
+                          points={`${getX(0)},${padding.top + chartH} ` +
+                            data.map((d, i) => `${getX(i)},${getY(d.close)}`).join(' ') +
+                            ` ${getX(data.length - 1)},${padding.top + chartH}`}
+                          fill="url(#chartAreaGradTwd)"
+                        />
+                        {/* BOT Bank of Taiwan */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.botRate || d.close)}`).join(' ')}
+                          fill="none"
+                          stroke="#f59e0b"
+                          strokeWidth="1.8"
+                          strokeDasharray="4 4"
+                          opacity="0.8"
+                        />
+                        {/* Main Close */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.close)}`).join(' ')}
+                          fill="none"
+                          stroke="#10b981"
+                          strokeWidth="3"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </>
                     )}
 
-                    {/* Main Line */}
-                    <polyline
-                      points={linePoints}
-                      fill="none"
-                      stroke="url(#chartLineGrad)"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
+                    {/* ── MODE 3: SBV_RATES ── */}
+                    {chartMode === 'SBV_RATES' && (
+                      <>
+                        {/* Area under Refinancing */}
+                        <polygon
+                          points={`${getX(0)},${padding.top + chartH} ` +
+                            data.map((d, i) => `${getX(i)},${getY(d.refinancing)}`).join(' ') +
+                            ` ${getX(data.length - 1)},${padding.top + chartH}`}
+                          fill="url(#chartAreaGradGold)"
+                        />
+                        {/* 1. Short Commercial Loan (Purple dashed) */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.shortLoan)}`).join(' ')}
+                          fill="none"
+                          stroke="#c084fc"
+                          strokeWidth="2.2"
+                          strokeDasharray="5 3"
+                        />
+                        {/* 2. Big 4 12M Deposit (Blue) */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.big4Deposit12m)}`).join(' ')}
+                          fill="none"
+                          stroke="#3b82f6"
+                          strokeWidth="2.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        {/* 3. SBV Rediscount Rate (Emerald) */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.rediscount)}`).join(' ')}
+                          fill="none"
+                          stroke="#10b981"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        {/* 4. SBV Refinancing Rate (Gold - Benchmark) */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.refinancing)}`).join(' ')}
+                          fill="none"
+                          stroke="#f59e0b"
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </>
+                    )}
+
+                    {/* ── MODE 4: GDP_CPI ── */}
+                    {chartMode === 'GDP_CPI' && (
+                      <>
+                        {/* Area under GDP */}
+                        <polygon
+                          points={`${getX(0)},${hasZeroLine ? zeroY : padding.top + chartH} ` +
+                            data.map((d, i) => `${getX(i)},${getY(d.gdpGrowth)}`).join(' ') +
+                            ` ${getX(data.length - 1)},${hasZeroLine ? zeroY : padding.top + chartH}`}
+                          fill="url(#chartAreaGradEmerald)"
+                        />
+                        {/* CPI line (Red dashed) */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.cpi)}`).join(' ')}
+                          fill="none"
+                          stroke="#ef4444"
+                          strokeWidth="2.5"
+                          strokeDasharray="4 3"
+                        />
+                        {/* GDP growth line (Emerald) */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.gdpGrowth)}`).join(' ')}
+                          fill="none"
+                          stroke="#10b981"
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </>
+                    )}
+
+                    {/* ── MODE 5: TRADE_FDI ── */}
+                    {chartMode === 'TRADE_FDI' && (
+                      <>
+                        <polygon
+                          points={`${getX(0)},${hasZeroLine ? zeroY : padding.top + chartH} ` +
+                            data.map((d, i) => `${getX(i)},${getY(d.tradeSurplus)}`).join(' ') +
+                            ` ${getX(data.length - 1)},${hasZeroLine ? zeroY : padding.top + chartH}`}
+                          fill="url(#chartAreaGradUsd)"
+                        />
+                        {/* FDI Disbursed (Gold) */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.fdiDisbursed)}`).join(' ')}
+                          fill="none"
+                          stroke="#f59e0b"
+                          strokeWidth="3"
+                          strokeDasharray="5 3"
+                        />
+                        {/* Trade Surplus (Blue) */}
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.tradeSurplus)}`).join(' ')}
+                          fill="none"
+                          stroke="#3b82f6"
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </>
+                    )}
+
+                    {/* ── MODE 6: VN_INDEX ── */}
+                    {chartMode === 'VN_INDEX' && (
+                      <>
+                        <polygon
+                          points={`${getX(0)},${padding.top + chartH} ` +
+                            data.map((d, i) => `${getX(i)},${getY(d.vnIndex)}`).join(' ') +
+                            ` ${getX(data.length - 1)},${padding.top + chartH}`}
+                          fill="url(#chartAreaGradCyan)"
+                        />
+                        <polyline
+                          points={data.map((d, i) => `${getX(i)},${getY(d.vnIndex)}`).join(' ')}
+                          fill="none"
+                          stroke="#06b6d4"
+                          strokeWidth="3.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </>
+                    )}
 
                     {/* Interactive Data Dots & Hover Detection */}
                     {data.map((d, i) => {
                       const cx = getX(i);
-                      const cy = getY(d.close);
+                      let cyVal = d.close;
+                      if (chartMode === 'SBV_RATES') cyVal = d.refinancing;
+                      else if (chartMode === 'GDP_CPI') cyVal = d.gdpGrowth;
+                      else if (chartMode === 'TRADE_FDI') cyVal = d.tradeSurplus;
+                      else if (chartMode === 'VN_INDEX') cyVal = d.vnIndex;
+                      const cy = getY(cyVal);
+
                       const isHovered = hoveredDataPoint && hoveredDataPoint.date === d.date;
+
+                      let dotColor = '#3b82f6';
+                      if (chartMode === 'TWD_VND' || chartMode === 'GDP_CPI') dotColor = '#10b981';
+                      else if (chartMode === 'SBV_RATES') dotColor = '#f59e0b';
+                      else if (chartMode === 'VN_INDEX') dotColor = '#06b6d4';
 
                       return (
                         <g key={d.date} className="macro-data-point-node">
                           <circle
                             cx={cx}
                             cy={cy}
-                            r={isHovered ? 6 : 3}
-                            fill={isHovered ? '#ffffff' : (currencyPair === 'USD_VND' ? '#3b82f6' : '#10b981')}
+                            r={isHovered ? 6 : (data.length > 50 ? 2.5 : 4)}
+                            fill={isHovered ? '#ffffff' : dotColor}
                             stroke={isHovered ? '#f59e0b' : '#ffffff'}
                             strokeWidth={isHovered ? 2.5 : 1}
                             style={{ cursor: 'pointer', transition: 'r 0.2s' }}
                           />
                           {/* Invisible Wider Tap Target for Hover */}
                           <rect
-                            x={cx - 15}
+                            x={cx - (data.length > 50 ? 6 : 14)}
                             y={padding.top}
-                            width={30}
+                            width={data.length > 50 ? 12 : 28}
                             height={chartH}
                             fill="transparent"
                             style={{ cursor: 'pointer' }}
@@ -670,10 +997,11 @@ export default function MacroPolModule() {
                       );
                     })}
 
-                    {/* X-axis Date Markers (Sparse) */}
+                    {/* X-axis Date Markers */}
                     {data.map((d, i) => {
-                      const step = Math.ceil(data.length / 6);
+                      const step = Math.max(1, Math.ceil(data.length / 7));
                       if (i % step !== 0 && i !== data.length - 1) return null;
+                      const label = d.quarter ? d.quarter : d.date.slice(2);
                       return (
                         <text
                           key={d.date}
@@ -684,7 +1012,7 @@ export default function MacroPolModule() {
                           textAnchor="middle"
                           fontFamily="monospace"
                         >
-                          {d.date.slice(2)}
+                          {label}
                         </text>
                       );
                     })}
@@ -693,14 +1021,14 @@ export default function MacroPolModule() {
               })()}
             </div>
 
-            {/* Legend bar */}
+            {/* Dynamic Legend Bar based on chartMode */}
             <div className="macro-chart-legend">
-              <div className="legend-item">
-                <span className="legend-line" style={{ background: currencyPair === 'USD_VND' ? '#3b82f6' : '#10b981' }}></span>
-                <span>{currencyPair === 'USD_VND' ? 'Vietcombank 牌告現匯賣出價' : '市場收盤匯率 (1 TWD兌換越盾)'}</span>
-              </div>
-              {currencyPair === 'USD_VND' ? (
+              {chartMode === 'USD_VND' && (
                 <>
+                  <div className="legend-item">
+                    <span className="legend-line" style={{ background: '#3b82f6' }}></span>
+                    <span>{macroLang === 'vi' ? 'Vietcombank bán ra' : 'Vietcombank 牌告現匯賣出價'}</span>
+                  </div>
                   <div className="legend-item">
                     <span className="legend-line dashed" style={{ borderColor: '#14b8a6' }}></span>
                     <span>{macroLang === 'vi' ? 'Tỷ giá trung tâm SBV' : '央行官方中心匯率 (Tỷ giá trung tâm)'}</span>
@@ -710,12 +1038,79 @@ export default function MacroPolModule() {
                     <span>{macroLang === 'vi' ? 'Thị trường tự do (Hà Trung)' : '自由市場黑市價 (河中街 Hà Trung)'}</span>
                   </div>
                 </>
-              ) : (
+              )}
+
+              {chartMode === 'TWD_VND' && (
+                <>
+                  <div className="legend-item">
+                    <span className="legend-line" style={{ background: '#10b981' }}></span>
+                    <span>{macroLang === 'vi' ? 'Tỷ giá thị trường (1 TWD / VND)' : '市場收盤匯率 (1 TWD兌換越盾)'}</span>
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line dashed" style={{ borderColor: '#f59e0b' }}></span>
+                    <span>{macroLang === 'vi' ? 'Tỷ giá BOT Đài Loan tham chiếu' : '臺灣銀行 (BOT) 牌告即期參考'}</span>
+                  </div>
+                </>
+              )}
+
+              {chartMode === 'SBV_RATES' && (
+                <>
+                  <div className="legend-item">
+                    <span className="legend-line" style={{ background: '#f59e0b' }}></span>
+                    <span>{macroLang === 'vi' ? 'Lãi suất tái cấp vốn SBV (4,50%)' : 'SBV 再融資基準利率 (4.50%)'}</span>
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line" style={{ background: '#3b82f6' }}></span>
+                    <span>{macroLang === 'vi' ? 'Tiền gửi 12 tháng Big 4 (4,85%)' : 'Big 4 行庫 12M 定存基準 (4.85%)'}</span>
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line" style={{ background: '#10b981' }}></span>
+                    <span>{macroLang === 'vi' ? 'Lãi suất tái chiết khấu (3,00%)' : 'SBV 再貼現基準利率 (3.00%)'}</span>
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line dashed" style={{ borderColor: '#c084fc' }}></span>
+                    <span>{macroLang === 'vi' ? 'Vay ngắn hạn thông thường (~7,1%)' : '一般商業短期放款利率 (~7.1%)'}</span>
+                  </div>
+                </>
+              )}
+
+              {chartMode === 'GDP_CPI' && (
+                <>
+                  <div className="legend-item">
+                    <span className="legend-line" style={{ background: '#10b981' }}></span>
+                    <span>{macroLang === 'vi' ? 'Tăng trưởng GDP thực tế YoY (%)' : '實質 GDP 季度年增率 YoY (%)'}</span>
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line dashed" style={{ borderColor: '#ef4444' }}></span>
+                    <span>{macroLang === 'vi' ? 'Lạm phát CPI bình quân YoY (%)' : 'CPI 消費者物價年增率 YoY (%)'}</span>
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line dashed" style={{ borderColor: '#94a3b8' }}></span>
+                    <span>{macroLang === 'vi' ? 'Đường mốc 0,0%' : '零軸基準線 (0.0%)'}</span>
+                  </div>
+                </>
+              )}
+
+              {chartMode === 'TRADE_FDI' && (
+                <>
+                  <div className="legend-item">
+                    <span className="legend-line" style={{ background: '#3b82f6' }}></span>
+                    <span>{macroLang === 'vi' ? 'Thặng dư thương mại hàng hóa ($ tỷ)' : '貨物貿易累計順差 (Billion USD)'}</span>
+                  </div>
+                  <div className="legend-item">
+                    <span className="legend-line dashed" style={{ borderColor: '#f59e0b' }}></span>
+                    <span>{macroLang === 'vi' ? 'Vốn FDI thực hiện ($ tỷ)' : 'FDI 實際到位外資金額 (Billion USD)'}</span>
+                  </div>
+                </>
+              )}
+
+              {chartMode === 'VN_INDEX' && (
                 <div className="legend-item">
-                  <span className="legend-line dashed" style={{ borderColor: '#f59e0b' }}></span>
-                  <span>{macroLang === 'vi' ? 'Tỷ giá BOT Đài Loan tham chiếu' : '臺灣銀行 (BOT) 牌告即期參考'}</span>
+                  <span className="legend-line" style={{ background: '#06b6d4' }}></span>
+                  <span>{macroLang === 'vi' ? 'Chỉ số VN-Index (Sở GDCK TP.HCM - HOSE)' : '胡志明證交所 VN-Index 基準點數'}</span>
                 </div>
               )}
+
               <span className="chart-interaction-tip">
                 <Info size={13} /> {t.hoverTip}
               </span>
@@ -726,33 +1121,98 @@ export default function MacroPolModule() {
               <div className="macro-chart-inspector">
                 <div className="inspector-inner">
                   <div className="inspector-header">
-                    <span className="insp-date">📅 {hoveredDataPoint.date}</span>
-                    <span className="insp-rate">
-                      {currencyPair === 'USD_VND' ? (
-                        <>收盤：<b>{hoveredDataPoint.close.toLocaleString()} VND</b></>
-                      ) : (
-                        <>匯率：<b>1 NT$ = {hoveredDataPoint.close} ₫</b> (1萬越盾 ≈ {hoveredDataPoint.inverse} NT$)</>
-                      )}
+                    <span className="insp-date">
+                      📅 {hoveredDataPoint.quarter ? `${hoveredDataPoint.quarter} (${hoveredDataPoint.date})` : hoveredDataPoint.date}
                     </span>
-                    {currencyPair === 'USD_VND' && hoveredDataPoint.central && (
-                      <span className="insp-pill">
-                        {macroLang === 'vi' ? 'Trung tâm' : '中心匯率'}：<b>{hoveredDataPoint.central.toLocaleString()}</b>
+
+                    {/* Mode-specific metrics in inspector */}
+                    {chartMode === 'USD_VND' && (
+                      <>
+                        <span className="insp-rate">
+                          {macroLang === 'vi' ? 'VCB bán ra' : '收盤牌價'}：<b>{hoveredDataPoint.close.toLocaleString()} VND</b>
+                        </span>
+                        {hoveredDataPoint.central && (
+                          <span className="insp-pill">
+                            {macroLang === 'vi' ? 'Trung tâm' : '中心匯率'}：<b>{hoveredDataPoint.central.toLocaleString()}</b>
+                          </span>
+                        )}
+                        {hoveredDataPoint.blackMarket && (
+                          <span className="insp-pill">
+                            {macroLang === 'vi' ? 'Chợ đen' : '黑市參考'}：<b>{hoveredDataPoint.blackMarket.toLocaleString()}</b>
+                          </span>
+                        )}
+                      </>
+                    )}
+
+                    {chartMode === 'TWD_VND' && (
+                      <>
+                        <span className="insp-rate">
+                          {macroLang === 'vi' ? 'Tỷ giá' : '收盤匯率'}：<b>1 NT$ = {hoveredDataPoint.close} ₫</b>
+                          <small> (1萬越盾 ≈ {hoveredDataPoint.inverse} NT$)</small>
+                        </span>
+                        {hoveredDataPoint.botRate && (
+                          <span className="insp-pill">
+                            BOT：<b>{hoveredDataPoint.botRate} ₫</b>
+                          </span>
+                        )}
+                      </>
+                    )}
+
+                    {chartMode === 'SBV_RATES' && (
+                      <>
+                        <span className="insp-pill" style={{ color: '#f59e0b', borderColor: '#f59e0b' }}>
+                          {macroLang === 'vi' ? 'Tái cấp vốn' : '再融資率'}：<b>{hoveredDataPoint.refinancing?.toFixed(2)}%</b>
+                        </span>
+                        <span className="insp-pill" style={{ color: '#3b82f6', borderColor: '#3b82f6' }}>
+                          {macroLang === 'vi' ? 'Big 4 12 tháng' : 'Big 4 12M定存'}：<b>{hoveredDataPoint.big4Deposit12m?.toFixed(2)}%</b>
+                        </span>
+                        <span className="insp-pill" style={{ color: '#10b981', borderColor: '#10b981' }}>
+                          {macroLang === 'vi' ? 'Tái chiết khấu' : '再貼現率'}：<b>{hoveredDataPoint.rediscount?.toFixed(2)}%</b>
+                        </span>
+                        <span className="insp-pill" style={{ color: '#c084fc', borderColor: '#c084fc' }}>
+                          {macroLang === 'vi' ? 'Cho vay ngắn hạn' : '短期商業企貸'}：<b>{hoveredDataPoint.shortLoan?.toFixed(2)}%</b>
+                        </span>
+                      </>
+                    )}
+
+                    {chartMode === 'GDP_CPI' && (
+                      <>
+                        <span className="insp-pill" style={{ color: '#10b981', borderColor: '#10b981' }}>
+                          {macroLang === 'vi' ? 'Tăng trưởng GDP' : '實質 GDP 年增'}：<b>{hoveredDataPoint.gdpGrowth > 0 ? `+${hoveredDataPoint.gdpGrowth}%` : `${hoveredDataPoint.gdpGrowth}%`}</b>
+                        </span>
+                        <span className="insp-pill" style={{ color: '#ef4444', borderColor: '#ef4444' }}>
+                          {macroLang === 'vi' ? 'Lạm phát CPI' : 'CPI 通膨率'}：<b>{hoveredDataPoint.cpi?.toFixed(2)}%</b>
+                        </span>
+                      </>
+                    )}
+
+                    {chartMode === 'TRADE_FDI' && (
+                      <>
+                        <span className="insp-pill" style={{ color: '#3b82f6', borderColor: '#3b82f6' }}>
+                          {macroLang === 'vi' ? 'Thặng dư XNK' : '貨物順差'}：<b>{hoveredDataPoint.tradeSurplus >= 0 ? `+$${hoveredDataPoint.tradeSurplus} B` : `-$${Math.abs(hoveredDataPoint.tradeSurplus)} B`}</b>
+                        </span>
+                        <span className="insp-pill" style={{ color: '#f59e0b', borderColor: '#f59e0b' }}>
+                          {macroLang === 'vi' ? 'FDI giải ngân' : 'FDI 到位資本'}：<b>${hoveredDataPoint.fdiDisbursed} B</b>
+                        </span>
+                      </>
+                    )}
+
+                    {chartMode === 'VN_INDEX' && (
+                      <span className="insp-rate" style={{ color: '#06b6d4' }}>
+                        VN-Index：<b>{hoveredDataPoint.vnIndex?.toLocaleString()} 點</b>
                       </span>
                     )}
-                    {currencyPair === 'USD_VND' && hoveredDataPoint.blackMarket && (
-                      <span className="insp-pill">
-                        {macroLang === 'vi' ? 'Chợ đen' : '黑市參考'}：<b>{hoveredDataPoint.blackMarket.toLocaleString()}</b>
-                      </span>
-                    )}
-                    {hoveredDataPoint.change !== undefined && (
+
+                    {hoveredDataPoint.change !== undefined && (chartMode === 'USD_VND' || chartMode === 'TWD_VND') && (
                       <span className="insp-pill">
                         {macroLang === 'vi' ? 'Biến động tuần' : '週漲跌'}：
                         <b>{hoveredDataPoint.change > 0 ? `+${hoveredDataPoint.change}%` : `${hoveredDataPoint.change}%`}</b>
                       </span>
                     )}
                   </div>
+
                   <div className="inspector-note">
-                    📌 <b>{macroLang === 'vi' ? 'Sự kiện ghi nhận' : '歷史事件標記'}：</b>
+                    📌 <b>{macroLang === 'vi' ? 'Sự kiện kinh tế & chính sách' : '總經政經事件標記'}：</b>
                     {macroLang === 'vi' ? (hoveredDataPoint.noteVi || hoveredDataPoint.note) : hoveredDataPoint.note}
                   </div>
                 </div>

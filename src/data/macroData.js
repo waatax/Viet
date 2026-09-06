@@ -343,6 +343,52 @@ export const fiveYearWeeklyTwdVndData = [
   { date: '2026-09-04', close: 791.5, inverse: 12.63, botRate: 784.0, change: 0.03, note: '【最新報價】1 台幣兌 791.5 越盾，1 萬越盾折合 12.63 新台幣', noteVi: '【Báo giá mới nhất】1 TWD đổi 791,5 VND; 10.000 VND tương đương 12,63 NT$' }
 ];
 
+// ── 3.1 越南國家銀行 (SBV) 政策利率與商業銀行存貸五年歷史時序 (5-Year Interest Rates Timeline) ──
+export const fiveYearSbvPolicyRatesData = [
+  { date: '2021-03-15', refinancing: 4.00, rediscount: 2.50, big4Deposit12m: 5.60, shortLoan: 6.80, note: '全球疫情超低利率，SBV 維持基準再融資率 4.00% 寬鬆貨幣', noteVi: 'Giai đoạn dịch bệnh, SBV duy trì tái cấp vốn 4.0% nới lỏng' },
+  { date: '2021-07-16', refinancing: 4.00, rediscount: 2.50, big4Deposit12m: 5.50, shortLoan: 6.70, note: '胡志明市封城，央行調降外匯存準率，實體借貸成本降至谷底', noteVi: 'Giãn cách tại miền Nam, SBV giảm chi phí vốn cho doanh nghiệp' },
+  { date: '2021-11-19', refinancing: 4.00, rediscount: 2.50, big4Deposit12m: 5.50, shortLoan: 6.70, note: '通膨僅 1.84%，外儲達 1100 億美元巔峰，利率穩定無虞', noteVi: 'Lạm phát thấp 1,84%, dự trữ ngoại hối 110 tỷ USD, lãi suất ổn định' },
+  { date: '2022-03-18', refinancing: 4.00, rediscount: 2.50, big4Deposit12m: 5.60, shortLoan: 6.90, note: '俄烏衝突推升大宗原物料，行庫微幅上揚定存息吸金', noteVi: 'Chiến sự đẩy giá năng lượng, ngân hàng nhích nhẹ lãi suất huy động' },
+  { date: '2022-06-17', refinancing: 4.00, rediscount: 2.50, big4Deposit12m: 5.80, shortLoan: 7.20, note: 'Fed 啟動暴力升息，美越利差由正轉負，匯率初現承壓', noteVi: 'Fed tăng lãi suất mạnh, chênh lệch lãi suất thu hẹp' },
+  { date: '2022-09-23', refinancing: 5.00, rediscount: 3.50, big4Deposit12m: 6.40, shortLoan: 8.20, note: '【重要升息】SBV 調升基準利率 100bps 捍衛越盾，再融資率至 5.0%', noteVi: '【Tăng lãi suất】SBV tăng 100 bps tái cấp vốn lên 5.0% giữ giá đồng' },
+  { date: '2022-10-25', refinancing: 6.00, rediscount: 4.50, big4Deposit12m: 7.40, shortLoan: 9.50, note: '【暴力升息】SCB擠兌與萬盛發事件，SBV一個月內二度升息100bps至6.0%', noteVi: '【Tăng khẩn cấp】Sự cố SCB, SBV nâng tiếp 100 bps lên đỉnh 6.0%' },
+  { date: '2022-12-30', refinancing: 6.00, rediscount: 4.50, big4Deposit12m: 7.40, shortLoan: 9.80, note: '流動性極度緊縮，部分民營銀行大額定存狂飆至 10% 爭奪存款', noteVi: 'Thanh khoản căng thẳng cuối năm, lãi suất huy động tư nhân tới 10%' },
+  { date: '2023-03-31', refinancing: 5.50, rediscount: 3.50, big4Deposit12m: 7.20, shortLoan: 9.00, note: '【逆勢首降】出口大幅下滑，越南央行領先全球調降再貼現與再融資利率', noteVi: '【Giảm lãi suất đầu tiên】Xuất khẩu chậm lại, SBV đi trước giảm lãi suất' },
+  { date: '2023-05-26', refinancing: 5.00, rediscount: 3.50, big4Deposit12m: 6.80, shortLoan: 8.50, note: '總理范明正嚴令銀行業降低放款成本，SBV 連續二度調降政策利率', noteVi: 'Chính phủ chỉ đạo quyết liệt giảm chi phí vốn cho nền kinh tế' },
+  { date: '2023-06-19', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 6.30, shortLoan: 7.80, note: '【連四降】再融資率降至 4.50%，超前歐美注入流動性搶救房地產與製造業', noteVi: '【Giảm 4 lần liên tiếp】Tái cấp vốn về 4,5%, hỗ trợ mạnh mẽ doanh nghiệp' },
+  { date: '2023-09-22', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 5.50, shortLoan: 7.40, note: '利差過大引發匯率貶值，央行重啟 T-Bills 票據抽資但維持 4.5% 利率', noteVi: 'Phát hành tín phiếu hút tiền đồng, giữ nguyên trần lãi suất 4.5%' },
+  { date: '2023-12-29', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 5.00, shortLoan: 7.00, note: 'Big 4 行庫 12 個月定存跌破 5.0%，年底信貸額度全額放行', noteVi: 'Lãi suất 12 tháng Big 4 về dưới 5%, nới room tín dụng toàn hệ thống' },
+  { date: '2024-03-29', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.70, shortLoan: 6.80, note: 'Vietcombank 定存探底至 4.70%，資金轉向黃金與房地產', noteVi: 'Lãi suất gửi VCB chạm đáy 4,70%, dòng vốn dịch chuyển sang vàng và BĐS' },
+  { date: '2024-06-28', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.80, shortLoan: 6.90, note: '匯率逼近 25,485 上限，央行拋匯儲備但堅守 4.5% 低利率保增長', noteVi: 'Bán ngoại tệ can thiệp tỷ giá nhưng quyết giữ lãi suất 4,5% để giữ đà GDP' },
+  { date: '2024-09-27', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.80, shortLoan: 6.90, note: 'Fed 首度降息 50bps，外部利差倒掛大幅收窄，降息週期迎來曙光', noteVi: 'Fed giảm lãi suất 50 bps, giải tỏa áp lực ngoại hối cho Việt Nam' },
+  { date: '2024-12-31', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.85, shortLoan: 7.00, note: '全越信貸增長達 15%，實體製造業借貸成本平均下調 1.8%', noteVi: 'Tăng trưởng tín dụng đạt 15%, lãi suất cho vay giảm trung bình 1,8%' },
+  { date: '2025-06-30', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.80, shortLoan: 6.90, note: '五大優先產業短貸利率嚴格限制在 4.0% 上限以內', noteVi: 'Kiểm soát chặt trần 4.0% cho 5 lĩnh vực ưu tiên phát triển' },
+  { date: '2026-03-31', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.80, shortLoan: 6.90, note: '越共十四大確立公建投資破局，各行庫優先放款南北高鐵基建', noteVi: 'Đại hội XIV ưu tiên vốn cho các siêu dự án hạ tầng trọng điểm' },
+  { date: '2026-09-04', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.85, shortLoan: 7.10, note: '【現行最新基準】再融資 4.50% · 再貼現 3.00% · Big 4 定存 4.70%~4.90%', noteVi: '【Hiện hành】Tái cấp vốn 4,50% · Tái chiết khấu 3,00% · Big 4 gửi 4,7%~4,9%' }
+];
+
+// ── 3.2 越南 5 年總體經濟與政經統計歷史時序 (5-Year Macro Economic Stats: GDP, CPI, Trade, FDI, VN-Index) ──
+export const fiveYearMacroEconomicData = [
+  { date: '2021-03-31', quarter: '2021-Q1', gdpGrowth: 4.65, cpi: 1.16, tradeSurplus: 2.8, fdiDisbursed: 4.1, vnIndex: 1191, note: '疫情初起，電子零組件出口逆勢爆發，推動第一季 GDP 成長 4.65%', noteVi: 'Xuất khẩu điện tử bứt phá kéo GDP quý 1 đạt 4,65%' },
+  { date: '2021-06-30', quarter: '2021-Q2', gdpGrowth: 6.73, cpi: 2.41, tradeSurplus: 1.4, fdiDisbursed: 9.2, vnIndex: 1408, note: '製造業訂單滿載，胡志明證交所 VN-Index 首破 1,400 點大關', noteVi: 'Đơn hàng dồi dào, VN-Index lần đầu tiên vượt ngưỡng 1.400 điểm' },
+  { date: '2021-09-30', quarter: '2021-Q3', gdpGrowth: -6.02, cpi: 2.82, tradeSurplus: -2.1, fdiDisbursed: 13.3, vnIndex: 1342, note: '【歷史谷底】南部 19 省大封城，工廠三就地停擺，GDP 單季創 -6.02% 歷史低點', noteVi: '【Đáy lịch sử】Giãn cách diện rộng khiến GDP quý 3 giảm kỷ lục -6.02%' },
+  { date: '2021-12-31', quarter: '2021-Q4', gdpGrowth: 5.22, cpi: 1.84, tradeSurplus: 4.0, fdiDisbursed: 19.7, vnIndex: 1498, note: '全面解封，全年 GDP 2.58% 守住正成長，FDI 到位近 200 億美元', noteVi: 'Mở cửa trở lại, GDP cả năm đạt 2,58%, FDI giải ngân gần 20 tỷ USD' },
+  { date: '2022-03-31', quarter: '2022-Q1', gdpGrowth: 5.05, cpi: 1.92, tradeSurplus: 1.8, fdiDisbursed: 4.4, vnIndex: 1492, note: '國境全面重啟，觀光與工廠產能全開，VN-Index 逼近 1,500 點', noteVi: 'Mở cửa du lịch quốc tế, công suất công nghiệp phục hồi mạnh' },
+  { date: '2022-06-30', quarter: '2022-Q2', gdpGrowth: 7.83, cpi: 2.96, tradeSurplus: 1.2, fdiDisbursed: 10.1, vnIndex: 1197, note: '內需報復性消費增長，但美聯儲升息引發全球股市回檔', noteVi: 'Tiêu dùng nội địa bùng nổ, chứng khoán điều chỉnh theo thị trường toàn cầu' },
+  { date: '2022-09-30', quarter: '2022-Q3', gdpGrowth: 13.71, cpi: 3.32, tradeSurplus: 6.8, fdiDisbursed: 15.4, vnIndex: 1132, note: '【歷史最高單季】在去年同期封城低基期下，GDP 噴發創 13.71% 歷史奇蹟', noteVi: '【Kỷ lục lịch sử】Trên nền thấp cùng kỳ, GDP quý 3 bứt phá 13,71%' },
+  { date: '2022-12-31', quarter: '2022-Q4', gdpGrowth: 5.92, cpi: 4.55, tradeSurplus: 12.4, fdiDisbursed: 22.4, vnIndex: 1007, note: '【25年新高】全年實質 GDP 8.02% 傲視全球，但萬盛發案致房市融資冰凍', noteVi: '【Đỉnh 25 năm】GDP cả năm 8,02% cao nhất khu vực, khủng hoảng trái phiếu BĐS' },
+  { date: '2023-03-31', quarter: '2023-Q1', gdpGrowth: 3.28, cpi: 4.18, tradeSurplus: 4.1, fdiDisbursed: 4.3, vnIndex: 1064, note: '歐美通膨抑制消費，越南紡織電子訂單銳減，GDP 降至 3.28%', noteVi: 'Cầu thế giới yếu khiến đơn hàng dệt may điện tử sụt giảm mạnh' },
+  { date: '2023-06-30', quarter: '2023-Q2', gdpGrowth: 4.05, cpi: 2.41, tradeSurplus: 12.2, fdiDisbursed: 10.0, vnIndex: 1120, note: '政府全力催化公共工程投資（高速公路），央行連續四次降息救市', noteVi: 'Đẩy mạnh giải ngân đầu tư công cao tốc, SBV giảm mạnh lãi suất' },
+  { date: '2023-09-30', quarter: '2023-Q3', gdpGrowth: 5.23, cpi: 3.66, tradeSurplus: 21.6, fdiDisbursed: 15.9, vnIndex: 1154, note: '拜登訪越升格全面戰略夥伴，半導體封測（Amkor）千億廠正式投產', noteVi: 'Nâng cấp quan hệ Việt - Mỹ, khánh thành nhà máy bán dẫn Amkor' },
+  { date: '2023-12-31', quarter: '2023-Q4', gdpGrowth: 6.72, cpi: 3.58, tradeSurplus: 28.0, fdiDisbursed: 23.2, vnIndex: 1130, note: '出口反彈，全年外貿順差創 280 億美元歷史新高，全年 GDP 5.05%', noteVi: 'Xuất siêu kỷ lục 28 tỷ USD, tạo đệm đỡ vững chắc cho tỷ giá' },
+  { date: '2024-03-31', quarter: '2024-Q1', gdpGrowth: 5.66, cpi: 3.77, tradeSurplus: 8.1, fdiDisbursed: 4.6, vnIndex: 1284, note: '外貿開門紅！出口雙位數增長 17%，高科技 AI 伺服器代工產能爆發', noteVi: 'Xuất khẩu tăng 17%, chuỗi cung ứng máy chủ AI mở rộng thần tốc' },
+  { date: '2024-06-30', quarter: '2024-Q2', gdpGrowth: 6.93, cpi: 4.44, tradeSurplus: 11.6, fdiDisbursed: 10.8, vnIndex: 1245, note: '工業生產 (IIP) 全面回溫，通膨逼近 4.5% 法定警戒線，央行力控物價', noteVi: 'Sản xuất công nghiệp tăng tốc, kiểm soát lạm phát cận trần 4,5%' },
+  { date: '2024-09-30', quarter: '2024-Q3', gdpGrowth: 7.40, cpi: 3.53, tradeSurplus: 20.8, fdiDisbursed: 17.3, vnIndex: 1288, note: '即便遭受 30 年最強摩羯颱風侵襲，製造業與外資投資展現驚人韌性', noteVi: 'Vượt qua bão Yagi, công nghiệp chế biến chế tạo tiếp tục là động lực chính' },
+  { date: '2024-12-31', quarter: '2024-Q4', gdpGrowth: 7.09, cpi: 3.48, tradeSurplus: 26.85, fdiDisbursed: 23.8, vnIndex: 1272, note: '全年實質 GDP 成長達 6.82%，進出口突破 7,854 億美元，高居東協第一', noteVi: 'GDP cả năm 6,82%, kim ngạch XNK vượt 785 tỷ USD đứng đầu ASEAN' },
+  { date: '2025-06-30', quarter: '2025-Q2', gdpGrowth: 6.85, cpi: 3.62, tradeSurplus: 14.2, fdiDisbursed: 11.5, vnIndex: 1295, note: '南北高鐵與全越 34 省行政整併藍圖確定，FDI 資本快速到位', noteVi: 'Khởi động đường sắt cao tốc Bắc - Nam, dòng vốn FDI tăng tốc' },
+  { date: '2026-09-04', quarter: '2026-Q3', gdpGrowth: 7.05, cpi: 3.50, tradeSurplus: 28.3, fdiDisbursed: 24.2, vnIndex: 1315, note: '【最新預估】越共十四大經改開局，GDP 預期 7.0%~7.2%，順差續破 280 億', noteVi: '【Dự báo mới nhất】Khai màn kinh tế Đại hội XIV, GDP duy trì 7,0%~7,2%' }
+];
+
 // ── 4. 越南國家銀行 (SBV) 核心政策利率全景 (Central Bank Rates - Bilingual) ──
 export const sbvPolicyRates = [
   {
@@ -1433,6 +1479,18 @@ export const macroI18n = {
     },
     fxSectionTitle: '越南盾匯率走勢 · 過去五年每週全景追蹤',
     twdSectionTitle: '新台幣對越南盾匯率走勢 · 過去五年每週全景追蹤',
+    sbvSectionTitle: '越南國家銀行 (SBV) 基準政策利率與商業銀行存貸歷史走勢 (5年復盤)',
+    gdpSectionTitle: '越南實質 GDP 成長率季度走勢與 CPI 消費者物價指數 (5年全景)',
+    tradeFdiSectionTitle: '越南外貿貨物順差與 FDI 實際到位外資資金歷史走勢 (5年全景)',
+    vnIndexSectionTitle: '越南證券市場胡志明指數 (VN-Index) 5年歷史資本走勢',
+    chartModeTabs: {
+      USD_VND: '💵 USD/VND 美元走勢',
+      TWD_VND: '🇹🇼 TWD/VND 台幣走勢',
+      SBV_RATES: '🏛️ 越南央行政策與存貸利率 (5年)',
+      GDP_CPI: '📊 實質 GDP 成長與 CPI 通膨 (5年)',
+      TRADE_FDI: '🚢 外貿順差與 FDI 外資到位 (5年)',
+      VN_INDEX: '📈 胡志明指數 VN-Index (5年)'
+    },
     pairUsd: '💵 USD / VND (美元兌越盾)',
     pairTwd: '🇹🇼 TWD / VND (台幣兌越盾)',
     timeframes: { '5Y': '過去5年 (5Y)', '2Y': '過去2年 (2Y)', '1Y': '過去1年 (1Y)', '12W': '最新12週 (12W)' },
@@ -1469,6 +1527,18 @@ export const macroI18n = {
     },
     fxSectionTitle: 'Diễn biến tỷ giá USD/VND · Theo dõi toàn cảnh hàng tuần trong 5 năm qua',
     twdSectionTitle: 'Diễn biến tỷ giá TWD/VND · Theo dõi toàn cảnh hàng tuần trong 5 năm qua',
+    sbvSectionTitle: 'Diễn biến lãi suất điều hành SBV và huy động, cho vay 5 năm qua',
+    gdpSectionTitle: 'Diễn biến tăng trưởng GDP theo quý và lạm phát CPI trong 5 năm qua',
+    tradeFdiSectionTitle: 'Diễn biến thặng dư thương mại và vốn FDI giải ngân trong 5 năm qua',
+    vnIndexSectionTitle: 'Diễn biến chỉ số chứng khoán VN-Index trong 5 năm qua',
+    chartModeTabs: {
+      USD_VND: '💵 Tỷ giá USD/VND',
+      TWD_VND: '🇹🇼 Tỷ giá TWD/VND',
+      SBV_RATES: '🏛️ Lãi suất SBV & Ngân hàng (5 năm)',
+      GDP_CPI: '📊 Tăng trưởng GDP & CPI (5 năm)',
+      TRADE_FDI: '🚢 Cán cân XNK & Vốn FDI (5 năm)',
+      VN_INDEX: '📈 Chỉ số VN-Index (5 năm)'
+    },
     pairUsd: '💵 USD / VND (Đô la Mỹ / Đồng Việt Nam)',
     pairTwd: '🇹🇼 TWD / VND (Đài tệ / Đồng Việt Nam)',
     timeframes: { '5Y': '5 năm qua (5Y)', '2Y': '2 năm qua (2Y)', '1Y': '1 năm qua (1Y)', '12W': '12 tuần gần nhất (12W)' },
