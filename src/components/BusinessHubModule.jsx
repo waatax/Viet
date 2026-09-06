@@ -26,7 +26,30 @@ import './BusinessHubModule.css';
 
 export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats }) => {
   const { learningMode, t } = useLanguage();
-  const [activeTab, setActiveTab] = useState('expo'); // 'expo' | 'dualcity' | 'networking' | 'negotiation' | 'travel' | 'factory' | 'nhau' | 'currency' | 'hanviet'
+  const [activeTab, setActiveTab] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem('viet_target_chapter');
+      if (saved) {
+        const item = JSON.parse(saved);
+        if (item.targetParam?.tab) {
+          sessionStorage.removeItem('viet_target_chapter');
+          return item.targetParam.tab;
+        }
+      }
+    } catch {}
+    return 'expo';
+  });
+
+  useEffect(() => {
+    const handleJump = (e) => {
+      const chap = e.detail;
+      if (chap?.targetParam?.tab) {
+        setActiveTab(chap.targetParam.tab);
+      }
+    };
+    window.addEventListener('viet_jump_chapter', handleJump);
+    return () => window.removeEventListener('viet_jump_chapter', handleJump);
+  }, []);
 
   // Audio State
   const [activeKey, setActiveKey] = useState(null);

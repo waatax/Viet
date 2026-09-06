@@ -2,13 +2,15 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
   Compass, CheckCircle, Circle, Target, BookOpen, ArrowRight, Flag, Sparkles,
   AudioLines, MessagesSquare, ShoppingBag, GraduationCap, Play, Route, Brain, Clock, Layers3,
-  Zap, LifeBuoy, ShieldCheck, Award, Briefcase, CheckSquare, Square, ChevronDown, ChevronUp, Flame
+  Zap, LifeBuoy, ShieldCheck, Award, Briefcase, CheckSquare, Square, ChevronDown, ChevronUp, Flame,
+  Search, Landmark, Layers, ArrowUpRight
 } from 'lucide-react';
 import { learningPath, flashcardsDeck } from '../data/vietnameseData';
+import { SYLLABUS_REGISTRY } from '../config/syllabusRegistry';
 import { srsEngine } from '../services/srsEngine';
 import { useLanguage } from '../context/LanguageContext';
 
-export const LearningPathModule = ({ setActiveTab }) => {
+export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
   const { learningMode, loc, t } = useLanguage();
 
   // Which stages the learner has marked complete (persisted locally)
@@ -104,12 +106,13 @@ export const LearningPathModule = ({ setActiveTab }) => {
   const currentStage = learningPath.find(s => !completed.includes(s.id)) || learningPath[0];
 
   const quickStarts = [
+    { id: 'macropol', icon: Landmark, titleZh: '越南政經智庫', titleEn: 'Macro & Politics', descZh: '5年匯率·SBV利率·海關關稅·十四大', descEn: '5Y FX, SBV Rates, Customs & Dossiers', tone: 'blue' },
     { id: 'business', icon: Briefcase, titleZh: '商務出差旗艦', titleEn: 'Business & FDI Hub', descZh: '談判·紅發票·工廠巡檢·應酬', descEn: 'Negotiation, Invoices & Factory', tone: 'gold' },
     { id: 'fasttrack', icon: Zap, titleZh: '7天生活速成', titleEn: '7-Day Fast-Track', descZh: '35 句高頻破冰實戰', descEn: '35 Survival Phrases', tone: 'gold' },
     { id: 'science', icon: Brain, titleZh: '科學方法研究', titleEn: 'Science & SLA', descZh: '5 大跨學科學習體系', descEn: '5-Discipline SLA Hub', tone: 'purple' },
     { id: 'emergency', icon: LifeBuoy, titleZh: '生活急救錦囊', titleEn: 'Survival Audio Kit', descZh: '街頭出差一鍵出聲', descEn: 'Instant Tap-to-Speak', tone: 'red' },
     { id: 'alphabet', icon: AudioLines, titleZh: '發音聲調打底', titleEn: 'Sounds & Tones', descZh: '29 字母與 6 聲調', descEn: '29 letters & 6 tones', tone: 'blue' },
-    { id: 'conversation', icon: MessagesSquare, titleZh: '26大情境對話', titleEn: '26 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
+    { id: 'conversation', icon: MessagesSquare, titleZh: '43大情境對話', titleEn: '43 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
     { id: 'hanviet', icon: BookOpen, titleZh: '漢越同源字根', titleEn: 'Han-Viet Roots', descZh: '百大字根倍速記詞', descEn: '100 Core cognate roots', tone: 'purple' }
   ];
 
@@ -208,6 +211,106 @@ export const LearningPathModule = ({ setActiveTab }) => {
             >
               {learningMode === 'zh' ? opt.labelZh : opt.labelEn}
             </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Master Course Syllabus & Chapter Quick Jump Hub */}
+      <section className="syllabus-hub-banner" style={{
+        margin: '1.75rem 0',
+        padding: '1.75rem 2rem',
+        background: 'var(--bg-card)',
+        border: '1.5px solid var(--border-highlight)',
+        borderRadius: 'var(--radius-xl)',
+        boxShadow: 'var(--card-shadow)'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <Layers size={15} />
+              <span>{learningMode === 'zh' ? '全站章節導覽大廳' : 'Master Curriculum Directory'}</span>
+            </div>
+            <h2 style={{ fontSize: '1.45rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.35rem 0 0.2rem' }}>
+              {learningMode === 'zh' ? '100+ 實戰課程章節直達導航' : '100+ Chapters Quick Navigation'}
+            </h2>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh' 
+                ? '依主題立即探索生活情境、商務出差、越南政經、發音聲調與語法字根，快速找到你想學的內容！'
+                : 'Browse by topics: Life Dialogues, FDI Business, Macro Politics, Pronunciation, and Grammar Roots.'}
+            </p>
+          </div>
+
+          <button
+            onClick={onOpenChapterFinder}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              padding: '0.7rem 1.25rem',
+              borderRadius: 'var(--radius-full)',
+              background: 'var(--brand-accent)',
+              color: '#fff',
+              border: 'none',
+              fontWeight: 800,
+              fontSize: '0.92rem',
+              cursor: 'pointer',
+              boxShadow: '0 4px 14px rgba(37, 99, 235, 0.3)',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            <Search size={17} />
+            <span>{learningMode === 'zh' ? '🔍 開啟全域章節速查盤 (Ctrl+K)' : 'Search All Chapters'}</span>
+          </button>
+        </div>
+
+        {/* Featured Chapter Cards */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+          gap: '0.85rem'
+        }}>
+          {SYLLABUS_REGISTRY.slice(0, 8).map(chap => (
+            <div
+              key={chap.id}
+              onClick={() => {
+                setActiveTab(chap.moduleId);
+                if (chap.targetParam) {
+                  sessionStorage.setItem('viet_target_chapter', JSON.stringify(chap));
+                  window.dispatchEvent(new CustomEvent('viet_jump_chapter', { detail: chap }));
+                }
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              style={{
+                background: 'var(--bg-main)',
+                border: '1px solid var(--border-color)',
+                borderRadius: 'var(--radius-md)',
+                padding: '1rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                display: 'flex',
+                flexDirection: 'column'
+              }}
+              className="syllabus-preview-card"
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+                <span style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--brand-accent)', background: 'var(--bg-accent)', padding: '0.15rem 0.5rem', borderRadius: 'var(--radius-full)' }}>
+                  {learningMode === 'zh' ? chap.categoryLabelZh : chap.categoryLabelVi}
+                </span>
+                <span style={{ fontSize: '0.68rem', fontWeight: 800, color: 'var(--brand-gold)' }}>
+                  {chap.level} · {chap.readTime}
+                </span>
+              </div>
+              <strong style={{ fontSize: '0.95rem', color: 'var(--text-primary)', margin: '0.2rem 0', lineHeight: 1.3 }}>
+                {chap.titleZh}
+              </strong>
+              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.5rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {chap.titleVi}
+              </div>
+              <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.78rem', fontWeight: 700, color: 'var(--brand-accent)' }}>
+                <span>{learningMode === 'zh' ? '前往章節' : 'Start'}</span>
+                <ArrowRight size={13} />
+              </div>
+            </div>
           ))}
         </div>
       </section>

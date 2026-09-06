@@ -3235,3 +3235,371 @@ p, li, h1, h2, h3, strong, small, span {
   transition: width 0.4s ease, background-color 0.4s ease;
 }
 
+/* ==========================================================================
+   Masterpiece UI/UX 2.6 Overhaul: Chapter Finder, Ergonomic Nav & Responsive
+   ========================================================================== */
+
+/* 1. Desktop Chapter Quick Finder Button */
+.nav-chapter-finder-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.42rem 0.85rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-highlight);
+  border-radius: var(--radius-full);
+  color: var(--text-primary);
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.nav-chapter-finder-btn:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--brand-accent);
+  color: var(--brand-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.nav-chapter-finder-btn .finder-search-icon {
+  color: var(--brand-accent);
+}
+
+.finder-kbd-shortcut {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xs);
+  padding: 0.1rem 0.38rem;
+  letter-spacing: 0.04em;
+}
+
+/* 2. Consolidated Master Learner Hub Pill */
+.learner-hub-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.38rem 0.85rem;
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.12) 0%, rgba(239, 68, 68, 0.08) 100%);
+  border: 1.5px solid rgba(234, 179, 8, 0.45);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(234, 179, 8, 0.12);
+}
+
+.learner-hub-pill:hover {
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.22) 0%, rgba(239, 68, 68, 0.15) 100%);
+  border-color: var(--brand-gold);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25);
+}
+
+.hub-stat-item {
+  font-size: 0.82rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  white-space: nowrap;
+}
+
+.hub-stat-item.quest-stat {
+  color: var(--brand-primary);
+}
+
+.hub-stat-item.level-stat {
+  color: var(--brand-gold);
+}
+
+.hub-stat-item.streak-stat {
+  color: #f97316;
+}
+
+.hub-stat-item.xp-stat {
+  color: var(--brand-gold);
+}
+
+.hub-stat-divider {
+  color: var(--text-muted);
+  opacity: 0.45;
+  font-size: 0.7rem;
+}
+
+/* 3. Category Counter Badge */
+.cat-counter-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  opacity: 0.85;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 0.05rem 0.38rem;
+  border-radius: var(--radius-full);
+  margin-left: 0.15rem;
+}
+
+.subnav-group-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding-right: 0.5rem;
+  border-right: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+/* 4. Mobile Top Search Button */
+.mobile-finder-icon-btn {
+  display: none;
+}
+
+/* 5. Mobile Drawer Menu Polish */
+.mobile-nav-grouped-drawer {
+  background: var(--bg-card);
+  border-bottom: 2px solid var(--border-color);
+  padding: 1.25rem;
+  max-height: 75vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mobile-drawer-title {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.mobile-drawer-close {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.mobile-drawer-finder-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(124, 58, 237, 0.12));
+  border: 1.5px solid var(--brand-accent);
+  border-radius: var(--radius-md);
+  color: var(--brand-accent);
+  font-weight: 800;
+  font-size: 0.92rem;
+  cursor: pointer;
+  margin-bottom: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.mobile-drawer-finder-btn:hover {
+  background: var(--brand-accent);
+  color: #fff;
+}
+
+.mobile-drawer-group-section {
+  margin-bottom: 1.2rem;
+}
+
+.mobile-drawer-group-title {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mobile-drawer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+  gap: 0.5rem;
+}
+
+.mobile-drawer-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-main);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.86rem;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+
+.mobile-drawer-item-btn.active {
+  border-color: var(--brand-accent);
+  background: var(--bg-accent);
+  color: var(--brand-accent);
+  font-weight: 800;
+  box-shadow: 0 1px 6px rgba(37, 99, 235, 0.15);
+}
+
+/* 6. Ergonomic Mobile Bottom Navigation Bar */
+.mobile-bottom-nav {
+  display: none;
+}
+
+/* Responsive Overhaul for Mobile & Desktop */
+@media (max-width: 768px) {
+  /* Hide desktop-only elements */
+  .nav-chapter-finder-btn {
+    display: none !important;
+  }
+  .nav-categories-bar {
+    display: none !important;
+  }
+  .subnav-modules-bar {
+    display: none !important;
+  }
+
+  /* Show mobile quick finder button in top navbar */
+  .mobile-finder-icon-btn {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.7rem;
+    background: var(--bg-accent);
+    border: 1.5px solid var(--brand-accent);
+    border-radius: var(--radius-full);
+    color: var(--brand-accent);
+    font-size: 0.8rem;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  /* Bottom Navigation Bar on Mobile */
+  .mobile-bottom-nav {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(58px + env(safe-area-inset-bottom, 0px));
+    padding: 0.3rem 0.6rem max(0.4rem, env(safe-area-inset-bottom, 0px));
+    background: var(--bg-header);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1px solid var(--border-color);
+    z-index: 9990;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    position: relative;
+    transition: all 0.15s ease;
+    min-width: 54px;
+    height: 100%;
+  }
+
+  .bottom-nav-item.active {
+    color: var(--brand-accent);
+  }
+
+  .bottom-nav-indicator {
+    position: absolute;
+    bottom: 2px;
+    width: 16px;
+    height: 3px;
+    border-radius: var(--radius-full);
+    background: var(--brand-accent);
+  }
+
+  .bottom-nav-item.finder-trigger-bottom {
+    color: var(--text-primary);
+  }
+
+  .bottom-finder-icon-wrap {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(135deg, var(--brand-accent), var(--brand-primary));
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    margin-top: -12px;
+    transition: transform 0.18s ease;
+  }
+
+  .bottom-nav-item.finder-trigger-bottom:active .bottom-finder-icon-wrap {
+    transform: scale(0.92);
+  }
+
+  /* Extra bottom padding on main-content so nothing is obscured by bottom bar */
+  .main-content {
+    padding-bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  /* Back-to-top button position above mobile bottom bar */
+  .speaker-btn.back-to-top {
+    bottom: calc(4.8rem + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  /* Syllabus Hub Banner on mobile */
+  .syllabus-hub-banner {
+    padding: 1.25rem 1rem !important;
+  }
+}
+
+/* Widescreen Desktop Enhancements (>= 1200px) */
+@media (min-width: 1200px) {
+  .nav-content {
+    max-width: 1560px;
+  }
+  .module-container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+.syllabus-preview-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-accent) !important;
+  box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.18);
+  background: var(--bg-card-hover) !important;
+}
+

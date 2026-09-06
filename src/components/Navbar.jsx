@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import {
   Sun, Moon, Type, Flame, Trophy, Globe, Menu, X,
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
-  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, Settings2, Star, Mic, Puzzle, Music, Zap, Brain, LifeBuoy, Award, Briefcase, ChevronRight
+  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, Settings2, Star, Mic, Puzzle, Music, Zap, Brain, LifeBuoy, Award, Briefcase, ChevronRight, Search, Landmark
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
@@ -19,7 +19,8 @@ export const Navbar = ({
   selectedAccent,
   setSelectedAccent,
   onOpenAchievements,
-  onOpenDailyQuests
+  onOpenDailyQuests,
+  onOpenChapterFinder
 }) => {
   const { learningMode, toggleLearningMode, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -59,6 +60,7 @@ export const Navbar = ({
       <nav className="navbar" aria-label={learningMode === 'zh' ? '主要導覽與學習設定' : 'Primary navigation and learning settings'}>
         <div className="nav-content">
           <div className="nav-brand-and-modules">
+            {/* Brand Logo */}
             <button className="brand-logo" onClick={() => setActiveTab('path')} aria-label={t('brandName')}>
               <span className="flag-badge" aria-hidden="true"><span>★</span> VIỆT</span>
               <span className="brand-copy">
@@ -68,6 +70,17 @@ export const Navbar = ({
                 </span>
                 <small>{t('brandSub')}</small>
               </span>
+            </button>
+
+            {/* Desktop Chapter Quick Finder Button */}
+            <button
+              className="nav-chapter-finder-btn"
+              onClick={onOpenChapterFinder}
+              title={learningMode === 'zh' ? '快速搜尋全站 100+ 章節與課程 (快捷鍵: Ctrl+K)' : 'Search 100+ Chapters & Lessons (Ctrl+K)'}
+            >
+              <Search size={15} className="finder-search-icon" />
+              <span>{learningMode === 'zh' ? '全域查章節' : 'Search Chapters'}</span>
+              <kbd className="finder-kbd-shortcut">Ctrl K</kbd>
             </button>
 
             {/* Desktop Top Level Category Group Navigation */}
@@ -88,14 +101,7 @@ export const Navbar = ({
                     <Icon size={15} strokeWidth={2.2} />
                     <span>{groupLabel}</span>
                     {group.items.length > 1 && (
-                      <span style={{
-                        fontSize: '0.7rem',
-                        opacity: 0.8,
-                        background: isGroupActive ? 'rgba(255,255,255,0.25)' : 'var(--bg-card-hover)',
-                        padding: '0.05rem 0.35rem',
-                        borderRadius: 'var(--radius-full)',
-                        marginLeft: '0.1rem'
-                      }}>
+                      <span className="cat-counter-badge">
                         {group.items.length}
                       </span>
                     )}
@@ -105,54 +111,34 @@ export const Navbar = ({
             </div>
           </div>
 
+          {/* Mobile Quick Action Buttons (Top Bar) */}
           <div className="nav-mobile-actions">
             <button
-              className="mobile-xp-btn"
-              onClick={onOpenDailyQuests}
-              title="每日任務"
-              style={{
-                background: 'rgba(239, 68, 68, 0.15)',
-                border: '1px solid var(--brand-primary)',
-                borderRadius: 'var(--radius-full)',
-                padding: '0.3rem 0.6rem',
-                color: 'var(--brand-primary)',
-                fontWeight: 800,
-                fontSize: '0.82rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.25rem',
-                cursor: 'pointer'
-              }}
+              className="mobile-finder-icon-btn"
+              onClick={onOpenChapterFinder}
+              title="搜尋章節"
+              aria-label="搜尋章節"
             >
-              🎯 {completedQuestsCount}/{dailyQuests.length}
+              <Search size={18} />
+              <span>查章節</span>
             </button>
+
             <button
               className="mobile-xp-btn"
               onClick={onOpenAchievements}
-              title="成就展示"
-              style={{
-                background: 'rgba(234,179,8,0.15)',
-                border: '1px solid var(--brand-gold)',
-                borderRadius: 'var(--radius-full)',
-                padding: '0.3rem 0.65rem',
-                color: 'var(--brand-gold)',
-                fontWeight: 800,
-                fontSize: '0.82rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.3rem',
-                cursor: 'pointer'
-              }}
+              title="成就進度"
             >
               <Trophy size={14} /> {userStats.xp}
             </button>
+
             <button
               className="icon-control"
               onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}
               aria-label={theme === 'light' ? t('darkTheme') : t('lightTheme')}
             >
-              {theme === 'light' ? <Moon size={19} /> : <Sun size={19} />}
+              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </button>
+
             <button
               className="icon-control menu-toggle"
               onClick={() => setMenuOpen(open => !open)}
@@ -160,64 +146,48 @@ export const Navbar = ({
               aria-controls="header-settings"
               aria-label={menuOpen ? '關閉設定選單' : '開啟設定選單'}
             >
-              {menuOpen ? <X size={21} /> : <Menu size={21} />}
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
 
+          {/* Desktop Right Side Control Hub */}
           <div id="header-settings" className={`header-settings ${menuOpen ? 'is-open' : ''}`}>
+            {/* Language Subsystem Switch */}
             <div className="track-badge-container">
               <button className="subsystem-switch-btn" onClick={() => toggleLearningMode()}>
-                <Globe size={16} />
-                <span className="mode-text">{learningMode === 'zh' ? '中文學越文' : 'English Track'}</span>
+                <Globe size={15} />
+                <span className="mode-text">{learningMode === 'zh' ? '中文' : 'English'}</span>
                 <span className="switch-tag">{learningMode === 'zh' ? 'EN' : '中文'}</span>
               </button>
             </div>
 
             <div className="controls-group">
+              {/* Consolidated Master Learner Hub Pill */}
               <button
-                className="control-btn stat-pill"
-                onClick={onOpenDailyQuests}
-                title={learningMode === 'zh' ? '查看每日任務與打卡防護罩' : 'View Daily Quests & Streak Shields'}
-                style={{
-                  cursor: 'pointer',
-                  background: 'rgba(239, 68, 68, 0.12)',
-                  border: '1px solid var(--brand-primary)',
-                  color: 'var(--brand-primary)',
-                  fontWeight: 800
-                }}
+                className="learner-hub-pill"
+                onClick={onOpenAchievements}
+                title={learningMode === 'zh' ? '查看學習進度、連續天數與勳章展示' : 'View Learning Stats & Achievements'}
               >
-                🎯 任務 {completedQuestsCount}/{dailyQuests.length}
-                <span style={{ fontSize: '0.78rem', color: 'var(--brand-gold)', marginLeft: '0.2rem' }}>
-                  🛡️{shieldsCount}
+                <span className="hub-stat-item quest-stat" onClick={(e) => { e.stopPropagation(); onOpenDailyQuests(); }}>
+                  🎯 {completedQuestsCount}/{dailyQuests.length}
+                </span>
+                <span className="hub-stat-divider">•</span>
+                <span className="hub-stat-item level-stat">
+                  <Star size={13} /> Lv.{currentLevel}
+                </span>
+                <span className="hub-stat-divider">•</span>
+                <span className="hub-stat-item streak-stat">
+                  <Flame size={13} /> {userStats.streak}天
+                </span>
+                <span className="hub-stat-divider">•</span>
+                <span className="hub-stat-item xp-stat">
+                  <Trophy size={13} /> {userStats.xp}
                 </span>
               </button>
 
-              <button
-                className="control-btn stat-pill level-pill"
-                onClick={onOpenAchievements}
-                title={learningMode === 'zh' ? '查看成就與等級進度' : 'View Achievements & Level'}
-                style={{ cursor: 'pointer', border: 'none' }}
-              >
-                <Star size={16} /> Lv. {currentLevel}
-              </button>
-              <span className="control-btn stat-pill streak-pill" title="連續學習天數"><Flame size={16} /> {userStats.streak} {t('days')}</span>
-              <button
-                className="stat-pill xp-pill-container"
-                onClick={onOpenAchievements}
-                title={learningMode === 'zh' ? '查看成就勳章展示櫃' : 'Open Achievements Showcase'}
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', background: 'var(--bg-accent)', padding: '0.2rem 0.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', cursor: 'pointer' }}
-              >
-                <span className="xp-pill-text" title="累積學習經驗值" style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.85em', fontWeight: 'bold', color: 'var(--brand-gold)' }}>
-                  <Trophy size={14} /> {userStats.xp} {t('xp')}
-                </span>
-                <div className="xp-progress-bar" style={{ width: '100%', height: '4px', background: 'var(--bg-main)', borderRadius: '2px', marginTop: '2px', overflow: 'hidden' }}>
-                  <div className="xp-progress-fill" style={{ width: `${progressPercent}%`, height: '100%', background: 'var(--brand-gold)', transition: 'width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)', position: 'relative' }}>
-                    <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)', animation: 'shimmer 2s infinite' }} />
-                  </div>
-                </div>
-              </button>
+              {/* Font Size Selector */}
               <div className="font-size-selector" aria-label={t('fontSize')}>
-                <Type size={14} aria-hidden="true" />
+                <Type size={13} aria-hidden="true" />
                 {['small', 'normal', 'large', 'xlarge'].map((size, index) => (
                   <button
                     key={size}
@@ -229,8 +199,14 @@ export const Navbar = ({
                   </button>
                 ))}
               </div>
-              <button className="control-btn theme-toggle-btn" onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}>
-                {theme === 'light' ? <Moon size={17} /> : <Sun size={17} />}
+
+              {/* Theme Toggle */}
+              <button
+                className="control-btn theme-toggle-btn"
+                onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}
+                title={theme === 'light' ? t('darkTheme') : t('lightTheme')}
+              >
+                {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
                 <span>{theme === 'light' ? t('darkTheme') : t('lightTheme')}</span>
               </button>
             </div>
@@ -239,9 +215,9 @@ export const Navbar = ({
       </nav>
 
       {/* Subnav Module Bar: Displays Sub-items of Active Group */}
-      {activeGroupObj && activeGroupObj.items.length > 0 && (
+      {activeGroupObj && activeGroupObj.items.length > 1 && (
         <div className="subnav-modules-bar">
-          <span style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-muted)', display: 'flex', alignItems: 'center', gap: '0.25rem', paddingRight: '0.4rem', borderRight: '1px solid var(--border-color)' }}>
+          <span className="subnav-group-label">
             {activeGroupObj.labelKey ? t(activeGroupObj.labelKey) : t('tabs.path')} <ChevronRight size={13} />
           </span>
           {activeGroupObj.items.map(item => {
@@ -263,50 +239,42 @@ export const Navbar = ({
         </div>
       )}
 
-      {/* Mobile Menu Drawer Organized by Groups */}
+      {/* Mobile Drawer Menu Organized by Groups */}
       {menuOpen && (
-        <div className="mobile-nav-grouped-drawer" style={{
-          background: 'var(--bg-card)',
-          borderBottom: '2px solid var(--border-color)',
-          padding: '1rem',
-          maxHeight: '75vh',
-          overflowY: 'auto'
-        }}>
+        <div className="mobile-nav-grouped-drawer">
+          <div className="mobile-drawer-header">
+            <span className="mobile-drawer-title">
+              {learningMode === 'zh' ? '📚 全站模組選單' : '📚 All Learning Modules'}
+            </span>
+            <button className="mobile-drawer-close" onClick={() => setMenuOpen(false)}>
+              <X size={18} />
+            </button>
+          </div>
+
+          {/* Quick Chapter Finder Trigger inside drawer */}
+          <button
+            className="mobile-drawer-finder-btn"
+            onClick={() => { setMenuOpen(false); onOpenChapterFinder(); }}
+          >
+            <Search size={16} />
+            <span>{learningMode === 'zh' ? '🔍 開啟全域章節速查盤 (100+ 章節)' : '🔍 Open Chapter Finder (100+ Lessons)'}</span>
+            <ChevronRight size={14} />
+          </button>
+
           {NAV_GROUPS.map(group => (
-            <div key={group.id} style={{ marginBottom: '1.2rem' }}>
-              <div style={{
-                fontSize: '0.85rem',
-                fontWeight: 800,
-                color: 'var(--brand-primary)',
-                marginBottom: '0.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem'
-              }}>
+            <div key={group.id} className="mobile-drawer-group-section">
+              <div className="mobile-drawer-group-title">
                 {group.labelKey ? t(group.labelKey) : t('tabs.path')}
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: '0.5rem' }}>
+              <div className="mobile-drawer-grid">
                 {group.items.map(item => {
                   const Icon = item.icon;
                   const isItemActive = activeTab === item.id;
                   return (
                     <button
                       key={item.id}
+                      className={`mobile-drawer-item-btn ${isItemActive ? 'active' : ''}`}
                       onClick={() => { setActiveTab(item.id); setMenuOpen(false); }}
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.45rem',
-                        padding: '0.6rem 0.8rem',
-                        borderRadius: 'var(--radius-sm)',
-                        border: isItemActive ? '1.5px solid var(--brand-accent)' : '1px solid var(--border-color)',
-                        background: isItemActive ? 'var(--bg-accent)' : 'var(--bg-main)',
-                        color: isItemActive ? 'var(--brand-accent)' : 'var(--text-primary)',
-                        fontWeight: isItemActive ? 800 : 600,
-                        fontSize: '0.88rem',
-                        cursor: 'pointer',
-                        textAlign: 'left'
-                      }}
                     >
                       <Icon size={16} />
                       <span>{t(item.labelKey)}</span>
@@ -318,6 +286,54 @@ export const Navbar = ({
           ))}
         </div>
       )}
+
+      {/* Ergonomic Mobile Bottom Navigation Bar (< 768px) */}
+      <div className="mobile-bottom-nav" role="navigation" aria-label="行動端主要導航">
+        <button
+          className={`bottom-nav-item ${activeTab === 'path' ? 'active' : ''}`}
+          onClick={() => { setActiveTab('path'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        >
+          <Map size={20} />
+          <span>學習首頁</span>
+          {activeTab === 'path' && <span className="bottom-nav-indicator" />}
+        </button>
+
+        <button
+          className="bottom-nav-item finder-trigger-bottom"
+          onClick={onOpenChapterFinder}
+        >
+          <div className="bottom-finder-icon-wrap">
+            <Search size={20} />
+          </div>
+          <span>查章節</span>
+        </button>
+
+        <button
+          className={`bottom-nav-item ${activeTab === 'macropol' ? 'active' : ''}`}
+          onClick={() => { setActiveTab('macropol'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        >
+          <Landmark size={20} />
+          <span>越南政經</span>
+          {activeTab === 'macropol' && <span className="bottom-nav-indicator" />}
+        </button>
+
+        <button
+          className={`bottom-nav-item ${activeTab === 'business' ? 'active' : ''}`}
+          onClick={() => { setActiveTab('business'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        >
+          <Briefcase size={20} />
+          <span>商務旗艦</span>
+          {activeTab === 'business' && <span className="bottom-nav-indicator" />}
+        </button>
+
+        <button
+          className={`bottom-nav-item ${menuOpen ? 'active' : ''}`}
+          onClick={() => setMenuOpen(prev => !prev)}
+        >
+          <Menu size={20} />
+          <span>全部目錄</span>
+        </button>
+      </div>
     </header>
   );
 };

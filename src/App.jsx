@@ -29,6 +29,7 @@ const SentenceBuilderModule = lazyNamed(() => import('./components/SentenceBuild
 const ToneGameModule = lazyNamed(() => import('./components/ToneGameModule'), 'default');
 const AchievementsModal = lazyNamed(() => import('./components/AchievementsModal'), 'default');
 const DailyQuestModal = lazyNamed(() => import('./components/DailyQuestModal'), 'default');
+const ChapterFinderModal = lazyNamed(() => import('./components/ChapterFinderModal'), 'default');
 
 const getModuleFromHash = () => {
   const moduleId = window.location.hash.replace(/^#\/?/, '');
@@ -62,6 +63,7 @@ export function App() {
   // Modals Open State
   const [isAchievementsModalOpen, setIsAchievementsModalOpen] = useState(false);
   const [isDailyQuestsOpen, setIsDailyQuestsOpen] = useState(false);
+  const [isChapterFinderOpen, setIsChapterFinderOpen] = useState(false);
 
   // User Gamification Stats
   const [userStats, setUserStats] = useState(() => {
@@ -125,6 +127,28 @@ export function App() {
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  // Global Keyboard Shortcut: Ctrl+K or Cmd+K to open Chapter Finder
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsChapterFinderOpen(prev => !prev);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const handleSelectChapter = (chapter) => {
+    if (chapter && chapter.moduleId) {
+      setActiveTab(chapter.moduleId);
+      if (chapter.targetParam) {
+        sessionStorage.setItem('viet_target_chapter', JSON.stringify(chapter));
+        window.dispatchEvent(new CustomEvent('viet_jump_chapter', { detail: chapter }));
+      }
+    }
+  };
 
   const setActiveTab = (moduleId) => {
     const nextModule = MODULE_IDS.includes(moduleId) ? moduleId : 'path';
@@ -213,13 +237,19 @@ export function App() {
         setSelectedAccent={setSelectedAccent}
         onOpenAchievements={() => setIsAchievementsModalOpen(true)}
         onOpenDailyQuests={() => setIsDailyQuestsOpen(true)}
+        onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
       />
 
       {/* Main Learning Module View */}
       <main id="main-content" className="main-content" tabIndex="-1">
         <ErrorBoundary>
           <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
-            {activeTab === 'path' && <LearningPathModule setActiveTab={setActiveTab} />}
+            {activeTab === 'path' && (
+              <LearningPathModule
+                setActiveTab={setActiveTab}
+                onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
+              />
+            )}
             {activeTab === 'macropol' && <MacroPolModule />}
             {activeTab === 'fasttrack' && <FastTrackModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'business' && <BusinessHubModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
@@ -386,6 +416,15 @@ export function App() {
           updateUserStats={updateUserStats}
           isOpen={isDailyQuestsOpen}
           onClose={() => setIsDailyQuestsOpen(false)}
+        />
+      </Suspense>
+
+      {/* Global Chapter Finder Modal */}
+      <Suspense fallback={null}>
+        <ChapterFinderModal
+          isOpen={isChapterFinderOpen}
+          onClose={() => setIsChapterFinderOpen(false)}
+          onSelectChapter={handleSelectChapter}
         />
       </Suspense>
 

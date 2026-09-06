@@ -37,7 +37,34 @@ export default function MacroPolModule() {
   const t = macroI18n[macroLang] || macroI18n.zh;
 
   // Navigation internal tab
-  const [activeSection, setActiveSection] = useState('radar'); // 'radar' | 'rates' | 'trade' | 'dossiers' | 'calc' | 'lexicon' | 'sources'
+  const [activeSection, setActiveSection] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem('viet_target_chapter');
+      if (saved) {
+        const item = JSON.parse(saved);
+        if (item.targetParam?.section) {
+          sessionStorage.removeItem('viet_target_chapter');
+          return item.targetParam.section;
+        }
+      }
+    } catch {}
+    return 'radar';
+  });
+
+  useEffect(() => {
+    const handleJump = (e) => {
+      const chap = e.detail;
+      if (chap?.targetParam?.section) {
+        setActiveSection(chap.targetParam.section);
+      }
+      if (chap?.targetParam?.dossierId) {
+        const found = deepAnalysisDossiers.find(d => d.id === chap.targetParam.dossierId);
+        if (found) setActiveModalDossier(found);
+      }
+    };
+    window.addEventListener('viet_jump_chapter', handleJump);
+    return () => window.removeEventListener('viet_jump_chapter', handleJump);
+  }, []);
 
   // ── Chart State ──
   const [currencyPair, setCurrencyPair] = useState('USD_VND'); // 'USD_VND' | 'TWD_VND'

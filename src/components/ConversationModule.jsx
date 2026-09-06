@@ -35,8 +35,31 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
   
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeScenarioId, setActiveScenarioId] = useState(situationalScenarios[0]?.id || 'cafe');
+  const [activeScenarioId, setActiveScenarioId] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem('viet_target_chapter');
+      if (saved) {
+        const item = JSON.parse(saved);
+        if (item.targetParam?.scenarioId) {
+          sessionStorage.removeItem('viet_target_chapter');
+          return item.targetParam.scenarioId;
+        }
+      }
+    } catch {}
+    return situationalScenarios[0]?.id || 'cafe';
+  });
   const [activeViewTab, setActiveViewTab] = useState('dialogue'); // 'dialogue' | 'roleplay' | 'vocab' | 'culture'
+
+  useEffect(() => {
+    const handleJump = (e) => {
+      const chap = e.detail;
+      if (chap?.targetParam?.scenarioId) {
+        setActiveScenarioId(chap.targetParam.scenarioId);
+      }
+    };
+    window.addEventListener('viet_jump_chapter', handleJump);
+    return () => window.removeEventListener('viet_jump_chapter', handleJump);
+  }, []);
 
   const currentScenario = situationalScenarios.find(s => s.id === activeScenarioId) || situationalScenarios[0];
 
