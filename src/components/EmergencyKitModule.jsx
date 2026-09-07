@@ -126,7 +126,7 @@ export const EMERGENCY_CARDS = [
   },
   {
     category: 'shopping',
-    viet: 'Có thể thanh算 (thanh toán) bằng thẻ / chuyển khoản không?',
+    viet: 'Có thể thanh toán bằng thẻ / chuyển khoản không?',
     zh: '可以刷信用卡或轉帳嗎？',
     en: 'Can I pay by card or bank transfer?',
     phonetic: 'Thanh toán bằng thẻ / Chuyển khoản',
@@ -144,6 +144,15 @@ export const EMERGENCY_CARDS = [
   },
 
   // 5. Health & Medical
+  {
+    category: 'health',
+    viet: 'Tôi bị dị ứng nặng với đậu phộng (lạc) / hải sản / bột ngọt.',
+    zh: '我對花生 / 海鮮 / 味精嚴重過敏。',
+    en: 'I am severely allergic to peanuts / seafood / MSG.',
+    phonetic: 'Dị ứng nặng + Đậu phộng (花生) + Hải sản + Bột ngọt (味精)',
+    situationZh: '餐廳點餐或急診時出示，保障飲食安全生命線。',
+    situationEn: 'Show to restaurant servers or doctors to prevent severe allergic reactions.'
+  },
   {
     category: 'health',
     viet: 'Tôi bị đau đầu / đau bụng / sốt.',

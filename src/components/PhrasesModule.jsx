@@ -474,6 +474,35 @@ export const PhrasesModule = ({ selectedAccent }) => {
               0.75x
             </button>
           </div>
+
+          {/* Random Lucky Phrase Button */}
+          <button
+            onClick={() => {
+              if (practicalPhrases && practicalPhrases.length > 0) {
+                const randomItem = practicalPhrases[Math.floor(Math.random() * practicalPhrases.length)];
+                setSearchQuery(randomItem.viet);
+                audioEngine.speak(randomItem.viet, { accent: selectedAccent });
+              }
+            }}
+            style={{
+              background: 'var(--bg-card)',
+              color: 'var(--brand-gold)',
+              border: '1px solid var(--border-color)',
+              borderRadius: '8px',
+              padding: '0.45rem 0.75rem',
+              fontSize: '0.82em',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              cursor: 'pointer',
+              transition: 'all 0.2s'
+            }}
+            title="隨機抽取一句常用短語並朗讀"
+          >
+            <Sparkles size={14} />
+            <span>{learningMode === 'zh' ? '隨機抽一句' : 'Random Phrase'}</span>
+          </button>
         </div>
       </div>
 

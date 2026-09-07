@@ -145,8 +145,35 @@ export const RESEARCH_PANELS = [
         nameEn: 'High-Utility Survival Pragmatics',
         descZh: '聚焦越南街頭、市場、咖啡館、計程車與商務談判最高頻的 26 大真實場景，讓學習者學完當天就能實戰運用。',
         descEn: 'Focuses on 26 authentic everyday scenarios: street food, bargaining, Grab rides, hotel, and trade.',
-        appZh: '落實於「26 大實戰情境角色扮演」與「生活急救錦囊」。',
-        appEn: 'Applied in the 26 Situational Scenarios, Role-Play, and Emergency Kit.'
+        appZh: '落實於「43+ 大生活與商務實戰情境角色扮演」與「生活急救錦囊」。',
+        appEn: 'Applied in the 43+ Situational Scenarios, Role-Play, and Emergency Kit.'
+      }
+    ]
+  },
+  {
+    id: 'phonetics_acoustics',
+    titleZh: '6. 語音聲學與口腔神經肌肉動態組',
+    titleEn: '6. Acoustic Phonetics & Vocal Tract Mechanics',
+    leadZh: '主持人：語音聲學與發音生理學專家團隊',
+    leadEn: 'Lead: Acoustic Phonetics & Articulatory Physiology Panel',
+    icon: '🎙️',
+    color: '#06b6d4',
+    theories: [
+      {
+        nameZh: '舌位共振峰調諧與母音空間 (Vocal Tract Formant Tuning)',
+        nameEn: 'Vocal Tract Formant Tuning & Vowel Space',
+        descZh: '針對越語獨特之後閉不圓唇元音 [ɯ] (ư) 與半開元音 [əː] (ơ)，透過舌位後縮與嘴角外擴的肌肉引導，重建精準共振腔。',
+        descEn: 'Focuses on unrounded back vowels [ɯ] and [əː] with precise articulatory and tongue positioning guidance.',
+        appZh: '落實於「發音器官解剖指南」與「雙輔音/短元音音標解碼」。',
+        appEn: 'Integrated in the Mouth Anatomy guides and compound consonant decoders.'
+      },
+      {
+        nameZh: '6 大聲調基頻微音高軌跡 (F0 Fundamental Frequency Contours)',
+        nameEn: 'F0 Pitch Contours & Tonogenesis',
+        descZh: '聲門中斷（Glottalization in Ngã/Nặng）與平聲、玄聲的赫茲曲線對照，讓學習者透過視覺音高弧度突破「聽得出卻發不準」的聽力死角。',
+        descEn: 'F0 pitch contour visualization and glottalization markers guide precise phonetic mastery.',
+        appZh: '落實於「Tone Game 聲調音高曲線動態視覺化」與全站 2420+ 高真原音庫。',
+        appEn: 'Powers the animated pitch curve visualizer and verified audio repository.'
       }
     ]
   }

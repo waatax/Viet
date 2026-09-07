@@ -405,6 +405,26 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
             <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-primary)' }}>
               {tradeShowGuide.titleZh}
             </h3>
+            {/* FDI Tech Corridor Quick Insight */}
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%)',
+              border: '1px solid var(--border-color)',
+              borderRadius: 'var(--radius-md)',
+              padding: '0.9rem 1.2rem',
+              marginBottom: '1rem',
+              display: 'flex',
+              gap: '0.75rem',
+              alignItems: 'center',
+              flexWrap: 'wrap'
+            }}>
+              <Building size={20} color="var(--brand-primary)" style={{ flexShrink: 0 }} />
+              <div style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                <strong style={{ color: 'var(--text-primary)' }}>🏭 台商三大跨國科技聚落指南：</strong>
+                <span style={{ marginRight: '0.6rem' }}>北越（Bắc Ninh / Bắc Giang - 鴻海、仁寶、和碩電子廊道）</span>
+                <span style={{ marginRight: '0.6rem' }}>南越（Bình Dương / Đồng Nai - 傳統製造、鞋業與精密五金重鎮）</span>
+                <span>中越（Đà Nẵng - 軟體開發與高科技研發園區）</span>
+              </div>
+            </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem', marginTop: '0.5rem' }}>
               {tradeShowGuide.expoVenues.map((venue, idx) => (
                 <div key={idx} style={{ background: 'var(--bg-input)', padding: '1rem', borderRadius: 'var(--radius-md)', borderLeft: '4px solid var(--brand-primary)' }}>

@@ -186,8 +186,20 @@ export const QuizModule = ({ userStats, updateUserStats, selectedAccent }) => {
             </span>
           </div>
 
-          <div style={{ fontSize: '1.3em', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1.5rem', lineHeight: 1.5 }}>
-            {learningMode === 'zh' ? activeQuiz.questionZh : activeQuiz.questionEn}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', marginBottom: '1.8rem' }}>
+            <h3 style={{ fontSize: '1.35em', fontWeight: 800, margin: 0, lineHeight: 1.5, color: 'var(--text-primary)' }}>
+              {learningMode === 'zh' ? activeQuiz.questionZh : activeQuiz.questionEn}
+            </h3>
+            {(activeQuiz.viet || activeQuiz.options?.[activeQuiz.answer]) && (
+              <button
+                className="speaker-btn mini-btn"
+                onClick={() => audioEngine.speak(activeQuiz.viet || activeQuiz.options[activeQuiz.answer], { accent: selectedAccent })}
+                title="聆聽題目相關越語發音"
+                style={{ width: '36px', height: '36px', flexShrink: 0 }}
+              >
+                <Volume2 size={18} />
+              </button>
+            )}
           </div>
 
           {/* Options List */}

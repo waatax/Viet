@@ -79,6 +79,22 @@ export const mouthPhoneticGuide = [
     tipZh: '這兩個字母頭頂都有帽子或小碗符號，標記它們是「急促短音」，必須緊湊短促地收尾。',
     pitfallZh: '不可拖長音！越語長短音具有區別詞義功能（例如 tai 耳朵 vs tay 手臂）。',
     examples: [{ vi: 'tân', zh: '新 (短)' }, { vi: 'bắt', zh: '抓/捉 (短)' }, { vi: 'sân', zh: '球場 (短)' }]
+  },
+  {
+    symbol: 'gi / d / r',
+    titleZh: '南北口音核心音變三角 (Palatal/Retroflex Triad)',
+    taiwanZh: '北越 gi/d/r 全合流為「日/z」[z]；南越 gi/d 讀「ㄧ/y」[j]，r 捲舌讀「r/ʐ」',
+    tipZh: '河內話三個音標全部發齒齦清/濁擦音 [z]；西貢話 gi/d 發滑音 [j]，r 則明顯捲舌振動。初學者在北部可一律發 [z]，在南部一律發 [j]。',
+    pitfallZh: '台灣人常把 d 讀成國語「ㄉ」，切記越南語的「d」不帶橫線，絕對不是 d 而是 z 或 y！有橫線的「đ」才是國語的「ㄉ」。',
+    examples: [{ vi: 'gia đình', zh: '家庭' }, { vi: 'dạ', zh: '應答敬語' }, { vi: 'rất', zh: '非常' }]
+  },
+  {
+    symbol: '-c / -ch / -t / -p',
+    titleZh: '四塞尾無聲急煞入聲 (Unreleased Final Stops)',
+    taiwanZh: '完全等同於台語/客家話入聲 [-k̚, -c̚, -t̚, -p̚]，發音戛然而止！',
+    tipZh: '作為字尾收音時，聲帶不振動，口腔器官到達發音位置後緊閉「不出聲、不爆破」，氣流瞬間剎車，使音節急促中斷。',
+    pitfallZh: '切忌發出英語的尾音爆破（如把 bát 讀成 ba-teh）！舌頭或嘴唇閉合後立即封死氣流。',
+    examples: [{ vi: 'bát', zh: '碗 (收t)' }, { vi: 'đẹp', zh: '美麗 (閉唇收p)' }, { vi: 'học', zh: '學習 (收c)' }, { vi: 'sách', zh: '書本 (收ch)' }]
   }
 ];
 

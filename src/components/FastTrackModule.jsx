@@ -817,9 +817,10 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats }) =
 
         {/* Phrases List */}
         <div style={{ marginBottom: '2.5rem' }}>
-          <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <Sparkles size={18} color="var(--brand-gold)" />
-            {learningMode === 'zh' ? '今日核心溝通金句 (點擊發音聆聽)' : 'Essential Communicative Phrases (Tap to Listen)'}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.75rem' }}>
+            <h3 style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Sparkles size={18} color="var(--brand-gold)" />
+              {learningMode === 'zh' ? '今日核心溝通金句 (點擊發音聆聽)' : 'Essential Communicative Phrases (Tap to Listen)'}
             </h3>
             <button
               onClick={() => setBlurMode(!blurMode)}
@@ -841,7 +842,6 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats }) =
               <span>{blurMode ? '聽力盲測模式 (點擊解除遮蔽)' : '聽力遮蔽模式 (Audio-First)'}</span>
             </button>
           </div>
-          <div style={{ display: 'none' }}>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
             {currentDay.phrases.map((phrase, pIdx) => (

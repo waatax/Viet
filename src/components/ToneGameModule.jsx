@@ -46,7 +46,15 @@ const TRICKY_PAIRS = [
   { word: 'bán', tone: 'sac', base: 'ban', hint: 'bán (賣出 · 銳聲)', level: 'tricky' },
   { word: 'bạn', tone: 'nang', base: 'ban', hint: 'bạn (朋友 · 重聲)', level: 'tricky' },
   { word: 'cà', tone: 'huyen', base: 'ca', hint: 'cà (茄子/咖啡 · 玄聲低平)', level: 'tricky' },
-  { word: 'ca', tone: 'ngang', base: 'ca', hint: 'ca (唱歌 · 平聲中高)', level: 'tricky' }
+  { word: 'ca', tone: 'ngang', base: 'ca', hint: 'ca (唱歌 · 平聲中高)', level: 'tricky' },
+  { word: 'chủ', tone: 'hoi', base: 'chu', hint: 'chủ (主人/店東 · 問聲降揚)', level: 'tricky' },
+  { word: 'chú', tone: 'sac', base: 'chu', hint: 'chú (叔叔/長輩 · 銳聲急升)', level: 'tricky' },
+  { word: 'cả', tone: 'hoi', base: 'ca', hint: 'cả (全部/長兄 · 問聲)', level: 'tricky' },
+  { word: 'cá', tone: 'sac', base: 'ca', hint: 'cá (魚肉 · 銳聲)', level: 'tricky' },
+  { word: 'rùa', tone: 'huyen', base: 'rua', hint: 'rùa (烏龜 · 玄聲低沉平緩)', level: 'tricky' },
+  { word: 'rủa', tone: 'hoi', base: 'rua', hint: 'rủa (咒罵 · 問聲起伏)', level: 'tricky' },
+  { word: 'lấy', tone: 'sac', base: 'lay', hint: 'lấy (取得/娶妻 · 銳聲急促)', level: 'tricky' },
+  { word: 'lạy', tone: 'nang', base: 'lay', hint: 'lạy (跪拜/頂禮 · 重聲短促斷聲)', level: 'tricky' }
 ];
 
 // Difficulty 3: Real Everyday Words

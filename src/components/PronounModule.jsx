@@ -315,6 +315,26 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
       ],
       answer: 0,
       explainZh: '✓ 完全正確！初次拜訪朋友父母，稱呼 Hai Bác (雙親二位伯長輩)，晚輩自稱 Cháu，句尾加「ạ」是最具教養的展現！'
+    },
+    {
+      titleZh: '🏛️ 情境九：出入境管理局與公家行政辦證 (外籍人士 vs 35歲承辦員)',
+      titleEn: '🏛️ Scenario 9: Public Administration & Immigration Office',
+      descZh: '前往越南出入境管理局（Cục Quản lý Xuất nhập cảnh）辦理簽證或暫住證（TRC），面對 35 歲的官方承辦人員，最規範且得體的稱謂是？',
+      descEn: 'At the Immigration Department applying for a visa or TRC with a 35yo official.',
+      optionsZh: [
+        'A. 自稱「Em / Tôi」，尊稱官員為「Anh / Chị / Cán bộ」',
+        'B. 自稱「Tao」，稱官員為「Mày」',
+        'C. 自稱「Con」，稱官員為「Bố」',
+        'D. 直呼官員名牌上的全名，不加稱謂'
+      ],
+      optionsEn: [
+        'A. Me: Em/Tôi, Official: Anh/Chị/Cán bộ',
+        'B. Me: Tao, Official: Mày',
+        'C. Me: Con, Official: Bố',
+        'D. Call name only without pronoun'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！公家機關與窗口承辦員以 Anh / Chị 相稱最自然，口語自稱 Em 顯得謙遜合作；若需更加正式可尊稱 Cán bộ (幹部/承辦官員)。'
     }
   ];
 

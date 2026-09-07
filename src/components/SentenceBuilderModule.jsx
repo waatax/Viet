@@ -259,9 +259,20 @@ export const SentenceBuilderModule = ({ selectedAccent = 'north', updateUserStat
             borderRadius: 'var(--radius-md)',
             color: 'var(--brand-primary)',
             fontWeight: 800,
-            fontSize: '1rem'
+            fontSize: '1rem',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
           }}>
-            🔍 越語原句參考：{currentPhrase.viet}
+            <span>🔍 越語原句參考：{currentPhrase.viet}</span>
+            <button
+              className="speaker-btn mini-btn"
+              onClick={() => audioEngine.speak(currentPhrase.viet, { accent: selectedAccent })}
+              title="聆聽提示原音"
+              style={{ width: '28px', height: '28px' }}
+            >
+              <Volume2 size={15} />
+            </button>
           </div>
         )}
       </div>

@@ -85,6 +85,27 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       audioText: 'ngủ',
       meaningZh: '睡覺 (Ngủ - 問聲)',
       explainZh: '🏛️ 河內腔特色：問聲降後微揚 (31-12)，調值飽滿；南越問聲則平緩微降。'
+    },
+    {
+      word: 'máy lạnh',
+      accent: 'south',
+      audioText: 'máy lạnh',
+      meaningZh: '冷氣機 (Máy lạnh)',
+      explainZh: '🌴 西貢腔/南越慣用語：南方稱「máy lạnh」（冷機）；河內與北部則稱「điều hòa」（調節空氣之機）。'
+    },
+    {
+      word: 'thìa',
+      accent: 'north',
+      audioText: 'thìa',
+      meaningZh: '湯匙 / 杓子 (Thìa)',
+      explainZh: '🏛️ 河內腔/北越慣用語：北方喝湯用「thìa」；南方西貢餐廳則必定稱「muỗng」。'
+    },
+    {
+      word: 'bắp',
+      accent: 'south',
+      audioText: 'bắp',
+      meaningZh: '玉米 (Bắp)',
+      explainZh: '🌴 南越用語：南部夜市叫「bắp xào」（炒玉米）；河內街頭招牌則寫「ngô nướng」（烤玉米）。'
     }
   ];
 

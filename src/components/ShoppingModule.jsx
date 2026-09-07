@@ -271,6 +271,22 @@ export const ShoppingModule = ({ selectedAccent }) => {
             <div style={{ fontSize: '0.85em', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
               💡 {selectedAccent === 'north' ? '北越慣用「Nghìn」' : '南越慣用「Ngàn」'} · 尾數 1 讀 Mốt · 尾數 5 讀 Lăm
             </div>
+            {/* Street Slang Currency Chips */}
+            <div style={{ marginTop: '0.8rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+              <span style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--brand-gold)' }}>🔥 街頭口語貨幣俚語：</span>
+              <span style={{ fontSize: '0.78rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
+                <strong>1 củ / 1 chai</strong> = 1 Triệu (100萬盾)
+              </span>
+              <span style={{ fontSize: '0.78rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
+                <strong>5 xị</strong> = 500K (50萬盾)
+              </span>
+              <span style={{ fontSize: '0.78rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
+                <strong>1 loét</strong> = 100K (10萬盾)
+              </span>
+              <span style={{ fontSize: '0.78rem', background: 'var(--bg-card)', border: '1px solid var(--border-color)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>
+                <strong>1 vé</strong> = 100 USD
+              </span>
+            </div>
           </div>
 
           {/* Exchange Rates Grid */}

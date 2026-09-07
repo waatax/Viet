@@ -208,13 +208,29 @@ const ShadowingModule = ({ selectedAccent = 'north', updateUserStats }) => {
             {learningMode === 'zh' ? currentPhrase.zh : currentPhrase.en}
           </div>
           
-          <button 
-            className={`play-target-btn ${activeKey === `shadow_${currentIndex}` ? 'playing' : ''}`}
-            onClick={playTargetAudio}
-          >
-            <Volume2 size={24} />
-            {learningMode === 'zh' ? '聽原音示範' : 'Listen'}
-          </button>
+          <div style={{ display: 'flex', gap: '0.6rem', justifyContent: 'center', marginTop: '1rem', flexWrap: 'wrap' }}>
+            <button 
+              className={`play-target-btn ${activeKey === `shadow_${currentIndex}` ? 'playing' : ''}`}
+              onClick={playTargetAudio}
+            >
+              <Volume2 size={20} />
+              <span>{learningMode === 'zh' ? '原音示範 (1.0x)' : 'Normal (1.0x)'}</span>
+            </button>
+            <button 
+              className={`play-target-btn ${activeKey === `shadow_slow_${currentIndex}` ? 'playing' : ''}`}
+              onClick={() => {
+                audioEngine.speak(currentPhrase.viet, {
+                  accent: selectedAccent,
+                  rate: 0.72,
+                  key: `shadow_slow_${currentIndex}`
+                });
+              }}
+              style={{ background: 'var(--bg-accent)', color: 'var(--brand-primary)', border: '1px solid var(--border-color)' }}
+            >
+              <Volume2 size={20} />
+              <span>{learningMode === 'zh' ? '慢速精聽 (0.75x)' : 'Slow (0.75x)'}</span>
+            </button>
+          </div>
         </div>
 
         <div className="record-section">

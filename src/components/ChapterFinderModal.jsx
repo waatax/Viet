@@ -33,6 +33,30 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
     };
   }, [isOpen]);
 
+  // Filter items
+  const filteredChapters = useMemo(() => {
+    const q = searchQuery.toLowerCase().trim();
+    return SYLLABUS_REGISTRY.filter(item => {
+      const matchCat = selectedCategory === 'all' || item.category === selectedCategory;
+      if (!matchCat) return false;
+      if (!q) return true;
+
+      const titleZh = item.titleZh?.toLowerCase() || '';
+      const titleVi = item.titleVi?.toLowerCase() || '';
+      const titleEn = item.titleEn?.toLowerCase() || '';
+      const descZh = item.descZh?.toLowerCase() || '';
+      const descVi = item.descVi?.toLowerCase() || '';
+      const catZh = item.categoryLabelZh?.toLowerCase() || '';
+
+      return titleZh.includes(q) ||
+             titleVi.includes(q) ||
+             titleEn.includes(q) ||
+             descZh.includes(q) ||
+             descVi.includes(q) ||
+             catZh.includes(q);
+    });
+  }, [searchQuery, selectedCategory]);
+
   // Keyboard shortcut listener: ESC to close, Arrow keys to navigate, Enter to select
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -58,30 +82,6 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose, filteredChapters, selectedCardIndex]);
-
-  // Filter items
-  const filteredChapters = useMemo(() => {
-    const q = searchQuery.toLowerCase().trim();
-    return SYLLABUS_REGISTRY.filter(item => {
-      const matchCat = selectedCategory === 'all' || item.category === selectedCategory;
-      if (!matchCat) return false;
-      if (!q) return true;
-
-      const titleZh = item.titleZh?.toLowerCase() || '';
-      const titleVi = item.titleVi?.toLowerCase() || '';
-      const titleEn = item.titleEn?.toLowerCase() || '';
-      const descZh = item.descZh?.toLowerCase() || '';
-      const descVi = item.descVi?.toLowerCase() || '';
-      const catZh = item.categoryLabelZh?.toLowerCase() || '';
-
-      return titleZh.includes(q) ||
-             titleVi.includes(q) ||
-             titleEn.includes(q) ||
-             descZh.includes(q) ||
-             descVi.includes(q) ||
-             catZh.includes(q);
-    });
-  }, [searchQuery, selectedCategory]);
 
   if (!isOpen) return null;
 

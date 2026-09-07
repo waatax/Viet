@@ -62,6 +62,22 @@ export const EXPANDED_GRAMMAR_RULES = [
     descriptionEn: 'Đi (go), Đến (arrive), Về (return home), Ở (at/in).',
     exampleVi: 'Tôi đi làm, tối về nhà ở Hà Nội.',
     exampleZh: 'Đi làm (去上班) · Về nhà (回家) · Ở Hà Nội (在河內)。'
+  },
+  {
+    titleZh: '9. 關係代詞與修飾子句 (Mà & Là)',
+    titleEn: '9. Relative Particle & Copula (Mà & Là)',
+    descriptionZh: 'Mà 用於連接修飾子句或表達轉折「便宜而且好看 (Rẻ mà đẹp)」；Là 為繫詞「是」，後接名詞不可省略。',
+    descriptionEn: 'Mà connects relative clauses or contrast; Là is the essential copula "to be".',
+    exampleVi: 'Người mà tôi gặp hôm qua là giám đốc.',
+    exampleZh: 'Người mà tôi gặp (我昨天遇見的人) + là giám đốc (是總經理)。'
+  },
+  {
+    titleZh: '10. 比較級與最高級 (Hơn vs Nhất)',
+    titleEn: '10. Comparison & Superlatives (Hơn vs Nhất)',
+    descriptionZh: '比較級：主詞 + 形容詞 + Hơn + 對象 (比...更...)；最高級：形容詞 + Nhất (最...)。',
+    descriptionEn: 'Comparative: S + Adj + Hơn + Object; Superlative: Adj + Nhất.',
+    exampleVi: 'Hà Nội lạnh hơn Sài Gòn, phở bò ngon nhất!',
+    exampleZh: 'Lạnh hơn Sài Gòn (比西貢冷) · Ngon nhất (最好吃)。'
   }
 ];
 

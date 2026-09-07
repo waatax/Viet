@@ -93,7 +93,23 @@ export const HAN_VIET_SOUND_RULES = [
       { han: '十', vi: 'Thập', note: '台語: tsa̍p (入聲) ➔ 越語 -p + 重聲' },
       { han: '八', vi: 'Bát', note: '台語: pat (入聲) ➔ 越語 -t + 銳聲' },
       { han: '合', vi: 'Hợp', note: '台語: ha̍p (入聲) ➔ 越語 -p + 重聲' },
-      { han: '一', vi: 'Nhất', note: '台語: it (入聲) ➔ 越語 -t + 銳聲' }
+      { han: '特', vi: 'Đặc', note: '台語: ti̍k (入聲) ➔ 越語 -c + 重聲' }
+    ]
+  },
+  {
+    categoryZh: '齒擦音與塞擦音 (心/精/清母)',
+    categoryEn: 'Sibilants & Affricates',
+    chineseZh: '中文 s / x / c / z (注音 ㄙ / ㄒ / ㄘ / ㄗ)',
+    taiwanZh: '台語 s / ts / tsh',
+    vietShift: '➔ 越語 T / X / S / C',
+    ruleZh: '古心母與精母字在越語中大量轉為 T (如心 Tâm, 新 Tân)，或轉為 X/S (如社 Xã, 生 Sinh)。',
+    examples: [
+      { han: '心', vi: 'Tâm', note: '國語: ㄒㄧㄣ / 台語: sim · 越語: Tâm' },
+      { han: '新', vi: 'Tân', note: '國語: ㄒㄧㄣ / 台語: sin · 越語: Tân' },
+      { han: '星', vi: 'Tinh', note: '國語: ㄒㄧㄥ / 台語: tshenn · 越語: Tinh' },
+      { han: '生', vi: 'Sinh', note: '國語: ㄕㄥ / 台語: senn · 越語: Sinh' },
+      { han: '社', vi: 'Xã', note: '國語: ㄕㄜˋ / 台語: siā · 越語: Xã' },
+      { han: '修', vi: 'Tu', note: '國語: ㄒㄧㄡ / 台語: tsiu · 越語: Tu' }
     ]
   }
 ];

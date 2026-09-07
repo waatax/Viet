@@ -632,6 +632,11 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
           <span>{learningMode === 'zh' ? '容易 (Easy) · 14d+' : 'Easy · 14d+'}</span>
         </button>
       </div>
+
+      {/* Keyboard Shortcut Indicator */}
+      <div style={{ textAlign: 'center', marginTop: '0.9rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+        ⌨️ {learningMode === 'zh' ? '鍵盤快捷鍵：[空白鍵] 翻轉 · [1 / ←] 重來 · [2] 困難 · [3 / →] 良好 · [4] 容易' : 'Shortcuts: [Space] Flip · [1/←] Again · [2] Hard · [3/→] Good · [4] Easy'}
+      </div>
     </div>
   );
 };
