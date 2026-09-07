@@ -1,24 +1,50 @@
-# Logs
-logs
+﻿# ==============================================================================
+# 🔒 Local Confidential Workspace (Strictly Local - Never Push to Git or Pages)
+# ==============================================================================
+Local/
+local/
+*.local
+Local*
+local*
+
+# Internal Planning, Curriculum & Design Specs
+*CORE*.md
+*CURRICULUM*.md
+TODO*.md
+PLANNING*.md
+
+# Internal Reports & Cleanup Audits
+orphan_cleanup_report.txt
+*.report.txt
+
+# AI Assistants, Editor Environments & Execution Logs
+.claude/
+.codex*
 *.log
+logs/
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Node modules
+# Python Bytecode & Temp Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==============================================================================
+# Standard Dependencies & Build Outputs
+# ==============================================================================
 node_modules/
-
-# Build output
 dist/
 dist-ssr/
-*.local
 
-# Editor directories and files
+# Editor directories
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-.claude/
