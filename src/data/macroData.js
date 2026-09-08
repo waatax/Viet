@@ -1165,6 +1165,821 @@ export const deepAnalysisDossiers = [
   }
 ];
 
+// ── 7B. 南越外商實務指南 (South Vietnam Foreign Business Guide - Bilingual) ──
+export const southVietnamBusinessData = {
+  // ── 外商設立速覽
+  setupOverview: {
+    title: '南越外資企業設立全攻略',
+    titleVi: 'Hướng dẫn toàn diện thành lập doanh nghiệp FDI tại miền Nam Việt Nam',
+    desc: '聚焦胡志明市 · 平陽 · 同奈 · 龍安 · 頭頓大南越工業走廊，涵蓋法律設立、工業區選址、勞動用工、稅務合規、外匯管理到日常運營的完整在地實務指南。',
+    descVi: 'Tập trung vào hành lang công nghiệp TP.HCM · Bình Dương · Đồng Nai · Long An · Bà Rịa-Vũng Tàu, bao gồm toàn bộ quy trình pháp lý, lựa chọn khu công nghiệp, lao động, thuế và ngoại hối.',
+    coverArea: ['胡志明市（TP.HCM）', '平陽省（Bình Dương）', '同奈省（Đồng Nai）', '龍安省（Long An）', '巴地頭頓省（BR-VT）', '西寧省（Tây Ninh）'],
+    coverAreaVi: ['TP. Hồ Chí Minh', 'Tỉnh Bình Dương', 'Tỉnh Đồng Nai', 'Tỉnh Long An', 'Tỉnh Bà Rịa - Vũng Tàu', 'Tỉnh Tây Ninh']
+  },
+
+  // ── 企業設立類型比較
+  entityTypes: [
+    {
+      id: 'llc_100',
+      type: '100% 外資有限責任公司 (LLC)',
+      typeVi: 'Công ty TNHH một thành viên 100% vốn nước ngoài',
+      icon: '🏢',
+      pros: '完全自主控制、利潤全額匯回、可申請 EPE 保稅廠資格',
+      prosVi: 'Toàn quyền kiểm soát, chuyển lợi nhuận 100%, đủ điều kiện đăng ký doanh nghiệp chế xuất EPE',
+      cons: '設立流程最繁瑣（45~90天）、部分行業市場進入受限',
+      consVi: 'Thủ tục phức tạp nhất (45-90 ngày), một số ngành nghề bị hạn chế tỷ lệ vốn',
+      timeline: '45 ~ 90 天',
+      timelineVi: '45 - 90 ngày',
+      minCapital: '視行業而定，製造業通常 100 萬美元以上',
+      minCapitalVi: 'Tuỳ ngành nghề, sản xuất thường tối thiểu 1 triệu USD',
+      bestFor: '獨立製造、高科技研發、出口加工廠',
+      bestForVi: 'Sản xuất độc lập, R&D công nghệ cao, gia công xuất khẩu'
+    },
+    {
+      id: 'jv',
+      type: '合資企業 (Joint Venture)',
+      typeVi: 'Công ty TNHH hai thành viên liên doanh (JV)',
+      icon: '🤝',
+      pros: '借助本地合作方資源（土地、關係、通路）、快速切入受管制行業',
+      prosVi: 'Tận dụng mạng lưới địa phương, tiếp cận ngành nghề có điều kiện',
+      cons: '股東利益分配複雜、控制權稀釋風險高',
+      consVi: 'Chia sẻ quyền kiểm soát, phức tạp trong quản trị nội bộ',
+      timeline: '60 ~ 120 天',
+      timelineVi: '60 - 120 ngày',
+      minCapital: '依協議與行業規定',
+      minCapitalVi: 'Theo thoả thuận cổ đông và yêu cầu ngành',
+      bestFor: '零售通路、建設工程、部分服務業',
+      bestForVi: 'Phân phối bán lẻ, xây dựng, một số dịch vụ'
+    },
+    {
+      id: 'rep_office',
+      type: '代表處 (Representative Office)',
+      typeVi: 'Văn phòng đại diện (VPĐD)',
+      icon: '📋',
+      pros: '設立最快（30天）、成本最低、試水溫首選',
+      prosVi: 'Thành lập nhanh nhất (30 ngày), chi phí thấp, phù hợp giai đoạn thăm dò thị trường',
+      cons: '不可直接從事商業交易、不能簽約收費、無法雇用工廠工人',
+      consVi: 'Không được ký kết hợp đồng kinh doanh, thu tiền, tuyển dụng công nhân trực tiếp sản xuất',
+      timeline: '30 ~ 45 天',
+      timelineVi: '30 - 45 ngày',
+      minCapital: '無最低資本要求',
+      minCapitalVi: 'Không yêu cầu vốn tối thiểu',
+      bestFor: '市場調研、商務聯絡、採購辦事',
+      bestForVi: 'Nghiên cứu thị trường, liên lạc thương mại, mua hàng'
+    }
+  ],
+
+  // ── 2026年最低工資
+  minimumWage2026: {
+    effectiveDate: '2026 年 1 月 1 日（依 Decree 293/2025/NĐ-CP）',
+    effectiveDateVi: '1/1/2026 theo Nghị định 293/2025/NĐ-CP',
+    adjustmentRate: '+6.0% 平均調幅（連續五年調漲）',
+    adjustmentRateVi: '+6,0% mức tăng bình quân (tăng liên tiếp 5 năm)',
+    zones: [
+      {
+        zone: '一區（Zone I）',
+        zoneVi: 'Vùng I',
+        coverage: '胡志明市全境、河內市全境、平陽省全境、同奈省全境',
+        coverageVi: 'TP. Hồ Chí Minh, Hà Nội, Bình Dương, Đồng Nai (toàn tỉnh)',
+        monthly: '5,636,000 VND',
+        monthlyTwd: '約 NT$ 7,118',
+        hourly: '約 27,095 VND / 小時',
+        hourlyVi: 'Khoảng 27.095 đồng/giờ'
+      },
+      {
+        zone: '二區（Zone II）',
+        zoneVi: 'Vùng II',
+        coverage: '頭頓市、龍安省城市地區、同奈部分縣市',
+        coverageVi: 'TP. Vũng Tàu, huyện thị Long An, một số huyện thị Đồng Nai',
+        monthly: '5,009,000 VND',
+        monthlyTwd: '約 NT$ 6,326',
+        hourly: '約 24,082 VND / 小時',
+        hourlyVi: 'Khoảng 24.082 đồng/giờ'
+      },
+      {
+        zone: '三區（Zone III）',
+        zoneVi: 'Vùng III',
+        coverage: '平陽農村縣鄉、龍安農村地區、西寧省',
+        coverageVi: 'Huyện nông thôn Bình Dương, nông thôn Long An, Tây Ninh',
+        monthly: '4,386,000 VND',
+        monthlyTwd: '約 NT$ 5,540',
+        hourly: '約 21,086 VND / 小時',
+        hourlyVi: 'Khoảng 21.086 đồng/giờ'
+      },
+      {
+        zone: '四區（Zone IV）',
+        zoneVi: 'Vùng IV',
+        coverage: '其他農村省份',
+        coverageVi: 'Các huyện nông thôn còn lại',
+        monthly: '3,919,000 VND',
+        monthlyTwd: '約 NT$ 4,951',
+        hourly: '約 18,842 VND / 小時',
+        hourlyVi: 'Khoảng 18.842 đồng/giờ'
+      }
+    ],
+    importantNotes: [
+      '外資製造業實際招工薪資通常為法定最低薪資的 120%~150%',
+      '技師、品管工程師月薪普遍在 8,000,000~15,000,000 VND',
+      '台灣外派幹部月薪含所有津貼通常在 USD 2,500~6,000',
+      '胡志明市工廠工人需競爭，需提供宿舍或交通補貼方能留才'
+    ],
+    importantNotesVi: [
+      'Mức lương tuyển dụng thực tế tại các nhà máy FDI thường bằng 120-150% lương tối thiểu',
+      'Kỹ thuật viên, QC engineer lương phổ biến 8-15 triệu đồng/tháng',
+      'Chuyên gia Đài Loan biệt phái lương gộp thường 2.500-6.000 USD/tháng',
+      'Tại TP.HCM cần cung cấp ký túc xá hoặc xe đưa đón để giữ chân lao động'
+    ]
+  },
+
+  // ── 社會保險費率
+  socialInsurance2026: {
+    title: '2026 年強制性勞動社會保險費率（新社保法 2025年7月1日生效）',
+    titleVi: 'Mức đóng bảo hiểm xã hội bắt buộc năm 2026 (Luật BHXH sửa đổi hiệu lực 01/7/2025)',
+    employer: [
+      { fund: '養老、殘疾、喪葬（BHXH Hưu trí & Tử tuất）', rate: '14.0%', note: '由僱主繳納' },
+      { fund: '工傷職業病（BHTNLĐ-BNN）', rate: '0.5%', note: '僱主繳，低風險行業可申請0.3%' },
+      { fund: '失業保險（BHTN）', rate: '1.0%', note: '僱主繳' },
+      { fund: '健康保險（BHYT）', rate: '3.0%', note: '僱主繳' },
+      { fund: '工會費（Phí Công đoàn）', rate: '2.0%', note: '依總薪資單計' }
+    ],
+    employee: [
+      { fund: '養老保險（Hưu trí）', rate: '8.0%', note: '員工繳納' },
+      { fund: '失業保險（BHTN）', rate: '1.0%', note: '員工繳' },
+      { fund: '健康保險（BHYT）', rate: '1.5%', note: '員工繳' }
+    ],
+    totalEmployerRate: '20.5%（繳費基數上限為最低工資的 20 倍）',
+    totalEmployeeRate: '10.5%',
+    foreignerNote: '外籍員工自 2022/1/1 起強制參加「工傷職業病 + 健康保險」，養老與失業保險自 2024 年起亦強制化，無豁免。',
+    foreignerNoteVi: 'Lao động nước ngoài bắt buộc tham gia BHXH bắt buộc từ 1/1/2022 theo Nghị định 143/2018/NĐ-CP, bao gồm đủ 5 chế độ.'
+  },
+
+  // ── 南越工業區比較矩陣
+  industrialZones: [
+    {
+      id: 'shtp',
+      name: '胡志明市高科技園區 (SHTP)',
+      nameVi: 'Khu Công nghệ cao TP.HCM (SHTP)',
+      location: '胡志明市第9郡（現Thủ Đức城市）',
+      locationVi: 'Thành phố Thủ Đức (quận 9 cũ), TP.HCM',
+      type: '高科技特別經濟區',
+      typeVi: 'Khu kinh tế đặc biệt công nghệ cao',
+      landRentUsd: '$3.2 ~ $5.55/㎡/月',
+      infrastructureFee: '$0.60/㎡/月（含水電路通訊）',
+      citIncentive: '10% 所得稅率（15年）+ 前4年免稅 + 後9年減半',
+      citIncentiveVi: 'Thuế TNDN 10% trong 15 năm, miễn 4 năm đầu, giảm 50% trong 9 năm tiếp',
+      importDutyFree: '✅ 全部機械設備與原物料進口免關稅',
+      targetIndustry: '半導體、IC設計、精密電子、生物製藥、AI研發中心',
+      targetIndustryVi: 'Bán dẫn, thiết kế IC, điện tử chính xác, dược phẩm sinh học, trung tâm R&D AI',
+      tenants: 'Intel Products, Jabil, Sonion, Nidec, Samsung R&D Vietnam',
+      powerReliability: '⚡⚡⚡⚡⚡（專線供電，99.9% 可靠度）',
+      occupancyRate: '92%（擴建 Phase III 預計2027年完工）',
+      highlight: '🌟 南越最高端科技園區，三星/英特爾品牌背書',
+      highlightVi: '🌟 Khu CNC uy tín nhất miền Nam, có Samsung R&D và Intel làm đối tác neo lớn'
+    },
+    {
+      id: 'vsip1',
+      name: '越新工業園一期（VSIP I，平陽）',
+      nameVi: 'Khu công nghiệp Việt Nam - Singapore (VSIP I), Bình Dương',
+      location: '平陽省 Thuận An 市',
+      locationVi: 'Thành phố Thuận An, Bình Dương',
+      type: '越新合作工業園',
+      typeVi: 'KCN liên doanh Việt Nam - Singapore',
+      landRentUsd: '$3.4 ~ $3.8/㎡/月（建廠用地）',
+      infrastructureFee: '$0.50/㎡/月',
+      citIncentive: '20% 標準稅率 + 地方稅費減免優惠',
+      citIncentiveVi: 'Thuế TNDN 20% tiêu chuẩn, tỉnh có hỗ trợ giảm tiền thuê đất năm đầu',
+      importDutyFree: '✅ EPE 廠可申請進口原物料免關稅',
+      targetIndustry: '精密機械、電子組裝、食品加工、物流倉儲',
+      targetIndustryVi: 'Cơ khí chính xác, lắp ráp điện tử, chế biến thực phẩm, logistics',
+      tenants: '台達電子、鴻海子公司、Schneider Electric、Lotte、百靈佳殷格翰',
+      powerReliability: '⚡⚡⚡⚡（雙路供電，備用發電機）',
+      occupancyRate: '95%（一期幾近滿租，VSIP III 新開發）',
+      highlight: '🌟 歷史最悠久越新工業園，台商最密集，配套最完善',
+      highlightVi: '🌟 KCN Việt Nam - Singapore lâu đời nhất, cụm FDI Đài Loan lớn nhất, dịch vụ hỗ trợ toàn diện'
+    },
+    {
+      id: 'myPhuoc',
+      name: '美福工業園（Mỹ Phước III-IV，平陽）',
+      nameVi: 'Khu công nghiệp Mỹ Phước III - IV (Bình Dương New City)',
+      location: '平陽省 Bến Cát 市（平陽新城核心）',
+      locationVi: 'Thành phố Bến Cát (Bình Dương New City)',
+      type: '省屬大型工業區',
+      typeVi: 'KCN cấp tỉnh quy mô lớn',
+      landRentUsd: '$2.8 ~ $3.5/㎡/月',
+      infrastructureFee: '$0.40/㎡/月',
+      citIncentive: '平陽省科技創新園區 10% 優惠稅率（符合條件者）',
+      citIncentiveVi: 'Ưu đãi 10% với dự án công nghệ tại khu đổi mới sáng tạo Bình Dương',
+      importDutyFree: '✅ EPE 廠適用',
+      targetIndustry: '家具、紡織成衣、汽車零件、大型電子組裝',
+      targetIndustryVi: 'Đồ gỗ nội thất, dệt may, phụ tùng ôtô, lắp ráp điện tử quy mô lớn',
+      tenants: '正新輪胎、萬美特、Nitori、大和紡織',
+      powerReliability: '⚡⚡⚡⚡（工業用電穩定）',
+      occupancyRate: '82%（尚有地塊供租用）',
+      highlight: '🌟 平陽新城門戶，租金較SHTP低30%~40%，適合一般製造業',
+      highlightVi: '🌟 Giá thuê hợp lý, tiếp giáp sân golf và tiện ích đô thị mới Bình Dương'
+    },
+    {
+      id: 'amata',
+      name: 'AMATA 工業城（同奈省）',
+      nameVi: 'Khu công nghiệp AMATA, Đồng Nai',
+      location: '同奈省邊和市',
+      locationVi: 'Thành phố Biên Hòa, Đồng Nai',
+      type: '泰資工業城鎮',
+      typeVi: 'Khu đô thị - công nghiệp Thái Lan',
+      landRentUsd: '$3.0 ~ $3.6/㎡/月',
+      infrastructureFee: '$0.55/㎡/月（含廢水處理）',
+      citIncentive: '同奈省重點工業區 10% 稅率（符合高科技條件）',
+      citIncentiveVi: 'Thuế 10% với dự án công nghệ cao tại Đồng Nai',
+      importDutyFree: '✅ EPE 廠適用',
+      targetIndustry: '汽車整車與零件、食品飲料、橡膠塑料、精密鑄造',
+      targetIndustryVi: 'Ôtô và phụ tùng, thực phẩm đồ uống, cao su nhựa, đúc chính xác',
+      tenants: 'Yamaha、Honda、Panasonic、Ajinomoto、Hoya',
+      powerReliability: '⚡⚡⚡⚡（雙路供電+廢水統一處理）',
+      occupancyRate: '88%',
+      highlight: '🌟 泰國AMATA品牌管理，日商聚集，整車廠+日系零件廠生態完整',
+      highlightVi: '🌟 Hệ sinh thái công nghiệp Nhật Bản hoàn chỉnh, xử lý nước thải tập trung'
+    },
+    {
+      id: 'longAn',
+      name: '龍安工業園（Long An Industrial Park）',
+      nameVi: 'Khu công nghiệp Long An - Logistics',
+      location: '龍安省 Cần Giuộc 縣',
+      locationVi: 'Huyện Cần Giuộc, Long An',
+      type: '倉儲物流型工業區',
+      typeVi: 'KCN logistics, kho vận cảng sông',
+      landRentUsd: '$2.0 ~ $2.8/㎡/月（最低廉）',
+      infrastructureFee: '$0.30/㎡/月',
+      citIncentive: '龍安省特別鼓勵政策（物流、農業加工免稅期更長）',
+      citIncentiveVi: 'Long An ưu đãi đặc biệt logistics và nông nghiệp chế biến',
+      importDutyFree: '✅ 鄰近胡志明市貓萊港，適合出口型製造',
+      targetIndustry: '倉儲物流、冷鏈農產品加工、輕型製造、電商配送中心',
+      targetIndustryVi: 'Kho bãi logistics, nông sản chế biến lạnh, sản xuất nhẹ, trung tâm thương mại điện tử',
+      tenants: 'DHL Supply Chain、Lazada倉庫、台灣農業食品廠',
+      powerReliability: '⚡⚡⚡（城市配電網）',
+      occupancyRate: '68%（尚有大量可開發土地）',
+      highlight: '🌟 租金南越最低，鄰近胡志明市貓萊港，物流成本優勢明顯',
+      highlightVi: '🌟 Giá thuê thấp nhất miền Nam, kết nối cảng Cát Lái thuận tiện'
+    }
+  ],
+
+  // ── 稅務合規關鍵事項
+  taxCompliance: {
+    cit: {
+      standardRate: '20%（一般企業所得稅率）',
+      preferentialRates: [
+        { condition: '設於高科技特別經濟區（SHTP、Hòa Lạc等）', rate: '10% / 15年', freeYears: '前4年免稅 + 後9年減半' },
+        { condition: '製造業（非高科技）工業區一般項目', rate: '17% / 10年', freeYears: '前2年免稅 + 後4年減半' },
+        { condition: '高科技認證項目（由MoST認定）', rate: '10% / 15年', freeYears: '前4年免稅 + 後9年減半' },
+        { condition: '農業、漁業、林業加工出口', rate: '15%', freeYears: '前2年免稅+後4年減半' },
+        { condition: '全球最低稅負（Pillar Two）調整後', rate: '最低15%（年收逾7.5億歐元跨國集團）', freeYears: '超額補徵' }
+      ],
+      epeVatExemption: 'EPE加工出口廠出口貨物適用 0% VAT（進口原物料保稅免稅）',
+      transferPricingRule: 'Decree 132/2020：關係人貸款利息扣除上限 = EBITDA × 30%',
+      auditRisk: '⚠️ 連續虧損3年以上外資企業幾乎必遭移轉訂價稽查'
+    },
+    vat: {
+      standardRate: '10%',
+      reducedRate: '5%（基本食品、醫療、教育）',
+      zeroRate: '0%（出口貨物與服務）',
+      exportRefund: 'EPE廠出口可申請VAT退稅，通常30~90天退款',
+      electronicInvoice: '2022年起強制採用電子發票（Hóa đơn điện tử），紙本發票全面廢除'
+    },
+    personalIncomeTax: {
+      residentRate: '5%~35% 累進稅率（居住者：連續183天以上）',
+      nonResidentRate: '20% 固定稅率（非居住者外籍收入）',
+      expatBenefits: '外籍幹部住宅補貼、子女教育費、返鄉機票費用可合法免稅列扣'
+    }
+  },
+
+  // ── 外匯資金管理
+  foreignExchange: {
+    dicaAccount: {
+      name: '直接投資資本帳戶（DICA Account）',
+      nameVi: 'Tài khoản vốn đầu tư trực tiếp (DICA)',
+      description: '外資企業必須在越南境內認可商業銀行開立DICA帳戶，所有資本金注入、外債匯入及利潤匯回均須透過此帳戶操作',
+      descriptionVi: 'Mọi dòng vốn góp, vay nước ngoài và chuyển lợi nhuận phải qua tài khoản DICA đăng ký tại NHTM được phép',
+      openingDocs: [
+        '企業投資登記證（IRC）',
+        '企業登記證（ERC / BR）',
+        '法定代理人護照及簽名樣本',
+        '董事會決議書（出資授權）',
+        '審計後財務報告（對已運營企業）'
+      ],
+      capitalRemittanceDeadline: '投資執照核發後90天內必須完成首筆資本金匯入',
+      profitRepatriationPeriod: '每年財報完成審計後（通常次年3~6月）可合法匯出稅後利潤',
+      usdPurchaseRequirement: '若需購匯美元匯出，需提供越南稅務部門的稅務合規完成證明'
+    },
+    recommendedBanks: [
+      { name: '玉山銀行（E.SUN Bank）胡志明市分行', nameVi: 'Ngân hàng E.SUN - Chi nhánh TP.HCM', lang: '中文服務', specialty: '台商首選，中文作業，TWD/VND直接兌換' },
+      { name: '兆豐銀行（Mega Bank）胡志明市分行', nameVi: 'Ngân hàng Mega Bank - Chi nhánh TP.HCM', lang: '中文服務', specialty: '台商貿易融資、信用狀（L/C）業務老牌' },
+      { name: '中國信託商銀（CTBC）越南子行', nameVi: 'CTBC Bank Vietnam', lang: '中文/英文', specialty: '零售銀行業務完整，iBanking便利' },
+      { name: 'Vietcombank（越南外貿銀行）', nameVi: 'Ngân hàng TMCP Ngoại thương Việt Nam', lang: '越南文/英文', specialty: '越南最大外匯銀行，手續費低，USD購匯快' },
+      { name: 'HSBC Vietnam', nameVi: 'HSBC Việt Nam', lang: '英文/中文', specialty: '跨境貿易融資、供應鏈金融、SWIFT速度快' }
+    ]
+  },
+
+  // ── 工作許可指南
+  workPermit: {
+    title: '外籍幹部工作許可（Work Permit）全攻略 2026',
+    titleVi: 'Hướng dẫn xin Giấy phép lao động cho người nước ngoài 2026 (Nghị định 219/2025)',
+    requirement: '在越南連續工作滿30天以上的外籍員工，均需持有工作許可或主管機關核發之工作免許可確認書',
+    requirementVi: 'Người nước ngoài làm việc từ 30 ngày liên tục phải có GPLĐ hoặc Xác nhận miễn cấp GPLĐ do Sở Lao động cấp',
+    exemptions: [
+      '外資企業唯一法定代理人（Legal Representative）',
+      '在越外資企業持股逾51%之外籍股東出任Giám đốc',
+      '進行技術培訓且授課時間不超過30天（可申請豁免確認）',
+      '內部調派（ICT）且符合WTO承諾之管理級人員',
+      '依法律規定享有外交豁免之特定人士'
+    ],
+    requiredDocuments: [
+      '無犯罪紀錄證明（台灣：警察局開立，辦理後3個月內有效，需經AIT認證）',
+      '健康證明（越南指定醫院體檢）',
+      '學歷證明（大學文憑，需公證+AIT認證）',
+      '3年以上相關工作經驗證明（公司出具，需原件+公證）',
+      '護照及有效簽證',
+      '企業雇用申請書（省勞動廳規定格式）',
+      '企業投資登記證（IRC）+ 企業登記證（ERC）'
+    ],
+    processingTime: '省勞動廳 5~10 個工作天（TP.HCM通常7天）',
+    validity: '最長2年（可依需求申請1年期）',
+    temporaryResidenceCard: '工作許可取得後，需再申請TRC暫住證（3年），免越南簽證年年更新的麻煩',
+    cost: '工作許可費用：600,000 VND（省勞動廳官方費）+ 代辦費約200~400 USD',
+    importantTip: '⚠️ 台籍幹部持商務簽（DN/DN1）但實際在廠工作，若被勞動榮軍社會部查廠查獲，最高可處驅逐出境並3年內禁止入境。'
+  },
+
+  // ── 辦公室與廠房市場行情
+  realEstate: {
+    hcmcOffice: [
+      { district: '第一郡（District 1，CBD核心）', grade: 'A級', rentRange: '$35 ~ $60/㎡/月', typicalSize: '500~5,000㎡', vacancy: '12%', notes: '比鄰越南工商會、領事館密集，最具國際商務氛圍' },
+      { district: '第三郡（District 3）', grade: 'B級', rentRange: '$18 ~ $30/㎡/月', typicalSize: '200~2,000㎡', vacancy: '18%', notes: '近市中心但租金平易，台商中小企業辦事處首選' },
+      { district: '富美興（District 7，新城）', grade: 'A/B級', rentRange: '$20 ~ $38/㎡/月', typicalSize: '300~3,000㎡', vacancy: '15%', notes: '韓資、台資密集新城區，生活機能完善適合外籍幹部居住' },
+      { district: 'Thủ Đức 城市（原第9郡）', grade: 'B級新興', rentRange: '$12 ~ $22/㎡/月', typicalSize: '300~5,000㎡', vacancy: '25%', notes: '靠近SHTP高科技園，適合科技公司設研發辦公室' }
+    ],
+    factoryRent: [
+      { area: '胡志明市工業區（Tân Bình / Linh Trung）', type: '出租廠房', rent: '$3.5 ~ $5.0/㎡/月', minSize: '1,000㎡', powerCapacity: '1000 KVA / 公頃' },
+      { area: '平陽 VSIP I/II', type: '出租廠房', rent: '$2.8 ~ $3.8/㎡/月', minSize: '2,000㎡', powerCapacity: '1500 KVA / 公頃' },
+      { area: '平陽 Mỹ Phước III', type: '出租廠房或建廠用地', rent: '$1.8 ~ $2.5/㎡/月（地）', minSize: '5,000㎡地', powerCapacity: '2000 KVA / 公頃' },
+      { area: '同奈 AMATA / Long Duc', type: '出租廠房或建廠用地', rent: '$2.2 ~ $3.2/㎡/月', minSize: '2,000㎡', powerCapacity: '2000 KVA / 公頃' },
+      { area: '龍安工業區', type: '出租廠房或倉庫', rent: '$1.5 ~ $2.2/㎡/月', minSize: '1,000㎡', powerCapacity: '1000 KVA / 公頃' }
+    ],
+    utilityRates: {
+      electricityIndustrial: '工業電費：2,747 ~ 4,587 VND/KWh（依用電量及時段差異）',
+      electricityPeakNote: '尖峰用電時段（6:00~22:00）費率較高，鼓勵夜班用電',
+      water: '工業用水：7,500 ~ 12,000 VND/㎥（依工業園區配套不同）',
+      internet: '商業光纖（100Mbps）：月費約1,000,000~3,000,000 VND',
+      wastewater: '廢水處理費：5,000~15,000 VND/㎥（工業廢水須先預處理達標）'
+    }
+  },
+
+  // ── 重要注意事項與常見陷阱
+  criticalWarnings: [
+    {
+      id: 'w1',
+      severity: 'critical',
+      icon: '🚨',
+      title: '借名登記（Nominee）絕對禁止',
+      titleVi: 'Nghiêm cấm đứng tên hộ (Nominee)',
+      content: '以越南本地人名義持有外資公司股份或不動產，在越南法律下屬於嚴重違法，可導致資產全數充公。請務必通過合法FDI途徑設立企業。',
+      contentVi: 'Mọi thỏa thuận ủy thác hoặc đứng tên hộ trong doanh nghiệp FDI đều bị coi là vô hiệu theo pháp luật VN, có thể dẫn đến tịch thu toàn bộ tài sản.'
+    },
+    {
+      id: 'w2',
+      severity: 'high',
+      icon: '⚠️',
+      title: '資本金需於90天內實際匯入',
+      titleVi: 'Góp vốn điều lệ bắt buộc trong 90 ngày',
+      content: '持有IRC投資執照後，必須在90天內透過DICA帳戶完成首筆資本金匯入驗資，否則執照可能遭廢止。許多新設台商因誤解規定而面臨執照失效風險。',
+      contentVi: 'Sau khi được cấp IRC, phải chuyển đủ vốn điều lệ đăng ký vào tài khoản DICA trong vòng 90 ngày để hoàn thành đăng ký và nhận Giấy chứng nhận đăng ký đầu tư chính thức.'
+    },
+    {
+      id: 'w3',
+      severity: 'high',
+      icon: '⚠️',
+      title: '年度海關料件核銷報告（90天內必辦）',
+      titleVi: 'Báo cáo quyết toán hải quan (90 ngày sau năm tài chính)',
+      content: 'EPE加工出口廠每財政年度結束後90天內，必須向所屬海關分局提交「年度進出口料件核銷決算報告」，核對進口原物料庫存量與出口成品消耗量。誤差超過合理損耗率者，將被補繳進口關稅。',
+      contentVi: 'Doanh nghiệp chế xuất phải nộp báo cáo quyết toán hải quan trong vòng 90 ngày sau khi kết thúc năm tài chính, đối chiếu định mức tiêu hao và lượng tồn kho thực tế.'
+    },
+    {
+      id: 'w4',
+      severity: 'medium',
+      icon: '📋',
+      title: '工廠環境影響評估（EIA）切勿忽略',
+      titleVi: 'Báo cáo đánh giá tác động môi trường (ĐTM)',
+      content: '投資規模逾50億越盾或屬於特定行業（電子、化工、食品加工）的工廠，在動工前必須完成EIA環評並獲主管機關批准，否則後期生產可能面臨強制停工。',
+      contentVi: 'Dự án đầu tư trên 5 tỷ đồng hoặc thuộc lĩnh vực nhạy cảm về môi trường phải lập Báo cáo ĐTM được cơ quan nhà nước phê duyệt trước khi khởi công xây dựng.'
+    },
+    {
+      id: 'w5',
+      severity: 'medium',
+      icon: '💡',
+      title: '電力供應穩定性：南越vs北越差異',
+      titleVi: 'An ninh nguồn điện: Khác biệt miền Nam - miền Bắc',
+      content: '相較於北越2023年大規模限電事件，南越（胡志明市/平陽/同奈）的電力供應歷年來相對穩定。但高精密製程廠仍建議自備UPS不斷電與備用柴油發電機組，並向工業區申請備用供電合約。',
+      contentVi: 'Miền Nam có nguồn điện ổn định hơn miền Bắc, nhưng các nhà máy sản xuất công nghệ cao vẫn nên trang bị UPS và máy phát dự phòng, ký hợp đồng điện dự phòng với ban quản lý KCN.'
+    }
+  ],
+
+  // ── 台商資源與聯絡網
+  taiwaneseCommunity: {
+    title: '南越台商組織與在地資源',
+    titleVi: 'Cộng đồng doanh nhân Đài Loan tại miền Nam Việt Nam',
+    organizations: [
+      {
+        name: '越南台灣商會聯合總會（胡志明市）',
+        nameVi: 'Hiệp hội Thương nhân Đài Loan tại Việt Nam (TP.HCM)',
+        address: '胡志明市第3郡台商集中服務中心',
+        tel: '+84-28-xxxx-xxxx',
+        desc: '胡志明市台商的最大聯絡窗口，提供法律諮詢、新進廠商輔導、政府部門媒合',
+        descVi: 'Đầu mối liên lạc lớn nhất của cộng đồng doanh nhân Đài Loan tại TP.HCM'
+      },
+      {
+        name: '平陽台灣商會（BTBA）',
+        nameVi: 'Hiệp hội Thương nhân Đài Loan tỉnh Bình Dương (BTBA)',
+        address: '平陽省 Bình Dương New City 商務中心',
+        tel: '+84-274-xxxx-xxxx',
+        desc: '逾600家會員企業，覆蓋平陽省全境工業區台資企業。每月例會、廠商交流活動',
+        descVi: 'Hơn 600 doanh nghiệp thành viên, phủ khắp các KCN tỉnh Bình Dương'
+      },
+      {
+        name: '台灣經濟部駐胡志明市辦事處（駐胡台辦）',
+        nameVi: 'Văn phòng Kinh tế Văn hóa Đài Bắc tại TP.HCM',
+        address: '胡志明市Bitexco Financial Tower',
+        desc: '台灣政府唯一官方駐越服務機構，提供台商護照申辦、緊急領事協助、投資法規諮詢',
+        descVi: 'Cơ quan đại diện chính thức duy nhất của Đài Loan tại TP.HCM'
+      }
+    ],
+    hospitals: [
+      { name: 'FV Hospital（法越醫院）', nameVi: 'Bệnh viện FV', district: '第7郡 Bình Chánh', specialty: '最受外籍人士信賴，24小時急診，英法中文服務', tier: '高端' },
+      { name: 'Vinmec Central Park Hospital', nameVi: 'Bệnh viện Vinmec Central Park', district: 'Bình Thạnh郡', specialty: '越南最高端本土品牌，設備先進，中英文服務', tier: '高端' },
+      { name: 'Columbia Asia Saigon', nameVi: 'Bệnh viện Columbia Asia Sài Gòn', district: '第2郡（Thủ Đức）', specialty: '亞洲連鎖品牌，外籍幹部健診體檢，英文服務', tier: '中高端' },
+      { name: 'Cho Ray Hospital（草堤醫院）', nameVi: 'Bệnh viện Chợ Rẫy', district: '第5郡（公立）', specialty: '越南規模最大公立醫院，重大傷病手術，價格平易', tier: '公立' }
+    ],
+    expactAreas: [
+      { area: '富美興（Phú Mỹ Hưng）- 第7郡', desc: '南越最受外籍幹部歡迎的高端住宅區，韓資開發商，設施完善，國際學校密集', monthlyRent: '$1,200 ~ $3,500（兩房~四房）' },
+      { area: '第2郡（Thảo Điền）', desc: '歐美外籍人士聚集，西式餐廳咖啡館林立，步行舒適，靠近Thủ Đức工業', monthlyRent: '$800 ~ $2,500（兩房~三房）' },
+      { area: '第3郡台商聚落', desc: '台商中小企業幹部選擇，中文環境、粵菜台菜廚師、台資超市近', monthlyRent: '$400 ~ $1,000（一房~兩房）' },
+      { area: '平陽 Bình Dương New City', desc: '平陽台商廠長幹部首選，近工業區，通勤方便，生活成本低', monthlyRent: '$300 ~ $800（一房~三房）' }
+    ]
+  }
+};
+
+// ── 7C. 大胡志明市旅遊深度指南 (Greater HCMC Tourism Deep Guide - Bilingual) ──
+export const hcmcTourismData = {
+  overview: {
+    title: '大胡志明市 · 深度旅遊全攻略',
+    titleVi: 'Khám phá toàn diện Vùng TP. Hồ Chí Minh và các tỉnh lân cận',
+    desc: '東南亞最具活力的城市，融合法式殖民建築、熱帶水鄉風情、越南美食天堂與新興現代都市的多元面貌。從市區繁華走廊到湄公河三角洲水鄉、從海濱度假勝地到高山霧氣繚繞的避暑山城，盡在兩小時車程之內。',
+    descVi: 'Thành phố Hồ Chí Minh - trung tâm kinh tế sôi động nhất Đông Nam Á - cùng vùng phụ cận đa dạng: đồng bằng sông Cửu Long xanh mát, Vũng Tàu biển xanh cát trắng, Đà Lạt phố núi sương mờ, cách nhau chỉ 2-3 giờ đường.',
+    bestSeason: '乾季 11月~4月（涼爽乾燥，最佳旅遊窗口）',
+    bestSeasonVi: 'Mùa khô từ tháng 11 đến tháng 4 (thời tiết mát mẻ, ít mưa, phù hợp du lịch nhất)',
+    avoidSeason: '雨季 5月~10月（午後雷陣雨頻繁，但旅費最便宜）',
+    avoidSeasonVi: 'Mùa mưa tháng 5 - 10 (mưa chiều thường xuyên nhưng giá du lịch rẻ nhất)',
+    currency: '越南盾（VND），$1 USD ≈ 25,485 VND；1 NTD ≈ 791.5 VND',
+    currencyVi: 'Đơn vị tiền tệ: Đồng Việt Nam (VND). 1 USD ≈ 25.485 VND; 1 NTD ≈ 791,5 VND',
+    illustrationKey: 'hcmc_skyline_illustration'
+  },
+
+  // ── 胡志明市核心景點
+  attractions: [
+    {
+      id: 'reunification_palace',
+      name: '統一宮（Dinh Thống Nhất）',
+      nameVi: 'Dinh Thống Nhất',
+      category: '歷史地標',
+      categoryVi: 'Di tích lịch sử',
+      location: '第1郡 Nam Kỳ Khởi Nghĩa 街135號',
+      locationVi: '135 Nam Kỳ Khởi Nghĩa, Quận 1, TP.HCM',
+      ticket: '外籍遊客 80,000 VND（≈NT$ 101）',
+      ticketVi: 'Người nước ngoài 80.000 VND',
+      hours: '07:30 ~ 11:00, 13:00 ~ 16:00（週一全天休館）',
+      highlights: '南越共和國前總統府，保留完整的1975年衝破鐵門歷史現場、地下戰情室、總統辦公室原貌，是了解越戰歷史的必訪之地。',
+      highlightsVi: 'Dinh Tổng thống Cộng hòa Miền Nam trước 1975, nguyên vẹn phòng tác chiến, phòng tiếp khách, là biểu tượng kết thúc chiến tranh ngày 30/4/1975.',
+      tips: '建議上午10點前到，人少好拍照。語音導覽附中文版。',
+      tipsVi: 'Nên đến trước 10h sáng để tránh đông. Có hướng dẫn viên du lịch tiếng Anh và tiếng Trung.'
+    },
+    {
+      id: 'war_remnants_museum',
+      name: '戰爭博物館（Bảo tàng Chứng tích Chiến tranh）',
+      nameVi: 'Bảo tàng Chứng tích Chiến tranh',
+      category: '歷史博物館',
+      categoryVi: 'Bảo tàng lịch sử',
+      location: '第3郡 Võ Văn Tần 街28號',
+      locationVi: '28 Võ Văn Tần, Quận 3, TP.HCM',
+      ticket: '外籍遊客 40,000 VND（≈NT$ 51）',
+      ticketVi: 'Vé người nước ngoài: 40.000 VND',
+      hours: '07:30 ~ 18:00（全年無休）',
+      highlights: '全球最受訪問的越戰相關博物館之一。完整陳列美越戰爭期間的武器、照片與史料文獻，包括橙劑受害者展區。具有強烈的歷史反省意義，情感衝擊力極強。',
+      highlightsVi: 'Một trong những bảo tàng về chiến tranh được tham quan nhiều nhất thế giới, lưu giữ hàng nghìn hiện vật, ảnh tư liệu về cuộc chiến và hệ quả để lại.',
+      tips: '需預留2~3小時，部分展區有強烈照片，不建議帶幼童。',
+      tipsVi: 'Nên dành 2-3 tiếng tham quan. Một số khu vực có hình ảnh nhạy cảm về chiến tranh.'
+    },
+    {
+      id: 'ben_thanh_market',
+      name: '濱城市場（Chợ Bến Thành）',
+      nameVi: 'Chợ Bến Thành',
+      category: '市集購物',
+      categoryVi: 'Chợ & Mua sắm',
+      location: '第1郡 Lê Lợi 廣場中心',
+      locationVi: 'Quảng trường Lê Lợi, Quận 1, TP.HCM',
+      ticket: '免費入場',
+      ticketVi: 'Miễn phí vào cửa',
+      hours: '06:00 ~ 19:00（夜市延至23:00）',
+      highlights: '1914年建造的胡志明市地標性建築，越南最知名的室內傳統市場。販售熱帶水果、越南紀念品、絲綢布料、香料食材，也是體驗越南市集文化的窗口。',
+      highlightsVi: 'Biểu tượng chợ truyền thống có từ năm 1914 của Sài Gòn, phong phú hàng hoá từ đặc sản ẩm thực, vải lụa đến hàng lưu niệm du lịch.',
+      tips: '⚠️ 殺價是常態！標價通常為實際成交價2倍。夜市段（周邊攤販）更熱鬧，可嚐試各式街邊小吃。',
+      tipsVi: '⚠️ Luôn mặc cả! Giá niêm yết thường gấp đôi giá thực. Khu chợ đêm xung quanh sầm uất về tối.'
+    },
+    {
+      id: 'notre_dame_cathedral',
+      name: '西貢聖母聖殿（Nhà thờ Đức Bà）',
+      nameVi: 'Nhà thờ Đức Bà Sài Gòn',
+      category: '宗教建築',
+      categoryVi: 'Kiến trúc tôn giáo',
+      location: '第1郡 Công xã Paris 廣場',
+      locationVi: 'Công xã Paris, Quận 1, TP.HCM',
+      ticket: '免費（內部修繕中，外觀拍照）',
+      ticketVi: 'Miễn phí, đang trùng tu nội thất',
+      hours: '外觀全天開放',
+      highlights: '法國殖民時期1880年建造的羅馬式紅磚大教堂，是西貢最著名的建築地標。教堂正前廣場的聖母玛利亞雕像廣場氣氛莊嚴，是西貢最經典的拍照景點之一。',
+      highlightsVi: 'Nhà thờ Công giáo bằng gạch đỏ được xây dựng từ thời Pháp thuộc (1880), biểu tượng kiến trúc đặc trưng nhất của trung tâm TP.HCM.',
+      tips: '旁邊的中央郵局（Bưu điện Trung tâm Sài Gòn）同樣是法式殖民建築精品，值得一看。',
+      tipsVi: 'Ngay cạnh là Bưu điện Trung tâm Sài Gòn, cũng là công trình kiến trúc Pháp đẹp nổi tiếng.'
+    },
+    {
+      id: 'cu_chi_tunnels',
+      name: '古芝地道（Địa đạo Củ Chi）',
+      nameVi: 'Địa đạo Củ Chi',
+      category: '歷史戰爭遺址',
+      categoryVi: 'Di tích kháng chiến',
+      location: '胡志明市古芝縣（距市中心約70公里）',
+      locationVi: 'Huyện Củ Chi, TP.HCM (cách trung tâm khoảng 70 km)',
+      ticket: '外籍遊客 90,000 ~ 125,000 VND（依入口點不同）',
+      ticketVi: 'Vé người nước ngoài: 90.000 - 125.000 VND',
+      hours: '07:00 ~ 17:00（全年開放）',
+      highlights: '越戰時期越共游擊隊挖掘的長達250公里的地下地道網絡，遊客可親身體驗在狹窄黑暗地道中匍匐爬行，感受越共游擊戰的奧秘與艱苦。戰車殘骸、炸彈陷阱展示、叢林環境體驗。',
+      highlightsVi: 'Hệ thống địa đạo dài 250km được quân và dân Củ Chi đào trong kháng chiến, có thể trải nghiệm chui vào đường hầm, tham quan bẫy chông và xem phim tư liệu lịch sử.',
+      tips: '建議參加半日遊（約4~5小時）包含來回交通。穿舒適運動服，地道內非常悶熱。Ben Dinh入口更寬，Bến Dược入口更原始。',
+      tipsVi: 'Nên tham gia tour nửa ngày bao gồm đưa đón. Mặc quần áo thoải mái, bên trong hầm nóng và chật hẹp.',
+      illustrationKey: 'cu_chi_tunnels_illustration'
+    },
+    {
+      id: 'bui_vien_street',
+      name: '裴文街（Bùi Viện）夜生活區',
+      nameVi: 'Phố Tây Bùi Viện',
+      category: '夜生活娛樂',
+      categoryVi: 'Ẩm thực - Giải trí đêm',
+      location: '第1郡 Bùi Viện 街',
+      locationVi: 'Đường Bùi Viện, Quận 1, TP.HCM',
+      ticket: '免費',
+      ticketVi: 'Miễn phí',
+      hours: '18:00 ~ 凌晨3:00',
+      highlights: '被稱為胡志明市的「背包客天堂」，全球各地旅人聚集的步行街夜生活地帶。啤酒最低僅15,000 VND（約NT$19），各式現場音樂演出、街頭表演、外國料理與越南小吃攤林立。',
+      highlightsVi: 'Con phố du lịch nổi tiếng nhất Sài Gòn với bia hơi rẻ, âm nhạc sống động và bầu không khí quốc tế sôi nổi suốt đêm.',
+      tips: '⚠️ 注意個人財物安全，包包正面拎或使用腰包。避免與過度熱情的拉客人員互動。',
+      tipsVi: '⚠️ Cảnh giác tài sản cá nhân, không để túi xách ra sau lưng. Cảnh giác người chèo kéo du khách.'
+    }
+  ],
+
+  // ── 周邊目的地深度介紹
+  dayTrips: [
+    {
+      id: 'vung_tau',
+      name: '頭頓（Vũng Tàu）海濱度假',
+      nameVi: 'Nghỉ dưỡng biển Vũng Tàu (Bà Rịa - Vũng Tàu)',
+      distance: '距胡志明市約130公里，車程2小時',
+      distanceVi: 'Cách TP.HCM khoảng 130 km, 2 giờ xe',
+      transportOptions: [
+        '⛴️ Greenlines DP高速渡輪（120分鐘，$13~17/人，推薦！）',
+        '🚌 巴士（Phương Trang，票價130,000~180,000VND，2.5小時）',
+        '🚗 自駕：高速公路 Bến Lức - Long Thành，快速舒適'
+      ],
+      highlights: [
+        '基督山（Tượng Chúa Kitô Vua）— 頭頓最著名地標，俯瞰全城海景',
+        '後灘（Bãi Sau）— 主要海灘，平靜適合游泳，週末外籍人士聚集',
+        '前灘（Bãi Trước）— 漁船停靠處，欣賞日落黃昏，浪漫氛圍',
+        '海鮮大排檔（Hải sản tươi sống）— 超新鮮平價海鮮'
+      ],
+      accommodation: '豐富選擇，Mercury Phu My Hưng（4星），The Imperial Hotel（5星），背包客旅社300,000 VND起',
+      bestFor: '週末兩日遊，海鮮饕客，家庭度假',
+      illustrationKey: 'vung_tau_beach_illustration'
+    },
+    {
+      id: 'mekong_delta',
+      name: '湄公河三角洲（Đồng bằng sông Cửu Long）',
+      nameVi: 'Khám phá Đồng bằng sông Cửu Long từ TP.HCM',
+      distance: '美拖（Mỹ Tho）距胡志明市約70公里，車程1.5小時',
+      distanceVi: 'Mỹ Tho cách TP.HCM khoảng 70 km, 1,5 giờ xe',
+      transportOptions: [
+        '🚌 參加一日遊套裝行程（US$20~60，含交通+船票+午餐）',
+        '🚗 自駕至美拖，再包船遊覽'
+      ],
+      highlights: [
+        '小木舟遊覽椰子果園與熱帶水道',
+        '浮動市場（Chợ nổi）— 彩色木船滿載南越熱帶水果',
+        '椰子糖工坊（Kẹo dừa）— 親眼目睹椰子糖手工製作',
+        '品嚐南越特色小吃：Bánh tráng nướng、Hủ tiếu Mỹ Tho'
+      ],
+      extendedOptions: '可延伸至吉婆（Bến Tre，椰子之鄉）、永隆（Vĩnh Long）、芹苴（Cần Thơ，最大浮動市場）',
+      bestFor: '文化體驗，自然景觀，熱帶水果愛好者，攝影發燒友',
+      illustrationKey: 'mekong_delta_illustration'
+    },
+    {
+      id: 'da_lat',
+      name: '大叻（Đà Lạt）避暑山城',
+      nameVi: 'Du lịch Đà Lạt - Thành phố mộng mơ xứ sở sương mù',
+      distance: '距胡志明市約300公里，車程5~6小時或1小時飛機',
+      distanceVi: 'Cách TP.HCM 300 km, 5-6 giờ xe hoặc 1 giờ bay',
+      transportOptions: [
+        '✈️ 越捷航空（VietJet）胡志明→大叻，票價從US$20起，1小時',
+        '🚌 臥鋪巴士（Phương Trang），夜班出發，清晨抵達，票價200,000~300,000 VND',
+        '🚗 自駕：沿DT723省道，沿途山景壯麗'
+      ],
+      highlights: [
+        '愛情谷（Thung Lũng Tình Yêu）— 湖畔花園，纜車俯視全景',
+        '瘋屋（Crazy House / Biệt thự Hằng Nga）— 奇特建築藝術，必打卡',
+        'Xuan Huong 春香湖晨霧漫步',
+        '達達達達（ Langbiang）山頂健行，海拔2169公尺',
+        '草莓園與花卉農場採摘體驗',
+        '大叻市夜市（Chợ Đà Lạt đêm）— 在地小吃天堂'
+      ],
+      specialFood: 'Bánh mì xíu mại、Sữa đậu nành nóng、Bơ đặc sản Đà Lạt（牛油果）、草莓乾、松子咖啡',
+      bestFor: '情侶旅遊，攝影創作，花卉愛好者，逃離悶熱海洋性氣候',
+      illustrationKey: 'da_lat_mountain_illustration'
+    }
+  ],
+
+  // ── 美食深度指南
+  foodGuide: {
+    mustEat: [
+      {
+        name: '碎米豬排飯（Cơm Tấm）',
+        nameVi: 'Cơm tấm sườn bì chả',
+        icon: '🍚',
+        description: '南越最具代表性的日常主食。細碎的斷米飯配上炭烤豬排（sườn nướng）、豬皮絲（bì）、煎蒸蛋（chả），淋上魚露（nước mắm）醬汁。胡志明市街頭隨處可見。',
+        descriptionVi: 'Món ăn đặc trưng nhất Nam Bộ: cơm tấm dẻo thơm ăn kèm sườn nướng than, bì lợn và chả trứng, chan nước mắm pha đặc trưng miền Nam.',
+        priceRange: '35,000 ~ 80,000 VND（≈NT$ 44~101）',
+        recommendation: '⭐ 三姊妹碎米飯（Cơm Tấm Ba Ghiền）- 第1郡 Hoàng Diệu街',
+        michelin: 'Michelin Bib Gourmand 2023 推薦'
+      },
+      {
+        name: '越南河粉（Phở Nam）',
+        nameVi: 'Phở bò Nam Bộ',
+        icon: '🍜',
+        description: '南越版本的河粉以湯底更清甜、加入豆芽與羅勒葉為特色，完全不同於北越濃重的八角肉桂湯底。湯汁清鮮，搭配生牛肉（tái）或燉熟牛腩（chín）均可。',
+        descriptionVi: 'Phở miền Nam có nước dùng thanh ngọt hơn phở Bắc, ăn kèm giá đỗ, rau húng, tương hoisin và tương Sriracha.',
+        priceRange: '50,000 ~ 120,000 VND（≈NT$ 63~152）',
+        recommendation: '⭐ 阿黎（Phở Lệ）- 第5郡 Nguyễn Trãi街，在地人口耳相傳50年老店',
+        michelin: 'Michelin Guide Vietnam 2024 掛牌店'
+      },
+      {
+        name: '越式法棍三明治（Bánh Mì）',
+        nameVi: 'Bánh mì pate thịt nguội',
+        icon: '🥖',
+        description: '越南法式麵包融入在地食材的代表性街頭小吃。酥脆法棍麵包填入豬肉火腿、豬肝醬、黃瓜、香菜、酸蘿蔔絲，配上越南辣椒，是最完美的晨間早餐。',
+        descriptionVi: 'Ổ bánh mì giòn vỏ Pháp nhồi đầy chả, pate, bơ, dưa leo, rau mùi, đồ chua và ớt tươi - di sản ẩm thực đường phố được cả thế giới công nhận.',
+        priceRange: '25,000 ~ 50,000 VND（≈NT$ 32~63）',
+        recommendation: '⭐ 黃花（Bánh Mì Huỳnh Hoa）- 第3郡 Lê Thị Riêng街，每天大排長龍的越南最有名Bánh Mì店',
+        michelin: 'CNN Travel 全球最佳街頭小吃'
+      },
+      {
+        name: '越南冰咖啡（Cà Phê Sữa Đá）',
+        nameVi: 'Cà phê sữa đá Sài Gòn',
+        icon: '☕',
+        description: '越南滴漏咖啡（phin）與加糖煉乳的完美組合，加入大量冰塊。西貢咖啡豆以Robusta種為主，咖啡因含量極高，口感濃烈苦甜，是胡志明市最深入人心的文化符號。',
+        descriptionVi: 'Cà phê phin nhỏ giọt pha với sữa đặc có đường, đổ lên đá lạnh - hương vị đậm đà đặc trưng của Sài Gòn.',
+        priceRange: '25,000 ~ 50,000 VND（≈NT$ 32~63）',
+        recommendation: '⭐ Công Cà Phê、⭐ The Coffee House、⭐ Highlands Coffee（連鎖普及版）；或任何街邊quán cà phê老店',
+        michelin: '越南飲食文化必體驗'
+      },
+      {
+        name: '高台灣麵（Hủ Tiếu Nam Vang）',
+        nameVi: 'Hủ tiếu Nam Vang đặc sắc miền Nam',
+        icon: '🍝',
+        description: '源自柬埔寨金邊的南越米線料理。Q彈米線搭配豬骨熬製清湯、豬肉片、蝦仁、豬肝等多種配料，口感層次豐富，是南越特有的早午餐選擇。',
+        descriptionVi: 'Hủ tiếu Nam Vang có xuất xứ từ Phnom Penh, được người Hoa ở miền Nam Việt Nam biến tấu thành món đặc sắc với nước dùng từ xương heo ngọt thanh.',
+        priceRange: '50,000 ~ 100,000 VND（≈NT$ 63~126）',
+        recommendation: '⭐ 福記（Hủ Tiếu Cali）- 第5郡唐人街區',
+        michelin: '胡志明市道地南越早餐'
+      }
+    ],
+    restaurants: {
+      fine: [
+        { name: 'The Refinery', cuisine: '法式越南融合料理', price: 'USD 30~60/人', location: '第1郡', note: 'Michelin Bib Gourmand 2024，殖民舊建築餐廳，氛圍極佳' },
+        { name: 'Anan Saigon', cuisine: '創意現代越南料理', price: 'USD 40~80/人', location: '第1郡', note: 'Michelin 推薦，Chef Peter Cuong Franklin 作品，必訂位' },
+        { name: 'Quince Dining', cuisine: '歐式現代料理', price: 'USD 50~100/人', location: 'Thảo Điền，第2郡', note: '外籍人士首選，高端西餐酒吧' }
+      ],
+      mid: [
+        { name: 'Cơm Tấm Thuận Kiều', cuisine: '碎米豬排飯', price: 'VND 50,000~80,000/人', location: '第5郡', note: '在地人老字號，份量超大' },
+        { name: 'Nhà Hàng Ngon', cuisine: '越式料理大集合', price: 'VND 120,000~300,000/人', location: '第3郡', note: '旅客友善，菜單多樣，庭院用餐環境' },
+        { name: 'Phở 24', cuisine: '連鎖越南河粉', price: 'VND 80,000~150,000/人', location: '全市多點', note: '乾淨衛生，品質穩定，旅客友善' }
+      ]
+    }
+  },
+
+  // ── 住宿指南
+  accommodation: {
+    luxury: [
+      { name: 'Park Hyatt Saigon', stars: 5, location: '第1郡 Lam Sơn廣場', price: 'USD 200~500/晚', highlights: '殖民建築精品，Lam Sơn廣場面對正對，被《Condé Nast Traveler》選為越南最佳酒店' },
+      { name: 'The Reverie Saigon', stars: 5, location: '第1郡Times Square大廈', price: 'USD 250~600/晚', highlights: '越南最頂級義大利設計風格奢華酒店，頂樓游泳池眺望城市全景' },
+      { name: 'Sofitel Saigon Plaza', stars: 5, location: '第3郡', price: 'USD 150~350/晚', highlights: '法式奢華品牌，地理位置絕佳，設施完善' }
+    ],
+    midRange: [
+      { name: 'Liberty Central Saigon Riverside', stars: 4, location: '第1郡西貢河畔', price: 'USD 80~150/晚', highlights: '絕佳河景，設施現代，性價比極高' },
+      { name: 'Silverland Jolie Hotel & Spa', stars: 4, location: '第1郡', price: 'USD 60~120/晚', highlights: '本土精品連鎖，多間胡志明市地點可選' },
+      { name: 'A&Em Grand Hotel 19', stars: 3, location: '第1郡', price: 'USD 40~80/晚', highlights: '越南本土精品商旅，中心地帶，CP值高' }
+    ],
+    budget: [
+      { name: 'The Common Room Project', stars: null, location: '第1郡', price: 'USD 10~25/晚（床位）', highlights: '設計感背包客青旅，社交氛圍活躍，靠近Bùi Viện' },
+      { name: 'Lavender Boutique Hotel', stars: 3, location: '第3郡', price: 'USD 25~50/晚', highlights: '台灣旅客常選，中文服務，乾淨舒適' }
+    ]
+  },
+
+  // ── 交通指南
+  transportation: {
+    getting_around: [
+      {
+        mode: 'Grab（胡志明市計程車 App）',
+        modeVi: 'Grab - Ứng dụng gọi xe',
+        desc: '東南亞版Uber，胡志明市最方便的交通工具。可叫計程車（GrabCar）、機車（GrabBike）和三輪車（GrabTuk）。透明定價，無刁難外國人問題。',
+        descVi: 'Ứng dụng đặt xe phổ biến nhất Đông Nam Á, bao gồm GrabCar, GrabBike và GrabFood. Giá cố định, không mặc cả.',
+        priceRange: '計程車基本起跳約20,000 VND，市區跑5公里約100,000~150,000 VND',
+        tip: '📱 必裝App，刷信用卡付款或越南錢包結帳。機場至市中心約200,000~300,000 VND。'
+      },
+      {
+        mode: '胡志明市地鐵一號線（Metro Line 1）',
+        modeVi: 'Tuyến Metro số 1 TP.HCM',
+        desc: '2024年正式全線通車！從Bến Thành（第1郡中心）到 Suối Tiên（第9郡）全長19.7公里，是胡志明市首條地鐵線。對台灣旅客而言，可直達統一宮、濱城市場等景點附近。',
+        descVi: 'Tuyến Metro số 1 chính thức khai thác năm 2024, dài 19,7 km từ Bến Thành đến Suối Tiên. Vé lượt 15.000 - 20.000 VND.',
+        priceRange: '單程票 15,000~20,000 VND（≈NT$ 19~25）',
+        tip: '🚇 目前只有一條線，覆蓋範圍有限。未來多條路線規劃至2035年完成。'
+      },
+      {
+        mode: '公共巴士（Xe buýt）',
+        modeVi: 'Xe buýt công cộng TP.HCM',
+        desc: '胡志明市公車路網覆蓋面廣，票價超便宜（6,000~8,000 VND），但非常擁擠且不準時，建議觀光客搭乘Grab為主，公車適合長住在地人。',
+        descVi: 'Hệ thống xe buýt phủ khắp TP.HCM với vé rất rẻ 6.000-8.000 VND nhưng thường đông đúc và chậm giờ.',
+        priceRange: '票價 6,000~8,000 VND',
+        tip: '對初次訪客不建議，路線複雜且車廂擁擠。'
+      },
+      {
+        mode: '越南國內航班',
+        modeVi: 'Chuyến bay nội địa',
+        desc: '前往大叻、峴港、河內等遠途目的地，越捷（VietJet）、竹航（Bamboo）、越南航空（Vietnam Airlines）提供頻繁的內陸航班。',
+        descVi: 'Các hãng hàng không nội địa như VietJet, Bamboo Airways, Vietnam Airlines khai thác nhiều chuyến bay từ Tân Sơn Nhất.',
+        priceRange: '大叻：US$15~50，河內：US$25~80（依時段和提前購票日數）',
+        tip: '✈️ 越捷Vietjet航空促銷票便宜但行李費高，行李超過15公斤必須加購。'
+      }
+    ],
+    airport: {
+      name: '新山一國際機場（Sân bay Tân Sơn Nhất）',
+      nameVi: 'Sân bay Quốc tế Tân Sơn Nhất (SGN)',
+      code: 'IATA: SGN',
+      distanceToCenter: '距市中心約7公里',
+      taxiToCenter: 'Grab叫車：約200,000~300,000 VND（≈NT$ 252~379）',
+      metroBusOption: '機場快線巴士49B：35,000 VND，到濱城市場（Bến Thành），但行李多不建議',
+      newAirport: '📣 2026年隆城國際機場（Sân bay Long Thành）二期工程動工，預計2030年部分啟用',
+      note: '新山一機場目前嚴重超載（年旅客超過4,000萬），請提前3小時抵達機場，旺季更需留意延誤風險。'
+    }
+  },
+
+  // ── 購物與市集
+  shopping: {
+    markets: [
+      { name: '濱城夜市（Chợ Đêm Bến Thành）', desc: '傍晚18:00開市，攤商沿著濱城市場外圍擺出，主打紀念品、衣物、小吃，比白天市場更熱鬧輕鬆', bestBuy: '紀念品T恤（50,000~100,000VND）、腰果（Hạt điều）、越南咖啡豆' },
+      { name: 'An Dong市場（Chợ An Đông）', desc: '第5郡唐人街區最大批發零售市場，布料、成衣、配件為主，台商採購常駐地', bestBuy: '布料、成衣批發，價格最便宜' },
+      { name: 'Saigon Centre / Vincom Center', desc: '第1郡現代商場，國際品牌雲集，是躲避午後大雨的好去處', bestBuy: '越南本土品牌（Elise、Canifa）、電子產品' }
+    ],
+    souvenirs: [
+      '越南咖啡豆（Café Trung Nguyên / G7 咖啡包裝禮盒）',
+      '漆器藝品（Sơn mài）和螺鈿工藝品',
+      '越南絲巾與奧黛（Áo dài）布料',
+      '腰果（Hạt điều）與芒果乾（Xoài sấy）等乾果禮盒',
+      '丁克（Đình Kế）香草鹽和胡椒禮盒（特產自Phú Quốc富國島）',
+      'SJC 越南黃金幣（限量版紀念品）'
+    ]
+  },
+
+  // ── 安全須知
+  safety: {
+    generalSafety: '胡志明市治安總體良好，針對旅客的暴力事件較少，但需注意：',
+    tips: [
+      '⚠️ 機車搶包（Cướp giật）是最主要威脅：不要在路邊使用手機，包包勿掛在朝向馬路的單肩，建議使用貼身腰包',
+      '💰 換匯建議在銀行或認可珠寶金行（tiệm vàng）進行，機場匯率差，避免非法街頭換匯',
+      '🦠 食物衛生：選擇看起來衛生、人多的攤位。街邊小吃冰塊用的是裝袋工廠冰，比餐廳零碎冰安全',
+      '☀️ 防曬防中暑：胡志明市全年均溫30~35°C，外出必備防曬品、遮陽帽與補水飲料',
+      '🏨 住宿建議選有接送服務的酒店，深夜返回酒店使用Grab比隨機搭計程車更安全',
+      '📱 必備App：Grab（交通）、Google Maps（導航）、Google Translate（越南文翻譯）'
+    ],
+    emergencyNumbers: [
+      '警察 (Cảnh sát): 113',
+      '救護車 (Cấp cứu): 115',
+      '消防 (Cứu hoả): 114',
+      '台灣人急難協助熱線（駐胡志明市台北辦事處）: +84-28-3825-2230'
+    ]
+  }
+};
+
 // ── 8. 越南總體政經必備漢越詞彙對照庫 (Bilingual Lexicon) ──
 export const macroVocabularyGlossary = [
   { viet: 'Tỷ giá hối đoái', hanViet: '比價匯兌', meaning: '匯率、外匯兌換率', sample: 'Tỷ giá hối đoái USD/VND đang dao động ổn định quanh mức 25,480.' },

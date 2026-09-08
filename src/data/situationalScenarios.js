@@ -7,7 +7,7 @@
 export const scenarioCategories = [
   {
     "id": "all",
-    "labelZh": "全部情境 (43個)",
+    "labelZh": "全部情境 (44個)",
     "labelEn": "All Scenarios (43)"
   },
   {
@@ -19,6 +19,11 @@ export const scenarioCategories = [
     "id": "dining",
     "labelZh": "🍜 餐飲美食 (6個)",
     "labelEn": "🍜 Food & Dining (6)"
+  },
+  {
+    "id": "daily",
+    "labelZh": "💇 生活服務 (4個)",
+    "labelEn": "💇 Daily Life & Services (4)"
   },
   {
     "id": "travel",
@@ -6140,6 +6145,937 @@ export const situationalScenarios = [
       ],
       "proTipZh": "✨ 避坑：掏耳朵過程若感到酸脹或緊張，可隨時說「Nhẹ thôi」(輕一點)，技師會立刻放輕動作！",
       "proTipEn": "✨ Pro Tip: If ear cleaning feels ticklish or too intense, say \"Nhẹ thôi\" (gently) anytime!"
+    }
+  },
+  {
+    "id": "haircut",
+    "category": "daily",
+    "tagZh": "生活服務",
+    "tagEn": "Barber & Haircut",
+    "icon": "✂️",
+    "image": "barbershop.jpg",
+    "titleZh": "男士理髮沙龍 (30Shine 剪髮、洗臉修鬍與造型全體驗)",
+    "titleEn": "Men's Barber & Grooming (30Shine Haircut, Facial, Wash & Style)",
+    "titleVi": "Cắt Tóc Nam & Chăm Sóc Tại Salon 30Shine",
+    "summaryZh": "深入走訪越南最大現代男士連鎖理髮沙龍 30Shine！掌握經典 10 步驟「Shine Combo」套餐預約、與理髮師溝通髮型長度細節（推兩側、打薄頂部、修鬍輪廓）、躺式洗臉洗頭力道水溫反饋，以及吹整抓蠟與結帳付款的全方位實用對話。",
+    "summaryEn": "Experience Vietnam's premier barbershop chain 30Shine! Master high-frequency phrases for check-in, selecting the iconic 10-step Shine Combo, haircut consultation, facial wash, acupressure shampoo, beard trimming, styling with wax, and checkout.",
+    "realMenu": {
+      "brand": "30Shine - Chuỗi Cắt Tóc Nam Hàng Đầu Việt Nam ✂️",
+      "descriptionZh": "30Shine 是越南規模最大的現代男士理髮沙龍連鎖品牌，首創標準化 10 步驟「Shine Combo」，兼具剪髮、臉部深層清潔、躺式越式洗頭、肩頸按摩與吹整造型，並提供採耳與染燙服務。外國人透過手機 App 預約或現場候位均可。",
+      "descriptionEn": "Vietnam's premier men's barbershop chain, famous for its signature 10-step Shine Combo combining haircut, facial care, herbal hair wash, neck massage, and professional styling.",
+      "sections": [
+        {
+          "titleZh": "🌟 經典招牌套餐 (Gói Combo Chăm Sóc & Cắt Tóc)",
+          "titleEn": "Signature Grooming Combos",
+          "items": [
+            {
+              "nameVi": "Shine Combo Tiêu Chuẩn (10 Bước)",
+              "nameZh": "標準 Shine Combo (經典 10 步驟)",
+              "nameEn": "Standard Shine Combo (10 Steps)",
+              "price": "100k - 120k VND",
+              "descZh": "30Shine 靈魂招牌！包含：洗臉、去角質、臉部按摩、養生洗頭、剪髮造型、刮鬍修面、吹乾並抹髮蠟定型，超高性價比。",
+              "descEn": "Signature 10-step service: facial wash, exfoliation, face massage, shampoo, haircut, shaving, blow-dry & styling."
+            },
+            {
+              "nameVi": "Super Shine Combo (VIP Chuyên Sâu)",
+              "nameZh": "尊榮 Super Shine Combo (VIP 深層護理)",
+              "nameEn": "Super Shine Combo (VIP Deep Care)",
+              "price": "180k - 220k VND",
+              "descZh": "升級版全套服務！含 10 步驟外，加碼冷敷補水面膜、頭皮深層去角質磨砂、肩頸精油深層穴位按摩。",
+              "descEn": "Upgraded package with soothing cold mask, scalp scrub exfoliation, and extended neck/shoulder acupressure massage."
+            },
+            {
+              "nameVi": "Combo Thư Giãn (Không Cắt Tóc)",
+              "nameZh": "舒壓放鬆套餐 (純洗臉按摩採耳·不剪髮)",
+              "nameEn": "Relaxation Combo (No Haircut)",
+              "price": "120k - 150k VND",
+              "descZh": "專門給暫時不需要剪短的顧客：洗臉、去黑頭、養生洗頭、肩頸按摩與皇家採耳 (Lấy ráy tai)，徹底釋放旅途疲勞。",
+              "descEn": "For relaxation without haircut: facial cleansing, shampoo, herbal wash, neck massage, and safe ear cleaning."
+            }
+          ]
+        },
+        {
+          "titleZh": "💈 染燙與質感染髮 (Dịch Vụ Uốn - Nhuộm & Phục Hồi)",
+          "titleEn": "Perms, Coloring & Treatments",
+          "items": [
+            {
+              "nameVi": "Uốn Texture Hàn Quốc / Định Hình",
+              "nameZh": "韓系紋理燙髮 / 弧度定位燙",
+              "nameEn": "Korean Texture Perm",
+              "price": "260k - 380k VND",
+              "descZh": "打造自然微捲波紋與線條感，吹乾即可呈現蓬鬆層次，非常適合亞洲人髮質。",
+              "descEn": "Creates effortless waves and texture, adding volume and style that is easy to manage daily."
+            },
+            {
+              "nameVi": "Uốn Phồng Chân Tóc",
+              "nameZh": "髮根蓬鬆燙",
+              "nameEn": "Root Perm / Volumizing Perm",
+              "price": "200k - 280k VND",
+              "descZh": "針對頭頂扁塌細軟髮質，支撐髮根立體度，視覺增加髮量。",
+              "descEn": "Lifts roots for flat or fine hair, providing natural lift and fuller appearance."
+            },
+            {
+              "nameVi": "Nhuộm Màu Thời Trang",
+              "nameZh": "時尚流行染髮 (棕茶/亞麻/灰調)",
+              "nameEn": "Fashion Color Hair Dye",
+              "price": "220k - 360k VND",
+              "descZh": "多款潮流男士髮色，採用植物溫和染膏，顯白且質感出眾。",
+              "descEn": "Trendy masculine shades (chestnut, ash brown, cool tone) with gentle conditioning dyes."
+            },
+            {
+              "nameVi": "Nhuộm Phủ Bạc Tự Nhiên",
+              "nameZh": "天然植物黑茶色遮白染髮",
+              "nameEn": "Grey Hair Coverage",
+              "price": "180k - 250k VND",
+              "descZh": "快速覆蓋白髮，色澤自然溫潤，不傷頭皮毛囊。",
+              "descEn": "Natural subtle coverage for grey hair with mild conditioning formula."
+            },
+            {
+              "nameVi": "Tẩy Tóc Thời Trang (1 Lần)",
+              "nameZh": "專業褪色漂髮 (單次)",
+              "nameEn": "Hair Bleaching (Per Session)",
+              "price": "150k - 200k VND",
+              "descZh": "為特殊淺色（如白金、淺灰、奶茶色）打底褪色處理。",
+              "descEn": "Even lightening preparation for pastel and bright fashion tones."
+            }
+          ]
+        },
+        {
+          "titleZh": "💆 深度護理與採耳 (Dịch Vụ Chăm Sóc & Ráy Tai)",
+          "titleEn": "Add-on Grooming & Ear Cleaning",
+          "items": [
+            {
+              "nameVi": "Lấy Ráy Tai Hoàng Gia (Khử Trùng)",
+              "nameZh": "皇家安全採耳 (掏耳朵)",
+              "nameEn": "Royal Hygienic Ear Cleaning",
+              "price": "50k - 70k VND",
+              "descZh": "越南理髮店招牌靈魂體驗！使用經高溫紫外線消毒的專用探針與羽毛撫耳，手法輕柔酥麻極致放鬆。",
+              "descEn": "Iconic Vietnamese barbershop experience! Gentle ear cleaning using sterilized tools and feather soothing."
+            },
+            {
+              "nameVi": "Cạo Râu & Cạo Mặt Chuyên Nghiệp",
+              "nameZh": "專業剃鬚修面 (熱敷軟化)",
+              "nameEn": "Hot Towel Shave & Facial Grooming",
+              "price": "30k - 50k VND",
+              "descZh": "敷上溫熱毛巾軟化鬍根，搭配綿密剃鬚泡沫與全新刀片修整鬍渣及鬢角髮際線。",
+              "descEn": "Classic hot towel prep, rich lather, and fresh razor edge cleanup for beard and hairline."
+            },
+            {
+              "nameVi": "Đắp Mặt Nạ Dưỡng Da Collagen",
+              "nameZh": "膠原蛋白補水冷敷面膜",
+              "nameEn": "Hydrating Collagen Face Mask",
+              "price": "40k - 60k VND",
+              "descZh": "洗頭躺臥期間敷上冰涼水感面膜，收斂去角質後的毛孔，深層補水亮膚。",
+              "descEn": "Cooling sheet mask applied during hair wash to tighten pores and hydrate skin."
+            },
+            {
+              "nameVi": "Tẩy Tế Bào Chết Da Đầu (Scrub Da Đầu)",
+              "nameZh": "頭皮去角質海鹽磨砂護理",
+              "nameEn": "Scalp Exfoliation Scrub",
+              "price": "50k - 70k VND",
+              "descZh": "清除堆積老廢油脂角質與頭皮屑，改善出油扁塌，帶來極致清涼舒爽感受。",
+              "descEn": "Deep scalp exfoliation removing excess sebum and product build-up for long-lasting freshness."
+            }
+          ]
+        }
+      ],
+      "orderingTipsZh": [
+        "Cho mình gói Shine Combo tiêu chuẩn nhé. (請給我標準 Shine Combo 套餐。)",
+        "Mình có đặt lịch trước trên app 30Shine lúc 3 giờ rồi. (我有在 30Shine App 預約下午 3 點了。)",
+        "Hai bên cắt ngắn gọn gàng / fade sát, phần trên đỉnh tỉa bớt và tỉa mỏng thôi. (兩側修剪俐落短一點/漸層推平，頂部稍微修剪打薄就好。)",
+        "Đừng cắt ngắn quá nhé, giữ độ dài để mình vuốt sáp. (請不要剪太短喔，保留長度讓我抓髮蠟。)",
+        "Tỉa mỏng tóc giúp mình một chút, tóc mình hơi dày. (幫我把頭髮打薄一點，我的頭髮偏厚。)",
+        "Nước ấm vừa rồi, lúc gội gãi nhẹ tay bằng đầu ngón tay thôi nhé. (水溫剛剛好，洗頭時用指腹輕輕按抓就好，不要用指甲。)",
+        "Thêm dịch vụ lấy ráy tai và cạo râu giúp mình nhé. (麻煩幫我加採耳和刮鬍子服務。)",
+        "Nhờ em sấy khô rồi vuốt một chút sáp tự nhiên giúp anh nhé. (麻煩幫我吹乾，然後抓一點自然質感的髮蠟。)"
+      ],
+      "orderingTipsEn": [
+        "I would like the standard Shine Combo package, please.",
+        "I made an appointment on the 30Shine app for 3:00 PM.",
+        "Cut the sides short / faded, and just trim and thin out the top.",
+        "Please don't cut it too short; keep enough length for styling with wax.",
+        "Please thin out my hair a bit, it is quite thick.",
+        "The water temperature is good; please massage gently with fingertips, no fingernails.",
+        "Please add ear cleaning and beard shaving to my service.",
+        "Please blow-dry and style it with a bit of natural matte wax."
+      ]
+    },
+    "dialogues": [
+      {
+        "speaker": "Nhân viên lễ tân (櫃檯接待)",
+        "role": "npc",
+        "viet": "Dạ em chào anh ạ! Anh đã đặt lịch cắt tóc trên app 30Shine trước chưa ạ?",
+        "zh": "您好哥！請問您有在 30Shine App 上提前預約剪髮嗎？",
+        "en": "Hello sir! Have you booked an appointment on the 30Shine app in advance?",
+        "northTip": "北越服務業問候常加「ạ」表示敬意，稱呼男顧客為「anh」。",
+        "southTip": "在南越櫃檯也會親切問「Anh có book lịch trước chưa anh?」"
+      },
+      {
+        "speaker": "Du khách (外國顧客)",
+        "role": "learner",
+        "viet": "Chào em, anh chưa đặt lịch trước, bây giờ còn chỗ không em? Anh muốn làm gói Shine Combo.",
+        "zh": "你好，我還沒提前預約，現在還有位子嗎？我想做 Shine Combo 套餐。",
+        "en": "Hello, I haven't booked in advance. Is there a seat available now? I want the Shine Combo.",
+        "northTip": "「Đặt lịch trước」是提前預約；「Còn chỗ không」代表還有位子嗎。",
+        "southTip": "南越常說「Còn ghế trống không?」(還有空理髮椅嗎？)。"
+      },
+      {
+        "speaker": "Nhân viên lễ tân (櫃檯接待)",
+        "role": "npc",
+        "viet": "Dạ hiện tại còn ghế ạ! Gói Shine Combo tiêu chuẩn bên em giá 120.000 VNĐ gồm đủ 10 bước chăm sóc. Anh có muốn thêm dịch vụ lấy ráy tai không ạ?",
+        "zh": "目前還有位子！我們標準的 Shine Combo 套餐是 120.000 越盾，包含完整的 10 個護理步驟。您想加做採耳服務嗎？",
+        "en": "Yes, we have an open chair right now! Our standard Shine Combo is 120,000 VND with 10 grooming steps. Would you like to add ear cleaning?",
+        "northTip": "Shine Combo 包含洗臉、去角質、按摩、剪髮、刮鬍、洗頭與造型。",
+        "southTip": "「Lấy ráy tai」是採耳（掏耳朵），越南男士理髮店不可錯過的招牌特色。"
+      },
+      {
+        "speaker": "Du khách (外國顧客)",
+        "role": "learner",
+        "viet": "Có chứ, thêm lấy ráy tai giúp anh nhé. Tổng cộng hết bao nhiêu tiền em?",
+        "zh": "好啊，幫我加採耳。總共多少錢？",
+        "en": "Sure, please add ear cleaning for me. How much is that in total?",
+        "northTip": "「Có chứ」是非常自然肯定的回答「當然要/好啊」。",
+        "southTip": "「Hết bao nhiêu tiền」是詢問總金額最通用的生活句型。"
+      },
+      {
+        "speaker": "Nhân viên lễ tân (櫃檯接待)",
+        "role": "npc",
+        "viet": "Dạ thêm lấy ráy tai là 50.000 VNĐ, tổng cộng của anh là 170.000 VNĐ ạ. Mời anh vào ghế số 3, stylist đang đợi anh ạ!",
+        "zh": "加採耳是 50.000 越盾，總共是 170.000 越盾。請到 3 號椅入座，設計師正在等您囉！",
+        "en": "Ear cleaning is 50,000 VND, making it 170,000 VND in total. Please take seat number 3, your stylist is waiting for you!",
+        "northTip": "越南連鎖沙龍習慣稱主剪理髮師為「Stylist」。",
+        "southTip": "「Mời anh vào...」是服務人員引導顧客時的必備用語。"
+      },
+      {
+        "speaker": "Stylist (理髮師)",
+        "role": "npc",
+        "viet": "Em chào anh! Hôm nay anh muốn cắt tóc theo kiểu nào ạ? Anh có ảnh mẫu trên điện thoại không?",
+        "zh": "哥您好！今天想剪什麼樣的髮型呢？您手機裡有參考照片嗎？",
+        "en": "Hello sir! What hairstyle would you like today? Do you have a reference photo on your phone?",
+        "northTip": "「Ảnh mẫu」是指髮型範本照片，外國人直接出示照片最精準無誤。",
+        "southTip": "南越理髮師常會熱情招呼「Anh muốn hớt kiểu nào nè?」"
+      },
+      {
+        "speaker": "Du khách (外國顧客)",
+        "role": "learner",
+        "viet": "Anh muốn cắt kiểu Undercut gọn gàng. Hai bên và sau gáy cắt ngắn sát, còn phần đỉnh chỉ tỉa bớt và tỉa mỏng thôi, đừng cắt ngắn quá nhé.",
+        "zh": "我想剪乾淨俐落的 Undercut。兩側和後頸剪短推平，頭頂部分稍微修剪並打薄就好，不要剪太短喔。",
+        "en": "I'd like a neat Undercut. Cut the sides and back short, and just trim and thin out the top slightly—please don't cut it too short.",
+        "northTip": "「Hai bên」是兩側；「Sau gáy」是後頸；「Tỉa mỏng」是打薄；「Đừng ngắn quá」是別太短。",
+        "southTip": "南越常用的口語是「Đẩy tông-đơ hai bên cao lên chút」(兩側推剪高一點)。"
+      },
+      {
+        "speaker": "Stylist (理髮師)",
+        "role": "npc",
+        "viet": "Dạ em hiểu rồi! Em sẽ cạo fade hai bên cho sắc nét, phần mái giữ dài để anh vuốt sáp nhé. Anh có muốn cạo râu và cạo viền tóc luôn không ạ?",
+        "zh": "好的我明白了！我會把兩側推漸層修出線條感，瀏海保留長度以便您抓髮蠟。您需要順便刮鬍子和修髮際線輪廓嗎？",
+        "en": "Understood! I'll fade the sides cleanly and keep the fringe long so you can style it with wax. Would you like a beard shave and hairline edging too?",
+        "northTip": "「Cạo viền」是剃出清爽乾淨的髮線邊界；「Fade」是漸層推剪。",
+        "southTip": "越式理髮的一大享受就是包含專業刮鬍修容服務。"
+      },
+      {
+        "speaker": "Du khách (外國顧客)",
+        "role": "learner",
+        "viet": "Cạo râu và cạo viền giúp anh luôn nhé. Cảm ơn em!",
+        "zh": "順便幫我刮鬍子和修邊緣。謝謝你！",
+        "en": "Yes, please shave my beard and clean up the edges as well. Thank you!",
+        "northTip": "句尾加上「Luôn」(順便/一併) 非常道地生動。",
+        "southTip": "「Cạo râu」是刮鬍鬚，鬍根粗硬時理髮師會先塗保濕軟化泡。"
+      },
+      {
+        "speaker": "Kỹ thuật viên (洗頭按摩師)",
+        "role": "npc",
+        "viet": "Em mời anh sang giường nằm gội đầu ạ. Em rửa mặt và tẩy da chết trước nhé. Nước ấm thế này đã vừa chưa anh?",
+        "zh": "請您移步到洗頭床平躺。我先為您洗臉和去角質。請問溫水這樣溫度剛好嗎？",
+        "en": "Please head over to the shampoo bed. I'll start with face wash and exfoliation. Is the warm water temperature comfortable?",
+        "northTip": "30Shine 的洗頭床為全平躺人體工學床，包含臉部深層清潔。",
+        "southTip": "反饋水溫：溫和剛好說「Ấm vừa rồi」、太燙說「Hơi nóng」、太冷說「Hơi lạnh」。"
+      },
+      {
+        "speaker": "Du khách (外國顧客)",
+        "role": "learner",
+        "viet": "Nước ấm vừa rồi em. Lực mát-xa rất dễ chịu, nhưng lúc gội đầu đừng dùng móng tay cào mạnh nhé, mát-xa bằng đầu ngón tay thôi.",
+        "zh": "水溫剛剛好。按摩力道很舒服，不過洗頭時請不要用指甲用力抓，用指腹按摩就好。",
+        "en": "The water is just right. The massage feels great, but please don't scratch with fingernails while washing—just use your fingertips.",
+        "northTip": "「Móng tay」是指甲；「Đầu ngón tay」是指腹；「Dễ chịu」是舒服自在。",
+        "southTip": "若覺得力道太重，只要說「Nhẹ tay thôi」(輕一點手勁) 對方馬上明白。"
+      },
+      {
+        "speaker": "Kỹ thuật viên (洗頭按摩師)",
+        "role": "npc",
+        "viet": "Dạ anh yên tâm, em sẽ gội thật nhẹ nhàng. Bây giờ em bắt đầu lấy ráy tai bằng bộ dụng cụ khử trùng mới nhé, anh thả lỏng người nha.",
+        "zh": "好的您放心，我會非常輕柔地洗。現在我使用全新消毒的器具為您採耳，請您全身放鬆喔。",
+        "en": "Rest assured, I'll wash very gently. Now I'll begin ear cleaning with a newly sanitized kit—just relax.",
+        "northTip": "正規品牌均使用紫外線或高溫烘乾消毒封裝工具，安全衛生。",
+        "southTip": "「Thả lỏng」是放鬆身體的意思。"
+      },
+      {
+        "speaker": "Stylist (理髮師)",
+        "role": "npc",
+        "viet": "Xong hết rồi anh ơi! Em sấy khô rồi, anh xem qua gương xem độ ngắn hai bên và phía sau gáy đã vừa ý chưa ạ?",
+        "zh": "全都完成囉哥！我已經吹乾了，您照鏡子看看兩側和後頸的長度滿意嗎？",
+        "en": "All finished, sir! I've dried your hair. Please take a look in the mirror—are the sides and back to your liking?",
+        "northTip": "理髮師會遞另一面小圓鏡或旋轉大鏡子讓你檢查後腦勺。",
+        "southTip": "「Vừa ý」或「Hài lòng」都是表示滿意。"
+      },
+      {
+        "speaker": "Du khách (外國顧客)",
+        "role": "learner",
+        "viet": "Rất ưng ý, đẹp lắm em! Em sấy phồng và vuốt một chút sáp tự nhiên giúp anh nhé, đừng xịt gôm cứng quá.",
+        "zh": "非常合意，剪得很棒！麻煩幫我吹蓬鬆並抓一點自然髮蠟，不要噴太硬的定型霧。",
+        "en": "I love it, looks great! Please blow-dry with some volume and apply a bit of natural wax—don't spray too much stiff hairspray.",
+        "northTip": "「Sáp vuốt tóc」是髮蠟；「Gôm xịt tóc」是定型霧；「Sấy phồng」是吹蓬鬆。",
+        "southTip": "南越常把抹髮蠟說成「Vuốt keo」或「Vuốt wax」。"
+      },
+      {
+        "speaker": "Stylist (理髮師)",
+        "role": "npc",
+        "viet": "Dạ xong rồi, nhìn phong độ và đẹp trai lắm anh! Em gửi anh hóa đơn tại quầy thu ngân phía trước nhé.",
+        "zh": "弄好囉，看起來非常體面帥氣！請您到前方收銀台結帳領取發票喔。",
+        "en": "All set, you look sharp and handsome! Here is your bill at the front cashier counter.",
+        "northTip": "「Đẹp trai lắm!」(超帥氣) 是理髮師最常送上的熱情讚美。",
+        "southTip": "「Quầy thu ngân」是收銀結帳櫃檯。"
+      },
+      {
+        "speaker": "Du khách (外國顧客)",
+        "role": "learner",
+        "viet": "Cảm ơn em nhiều! Ở đây có thanh toán bằng quẹt thẻ tín dụng hoặc quét mã QR MoMo được không em?",
+        "zh": "非常謝謝你！這裡可以刷信用卡付款或是掃 MoMo QR Code 嗎？",
+        "en": "Thank you very much! Can I pay by swiping a credit card or scanning a MoMo QR code here?",
+        "northTip": "「Quẹt thẻ」是刷卡；「Quét mã QR」是掃 QR 碼。",
+        "southTip": "越南無現金支付極度發達，電子錢包與銀行轉帳無所不在。"
+      },
+      {
+        "speaker": "Thu ngân (收銀員)",
+        "role": "npc",
+        "viet": "Dạ có ạ, anh có thể quẹt thẻ Visa hoặc quét mã VietQR đều được ạ. Chúc anh có một ngày thật tuyệt vời!",
+        "zh": "有的，您刷 Visa 卡或是掃 VietQR 都可以。祝您有美好愉快的一天！",
+        "en": "Yes, you can swipe a Visa card or scan VietQR. Have a wonderful day!",
+        "northTip": "VietQR 支援所有越南當地銀行 App，外國遊客則常使用 Visa/Mastercard。",
+        "southTip": "30Shine 發票皆為電子發票 (Hóa đơn điện tử)，系統也會自動累計會員點數。"
+      }
+    ],
+    "rolePlay": {
+      "userRoleZh": "顧客 (Khách hàng)",
+      "userRoleEn": "Customer (Khách hàng)",
+      "partnerRoleZh": "理髮店人員 (Stylist & Lễ tân 30Shine)",
+      "partnerRoleEn": "30Shine Stylist & Staff",
+      "steps": [
+        {
+          "stepIndex": 1,
+          "partnerPromptVi": "Dạ em chào anh! Hôm nay anh muốn sử dụng gói dịch vụ nào của 30Shine ạ?",
+          "partnerPromptZh": "您好哥！今天想做 30Shine 的哪種服務套餐呢？",
+          "partnerPromptEn": "Hello sir! Which service package would you like to get today at 30Shine?",
+          "userOptions": [
+            {
+              "id": "hc1_opt1",
+              "textVi": "Cho anh gói Shine Combo tiêu chuẩn và thêm lấy ráy tai nhé.",
+              "textZh": "給我標準 Shine Combo 套餐，並加做採耳服務。",
+              "textEn": "Give me the standard Shine Combo package and add ear cleaning, please.",
+              "isCorrect": true,
+              "feedbackZh": "完全正確！既選擇了招牌 10 步驟理髮套餐，又清楚追加了越南特色的採耳加購。",
+              "feedbackEn": "Perfect! You clearly ordered the signature combo and added the iconic ear cleaning service."
+            },
+            {
+              "id": "hc1_opt2",
+              "textVi": "Tôi chỉ muốn mua một chai dầu gội đầu thôi.",
+              "textZh": "我只想買一瓶洗髮乳而已。",
+              "textEn": "I just want to buy a bottle of shampoo.",
+              "isCorrect": false,
+              "feedbackZh": "雖然店裡有販售髮品，但今天我們是來體驗沙龍理髮服務的喔！",
+              "feedbackEn": "While products are sold, today's goal is experiencing salon grooming services."
+            },
+            {
+              "id": "hc1_opt3",
+              "textVi": "Bao nhiêu tiền một bát phở bò tái?",
+              "textZh": "一碗生牛肉河粉多少錢？",
+              "textEn": "How much is a bowl of rare beef pho?",
+              "isCorrect": false,
+              "feedbackZh": "哈哈，這裡不是小吃店，是男士理髮沙龍喔！",
+              "feedbackEn": "Haha, this is a barbershop, not a noodle stall!"
+            }
+          ]
+        },
+        {
+          "stepIndex": 2,
+          "partnerPromptVi": "Dạ anh muốn cắt tóc theo kiểu như thế nào ạ? Có cần cắt ngắn nhiều không?",
+          "partnerPromptZh": "哥想剪怎樣的髮型呢？需要剪得很短嗎？",
+          "partnerPromptEn": "What hairstyle would you like? Do you want it cut very short?",
+          "userOptions": [
+            {
+              "id": "hc2_opt1",
+              "textVi": "Hai bên cắt ngắn gọn gàng, phần đỉnh tỉa mỏng và giữ độ dài, đừng cắt ngắn quá nhé.",
+              "textZh": "兩邊剪短修整齊，頂部打薄並保留長度，不要剪太短喔。",
+              "textEn": "Cut the sides short and neat, thin out the top and keep some length—don't cut it too short.",
+              "isCorrect": true,
+              "feedbackZh": "滿分！精準表達了兩側修短（Hai bên ngắn）、頂部打薄（Đỉnh tỉa mỏng）以及別太短（Đừng ngắn quá）三大關鍵需求。",
+              "feedbackEn": "Spot on! You accurately communicated short sides, thinned-out top, and avoiding cutting too short."
+            },
+            {
+              "id": "hc2_opt2",
+              "textVi": "Cạo trọc hết cả đầu cho tôi luôn đi.",
+              "textZh": "把整顆頭全部剃光光剃成光頭吧。",
+              "textEn": "Shave my whole head completely bald.",
+              "isCorrect": false,
+              "feedbackZh": "這是剃大光頭的意思，除非你想剃光，否則在理髮沙龍通常不會這麼說。",
+              "feedbackEn": "This means shaving completely bald, which isn't the standard styling request."
+            },
+            {
+              "id": "hc2_opt3",
+              "textVi": "Tôi muốn đặt một phòng khách sạn có ban công.",
+              "textZh": "我想預訂一間有陽台的飯店房間。",
+              "textEn": "I want to book a hotel room with a balcony.",
+              "isCorrect": false,
+              "feedbackZh": "文不對題，理髮師正在詢問您的剪髮偏好呢！",
+              "feedbackEn": "Irrelevant response—the stylist is asking about your haircut preferences."
+            }
+          ]
+        },
+        {
+          "stepIndex": 3,
+          "partnerPromptVi": "Nhiệt độ nước thế nào anh? Em mát-xa lực này anh thấy đã vừa chưa ạ?",
+          "partnerPromptZh": "水溫如何呢哥？我按摩的這個力道您覺得適中嗎？",
+          "partnerPromptEn": "How is the water temperature, sir? Does the massage pressure feel alright?",
+          "userOptions": [
+            {
+              "id": "hc3_opt1",
+              "textVi": "Nước ấm vừa rồi, mát-xa rất dễ chịu. Nhưng lúc gội nhẹ tay thôi, đừng dùng móng tay cào nhé.",
+              "textZh": "水溫剛好，按摩很舒服。不過洗頭時請輕一點，別用指甲用力抓喔。",
+              "textEn": "Water temperature is just right, and massage feels great. But please be gentle when shampooing and avoid scratching with nails.",
+              "isCorrect": true,
+              "feedbackZh": "太道地了！讚賞了水溫與力道，同時明確保護頭皮避免被指甲抓傷。",
+              "feedbackEn": "Authentic and polite! Confirmed comfort while clearly requesting fingertip washing."
+            },
+            {
+              "id": "hc3_opt2",
+              "textVi": "Nước nóng quá làm bỏng đầu tôi rồi!",
+              "textZh": "水太燙把我的頭給燙傷啦！",
+              "textEn": "The water is way too hot, it burned my head!",
+              "isCorrect": false,
+              "feedbackZh": "語氣太過驚恐誇張，若覺得燙只要禮貌說「Nước hơi nóng một chút, chỉnh lạnh hơn giúp anh」即可。",
+              "feedbackEn": "Too exaggerated. Politeness is key: simply ask for cooler water nicely."
+            },
+            {
+              "id": "hc3_opt3",
+              "textVi": "Hôm nay trời mưa to quá không đi đâu được.",
+              "textZh": "今天雨下好大哪裡都去不了。",
+              "textEn": "It is raining too heavily today to go anywhere.",
+              "isCorrect": false,
+              "feedbackZh": "這句是閒聊氣候，請先回應技師關於水溫與按摩力道的問題喔。",
+              "feedbackEn": "This is small talk about the weather; answer the question about water and massage pressure first."
+            }
+          ]
+        },
+        {
+          "stepIndex": 4,
+          "partnerPromptVi": "Em cắt xong rồi ạ! Anh có muốn vuốt sáp hay xịt gôm tạo kiểu không anh?",
+          "partnerPromptZh": "我剪好了哥！您想抓髮蠟或是噴定型霧造型嗎？",
+          "partnerPromptEn": "All done cutting! Would you like me to style it with hair wax or hairspray?",
+          "userOptions": [
+            {
+              "id": "hc4_opt1",
+              "textVi": "Nhờ em sấy khô rồi vuốt một chút sáp tạo kiểu tự nhiên giúp anh nhé.",
+              "textZh": "麻煩幫我吹乾，然後抓一點自然質感的髮蠟造型。",
+              "textEn": "Please blow-dry my hair and style it with a touch of natural-look wax.",
+              "isCorrect": true,
+              "feedbackZh": "非常標準！要求吹乾（Sấy khô）並抓一點自然髮蠟（Vuốt sáp tự nhiên），帥氣出門。",
+              "feedbackEn": "Spot on! Clear instructions for blow-drying and natural styling with wax."
+            },
+            {
+              "id": "hc4_opt2",
+              "textVi": "Cứ để đầu ướt sũng thế này đi về nhà.",
+              "textZh": "就頂著濕答答的頭髮直接走回家吧。",
+              "textEn": "Just let me walk home with soaking wet hair like this.",
+              "isCorrect": false,
+              "feedbackZh": "頭髮濕漉漉容易著涼，理髮店包含全套吹乾造型服務，建議請店家處理喔！",
+              "feedbackEn": "Leaving with wet hair is unadvisable—take advantage of their professional styling."
+            },
+            {
+              "id": "hc4_opt3",
+              "textVi": "Tôi muốn đổi vé máy bay sang ngày mai.",
+              "textZh": "我想把機票改簽到明天。",
+              "textEn": "I want to change my flight ticket to tomorrow.",
+              "isCorrect": false,
+              "feedbackZh": "走錯情境了，這裡不是航空公司櫃檯喔！",
+              "feedbackEn": "Wrong scenario—this isn't an airline ticket counter!"
+            }
+          ]
+        }
+      ]
+    },
+    "vocab": [
+      {
+        "viet": "Cắt tóc",
+        "vi": "Cắt tóc",
+        "phonetic": "[kat̚˦˧˥ tok̚˦˧˥]",
+        "ipa": "[kat̚˦˧˥ tok̚˦˧˥]",
+        "zh": "理髮 / 剪頭髮",
+        "en": "Haircut",
+        "hanViet": "Cắt (割/切) + Tóc (髮)"
+      },
+      {
+        "viet": "Tiệm cắt tóc",
+        "vi": "Tiệm cắt tóc",
+        "phonetic": "[tiəm˧˨ kat̚˦˧˥ tok̚˦˧˥]",
+        "ipa": "[tiəm˧˨ kat̚˦˧˥ tok̚˦˧˥]",
+        "zh": "理髮店 / 美髮沙龍",
+        "en": "Barbershop / Hair Salon",
+        "hanViet": "Tiệm (店) + Cắt tóc"
+      },
+      {
+        "viet": "Thợ cắt tóc",
+        "vi": "Thợ cắt tóc",
+        "phonetic": "[tʰo˧˨ kat̚˦˧˥ tok̚˦˧˥]",
+        "ipa": "[tʰo˧˨ kat̚˦˧˥ tok̚˦˧˥]",
+        "zh": "理髮師 / 美髮設計師 (Stylist)",
+        "en": "Barber / Hairstylist",
+        "hanViet": "Thợ (匠) + Cắt tóc"
+      },
+      {
+        "viet": "Kiểu tóc",
+        "vi": "Kiểu tóc",
+        "phonetic": "[kiəw˧˩ tok̚˦˧˥]",
+        "ipa": "[kiəw˧˩ tok̚˦˧˥]",
+        "zh": "髮型",
+        "en": "Hairstyle",
+        "hanViet": "Kiểu (規) + Tóc (髮)"
+      },
+      {
+        "viet": "Kiểu Undercut",
+        "vi": "Kiểu Undercut",
+        "phonetic": "[kiəw˧˩ ən-đơ-cắt]",
+        "ipa": "[kiəw˧˩ ʌndəkʌt]",
+        "zh": "Undercut 髮型 (兩側推短油頭)",
+        "en": "Undercut Hairstyle",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tóc layer",
+        "vi": "Tóc layer",
+        "phonetic": "[tok̚˦˧˥ ley-ơ]",
+        "ipa": "[tok̚˦˧˥ leɪə]",
+        "zh": "韓系層次剪 (碎蓋髮型)",
+        "en": "Layered Haircut",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đầu đinh",
+        "vi": "Đầu đinh",
+        "phonetic": "[ɗəw˨˩ ɗiɲ˧]",
+        "ipa": "[ɗəw˨˩ ɗiɲ˧]",
+        "zh": "平頭 / 寸頭 (南越稱 Cắt cua)",
+        "en": "Crew Cut / Buzz Cut",
+        "hanViet": "Đầu (頭) + Đinh (釘)"
+      },
+      {
+        "viet": "Hai bên",
+        "vi": "Hai bên",
+        "phonetic": "[haːj˧ ɓen˧]",
+        "ipa": "[haːj˧ ɓen˧]",
+        "zh": "兩側 / 鬢角旁兩邊",
+        "en": "Both Sides",
+        "hanViet": "Hai (二) + Bên (邊)"
+      },
+      {
+        "viet": "Sau gáy",
+        "vi": "Sau gáy",
+        "phonetic": "[saːw˧ ɣaj˦˧˥]",
+        "ipa": "[saːw˧ ɣaj˦˧˥]",
+        "zh": "後頸 / 後腦勺",
+        "en": "Back of Neck / Nape",
+        "hanViet": ""
+      },
+      {
+        "viet": "Phần đỉnh",
+        "vi": "Phần đỉnh",
+        "phonetic": "[fən˨˩ ɗiɲ˧˩]",
+        "ipa": "[fən˨˩ ɗiɲ˧˩]",
+        "zh": "頭頂部",
+        "en": "Top of Head",
+        "hanViet": "Phần (分) + Đỉnh (頂)"
+      },
+      {
+        "viet": "Tóc mái",
+        "vi": "Tóc mái",
+        "phonetic": "[tok̚˦˧˥ maːj˦˧˥]",
+        "ipa": "[tok̚˦˧˥ maːj˦˧˥]",
+        "zh": "瀏海",
+        "en": "Bangs / Fringe",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cắt ngắn",
+        "vi": "Cắt ngắn",
+        "phonetic": "[kat̚˦˧˥ ŋan˦˧˥]",
+        "ipa": "[kat̚˦˧˥ ŋan˦˧˥]",
+        "zh": "剪短",
+        "en": "Cut Short",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đừng ngắn quá",
+        "vi": "Đừng ngắn quá",
+        "phonetic": "[ɗɨŋ˨˩ ŋan˦˧˥ kwaː˦˧˥]",
+        "ipa": "[ɗɨŋ˨˩ ŋan˦˧˥ kwaː˦˧˥]",
+        "zh": "別剪太短",
+        "en": "Don't cut too short",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tỉa mỏng",
+        "vi": "Tỉa mỏng",
+        "phonetic": "[tiə˧˩ məwŋ˧˩]",
+        "ipa": "[tiə˧˩ məwŋ˧˩]",
+        "zh": "打薄 / 修薄",
+        "en": "Thin Out Hair",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cạo râu",
+        "vi": "Cạo râu",
+        "phonetic": "[kaːw˧˨ zəw˧]",
+        "ipa": "[kaːw˧˨ zəw˧]",
+        "zh": "刮鬍子",
+        "en": "Shave Beard",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cạo viền",
+        "vi": "Cạo viền",
+        "phonetic": "[kaːw˧˨ viən˨˩]",
+        "ipa": "[kaːw˧˨ viən˨˩]",
+        "zh": "修輪廓線 / 修髮際線",
+        "en": "Edge Up / Line Up Hairline",
+        "hanViet": "Cạo + Viền (緣)"
+      },
+      {
+        "viet": "Gội đầu dưỡng sinh",
+        "vi": "Gội đầu dưỡng sinh",
+        "phonetic": "[ɣoj˧˨ ɗəw˨˩ zɨəŋ˦˧˥ siɲ˧]",
+        "ipa": "[ɣoj˧˨ ɗəw˨˩ zɨəŋ˦˧˥ siɲ˧]",
+        "zh": "越式草本養生洗頭",
+        "en": "Herbal Hair Spa Shampoo",
+        "hanViet": "Dưỡng sinh (養生)"
+      },
+      {
+        "viet": "Rửa mặt",
+        "vi": "Rửa mặt",
+        "phonetic": "[zɨə˧˩ mat̚˧˨]",
+        "ipa": "[zɨə˧˩ mat̚˧˨]",
+        "zh": "洗臉 / 面部清潔",
+        "en": "Face Wash",
+        "hanViet": ""
+      },
+      {
+        "viet": "Lấy ráy tai",
+        "vi": "Lấy ráy tai",
+        "phonetic": "[laj˦˧˥ zaːj˦˧˥ taːj˧]",
+        "ipa": "[laj˦˧˥ zaːj˦˧˥ taːj˧]",
+        "zh": "採耳 / 掏耳朵",
+        "en": "Ear Cleaning",
+        "hanViet": ""
+      },
+      {
+        "viet": "Sấy tóc",
+        "vi": "Sấy tóc",
+        "phonetic": "[səj˦˧˥ tok̚˦˧˥]",
+        "ipa": "[səj˦˧˥ tok̚˦˧˥]",
+        "zh": "吹頭髮",
+        "en": "Blow Dry Hair",
+        "hanViet": ""
+      },
+      {
+        "viet": "Sáp vuốt tóc",
+        "vi": "Sáp vuốt tóc",
+        "phonetic": "[saːp̚˦˧˥ vwiət̚˦˧˥ tok̚˦˧˥]",
+        "ipa": "[saːp̚˦˧˥ vwiət̚˦˧˥ tok̚˦˧˥]",
+        "zh": "髮蠟 / 髮泥",
+        "en": "Hair Styling Wax / Pomade",
+        "hanViet": "Sáp (蠟)"
+      },
+      {
+        "viet": "Gôm xịt tóc",
+        "vi": "Gôm xịt tóc",
+        "phonetic": "[ɣom˧ sit̚˧˨ tok̚˦˧˥]",
+        "ipa": "[ɣom˧ sit̚˧˨ tok̚˦˧˥]",
+        "zh": "定型噴霧",
+        "en": "Hair Spray",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tông-đơ",
+        "vi": "Tông-đơ",
+        "phonetic": "[toŋ˧ ɗəː˧]",
+        "ipa": "[toŋ˧ ɗəː˧]",
+        "zh": "電剪 / 電動理髮器",
+        "en": "Hair Clippers",
+        "hanViet": "借自法文 tondeuse"
+      },
+      {
+        "viet": "Uốn tóc",
+        "vi": "Uốn tóc",
+        "phonetic": "[uən˦˧˥ tok̚˦˧˥]",
+        "ipa": "[uən˦˧˥ tok̚˦˧˥]",
+        "zh": "燙頭髮",
+        "en": "Hair Perm",
+        "hanViet": ""
+      },
+      {
+        "viet": "Nhuộm tóc",
+        "vi": "Nhuộm tóc",
+        "phonetic": "[ɲwəm˧˨ tok̚˦˧˥]",
+        "ipa": "[ɲwəm˧˨ tok̚˦˧˥]",
+        "zh": "染頭髮",
+        "en": "Hair Dye",
+        "hanViet": "Nhuộm (染)"
+      }
+    ],
+    "culturalTips": {
+      "titleZh": "💈 越南理髮文化指南：現代連鎖 30Shine vs 街頭路樹理髮",
+      "titleEn": "Barbershop Culture in Vietnam: Modern 30Shine vs Street Barbers",
+      "contentZh": "在越南剪頭髮是一項極富在地特色的文化體驗。傳統上，街頭路樹旁掛一面鏡子、一張塑膠椅的「街邊理髮 (Cắt tóc vỉa hè)」只需 30.000 - 50.000 越盾；而現代化連鎖如「30Shine」則徹底革新了男士理髮業。30Shine 推出標準化「Shine Combo 10 步驟」，包含深層洗臉、敷面膜、躺式草藥洗頭、肩頸按摩、專業剪髮、修鬍與吹整造型，全套約 100.000 - 120.000 越盾（約合台幣 130-160 元），CP 值極高，深受年輕人與外國旅客喜愛。",
+      "contentEn": "Haircuts in Vietnam offer rich cultural experiences ranging from classic sidewalk street barbers (Cắt tóc vỉa hè, ~30k-50k VND) to modern chain salons like 30Shine. 30Shine revolutionized the industry with its standardized 10-step Shine Combo combining facial care, herbal wash, neck massage, haircut, shave, and styling for around 100k-120k VND.",
+      "tipsZh": "在越南理髮店溝通的三大秘訣：\n1. 【照片最管用】：語言不通時，預先在手機存好想剪的正面與兩側角度照片，直接出示給設計師說「Cắt cho anh kiểu này nhé」(請幫我剪成這個款式)。\n2. 【兩邊推短、上面打薄】：男生最實用的句型是「Hai bên ngắn, đỉnh tỉa mỏng, đừng ngắn quá」(兩側短、上面打薄、別太短)。\n3. 【水溫與指腹洗頭】：洗頭時若指甲太刺，隨時說「Gãi nhẹ tay bằng đầu ngón tay thôi nhé」(請用指腹輕輕按就好)，對方會立刻改善。",
+      "tipsEn": "Top 3 tips for barbershops in Vietnam:\n1. Save reference photos on your phone and show the stylist.\n2. Key haircut formula: 'Hai bên ngắn, đỉnh tỉa mỏng, đừng ngắn quá' (Short sides, thin out top, don't cut too short).\n3. During wash, ask for gentle fingertips: 'Mát-xa bằng đầu ngón tay thôi nhé'.",
+      "proTipZh": "✨ 避坑指南：強烈推薦前往 30Shine 前先在手機下載「30Shine」官方 App 預約時段並挑選沙龍分店，能免去尖峰時段排隊等候。30Shine 標榜明碼標價、不強收小費；若覺得洗頭或剪髮師傅特別用心，一般給予 20.000 - 50.000 越盾的小費 (Tiền tip) 會讓他們備受鼓舞！",
+      "proTipEn": "✨ Pro Tip: Download the 30Shine app to book slots and avoid waiting. 30Shine enforces transparent fixed pricing without forced tips. If you're pleased with the service, a tip of 20,000 - 50,000 VND directly to the technician is deeply appreciated!"
+    },
+    "vocabulary": [
+      {
+        "viet": "Cắt tóc",
+        "vi": "Cắt tóc",
+        "phonetic": "[kat̚˦˧˥ tok̚˦˧˥]",
+        "ipa": "[kat̚˦˧˥ tok̚˦˧˥]",
+        "zh": "理髮 / 剪頭髮",
+        "en": "Haircut",
+        "hanViet": "Cắt (割/切) + Tóc (髮)"
+      },
+      {
+        "viet": "Tiệm cắt tóc",
+        "vi": "Tiệm cắt tóc",
+        "phonetic": "[tiəm˧˨ kat̚˦˧˥ tok̚˦˧˥]",
+        "ipa": "[tiəm˧˨ kat̚˦˧˥ tok̚˦˧˥]",
+        "zh": "理髮店 / 美髮沙龍",
+        "en": "Barbershop / Hair Salon",
+        "hanViet": "Tiệm (店) + Cắt tóc"
+      },
+      {
+        "viet": "Thợ cắt tóc",
+        "vi": "Thợ cắt tóc",
+        "phonetic": "[tʰo˧˨ kat̚˦˧˥ tok̚˦˧˥]",
+        "ipa": "[tʰo˧˨ kat̚˦˧˥ tok̚˦˧˥]",
+        "zh": "理髮師 / 美髮設計師 (Stylist)",
+        "en": "Barber / Hairstylist",
+        "hanViet": "Thợ (匠) + Cắt tóc"
+      },
+      {
+        "viet": "Kiểu tóc",
+        "vi": "Kiểu tóc",
+        "phonetic": "[kiəw˧˩ tok̚˦˧˥]",
+        "ipa": "[kiəw˧˩ tok̚˦˧˥]",
+        "zh": "髮型",
+        "en": "Hairstyle",
+        "hanViet": "Kiểu (規) + Tóc (髮)"
+      },
+      {
+        "viet": "Kiểu Undercut",
+        "vi": "Kiểu Undercut",
+        "phonetic": "[kiəw˧˩ ən-đơ-cắt]",
+        "ipa": "[kiəw˧˩ ʌndəkʌt]",
+        "zh": "Undercut 髮型 (兩側推短油頭)",
+        "en": "Undercut Hairstyle",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tóc layer",
+        "vi": "Tóc layer",
+        "phonetic": "[tok̚˦˧˥ ley-ơ]",
+        "ipa": "[tok̚˦˧˥ leɪə]",
+        "zh": "韓系層次剪 (碎蓋髮型)",
+        "en": "Layered Haircut",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đầu đinh",
+        "vi": "Đầu đinh",
+        "phonetic": "[ɗəw˨˩ ɗiɲ˧]",
+        "ipa": "[ɗəw˨˩ ɗiɲ˧]",
+        "zh": "平頭 / 寸頭 (南越稱 Cắt cua)",
+        "en": "Crew Cut / Buzz Cut",
+        "hanViet": "Đầu (頭) + Đinh (釘)"
+      },
+      {
+        "viet": "Hai bên",
+        "vi": "Hai bên",
+        "phonetic": "[haːj˧ ɓen˧]",
+        "ipa": "[haːj˧ ɓen˧]",
+        "zh": "兩側 / 鬢角旁兩邊",
+        "en": "Both Sides",
+        "hanViet": "Hai (二) + Bên (邊)"
+      },
+      {
+        "viet": "Sau gáy",
+        "vi": "Sau gáy",
+        "phonetic": "[saːw˧ ɣaj˦˧˥]",
+        "ipa": "[saːw˧ ɣaj˦˧˥]",
+        "zh": "後頸 / 後腦勺",
+        "en": "Back of Neck / Nape",
+        "hanViet": ""
+      },
+      {
+        "viet": "Phần đỉnh",
+        "vi": "Phần đỉnh",
+        "phonetic": "[fən˨˩ ɗiɲ˧˩]",
+        "ipa": "[fən˨˩ ɗiɲ˧˩]",
+        "zh": "頭頂部",
+        "en": "Top of Head",
+        "hanViet": "Phần (分) + Đỉnh (頂)"
+      },
+      {
+        "viet": "Tóc mái",
+        "vi": "Tóc mái",
+        "phonetic": "[tok̚˦˧˥ maːj˦˧˥]",
+        "ipa": "[tok̚˦˧˥ maːj˦˧˥]",
+        "zh": "瀏海",
+        "en": "Bangs / Fringe",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cắt ngắn",
+        "vi": "Cắt ngắn",
+        "phonetic": "[kat̚˦˧˥ ŋan˦˧˥]",
+        "ipa": "[kat̚˦˧˥ ŋan˦˧˥]",
+        "zh": "剪短",
+        "en": "Cut Short",
+        "hanViet": ""
+      },
+      {
+        "viet": "Đừng ngắn quá",
+        "vi": "Đừng ngắn quá",
+        "phonetic": "[ɗɨŋ˨˩ ŋan˦˧˥ kwaː˦˧˥]",
+        "ipa": "[ɗɨŋ˨˩ ŋan˦˧˥ kwaː˦˧˥]",
+        "zh": "別剪太短",
+        "en": "Don't cut too short",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tỉa mỏng",
+        "vi": "Tỉa mỏng",
+        "phonetic": "[tiə˧˩ məwŋ˧˩]",
+        "ipa": "[tiə˧˩ məwŋ˧˩]",
+        "zh": "打薄 / 修薄",
+        "en": "Thin Out Hair",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cạo râu",
+        "vi": "Cạo râu",
+        "phonetic": "[kaːw˧˨ zəw˧]",
+        "ipa": "[kaːw˧˨ zəw˧]",
+        "zh": "刮鬍子",
+        "en": "Shave Beard",
+        "hanViet": ""
+      },
+      {
+        "viet": "Cạo viền",
+        "vi": "Cạo viền",
+        "phonetic": "[kaːw˧˨ viən˨˩]",
+        "ipa": "[kaːw˧˨ viən˨˩]",
+        "zh": "修輪廓線 / 修髮際線",
+        "en": "Edge Up / Line Up Hairline",
+        "hanViet": "Cạo + Viền (緣)"
+      },
+      {
+        "viet": "Gội đầu dưỡng sinh",
+        "vi": "Gội đầu dưỡng sinh",
+        "phonetic": "[ɣoj˧˨ ɗəw˨˩ zɨəŋ˦˧˥ siɲ˧]",
+        "ipa": "[ɣoj˧˨ ɗəw˨˩ zɨəŋ˦˧˥ siɲ˧]",
+        "zh": "越式草本養生洗頭",
+        "en": "Herbal Hair Spa Shampoo",
+        "hanViet": "Dưỡng sinh (養生)"
+      },
+      {
+        "viet": "Rửa mặt",
+        "vi": "Rửa mặt",
+        "phonetic": "[zɨə˧˩ mat̚˧˨]",
+        "ipa": "[zɨə˧˩ mat̚˧˨]",
+        "zh": "洗臉 / 面部清潔",
+        "en": "Face Wash",
+        "hanViet": ""
+      },
+      {
+        "viet": "Lấy ráy tai",
+        "vi": "Lấy ráy tai",
+        "phonetic": "[laj˦˧˥ zaːj˦˧˥ taːj˧]",
+        "ipa": "[laj˦˧˥ zaːj˦˧˥ taːj˧]",
+        "zh": "採耳 / 掏耳朵",
+        "en": "Ear Cleaning",
+        "hanViet": ""
+      },
+      {
+        "viet": "Sấy tóc",
+        "vi": "Sấy tóc",
+        "phonetic": "[səj˦˧˥ tok̚˦˧˥]",
+        "ipa": "[səj˦˧˥ tok̚˦˧˥]",
+        "zh": "吹頭髮",
+        "en": "Blow Dry Hair",
+        "hanViet": ""
+      },
+      {
+        "viet": "Sáp vuốt tóc",
+        "vi": "Sáp vuốt tóc",
+        "phonetic": "[saːp̚˦˧˥ vwiət̚˦˧˥ tok̚˦˧˥]",
+        "ipa": "[saːp̚˦˧˥ vwiət̚˦˧˥ tok̚˦˧˥]",
+        "zh": "髮蠟 / 髮泥",
+        "en": "Hair Styling Wax / Pomade",
+        "hanViet": "Sáp (蠟)"
+      },
+      {
+        "viet": "Gôm xịt tóc",
+        "vi": "Gôm xịt tóc",
+        "phonetic": "[ɣom˧ sit̚˧˨ tok̚˦˧˥]",
+        "ipa": "[ɣom˧ sit̚˧˨ tok̚˦˧˥]",
+        "zh": "定型噴霧",
+        "en": "Hair Spray",
+        "hanViet": ""
+      },
+      {
+        "viet": "Tông-đơ",
+        "vi": "Tông-đơ",
+        "phonetic": "[toŋ˧ ɗəː˧]",
+        "ipa": "[toŋ˧ ɗəː˧]",
+        "zh": "電剪 / 電動理髮器",
+        "en": "Hair Clippers",
+        "hanViet": "借自法文 tondeuse"
+      },
+      {
+        "viet": "Uốn tóc",
+        "vi": "Uốn tóc",
+        "phonetic": "[uən˦˧˥ tok̚˦˧˥]",
+        "ipa": "[uən˦˧˥ tok̚˦˧˥]",
+        "zh": "燙頭髮",
+        "en": "Hair Perm",
+        "hanViet": ""
+      },
+      {
+        "viet": "Nhuộm tóc",
+        "vi": "Nhuộm tóc",
+        "phonetic": "[ɲwəm˧˨ tok̚˦˧˥]",
+        "ipa": "[ɲwəm˧˨ tok̚˦˧˥]",
+        "zh": "染頭髮",
+        "en": "Hair Dye",
+        "hanViet": "Nhuộm (染)"
+      }
+    ],
+    "culturalTip": {
+      "titleZh": "💈 越南理髮文化指南：現代連鎖 30Shine vs 街頭路樹理髮",
+      "titleEn": "Barbershop Culture in Vietnam: Modern 30Shine vs Street Barbers",
+      "contentZh": "在越南剪頭髮是一項極富在地特色的文化體驗。傳統上，街頭路樹旁掛一面鏡子、一張塑膠椅的「街邊理髮 (Cắt tóc vỉa hè)」只需 30.000 - 50.000 越盾；而現代化連鎖如「30Shine」則徹底革新了男士理髮業。30Shine 推出標準化「Shine Combo 10 步驟」，包含深層洗臉、敷面膜、躺式草藥洗頭、肩頸按摩、專業剪髮、修鬍與吹整造型，全套約 100.000 - 120.000 越盾（約合台幣 130-160 元），CP 值極高，深受年輕人與外國旅客喜愛。",
+      "contentEn": "Haircuts in Vietnam offer rich cultural experiences ranging from classic sidewalk street barbers (Cắt tóc vỉa hè, ~30k-50k VND) to modern chain salons like 30Shine. 30Shine revolutionized the industry with its standardized 10-step Shine Combo combining facial care, herbal wash, neck massage, haircut, shave, and styling for around 100k-120k VND.",
+      "tipsZh": "在越南理髮店溝通的三大秘訣：\n1. 【照片最管用】：語言不通時，預先在手機存好想剪的正面與兩側角度照片，直接出示給設計師說「Cắt cho anh kiểu này nhé」(請幫我剪成這個款式)。\n2. 【兩邊推短、上面打薄】：男生最實用的句型是「Hai bên ngắn, đỉnh tỉa mỏng, đừng ngắn quá」(兩側短、上面打薄、別太短)。\n3. 【水溫與指腹洗頭】：洗頭時若指甲太刺，隨時說「Gãi nhẹ tay bằng đầu ngón tay thôi nhé」(請用指腹輕輕按就好)，對方會立刻改善。",
+      "tipsEn": "Top 3 tips for barbershops in Vietnam:\n1. Save reference photos on your phone and show the stylist.\n2. Key haircut formula: 'Hai bên ngắn, đỉnh tỉa mỏng, đừng ngắn quá' (Short sides, thin out top, don't cut too short).\n3. During wash, ask for gentle fingertips: 'Mát-xa bằng đầu ngón tay thôi nhé'.",
+      "proTipZh": "✨ 避坑指南：強烈推薦前往 30Shine 前先在手機下載「30Shine」官方 App 預約時段並挑選沙龍分店，能免去尖峰時段排隊等候。30Shine 標榜明碼標價、不強收小費；若覺得洗頭或剪髮師傅特別用心，一般給予 20.000 - 50.000 越盾的小費 (Tiền tip) 會讓他們備受鼓舞！",
+      "proTipEn": "✨ Pro Tip: Download the 30Shine app to book slots and avoid waiting. 30Shine enforces transparent fixed pricing without forced tips. If you're pleased with the service, a tip of 20,000 - 50,000 VND directly to the technician is deeply appreciated!"
     }
   },
   {

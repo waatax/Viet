@@ -93,7 +93,7 @@ const RealMenuViewer = ({ scenario, learningMode, selectedAccent = 'north' }) =>
 
       {(realMenu.orderingTipsZh && realMenu.orderingTipsZh.length > 0) && (
         <div className="ordering-tips-box">
-          <h4>{learningMode === 'zh' ? '💡 點餐客製化必備句型' : '💡 Ordering & Customization Tips'}</h4>
+          <h4>{learningMode === 'zh' ? (scenario.id === 'haircut' ? '💡 理髮客製化必備句型' : '💡 點餐客製化必備句型') : '💡 Customization & Request Tips'}</h4>
           <ul>
             {learningMode === 'zh' 
               ? realMenu.orderingTipsZh.map((tip, i) => <li key={i}><CheckCircle2 size={14}/> <span>{tip}</span></li>)

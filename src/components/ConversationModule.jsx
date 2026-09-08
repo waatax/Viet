@@ -288,7 +288,7 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
                 onClick={() => setActiveViewTab('menu')}
               >
                 <ClipboardList size={16} />
-                <span>{learningMode === 'zh' ? '5. 實際菜單解析' : '5. Real Menu Guide'}</span>
+                <span>{currentScenario.id === 'haircut' ? (learningMode === 'zh' ? '5. 實體價目表解析' : '5. Service Price List') : (learningMode === 'zh' ? '5. 實際菜單解析' : '5. Real Menu Guide')}</span>
               </button>
             )}
 

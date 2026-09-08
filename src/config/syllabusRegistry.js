@@ -7,7 +7,7 @@
 
 export const SYLLABUS_CATEGORIES = [
   { id: 'all', labelZh: '全部章節', labelVi: 'Tất cả bài học', labelEn: 'All Chapters', icon: 'Layers' },
-  { id: 'scenario', labelZh: '🗣️ 生活情境 (43篇)', labelVi: '🗣️ Tình huống đời sống', labelEn: '🗣️ Life Scenarios', icon: 'MessagesSquare', color: '#10b981' },
+  { id: 'scenario', labelZh: '🗣️ 生活情境 (44篇)', labelVi: '🗣️ Tình huống đời sống', labelEn: '🗣️ Life Scenarios', icon: 'MessagesSquare', color: '#10b981' },
   { id: 'business', labelZh: '💼 職場商務 (11單元)', labelVi: '💼 Thương mại & FDI', labelEn: '💼 Business Hub', icon: 'Briefcase', color: '#f59e0b' },
   { id: 'macropol', labelZh: '🏛️ 越南政經 (15專題)', labelVi: '🏛️ Chính trị - Kinh tế', labelEn: '🏛️ Macro & Politics', icon: 'Landmark', color: '#3b82f6' },
   { id: 'basics', labelZh: '🔤 發音聲調 (10課)', labelVi: '🔤 Phát âm & Thanh điệu', labelEn: '🔤 Sounds & Tones', icon: 'Languages', color: '#8b5cf6' },
