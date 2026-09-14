@@ -9,6 +9,7 @@ import { MODULE_IDS } from './config/navigation';
 
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
+const TopicMasteryModule = lazyNamed(() => import('./components/TopicMasteryModule'), 'TopicMasteryModule');
 const FastTrackModule = lazyNamed(() => import('./components/FastTrackModule'), 'default');
 const BusinessHubModule = lazyNamed(() => import('./components/BusinessHubModule'), 'default');
 const MacroPolModule = lazy(() => import('./components/MacroPolModule'));
@@ -250,6 +251,7 @@ export function App() {
                 onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
               />
             )}
+            {activeTab === 'topics' && <TopicMasteryModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'macropol' && <MacroPolModule />}
             {activeTab === 'fasttrack' && <FastTrackModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'business' && <BusinessHubModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}

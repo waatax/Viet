@@ -23,6 +23,7 @@ import {
   quizzes 
 } from '../src/data/vietnameseData.js';
 import { situationalScenarios } from '../src/data/situationalScenarios.js';
+import { SITUATIONAL_TOPICS } from '../src/data/situationalTopicsData.js';
 import {
   tradeShowGuide,
   dualCityBusinessGuide,
@@ -533,6 +534,28 @@ try {
   }
 } catch (e) {
   console.warn('Could not read FastTrack or Emergency kit components:', e);
+}
+
+// 15. Situational Topics Mastery (7 Major Themes)
+if (Array.isArray(SITUATIONAL_TOPICS)) {
+  SITUATIONAL_TOPICS.forEach(topic => {
+    if (topic.quickGuide?.survivalTable) {
+      topic.quickGuide.survivalTable.forEach(item => addPhrase(item.viet));
+    }
+    if (topic.quickGuide?.sentencePatterns) {
+      topic.quickGuide.sentencePatterns.forEach(p => {
+        if (p.example) addPhrase(p.example);
+      });
+    }
+    if (topic.dialogues) {
+      topic.dialogues.forEach(d => {
+        if (d.lines) d.lines.forEach(l => addPhrase(l.viet));
+      });
+    }
+    if (topic.flashcardDeck) {
+      topic.flashcardDeck.forEach(fc => addPhrase(fc.viet));
+    }
+  });
 }
 
 console.log(`Total unique phrases to prepare for full audio bank: ${audioSet.size}`);

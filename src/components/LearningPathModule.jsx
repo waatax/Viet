@@ -106,6 +106,7 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
   const currentStage = learningPath.find(s => !completed.includes(s.id)) || learningPath[0];
 
   const quickStarts = [
+    { id: 'topics', icon: Sparkles, titleZh: '7大情境專題深造', titleEn: '7 Situational Mastery', descZh: '商業問候·餐廳·家庭·健康·日期·殺價·數字', descEn: 'Business, Dining, Family, Health, Dates, Price & Numbers', tone: 'gold' },
     { id: 'macropol', icon: Landmark, titleZh: '越南政經智庫', titleEn: 'Macro & Politics', descZh: '5年匯率·SBV利率·海關關稅·十四大', descEn: '5Y FX, SBV Rates, Customs & Dossiers', tone: 'blue' },
     { id: 'business', icon: Briefcase, titleZh: '商務出差旗艦', titleEn: 'Business & FDI Hub', descZh: '談判·紅發票·工廠巡檢·應酬', descEn: 'Negotiation, Invoices & Factory', tone: 'gold' },
     { id: 'fasttrack', icon: Zap, titleZh: '7天生活速成', titleEn: '7-Day Fast-Track', descZh: '35 句高頻破冰實戰', descEn: '35 Survival Phrases', tone: 'gold' },

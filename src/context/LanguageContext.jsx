@@ -25,6 +25,7 @@ export const translations = {
     darkTheme: '暗面主題',
     tabs: {
       path: '學習總覽',
+      topics: '7大情境深造',
       fasttrack: '7天生活速成',
       science: '科學方法研究',
       emergency: '生活急救錦囊',
@@ -105,6 +106,7 @@ export const translations = {
     darkTheme: 'Dark Theme',
     tabs: {
       path: 'Learning Overview',
+      topics: '7 Situations',
       fasttrack: '7-Day Fast-Track',
       science: 'Science & SLA',
       emergency: 'Survival Audio Kit',

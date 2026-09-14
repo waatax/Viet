@@ -1,9 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Volume2, RotateCw, CheckCircle2, XCircle, ArrowRight, RefreshCw, Sparkles, Award, Play, Pause } from 'lucide-react';
 import { flashcardsDeck } from '../data/vietnameseData';
+import { SITUATIONAL_TOPICS } from '../data/situationalTopicsData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
+
+const topicCategoryMap = {
+  business_greeting: '商務職場',
+  dining_restaurant: '餐飲美食',
+  family_kinship: '家庭親屬',
+  health_medical: '醫療健康',
+  date_time_stay: '日期時間',
+  pricing_bargaining: '購物殺價',
+  numbers_scale: '數字量詞'
+};
+
+const topicCards = SITUATIONAL_TOPICS.flatMap(topic => 
+  (topic.flashcardDeck || []).map(fc => ({
+    ...fc,
+    category: topicCategoryMap[topic.id] || '生活日常',
+    icon: topic.icon
+  }))
+);
+
+const allMergedFlashcards = [...flashcardsDeck, ...topicCards];
 
 const getCardIcon = (card) => {
   if (!card) return '💡';
@@ -27,6 +48,9 @@ const getCardIcon = (card) => {
     '購物殺價': '🛍️',
     '餐飲美食': '🍽️',
     '商務職場': '💼',
+    '家庭親屬': '👨‍👩‍👧‍👦',
+    '日期時間': '📅',
+    '數字量詞': '🔢',
     '交通出行': '🚗',
     '飯店住宿': '🛌',
     '醫療健康': '💊',
@@ -60,23 +84,26 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   const [activeKey, setActiveKey] = useState(null);
 
   const categories = [
-    { id: 'all', labelZh: '全部單字 (100張)', labelEn: 'All (100)' },
+    { id: 'all', labelZh: `全部單字 (${allMergedFlashcards.length}張)`, labelEn: `All (${allMergedFlashcards.length})` },
     { id: '購物殺價', labelZh: '🛍️ 購物殺價', labelEn: '🛍️ Shopping' },
     { id: '餐飲美食', labelZh: '🍜 餐飲美食', labelEn: '🍜 Food & Dining' },
     { id: '商務職場', labelZh: '💼 商務職場', labelEn: '💼 Business' },
-    { id: '交通出行', labelZh: '✈️ 交通出行', labelEn: '✈️ Transport' },
-    { id: '飯店住宿', labelZh: '🏨 飯店住宿', labelEn: '🏨 Hotel' },
+    { id: '家庭親屬', labelZh: '👨‍👩‍👧‍👦 家庭親屬', labelEn: '👨‍👩‍👧‍👦 Family' },
+    { id: '日期時間', labelZh: '📅 日期時間', labelEn: '📅 Dates & Time' },
+    { id: '數字量詞', labelZh: '🔢 數字量詞', labelEn: '🔢 Numbers & Units' },
     { id: '醫療健康', labelZh: '💊 醫療健康', labelEn: '💊 Medical' },
-    { id: '問候與禮貌', labelZh: '👋 問候禮貌', labelEn: '👋 Greetings' }
+    { id: '問候與禮貌', labelZh: '👋 問候禮貌', labelEn: '👋 Greetings' },
+    { id: '交通出行', labelZh: '✈️ 交通出行', labelEn: '✈️ Transport' },
+    { id: '飯店住宿', labelZh: '🏨 飯店住宿', labelEn: '🏨 Hotel' }
   ];
 
-  const filteredDeck = flashcardsDeck.filter(card => {
+  const filteredDeck = allMergedFlashcards.filter(card => {
     if (selectedCategory === 'all') return true;
     return card.category === selectedCategory || (selectedCategory === '購物殺價' && (card.category.includes('購物') || card.category.includes('殺價')));
   });
 
   const reviewDeck = React.useMemo(() => {
-    const baseDeck = filteredDeck.length > 0 ? filteredDeck : flashcardsDeck;
+    const baseDeck = filteredDeck.length > 0 ? filteredDeck : allMergedFlashcards;
     const now = Date.now();
     const due = [];
     const newCards = [];

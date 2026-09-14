@@ -481,6 +481,7 @@ class AudioEngine {
           .catch((err) => {
             console.warn('Audio fallback stream failed:', err);
             this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+            if (options.onEnd) options.onEnd();
           });
       });
   }
