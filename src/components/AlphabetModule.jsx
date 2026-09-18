@@ -985,6 +985,120 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
             </div>
           </div>
 
+          {/* 🌟 Master Orthography & Tone Placement Guide */}
+          <div style={{
+            background: 'var(--bg-card)',
+            padding: '1.5rem',
+            borderRadius: 'var(--radius-lg)',
+            border: '1.5px solid var(--border-color)',
+            boxShadow: 'var(--card-shadow)'
+          }}>
+            <div style={{ marginBottom: '1.2rem' }}>
+              <h3 style={{ margin: '0 0 0.4rem', fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <ShieldCheck size={22} color="var(--brand-green)" />
+                {learningMode === 'zh' ? '✍️ 越南語聲調標記位置規則 · 權威正字法指南 (Quy tắc đặt dấu thanh)' : '✍️ Vietnamese Tone Placement Rules (Orthography Standard)'}
+              </h3>
+              <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.55 }}>
+                {learningMode === 'zh'
+                  ? '許多學習者常疑惑：聲調符號究竟該標在哪一個字母上？依據越南教育部 (Bộ GD&ĐT) 最新正字法規範，掌握以下 5 大黃金法則，保證書寫與檢定考試絕不失分！點擊單字即可聆聽標準發音。'
+                  : 'Official Ministry of Education orthography rules on where to place tone marks on multi-vowel syllables.'}
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+              <div style={{ background: 'var(--bg-main)', border: '1px solid var(--border-color)', borderLeft: '4px solid #3b82f6', borderRadius: 'var(--radius-md)', padding: '1rem' }}>
+                <div style={{ fontWeight: 800, fontSize: '0.98rem', color: '#3b82f6', marginBottom: '0.35rem' }}>
+                  1. 單母音音節：直接標註
+                </div>
+                <div style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginBottom: '0.6rem', lineHeight: 1.45 }}>
+                  音節中只有一個母音時，聲調直接加在該母音上（上加調號或下加重音點）。
+                </div>
+                <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                  {[{ vi: 'má', zh: '媽媽' }, { vi: 'mẹ', zh: '母親' }, { vi: 'cơm', zh: '米飯' }, { vi: 'bố', zh: '父親' }].map((w, idx) => (
+                    <button key={idx} onClick={() => handleSpeak(w.vi, `ortho_1_${idx}`)} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-xs)', padding: '0.25rem 0.55rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem' }}>
+                      <strong style={{ color: 'var(--brand-primary)' }}>{w.vi}</strong>
+                      <span style={{ color: 'var(--text-muted)' }}>({w.zh})</span>
+                      <Volume2 size={11} color="var(--brand-accent)" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ background: 'var(--bg-main)', border: '1px solid var(--border-color)', borderLeft: '4px solid #10b981', borderRadius: 'var(--radius-md)', padding: '1rem' }}>
+                <div style={{ fontWeight: 800, fontSize: '0.98rem', color: '#10b981', marginBottom: '0.35rem' }}>
+                  2. 帶變音符號母音優先 (ă, â, ê, ô, ơ, ư)
+                </div>
+                <div style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginBottom: '0.6rem', lineHeight: 1.45 }}>
+                  當音節中出現自帶變音符號（帽子 mũ 或小勾 móc）的母音時，聲調一律標在該帶符號母音上！
+                </div>
+                <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                  {[{ vi: 'được', zh: '得到' }, { vi: 'tiền', zh: '金錢' }, { vi: 'uống', zh: '喝' }, { vi: 'nước', zh: '水' }].map((w, idx) => (
+                    <button key={idx} onClick={() => handleSpeak(w.vi, `ortho_2_${idx}`)} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-xs)', padding: '0.25rem 0.55rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem' }}>
+                      <strong style={{ color: 'var(--brand-primary)' }}>{w.vi}</strong>
+                      <span style={{ color: 'var(--text-muted)' }}>({w.zh})</span>
+                      <Volume2 size={11} color="var(--brand-accent)" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ background: 'var(--bg-main)', border: '1px solid var(--border-color)', borderLeft: '4px solid #f59e0b', borderRadius: 'var(--radius-md)', padding: '1rem' }}>
+                <div style={{ fontWeight: 800, fontSize: '0.98rem', color: '#f59e0b', marginBottom: '0.35rem' }}>
+                  3. 無尾音雙母音 (ia, ua, ưa)：標在首位
+                </div>
+                <div style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginBottom: '0.6rem', lineHeight: 1.45 }}>
+                  開音節（後面無尾輔音）的雙母音，聲調一律標在第一個母音字母上方。
+                </div>
+                <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                  {[{ vi: 'mía', zh: '甘蔗' }, { vi: 'múa', zh: '跳舞' }, { vi: 'mưa', zh: '下雨' }, { vi: 'chĩa', zh: '指著' }].map((w, idx) => (
+                    <button key={idx} onClick={() => handleSpeak(w.vi, `ortho_3_${idx}`)} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-xs)', padding: '0.25rem 0.55rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem' }}>
+                      <strong style={{ color: 'var(--brand-primary)' }}>{w.vi}</strong>
+                      <span style={{ color: 'var(--text-muted)' }}>({w.zh})</span>
+                      <Volume2 size={11} color="var(--brand-accent)" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ background: 'var(--bg-main)', border: '1px solid var(--border-color)', borderLeft: '4px solid #8b5cf6', borderRadius: 'var(--radius-md)', padding: '1rem' }}>
+                <div style={{ fontWeight: 800, fontSize: '0.98rem', color: '#8b5cf6', marginBottom: '0.35rem' }}>
+                  4. 有尾音雙母音 (iê, uô, ươ)：標在次位
+                </div>
+                <div style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginBottom: '0.6rem', lineHeight: 1.45 }}>
+                  閉音節（後面帶尾輔音 -n, -ng, -c, -p 等）時，聲調一律標在第二個主要母音上。
+                </div>
+                <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                  {[{ vi: 'tiến', zh: '前進' }, { vi: 'muốn', zh: '想要' }, { vi: 'đường', zh: '道路' }, { vi: 'thực', zh: '真實' }].map((w, idx) => (
+                    <button key={idx} onClick={() => handleSpeak(w.vi, `ortho_4_${idx}`)} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-xs)', padding: '0.25rem 0.55rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem' }}>
+                      <strong style={{ color: 'var(--brand-primary)' }}>{w.vi}</strong>
+                      <span style={{ color: 'var(--text-muted)' }}>({w.zh})</span>
+                      <Volume2 size={11} color="var(--brand-accent)" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ background: 'var(--bg-main)', border: '1px solid var(--border-color)', borderLeft: '4px solid #ef4444', borderRadius: 'var(--radius-md)', padding: '1rem', gridColumn: '1 / -1' }}>
+                <div style={{ fontWeight: 800, fontSize: '0.98rem', color: '#ef4444', marginBottom: '0.35rem' }}>
+                  5. 現代部頒標準 (2018 Bộ GD&ĐT) vs 傳統習慣 (oa, oe, uy)
+                </div>
+                <div style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginBottom: '0.6rem', lineHeight: 1.45 }}>
+                  <strong>【現代新標準】：</strong>標在主母音（開口度較大者，即第二個字母）：<code>hòa</code> (和平), <code>khỏe</code> (健康), <code>thủy</code> (水)。<br />
+                  <strong>【傳統舊習慣】：</strong>部分舊報章常標在介音：<code>hoà</code>, <code>khoẻ</code>, <code>thuỷ</code>。兩者皆通用，但官方公文與各檢定考試推薦採用新標準！
+                </div>
+                <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                  {[{ vi: 'hòa', zh: '和平/協調' }, { vi: 'khỏe', zh: '健康/強健' }, { vi: 'thủy', zh: '水運/海產' }].map((w, idx) => (
+                    <button key={idx} onClick={() => handleSpeak(w.vi, `ortho_5_${idx}`)} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-xs)', padding: '0.25rem 0.55rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem' }}>
+                      <strong style={{ color: 'var(--brand-primary)' }}>{w.vi}</strong>
+                      <span style={{ color: 'var(--text-muted)' }}>({w.zh})</span>
+                      <Volume2 size={11} color="var(--brand-accent)" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* 6 Tones Ear-Trainer Interactive Sandbox */}
           <div style={{
             padding: '1.5rem',

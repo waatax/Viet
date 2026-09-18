@@ -78,6 +78,86 @@ export const EXPANDED_GRAMMAR_RULES = [
     descriptionEn: 'Comparative: S + Adj + Hơn + Object; Superlative: Adj + Nhất.',
     exampleVi: 'Hà Nội lạnh hơn Sài Gòn, phở bò ngon nhất!',
     exampleZh: 'Lạnh hơn Sài Gòn (比西貢冷) · Ngon nhất (最好吃)。'
+  },
+  {
+    titleZh: '11. 句尾語氣與禮貌助詞 (ạ, nhé/nha, nhỉ, mà, đấy)',
+    titleEn: '11. Sentence-Final Pragmatic Particles',
+    descriptionZh: '「ạ」為對長輩與客戶的最高敬語標記；「nhé/nha」表示親切提議；「nhỉ」尋求認同或自言自語；「mà」表示提醒或堅持。',
+    descriptionEn: '"ạ" marks utmost respect to seniors; "nhé/nha" softens proposals; "nhỉ" seeks agreement; "mà" emphasizes reminders.',
+    exampleVi: 'Em chào anh ạ, ngày mai mình đi cà phê nhé!',
+    exampleZh: 'Em chào anh ạ (哥好·敬語) + ngày mai mình đi cà phê nhé (明天我們去喝咖啡喔·親切約定)。'
+  },
+  {
+    titleZh: '12. 遞進與同時發生句型 (Càng ... Càng / Vừa ... Vừa)',
+    titleEn: '12. Progressive & Simultaneous Constructs',
+    descriptionZh: '「Càng A càng B」表示「越 A 越 B」；「Vừa A vừa B」表示兩項特徵或動作「既 A 又 B / 一邊 A 一邊 B」。',
+    descriptionEn: '"Càng... càng..." denotes proportional increase (the more... the more...); "Vừa... vừa..." denotes simultaneity (both... and...).',
+    exampleVi: 'Tiếng Việt càng học càng thấy thú vị.',
+    exampleZh: 'Tiếng Việt càng học (越語越學) + càng thấy thú vị (越覺得有趣)。'
+  },
+  {
+    titleZh: '13. 致使與允許動詞 (Làm cho, Khiến cho, Để, Cho phép)',
+    titleEn: '13. Causative & Permissive Verbs',
+    descriptionZh: '「Làm cho / Khiến cho」表示「使/讓某人產生某種狀態或情緒」；「Để」引導目的「為了...」或祈使「讓...」。',
+    descriptionEn: '"Làm cho / Khiến cho" indicates causation (makes someone feel/do); "Để" introduces purpose or permission (in order to / let).',
+    exampleVi: 'Thời tiết mát mẻ làm cho tôi cảm thấy rất dễ chịu.',
+    exampleZh: 'Thời tiết mát mẻ (涼爽天氣) + làm cho tôi (使我) + cảm thấy rất dễ chịu (覺得很舒服)。'
+  },
+  {
+    titleZh: '14. 時間先後與同時連詞 (Trước khi, Sau khi, Trong khi)',
+    titleEn: '14. Temporal Connectors & Sequence',
+    descriptionZh: '「Trước khi + 動詞」表示「在...之前」；「Sau khi + 動詞」表示「在...之後」；「Trong khi」表示「在...期間/當...時」。',
+    descriptionEn: '"Trước khi" (before), "Sau khi" (after), and "Trong khi" (while/during) govern subordinate time clauses.',
+    exampleVi: 'Trước khi đi ngủ, tôi luôn uống một ly nước ấm.',
+    exampleZh: 'Trước khi đi ngủ (在睡覺前) + tôi luôn uống (我總是喝) + một ly nước ấm (一杯溫水)。'
+  },
+  {
+    titleZh: '15. 假設條件與讓步轉折 (Nếu ... thì / Tuy ... nhưng)',
+    titleEn: '15. Conditionals & Concessives',
+    descriptionZh: '「Nếu + 條件 + thì + 結果」表示「如果...那麼...」；「Tuy / Mặc dù + A + nhưng + B」表示「雖然 A 但是 B」。',
+    descriptionEn: '"Nếu... thì..." expresses condition and consequence; "Tuy... nhưng..." expresses concession (although... yet...).',
+    exampleVi: 'Nếu ngày mai trời mưa thì chúng ta sẽ ở nhà.',
+    exampleZh: 'Nếu ngày mai trời mưa (如果明天下雨) + thì chúng ta sẽ ở nhà (那我們就留在家)。'
+  },
+  {
+    titleZh: '16. 相互與協同副詞 (Nhau / Cùng nhau)',
+    titleEn: '16. Reciprocal & Collaborative Adverbs',
+    descriptionZh: '「Nhau」置於動詞之後表示「相互、彼此 (gặp nhau 遇見彼此)」；「Cùng nhau」置於動詞前表示「共同、一起」。',
+    descriptionEn: '"Nhau" follows verbs to indicate mutual action (each other); "Cùng nhau" precedes verbs for doing things together.',
+    exampleVi: 'Hai người bạn thân cùng nhau đi du lịch Đà Nẵng.',
+    exampleZh: 'Hai người bạn thân (兩位摯友) + cùng nhau đi du lịch Đà Nẵng (一起去峴港旅遊)。'
+  },
+  {
+    titleZh: '17. 頻率與習慣副詞 (Luôn luôn, Thường xuyên, Thỉnh thoảng)',
+    titleEn: '17. Frequency & Habitual Markers',
+    descriptionZh: '修飾習慣頻率：Luôn luôn (總是 100%) ➔ Thường xuyên (經常 80%) ➔ Thỉnh thoảng (偶爾 40%) ➔ Hiếm khi (罕見 10%) ➔ Không bao giờ (從不 0%)。',
+    descriptionEn: 'Frequency markers placed before verbs: Luôn luôn (always) > Thường xuyên (often) > Thỉnh thoảng (sometimes) > Không bao giờ (never).',
+    exampleVi: 'Tôi thường xuyên tập thể dục vào buổi sáng sớm.',
+    exampleZh: 'Tôi thường xuyên (我經常) + tập thể dục (做運動) + vào buổi sáng sớm (在清晨時分)。'
+  },
+  {
+    titleZh: '18. 全稱與個體量化 (Mỗi, Từng, Mọi, Tất cả)',
+    titleEn: '18. Universal & Distributive Quantifiers',
+    descriptionZh: '「Mỗi」強調「每一個 (個體分配)」；「Từng」強調「逐一、按順序」；「Mọi」代表「所有的/凡是」；「Tất cả」代表「全體/全部」。',
+    descriptionEn: '"Mỗi" indicates distributive each; "Từng" indicates one-by-one; "Mọi" covers every/all; "Tất cả" denotes entirety.',
+    exampleVi: 'Mỗi ngày tôi đều học mười từ vựng mới.',
+    exampleZh: 'Mỗi ngày (每一天) + tôi đều học (我都學習) + mười từ vựng mới (十個新單字)。'
+  },
+  {
+    titleZh: '19. 越南地理方向動態語義 (Ra Bắc, Vào Nam, Lên, Xuống)',
+    titleEn: '19. Geographic Directional Semantics',
+    descriptionZh: '越南文化獨特地理空間觀：北上稱「Ra (出)」，南下稱「Vào (入)」，去高原/山區稱「Lên (上)」，去平原三角洲海邊稱「Xuống (下)」。',
+    descriptionEn: 'Vietnamese spatial orientation: Going North is "Ra" (out), South is "Vào" (in), Highlands is "Lên" (up), Delta is "Xuống" (down).',
+    exampleVi: 'Tuần sau tôi sẽ đi ra Hà Nội công tác rồi đi vào Sài Gòn.',
+    exampleZh: 'Đi ra Hà Nội công tác (北上河內出差) + rồi đi vào Sài Gòn (然後南下西貢)。'
+  },
+  {
+    titleZh: '20. 委婉請求與正式商務祈使 (Làm ơn, Xin vui lòng, Nhờ anh)',
+    titleEn: '20. Polite Requests & Courteous Imperatives',
+    descriptionZh: '日常禮貌祈使置於句首：「Làm ơn + 動詞 (請/勞駕)」；正式商務書信與公共公告：「Xin vui lòng + 動詞 (敬請/請務必)」；託付協助：「Nhờ + 人稱 + 動詞」。',
+    descriptionEn: 'Courteous request prefixes: "Làm ơn" (everyday please), "Xin vui lòng" (formal please/kindly), "Nhờ" (requesting assistance).',
+    exampleVi: 'Xin vui lòng giữ im lặng trong phòng họp.',
+    exampleZh: 'Xin vui lòng (請/敬請) + giữ im lặng (保持安靜) + trong phòng họp (在會議室內)。'
   }
 ];
 

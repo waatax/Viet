@@ -21,7 +21,7 @@ function getHash(text) {
   return crypto.createHash('md5').update(text).digest('hex').slice(0, 12);
 }
 
-const missingListPath = path.resolve('scripts/missing_audio_list.json');
+const missingListPath = path.resolve('scripts/comprehensive_missing_audio.json');
 const missingList = JSON.parse(fs.readFileSync(missingListPath, 'utf8'));
 
 console.log(`Starting generation for ${missingList.length} missing audio phrases...`);

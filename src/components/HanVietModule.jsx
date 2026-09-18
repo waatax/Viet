@@ -1,4 +1,127 @@
 
+export const MIDDLE_CHINESE_8_TONES_MATRIX = [
+  {
+    mcToneZh: '陰平 (清聲母平聲)',
+    mcToneEn: 'Yin Ping (Voiceless Initial)',
+    vietTone: 'Thanh Ngang (平聲 · 44)',
+    symbol: '無符號',
+    taiwanZh: '國語一聲 / 台語第一聲',
+    ruleZh: '清聲母平聲字，在越語中一律為平聲 (無聲調符號)。',
+    color: '#3b82f6',
+    examples: [
+      { han: '心', vi: 'Tâm', note: '國語: ㄒㄧㄣ / 越: Tâm' },
+      { han: '江', vi: 'Giang', note: '國語: ㄐㄧㄤ / 越: Giang' },
+      { han: '天', vi: 'Thiên', note: '國語: ㄊㄧㄢ / 越: Thiên' },
+      { han: '軍', vi: 'Quân', note: '國語: ㄐㄩㄣ / 越: Quân' }
+    ]
+  },
+  {
+    mcToneZh: '陽平 (濁聲母平聲)',
+    mcToneEn: 'Yang Ping (Voiced Initial)',
+    vietTone: 'Thanh Huyền (玄聲 · 31)',
+    symbol: '重音符號 `',
+    taiwanZh: '國語二聲 / 台語第五聲',
+    ruleZh: '濁聲母平聲字，在越語中一律為玄聲 (低平降調)。',
+    color: '#10b981',
+    examples: [
+      { han: '平', vi: 'Bình', note: '國語: ㄆㄧㄥˊ / 越: Bình' },
+      { han: '南', vi: 'Nam', note: '國語: ㄋㄢˊ / 越: Nam' },
+      { han: '同', vi: 'Đồng', note: '國語: ㄊㄨㄥˊ / 越: Đồng' },
+      { han: '雄', vi: 'Hùng', note: '國語: ㄒㄩㄥˊ / 越: Hùng' }
+    ]
+  },
+  {
+    mcToneZh: '陰上 (清聲母上聲)',
+    mcToneEn: 'Yin Shang (Voiceless Initial)',
+    vietTone: 'Thanh Hỏi (問聲 · 313)',
+    symbol: '問號符號 ̉',
+    taiwanZh: '國語三聲 / 台語第二聲',
+    ruleZh: '清聲母上聲字，在越語中轉為問聲 (折音/勾調)。',
+    color: '#f59e0b',
+    examples: [
+      { han: '草', vi: 'Thảo', note: '國語: ㄘㄠˇ / 越: Thảo' },
+      { han: '考', vi: 'Khảo', note: '國語: ㄎㄠˇ / 越: Khảo' },
+      { han: '體', vi: 'Thể', note: '國語: ㄊㄧˇ / 越: Thể' },
+      { han: '海', vi: 'Hải', note: '國語: ㄏㄞˇ / 越: Hải' }
+    ]
+  },
+  {
+    mcToneZh: '陽上 (濁聲母上聲)',
+    mcToneEn: 'Yang Shang (Voiced Initial)',
+    vietTone: 'Thanh Ngã (跌聲 · 35̃)',
+    symbol: '波浪符號 ̃',
+    taiwanZh: '台語第二聲/古全濁上聲',
+    ruleZh: '濁聲母上聲字，在越語中轉為跌聲 (喉門微斷高揚調)。',
+    color: '#8b5cf6',
+    examples: [
+      { han: '社', vi: 'Xã', note: '國語: ㄕㄜˋ / 越: Xã' },
+      { han: '語', vi: 'Ngữ', note: '國語: ㄩˇ / 越: Ngữ' },
+      { han: '義', vi: 'Nghĩa', note: '國語: ㄧˋ / 越: Nghĩa' },
+      { han: '碼', vi: 'Mã', note: '國語: ㄇㄚˇ / 越: Mã' }
+    ]
+  },
+  {
+    mcToneZh: '陰去 (清聲母去聲)',
+    mcToneEn: 'Yin Qu (Voiceless Initial)',
+    vietTone: 'Thanh Sắc (銳聲 · 35)',
+    symbol: '銳音符號 ˊ',
+    taiwanZh: '國語四聲 / 台語第三聲',
+    ruleZh: '清聲母去聲字，在越語中轉為銳聲 (高升音)。',
+    color: '#ef4444',
+    examples: [
+      { han: '進', vi: 'Tiến', note: '國語: ㄐㄧㄣˋ / 越: Tiến' },
+      { han: '氣', vi: 'Khí', note: '國語: ㄑㄧˋ / 越: Khí' },
+      { han: '普', vi: 'Phổ', note: '國語: ㄆㄨˇ / 越: Phổ' },
+      { han: '世', vi: 'Thế', note: '國語: ㄕˋ / 越: Thế' }
+    ]
+  },
+  {
+    mcToneZh: '陽去 (濁聲母去聲)',
+    mcToneEn: 'Yang Qu (Voiced Initial)',
+    vietTone: 'Thanh Nặng (重聲 · 21)',
+    symbol: '下加點 ̣',
+    taiwanZh: '國語四聲 / 台語第七聲',
+    ruleZh: '濁聲母去聲字，在越語中轉為重聲 (急墜短促點音)。',
+    color: '#64748b',
+    examples: [
+      { han: '大', vi: 'Đại', note: '國語: ㄉㄚˋ / 越: Đại' },
+      { han: '道', vi: 'Đạo', note: '國語: ㄉㄠˋ / 越: Đạo' },
+      { han: '定', vi: 'Định', note: '國語: ㄉㄧㄥˋ / 越: Định' },
+      { han: '市', vi: 'Thị', note: '國語: ㄕˋ / 越: Thị' }
+    ]
+  },
+  {
+    mcToneZh: '陰入 (清母短促入聲 -p/-t/-c/-ch)',
+    mcToneEn: 'Yin Ru (Voiceless Checked)',
+    vietTone: 'Thanh Sắc (入聲銳調 · 45)',
+    symbol: '銳音符號 ˊ + 塞音尾',
+    taiwanZh: '台語第四聲 (短促高入聲)',
+    ruleZh: '清聲母入聲字在越語中必然帶 -p/-t/-c/-ch 且只能帶銳聲 (Sắc)！',
+    color: '#dc2626',
+    examples: [
+      { han: '八', vi: 'Bát', note: '台語: pat / 越: Bát' },
+      { han: '北', vi: 'Bắc', note: '台語: pak / 越: Bắc' },
+      { han: '國', vi: 'Quốc', note: '台語: kok / 越: Quốc' },
+      { han: '適', vi: 'Thích', note: '台語: sik / 越: Thích' }
+    ]
+  },
+  {
+    mcToneZh: '陽入 (濁母短促入聲 -p/-t/-c/-ch)',
+    mcToneEn: 'Yang Ru (Voiced Checked)',
+    vietTone: 'Thanh Nặng (入聲重調 · 21)',
+    symbol: '下加點 ̣ + 塞音尾',
+    taiwanZh: '台語第八聲 (短促低入聲)',
+    ruleZh: '濁聲母入聲字在越語中必然帶 -p/-t/-c/-ch 且只能帶重聲 (Nặng)！',
+    color: '#475569',
+    examples: [
+      { han: '十', vi: 'Thập', note: '台語: tsa̍p / 越: Thập' },
+      { han: '日', vi: 'Nhật', note: '台語: ji̍t / 越: Nhật' },
+      { han: '學', vi: 'Học', note: '台語: ha̍k / 越: Học' },
+      { han: '實', vi: 'Thực', note: '台語: si̍t / 越: Thực' }
+    ]
+  }
+];
+
 export const HAN_VIET_SOUND_RULES = [
   {
     categoryZh: '雙唇音 (幫/滂/並母)',
@@ -423,6 +546,83 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
             <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.94rem', lineHeight: 1.6 }}>
               語言學家整理的「音變對應羅塞塔石碑」！利用台語、客家話或國語發音，即可一秒推算出越南語對應的字首子音與尾音。
             </p>
+          </div>
+
+          {/* 🌟 Master 8-Tones Correspondence Matrix */}
+          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', border: '1.5px solid var(--border-color)', boxShadow: 'var(--card-shadow)' }}>
+            <div style={{ marginBottom: '1.2rem' }}>
+              <h3 style={{ margin: '0 0 0.4rem', fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span>🏛️</span>
+                {learningMode === 'zh' ? '中古漢語八聲 ➔ 現代越語六聲對應總綱 (平分陰陽、入派兩調)' : 'Middle Chinese 8 Tones to Vietnamese 6 Tones Matrix'}
+              </h3>
+              <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.9rem', lineHeight: 1.55 }}>
+                {learningMode === 'zh'
+                  ? '華語母語者最強作弊碼！古漢語「平、上、去、入」四聲依聲母清濁（陰陽）分化，在越語中形成嚴密的 8 聲對應體系。掌握此規律，不必死背聲調即可瞬間推導 60% 以上詞彙！點擊示範字即可聆聽標準發音。'
+                  : 'The ultimate shortcut for Chinese learners: Middle Chinese 4 tones split by initial voicing into 8 regular reflexes in Vietnamese.'}
+              </p>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+              {MIDDLE_CHINESE_8_TONES_MATRIX.map((item, mIdx) => (
+                <div
+                  key={mIdx}
+                  style={{
+                    background: 'var(--bg-main)',
+                    border: '1px solid var(--border-color)',
+                    borderLeft: `4px solid ${item.color}`,
+                    borderRadius: 'var(--radius-md)',
+                    padding: '1rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.45rem'
+                  }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <strong style={{ fontSize: '1rem', color: item.color }}>
+                      {learningMode === 'zh' ? item.mcToneZh : item.mcToneEn}
+                    </strong>
+                    <span style={{ fontSize: '0.8rem', fontWeight: 800, padding: '0.15rem 0.45rem', borderRadius: 'var(--radius-xs)', background: 'var(--bg-accent)', color: item.color, border: '1px solid var(--border-color)' }}>
+                      {item.vietTone}
+                    </span>
+                  </div>
+
+                  <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                    {item.taiwanZh} · {item.symbol}
+                  </div>
+
+                  <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.45 }}>
+                    {item.ruleZh}
+                  </div>
+
+                  <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '0.5rem', marginTop: 'auto' }}>
+                    <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                      {item.examples.map((ex, exIdx) => (
+                        <button
+                          key={exIdx}
+                          onClick={() => playWord(ex.vi, `mc8_${mIdx}_${exIdx}`)}
+                          style={{
+                            background: 'var(--bg-card)',
+                            border: '1px solid var(--border-color)',
+                            borderRadius: 'var(--radius-xs)',
+                            padding: '0.25rem 0.55rem',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.3rem',
+                            fontSize: '0.82rem'
+                          }}
+                          title={ex.note}
+                        >
+                          <span style={{ fontWeight: 800, color: 'var(--brand-gold)' }}>{ex.han}</span>
+                          <strong style={{ color: 'var(--brand-primary)' }}>{ex.vi}</strong>
+                          <Volume2 size={11} color="var(--brand-accent)" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
