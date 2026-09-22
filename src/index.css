@@ -1260,14 +1260,39 @@ button:active:not(:disabled),
 .dialogue-bubble-row {
   display: flex;
   width: 100%;
+  gap: 0.85rem;
+  align-items: flex-start;
 }
 
 .row-learner {
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
 }
 
 .row-npc {
+  flex-direction: row;
   justify-content: flex-start;
+}
+
+.dialogue-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  border: 2px solid;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  margin-top: 4px;
+  user-select: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.line-highlight .dialogue-avatar {
+  transform: scale(1.1);
+  box-shadow: 0 0 14px rgba(var(--brand-primary-rgb), 0.35);
 }
 
 .chat-bubble-container {
@@ -1300,13 +1325,40 @@ button:active:not(:disabled),
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
   font-size: 0.82em;
+  flex-wrap: wrap;
 }
 
 .speaker-tag {
   font-weight: 800;
   color: var(--brand-gold);
+}
+
+.role-tag-pill {
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  border: 1px solid;
+  background: var(--bg-input);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  line-height: 1.2;
+}
+
+.dialect-badge-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.12rem 0.5rem;
+  border-radius: 9999px;
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--brand-primary);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 
 .vietnamese-text {

@@ -24,6 +24,66 @@ const TypewriterText = ({ text, isActive, speed = 30 }) => {
   return <span>{displayedText}</span>;
 };
 
+export const getSpeakerVisual = (speaker = '', role = '', learningMode = 'zh') => {
+  const s = (speaker || '').toLowerCase();
+  const isLearner = role === 'learner' || 
+    s.includes('du khách') || 
+    s.includes('bạn') || 
+    s.includes('người học') || 
+    s.includes('tôi') || 
+    s.includes('chúng tôi') || 
+    s.includes('khách đài loan') ||
+    s.startsWith('a ');
+  
+  if (isLearner) {
+    return {
+      icon: '🎒',
+      bg: 'rgba(59, 130, 246, 0.12)',
+      border: '#3b82f6',
+      roleName: learningMode === 'zh' ? '學習者 / 旅客' : 'Learner / Traveler'
+    };
+  }
+  if (s.includes('bác sĩ') || s.includes('y tá')) {
+    return { icon: '👨‍⚕️', bg: 'rgba(16, 185, 129, 0.12)', border: '#10b981', roleName: learningMode === 'zh' ? '門診醫師' : 'Physician' };
+  }
+  if (s.includes('dược sĩ')) {
+    return { icon: '💊', bg: 'rgba(16, 185, 129, 0.12)', border: '#10b981', roleName: learningMode === 'zh' ? '專業藥劑師' : 'Pharmacist' };
+  }
+  if (s.includes('thợ') || s.includes('stylist') || s.includes('cắt tóc') || s.includes('30shine')) {
+    return { icon: '💈', bg: 'rgba(236, 72, 153, 0.12)', border: '#ec4899', roleName: learningMode === 'zh' ? '造型設計師' : 'Hair Stylist' };
+  }
+  if (s.includes('tài xế') || s.includes('lái xe') || s.includes('grab')) {
+    return { icon: '🚕', bg: 'rgba(245, 158, 11, 0.12)', border: '#f59e0b', roleName: learningMode === 'zh' ? '專車司機' : 'Driver' };
+  }
+  if (s.includes('lễ tân') || s.includes('tiếp tân') || s.includes('khách sạn')) {
+    return { icon: '🏨', bg: 'rgba(14, 165, 233, 0.12)', border: '#0ea5e9', roleName: learningMode === 'zh' ? '飯店櫃檯' : 'Receptionist' };
+  }
+  if (s.includes('nhân viên') || s.includes('phục vụ') || s.includes('bồi bàn')) {
+    return { icon: '🛎️', bg: 'rgba(99, 102, 241, 0.12)', border: '#6366f1', roleName: learningMode === 'zh' ? '服務專員' : 'Service Staff' };
+  }
+  if (s.includes('chủ') || s.includes('chị bán') || s.includes('cô bán') || s.includes('anh bán') || s.includes('quầy')) {
+    return { icon: '🛒', bg: 'rgba(249, 115, 22, 0.12)', border: '#f97316', roleName: learningMode === 'zh' ? '在地攤主/店主' : 'Shopkeeper' };
+  }
+  if (s.includes('hải quan') || s.includes('công an') || s.includes('an ninh')) {
+    return { icon: '🛃', bg: 'rgba(100, 116, 139, 0.12)', border: '#64748b', roleName: learningMode === 'zh' ? '關卡審查官' : 'Customs Officer' };
+  }
+  if (s.includes('giám đốc') || s.includes('đối tác') || s.includes('quản lý') || s.includes('nam')) {
+    return { icon: '💼', bg: 'rgba(139, 92, 246, 0.12)', border: '#8b5cf6', roleName: learningMode === 'zh' ? '商務主管/經理' : 'Executive' };
+  }
+  if (s.includes('kỹ sư') || s.includes('quản đốc') || s.includes('nhà máy')) {
+    return { icon: '🏭', bg: 'rgba(234, 88, 12, 0.12)', border: '#ea580c', roleName: learningMode === 'zh' ? '工廠主管/工程師' : 'Factory Engineer' };
+  }
+  if (s.includes('chủ nhà') || s.includes('môi giới')) {
+    return { icon: '🏠', bg: 'rgba(20, 184, 166, 0.12)', border: '#14b8a6', roleName: learningMode === 'zh' ? '房產代表/房東' : 'Landlord' };
+  }
+  return {
+    icon: '🇻🇳',
+    bg: 'rgba(239, 68, 68, 0.12)',
+    border: '#ef4444',
+    roleName: learningMode === 'zh' ? '在地母語者' : 'Local Speaker'
+  };
+};
+
 export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) => {
   const { learningMode } = useLanguage();
   
@@ -314,15 +374,46 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
         {dialogues.map((line, idx) => {
           const isUserRole = line.role === 'learner';
           const isActive = activeLineIndex === idx;
+          const visual = getSpeakerVisual(line.speaker, line.role, learningMode);
 
           return (
             <div 
               key={`${activeSectionId}_${idx}`} 
               className={`dialogue-bubble-row ${isUserRole ? 'row-learner' : 'row-npc'} ${isActive ? 'line-highlight' : ''}`}
             >
+              {/* Speaker Avatar Circle */}
+              <div 
+                className="dialogue-avatar"
+                style={{ 
+                  background: visual.bg, 
+                  borderColor: visual.border,
+                  color: visual.border
+                }}
+                title={`${line.speaker} (${visual.roleName})`}
+              >
+                <span>{visual.icon}</span>
+              </div>
+
               <div className="chat-bubble-container">
                 <div className="bubble-meta">
                   <span className="speaker-tag">{line.speaker}</span>
+                  <span 
+                    className="role-tag-pill" 
+                    style={{ 
+                      borderColor: visual.border, 
+                      color: visual.border,
+                      background: visual.bg 
+                    }}
+                  >
+                    <span>{visual.icon}</span>
+                    <span>{visual.roleName}</span>
+                  </span>
+                  {(line.northTip || line.southTip) && (
+                    <span className="dialect-badge-pill">
+                      <span>🗣️</span>
+                      <span>{learningMode === 'zh' ? '方言要點' : 'Dialect'}</span>
+                    </span>
+                  )}
                 </div>
 
                 <div className="bubble-content-main">

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Play, Volume2, Mic, CheckCircle2, XCircle, RotateCcw, Award, Sparkles, ArrowRight, ShieldCheck, ChevronRight } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { getSpeakerVisual } from './DialoguePlayer';
 
 export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) => {
   const { learningMode } = useLanguage();
@@ -191,25 +192,33 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
           </div>
 
           {/* Partner Speech Bubble */}
-          <div className={`roleplay-bubble partner-bubble ${isPartnerPlaying ? 'bubble-playing-active' : ''}`}>
-            <div className="bubble-header">
-              <span className="speaker-name">
-                {learningMode === 'zh' ? rolePlayData.partnerRoleZh : rolePlayData.partnerRoleEn}
-              </span>
-              <button 
-                className={`bubble-audio-btn ${isPartnerPlaying ? 'playing' : ''}`} 
-                onClick={() => handlePlayAudio(currentStep.partnerPromptVi, `rp_partner_${currentStepIndex}`)}
-                title={learningMode === 'zh' ? '聆聽對象發音' : 'Listen to partner'}
-              >
-                <Volume2 size={16} />
-                <span>{learningMode === 'zh' ? '播放語音' : 'Play'}</span>
-              </button>
-            </div>
-            <div className="bubble-text-vi">{currentStep.partnerPromptVi}</div>
-            <div className="bubble-text-trans">
-              {learningMode === 'zh' ? currentStep.partnerPromptZh : currentStep.partnerPromptEn}
-            </div>
-          </div>
+          {(() => {
+            const partnerVisual = getSpeakerVisual(rolePlayData.partnerRoleZh, 'npc', learningMode);
+            return (
+              <div className={`roleplay-bubble partner-bubble ${isPartnerPlaying ? 'bubble-playing-active' : ''}`}>
+                <div className="bubble-header">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                    <span style={{ fontSize: '1.25rem' }}>{partnerVisual.icon}</span>
+                    <span className="speaker-name">
+                      {learningMode === 'zh' ? rolePlayData.partnerRoleZh : rolePlayData.partnerRoleEn}
+                    </span>
+                  </div>
+                  <button 
+                    className={`bubble-audio-btn ${isPartnerPlaying ? 'playing' : ''}`} 
+                    onClick={() => handlePlayAudio(currentStep.partnerPromptVi, `rp_partner_${currentStepIndex}`)}
+                    title={learningMode === 'zh' ? '聆聽對象發音' : 'Listen to partner'}
+                  >
+                    <Volume2 size={16} />
+                    <span>{learningMode === 'zh' ? '播放語音' : 'Play'}</span>
+                  </button>
+                </div>
+                <div className="bubble-text-vi">{currentStep.partnerPromptVi}</div>
+                <div className="bubble-text-trans">
+                  {learningMode === 'zh' ? currentStep.partnerPromptZh : currentStep.partnerPromptEn}
+                </div>
+              </div>
+            );
+          })()}
 
           {/* User Turn Prompt */}
           <div className="user-turn-container">

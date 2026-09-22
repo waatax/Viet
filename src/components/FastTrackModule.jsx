@@ -536,6 +536,38 @@ export const FAST_TRACK_DAYS = [
   }
 ];
 
+const getFastTrackPartnerVisual = (day, speaker = '', learningMode = 'zh') => {
+  const isSpeakerA = (speaker || '').startsWith('A');
+  if (isSpeakerA) {
+    return {
+      icon: '🎒',
+      role: learningMode === 'zh' ? '你 (學習者)' : 'You (Learner)',
+      color: '#3b82f6',
+      bg: 'rgba(59, 130, 246, 0.12)'
+    };
+  }
+
+  // Speaker B based on Day scenario
+  switch (day) {
+    case 1:
+      return { icon: '🇻🇳', role: learningMode === 'zh' ? '越南朋友 (Bạn Lan)' : 'Local Friend (Lan)', color: '#10b981', bg: 'rgba(16, 185, 129, 0.12)' };
+    case 2:
+      return { icon: '☕', role: learningMode === 'zh' ? '咖啡廳店員' : 'Barista', color: '#f59e0b', bg: 'rgba(245, 158, 11, 0.12)' };
+    case 3:
+      return { icon: '🛒', role: learningMode === 'zh' ? '傳統市場闆娘' : 'Market Vendor', color: '#ec4899', bg: 'rgba(236, 72, 153, 0.12)' };
+    case 4:
+      return { icon: '🚕', role: learningMode === 'zh' ? 'Grab 專車司機' : 'Grab Driver', color: '#0ea5e9', bg: 'rgba(14, 165, 233, 0.12)' };
+    case 5:
+      return { icon: '💼', role: learningMode === 'zh' ? '新朋友 / 同事' : 'Peer / Colleague', color: '#8b5cf6', bg: 'rgba(139, 92, 246, 0.12)' };
+    case 6:
+      return { icon: '🏨', role: learningMode === 'zh' ? '飯店接待前台' : 'Hotel Receptionist', color: '#06b6d4', bg: 'rgba(6, 182, 212, 0.12)' };
+    case 7:
+      return { icon: '🍻', role: learningMode === 'zh' ? '熱情飯友' : 'Dining Partner', color: '#f97316', bg: 'rgba(249, 115, 22, 0.12)' };
+    default:
+      return { icon: '🇻🇳', role: learningMode === 'zh' ? '在地對話夥伴' : 'Dialogue Partner', color: '#10b981', bg: 'rgba(16, 185, 129, 0.12)' };
+  }
+};
+
 export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats }) => {
   const { learningMode, t } = useLanguage();
   const [activeDayIdx, setActiveDayIdx] = useState(0);
@@ -917,38 +949,83 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats }) =
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              {currentDay.dialogue.map((line, lIdx) => (
-                <div
-                  key={lIdx}
-                  onClick={() => handlePlayAudio(line.viet)}
-                  style={{
-                    background: 'var(--bg-card)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: 'var(--radius-md)',
-                    padding: '0.9rem 1.2rem',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    cursor: 'pointer',
-                    transition: 'all 0.15s ease'
-                  }}
-                >
-                  <div>
-                    <div style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-gold)', marginBottom: '0.2rem' }}>
-                      {line.speaker}
+              {currentDay.dialogue.map((line, lIdx) => {
+                const visual = getFastTrackPartnerVisual(currentDay.day, line.speaker, learningMode);
+                const isSpeakerA = (line.speaker || '').startsWith('A');
+
+                return (
+                  <div
+                    key={lIdx}
+                    onClick={() => handlePlayAudio(line.viet)}
+                    style={{
+                      background: isSpeakerA ? 'linear-gradient(135deg, var(--bg-card) 0%, rgba(59, 130, 246, 0.05) 100%)' : 'var(--bg-card)',
+                      border: `1.5px solid ${isSpeakerA ? 'rgba(59, 130, 246, 0.3)' : 'var(--border-color)'}`,
+                      borderRadius: 'var(--radius-md)',
+                      padding: '0.9rem 1.2rem',
+                      display: 'flex',
+                      gap: '0.9rem',
+                      alignItems: 'flex-start',
+                      cursor: 'pointer',
+                      transition: 'all 0.15s ease'
+                    }}
+                  >
+                    {/* Persona Avatar Badge */}
+                    <div
+                      style={{
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '50%',
+                        background: visual.bg,
+                        border: `1.5px solid ${visual.color}`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontSize: '1.3rem',
+                        flexShrink: 0,
+                        marginTop: '2px'
+                      }}
+                      title={`${line.speaker} (${visual.role})`}
+                    >
+                      {visual.icon}
                     </div>
-                    <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--brand-primary)', marginBottom: '0.2rem' }}>
-                      {line.viet}
+
+                    <div style={{ flex: 1 }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.25rem', flexWrap: 'wrap' }}>
+                        <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                          {line.speaker}
+                        </span>
+                        <span
+                          style={{
+                            fontSize: '0.72rem',
+                            fontWeight: 700,
+                            padding: '0.1rem 0.45rem',
+                            borderRadius: '999px',
+                            border: `1px solid ${visual.color}`,
+                            color: visual.color,
+                            background: visual.bg,
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.25rem'
+                          }}
+                        >
+                          <span>{visual.icon}</span>
+                          <span>{visual.role}</span>
+                        </span>
+                      </div>
+                      <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--brand-primary)', marginBottom: '0.2rem' }}>
+                        {line.viet}
+                      </div>
+                      <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                        {learningMode === 'zh' ? line.zh : line.en}
+                      </div>
                     </div>
-                    <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                      {learningMode === 'zh' ? line.zh : line.en}
-                    </div>
+
+                    <button className="speaker-btn" style={{ padding: '0.35rem', flexShrink: 0, marginTop: '4px' }} title="發音">
+                      <Volume2 size={16} />
+                    </button>
                   </div>
-                  <button className="speaker-btn" style={{ padding: '0.35rem' }} title="發音">
-                    <Volume2 size={16} />
-                  </button>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}

@@ -919,11 +919,31 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 {/* Partner Dialogue Speech */}
                 <div className="partner-bubble">
-                  <div className="partner-meta">
-                    <Users size={16} />
-                    <span>{currentBattle.partnerName} · {currentBattle.partnerRole}</span>
+                  <div className="partner-meta" style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+                    <div style={{
+                      width: '38px',
+                      height: '38px',
+                      borderRadius: '50%',
+                      background: 'rgba(218, 37, 28, 0.12)',
+                      border: '1.5px solid var(--brand-primary)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '1.3rem',
+                      flexShrink: 0
+                    }}>
+                      {currentBattle.id?.includes('hcmc') ? '👩‍💼' : currentBattle.id?.includes('bac_ninh') ? '👨‍💼' : '👔'}
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '0.95rem' }}>
+                        {currentBattle.partnerName}
+                      </div>
+                      <div style={{ fontSize: '0.78rem', color: 'var(--brand-gold)', fontWeight: 700 }}>
+                        {currentBattle.partnerRole}
+                      </div>
+                    </div>
                   </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem', marginTop: '0.4rem' }}>
                     <div style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)' }}>
                       "{currentBattle.steps[currentStepIdx].partnerSpeech}"
                     </div>
@@ -952,8 +972,9 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
                       onClick={() => handleNegotiationChoice(opt)}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem' }}>
-                        <span style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)', flex: 1 }}>
-                          💬 {opt.viet}
+                        <span style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--text-primary)', flex: 1, display: 'flex', alignItems: 'flex-start', gap: '0.4rem' }}>
+                          <span>{opt.trustDelta > 15 ? '🤝' : opt.trustDelta > 0 ? '🎯' : '⚠️'}</span>
+                          <span>{opt.viet}</span>
                         </span>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexShrink: 0 }}>
                           <button

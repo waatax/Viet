@@ -11,6 +11,81 @@ import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
 import './TopicMasteryModule.css';
 
+const getCategoryIcon = (category = '') => {
+  const c = (category || '').toLowerCase();
+  if (c.includes('問候') || c.includes('尊稱')) return '🤝';
+  if (c.includes('破冰') || c.includes('金句')) return '🌟';
+  if (c.includes('名片')) return '📇';
+  if (c.includes('點餐') || c.includes('菜單')) return '🍜';
+  if (c.includes('要求') || c.includes('備註')) return '🛎️';
+  if (c.includes('稱謂') || c.includes('長幼')) return '👨‍👩‍👦';
+  if (c.includes('症狀') || c.includes('病')) return '🤒';
+  if (c.includes('就醫') || c.includes('藥')) return '💊';
+  if (c.includes('日期') || c.includes('星期') || c.includes('月份')) return '📅';
+  if (c.includes('時間') || c.includes('停留')) return '⏳';
+  if (c.includes('問價') || c.includes('價格')) return '🏷️';
+  if (c.includes('殺價') || c.includes('折扣')) return '💵';
+  if (c.includes('結帳') || c.includes('買單')) return '💳';
+  if (c.includes('數字') || c.includes('計數')) return '🔢';
+  if (c.includes('量詞')) return '📦';
+  return '💡';
+};
+
+const getTopicSpeakerVisual = (speaker = '', topicId = '', lineIndex = 0, learningMode = 'zh') => {
+  const s = (speaker || '').toLowerCase();
+  const isSpeakerB = lineIndex % 2 === 1;
+
+  if (!isSpeakerB) {
+    // Speaker A (Learner / Visitor / Customer)
+    if (topicId === 'business_greeting' || s.includes('đài loan') || s.includes('khách')) {
+      return { icon: '💼', role: learningMode === 'zh' ? '商務代表 (明先生)' : 'Project Manager (Minh)', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
+    }
+    if (topicId === 'dining' || s.includes('khách')) {
+      return { icon: '🍜', role: learningMode === 'zh' ? '用餐顧客' : 'Diner', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
+    }
+    if (topicId === 'family') {
+      return { icon: '🧑', role: learningMode === 'zh' ? '外國朋友' : 'Friend', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
+    }
+    if (topicId === 'health') {
+      return { icon: '🤒', role: learningMode === 'zh' ? '身體不適者' : 'Patient', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
+    }
+    if (topicId === 'date_time') {
+      return { icon: '✈️', role: learningMode === 'zh' ? '自由行旅客' : 'Traveler', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
+    }
+    if (topicId === 'price_bargain') {
+      return { icon: '🛍️', role: learningMode === 'zh' ? '市集買家' : 'Shopper', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
+    }
+    if (topicId === 'numbers_math') {
+      return { icon: '🔢', role: learningMode === 'zh' ? '詢價採購' : 'Buyer', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
+    }
+    return { icon: '🎒', role: learningMode === 'zh' ? '學習者' : 'Learner', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
+  } else {
+    // Speaker B (Local Host / Vendor / Specialist)
+    if (topicId === 'business_greeting' || s.includes('giám đốc')) {
+      return { icon: '👔', role: learningMode === 'zh' ? '總經理 (Nam 總)' : 'Director Nam', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
+    }
+    if (topicId === 'dining' || s.includes('phục vụ') || s.includes('quán')) {
+      return { icon: '👨‍🍳', role: learningMode === 'zh' ? '店員 / 跑堂' : 'Server', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
+    }
+    if (topicId === 'family' || s.includes('bạn')) {
+      return { icon: '👩', role: learningMode === 'zh' ? '在地越南朋友' : 'Local Friend', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
+    }
+    if (topicId === 'health' || s.includes('bác sĩ') || s.includes('dược sĩ')) {
+      return { icon: '👨‍⚕️', role: learningMode === 'zh' ? '主治醫師 / 藥師' : 'Doctor / Pharmacist', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
+    }
+    if (topicId === 'date_time' || s.includes('lễ tân')) {
+      return { icon: '🏨', role: learningMode === 'zh' ? '飯店前台櫃檯' : 'Hotel Front Desk', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
+    }
+    if (topicId === 'price_bargain' || s.includes('chủ quán') || s.includes('bán')) {
+      return { icon: '🛒', role: learningMode === 'zh' ? '市場熱情攤主' : 'Market Vendor', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
+    }
+    if (topicId === 'numbers_math') {
+      return { icon: '🧮', role: learningMode === 'zh' ? '收銀會計' : 'Accountant', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
+    }
+    return { icon: '🇻🇳', role: learningMode === 'zh' ? '在地母語者' : 'Local Host', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
+  }
+};
+
 export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats }) => {
   const { learningMode, t } = useLanguage();
 
@@ -441,7 +516,10 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats }
                 return (
                   <div key={idx} className={`survival-card ${isPlaying ? 'playing' : ''}`}>
                     <div className="survival-card-top">
-                      <span className="survival-category-badge">{item.category}</span>
+                      <span className="survival-category-badge">
+                        <span>{getCategoryIcon(item.category)}</span>
+                        <span>{item.category}</span>
+                      </span>
                       <button
                         className={`audio-icon-btn ${isPlaying ? 'playing' : ''}`}
                         onClick={() => handleSpeak(item.viet, key)}
@@ -577,17 +655,44 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats }
                   const key = `dialogue_${currentDialogue.id}_${lIdx}`;
                   const isPlaying = audioState.isPlaying && audioState.activeKey === key;
                   const isSpeakerB = lIdx % 2 === 1;
+                  const speakerVisual = getTopicSpeakerVisual(line.speaker, activeTopicId, lIdx, learningMode);
 
                   return (
                     <div
                       key={lIdx}
                       className={`chat-bubble-row ${isSpeakerB ? 'speaker-b' : 'speaker-a'} ${isPlaying ? 'playing' : ''}`}
                     >
-                      <div className="chat-avatar">
-                        {isSpeakerB ? 'B' : 'A'}
+                      <div 
+                        className="chat-avatar"
+                        style={{
+                          fontSize: '1.4rem',
+                          border: `2px solid ${speakerVisual.color}`,
+                          background: speakerVisual.bg,
+                          boxShadow: isPlaying ? `0 0 12px ${speakerVisual.color}` : 'none'
+                        }}
+                        title={`${line.speaker} (${speakerVisual.role})`}
+                      >
+                        {speakerVisual.icon}
                       </div>
                       <div className="chat-bubble-body">
-                        <div className="chat-speaker-name">{line.speaker}</div>
+                        <div className="chat-speaker-header" style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', marginBottom: '0.2rem', flexWrap: 'wrap' }}>
+                          <span className="chat-speaker-name">{line.speaker}</span>
+                          <span 
+                            className="chat-role-chip" 
+                            style={{ 
+                              fontSize: '0.72rem', 
+                              padding: '0.1rem 0.5rem', 
+                              borderRadius: '999px', 
+                              border: `1px solid ${speakerVisual.color}`, 
+                              color: speakerVisual.color,
+                              background: speakerVisual.bg,
+                              fontWeight: 700 
+                            }}
+                          >
+                            <span>{speakerVisual.icon}</span>
+                            <span>{speakerVisual.role}</span>
+                          </span>
+                        </div>
                         <div className="chat-viet-text">
                           <span>{line.viet}</span>
                           <button
