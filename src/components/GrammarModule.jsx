@@ -895,7 +895,18 @@ export const GrammarModule = ({ selectedAccent, updateUserStats }) => {
                 </span>
               </div>
 
-              <div style={{ display: 'flex', gap: '0.6rem' }}>
+              <div style={{ display: 'flex', gap: '0.6rem', alignItems: 'center' }}>
+                {isCorrect && (
+                  <button 
+                    className="control-btn" 
+                    onClick={() => playSpeech(currentPuzzle.correctOrder.join(' '), `puzzle_${currentPuzzle.id}`)}
+                    title={learningMode === 'zh' ? '聆聽完整句子發音' : 'Listen to sentence'}
+                    style={{ background: 'var(--brand-green)', color: '#fff', border: 'none' }}
+                  >
+                    <Volume2 size={15} />
+                    <span>{learningMode === 'zh' ? '朗讀整句' : 'Listen'}</span>
+                  </button>
+                )}
                 <button className="control-btn" onClick={handleResetPuzzle}>
                   <RefreshCw size={15} />
                   <span>{learningMode === 'zh' ? '重試' : 'Retry'}</span>

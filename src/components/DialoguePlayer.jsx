@@ -98,7 +98,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
           titleEn: 'Dialogue 1: Standard Interaction',
           summaryZh: scenario.summaryZh,
           summaryEn: scenario.summaryEn,
-          lines: scenario.dialogues || []
+          lines: scenario.dialogues || scenario.dialogue || []
         }
       ];
 
@@ -200,7 +200,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
         }
       });
     } else {
-      audioEngine.speak(line.viet, {
+      audioEngine.speak(line.viet || line.vi, {
         accent: selectedAccent,
         lang: 'vi',
         rate: playbackSpeed,
@@ -372,9 +372,11 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
       {/* Dialogue Chat Feed */}
       <div className="dialogue-chat-feed">
         {dialogues.map((line, idx) => {
-          const isUserRole = line.role === 'learner';
+          const speakerName = line.speaker || line.speakerVi || line.speakerZh || 'Người đối thoại';
+          const isUserRole = line.role === 'learner' || line.isLearner || (line.speakerVi && (line.speakerVi.includes('Khách') || line.speakerVi.includes('thuê') || line.speakerVi.includes('Bạn') || line.speakerVi.includes('nhân')));
           const isActive = activeLineIndex === idx;
-          const visual = getSpeakerVisual(line.speaker, line.role, learningMode);
+          const visual = getSpeakerVisual(speakerName, isUserRole ? 'learner' : 'npc', learningMode);
+          const vietText = line.viet || line.vi;
 
           return (
             <div 
@@ -389,14 +391,14 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
                   borderColor: visual.border,
                   color: visual.border
                 }}
-                title={`${line.speaker} (${visual.roleName})`}
+                title={`${speakerName} (${visual.roleName})`}
               >
                 <span>{visual.icon}</span>
               </div>
 
               <div className="chat-bubble-container">
                 <div className="bubble-meta">
-                  <span className="speaker-tag">{line.speaker}</span>
+                  <span className="speaker-tag">{speakerName}</span>
                   <span 
                     className="role-tag-pill" 
                     style={{ 
@@ -418,7 +420,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
 
                 <div className="bubble-content-main">
                   <div className="vietnamese-text">
-                    <TypewriterText text={line.viet} isActive={isActive} speed={30} />
+                    <TypewriterText text={vietText} isActive={isActive} speed={30} />
                   </div>
                   
                   {showTranslations && (
@@ -455,7 +457,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
                 <div className="bubble-footer-actions">
                   <button 
                     className={`line-audio-trigger ${isActive ? 'playing' : ''}`}
-                    onClick={() => handlePlayLine(line.viet, idx, playbackSpeed)}
+                    onClick={() => handlePlayLine(vietText, idx, playbackSpeed)}
                     title={learningMode === 'zh' ? '單句朗讀' : 'Play line'}
                   >
                     <Volume2 size={16} />

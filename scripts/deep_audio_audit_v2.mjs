@@ -90,13 +90,18 @@ function registerCheck(category, raw) {
 // 1. situationalScenarios.js
 import { situationalScenarios } from '../src/data/situationalScenarios.js';
 situationalScenarios.forEach(sc => {
-  if (sc.dialogues) sc.dialogues.forEach(d => registerCheck(`Scenario [${sc.id}] Dialogue`, d.viet));
+  const dList = sc.dialogues || sc.dialogue || [];
+  dList.forEach(d => registerCheck(`Scenario [${sc.id}] Dialogue`, d.viet || d.vi));
+  
   const vList = sc.vocabulary || sc.vocab || [];
-  vList.forEach(v => registerCheck(`Scenario [${sc.id}] Vocab`, v.viet || v.word));
-  if (sc.rolePlay?.steps) {
-    sc.rolePlay.steps.forEach(st => {
+  vList.forEach(v => registerCheck(`Scenario [${sc.id}] Vocab`, v.viet || v.vi || v.word));
+  
+  const rp = sc.rolePlay || sc.roleplay;
+  if (rp?.steps) {
+    rp.steps.forEach(st => {
       if (st.partnerPromptVi) registerCheck(`Scenario [${sc.id}] RolePlay Prompt`, st.partnerPromptVi);
-      if (st.options) st.options.forEach(opt => registerCheck(`Scenario [${sc.id}] RolePlay Option`, opt.viet || opt.textVi));
+      const opts = st.options || st.userOptions || [];
+      opts.forEach(opt => registerCheck(`Scenario [${sc.id}] RolePlay Option`, opt.viet || opt.textVi));
     });
   }
   if (sc.realMenu?.sections) {
@@ -358,6 +363,30 @@ if (quizzes) quizzes.forEach(q => {
     }
   });
 });
+
+// GrammarModule Expanded Rules & Drills
+const grammarContent = fs.readFileSync(path.resolve('src/components/GrammarModule.jsx'), 'utf8');
+const exampleViRegex = /exampleVi:\s*['"`]([^'"`]+)['"`]/g;
+while ((match = exampleViRegex.exec(grammarContent)) !== null) {
+  registerCheck('Grammar Rule Example', match[1]);
+}
+const audioTextRegex = /audioText:\s*['"`]([^'"`]+)['"`]/g;
+while ((match = audioTextRegex.exec(grammarContent)) !== null) {
+  registerCheck('Grammar Drill AudioText', match[1]);
+}
+const textViRegex = /textVi:\s*['"`]([^'"`]+)['"`]/g;
+while ((match = textViRegex.exec(grammarContent)) !== null) {
+  registerCheck('Grammar Drill TextVi', match[1]);
+}
+
+// 7. FREQUENCY_VOCABULARY (Top 1,000 core foundation words)
+import { FREQUENCY_VOCABULARY } from '../src/data/frequencyVocabularyData.js';
+if (FREQUENCY_VOCABULARY) {
+  const top1k = FREQUENCY_VOCABULARY.slice(0, 1000);
+  top1k.forEach(item => {
+    registerCheck('Top1k Vocab', item.viet);
+  });
+}
 
 // ToneGameModule Tricky Pairs & Real Words
 const TRICKY_PAIRS = [

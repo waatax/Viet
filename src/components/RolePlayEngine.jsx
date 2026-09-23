@@ -6,7 +6,7 @@ import { getSpeakerVisual } from './DialoguePlayer';
 
 export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) => {
   const { learningMode } = useLanguage();
-  const rolePlayData = scenario.rolePlay;
+  const rolePlayData = scenario.rolePlay || scenario.roleplay;
   const steps = rolePlayData?.steps || [];
 
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
@@ -248,10 +248,13 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
 
             {/* Multiple Choice Option Cards */}
             <div className="roleplay-options-list">
-              {currentStep.userOptions.map((opt) => {
+              {(currentStep.userOptions || currentStep.options || []).map((opt) => {
                 const optKey = `rp_opt_${opt.id}`;
                 const isPlayingThisOpt = activeKey === optKey;
                 const isSelected = selectedOption?.id === opt.id;
+                const optViet = opt.textVi || opt.viet;
+                const optZh = opt.textZh || opt.zh;
+                const optEn = opt.textEn || opt.en;
                 let optionClass = 'roleplay-opt-card';
                 if (isSelected) {
                   optionClass += opt.isCorrect ? ' opt-correct' : ' opt-wrong';
@@ -276,9 +279,9 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
                     aria-pressed={isSelected}
                   >
                     <div className="opt-content">
-                      <div className="opt-viet">{opt.textVi}</div>
+                      <div className="opt-viet">{optViet}</div>
                       <div className="opt-trans">
-                        {learningMode === 'zh' ? opt.textZh : opt.textEn}
+                        {learningMode === 'zh' ? optZh : optEn}
                       </div>
                     </div>
                     <div className="opt-actions">
@@ -286,7 +289,7 @@ export const RolePlayEngine = ({ scenario, selectedAccent, updateUserStats }) =>
                         className={`opt-speaker-btn ${isPlayingThisOpt ? 'playing' : ''}`}
                         onClick={(e) => {
                           e.stopPropagation();
-                          handlePlayAudio(opt.textVi, optKey);
+                          handlePlayAudio(optViet, optKey);
                         }}
                         title="試聽此句"
                       >

@@ -88,24 +88,29 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
                            (sc.summaryZh && sc.summaryZh.toLowerCase().includes(q));
 
       // Also match any line across all dialogue sections (Dialogue 1 & Dialogue 2)
-      const matchesDialogue = (sc.dialogues?.some(d => 
-        d.viet.toLowerCase().includes(q) || 
-        d.zh.toLowerCase().includes(q) || 
-        d.en.toLowerCase().includes(q)
+      const allDialogueLines = sc.dialogues || sc.dialogue || [];
+      const matchesDialogue = (allDialogueLines.some(d => 
+        (d.viet && d.viet.toLowerCase().includes(q)) || 
+        (d.vi && d.vi.toLowerCase().includes(q)) || 
+        (d.zh && d.zh.toLowerCase().includes(q)) || 
+        (d.en && d.en.toLowerCase().includes(q))
       )) || (sc.dialogueSections?.some(sec => 
         sec.titleZh?.toLowerCase().includes(q) ||
         sec.titleVi?.toLowerCase().includes(q) ||
         sec.lines?.some(l => 
-          l.viet.toLowerCase().includes(q) || 
-          l.zh.toLowerCase().includes(q) || 
-          l.en.toLowerCase().includes(q)
+          (l.viet && l.viet.toLowerCase().includes(q)) || 
+          (l.vi && l.vi.toLowerCase().includes(q)) || 
+          (l.zh && l.zh.toLowerCase().includes(q)) || 
+          (l.en && l.en.toLowerCase().includes(q))
         )
       ));
 
       // Also match vocab
-      const matchesVocab = sc.vocab?.some(v => 
-        v.viet.toLowerCase().includes(q) || 
-        v.zh.toLowerCase().includes(q)
+      const allVocab = sc.vocab || sc.vocabulary || [];
+      const matchesVocab = allVocab.some(v => 
+        (v.viet && v.viet.toLowerCase().includes(q)) || 
+        (v.vi && v.vi.toLowerCase().includes(q)) || 
+        (v.zh && v.zh.toLowerCase().includes(q))
       );
 
       return matchesCategory && (matchesTitle || matchesDialogue || matchesVocab);
