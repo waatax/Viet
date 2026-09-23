@@ -30,7 +30,7 @@ import RealMenuViewer from './RealMenuViewer';
 import CityGuideViewer from './CityGuideViewer';
 import { useLanguage } from '../context/LanguageContext';
 
-export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
+export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, t } = useLanguage();
   
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -353,6 +353,145 @@ export const ConversationModule = ({ selectedAccent, updateUserStats }) => {
                 learningMode={learningMode}
               />
             )}
+          </div>
+
+          {/* Guided Pedagogical Next Steps Action Bar (SLA Closed-Loop Action Bar) */}
+          <div className="guided-pedagogical-bar" style={{
+            marginTop: '1.75rem',
+            padding: '1.25rem 1.5rem',
+            background: 'var(--bg-card)',
+            border: '1.5px solid var(--border-color)',
+            borderRadius: 'var(--radius-xl)',
+            boxShadow: 'var(--card-shadow)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Sparkles size={18} color="var(--brand-gold)" />
+                <strong style={{ fontSize: '0.98rem', color: 'var(--text-primary)' }}>
+                  {learningMode === 'zh' ? '🎯 情境習得下一動：完成閉環訓練' : '🎯 Next Pedagogical Step: Complete SLA Loop'}
+                </strong>
+              </div>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+                {learningMode === 'zh' ? '當前情境：' : 'Current Scenario: '}
+                <strong style={{ color: 'var(--brand-accent)' }}>{learningMode === 'zh' ? currentScenario.title : currentScenario.titleVi}</strong>
+              </span>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+              gap: '0.75rem'
+            }}>
+              <button
+                onClick={() => setActiveViewTab('roleplay')}
+                style={{
+                  padding: '0.75rem 1rem',
+                  borderRadius: 'var(--radius-md)',
+                  border: activeViewTab === 'roleplay' ? '2px solid var(--brand-accent)' : '1px solid var(--border-color)',
+                  background: activeViewTab === 'roleplay' ? 'var(--bg-accent)' : 'var(--bg-main)',
+                  color: 'var(--text-primary)',
+                  fontSize: '0.86rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>🎭</span>
+                <div style={{ textAlign: 'left' }}>
+                  <div>{learningMode === 'zh' ? '角色扮演演練' : 'Role-play Practice'}</div>
+                  <small style={{ color: 'var(--brand-accent)', fontSize: '0.72rem' }}>+15 XP · 實戰對話輸出</small>
+                </div>
+              </button>
+
+              <button
+                onClick={() => setActiveViewTab('vocab')}
+                style={{
+                  padding: '0.75rem 1rem',
+                  borderRadius: 'var(--radius-md)',
+                  border: activeViewTab === 'vocab' ? '2px solid var(--brand-accent)' : '1px solid var(--border-color)',
+                  background: activeViewTab === 'vocab' ? 'var(--bg-accent)' : 'var(--bg-main)',
+                  color: 'var(--text-primary)',
+                  fontSize: '0.86rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>🗂️</span>
+                <div style={{ textAlign: 'left' }}>
+                  <div>{learningMode === 'zh' ? '情境字彙專題' : 'Scenario Vocab Deck'}</div>
+                  <small style={{ color: 'var(--brand-gold)', fontSize: '0.72rem' }}>{currentScenario.vocab?.length || 0} 個核心句型詞</small>
+                </div>
+              </button>
+
+              <button
+                onClick={() => {
+                  if (setActiveTab) {
+                    setActiveTab('shadowing');
+                  } else {
+                    window.location.hash = '#shadowing';
+                  }
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                style={{
+                  padding: '0.75rem 1rem',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--border-color)',
+                  background: 'var(--bg-main)',
+                  color: 'var(--text-primary)',
+                  fontSize: '0.86rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>🎙️</span>
+                <div style={{ textAlign: 'left' }}>
+                  <div>{learningMode === 'zh' ? '影子跟讀內化' : 'Shadowing Accent'}</div>
+                  <small style={{ color: '#10b981', fontSize: '0.72rem' }}>音高聲調 · 母語語感</small>
+                </div>
+              </button>
+
+              <button
+                onClick={() => {
+                  if (setActiveTab) {
+                    setActiveTab('grammar');
+                  } else {
+                    window.location.hash = '#grammar';
+                  }
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                style={{
+                  padding: '0.75rem 1rem',
+                  borderRadius: 'var(--radius-md)',
+                  border: '1px solid var(--border-color)',
+                  background: 'var(--bg-main)',
+                  color: 'var(--text-primary)',
+                  fontSize: '0.86rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                <span style={{ fontSize: '1.2rem' }}>📚</span>
+                <div style={{ textAlign: 'left' }}>
+                  <div>{learningMode === 'zh' ? '語法結構剖析' : '30 Grammar Rules'}</div>
+                  <small style={{ color: '#8b5cf6', fontSize: '0.72rem' }}>拆解句構 · 舉一反三</small>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>

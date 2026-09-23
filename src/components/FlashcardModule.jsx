@@ -75,11 +75,24 @@ const getCardIcon = (card) => {
   return cats[card.category] || '💡';
 };
 
-export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
+export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
   
   // Tier selection: 'curated' | 'top1k' | 'top3k' | 'top5k' | 'top10k' | 'all'
-  const [selectedTier, setSelectedTier] = useState('top1k');
+  const [selectedTier, setSelectedTier] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem('viet_target_chapter');
+      if (saved) {
+        const item = JSON.parse(saved);
+        if (item.targetParam?.tier) {
+          sessionStorage.removeItem('viet_target_chapter');
+          return item.targetParam.tier;
+        }
+      }
+    } catch {}
+    return 'top1k';
+  });
+
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedPos, setSelectedPos] = useState('all');
@@ -98,6 +111,19 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats }) => {
   const [playbackSpeed, setPlaybackSpeed] = useState(0.9);
   const isPlayingDeckRef = useRef(false);
   const timerRef = useRef(null);
+
+  useEffect(() => {
+    const handleJump = (e) => {
+      const chap = e.detail;
+      if (chap?.targetParam?.tier) {
+        setSelectedTier(chap.targetParam.tier);
+        setCurrentIndex(0);
+        setIsFlipped(false);
+      }
+    };
+    window.addEventListener('viet_jump_chapter', handleJump);
+    return () => window.removeEventListener('viet_jump_chapter', handleJump);
+  }, []);
 
   useEffect(() => {
     setSrsData(srsEngine.loadSrsData());

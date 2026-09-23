@@ -433,11 +433,34 @@ import { grammarRules, interactivePuzzles } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 
-export const GrammarModule = ({ selectedAccent, updateUserStats }) => {
+export const GrammarModule = ({ selectedAccent, updateUserStats, setActiveTab: setModuleTab }) => {
   const { learningMode, loc, t } = useLanguage();
   
   // Active Tab: 'rules' | 'drills' | 'puzzle'
-  const [activeTab, setActiveTab] = useState('rules');
+  const [activeTab, setActiveTab] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem('viet_target_chapter');
+      if (saved) {
+        const item = JSON.parse(saved);
+        if (item.targetParam?.tab) {
+          sessionStorage.removeItem('viet_target_chapter');
+          return item.targetParam.tab;
+        }
+      }
+    } catch {}
+    return 'rules';
+  });
+
+  useEffect(() => {
+    const handleJump = (e) => {
+      const chap = e.detail;
+      if (chap?.targetParam?.tab) {
+        setActiveTab(chap.targetParam.tab);
+      }
+    };
+    window.addEventListener('viet_jump_chapter', handleJump);
+    return () => window.removeEventListener('viet_jump_chapter', handleJump);
+  }, []);
 
   // Interactive Puzzle State
   const [puzzleIndex, setPuzzleIndex] = useState(0);

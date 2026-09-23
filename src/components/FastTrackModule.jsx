@@ -568,9 +568,33 @@ const getFastTrackPartnerVisual = (day, speaker = '', learningMode = 'zh') => {
   }
 };
 
-export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats }) => {
+export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode, t } = useLanguage();
-  const [activeDayIdx, setActiveDayIdx] = useState(0);
+  const [activeDayIdx, setActiveDayIdx] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem('viet_target_chapter');
+      if (saved) {
+        const item = JSON.parse(saved);
+        if (item.targetParam?.day) {
+          sessionStorage.removeItem('viet_target_chapter');
+          return Math.max(0, Math.min(6, item.targetParam.day - 1));
+        }
+      }
+    } catch {}
+    return 0;
+  });
+
+  useEffect(() => {
+    const handleJump = (e) => {
+      const chap = e.detail;
+      if (chap?.targetParam?.day) {
+        setActiveDayIdx(Math.max(0, Math.min(6, chap.targetParam.day - 1)));
+      }
+    };
+    window.addEventListener('viet_jump_chapter', handleJump);
+    return () => window.removeEventListener('viet_jump_chapter', handleJump);
+  }, []);
+
   const [completedDays, setCompletedDays] = useState(() => {
     try {
       const saved = localStorage.getItem('viet_fasttrack_completed_days');

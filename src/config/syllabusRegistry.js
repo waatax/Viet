@@ -22,7 +22,7 @@ export const SYLLABUS_REGISTRY = [
   // ─── 0. FREQUENCY VOCABULARY TIERS (1k / 3k / 5k / 10k 字庫) ───
   {
     id: 'vocab_1k',
-    moduleId: 'flashcard',
+    moduleId: 'flashcards',
     category: 'vocab',
     categoryLabelZh: '🌟 萬詞核心',
     categoryLabelVi: '🌟 Từ vựng cốt lõi',
@@ -39,7 +39,7 @@ export const SYLLABUS_REGISTRY = [
   },
   {
     id: 'vocab_3k',
-    moduleId: 'flashcard',
+    moduleId: 'flashcards',
     category: 'vocab',
     categoryLabelZh: '🌟 萬詞核心',
     categoryLabelVi: '🌟 Từ vựng cốt lõi',
@@ -56,7 +56,7 @@ export const SYLLABUS_REGISTRY = [
   },
   {
     id: 'vocab_5k',
-    moduleId: 'flashcard',
+    moduleId: 'flashcards',
     category: 'vocab',
     categoryLabelZh: '🌟 萬詞核心',
     categoryLabelVi: '🌟 Từ vựng cốt lõi',
@@ -73,7 +73,7 @@ export const SYLLABUS_REGISTRY = [
   },
   {
     id: 'vocab_10k',
-    moduleId: 'flashcard',
+    moduleId: 'flashcards',
     category: 'vocab',
     categoryLabelZh: '🌟 萬詞核心',
     categoryLabelVi: '🌟 Từ vựng cốt lõi',
@@ -923,7 +923,7 @@ export const SYLLABUS_REGISTRY = [
   // ─── 8. NEW SITUATIONAL SCENARIOS (5 High-Utility Scenarios) ───
   {
     id: 'scn_factory_qa',
-    moduleId: 'scenario',
+    moduleId: 'conversation',
     category: 'scenario',
     categoryLabelZh: '🗣️ 生活情境',
     categoryLabelVi: '🗣️ Tình huống',
@@ -940,7 +940,7 @@ export const SYLLABUS_REGISTRY = [
   },
   {
     id: 'scn_apt_rental',
-    moduleId: 'scenario',
+    moduleId: 'conversation',
     category: 'scenario',
     categoryLabelZh: '🗣️ 生活情境',
     categoryLabelVi: '🗣️ Tình huống',
@@ -957,7 +957,7 @@ export const SYLLABUS_REGISTRY = [
   },
   {
     id: 'scn_air_customs',
-    moduleId: 'scenario',
+    moduleId: 'conversation',
     category: 'scenario',
     categoryLabelZh: '🗣️ 生活情境',
     categoryLabelVi: '🗣️ Tình huống',
@@ -974,7 +974,7 @@ export const SYLLABUS_REGISTRY = [
   },
   {
     id: 'scn_nhau_dinner',
-    moduleId: 'scenario',
+    moduleId: 'conversation',
     category: 'scenario',
     categoryLabelZh: '🗣️ 生活情境',
     categoryLabelVi: '🗣️ Tình huống',
@@ -991,7 +991,7 @@ export const SYLLABUS_REGISTRY = [
   },
   {
     id: 'scn_pharmacy_clinic',
-    moduleId: 'scenario',
+    moduleId: 'conversation',
     category: 'scenario',
     categoryLabelZh: '🗣️ 生活情境',
     categoryLabelVi: '🗣️ Tình huống',

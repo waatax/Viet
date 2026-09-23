@@ -8811,26 +8811,26 @@ export const learningPath = [
     ivptEn: 'iVPT Foundation (A1)',
     titleZh: '第 1 階：零基礎破冰與發音（Foundation & Decoding）',
     titleEn: 'Stage 1: Foundation & Decoding',
-    durationZh: '約 4–6 週 · 每日 20 分鐘',
-    durationEn: 'Approx. 4–6 weeks · 20 min/day',
-    vocabTarget: 150,
-    goalZh: '看到任何越南文字母組合，都能自己拼讀出聲，並穩定分辨 6 個聲調。',
-    goalEn: 'Read aloud any Vietnamese spelling from scratch and reliably distinguish all 6 tones.',
+    durationZh: '約 3–4 週 · 每日 15–20 分鐘',
+    durationEn: 'Approx. 3–4 weeks · 15–20 min/day',
+    vocabTarget: 500,
+    goalZh: '看到任何越南文字母組合，都能自己拼讀出聲，掌握 6 個聲調辨析與 7 天基礎生存金句。',
+    goalEn: 'Read aloud any Vietnamese spelling from scratch, master 6 tones, and 7-day survival basics.',
     canDoZh: [
       '正確唸出 29 個字母與全部母音／輔音組合',
-      '聽辨並發出 6 大聲調，精準區分 Hỏi 和 Ngã',
-      '用 Xin chào / Cảm ơn / Tạm biệt 完成基本禮貌互動',
-      '選定自己的主口音（北越河內或南越胡志明）'
+      '聽辨並發出 6 大聲調，精準區分 問聲 (Hỏi) 和 跌聲 (Ngã)',
+      '選定主修口音（北越河內或南越胡志明）並理解基本音系差異',
+      '用 Xin chào / Cảm ơn / Tạm biệt 完成 7 天速成日常破冰互動'
     ],
     canDoEn: [
       'Pronounce all 29 letters plus vowel/consonant clusters',
       'Hear and produce all 6 tones without confusing Hỏi and Ngã',
-      'Handle basic courtesy exchanges: Xin chào / Cảm ơn / Tạm biệt',
-      'Commit to a primary accent (Hanoi North or Saigon South)'
+      'Select a primary dialect (Hanoi North or Saigon South)',
+      'Handle basic courtesy exchanges from the 7-Day Fast-Track'
     ],
-    modules: ['alphabet', 'accent'],
-    milestoneZh: '里程碑：完成字母表模組，正確率達 90% 以上。',
-    milestoneEn: 'Milestone: Complete Alphabet module with 90%+ accuracy.'
+    modules: ['alphabet', 'accent', 'tonegame', 'fasttrack'],
+    milestoneZh: '里程碑：完成字母發音與聲調競技場測驗，掌握 7 天速成破冰生存句。',
+    milestoneEn: 'Milestone: Complete Alphabet & Tone Arena tests, master 7-Day Fast-Track phrases.'
   },
   {
     id: 'lp2',
@@ -8839,26 +8839,26 @@ export const learningPath = [
     ivptEn: 'iVPT Elementary (A2)',
     titleZh: '第 2 階：生存越語與社會稱謂（Survival & Social）',
     titleEn: 'Stage 2: Survival & Social Mechanics',
-    durationZh: '約 6–8 週 · 每日 25 分鐘',
-    durationEn: 'Approx. 6–8 weeks · 25 min/day',
-    vocabTarget: 400,
-    goalZh: '跨過華語母語者最大的兩道坎：人稱稱謂系統，以及「千／萬」與越南盾的換算。',
-    goalEn: 'Clear the two hardest hurdles: the relational pronoun system and large-number currency conversion.',
+    durationZh: '約 4–6 週 · 每日 20–25 分鐘',
+    durationEn: 'Approx. 4–6 weeks · 20–25 min/day',
+    vocabTarget: 1000,
+    goalZh: '突破社會親屬稱謂與越南盾大額換算，流利應對市場殺價、咖啡館點單、診所問診與公寓簽約。',
+    goalEn: 'Master relational kinship pronouns, currency conversion, market bargaining, dining, clinic visits, and apartment leases.',
     canDoZh: [
-      '面對任何對象，能在 3 秒內選對「你／我」該用哪個稱謂',
-      '聽懂並說出 0 到 10 億的數字，含口語簡稱',
-      '在市場問價、殺價、確認找零',
-      '完成自我介紹：姓名、國籍、職業、學越語多久'
+      '面對任何對象，能在 3 秒內選對「你／我」該用哪個稱謂 (anh/em, chị/em, chú/cháu)',
+      '聽懂並說出 0 到 10 億的數字，精通「千 (k / nghìn / ngàn)」與越南盾大額換算',
+      '在市場問價、殺價、確認找零，並流暢點閱咖啡店與熱炒店實際菜單',
+      '完成自我介紹、診所問診描述發燒頭痛，以及公寓租賃簽約重點溝通'
     ],
     canDoEn: [
       'Pick the correct you/I pronoun pair within seconds for any interlocutor',
-      'Say and understand numbers from 0 to 1 billion, including slang forms',
-      'Ask prices, bargain, and confirm change at a market',
-      'Deliver a self-introduction: name, nationality, job, study duration'
+      'Say and understand numbers from 0 to 1 billion, including k / nghìn / ngàn',
+      'Ask prices, bargain, and order from authentic Vietnamese menus',
+      'Deliver self-intro, explain clinic symptoms, and review apartment rental essentials'
     ],
-    modules: ['pronoun', 'shopping', 'phrases'],
-    milestoneZh: '里程碑：無字幕跟讀購物與問候情境會話。',
-    milestoneEn: 'Milestone: Shadow shopping and greeting dialogues without subtitles.'
+    modules: ['pronoun', 'shopping', 'phrases', 'conversation', 'flashcards'],
+    milestoneZh: '里程碑：通關 Top 1,000 核心詞庫與前 15 篇生活情境對話。',
+    milestoneEn: 'Milestone: Master Top 1,000 Foundation Vocab and the first 15 Life Scenarios.'
   },
   {
     id: 'lp3',
@@ -8867,26 +8867,26 @@ export const learningPath = [
     ivptEn: 'iVPT Intermediate (B1)',
     titleZh: '第 3 階：核心語法與漢越音起飛（Grammar & Han-Viet）',
     titleEn: 'Stage 3: Grammar Backbone & Han-Viet Takeoff',
-    durationZh: '約 8–12 週 · 每日 30 分鐘',
-    durationEn: 'Approx. 8–12 weeks · 30 min/day',
-    vocabTarget: 1200,
-    goalZh: '建立穩固語法框架，並利用漢越音字根，把 1 個中文字根擴展成 5 到 10 個高級越語生詞。',
-    goalEn: 'Establish grammar and leverage Sino-Vietnamese roots to convert one root into 5–10 new words.',
+    durationZh: '約 6–8 週 · 每日 30 分鐘',
+    durationEn: 'Approx. 6–8 weeks · 30 min/day',
+    vocabTarget: 3000,
+    goalZh: '建立 30 大核心語法框架，透過漢越音字根庫擴充生詞，並勝任工廠產線巡檢與 SMT 品質溝通。',
+    goalEn: 'Establish 30 core grammar rules, leverage Han-Viet cognates, and handle SMT factory tour & QA inspections.',
     canDoZh: [
-      '掌握形容詞後置、量詞、時態標記三大語法核心',
-      '透過漢越音字根庫，快速推導出同源詞',
-      '用完整句子描述過去經歷與未來計畫',
-      '進行看診、搭車、問路等日常實用對話'
+      '掌握形容詞後置修飾、量詞體系、時態標記三大語法核心',
+      '透過漢越音字根庫（發、國、經、理、化），快速推導出 500+ 個同源高級詞彙',
+      '在工廠巡檢中討論生產排程、不良品返工與 AQL 驗貨標準',
+      '靈活運用 30 大語法規則進行句型拼組與隨堂快檢'
     ],
     canDoEn: [
       'Master post-nominal adjectives, classifiers, and tense markers',
-      'Expand vocabulary by deriving cognate families from Han-Viet roots',
-      'Describe past events and future plans in full sentences',
-      'Handle mid-complexity scenarios: clinic visits, transport, directions'
+      'Expand vocabulary by deriving 500+ cognate families from Han-Viet roots',
+      'Discuss production schedules, defect rework, and AQL standards in factories',
+      'Construct sentences accurately using the 30 Core Grammar Rules'
     ],
-    modules: ['grammar', 'hanviet', 'flashcards'],
-    milestoneZh: '里程碑：累積 500 張掌握閃卡，熟悉 60 組漢越音字根。',
-    milestoneEn: 'Milestone: 500 mastered flashcards, plus 60+ Han-Viet roots internalized.'
+    modules: ['grammar', 'hanviet', 'business', 'flashcards', 'sentence'],
+    milestoneZh: '里程碑：掌握 30 大語法法則、通關 Top 3,000 高頻詞彙與工廠職場對話。',
+    milestoneEn: 'Milestone: Internalize 30 Grammar Rules, Top 3,000 Vocab, and Smart Factory modules.'
   },
   {
     id: 'lp4',
@@ -8895,26 +8895,26 @@ export const learningPath = [
     ivptEn: 'iVPT Upper-Intermediate (B2)',
     titleZh: '第 4 階：情境應變與口音自如（Fluency & Dialect Agility）',
     titleEn: 'Stage 4: Fluency & Dialect Agility',
-    durationZh: '約 4–6 個月 · 每日 40 分鐘',
-    durationEn: 'Approx. 4–6 months · 40 min/day',
-    vocabTarget: 2500,
-    goalZh: '從「講得出來」進化到「接得下去」——能即時回應、無縫適應南北兩大主流口音。',
-    goalEn: 'Move from producing sentences to sustaining exchanges, understanding both dialects live.',
+    durationZh: '約 2–3 個月 · 每日 35–40 分鐘',
+    durationEn: 'Approx. 2–3 months · 35–40 min/day',
+    vocabTarget: 5000,
+    goalZh: '南北越口音自如適應，掌握 49 大實戰情境、Nhậu 熱炒宴飲應酬與商務合約初步談判。',
+    goalEn: 'Seamlessly adapt to Northern & Southern dialects, master all 49 scenarios, Nhậu socializing, and negotiations.',
     canDoZh: [
-      '同時聽懂北越與南越口音的日常對話，不需對方放慢',
-      '就工作、家庭、時事等主題連續交談 10 分鐘以上',
-      '讀懂越南新聞標題與菜單、告示等書面文字',
-      '在對話中即時自我修正聲調與文法錯誤'
+      '同時聽懂北越河內與南越西貢口音的自然語速對話，精通問聲/跌聲合併規律',
+      '融入越南下班後的 Nhậu 熱炒應酬，掌握碰杯口號與長幼酒桌社交禮儀',
+      '流暢進行商務初步報價、交期 (Lead time) 協商與售後保固條件洽談',
+      '就工作協作、生活突發狀況連續進行 15 分鐘以上無障礙交流'
     ],
     canDoEn: [
-      'Follow everyday conversation in both Northern and Southern accents at natural speed',
-      'Sustain 10+ minute conversations on work, family, and news',
-      'Read news headlines, menus, and public notices',
-      'Self-correct tone errors in real time while speaking'
+      'Follow natural-speed conversations in both Northern and Southern dialects',
+      'Engage naturally in Vietnamese Nhậu drinking culture and toasting etiquette',
+      'Negotiate pricing, lead times, and warranty terms in business interactions',
+      'Sustain 15+ minutes of continuous conversation on work and unexpected events'
     ],
-    modules: ['conversation', 'accent', 'quiz'],
-    milestoneZh: '里程碑：通過 B2 級模擬測驗，能與母語者流利通話。',
-    milestoneEn: 'Milestone: Pass B2 mock exams and converse fluently with native speakers.'
+    modules: ['conversation', 'accent', 'business', 'topics', 'shadowing', 'quiz'],
+    milestoneZh: '里程碑：通關 Top 5,000 詞庫、完成 49 大生活情境角色扮演與影子跟讀。',
+    milestoneEn: 'Milestone: Complete Top 5,000 Vocab, 49 Situational Role-Plays, and Shadowing.'
   },
   {
     id: 'lp5',
@@ -8923,26 +8923,26 @@ export const learningPath = [
     ivptEn: 'iVPT Advanced (C1)',
     titleZh: '第 5 階：商務越語與正式溝通（Business & Formal Register）',
     titleEn: 'Stage 5: Business & Formal Register',
-    durationZh: '約 6–12 個月 · 每日 45 分鐘',
-    durationEn: 'Approx. 6–12 months · 45 min/day',
-    vocabTarget: 5000,
-    goalZh: '進入台商與外企實戰場域：商業合約、投資法規、商務談判、正式書信皆能獨立處理。',
-    goalEn: 'Operate in professional settings: contracts, investment, negotiation, and formal correspondence.',
+    durationZh: '約 3–4 個月 · 每日 40–45 分鐘',
+    durationEn: 'Approx. 3–4 months · 40–45 min/day',
+    vocabTarget: 8000,
+    goalZh: '深入台商與外企實戰場域：跨國商業合約條款、投資法規遵循、勞資協商與越南宏觀政經情報分析。',
+    goalEn: 'Operate at leadership level: commercial contracts, FDI Decree 132 tax compliance, labor disputes, and macro policy.',
     canDoZh: [
-      '主持會議、洽談合作條件、討論合約細節',
-      '精通 FDI 投資、供應鏈、勞動法規等專業詞彙',
-      '撰寫正式商業書信與電子郵件，遣詞用字符合商務禮儀',
-      '依對象身分自如切換敬語層級與進階稱謂'
+      '獨立閱讀並審閱商業合約條款（違約金、不可抗力、爭議仲裁管轄）',
+      '深入掌握 FDI 外資移轉訂價反避稅、企業所得稅清算與海關通關實務',
+      '撰寫嚴謹的商務正式書信、電子郵件，遣詞用字符合商務高端禮儀 (Kính gửi / Trân trọng)',
+      '研讀越南宏觀政經情報（USD/VND 匯率走勢、央行基準利率、四大國有銀行利率矩陣）'
     ],
     canDoEn: [
-      'Run meetings, negotiate terms, and discuss contract details',
-      'Understand specialist vocabulary: FDI, supply chain, labor laws',
-      'Write formal business letters and emails with appropriate register',
-      'Shift politeness levels seamlessly in professional environments'
+      'Read and review commercial contracts (penalties, force majeure, arbitration clauses)',
+      'Master FDI transfer pricing, corporate income tax finalization, and customs regulations',
+      'Compose formal business emails and correspondence with executive register',
+      'Analyze macro intelligence: USD/VND FX trends, SBV interest rates, and banking policies'
     ],
-    modules: ['conversation', 'hanviet', 'quiz'],
-    milestoneZh: '里程碑：完成商務與 FDI 情境，撰寫一篇 300 字越文正式商業報告。',
-    milestoneEn: 'Milestone: Complete business scenarios and write a 300-word formal report.'
+    modules: ['business', 'macropol', 'conversation', 'hanviet'],
+    milestoneZh: '里程碑：完成 11 大商務單元與 15 大政經專題，能獨立研讀越文商業合同。',
+    milestoneEn: 'Milestone: Complete all 11 Business Hub Units and 15 Macro & Politics Dossiers.'
   },
   {
     id: 'lp6',
@@ -8951,26 +8951,26 @@ export const learningPath = [
     ivptEn: 'CEFR / iVPT Pre-Mastery (C1+)',
     titleZh: '第 6 階：高階讀寫與社會議題（Academic & Societal）',
     titleEn: 'Stage 6: Academic & Societal Depth',
-    durationZh: '約 6 個月 · 每日 45 分鐘',
-    durationEn: 'Approx. 6 months · 45 min/day',
-    vocabTarget: 8000,
-    goalZh: '具備大學程度的論述能力，能閱讀社論、參與社會議題辯論，並掌握豐富的成語。',
-    goalEn: 'Attain university-level discourse ability, read editorials, debate societal issues, and use idioms.',
+    durationZh: '約 3–6 個月 · 每日 45 分鐘',
+    durationEn: 'Approx. 3–6 months · 45 min/day',
+    vocabTarget: 10000,
+    goalZh: '具備智庫級深度論述能力，通曉越南四字格成語俗諺、深層歷史文化，閱讀各大官方經濟社論。',
+    goalEn: 'Attain think-tank level fluency: Vietnamese 4-character idioms, cultural philosophy, and deep editorials.',
     canDoZh: [
-      '流暢閱讀越南各大報深度報導',
-      '運用越南成語 (Thành ngữ) 與俗語 (Tục ngữ) 豐富表達',
-      '撰寫結構嚴謹的論說文與學術摘要',
-      '探討越南經濟、歷史、文化等深度議題'
+      '流暢閱讀越南主流大報（VnExpress, Tuổi Trẻ, Báo Đầu Tư）之深度經濟與產業分析',
+      '在言談與書寫中自然融入越南成語 (Thành ngữ) 與俗語 (Tục ngữ)（如 Mua láng giềng gần, Một miếng khi đói）',
+      '撰寫結構嚴謹的論說文與商業可行性評估報告',
+      '探討越南南北思維差異、外資供應鏈重組與國家發展戰略等高階議題'
     ],
     canDoEn: [
-      'Fluently read in-depth reports from major Vietnamese news outlets',
-      'Employ Vietnamese idioms (Thành ngữ) and proverbs (Tục ngữ)',
-      'Write well-structured argumentative essays and summaries',
-      'Discuss deep topics like Vietnam’s economy, history, and culture'
+      'Fluently read economic analyses in major outlets (VnExpress, Tuổi Trẻ, Báo Đầu Tư)',
+      'Employ classic Vietnamese idioms (Thành ngữ) and proverbs (Tục ngữ) naturally',
+      'Write structured argumentative essays and business feasibility studies',
+      'Analyze regional cultural nuances, FDI supply chain shifts, and national policies'
     ],
-    modules: ['hanviet', 'flashcards', 'quiz'],
-    milestoneZh: '里程碑：能連續 20 分鐘無腳本對越南特定社會議題發表演講。',
-    milestoneEn: 'Milestone: Deliver a 20-minute unscripted speech on a Vietnamese societal issue.'
+    modules: ['macropol', 'flashcards', 'hanviet', 'quiz'],
+    milestoneZh: '里程碑：掌握 Top 10,000 全域詞庫與成語俗諺，流暢閱讀越文宏觀經濟報告。',
+    milestoneEn: 'Milestone: Master the full Top 10,000 Frequency Lexicon and advanced idioms.'
   },
   {
     id: 'lp7',
@@ -8979,25 +8979,25 @@ export const learningPath = [
     ivptEn: 'iVPT Professional (C2)',
     titleZh: '第 7 階：母語級精通與信達雅（Native Mastery & Elegance）',
     titleEn: 'Stage 7: Native Mastery & Elegance',
-    durationZh: '終身學習',
-    durationEn: 'Lifelong learning',
+    durationZh: '終身精進與實踐',
+    durationEn: 'Lifelong mastery and practice',
     vocabTarget: 12000,
-    goalZh: '不僅要聽懂，更要聽出言外之意。能欣賞古典文學，並在翻譯與口說中達到「信、達、雅」的境界。',
-    goalEn: 'Achieve true fluency: understand subtext, appreciate classic literature, and express ideas with elegance and precision.',
+    goalZh: '達到母語級信達雅境界，自由在南北口語俚語與正式經貿法律修辭間無縫切換，成為跨國文化智庫。',
+    goalEn: 'Achieve bilingual mastery with cultural empathy, shifting registers seamlessly from street banter to cross-border law.',
     canDoZh: [
-      '賞析越南古典文學巨著（如阮攸《金雲翹傳》Truyện Kiều）',
-      '無縫融入當地流行語、年輕人俚語及幽默感',
-      '在翻譯或跨文化溝通中，展現極高精準度與文化體貼',
-      '思考與做夢時自然使用越南語，徹底打破母語框架'
+      '賞析越南經典文學與現代流行文化俚語幽默，理解言外之意與微妙雙關',
+      '在即席翻譯、口譯與跨文化商務談判中展現極高精準度與文化體貼',
+      '思考時自然切換至越南語認知模型，破除母語語法框架',
+      '擔任台越跨國經貿、法律、文化交流的一流智庫與溝通橋樑'
     ],
     canDoEn: [
-      'Appreciate classic literature (e.g., The Tale of Kieu)',
-      'Seamlessly integrate modern slang, internet culture, and humor',
-      'Show extreme precision and cultural empathy in translation',
-      'Think and dream naturally in Vietnamese, breaking native language barriers'
+      'Appreciate Vietnamese classic literature, humor, subtext, and wordplay',
+      'Exhibit extreme accuracy and cultural nuance in interpretation and diplomacy',
+      'Think and process information directly within Vietnamese cognitive frameworks',
+      'Serve as an authoritative cultural and commercial bridge between Taiwan and Vietnam'
     ],
-    modules: ['conversation', 'accent', 'hanviet'],
-    milestoneZh: '里程碑：真正成為越南文化的橋樑，達到「信達雅」之翻譯與溝通水準。',
-    milestoneEn: 'Milestone: Become a true bridge of Vietnamese culture, achieving elegant and precise communication.'
+    modules: ['macropol', 'business', 'conversation', 'science'],
+    milestoneZh: '里程碑：達到全域母語級文化同理與同傳翻譯水準，徹底打通越語高階思維。',
+    milestoneEn: 'Milestone: Achieve true bilingual mastery and cultural empathy at professional diplomatic standards.'
   }
 ];

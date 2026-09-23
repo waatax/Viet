@@ -10,6 +10,106 @@ import { SYLLABUS_REGISTRY } from '../config/syllabusRegistry';
 import { srsEngine } from '../services/srsEngine';
 import { useLanguage } from '../context/LanguageContext';
 
+export const ADAPTIVE_TRACKS = [
+  {
+    id: 'all',
+    icon: '🧭',
+    titleZh: '全能精通總覽',
+    titleEn: 'All-Round Mastery',
+    descZh: '全面覆蓋發音、生活、職場、商務與政經全域課程。',
+    descEn: 'Comprehensive path across phonetics, daily life, business, and politics.',
+    badgeZh: '全域 20 大模組',
+    badgeEn: 'All 20 Modules',
+    color: 'var(--brand-accent)'
+  },
+  {
+    id: 'expatriate',
+    icon: '💼',
+    titleZh: '外派經商與工廠管理軌道',
+    titleEn: 'Expat & Factory Management',
+    descZh: 'SMT工廠巡檢、AQL品保、商務談判、合約法規與宴飲應酬。',
+    descEn: 'SMT factory tours, QA audits, negotiations, contracts, and banquet socializing.',
+    badgeZh: '台商外派專用',
+    badgeEn: 'FDI Business',
+    color: '#f59e0b'
+  },
+  {
+    id: 'lifestyle',
+    icon: '✈️',
+    titleZh: '生活社交與觀光探索軌道',
+    titleEn: 'Daily Life & Travel Explorer',
+    descZh: '咖啡館點單、市場殺價、租屋簽約、看診買藥與交通出行。',
+    descEn: 'Coffee ordering, market bargaining, apartment leases, clinics, and Grab rides.',
+    badgeZh: '生活旅居必備',
+    badgeEn: 'Daily Life',
+    color: '#10b981'
+  },
+  {
+    id: 'academic',
+    icon: '🎓',
+    titleZh: '從零考級至雙語精通軌道',
+    titleEn: 'Academic & CEFR Mastery',
+    descZh: '29字母音標、6大聲調、30大核心語法、漢越同源字根與萬詞辭庫。',
+    descEn: 'IPA letters, 6 tones, 30 grammar rules, Han-Viet roots, and 10k frequency vocab.',
+    badgeZh: 'iVPT / CEFR 認證',
+    badgeEn: 'A1-C2 Exam',
+    color: '#8b5cf6'
+  }
+];
+
+export const PEDAGOGICAL_STEPS = [
+  {
+    step: '1',
+    icon: '🎧',
+    titleZh: '精聽輸入 (Comprehensible Input)',
+    titleEn: 'Comprehensible Input',
+    descZh: '真人母語錄音 · 雙語對照 · 1.0x / 0.75x 慢速精讀',
+    descEn: 'Native audio, bilingual transcripts, slow playback',
+    targetModule: 'conversation',
+    color: '#3b82f6'
+  },
+  {
+    step: '2',
+    icon: '🧩',
+    titleZh: '結構剖析 (Cognitive Parsing)',
+    titleEn: 'Grammar & Cognates',
+    descZh: '30 大核心語法法則 · 漢越同源詞對照推導',
+    descEn: '30 core grammar rules and Sino-Vietnamese roots',
+    targetModule: 'grammar',
+    color: '#06b6d4'
+  },
+  {
+    step: '3',
+    icon: '🧠',
+    titleZh: '間隔固化 (Memory Consolidation)',
+    titleEn: 'Memory Consolidation',
+    descZh: 'SM-2 自適應間隔複習 · 10,000 高頻分級詞庫',
+    descEn: 'SM-2 spaced repetition across 10,000 frequency words',
+    targetModule: 'flashcards',
+    color: '#10b981'
+  },
+  {
+    step: '4',
+    icon: '🎙️',
+    titleZh: '內化跟讀 (Acoustic Shadowing)',
+    titleEn: 'Prosodic Shadowing',
+    descZh: '麥克風語音辨識跟讀 · 南北越雙主流口音切換',
+    descEn: 'Voice shadowing with North vs South dialect switch',
+    targetModule: 'shadowing',
+    color: '#f59e0b'
+  },
+  {
+    step: '5',
+    icon: '🎭',
+    titleZh: '任務輸出 (Interactive Output)',
+    titleEn: 'Task-Based Output',
+    descZh: '情境角色扮演互動分支 · 語法拼句實戰微測驗',
+    descEn: 'Branching role-play dialogues and sentence puzzles',
+    targetModule: 'conversation',
+    color: '#ec4899'
+  }
+];
+
 export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
   const { learningMode, loc, t } = useLanguage();
 
@@ -51,6 +151,53 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
       return 10;
     }
   });
+
+  // Active Adaptive Learning Track Preset: 'all' | 'expatriate' | 'lifestyle' | 'academic'
+  const [activeTrack, setActiveTrack] = useState(() => {
+    try {
+      return localStorage.getItem('viet_active_learning_track') || 'all';
+    } catch {
+      return 'all';
+    }
+  });
+
+  const handleSelectTrack = (trackId) => {
+    setActiveTrack(trackId);
+    try {
+      localStorage.setItem('viet_active_learning_track', trackId);
+    } catch {}
+  };
+
+  const trackFeaturedChapters = useMemo(() => {
+    if (activeTrack === 'expatriate') {
+      return SYLLABUS_REGISTRY.filter(chap => 
+        chap.category === 'business' || 
+        chap.category === 'macropol' || 
+        chap.id === 'scn_factory_qa' || 
+        chap.id === 'scn_nhau_dinner' || 
+        chap.id === 'vocab_5k'
+      ).slice(0, 8);
+    }
+    if (activeTrack === 'lifestyle') {
+      return SYLLABUS_REGISTRY.filter(chap => 
+        chap.category === 'scenario' || 
+        chap.category === 'fasttrack' || 
+        chap.category === 'topics' || 
+        chap.id === 'vocab_1k' || 
+        chap.id === 'scn_apt_rental' || 
+        chap.id === 'scn_air_customs' || 
+        chap.id === 'scn_pharmacy_clinic'
+      ).slice(0, 8);
+    }
+    if (activeTrack === 'academic') {
+      return SYLLABUS_REGISTRY.filter(chap => 
+        chap.category === 'basics' || 
+        chap.category === 'grammar' || 
+        chap.category === 'vocab'
+      ).slice(0, 8);
+    }
+    return SYLLABUS_REGISTRY.slice(0, 8);
+  }, [activeTrack]);
 
   // Expanded Stage Details Accordion
   const [expandedStageId, setExpandedStageId] = useState(null);
@@ -113,7 +260,7 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
     { id: 'science', icon: Brain, titleZh: '科學方法研究', titleEn: 'Science & SLA', descZh: '5 大跨學科學習體系', descEn: '5-Discipline SLA Hub', tone: 'purple' },
     { id: 'emergency', icon: LifeBuoy, titleZh: '生活急救錦囊', titleEn: 'Survival Audio Kit', descZh: '街頭出差一鍵出聲', descEn: 'Instant Tap-to-Speak', tone: 'red' },
     { id: 'alphabet', icon: AudioLines, titleZh: '發音聲調打底', titleEn: 'Sounds & Tones', descZh: '29 字母與 6 聲調', descEn: '29 letters & 6 tones', tone: 'blue' },
-    { id: 'conversation', icon: MessagesSquare, titleZh: '43大情境對話', titleEn: '43 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
+    { id: 'conversation', icon: MessagesSquare, titleZh: '49大情境對話', titleEn: '49 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
     { id: 'hanviet', icon: BookOpen, titleZh: '漢越同源字根', titleEn: 'Han-Viet Roots', descZh: '百大字根倍速記詞', descEn: '100 Core cognate roots', tone: 'purple' }
   ];
 
@@ -216,6 +363,89 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
         </div>
       </section>
 
+      {/* Adaptive 3-Track Goal Switcher */}
+      <section className="adaptive-tracks-card" style={{
+        margin: '1.75rem 0',
+        padding: '1.5rem',
+        background: 'var(--bg-card)',
+        border: '1.5px solid var(--border-color)',
+        borderRadius: 'var(--radius-xl)',
+        boxShadow: 'var(--card-shadow)'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+            <div style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: 'var(--radius-md)',
+              background: 'rgba(37, 99, 235, 0.12)',
+              color: 'var(--brand-accent)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <Compass size={22} />
+            </div>
+            <div>
+              <h3 style={{ margin: 0, fontSize: '1.18rem', fontWeight: 900, color: 'var(--text-primary)' }}>
+                {learningMode === 'zh' ? '🎯 個人化學習賽道導航 (Adaptive Goal Tracks)' : '🎯 Adaptive Goal-Oriented Tracks'}
+              </h3>
+              <p style={{ margin: '0.2rem 0 0', fontSize: '0.86rem', color: 'var(--text-secondary)' }}>
+                {learningMode === 'zh' 
+                  ? '選擇您的學習目標，系統將智能為您重組章節推薦、情境演練與高頻單字權重' 
+                  : 'Select your learning objective to dynamically prioritize recommended chapters and vocabulary.'}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
+          gap: '0.85rem'
+        }}>
+          {ADAPTIVE_TRACKS.map(tr => {
+            const isSelected = activeTrack === tr.id;
+            return (
+              <div
+                key={tr.id}
+                onClick={() => handleSelectTrack(tr.id)}
+                style={{
+                  padding: '1.1rem 1.25rem',
+                  borderRadius: 'var(--radius-lg)',
+                  border: isSelected ? `2px solid ${tr.color}` : '1px solid var(--border-color)',
+                  background: isSelected ? 'var(--bg-accent)' : 'var(--bg-main)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  position: 'relative',
+                  boxShadow: isSelected ? '0 4px 14px rgba(37,99,235,0.15)' : 'none'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                  <span style={{ fontSize: '1.75rem' }}>{tr.icon}</span>
+                  <span style={{
+                    background: isSelected ? tr.color : 'rgba(148, 163, 184, 0.15)',
+                    color: isSelected ? '#fff' : 'var(--text-secondary)',
+                    fontSize: '0.72rem',
+                    fontWeight: 800,
+                    padding: '0.15rem 0.55rem',
+                    borderRadius: 'var(--radius-full)'
+                  }}>
+                    {learningMode === 'zh' ? tr.badgeZh : tr.badgeEn}
+                  </span>
+                </div>
+                <strong style={{ fontSize: '0.98rem', color: isSelected ? tr.color : 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
+                  {learningMode === 'zh' ? tr.titleZh : tr.titleEn}
+                </strong>
+                <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                  {learningMode === 'zh' ? tr.descZh : tr.descEn}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
       {/* Master Course Syllabus & Chapter Quick Jump Hub */}
       <section className="syllabus-hub-banner" style={{
         margin: '1.75rem 0',
@@ -232,7 +462,9 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
               <span>{learningMode === 'zh' ? '全站章節導覽大廳' : 'Master Curriculum Directory'}</span>
             </div>
             <h2 style={{ fontSize: '1.45rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.35rem 0 0.2rem' }}>
-              {learningMode === 'zh' ? '100+ 實戰課程章節直達導航' : '100+ Chapters Quick Navigation'}
+              {learningMode === 'zh' 
+                ? `${ADAPTIVE_TRACKS.find(t => t.id === activeTrack)?.titleZh || '全能精通'} · 精選推薦直達` 
+                : `${ADAPTIVE_TRACKS.find(t => t.id === activeTrack)?.titleEn || 'Mastery'} · Featured Chapters`}
             </h2>
             <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
               {learningMode === 'zh' 
@@ -270,7 +502,7 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
           gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
           gap: '0.85rem'
         }}>
-          {SYLLABUS_REGISTRY.slice(0, 8).map(chap => (
+          {trackFeaturedChapters.map(chap => (
             <div
               key={chap.id}
               onClick={() => {
@@ -526,6 +758,97 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
           <Layers3 size={17} />
           {learningMode === 'zh' ? '開啟智能閃卡複習' : 'Start SRS Flashcards'}
         </button>
+      </section>
+
+      {/* 5-Step SLA Closed-Loop Pedagogical Model Card */}
+      <section className="pedagogical-loop-card" style={{
+        margin: '1.75rem 0',
+        padding: '1.5rem',
+        background: 'var(--bg-card)',
+        border: '1.5px solid var(--border-color)',
+        borderRadius: 'var(--radius-xl)',
+        boxShadow: 'var(--card-shadow)'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem' }}>
+          <div style={{
+            width: '40px',
+            height: '40px',
+            borderRadius: 'var(--radius-md)',
+            background: 'rgba(234, 179, 8, 0.15)',
+            color: 'var(--brand-gold)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}>
+            <Layers size={22} />
+          </div>
+          <div>
+            <h3 style={{ margin: 0, fontSize: '1.18rem', fontWeight: 900, color: 'var(--text-primary)' }}>
+              {learningMode === 'zh' ? '🔄 認知二語習得 5 步閉環教學法 (SLA Closed-Loop Model)' : '🔄 5-Step SLA Closed-Loop Pedagogical Model'}
+            </h3>
+            <p style={{ margin: '0.2rem 0 0', fontSize: '0.86rem', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh'
+                ? '告別死記硬背！遵循二語習得 SLA 科學節奏：精聽輸入 ➔ 結構剖析 ➔ 間隔固化 ➔ 內化跟讀 ➔ 任務輸出'
+                : 'Scientific language acquisition flow: Auditory Input ➔ Grammar Structure ➔ Memory Consolidation ➔ Prosodic Shadowing ➔ Interactive Output.'}
+            </p>
+          </div>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
+          gap: '0.75rem'
+        }}>
+          {PEDAGOGICAL_STEPS.map((s) => (
+            <div
+              key={s.step}
+              onClick={() => {
+                setActiveTab(s.targetModule);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              style={{
+                background: 'var(--bg-main)',
+                border: '1px solid var(--border-color)',
+                borderRadius: 'var(--radius-lg)',
+                padding: '1.1rem',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative'
+              }}
+              className="pedagogical-step-box"
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
+                <span style={{
+                  width: '28px',
+                  height: '28px',
+                  borderRadius: 'var(--radius-full)',
+                  background: s.color,
+                  color: '#fff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '0.8rem',
+                  fontWeight: 900
+                }}>
+                  {s.step}
+                </span>
+                <span style={{ fontSize: '1.45rem' }}>{s.icon}</span>
+              </div>
+              <strong style={{ fontSize: '0.92rem', color: 'var(--text-primary)', marginBottom: '0.35rem', lineHeight: 1.3 }}>
+                {learningMode === 'zh' ? s.titleZh : s.titleEn}
+              </strong>
+              <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.4, flexGrow: 1 }}>
+                {learningMode === 'zh' ? s.descZh : s.descEn}
+              </p>
+              <div style={{ marginTop: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.78rem', fontWeight: 800, color: s.color }}>
+                <span>{learningMode === 'zh' ? '前往此步驟' : 'Enter Step'}</span>
+                <ArrowRight size={13} />
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Quick Start Grid */}

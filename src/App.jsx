@@ -263,17 +263,17 @@ export function App() {
             )}
             {activeTab === 'topics' && <TopicMasteryModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'macropol' && <MacroPolModule />}
-            {activeTab === 'fasttrack' && <FastTrackModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'fasttrack' && <FastTrackModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'business' && <BusinessHubModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'science' && <ScientificMethodModule />}
             {activeTab === 'emergency' && <EmergencyKitModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} />}
             {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'conversation' && <ConversationModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'conversation' && <ConversationModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'flashcards' && <FlashcardModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'grammar' && <GrammarModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'flashcards' && <FlashcardModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'grammar' && <GrammarModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'hanviet' && <HanVietModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'pronoun' && <PronounModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'quiz' && <QuizModule userStats={userStats} updateUserStats={updateUserStats} selectedAccent={selectedAccent} />}
