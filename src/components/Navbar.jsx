@@ -19,6 +19,8 @@ export const Navbar = ({
   userStats,
   selectedAccent,
   setSelectedAccent,
+  speechRate = 1.0,
+  setSpeechRate,
   onOpenAchievements,
   onOpenDailyQuests,
   onOpenChapterFinder
@@ -187,6 +189,60 @@ export const Navbar = ({
                 </span>
               </button>
 
+              {/* Accent Quick Switcher (North vs South) */}
+              <button
+                className="control-btn accent-toggle-btn"
+                onClick={() => {
+                  audioEngine.playHaptic('selection');
+                  setSelectedAccent(prev => prev === 'north' ? 'south' : 'north');
+                }}
+                title={learningMode === 'zh'
+                  ? (selectedAccent === 'north' ? '當前口音：河內標準音 (北越)。點擊切換為西貢商業音 (南越)' : '當前口音：西貢商業音 (南越)。點擊切換為河內標準音 (北越)')
+                  : (selectedAccent === 'north' ? 'Accent: Hanoi (North). Click for Saigon (South)' : 'Accent: Saigon (South). Click for Hanoi (North)')}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  padding: '0.35rem 0.75rem',
+                  borderRadius: 'var(--radius-full)',
+                  border: '1px solid var(--border-color)',
+                  background: selectedAccent === 'north' ? 'rgba(59, 130, 246, 0.12)' : 'rgba(16, 185, 129, 0.12)',
+                  color: selectedAccent === 'north' ? '#3b82f6' : '#10b981',
+                  fontWeight: 800,
+                  fontSize: '0.85rem',
+                  cursor: 'pointer'
+                }}
+              >
+                <span>{selectedAccent === 'north' ? '🏛️ 河內音' : '🌴 西貢音'}</span>
+              </button>
+
+              {/* Speech Speed Switcher (1.0x vs 0.75x) */}
+              <button
+                className="control-btn speed-toggle-btn"
+                onClick={() => {
+                  audioEngine.playHaptic('tap');
+                  if (setSpeechRate) {
+                    setSpeechRate(speechRate <= 0.85 ? 1.0 : 0.75);
+                  }
+                }}
+                title={learningMode === 'zh' ? '點擊切換正常語速 (1.0x) 或慢速精聽 (0.75x)' : 'Toggle standard (1.0x) or slow study speed (0.75x)'}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.3rem',
+                  padding: '0.35rem 0.65rem',
+                  borderRadius: 'var(--radius-full)',
+                  border: '1px solid var(--border-color)',
+                  background: speechRate <= 0.85 ? 'rgba(245, 158, 11, 0.14)' : 'var(--bg-card)',
+                  color: speechRate <= 0.85 ? 'var(--brand-gold)' : 'var(--text-secondary)',
+                  fontWeight: 800,
+                  fontSize: '0.85rem',
+                  cursor: 'pointer'
+                }}
+              >
+                <span>{speechRate <= 0.85 ? '🐢 0.75x' : '🐰 1.0x'}</span>
+              </button>
+
               {/* Font Size Selector */}
               <div className="font-size-selector" aria-label={t('fontSize')}>
                 <Type size={13} aria-hidden="true" />
@@ -250,6 +306,64 @@ export const Navbar = ({
             </span>
             <button className="mobile-drawer-close" onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(false); }}>
               <X size={18} />
+            </button>
+          </div>
+
+          {/* Mobile Quick Accent & Speed Controls */}
+          <div style={{
+            display: 'flex',
+            gap: '0.6rem',
+            padding: '0.5rem 1rem 0.8rem',
+            borderBottom: '1px solid var(--border-color)'
+          }}>
+            <button
+              onClick={() => {
+                audioEngine.playHaptic('selection');
+                setSelectedAccent(prev => prev === 'north' ? 'south' : 'north');
+              }}
+              style={{
+                flex: 1,
+                padding: '0.6rem',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--border-color)',
+                background: selectedAccent === 'north' ? 'rgba(59, 130, 246, 0.15)' : 'rgba(16, 185, 129, 0.15)',
+                color: selectedAccent === 'north' ? '#3b82f6' : '#10b981',
+                fontWeight: 800,
+                fontSize: '0.85rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.4rem',
+                cursor: 'pointer'
+              }}
+            >
+              <span>{selectedAccent === 'north' ? '🏛️ 河內音 (北)' : '🌴 西貢音 (南)'}</span>
+            </button>
+
+            <button
+              onClick={() => {
+                audioEngine.playHaptic('tap');
+                if (setSpeechRate) {
+                  setSpeechRate(speechRate <= 0.85 ? 1.0 : 0.75);
+                }
+              }}
+              style={{
+                flex: 1,
+                padding: '0.6rem',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid var(--border-color)',
+                background: speechRate <= 0.85 ? 'rgba(245, 158, 11, 0.15)' : 'var(--bg-card)',
+                color: speechRate <= 0.85 ? 'var(--brand-gold)' : 'var(--text-secondary)',
+                fontWeight: 800,
+                fontSize: '0.85rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.4rem',
+                cursor: 'pointer'
+              }}
+            >
+              <span>{speechRate <= 0.85 ? '🐢 0.75x 慢速' : '🐰 1.0x 正常'}</span>
             </button>
           </div>
 

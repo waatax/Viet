@@ -7,27 +7,27 @@
 export const scenarioCategories = [
   {
     "id": "all",
-    "labelZh": "全部情境 (44個)",
+    "labelZh": "全部情境 (49個)",
     "labelEn": "All Scenarios (43)"
   },
   {
     "id": "business",
-    "labelZh": "💼 職場商務 (22個)",
+    "labelZh": "💼 職場商務 (23個)",
     "labelEn": "💼 Business & Commerce (22)"
   },
   {
     "id": "dining",
-    "labelZh": "🍜 餐飲美食 (6個)",
+    "labelZh": "🍜 餐飲美食 (7個)",
     "labelEn": "🍜 Food & Dining (6)"
   },
   {
     "id": "daily",
-    "labelZh": "💇 生活服務 (4個)",
+    "labelZh": "💇 生活服務 (5個)",
     "labelEn": "💇 Daily Life & Services (4)"
   },
   {
     "id": "travel",
-    "labelZh": "✈️ 旅遊出行 (5個)",
+    "labelZh": "✈️ 旅遊出行 (6個)",
     "labelEn": "✈️ Travel & Transport (5)"
   },
   {
@@ -52,7 +52,7 @@ export const scenarioCategories = [
   },
   {
     "id": "health",
-    "labelZh": "💊 醫療健康",
+    "labelZh": "💊 醫療健康 (2個)",
     "labelEn": "💊 Health & Medical"
   },
   {
@@ -11578,6 +11578,646 @@ export const situationalScenarios = [
     "contentEn": "Vietnam actively targets FDI transfer pricing. Ensure robust local documentation for management fees, intercompany loans (30% EBITDA cap), and intellectual property royalties under Decree 132.",
     "proTipZh": "✨ 秘笈：在向海外母公司支付技術諮詢服務費前，務必妥善存檔專家的護照出入境章、工作電郵、視訊會議紀錄與技術報告作為商業實質憑證！",
     "proTipEn": "✨ Pro Tip: Archive specialist passport entry stamps, email deliverables, and technical reports to prove commercial substance for foreign service fees."
+  }
+},
+{
+  "id": "factory_quality_qa",
+  "category": "business",
+  "tagZh": "工廠品保",
+  "tagEn": "Factory QA",
+  "icon": "🏭",
+  "image": "factory_qa.jpg",
+  "titleZh": "工廠品保抽驗與出貨裝櫃",
+  "titleEn": "Factory QA Inspection & Container Loading",
+  "titleVi": "Kiểm Tra Chất Lượng Sản Phẩm & Đóng Container Xuất Khẩu",
+  "summaryZh": "品保經理與客戶駐廠稽核員進行產線抽檢 (AQL 抽樣標準)、不良品返工判斷與海運貨櫃準時出貨安排。",
+  "summaryEn": "QA manager and client auditor review AQL sampling, rework procedures, and on-time container loading.",
+  "dialogue": [
+    {
+      "speakerVi": "Khách hàng (客戶稽核)",
+      "speakerZh": "客戶驗貨員",
+      "speakerEn": "Client Auditor",
+      "vi": "Chào anh Nam, lô hàng 10.000 sản phẩm này đã hoàn thành đóng gói xong chưa?",
+      "zh": "Nam 經理您好，這批一萬件產品的包裝全部完成了嗎？",
+      "en": "Hello Mr. Nam, has packaging for this batch of 10,000 units been completed?",
+      "audioKey": "scn_qa_1"
+    },
+    {
+      "speakerVi": "Quản lý Nam (廠長)",
+      "speakerZh": "Nam 廠長",
+      "speakerEn": "Factory Manager",
+      "vi": "Dạ chào anh. Tất cả đã đóng thùng và dán tem phụ đầy đủ theo tiêu chuẩn xuất khẩu rồi ạ.",
+      "zh": "您好。所有產品都已裝箱完畢，並依據出口標準完整貼上副標籤了。",
+      "en": "Yes sir. All items are boxed and labeled with secondary tags per export standards.",
+      "audioKey": "scn_qa_2"
+    },
+    {
+      "speakerVi": "Khách hàng (客戶稽核)",
+      "speakerZh": "客戶驗貨員",
+      "speakerEn": "Client Auditor",
+      "vi": "Tỷ lệ hàng lỗi trong đợt kiểm tra ngẫu nhiên AQL sáng nay là bao nhiêu phần trăm?",
+      "zh": "今早依照 AQL 抽樣檢查的次品不良率是多少個百分比？",
+      "en": "What is the defect rate from this morning's random AQL inspection?",
+      "audioKey": "scn_qa_3"
+    },
+    {
+      "speakerVi": "Quản lý Nam (廠長)",
+      "speakerZh": "Nam 廠長",
+      "speakerEn": "Factory Manager",
+      "vi": "Dạ tỷ lệ lỗi chỉ có 0.2%, thấp hơn nhiều so với mức trần 0.5% quy định trong hợp đồng.",
+      "zh": "不良率僅有 0.2%，遠低於合約所規定的 0.5% 上限門檻。",
+      "en": "The defect rate is only 0.2%, well below the 0.5% ceiling threshold specified in the contract.",
+      "audioKey": "scn_qa_4"
+    },
+    {
+      "speakerVi": "Khách hàng (客戶稽核)",
+      "speakerZh": "客戶驗貨員",
+      "speakerEn": "Client Auditor",
+      "vi": "Rất tốt. Vậy chiều nay 2 giờ xe container sẽ đến bến bốc hàng lên xe đúng giờ nhé.",
+      "zh": "非常好。那麼今天下午兩點貨櫃車抵達月台，請務必準時裝櫃發車喔。",
+      "en": "Very good. The container truck arrives at dock at 2 PM, please ensure on-time loading.",
+      "audioKey": "scn_qa_5"
+    },
+    {
+      "speakerVi": "Quản lý Nam (廠長)",
+      "speakerZh": "Nam 廠長",
+      "speakerEn": "Factory Manager",
+      "vi": "Dạ anh yên tâm, đội ngũ kho bãi đã chuẩn bị sẵn sàng xe nâng và niêm phong seal chì rồi ạ.",
+      "zh": "請您放心，倉庫團隊已經備妥堆高機與海關鉛封 (Seal) 了。",
+      "en": "Rest assured, our warehouse team has forklifts and customs container seals ready.",
+      "audioKey": "scn_qa_6"
+    }
+  ],
+  "roleplay": {
+    "titleZh": "實戰演練：處理驗貨發現的外箱微瑕疵",
+    "titleEn": "Roleplay: Addressing minor carton packaging flaws",
+    "steps": [
+      {
+        "partnerPromptVi": "Tôi thấy có 3 thùng carton bị móp góc, anh xử lý thế nào?",
+        "partnerPromptZh": "我發現有三個外箱邊角受壓凹陷，您打算如何處理？",
+        "partnerPromptEn": "I noticed three cartons have dented corners. How will you resolve this?",
+        "userOptions": [
+          {
+            "id": "qa_opt1",
+            "textVi": "Dạ em sẽ cho công nhân thay thùng mới và niêm phong lại ngay lập tức trước khi bốc lên xe ạ.",
+            "textZh": "我會立刻安排工人更換全新外箱並重新封箱，在裝車前全部改善妥當。",
+            "textEn": "I will have workers repack into fresh cartons and reseal immediately prior to truck loading.",
+            "isCorrect": true,
+            "feedbackZh": "回答專業負責！主動即時換箱重封，展現高規格品質把關。",
+            "feedbackEn": "Professional and responsible! Prompt carton replacement demonstrates strict QC discipline."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Tỷ lệ hàng lỗi",
+      "vi": "Tỷ lệ hàng lỗi",
+      "phonetic": "[ti˧˩ le˧˨ haːŋ˨˩ loj˦˧˥]",
+      "ipa": "[ti˧˩ le˧˨ haːŋ˨˩ loj˦˧˥]",
+      "zh": "不良率 / 次品率",
+      "en": "Defect Rate",
+      "hanViet": "Tỷ lệ (比率) + Hàng lỗi"
+    },
+    {
+      "viet": "Niêm phong chì (Seal)",
+      "vi": "Niêm phong chì (Seal)",
+      "phonetic": "[niəm˧ fawŋ͡m˧ ci˨˩]",
+      "ipa": "[niəm˧ fawŋ͡m˧ ci˨˩]",
+      "zh": "貨櫃封條 / 鉛封",
+      "en": "Container Seal",
+      "hanViet": "Niêm phong (粘封)"
+    },
+    {
+      "viet": "Xe nâng",
+      "vi": "Xe nâng",
+      "phonetic": "[sɛ˧ nəŋ˧]",
+      "ipa": "[sɛ˧ nəŋ˧]",
+      "zh": "堆高機 / 叉車",
+      "en": "Forklift",
+      "hanViet": "Xa + Nâng"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🏭 越南外銷製造業：AQL 驗貨與貨櫃防潮防霉實務",
+    "titleEn": "Manufacturing QC Standards & Container Moisture Protection in Vietnam",
+    "contentZh": "越南氣候高溫潮濕，海運貨櫃橫跨赤道時容易產生「貨櫃雨 (Container Rain)」。因此品管在裝櫃時除嚴格遵循 AQL 檢驗外，務必確認箱內放置乾燥劑 (Túi hút ẩm)，並檢查貨櫃密封膠條是否完好無縫。",
+    "contentEn": "Vietnam's humid climate requires high vigilance against container sweat during sea transit. Ensure desiccants are placed and container door gaskets are airtight.",
+    "proTipZh": "✨ 秘笈：在簽收驗貨報告 (Biên bản nghiệm thu) 時，記得備份三份並由雙方主管同步簽名蓋章。",
+    "proTipEn": "✨ Pro Tip: Always keep three duplicate inspection sign-offs stamped by both managers."
+  }
+},
+{
+  "id": "apartment_rental_contract",
+  "category": "daily",
+  "tagZh": "租屋合約",
+  "tagEn": "Apartment Rental",
+  "icon": "🏢",
+  "image": "apartment_rental.jpg",
+  "titleZh": "公寓租賃簽約與物業維修",
+  "titleEn": "Apartment Lease Agreement & Maintenance Request",
+  "titleVi": "Ký Hợp Đồng Thuê Căn Hộ & Yêu Cầu Sửa Chữa",
+  "summaryZh": "租客向房東洽談月租押金、水電管理費分攤、居住登記 (Tạm trú) 與冷氣漏水報修。",
+  "summaryEn": "Negotiating monthly rent, deposit, building management fees, temporary residence registration, and AC repairs.",
+  "dialogue": [
+    {
+      "speakerVi": "Người thuê (租客)",
+      "speakerZh": "租客",
+      "speakerEn": "Tenant",
+      "vi": "Chào chị Mai, tiền cọc căn hộ này là mấy tháng và hợp đồng ký tối thiểu bao lâu?",
+      "zh": "Mai 姐您好，這間公寓的押金是幾個月，合約最短需要簽多久？",
+      "en": "Hello Ms. Mai, how many months of deposit are required and what is the minimum lease term?",
+      "audioKey": "scn_apt_1"
+    },
+    {
+      "speakerVi": "Chủ nhà Mai (房東)",
+      "speakerZh": "房東 Mai 姐",
+      "speakerEn": "Landlord",
+      "vi": "Tiền cọc là hai tháng và thanh toán tiền nhà vào ngày 5 hàng tháng. Hợp đồng một năm em nhé.",
+      "zh": "押金是兩個月，每個月5號繳交房租。合約期為一年喔。",
+      "en": "Deposit is two months, rent is paid on the 5th of each month. One year contract.",
+      "audioKey": "scn_apt_2"
+    },
+    {
+      "speakerVi": "Người thuê (租客)",
+      "speakerZh": "租客",
+      "speakerEn": "Tenant",
+      "vi": "Giá thuê đã bao gồm phí quản lý tòa nhà và internet chưa ạ?",
+      "zh": "請問租金是否已經包含大樓管理費與網路費了呢？",
+      "en": "Does the rental price already include building management fee and internet?",
+      "audioKey": "scn_apt_3"
+    },
+    {
+      "speakerVi": "Chủ nhà Mai (房東)",
+      "speakerZh": "房東 Mai 姐",
+      "speakerEn": "Landlord",
+      "vi": "Đã bao gồm phí quản lý và wifi rồi, tiền điện nước em trả theo giá nhà nước trên hóa đơn.",
+      "zh": "已經包含管理費和 Wi-Fi 了，水電費你直接按帳單上的國家公定費率繳納。",
+      "en": "Management and wifi are included. You pay electricity and water at standard state bill rates.",
+      "audioKey": "scn_apt_4"
+    },
+    {
+      "speakerVi": "Người thuê (租客)",
+      "speakerZh": "租客",
+      "speakerEn": "Tenant",
+      "vi": "Chị nhớ hỗ trợ em khai báo tạm trú cho công an phường nhé.",
+      "zh": "姐記得協助我向坊公安局申報暫住登記 (Tạm trú) 喔。",
+      "en": "Please assist me with temporary residence registration at the local ward police.",
+      "audioKey": "scn_apt_5"
+    },
+    {
+      "speakerVi": "Chủ nhà Mai (房東)",
+      "speakerZh": "房東 Mai 姐",
+      "speakerEn": "Landlord",
+      "vi": "Yên tâm, chị đã làm thủ tục online rồi, ngày mai sẽ gửi giấy xác nhận cho em.",
+      "zh": "放心，我已經在線上系統申報手續了，明天就會把確認單傳給你。",
+      "en": "Don't worry, I submitted it online and will send you the confirmation tomorrow.",
+      "audioKey": "scn_apt_6"
+    }
+  ],
+  "roleplay": {
+    "titleZh": "實戰演練：反映主臥冷氣不冷漏水",
+    "titleEn": "Roleplay: Reporting a leaking air conditioner",
+    "steps": [
+      {
+        "partnerPromptVi": "Em ơi, căn hộ có vấn đề gì cần hỗ trợ không?",
+        "partnerPromptZh": "住客您好，公寓有任何需要協助的問題嗎？",
+        "partnerPromptEn": "Hello, is there any issue with the apartment that needs assistance?",
+        "userOptions": [
+          {
+            "id": "apt_opt1",
+            "textVi": "Dạ máy lạnh phòng ngủ chính bị chảy nước và không mát, nhờ chị gọi thợ đến bảo trì giúp em ạ.",
+            "textZh": "主臥室的冷氣一直在滴水而且吹不涼，麻煩姐幫我叫師傅過來維修保養。",
+            "textEn": "The master bedroom AC is leaking water and not cooling, please have a technician service it.",
+            "isCorrect": true,
+            "feedbackZh": "表達清晰禮貌！精準描述問題並提出具體解決要求。",
+            "feedbackEn": "Clear and polite request identifying the issue and solution."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Tiền cọc",
+      "vi": "Tiền cọc",
+      "phonetic": "[tiən˨˩ kawk͡p̚˧˨]",
+      "ipa": "[tiən˨˩ kawk͡p̚˧˨]",
+      "zh": "押金 / 定金",
+      "en": "Security Deposit",
+      "hanViet": "Tiền + Cọc"
+    },
+    {
+      "viet": "Đăng ký tạm trú",
+      "vi": "Đăng ký tạm trú",
+      "phonetic": "[daŋ˧ ki˦˧˥ taːm˧˨ tɕu˦˧˥]",
+      "ipa": "[daŋ˧ ki˦˧˥ taːm˧˨ tɕu˦˧˥]",
+      "zh": "暫住登記",
+      "en": "Temporary Residence Registration",
+      "hanViet": "Đăng ký (登記) + Tạm trú (暫住)"
+    },
+    {
+      "viet": "Phí quản lý",
+      "vi": "Phí quản lý",
+      "phonetic": "[fi˦˧˥ kwaːn˧˩ li˦˧˥]",
+      "ipa": "[fi˦˧˥ kwaːn˧˩ li˦˧˥]",
+      "zh": "物業管理費",
+      "en": "Management Fee",
+      "hanViet": "Phí (費) + Quản lý (管理)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🏠 外籍人士在越租屋必備：24小時內申報暫住 (Tạm trú)",
+    "titleEn": "Foreigner Residence Registration (Tạm trú) Law in Vietnam",
+    "contentZh": "依據越南出入境法規定，外國人入住公寓後，房東必須在 24 小時內向當地坊公安 (Công an phường) 申報暫住登記。若未完成登記，外國人在辦理工作證 (Work Permit) 或居留證 (TRC) 時將會被處以罰款。",
+    "contentEn": "Vietnamese law mandates landlords register foreign tenants with the local police within 24 hours. Failure leads to fines and TRC complications.",
+    "proTipZh": "✨ 秘笈：簽約時請拍下電表與水表底數 (Chỉ số đồng hồ điện nước) 並附加於合約附錄以防日後爭議。",
+    "proTipEn": "✨ Pro Tip: Take photos of electric/water meter numbers and attach them to the lease contract."
+  }
+},
+{
+  "id": "airport_customs_visa",
+  "category": "travel",
+  "tagZh": "入境海關",
+  "tagEn": "Airport Customs",
+  "icon": "✈️",
+  "image": "airport_customs.jpg",
+  "titleZh": "機場海關入境與電子簽證查驗",
+  "titleEn": "Airport Immigration & E-Visa Verification",
+  "titleVi": "Nhập Cảnh Sân Bay & Kiểm Tra Thị Thực Điện Tử (E-Visa)",
+  "summaryZh": "抵達新山一或內排國際機場，接受邊檢移民官查驗護照、E-visa 電子簽證、入境目的與申報隨身物品。",
+  "summaryEn": "Passing through immigration at Tan Son Nhat or Noi Bai airport: passport, E-visa verification, and customs declaration.",
+  "dialogue": [
+    {
+      "speakerVi": "Hải quan (移民官)",
+      "speakerZh": "海關移民官",
+      "speakerEn": "Immigration Officer",
+      "vi": "Xin chào, vui lòng xuất trình hộ chiếu và giấy thị thực điện tử (E-visa).",
+      "zh": "您好，請出示您的護照與電子簽證列印紙。",
+      "en": "Hello, please present your passport and E-visa paper.",
+      "audioKey": "scn_air_1"
+    },
+    {
+      "speakerVi": "Hành khách (旅客)",
+      "speakerZh": "旅客",
+      "speakerEn": "Passenger",
+      "vi": "Dạ đây ạ, hộ chiếu và visa 30 ngày của tôi.",
+      "zh": "好的，這是我的護照與 30 天單次簽證。",
+      "en": "Here they are, my passport and 30-day visa.",
+      "audioKey": "scn_air_2"
+    },
+    {
+      "speakerVi": "Hải quan (移民官)",
+      "speakerZh": "海關移民官",
+      "speakerEn": "Immigration Officer",
+      "vi": "Mục đích chuyến đi của anh đến Việt Nam lần này là gì?",
+      "zh": "您這次造訪越南的主要目的是什麼？",
+      "en": "What is the primary purpose of your visit to Vietnam?",
+      "audioKey": "scn_air_3"
+    },
+    {
+      "speakerVi": "Hành khách (旅客)",
+      "speakerZh": "旅客",
+      "speakerEn": "Passenger",
+      "vi": "Tôi đến đây để du lịch kết hợp thăm một số đối tác kinh doanh ở TP. Hồ Chí Minh.",
+      "zh": "我是來旅遊，順道拜訪胡志明市的幾家商業合作夥伴。",
+      "en": "I am here for tourism combined with visiting business partners in Ho Chi Minh City.",
+      "audioKey": "scn_air_4"
+    },
+    {
+      "speakerVi": "Hải quan (移民官)",
+      "speakerZh": "海關移民官",
+      "speakerEn": "Immigration Officer",
+      "vi": "Anh sẽ lưu trú tại Việt Nam trong bao lâu?",
+      "zh": "您預計在越南境內停留多久？",
+      "en": "How long will you be staying in Vietnam?",
+      "audioKey": "scn_air_5"
+    },
+    {
+      "speakerVi": "Hành khách (旅客)",
+      "speakerZh": "旅客",
+      "speakerEn": "Passenger",
+      "vi": "Tôi ở lại khoảng mười ngày. Đây là vé máy bay khứ hồi và xác nhận đặt phòng khách sạn.",
+      "zh": "我預計停留約十天。這是我的回程機票與飯店訂房確認單。",
+      "en": "I will stay for about 10 days. Here are my return flight ticket and hotel confirmation.",
+      "audioKey": "scn_air_6"
+    }
+  ],
+  "roleplay": {
+    "titleZh": "實戰演練：海關詢問隨身攜帶的外幣現金",
+    "titleEn": "Roleplay: Answering customs questions about foreign currency",
+    "steps": [
+      {
+        "partnerPromptVi": "Anh có mang theo tiền mặt ngoại tệ vượt quá 5.000 USD không?",
+        "partnerPromptZh": "您是否有隨身攜帶超過等值 5,000 美元的外幣現金？",
+        "partnerPromptEn": "Are you carrying cash in foreign currency exceeding 5,000 USD?",
+        "userOptions": [
+          {
+            "id": "air_opt1",
+            "textVi": "Dạ không, tôi chỉ mang khoảng hai nghìn USD để chi tiêu cá nhân thôi ạ.",
+            "textZh": "沒有，我只隨身攜帶約兩千美元用於個人日常開銷。",
+            "textEn": "No, I am only carrying around 2,000 USD for personal expenses.",
+            "isCorrect": true,
+            "feedbackZh": "回答乾脆合規！低於法定申報門檻，免除申報繁瑣流程。",
+            "feedbackEn": "Direct and compliant answer staying within declaration thresholds."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Thị thực điện tử",
+      "vi": "Thị thực điện tử",
+      "phonetic": "[tʰi˧˨ tʰɨk̚˦˧˥ diən˧˨ tɨ˧˩]",
+      "ipa": "[tʰi˧˨ tʰɨk̚˦˧˥ diən˧˨ tɨ˧˩]",
+      "zh": "電子簽證 (E-Visa)",
+      "en": "E-Visa",
+      "hanViet": "Thị thực (視態) + Điện tử (電子)"
+    },
+    {
+      "viet": "Vé máy bay khứ hồi",
+      "vi": "Vé máy bay khứ hồi",
+      "phonetic": "[vɛ˦˧˥ maj˦˧˥ baj˧ kʰɨ˦˧˥ hoj˨˩]",
+      "ipa": "[vɛ˦˧˥ maj˦˧˥ baj˧ kʰɨ˦˧˥ hoj˨˩]",
+      "zh": "來回雙程機票",
+      "en": "Round-trip Flight Ticket",
+      "hanViet": "Khứ hồi (去回)"
+    },
+    {
+      "viet": "Khai báo hải quan",
+      "vi": "Khai báo hải quan",
+      "phonetic": "[xaj˧ ɓaːw˦˧˥ haːj˧˩ kwaːn˧]",
+      "ipa": "[xaj˧ ɓaːw˦˧˥ haːj˧˩ kwaːn˧]",
+      "zh": "海關申報",
+      "en": "Customs Declaration",
+      "hanViet": "Khai báo (申報) + Hải quan (海關)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "✈️ 越南出入境海關現金限額與電子簽證列印須知",
+    "titleEn": "Currency Declaration & Printed E-Visa Rules for Vietnam Entry",
+    "contentZh": "入境越南時，攜帶外幣現金超過 5,000 美元（或越盾現金超過 1,500 萬 VND）必須依法主動填寫海關申報單。另外，出發前務必將 E-Visa A4 單頁列印出來（建議備妥 2 份紙本），海關查驗時手機螢幕出示電子檔常遭拒絕。",
+    "contentEn": "Cash exceeding $5,000 USD must be declared. Always carry printed paper copies of your E-Visa as digital screens are often declined.",
+    "proTipZh": "✨ 秘笈：在通關印章蓋下後，務必當場核對護照上的准予停留日期 (Permitted to stay until) 是否與簽證一致！",
+    "proTipEn": "✨ Pro Tip: Check the stamped entry duration right at the counter before walking away."
+  }
+},
+{
+  "id": "nhau_culture_dinner",
+  "category": "dining",
+  "tagZh": "熱炒應酬",
+  "tagEn": "Nhậu Social",
+  "icon": "🍻",
+  "image": "nhau_culture.jpg",
+  "titleZh": "越南熱炒 Nhậu 文化與敬酒禮儀",
+  "titleEn": "Vietnamese Nhậu Culture & Toasting Etiquette",
+  "titleVi": "Văn Hóa Nhậu Quán Ốc & Nghi Thức Nâng Ly Một Hai Ba Dô",
+  "summaryZh": "融入越南下班後的 Nhậu 熱炒應酬：點熱炒烤肉海鮮、齊喊 1-2-3-Dô 碰杯、雙手敬酒與職場情誼破冰。",
+  "summaryEn": "Experience Vietnamese drinking social culture: ordering snails and grilled meat, chanting 1-2-3-Dô, and two-handed toasting.",
+  "dialogue": [
+    {
+      "speakerVi": "Anh Tuấn (越南夥伴)",
+      "speakerZh": "Tuấn 哥",
+      "speakerEn": "Mr. Tuan",
+      "vi": "Hôm nay ký xong hợp đồng rồi, tối nay anh em mình đi nhậu ăn mừng nhé!",
+      "zh": "今天順利簽完合約了，今晚我們兄弟們一起去熱炒攤喝一杯慶祝吧！",
+      "en": "Contract signed! Let's hit a street eatery tonight for a celebratory drink!",
+      "audioKey": "scn_nhau_1"
+    },
+    {
+      "speakerVi": "Bạn (學員)",
+      "speakerZh": "你 (學員)",
+      "speakerEn": "You",
+      "vi": "Tuyệt vời quá! Em nghe nói quán ốc và lẩu dê ở Sài Gòn rất nổi tiếng.",
+      "zh": "太棒了！我聽說西貢的炒螺 (Quán ốc) 和羊肉爐 (Lẩu dê) 非常有名。",
+      "en": "Awesome! I heard Ho Chi Minh City's snail stalls and goat hotpot are legendary.",
+      "audioKey": "scn_nhau_2"
+    },
+    {
+      "speakerVi": "Anh Tuấn (越南夥伴)",
+      "speakerZh": "Tuấn 哥",
+      "speakerEn": "Mr. Tuan",
+      "vi": "Đúng rồi! Em ơi, cho một thùng bia ướp lạnh, đĩa mực nướng và ốc hương xào bơ tỏi!",
+      "zh": "沒錯！店員小弟，先來一箱冰啤酒、一份烤魷魚和一份奶油大蒜炒海螺！",
+      "en": "Right on! Waiter, bring a crate of chilled beer, grilled squid, and garlic butter snails!",
+      "audioKey": "scn_nhau_3"
+    },
+    {
+      "speakerVi": "Bạn (學員)",
+      "speakerZh": "你 (學員)",
+      "speakerEn": "You",
+      "vi": "Anh Tuấn ơi, khi cụng ly ở Việt Nam mình thường hô câu gì cho khí thế nhỉ?",
+      "zh": "Tuấn 哥，在越南大家碰杯時通常喊什麼口號最有氣勢呢？",
+      "en": "Mr. Tuan, what do people chant when clinking glasses in Vietnam?",
+      "audioKey": "scn_nhau_4"
+    },
+    {
+      "speakerVi": "Anh Tuấn (越南夥伴)",
+      "speakerZh": "Tuấn 哥",
+      "speakerEn": "Mr. Tuan",
+      "vi": "Dễ lắm: Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!",
+      "zh": "很簡單：一、二、三、進！二、三、進！二、三、喝！",
+      "en": "Very easy: Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!",
+      "audioKey": "scn_nhau_5"
+    },
+    {
+      "speakerVi": "Bạn (學員)",
+      "speakerZh": "你 (學員)",
+      "speakerEn": "You",
+      "vi": "Em nâng ly kính anh Tuấn một ly, cảm ơn anh đã tận tình hỗ trợ em suốt thời gian qua ạ!",
+      "zh": "我雙手舉杯敬 Tuấn 哥一杯，感謝這段時間您對我的悉心指導與協助！",
+      "en": "I raise my glass to toast you, Mr. Tuan, thank you so much for your continuous guidance!",
+      "audioKey": "scn_nhau_6"
+    }
+  ],
+  "roleplay": {
+    "titleZh": "實戰演練：在酒席上委婉表示酒量有限",
+    "titleEn": "Roleplay: Politely stating moderate alcohol tolerance",
+    "steps": [
+      {
+        "partnerPromptVi": "Nào anh em, trăm phần trăm cạn ly nhé!",
+        "partnerPromptZh": "來兄弟們，百分之百乾杯底乾啦！",
+        "partnerPromptEn": "Come on everyone, 100% bottoms up!",
+        "userOptions": [
+          {
+            "id": "nhau_opt1",
+            "textVi": "Dạ tửu lượng em có hạn, cho em xin phép nhấp môi năm mươi phần trăm để lát còn kiểm tra việc ạ.",
+            "textZh": "我的酒量有限，容我喝半杯（50%）表示心意，待會還要回公司檢查工作。",
+            "textEn": "My tolerance is modest, may I drink 50% so I can review tasks afterwards.",
+            "isCorrect": true,
+            "feedbackZh": "情商極高！真誠兼顧團隊熱絡氛圍，又以公事為由得體節制飲酒。",
+            "feedbackEn": "High EQ! Respects the mood while setting professional boundaries."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Đi nhậu",
+      "vi": "Đi nhậu",
+      "phonetic": "[di˧ ɲəw˧˨]",
+      "ipa": "[di˧ ɲəw˧˨]",
+      "zh": "喝小酒應酬 / 吃熱炒聚會",
+      "en": "To go drinking/socializing",
+      "hanViet": "Đi + Nhậu"
+    },
+    {
+      "viet": "Trăm phần trăm (100%)",
+      "vi": "Trăm phần trăm",
+      "phonetic": "[tɕam˧ fən˨˩ tɕam˧]",
+      "ipa": "[tɕam˧ fən˨˩ tɕam˧]",
+      "zh": "乾杯 (喝光全部)",
+      "en": "Bottoms up (100%)",
+      "hanViet": "Bách phân bách"
+    },
+    {
+      "viet": "Cụng ly",
+      "vi": "Cụng ly",
+      "phonetic": "[kuŋ͡m˧˨ li˧]",
+      "ipa": "[kuŋ͡m˧˨ li˧]",
+      "zh": "碰杯 / 乾杯",
+      "en": "Clink glasses",
+      "hanViet": "Cụng + Ly (盃)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "🍻 越南 Nhậu 社交文化：雙手捧杯與長幼酒桌禮節",
+    "titleEn": "Vietnamese Nhậu Etiquette: Two-Handed Toasting and Respect for Seniors",
+    "contentZh": "在越南與商業夥伴或長輩敬酒時，切記「雙手捧杯」，且敬長者時杯沿略低於對方杯沿以示謙遜尊崇。碰杯口號「Một, hai, ba, dô!」中的「Dô (進)」源自越文「Vào (進去)」，象徵好運臨門！",
+    "contentEn": "Hold glasses with both hands when toasting superiors. The famous chant 'Một, hai, ba, dô!' derives from 'Vào' (enter), welcoming good fortune.",
+    "proTipZh": "✨ 秘笈：若不能喝酒，可親切向大家說「Cho em xin phép uống nước ngọt / trà đá」以茶代酒，真誠不失禮。",
+    "proTipEn": "✨ Pro Tip: Replace beer with iced tea ('trà đá') politely if you do not consume alcohol."
+  }
+},
+{
+  "id": "pharmacy_clinic_visit",
+  "category": "health",
+  "tagZh": "就醫買藥",
+  "tagEn": "Clinic & Pharmacy",
+  "icon": "💊",
+  "image": "pharmacy_clinic.jpg",
+  "titleZh": "藥局購藥與診所問診",
+  "titleEn": "Pharmacy Medicine & Clinic Consultation",
+  "titleVi": "Mua Thuốc Tại Hiệu Thuốc & Khám Bệnh Tại Phòng Khám",
+  "summaryZh": "在越南藥局 (Hiệu thuốc) 說明頭痛發燒腹瀉、購買成藥分包 (Liều thuốc) 與國際診所掛號問診。",
+  "summaryEn": "Describing symptoms (fever, diarrhea, headache) at local pharmacy and international clinics in Vietnam.",
+  "dialogue": [
+    {
+      "speakerVi": "Dược sĩ (藥劑師)",
+      "speakerZh": "藥劑師",
+      "speakerEn": "Pharmacist",
+      "vi": "Chào bạn, bạn đang bị khó chịu ở đâu, có những triệu chứng gì?",
+      "zh": "您好，您哪裡覺得不舒服，具體有些什麼症狀呢？",
+      "en": "Hello, where are you feeling unwell and what symptoms do you have?",
+      "audioKey": "scn_med_1"
+    },
+    {
+      "speakerVi": "Bệnh nhân (病患)",
+      "speakerZh": "病患",
+      "speakerEn": "Patient",
+      "vi": "Từ tối qua tôi bị sốt 38.5 độ, đau đầu và bị tiêu chảy hai lần rồi ạ.",
+      "zh": "從昨天傍晚開始我發燒到 38.5 度，頭很痛而且拉肚子腹瀉兩次了。",
+      "en": "Since last night I've had a 38.5°C fever, headache, and diarrhea twice.",
+      "audioKey": "scn_med_2"
+    },
+    {
+      "speakerVi": "Dược sĩ (藥劑師)",
+      "speakerZh": "藥劑師",
+      "speakerEn": "Pharmacist",
+      "vi": "Bạn có bị dị ứng với thành phần thuốc nào như Paracetamol hay kháng sinh không?",
+      "zh": "您對撲熱息痛 (Paracetamol) 或抗生素等任何藥物成分有過敏史嗎？",
+      "en": "Do you have any drug allergies to Paracetamol or antibiotics?",
+      "audioKey": "scn_med_3"
+    },
+    {
+      "speakerVi": "Bệnh nhân (病患)",
+      "speakerZh": "病患",
+      "speakerEn": "Patient",
+      "vi": "Dạ không, tôi không bị dị ứng thuốc nào cả.",
+      "zh": "沒有，我對任何藥物都沒有過敏。",
+      "en": "No, I do not have any drug allergies.",
+      "audioKey": "scn_med_4"
+    },
+    {
+      "speakerVi": "Dược sĩ (藥劑師)",
+      "speakerZh": "藥劑師",
+      "speakerEn": "Pharmacist",
+      "vi": "Tôi chuẩn bị cho bạn ba liều thuốc uống trong ba ngày. Nhớ uống sau bữa ăn nhé.",
+      "zh": "我為您配了三天的藥包。請務必在三餐飯後服用喔。",
+      "en": "I prepared three doses for three days. Remember to take them after meals.",
+      "audioKey": "scn_med_5"
+    },
+    {
+      "speakerVi": "Bệnh nhân (病患)",
+      "speakerZh": "病患",
+      "speakerEn": "Patient",
+      "vi": "Cảm ơn dược sĩ, hết bao nhiêu tiền tất cả ạ?",
+      "zh": "感謝藥劑師，全部一共多少錢呢？",
+      "en": "Thank you pharmacist, how much is the total?",
+      "audioKey": "scn_med_6"
+    }
+  ],
+  "roleplay": {
+    "titleZh": "實戰演練：在國際診所詢問是否有中文或英文醫生",
+    "titleEn": "Roleplay: Inquiring about multilingual doctors at an international clinic",
+    "steps": [
+      {
+        "partnerPromptVi": "Xin chào quý khách, quý khách đã có lịch hẹn trước chưa?",
+        "partnerPromptZh": "您好，請問您先前有先電話預約看診嗎？",
+        "partnerPromptEn": "Hello, do you already have a prior appointment?",
+        "userOptions": [
+          {
+            "id": "med_opt1",
+            "textVi": "Dạ tôi chưa hẹn trước, phòng khám có bác sĩ nói tiếng Trung hoặc tiếng Anh không ạ?",
+            "textZh": "我還沒有預約，請問診所有會說中文或英文的醫生嗎？",
+            "textEn": "I haven't booked. Does the clinic have a doctor who speaks Chinese or English?",
+            "isCorrect": true,
+            "feedbackZh": "溝通精準！確保醫生具備跨語言能力，能清楚交代病情與病理。",
+            "feedbackEn": "Direct inquiry ensuring language accessibility for medical consultation."
+          }
+        ]
+      }
+    ]
+  },
+  "vocabulary": [
+    {
+      "viet": "Hiệu thuốc / Nhà thuốc",
+      "vi": "Hiệu thuốc / Nhà thuốc",
+      "phonetic": "[hiəw˧˨ tʰwe˦˧˥]",
+      "ipa": "[hiəw˧˨ tʰwe˦˧˥]",
+      "zh": "西藥房 / 藥局",
+      "en": "Pharmacy / Drugstore",
+      "hanViet": "Hiệu thuốc"
+    },
+    {
+      "viet": "Liều thuốc",
+      "vi": "Liều thuốc",
+      "phonetic": "[liəw˨˩ tʰwe˦˧˥]",
+      "ipa": "[liəw˨˩ tʰwe˦˧˥]",
+      "zh": "劑量 / 份量藥包",
+      "en": "Dose / Medicine pack",
+      "hanViet": "Liệu (料) + Thuốc"
+    },
+    {
+      "viet": "Dị ứng",
+      "vi": "Dị ứng",
+      "phonetic": "[zi˧˨ ɨŋ˦˧˥]",
+      "ipa": "[zi˧˨ ɨŋ˦˧˥]",
+      "zh": "過敏反應",
+      "en": "Allergy",
+      "hanViet": "Dị ứng (異應)"
+    }
+  ],
+  "culturalTip": {
+    "titleZh": "💊 越南「分包售藥 (Bán thuốc theo liều)」獨特文化與就醫常識",
+    "titleEn": "Vietnamese 'Medicine by Dose' Culture & Clinic System",
+    "contentZh": "在越南街頭藥局 (Pharmacity, Long Châu)，藥劑師常會依顧客症狀，將感冒發燒藥、消炎藥、止痛藥直接裝成一格格小袋「分餐藥包 (Liều thuốc)」出售，極其便民。若遇急重症，外籍人士常選擇 Vinmec、FV 或 Raffles 等具多語支援的國際綜合醫院。",
+    "contentEn": "Vietnamese pharmacies commonly dispense custom meal-by-meal dosage bags ('liều thuốc'). For acute illnesses, international hospitals (Vinmec, FV) offer multilingual care.",
+    "proTipZh": "✨ 秘笈：買藥時記得告知「uống trước ăn (飯前吃)」還是「uống sau ăn (飯後吃)」，避免腸胃刺激。",
+    "proTipEn": "✨ Pro Tip: Clarify 'uống trước ăn' (before meal) or 'uống sau ăn' (after meal) for sensitive stomachs."
   }
 }
 ];

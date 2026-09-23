@@ -7532,7 +7532,999 @@ export const practicalPhrases = [
     "en": "Street-side coffee and iced tea are iconic hallmarks of Vietnamese culture!",
     "usageZh": "與越南朋友聊在地咖啡生活",
     "usageEn": "Chatting about Vietnamese street coffee culture"
-  }
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Chúng tôi rất coi trọng mối quan hệ hợp tác này.",
+    "zh": "我們非常重視這次的合作關係。",
+    "en": "We highly value this cooperative relationship.",
+    "usageZh": "商務拜訪與簽約開場表達重視",
+    "usageEn": "Valuing partnership"
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Xin vui lòng gửi lại biên bản cuộc họp sau buổi làm việc.",
+    "zh": "會議結束後請發送會議紀錄。",
+    "en": "Please send the meeting minutes after our session.",
+    "usageZh": "秘書或專案經理跟進會議紀要",
+    "usageEn": "Requesting meeting minutes"
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Chúng ta có thể ký kết biên bản ghi nhớ (MOU) trước không?",
+    "zh": "我們可以先簽署合作備忘錄 (MOU) 嗎？",
+    "en": "Can we sign a Memorandum of Understanding (MOU) first?",
+    "usageZh": "洽談初期推進合作意向",
+    "usageEn": "Proposing MOU"
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Điều khoản này cần được ban pháp chế xem xét lại.",
+    "zh": "這項條款需要由法務部門重新審核。",
+    "en": "This clause needs to be reviewed by the legal department.",
+    "usageZh": "審閱合約條款風險控制",
+    "usageEn": "Legal review of clause"
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Giá này đã bao gồm thuế giá trị gia tăng (VAT) chưa?",
+    "zh": "這個報價是否已包含增值稅 (VAT)？",
+    "en": "Does this quote include Value Added Tax (VAT)?",
+    "usageZh": "採購報價確認含稅價",
+    "usageEn": "Checking VAT inclusion"
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Phương thức thanh toán là chuyển khoản hay mở thư tín dụng L/C?",
+    "zh": "付款方式是電匯還是開立信用狀 (L/C)？",
+    "en": "Is the payment method wire transfer or Letter of Credit (L/C)?",
+    "usageZh": "貿易金融結算方式洽詢",
+    "usageEn": "Inquiring payment method"
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Thời gian giao hàng dự kiến là bao lâu kể từ ngày nhận cọc?",
+    "zh": "收到定金後預計交貨期是多久？",
+    "en": "What is the estimated delivery lead time after receiving deposit?",
+    "usageZh": "確認交期與產能排程",
+    "usageEn": "Inquiring delivery lead time"
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Chúng tôi cần xuất hóa đơn đỏ (VAT) cho khoản chi phí này.",
+    "zh": "我們這筆費用需要開立紅發票 (統一發票)。",
+    "en": "We need an official red VAT invoice for this expense.",
+    "usageZh": "報帳與稅務核銷必備需求",
+    "usageEn": "Requesting official VAT invoice"
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Hai bên cùng hướng tới mục tiêu đôi bên cùng có lợi (Win-Win).",
+    "zh": "雙方共同致力於互利共贏 (Win-Win) 的目標。",
+    "en": "Both parties strive towards a mutually beneficial win-win outcome.",
+    "usageZh": "商務共識結語",
+    "usageEn": "Striving for win-win"
+  },
+  {
+    "category": "商務談判與會議協作",
+    "viet": "Tôi xin phép bảo lưu ý kiến về điểm này để xin chỉ đạo cấp trên.",
+    "zh": "我保留這點的意見，待向主管請示後回覆。",
+    "en": "I reserve comments on this point to seek guidance from management.",
+    "usageZh": "會議談判爭議時得體緩衝",
+    "usageEn": "Reserving comments for approval"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "An toàn lao động là trên hết!",
+    "zh": "工安第一 / 安全生產至上！",
+    "en": "Workplace safety comes first!",
+    "usageZh": "工廠車間早會必備標語",
+    "usageEn": "Safety slogan"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "Tất cả công nhân phải đeo khẩu trang và đồ bảo hộ.",
+    "zh": "全體作業員必須佩戴口罩與防護裝備。",
+    "en": "All workers must wear masks and PPE gear.",
+    "usageZh": "車間規範檢查",
+    "usageEn": "Mandatory PPE requirement"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "Hôm nay công suất vận hành đạt 95% kế hoạch.",
+    "zh": "今天的產能運轉達成計畫的 95%。",
+    "en": "Today's operating capacity reached 95% of plan.",
+    "usageZh": "每日產能稼動率匯報",
+    "usageEn": "Daily capacity reporting"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "Phát hiện vết xước trên bề mặt, yêu cầu dừng chuyền kiểm tra.",
+    "zh": "發現表面刮傷，要求立即停線檢驗。",
+    "en": "Scratches detected on surface, line stoppage required for check.",
+    "usageZh": "品管即時停線機制",
+    "usageEn": "Quality alert line stop"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "Lô hàng này cần phân loại lại trước khi nhập kho.",
+    "zh": "這批貨在入庫前必須重新分揀。",
+    "en": "This lot must be re-sorted before entering warehouse.",
+    "usageZh": "倉庫檢驗不合格返工分揀",
+    "usageEn": "Re-sorting before warehousing"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "Bảo dưỡng định kỳ máy móc vào mỗi cuối tuần.",
+    "zh": "每個週末進行設備機台的定期保養。",
+    "en": "Routine machine maintenance takes place every weekend.",
+    "usageZh": "設備預防保養規範",
+    "usageEn": "Routine machinery maintenance"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "Công nhân ca đêm được phụ cấp thêm tiền ăn và chuyên cần.",
+    "zh": "大夜班作業員享有伙食與全勤加給津貼。",
+    "en": "Night shift workers receive extra meal and attendance allowances.",
+    "usageZh": "工廠人資排班薪酬規範",
+    "usageEn": "Night shift allowance policy"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "Kiểm tra kỹ tem nhãn mã vạch (Barcode) trước khi dán.",
+    "zh": "黏貼前請仔細核對條碼標籤。",
+    "en": "Check barcode labels carefully before affixing.",
+    "usageZh": "防止貼錯標籤失誤",
+    "usageEn": "Verifying barcode labels"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "Đảm bảo xuất hàng đúng tiến độ để không bị phạt chậm trễ.",
+    "zh": "確保準時出貨以避免被扣延遲交貨違約金。",
+    "en": "Ensure on-time shipment to avoid late delivery penalties.",
+    "usageZh": "交期進度追蹤提醒",
+    "usageEn": "Avoiding delay penalty"
+  },
+  {
+    "category": "產線製造與品質控制",
+    "viet": "Đội bảo trì có mặt ngay để xử lý sự cố kẹt băng chuyền.",
+    "zh": "維修隊立刻抵達現場排除輸送帶卡帶故障。",
+    "en": "Maintenance team responds immediately to conveyer jam.",
+    "usageZh": "產線緊急維修調度",
+    "usageEn": "Conveyer jam dispatch"
+  },
+  {
+    "category": "物流倉儲與海關進出口",
+    "viet": "Tàu dự kiến cập cảng Cát Lái vào thứ Sáu này.",
+    "zh": "貨船預計本週五靠泊吉萊港 (Cát Lái)。",
+    "en": "Vessel scheduled to berth at Cat Lai port this Friday.",
+    "usageZh": "海運船期追蹤",
+    "usageEn": "Tracking vessel ETA"
+  },
+  {
+    "category": "物流倉儲與海關進出口",
+    "viet": "Vui lòng cung cấp vận đơn đường biển (Bill of Lading - B/L).",
+    "zh": "請提供海運提單 (B/L)。",
+    "en": "Please provide the ocean Bill of Lading (B/L).",
+    "usageZh": "報關必備正本或電放提單",
+    "usageEn": "Requesting Bill of Lading"
+  },
+  {
+    "category": "物流倉儲與海關進出口",
+    "viet": "Hàng này thuộc luồng vàng, cần kiểm tra chứng từ chi tiết.",
+    "zh": "此批貨物被海關分到黃色通道，需要詳細查核單證。",
+    "en": "This shipment is in yellow channel, document inspection needed.",
+    "usageZh": "越南海關綠黃紅通道分流制度",
+    "usageEn": "Yellow customs channel status"
+  },
+  {
+    "category": "物流倉儲與海關進出口",
+    "viet": "Hàng luồng đỏ bắt buộc phải khui thùng kiểm hóa thực tế.",
+    "zh": "紅色通道貨物必須開箱進行實體驗貨。",
+    "en": "Red channel goods require mandatory physical unboxing inspection.",
+    "usageZh": "海關查驗風險防範",
+    "usageEn": "Red channel physical inspection"
+  },
+  {
+    "category": "物流倉儲與海關進出口",
+    "viet": "Giấy chứng nhận xuất xứ (C/O) Form E giúp giảm thuế nhập khẩu.",
+    "zh": "原產地證明 Form E 有助於減免進口關稅。",
+    "en": "Certificate of Origin (C/O) Form E reduces import tariffs.",
+    "usageZh": "關稅優惠產地證運用",
+    "usageEn": "C/O Form E tariff preference"
+  },
+  {
+    "category": "物流倉儲與海關進出口",
+    "viet": "Phí lưu kho (DEM/DET) sẽ phát sinh nếu không lấy hàng sớm.",
+    "zh": "不及早提貨將會產生延滯費與倉儲費 (DEM/DET)。",
+    "en": "Demurrage & detention (DEM/DET) charges apply if uncleared.",
+    "usageZh": "避免碼頭超期額外罰款",
+    "usageEn": "Avoiding DEM/DET demurrage"
+  },
+  {
+    "category": "物流倉儲與海關進出口",
+    "viet": "Hàng dễ vỡ, xin nhẹ tay và không xếp chồng quá bốn lớp.",
+    "zh": "易碎品，請輕拿輕放且堆疊不超過四層。",
+    "en": "Fragile goods, handle with care, do not stack over 4 tiers.",
+    "usageZh": "外箱搬運注意事項標記",
+    "usageEn": "Fragile cargo handling instruction"
+  },
+  {
+    "category": "物流倉儲與海關進出口",
+    "viet": "Đã làm xong thủ tục thông quan hải quan điện tử VNACCS.",
+    "zh": "已完成 VNACCS 電子報關通關手續。",
+    "en": "VNACCS electronic customs clearance completed.",
+    "usageZh": "越南海關現代化系統通關",
+    "usageEn": "VNACCS customs clearance"
+  },
+  {
+    "category": "人力資源與勞動法規",
+    "viet": "Người lao động được đóng bảo hiểm xã hội (BHXH) đầy đủ.",
+    "zh": "勞工享有依法完整繳納社會保險 (BHXH)。",
+    "en": "Employees receive full statutory social insurance (BHXH).",
+    "usageZh": "符合越南勞動法規範勞保",
+    "usageEn": "Social insurance compliance"
+  },
+  {
+    "category": "人力資源與勞動法規",
+    "viet": "Thời gian thử việc tối đa là sáu mươi ngày đối với chuyên môn.",
+    "zh": "專業技術與管理職位試用期最長為 60 天。",
+    "en": "Maximum probationary period is 60 days for technical roles.",
+    "usageZh": "勞動合約試用期法定限制",
+    "usageEn": "Probationary period limit"
+  },
+  {
+    "category": "人力資源與勞動法規",
+    "viet": "Tiền thưởng tháng 13 thường được chi trả vào dịp Tết Nguyên Đán.",
+    "zh": "第13個月年終獎金通常在農曆春節前夕發放。",
+    "en": "The 13th month bonus is usually paid before Lunar New Year.",
+    "usageZh": "越南職場留才核心春節福利",
+    "usageEn": "13th month Tet bonus"
+  },
+  {
+    "category": "人力資源與勞動法規",
+    "viet": "Làm thêm giờ (OT) ngày nghỉ lễ được tính 300% lương cơ bản.",
+    "zh": "國定假日加班 (OT) 按本薪 300% 計算加班費。",
+    "en": "Overtime on public holidays is paid at 300% base salary.",
+    "usageZh": "國定假日加班費法定倍率",
+    "usageEn": "Holiday overtime wage calculation"
+  },
+  {
+    "category": "人力資源與勞動法規",
+    "viet": "Chuyên gia nước ngoài cần có giấy phép lao động (Work Permit).",
+    "zh": "外籍專家必須具備工作許可證 (Work Permit)。",
+    "en": "Foreign specialists require a valid Work Permit.",
+    "usageZh": "外派就業合法證件",
+    "usageEn": "Work permit requirement"
+  },
+  {
+    "category": "人力資源與勞動法規",
+    "viet": "Thẻ tạm trú (TRC) hai năm cho nhà đầu tư và người lao động.",
+    "zh": "提供外籍投資者與工作者兩年效期暫住證 (TRC)。",
+    "en": "Two-year Temporary Residence Card (TRC) for investors and staff.",
+    "usageZh": "免除頻繁出入境簽證手續",
+    "usageEn": "Two-year TRC benefit"
+  },
+  {
+    "category": "租屋生活與社區水電",
+    "viet": "Khu chung cư này có hồ bơi, phòng gym và siêu thị tiện lợi.",
+    "zh": "這座大樓社區附設游泳池、健身房與便利超市。",
+    "en": "This condominium has a pool, gym, and convenience mart.",
+    "usageZh": "公寓配套設施介紹",
+    "usageEn": "Condo amenities description"
+  },
+  {
+    "category": "租屋生活與社區水電",
+    "viet": "Thẻ từ thang máy chỉ lên được đúng tầng căn hộ của mình.",
+    "zh": "電梯磁扣只能感應抵達自己住戶所在的樓層。",
+    "en": "Elevator keycard only grants access to your unit floor.",
+    "usageZh": "公寓門禁安全管制",
+    "usageEn": "Elevator keycard access control"
+  },
+  {
+    "category": "租屋生活與社區水電",
+    "viet": "Nhờ bảo vệ nhận bưu phẩm giao hàng giúp tôi nhé.",
+    "zh": "麻煩保全管理員幫我代收包裹快遞喔。",
+    "en": "Please ask the security guard to receive parcels for me.",
+    "usageZh": "請管理室代收包裹快遞",
+    "usageEn": "Asking security to accept deliveries"
+  },
+  {
+    "category": "租屋生活與社區水電",
+    "viet": "Máy nước nóng phòng tắm không hoạt động, nhờ kiểm tra lại.",
+    "zh": "浴室熱水器沒有反應，麻煩派人檢查一下。",
+    "en": "Bathroom water heater is not working, please inspect.",
+    "usageZh": "報修冷熱水設備",
+    "usageEn": "Water heater maintenance call"
+  },
+  {
+    "category": "租屋生活與社區水電",
+    "viet": "Xe máy gửi dưới tầng hầm có đăng ký vé tháng tiện hơn.",
+    "zh": "機車停放在地下室，登記月租票卡比較划算方便。",
+    "en": "Registering monthly parking for scooter in basement is cheaper.",
+    "usageZh": "大樓停車月租卡申辦",
+    "usageEn": "Monthly scooter parking registration"
+  },
+  {
+    "category": "餐飲市井與道地招呼",
+    "viet": "Bán cho tôi một tô phở tái nạm, thêm nhiều hành lá!",
+    "zh": "給我來一碗生牛肉加牛腩河粉，多放蔥花！",
+    "en": "One bowl of rare and flank beef pho, extra scallions please!",
+    "usageZh": "道地越南河粉客製點法",
+    "usageEn": "Ordering pho with extra scallions"
+  },
+  {
+    "category": "餐飲市井與道地招呼",
+    "viet": "Cà phê đen đá không đường, đậm đà theo gu người Sài Gòn.",
+    "zh": "冰黑咖啡不加糖，要西貢人地道的濃烈風味。",
+    "en": "Iced black coffee without sugar, rich Saigon style.",
+    "usageZh": "傳統黑咖啡經典風味點法",
+    "usageEn": "Ordering unsweetened black coffee"
+  },
+  {
+    "category": "餐飲市井與道地招呼",
+    "viet": "Bánh mì pate chả lụa thêm ít ớt cay giòn rụm!",
+    "zh": "法國麵包夾肝醬與越南火腿，少加點辣椒，外皮酥脆！",
+    "en": "Crispy baguette with pate, pork sausage, and a hint of chili!",
+    "usageZh": "街頭法國麵包必備點餐詞",
+    "usageEn": "Ordering classic crispy banh mi"
+  },
+  {
+    "category": "餐飲市井與道地招呼",
+    "viet": "Cho thêm đĩa rau thơm và chén nước chấm tỏi ớt.",
+    "zh": "請多加一份生菜香草盤和一碟大蒜辣椒沾醬。",
+    "en": "Please give an extra herb plate and garlic chili dipping sauce.",
+    "usageZh": "吃越南菜加生菜與沾醬",
+    "usageEn": "Asking for herbs and dipping sauce"
+  },
+  {
+    "category": "餐飲市井與道地招呼",
+    "viet": "Trời nóng quá, uống một ly nước mía đá mát lạnh sảng khoái!",
+    "zh": "天氣太熱了，喝一杯冰甘蔗汁消暑暢快！",
+    "en": "It's so hot, an iced sugarcane juice is truly refreshing!",
+    "usageZh": "越南街頭國民消暑飲品",
+    "usageEn": "Iced sugarcane juice for hot days"
+  },
+  {
+    "category": "交通叫車與街道辨路",
+    "viet": "Bác tài ơi, rẽ phải ở ngã tư tiếp theo nhé!",
+    "zh": "司機先生，請在下一個十字路口右轉！",
+    "en": "Driver, please turn right at the next intersection!",
+    "usageZh": "搭計程車或 Grab 指路",
+    "usageEn": "Directing driver to turn right"
+  },
+  {
+    "category": "交通叫車與街道辨路",
+    "viet": "Đoạn đường này đang kẹt xe nghiêm trọng vào giờ cao điểm.",
+    "zh": "這條路在尖峰時段塞車非常嚴重。",
+    "en": "This street suffers heavy traffic jam during rush hour.",
+    "usageZh": "描述上下班高峰交通堵塞",
+    "usageEn": "Describing rush hour gridlock"
+  },
+  {
+    "category": "交通叫車與街道辨路",
+    "viet": "Chờ tôi năm phút ở sảnh khách sạn, tôi xuống ngay.",
+    "zh": "請在飯店大廳等我五分鐘，我馬上就下來。",
+    "en": "Wait 5 minutes in hotel lobby, I'm heading down now.",
+    "usageZh": "約車等候通話",
+    "usageEn": "Asking driver to wait 5 minutes"
+  },
+  {
+    "category": "交通叫車與街道辨路",
+    "viet": "Đi qua cầu là tới khu công nghiệp rồi.",
+    "zh": "開過這座橋就到工業區了。",
+    "en": "Crossing over the bridge brings you to industrial park.",
+    "usageZh": "辨識工業區地理方向",
+    "usageEn": "Crossing bridge to industrial park"
+  },
+  {
+    "category": "交通叫車與街道辨路",
+    "viet": "Giá cước xe ôm công nghệ được tính tự động trên ứng dụng.",
+    "zh": "機車叫車資費是由 App 軟體自動計算透明顯示。",
+    "en": "Motorbike fare is calculated transparently on the app.",
+    "usageZh": "說明叫車 App 免喊價殺價特點",
+    "usageEn": "App automatic fare calculation"
+  },
+  {
+    "category": "文化成語與生活俗諺",
+    "viet": "Vạn sự như ý.",
+    "zh": "萬事如意。",
+    "en": "May all wishes come true.",
+    "usageZh": "春節新春與節慶傳統賀詞",
+    "usageEn": "All wishes fulfilled"
+  },
+  {
+    "category": "文化成語與生活俗諺",
+    "viet": "Ăn chắc mặc bền.",
+    "zh": "吃得扎實、穿得耐用 (勤儉持家之美德)。",
+    "en": "Solid food, durable clothes (frugality & practicality).",
+    "usageZh": "形容越南人務實儉樸的生活哲學",
+    "usageEn": "Frugal and practical living philosophy"
+  },
+  {
+    "category": "銀行金融與換匯轉帳",
+    "viet": "Tôi muốn mở tài khoản ngân hàng cho người nước ngoài.",
+    "zh": "我想以外國人身分開立銀行帳戶。",
+    "en": "I would like to open a bank account as a foreigner.",
+    "usageZh": "至 Vietcombank 或 BIDV 開戶說明",
+    "usageEn": "Opening foreigner bank account"
+  },
+  {
+    "category": "銀行金融與換匯轉帳",
+    "viet": "Hạn mức chuyển khoản online hàng ngày là bao nhiêu?",
+    "zh": "每日網銀線上轉帳額度上限是多少？",
+    "en": "What is the daily online transfer limit?",
+    "usageZh": "確認網銀轉帳限額",
+    "usageEn": "Inquiring daily online transfer limit"
+  },
+  {
+    "category": "銀行金融與換匯轉帳",
+    "viet": "Tỷ giá hối đoái hôm nay giữa USD và VND là bao nhiêu?",
+    "zh": "今天美元對越盾的匯率是多少？",
+    "en": "What is today's exchange rate between USD and VND?",
+    "usageZh": "至金店或銀行查詢匯率",
+    "usageEn": "Checking USD/VND exchange rate"
+  },
+  {
+    "category": "銀行金融與換匯轉帳",
+    "viet": "Làm ơn kích hoạt dịch vụ Mobile Banking giúp tôi.",
+    "zh": "請幫我開通手機網銀 (Mobile Banking) 服務。",
+    "en": "Please activate mobile banking service for me.",
+    "usageZh": "臨櫃開通 App 手機銀行",
+    "usageEn": "Activating mobile banking"
+  },
+  {
+    "category": "銀行金融與換匯轉帳",
+    "viet": "Tôi muốn chuyển tiền vào tài khoản này bằng mã VietQR.",
+    "zh": "我想透過 VietQR 二維碼掃描轉帳到這個帳戶。",
+    "en": "I want to transfer funds to this account via VietQR.",
+    "usageZh": "越南最盛行的即時跨行二維碼轉帳",
+    "usageEn": "VietQR bank transfer"
+  },
+  {
+    "category": "銀行金融與換匯轉帳",
+    "viet": "Cây ATM này có hỗ trợ rút tiền bằng thẻ quốc tế Visa không?",
+    "zh": "這台 ATM 支援用國際 Visa 卡提款嗎？",
+    "en": "Does this ATM support cash withdrawal with international Visa?",
+    "usageZh": "海外提款確認",
+    "usageEn": "Checking international ATM support"
+  },
+  {
+    "category": "銀行金融與換匯轉帳",
+    "viet": "Tôi cần sao kê tài khoản ngân hàng trong ba tháng gần nhất.",
+    "zh": "我需要最近三個月的銀行對帳單 (流水帳明細)。",
+    "en": "I need bank account statements for the last three months.",
+    "usageZh": "申請工作證或簽證必備財務證明",
+    "usageEn": "Requesting 3-month bank statements"
+  },
+  {
+    "category": "銀行金融與換匯轉帳",
+    "viet": "Thẻ ngân hàng của tôi bị khóa do nhập sai mã PIN ba lần.",
+    "zh": "我的金融卡因連續輸錯三次 PIN 碼被鎖定了。",
+    "en": "My bank card is locked due to entering incorrect PIN three times.",
+    "usageZh": "求助銀行解鎖卡片",
+    "usageEn": "Unlocking bank card"
+  },
+  {
+    "category": "辦公行政與商務書信",
+    "viet": "Kính gửi quý đối tác, chúng tôi xin gửi báo giá đính kèm.",
+    "zh": "尊敬的合作夥伴，隨函附上報價單，請查收。",
+    "en": "Dear partners, please find our quotation attached.",
+    "usageZh": "正式商務電郵首句開場",
+    "usageEn": "Formal business email opening"
+  },
+  {
+    "category": "辦公行政與商務書信",
+    "viet": "Rất mong nhận được phản hồi sớm từ quý công ty.",
+    "zh": "期盼儘早收到貴公司的回覆。",
+    "en": "We look forward to receiving your prompt feedback.",
+    "usageZh": "商務書信結尾期望儘速回音",
+    "usageEn": "Awaiting prompt feedback"
+  },
+  {
+    "category": "辦公行政與商務書信",
+    "viet": "Xin trân trọng cảm ơn và kính chúc sức khỏe!",
+    "zh": "謹致謝忱並祝身體健康！",
+    "en": "Sincerely thank you and wishing you good health!",
+    "usageZh": "越南最典雅的商務信函致謝詞",
+    "usageEn": "Formal closing sign-off"
+  },
+  {
+    "category": "辦公行政與商務書信",
+    "viet": "Chúng tôi xin xác nhận đã nhận được tiền đặt cọc.",
+    "zh": "我們確認已經收到貴方支付的合約定金。",
+    "en": "We hereby confirm receipt of the contract deposit.",
+    "usageZh": "入帳確認信函",
+    "usageEn": "Confirming deposit receipt"
+  },
+  {
+    "category": "辦公行政與商務書信",
+    "viet": "Lịch họp được dời sang 9 giờ sáng thứ Hai tuần tới.",
+    "zh": "會議時間已改期至下週一上午9點。",
+    "en": "The meeting is rescheduled to 9 AM next Monday.",
+    "usageZh": "更動開會時間通知",
+    "usageEn": "Rescheduling meeting notification"
+  },
+  {
+    "category": "辦公行政與商務書信",
+    "viet": "Vui lòng xem xét và ký duyệt bản thảo hợp đồng này.",
+    "zh": "請審閱並簽核此份合約草案。",
+    "en": "Please review and approve this draft contract.",
+    "usageZh": "呈送主管或客戶簽約",
+    "usageEn": "Submitting draft for approval"
+  },
+  {
+    "category": "辦公行政與商務書信",
+    "viet": "Phòng kế toán cần chứng từ gốc để làm thủ tục hoàn ứng.",
+    "zh": "會計部門需要原始憑證以辦理核銷沖帳手續。",
+    "en": "Accounting needs original vouchers for expense reimbursement.",
+    "usageZh": "報帳原始憑證要求",
+    "usageEn": "Original voucher requirement"
+  },
+  {
+    "category": "辦公行政與商務書信",
+    "viet": "Chúng tôi cam kết bảo mật mọi thông tin thương mại.",
+    "zh": "我們承諾對所有商業資訊嚴格保密。",
+    "en": "We commit to strictly maintaining confidentiality.",
+    "usageZh": "保密協議 (NDA) 核心表態",
+    "usageEn": "Confidentiality commitment"
+  },
+  {
+    "category": "購物商場與討價還價",
+    "viet": "Có chương trình khuyến mãi mua một tặng một không em?",
+    "zh": "有買一送一的促銷活動嗎？",
+    "en": "Is there a buy-one-get-one-free promotion?",
+    "usageZh": "詢問超市促銷方案",
+    "usageEn": "Inquiring buy-one-get-one promo"
+  },
+  {
+    "category": "購物商場與討價還價",
+    "viet": "Nếu tôi mua số lượng lớn thì chiết khấu bao nhiêu?",
+    "zh": "如果我大量採購可以拿到多少折扣？",
+    "en": "What bulk discount do you offer for large quantities?",
+    "usageZh": "批量採購談判批發價",
+    "usageEn": "Negotiating bulk discount"
+  },
+  {
+    "category": "購物商場與討價還價",
+    "viet": "Hàng này là hàng chính hãng có tem bảo hành không?",
+    "zh": "這是正品且附有原廠保固貼紙嗎？",
+    "en": "Is this authentic merchandise with warranty seal?",
+    "usageZh": "購買電子產品確認原廠正品",
+    "usageEn": "Checking warranty and authenticity"
+  },
+  {
+    "category": "購物商場與討價還價",
+    "viet": "Tôi có thể đổi sang kích cỡ khác trong vòng bảy ngày được không?",
+    "zh": "我可以在七天之內更換其他尺寸嗎？",
+    "en": "Can I exchange for another size within 7 days?",
+    "usageZh": "服飾店換貨條款詢問",
+    "usageEn": "Inquiring 7-day exchange policy"
+  },
+  {
+    "category": "購物商場與討價還價",
+    "viet": "Bớt một chút giá mở hàng lấy may đầu ngày nhé!",
+    "zh": "給點優惠算開市價，圖個好彩頭吧！",
+    "en": "Give a little opening discount for good luck!",
+    "usageZh": "越南傳統市場早晨殺價秘招",
+    "usageEn": "Morning opening luck discount"
+  },
+  {
+    "category": "購物商場與討價還價",
+    "viet": "Cho tôi xin hóa đơn bán lẻ kèm theo phiếu bảo hành.",
+    "zh": "請給我零售發票並附上保固單。",
+    "en": "Please give me a retail receipt with warranty slip.",
+    "usageZh": "保留維修售後憑證",
+    "usageEn": "Requesting receipt and warranty"
+  },
+  {
+    "category": "觀光旅遊與飯店度假",
+    "viet": "Tôi muốn đặt phòng có tầm nhìn hướng biển (Sea view).",
+    "zh": "我想預訂海景房 (Sea view)。",
+    "en": "I'd like to book a room with an ocean view.",
+    "usageZh": "峴港或富國島渡假飯店訂房",
+    "usageEn": "Booking sea view room"
+  },
+  {
+    "category": "觀光旅遊與飯店度假",
+    "viet": "Thời gian nhận phòng là 14 giờ và trả phòng là 12 giờ trưa.",
+    "zh": "入住時間為下午2點，退房時間為中午12點。",
+    "en": "Check-in time is 2 PM and check-out is 12 noon.",
+    "usageZh": "飯店常規進退房時間說明",
+    "usageEn": "Standard check-in/out hours"
+  },
+  {
+    "category": "觀光旅遊與飯店度假",
+    "viet": "Khách sạn có dịch vụ xe đưa đón sân bay miễn phí không?",
+    "zh": "飯店有提供免費機場接送服務嗎？",
+    "en": "Does the hotel provide complimentary airport shuttle?",
+    "usageZh": "預約飯店機場接駁車",
+    "usageEn": "Asking for airport shuttle"
+  },
+  {
+    "category": "觀光旅遊與飯店度假",
+    "viet": "Chúng tôi muốn gửi hành lý ở quầy lễ tân vài tiếng.",
+    "zh": "我們想在大廳櫃檯寄放幾小時行李。",
+    "en": "We'd like to store our luggage at reception for a few hours.",
+    "usageZh": "退房後寄放行李輕裝出遊",
+    "usageEn": "Luggage storage request"
+  },
+  {
+    "category": "觀光旅遊與飯店度假",
+    "viet": "Bữa sáng buffet phục vụ từ 6 giờ 30 đến 10 giờ sáng.",
+    "zh": "自助早餐供應時間為上午 6:30 至 10:00。",
+    "en": "Buffet breakfast is served from 6:30 to 10:00 AM.",
+    "usageZh": "早餐用餐時段查詢",
+    "usageEn": "Breakfast buffet hours"
+  },
+  {
+    "category": "觀光旅遊與飯店度假",
+    "viet": "Xung quanh đây có địa điểm tham quan văn hóa nào nổi bật?",
+    "zh": "這附近有什麼值得一遊的著名文化景點？",
+    "en": "Are there any notable cultural attractions nearby?",
+    "usageZh": "請櫃檯或導遊推薦在地景點",
+    "usageEn": "Inquiring nearby cultural sights"
+  },
+  {
+    "category": "交通出行與租車導航",
+    "viet": "Cho tôi thuê một chiếc xe máy tay ga hai ngày nhé.",
+    "zh": "我想租一輛自排速克達機車兩天。",
+    "en": "I'd like to rent an automatic scooter for two days.",
+    "usageZh": "旅遊勝地租借機車自由行",
+    "usageEn": "Renting automatic scooter"
+  },
+  {
+    "category": "交通出行與租車導航",
+    "viet": "Nhớ đội mũ bảo hiểm và cài quai an toàn cẩn thận!",
+    "zh": "切記要戴上安全帽並扣好安全扣帶！",
+    "en": "Remember to wear a helmet and fasten the safety strap!",
+    "usageZh": "騎乘機車嚴格遵守交通安全規範",
+    "usageEn": "Wearing helmet reminder"
+  },
+  {
+    "category": "交通出行與租車導航",
+    "viet": "Đường một chiều, không được đi ngược chiều nhé!",
+    "zh": "這是單行道，絕對不可逆向行駛！",
+    "en": "This is a one-way street, no driving against traffic!",
+    "usageZh": "河內與西貢市區交通安全指引",
+    "usageEn": "One-way street traffic warning"
+  },
+  {
+    "category": "交通出行與租車導航",
+    "viet": "Đổ cho tôi đầy bình xăng A95 nhé bạn!",
+    "zh": "請幫我加滿 95 汽油！",
+    "en": "Fill up the tank with Ron 95 gasoline please!",
+    "usageZh": "加油站加滿 95 無鉛汽油",
+    "usageEn": "Filling up tank with 95 gas"
+  },
+  {
+    "category": "交通出行與租車導航",
+    "viet": "Tuyến tàu điện Metro số 1 Bến Thành - Suối Tiên rất tiện lợi.",
+    "zh": "檳城至仙泉的西貢地鐵一號線非常便捷。",
+    "en": "Metro Line 1 (Ben Thanh - Suoi Tien) is very convenient.",
+    "usageZh": "搭乘胡志明市首條現代化捷運",
+    "usageEn": "Metro Line 1 transit comment"
+  },
+  {
+    "category": "醫療保健與藥局常識",
+    "viet": "Tôi muốn mua một hộp khẩu trang y tế và chai cồn sát khuẩn.",
+    "zh": "我想買一盒醫用口罩和一瓶消毒酒精。",
+    "en": "I'd like to buy a box of medical masks and rubbing alcohol.",
+    "usageZh": "藥局採購日常防疫防護衛生用品",
+    "usageEn": "Buying masks and alcohol"
+  },
+  {
+    "category": "醫療保健與藥局常識",
+    "viet": "Thuốc này ngày uống hai lần, mỗi lần một viên sau khi ăn.",
+    "zh": "這款藥每天服用兩次，每次一顆，飯後吃。",
+    "en": "Take this medicine twice a day, one tablet each time after meals.",
+    "usageZh": "遵照藥師指示按時服藥",
+    "usageEn": "Dosage instructions"
+  },
+  {
+    "category": "醫療保健與藥局常識",
+    "viet": "Tôi cảm thấy hơi chóng mặt và buồn nôn.",
+    "zh": "我感到有些頭暈而且想吐。",
+    "en": "I feel a bit dizzy and nauseous.",
+    "usageZh": "向醫生精確描述中暑或水土不服症狀",
+    "usageEn": "Describing dizziness and nausea"
+  },
+  {
+    "category": "醫療保健與藥局常識",
+    "viet": "Xin vui lòng cấp giấy chứng nhận sức khỏe bản song ngữ.",
+    "zh": "請為我開立雙語健康證明書。",
+    "en": "Please issue a bilingual health certificate.",
+    "usageZh": "申辦越南工作證必備體檢報告",
+    "usageEn": "Requesting bilingual health certificate"
+  },
+  {
+    "category": "醫療保健與藥局常識",
+    "viet": "Bệnh viện có dịch vụ cấp cứu 24/7 không?",
+    "zh": "醫院是否有 24 小時急診服務？",
+    "en": "Does the hospital have a 24/7 emergency service?",
+    "usageZh": "確認夜間緊急醫療救援",
+    "usageEn": "Inquiring 24/7 ER availability"
+  },
+  {
+    "category": "社交禮儀與在地人情",
+    "viet": "Bán anh em xa, mua láng giềng gần.",
+    "zh": "遠親不如近鄰。",
+    "en": "A close neighbor is better than a distant relative.",
+    "usageZh": "重視鄰里和睦之傳統美德",
+    "usageEn": "Close neighbor proverb"
+  },
+  {
+    "category": "社交禮儀與在地人情",
+    "viet": "Một miếng khi đói bằng một gói khi no.",
+    "zh": "雪中送炭勝過錦上添花。",
+    "en": "A bite when hungry is worth a bundle when full.",
+    "usageZh": "珍惜患難見真情的情義",
+    "usageEn": "Value of timely help"
+  },
+  {
+    "category": "社交禮儀與在地人情",
+    "viet": "Chúc anh và gia đình năm mới an khang thịnh vượng!",
+    "zh": "祝你與全家人新年安康興旺！",
+    "en": "Wishing you and your family a healthy and prosperous New Year!",
+    "usageZh": "農曆新年最高頻拜年賀詞",
+    "usageEn": "Tet prosperity wish"
+  },
+  {
+    "category": "社交禮儀與在地人情",
+    "viet": "Cảm ơn sự đón tiếp nồng hậu và nhiệt tình của anh chị!",
+    "zh": "感謝各位大哥大姐的熱情熱烈款待！",
+    "en": "Thank you so much for your warm and enthusiastic hospitality!",
+    "usageZh": "拜訪作客後的真摯致謝詞",
+    "usageEn": "Thanking for hospitality"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Thời gian giao hàng (Lead time) của linh kiện này là 4 tuần.",
+    "zh": "該零組件的交期 (Lead time) 為四週。",
+    "en": "The lead time for this component is 4 weeks.",
+    "usageZh": "採購確認零組件供貨週期",
+    "usageEn": "Component lead time"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Mức tồn kho an toàn (Safety stock) tối thiểu là 500 cái.",
+    "zh": "安全庫存量 (Safety stock) 最低為 500 個。",
+    "en": "Minimum safety stock level is 500 units.",
+    "usageZh": "倉儲庫存水位管制",
+    "usageEn": "Safety stock requirement"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Đơn hàng này cần vận chuyển bằng đường hàng không (Air freight).",
+    "zh": "這張急單需要透過空運 (Air freight) 發貨。",
+    "en": "This rush order must be shipped via air freight.",
+    "usageZh": "特急件改走空運安排",
+    "usageEn": "Air freight rush order"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Xin vui lòng gửi bảng phân tích chi phí (Cost breakdown).",
+    "zh": "請發送成本細分分析表 (Cost breakdown)。",
+    "en": "Please provide a detailed cost breakdown.",
+    "usageZh": "供應商報價成本審查",
+    "usageEn": "Cost breakdown request"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Nhà cung cấp đã đồng ý bảo hành 24 tháng cho thiết bị.",
+    "zh": "供應商已同意為設備提供 24 個月保固。",
+    "en": "The supplier agreed to a 24-month warranty for equipment.",
+    "usageZh": "設備採購保固年限協議",
+    "usageEn": "Equipment warranty terms"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Tỷ lệ giao hàng đúng hạn (OTD) tháng này đạt 98%.",
+    "zh": "本月份準時交貨率 (OTD) 達到了 98%。",
+    "en": "On-time delivery (OTD) rate reached 98% this month.",
+    "usageZh": "月度供應商績效 KPI 評核",
+    "usageEn": "On-time delivery rate metric"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Cần phê duyệt mẫu đầu tiên (First Article Inspection - FAI).",
+    "zh": "需要簽核首件檢驗樣品 (FAI)。",
+    "en": "First Article Inspection (FAI) approval needed.",
+    "usageZh": "開模首件打樣合格承認",
+    "usageEn": "FAI sample approval"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Lỗi khuôn mẫu đã được đội kỹ thuật khắc phục triệt để.",
+    "zh": "模具瑕疵問題已由技術工程團隊徹底排除。",
+    "en": "Tooling defect has been completely resolved by engineering.",
+    "usageZh": "模具試模問題改善匯報",
+    "usageEn": "Tooling defect resolution"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Chúng tôi áp dụng hệ thống quản lý chất lượng ISO 9001:2015.",
+    "zh": "我們全面導入並推行 ISO 9001:2015 品質管理體系。",
+    "en": "We implement ISO 9001:2015 quality management.",
+    "usageZh": "工廠國際認證宣傳",
+    "usageEn": "ISO 9001 certification"
+  },
+  {
+    "category": "供應鏈採購與工廠排程",
+    "viet": "Quy trình 5S giúp xưởng sản xuất luôn sạch đẹp và an toàn.",
+    "zh": "5S 管理流程有助於車間維持整潔與作業安全。",
+    "en": "5S methodology keeps the workshop clean and safe.",
+    "usageZh": "車間現場 5S 標語",
+    "usageEn": "5S workshop standard"
+  },
+  {
+    "category": "科技軟體與資訊IT",
+    "viet": "Hệ thống máy chủ đang được bảo trì định kỳ lúc nửa đêm.",
+    "zh": "伺服器系統正在半夜進行定期例行維護。",
+    "en": "Server system undergoes scheduled maintenance at midnight.",
+    "usageZh": "資訊部門維護公告",
+    "usageEn": "Server maintenance notice"
+  },
+  {
+    "category": "科技軟體與資訊IT",
+    "viet": "Vui lòng đổi mật khẩu định kỳ 90 ngày để đảm bảo an ninh mạng.",
+    "zh": "請每 90 天定期更換密碼以維護網路資訊安全。",
+    "en": "Change your password every 90 days for cybersecurity.",
+    "usageZh": "資安密碼更新政策",
+    "usageEn": "Cybersecurity password policy"
+  },
+  {
+    "category": "科技軟體與資訊IT",
+    "viet": "Phần mềm quản trị doanh nghiệp ERP đã hoàn tất nâng cấp.",
+    "zh": "企業 ERP 資源管理軟體已順利完成升級。",
+    "en": "Enterprise ERP system upgrade has been completed.",
+    "usageZh": "ERP 系統上線通知",
+    "usageEn": "ERP upgrade completion"
+  },
+  {
+    "category": "科技軟體與資訊IT",
+    "viet": "Sao lưu dữ liệu tự động lên đám mây vào 23 giờ mỗi ngày.",
+    "zh": "每天夜間 23 點自動將資料備份至雲端。",
+    "en": "Data is automatically backed up to cloud at 23:00 daily.",
+    "usageZh": "雲端自動備份機制",
+    "usageEn": "Cloud backup automation"
+  },
+  {
+    "category": "科技軟體與資訊IT",
+    "viet": "Ứng dụng này hỗ trợ cả hai hệ điều hành iOS và Android.",
+    "zh": "此 App 同時支援 iOS 與 Android 兩大作業系統。",
+    "en": "This application supports both iOS and Android platforms.",
+    "usageZh": "手機 App 平台相容性說明",
+    "usageEn": "iOS and Android compatibility"
+  },
+  {
+    "category": "科技軟體與資訊IT",
+    "viet": "Kết nối mạng Wi-Fi ở tầng 3 bị gián đoạn, nhờ IT kiểm tra.",
+    "zh": "三樓的 Wi-Fi 連線出現異常中斷，麻煩 IT 人員檢測。",
+    "en": "3rd floor Wi-Fi is interrupted, please have IT check.",
+    "usageZh": "報修辦公室網路故障",
+    "usageEn": "Reporting Wi-Fi interruption"
+  },
+  {
+    "category": "法律稅務與官方申報",
+    "viet": "Doanh nghiệp có vốn đầu tư nước ngoài (FDI) phải kiểm toán hàng năm.",
+    "zh": "外商投資企業 (FDI) 每年必須接受法定獨立審計。",
+    "en": "Foreign-invested enterprises (FDI) must undergo annual audits.",
+    "usageZh": "外資法規合規要件",
+    "usageEn": "Mandatory annual FDI audit"
+  },
+  {
+    "category": "法律稅務與官方申報",
+    "viet": "Hạn chót nộp tờ khai thuế thu nhập doanh nghiệp là ngày 31 tháng 3.",
+    "zh": "企業所得稅年度決算申報截止日為 3 月 31 日。",
+    "en": "Deadline for annual corporate income tax filing is March 31.",
+    "usageZh": "年度所得稅申報期限提醒",
+    "usageEn": "CIT annual filing deadline"
+  },
+  {
+    "category": "法律稅務與官方申報",
+    "viet": "Giấy chứng nhận đăng ký đầu tư (IRC) cần điều chỉnh vốn.",
+    "zh": "投資許可證 (IRC) 需要辦理增資變更登記手續。",
+    "en": "Investment Registration Certificate (IRC) needs capital amendment.",
+    "usageZh": "外資增資執照變更手續",
+    "usageEn": "Amending IRC capital"
+  },
+  {
+    "category": "法律稅務與官方申報",
+    "viet": "Đăng ký bảo hộ nhãn hiệu tại Cục Sở hữu trí tuệ Việt Nam.",
+    "zh": "向越南智慧財產權局申請商標保護註冊。",
+    "en": "Register trademark protection at the Intellectual Property Office.",
+    "usageZh": "品牌智慧財產權佈局",
+    "usageEn": "Trademark registration in Vietnam"
+  },
+  {
+    "category": "法律稅務與官方申報",
+    "viet": "Thực hiện đúng trách nhiệm xã hội của doanh nghiệp (CSR).",
+    "zh": "切實落實企業社會責任 (CSR) 與在地公益。",
+    "en": "Fulfill Corporate Social Responsibility (CSR) commitments.",
+    "usageZh": "外資在地社會責任推行",
+    "usageEn": "Fulfilling CSR commitments"
+  },
+  {
+    "category": "烹飪美食與在地市井",
+    "viet": "Bún chả Hà Nội nướng than hoa thơm lừng chấm nước mắm chua ngọt.",
+    "zh": "河內炭烤豬肉米線香氣撲鼻，沾酸甜魚露醬汁最對味。",
+    "en": "Hanoi charcoal grilled pork bun with sweet and sour fish sauce.",
+    "usageZh": "北越經典名菜介紹",
+    "usageEn": "Describing Hanoi Bun Cha"
+  },
+  {
+    "category": "烹飪美食與在地市井",
+    "viet": "Cơm tấm sườn bì chả là món ăn sáng đặc trưng của người Nam Bộ.",
+    "zh": "排骨皮絲蒸蛋碎米飯是南部人最具代表性的早餐。",
+    "en": "Broken rice with grilled pork ribs and egg meatloaf is iconic.",
+    "usageZh": "南越庶民美食推薦",
+    "usageEn": "Describing Saigon Com Tam"
+  },
+  {
+    "category": "烹飪美食與在地市井",
+    "viet": "Gỏi cuốn tôm thịt chấm tương đen đậu phộng bùi ngậy.",
+    "zh": "鮮蝦豬肉生春捲沾濃郁花生黑豆醬，清爽開胃。",
+    "en": "Fresh spring rolls with shrimp and pork in peanut hoisin dip.",
+    "usageZh": "經典越式生春捲點餐品嚐",
+    "usageEn": "Describing Goi Cuon spring rolls"
+  },
+  {
+    "category": "烹飪美食與在地市井",
+    "viet": "Bánh xèo miền Tây giòn rụm cuốn bánh tráng và rau rừng.",
+    "zh": "西南部脆皮越式煎餅裹米紙與野菜生菜捲著吃。",
+    "en": "Crispy Mekong Delta pancake wrapped in rice paper and herbs.",
+    "usageZh": "湄公河三角洲特色美食介紹",
+    "usageEn": "Mekong pancake food guide"
+  },
+  {
+    "category": "烹飪美食與在地市井",
+    "viet": "Chè bà ba thơm béo nước cốt dừa và khoai mì dẻo ngọt.",
+    "zh": "椰奶芭芭甜湯散發濃郁椰漿香氣與軟糯木薯。",
+    "en": "Ba Ba sweet soup with rich coconut milk and chewy cassava.",
+    "usageZh": "品嚐越南傳統街頭甜品",
+    "usageEn": "Vietnamese traditional dessert"
+  },
+  {
+    "category": "跨文化交際與友誼",
+    "viet": "Người Việt Nam rất coi trọng tình cảm và chữ tín trong làm ăn.",
+    "zh": "越南人在商業往來中極為看重人情味與信譽。",
+    "en": "Vietnamese people value warmth and integrity in business.",
+    "usageZh": "洞察越南商業文化核心",
+    "usageEn": "Understanding Vietnamese business values"
+  },
+  {
+    "category": "跨文化交際與友誼",
+    "viet": "Một nụ cười bằng mười thang thuốc bổ.",
+    "zh": "笑一笑，十年少 (笑顏勝過十帖補藥)。",
+    "en": "A smile is worth ten doses of tonic.",
+    "usageZh": "常保笑容與正面樂觀諺語",
+    "usageEn": "Value of smiling proverb"
+  },
+  {
+    "category": "跨文化交際與友誼",
+    "viet": "Bầu ơi thương lấy bí cùng, tuy rằng khác giống nhưng chung một giàn.",
+    "zh": "扁豆愛冬瓜，同攀一棚架 (比喻團結互助情誼)。",
+    "en": "Cherish one another though different, sharing the same trellis.",
+    "usageZh": "越南人耳熟能詳的團結友愛名詩句",
+    "usageEn": "Traditional poem on solidarity"
+  },
+  {
+    "category": "跨文化交際與友誼",
+    "viet": "Chúc chuyến công tác của đoàn đại biểu thành công tốt đẹp!",
+    "zh": "祝願代表團此行出差考察圓滿順利成功！",
+    "en": "Wishing the delegation's business trip fruitful success!",
+    "usageZh": "考察團歡迎與歡送詞",
+    "usageEn": "Delegation trip blessing"
+  },
+  {
+    "category": "跨文化交際與友誼",
+    "viet": "Hẹn sớm gặp lại bạn tại thành phố Hồ Chí Minh!",
+    "zh": "期待很快在胡志明市與您再次相逢！",
+    "en": "Looking forward to seeing you soon in Ho Chi Minh City!",
+    "usageZh": "告別約定下次見面",
+    "usageEn": "See you soon farewell"
+  },
 ];
 
 // 9. SRS 間隔記憶閃卡庫 (Spaced Repetition Flashcards Deck - 100 Cards Full Matrix)

@@ -27,12 +27,21 @@ class AudioEngine {
     
     this.initManifest();
     
+    this.speechRate = 1.0;
+    if (typeof window !== 'undefined') {
+      try {
+        const savedRate = localStorage.getItem('viet_speech_rate');
+        if (savedRate) this.speechRate = parseFloat(savedRate) || 1.0;
+      } catch (e) {}
+    }
+
     this.listeners = new Set();
     this.state = {
       isPlaying: false,
       activeText: null,
       activeKey: null,
       accent: 'north',
+      speechRate: this.speechRate,
       error: null
     };
 
@@ -43,6 +52,18 @@ class AudioEngine {
       }
       this.setupUserGestureUnlock();
     }
+  }
+
+  setSpeechRate(rate) {
+    this.speechRate = Math.max(0.5, Math.min(rate, 2.0));
+    try {
+      localStorage.setItem('viet_speech_rate', this.speechRate.toString());
+    } catch (e) {}
+    this.notifyState({ speechRate: this.speechRate });
+  }
+
+  getSpeechRate() {
+    return this.speechRate || 1.0;
   }
 
   setupUserGestureUnlock() {
@@ -376,7 +397,8 @@ class AudioEngine {
     const cleanedText = lang === 'vi' ? this.cleanText(rawText) : rawText.trim();
     if (!cleanedText) return;
 
-    const rate = options.rate || (accent === 'south' ? 1.04 : 0.96);
+    const defaultBaseRate = accent === 'south' ? 1.04 : 0.96;
+    const rate = options.rate || (this.speechRate && this.speechRate !== 1.0 ? this.speechRate : defaultBaseRate);
     const key = options.key || rawText;
 
     this.notifyState({

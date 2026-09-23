@@ -231,3 +231,189 @@
   border-color: rgba(239, 68, 68, 0.3);
   color: #fca5a5;
 }
+
+/* Category Badge in Card Header */
+.shadowing-module .category-tag-badge {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--brand-primary);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Tone Melody Contour Bar */
+.shadowing-module .shadow-tone-melody-bar {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.shadowing-module .tone-melody-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.shadowing-module .tone-melody-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.shadowing-module .tone-melody-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.shadowing-module .tone-melody-chip small {
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+/* Play Actions Bar */
+.shadowing-module .shadow-play-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.shadowing-module .play-target-btn.slow-btn {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: var(--text-primary);
+}
+
+.shadowing-module .play-target-btn.slow-btn:hover {
+  background: rgba(245, 158, 11, 0.2);
+}
+
+/* Self Playback Box */
+.shadowing-module .self-playback-box {
+  margin-top: 0.5rem;
+}
+
+.shadowing-module .self-audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--brand-accent);
+  color: var(--brand-accent);
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.shadowing-module .self-audio-btn:hover {
+  background: rgba(139, 92, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+.shadowing-module .self-audio-btn.playing {
+  background: var(--brand-accent);
+  color: white;
+}
+
+/* Diagnostic Assessment Layout */
+.shadowing-module .score-summary-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.shadowing-module .score-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.shadowing-module .score-title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.shadowing-module .score-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+}
+
+/* Word Diagnostic Chips */
+.shadowing-module .word-diagnostic-grid {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.shadowing-module .word-diag-chip {
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.shadowing-module .word-diag-chip.correct {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #065f46;
+}
+[data-theme="dark"] .shadowing-module .word-diag-chip.correct {
+  color: #34d399;
+}
+
+.shadowing-module .word-diag-chip.tone_diff {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #92400e;
+}
+[data-theme="dark"] .shadowing-module .word-diag-chip.tone_diff {
+  color: #fbbf24;
+}
+
+.shadowing-module .word-diag-chip.missing {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #991b1b;
+  text-decoration: line-through;
+}
+[data-theme="dark"] .shadowing-module .word-diag-chip.missing {
+  color: #f87171;
+}
+
+.shadowing-module .diag-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+}

@@ -55,6 +55,14 @@ export function App() {
     return localStorage.getItem('viet_accent') || 'north';
   });
 
+  // Speech rate preference: 1.0 or 0.75
+  const [speechRate, setSpeechRateState] = useState(() => audioEngine.getSpeechRate());
+
+  const handleSetSpeechRate = (rate) => {
+    audioEngine.setSpeechRate(rate);
+    setSpeechRateState(rate);
+  };
+
   // Active module tab
   const [activeTab, setActiveTabState] = useState(getModuleFromHash);
 
@@ -236,6 +244,8 @@ export function App() {
         userStats={userStats}
         selectedAccent={selectedAccent}
         setSelectedAccent={setSelectedAccent}
+        speechRate={speechRate}
+        setSpeechRate={handleSetSpeechRate}
         onOpenAchievements={() => setIsAchievementsModalOpen(true)}
         onOpenDailyQuests={() => setIsDailyQuestsOpen(true)}
         onOpenChapterFinder={() => setIsChapterFinderOpen(true)}

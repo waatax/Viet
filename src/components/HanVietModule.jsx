@@ -413,8 +413,8 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
     );
   });
 
-  const playWord = (text, key) => {
-    audioEngine.speak(text, { accent: selectedAccent, key: key || text });
+  const playWord = (text, key, rate = 1.0) => {
+    audioEngine.speak(text, { accent: selectedAccent, key: key || text, rate });
     if (updateUserStats) updateUserStats(2);
   };
 
@@ -507,30 +507,192 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
       </div>
 
       {/* ==================================================== */}
+      {/* ==================================================== */}
       {/* TAB 1: 100 CORE ROOTS EXPLORER */}
       {/* ==================================================== */}
       {activeHanTab === 'roots' && (
         <>
           {/* Search Bar */}
-      <div style={{ margin: '1.5rem 0' }}>
-        <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', padding: '0.75rem 1.2rem', border: '1.5px solid var(--border-color)', boxShadow: 'var(--shadow-xs)' }}>
-          <Search size={18} color="var(--text-muted)" style={{ marginRight: '0.75rem' }} />
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder={learningMode === 'zh' ? '搜尋字根、漢字或釋義 (如: Quốc, 學, 經濟, 自由)...' : 'Search root, Chinese character, or meaning...'}
-            style={{ width: '100%', background: 'transparent', border: 'none', color: 'var(--text-primary)', outline: 'none', fontSize: '0.96rem' }}
-          />
-          {searchTerm && (
-            <button onClick={() => setSearchTerm('')} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', fontWeight: 800 }}>
-              ✕
-            </button>
-          )}
-        </div>
-      </div>
+          <div style={{ margin: '1.5rem 0' }}>
+            <div style={{ display: 'flex', alignItems: 'center', background: 'var(--bg-card)', borderRadius: 'var(--radius-md)', padding: '0.75rem 1.2rem', border: '1.5px solid var(--border-color)', boxShadow: 'var(--shadow-xs)' }}>
+              <Search size={18} color="var(--text-muted)" style={{ marginRight: '0.75rem' }} />
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder={learningMode === 'zh' ? '搜尋字根、漢字或釋義 (如: Quốc, 學, 經濟, 自由)...' : 'Search root, Chinese character, or meaning...'}
+                style={{ width: '100%', background: 'transparent', border: 'none', color: 'var(--text-primary)', outline: 'none', fontSize: '0.96rem' }}
+              />
+              {searchTerm && (
+                <button onClick={() => setSearchTerm('')} style={{ background: 'none', border: 'none', color: 'var(--text-muted)', cursor: 'pointer', fontWeight: 800 }}>
+                  ✕
+                </button>
+              )}
+            </div>
+          </div>
 
-      
+          {/* Main Grid: Left Root List + Right Detail Compounds */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.75rem' }}>
+            {/* Left: Root Picker Cards */}
+            <div>
+              <h3 style={{ fontSize: '1.15em', fontWeight: 800, marginBottom: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <BookOpen size={18} color="var(--brand-primary)" />
+                {learningMode === 'zh' ? '核心字根列表' : 'Core Roots'} ({filteredRoots.length})
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(135px, 1fr))', gap: '0.75rem', maxHeight: '560px', overflowY: 'auto', paddingRight: '0.3rem' }}>
+                {filteredRoots.map((r, idx) => {
+                  const isSelected = selectedRoot?.root === r.root;
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => setSelectedRoot(r)}
+                      aria-pressed={isSelected}
+                      style={{
+                        padding: '0.85rem 1rem',
+                        borderRadius: 'var(--radius-md)',
+                        background: isSelected ? 'var(--bg-accent)' : 'var(--bg-card)',
+                        border: `1.5px solid ${isSelected ? 'var(--brand-accent)' : 'var(--border-color)'}`,
+                        cursor: 'pointer',
+                        transition: 'all 0.2s ease',
+                        boxShadow: isSelected ? '0 4px 14px rgba(37, 99, 235, 0.2)' : 'none',
+                        transform: isSelected ? 'scale(1.02)' : 'none'
+                      }}
+                    >
+                      <div style={{ fontSize: '1.3em', fontWeight: 900, color: 'var(--brand-primary)' }}>
+                        {r.root}
+                      </div>
+                      <div style={{ fontSize: '0.95em', fontWeight: 800, color: 'var(--brand-gold)', margin: '0.15rem 0' }}>
+                        {r.han}
+                      </div>
+                      <div style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>
+                        {loc(r, 'meaning')}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Right: Active Root Deep Breakdown & Compounds */}
+            {selectedRoot && (
+              <div className="simulator-box" style={{ margin: 0 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem', marginBottom: '1.2rem', flexWrap: 'wrap', gap: '0.8rem' }}>
+                  <div>
+                    <span style={{ fontSize: '0.82em', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase' }}>
+                      ACTIVE ROOT EXPLORATION
+                    </span>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginTop: '0.3rem' }}>
+                      <span style={{ fontSize: '2.2em', fontWeight: 900, color: 'var(--brand-primary)' }}>{selectedRoot.root}</span>
+                      <span style={{ fontSize: '1.6em', fontWeight: 800, color: 'var(--brand-gold)' }}>({selectedRoot.han})</span>
+                    </div>
+                    <div style={{ fontSize: '1em', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
+                      {learningMode === 'zh' ? '釋義：' : 'Meaning: '}
+                      <strong>{loc(selectedRoot, 'meaning')}</strong>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', gap: '0.4rem' }}>
+                    <button
+                      className="speaker-btn"
+                      onClick={() => playWord(selectedRoot.root, `root_${selectedRoot.root}`, 1.0)}
+                      title={`播放 ${selectedRoot.root} 發音 (1.0x)`}
+                    >
+                      <Volume2 size={18} />
+                    </button>
+                    <button
+                      className="speaker-btn"
+                      onClick={() => playWord(selectedRoot.root, `root_slow_${selectedRoot.root}`, 0.72)}
+                      title={`慢速 ${selectedRoot.root} (0.75x)`}
+                      style={{ color: 'var(--brand-gold)' }}
+                    >
+                      0.75x
+                    </button>
+                  </div>
+                </div>
+
+                {/* Phonological Rule Note */}
+                {selectedRoot.phonologyNote && (
+                  <div style={{ background: 'var(--bg-main)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', marginBottom: '1.2rem', fontSize: '0.88em', color: 'var(--text-secondary)', borderLeft: '3px solid var(--brand-gold)' }}>
+                    📖 <strong>{learningMode === 'zh' ? '音韻考證：' : 'Phonetics: '}</strong>
+                    {learningMode === 'zh' ? selectedRoot.phonologyNoteZh : selectedRoot.phonologyNoteEn}
+                  </div>
+                )}
+
+                {/* Derived Compound Words Grid */}
+                <h4 style={{ fontSize: '1.1em', fontWeight: 800, marginBottom: '0.8rem', color: 'var(--text-primary)' }}>
+                  {learningMode === 'zh' ? '衍生高頻複合詞 (Compounds)' : 'Derived Compounds'}
+                </h4>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  {selectedRoot.compounds?.map((c, cIdx) => {
+                    const isPlayingC = activeKey === c.viet;
+                    const isPlayingSlow = activeKey === `slow_${c.viet}`;
+                    const isFalseFriend = !!c.falseFriend;
+                    const isExpanded = expandedFalseFriend === c.viet;
+                    return (
+                      <div key={cIdx} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                        <div
+                          onClick={() => isFalseFriend && setExpandedFalseFriend(isExpanded ? null : c.viet)}
+                          style={{
+                            background: 'var(--bg-main)',
+                            padding: '0.85rem 1.1rem',
+                            borderRadius: 'var(--radius-md)',
+                            border: isExpanded ? '2px solid #ff9800' : '1px solid var(--border-color)',
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            transition: 'all 0.2s ease',
+                            cursor: isFalseFriend ? 'pointer' : 'default'
+                          }}
+                        >
+                          <div>
+                            <div style={{ fontSize: '1.15em', fontWeight: 800, color: 'var(--brand-accent)' }}>
+                              {c.viet}
+                              <span style={{ fontSize: '0.85em', color: 'var(--brand-gold)', marginLeft: '0.5rem', fontWeight: 700 }}>
+                                [{c.han}]
+                              </span>
+                              {isFalseFriend && (
+                                <span style={{ marginLeft: '0.5rem', fontSize: '0.75em', background: '#ff9800', color: '#fff', padding: '0.2rem 0.4rem', borderRadius: '4px' }}>
+                                  ⚠️ 假朋友
+                                </span>
+                              )}
+                            </div>
+                            <div style={{ fontSize: '0.9em', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
+                              {learningMode === 'zh' ? c.zh : c.en}
+                            </div>
+                          </div>
+
+                          <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
+                            <button
+                              className={`speaker-btn mini-btn ${isPlayingC ? 'playing' : ''}`}
+                              onClick={(e) => { e.stopPropagation(); playWord(c.viet, c.viet, 1.0); }}
+                              title={`朗讀 ${c.viet} (1.0x)`}
+                            >
+                              <Volume2 size={15} />
+                            </button>
+                            <button
+                              className={`speaker-btn mini-btn ${isPlayingSlow ? 'playing' : ''}`}
+                              onClick={(e) => { e.stopPropagation(); playWord(c.viet, `slow_${c.viet}`, 0.72); }}
+                              title={`慢速精聽 ${c.viet} (0.75x)`}
+                              style={{ color: 'var(--brand-gold)' }}
+                            >
+                              0.75x
+                            </button>
+                          </div>
+                        </div>
+                        {isExpanded && isFalseFriend && (
+                          <div style={{ padding: '0.75rem', background: '#fff4e5', borderLeft: '4px solid #ff9800', borderRadius: '4px', fontSize: '0.9em', color: '#663c00' }}>
+                            <strong>字面直譯：</strong> {c.falseFriend.literalZh}<br/>
+                            <div style={{ marginTop: '0.3rem' }}><strong>⚠️ 注意：</strong> {c.falseFriend.warningZh}</div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
         </>
       )}
 
@@ -862,150 +1024,6 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
       </div>
     </div>
   )}
-
-      {/* Main Grid: Left Root List + Right Detail Compounds */}
-      {activeHanTab === 'roots' && (
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.75rem' }}>
-        {/* Left: Root Picker Cards */}
-        <div>
-          <h3 style={{ fontSize: '1.15em', fontWeight: 800, marginBottom: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <BookOpen size={18} color="var(--brand-primary)" />
-            {learningMode === 'zh' ? '核心字根列表' : 'Core Roots'} ({filteredRoots.length})
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(135px, 1fr))', gap: '0.75rem', maxHeight: '560px', overflowY: 'auto', paddingRight: '0.3rem' }}>
-            {filteredRoots.map((r, idx) => {
-              const isSelected = selectedRoot?.root === r.root;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedRoot(r)}
-                  aria-pressed={isSelected}
-                  style={{
-                    padding: '0.85rem 1rem',
-                    borderRadius: 'var(--radius-md)',
-                    background: isSelected ? 'var(--bg-accent)' : 'var(--bg-card)',
-                    border: `1.5px solid ${isSelected ? 'var(--brand-accent)' : 'var(--border-color)'}`,
-                    cursor: 'pointer',
-                    transition: 'all 0.2s ease',
-                    boxShadow: isSelected ? '0 4px 14px rgba(37, 99, 235, 0.2)' : 'none',
-                    transform: isSelected ? 'scale(1.02)' : 'none'
-                  }}
-                >
-                  <div style={{ fontSize: '1.3em', fontWeight: 900, color: 'var(--brand-primary)' }}>
-                    {r.root}
-                  </div>
-                  <div style={{ fontSize: '0.95em', fontWeight: 800, color: 'var(--brand-gold)', margin: '0.15rem 0' }}>
-                    {r.han}
-                  </div>
-                  <div style={{ fontSize: '0.82em', color: 'var(--text-muted)' }}>
-                    {loc(r, 'meaning')}
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Right: Active Root Deep Breakdown & Compounds */}
-        {selectedRoot && (
-          <div className="simulator-box" style={{ margin: 0 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid var(--border-color)', paddingBottom: '1rem', marginBottom: '1.2rem', flexWrap: 'wrap', gap: '0.8rem' }}>
-              <div>
-                <span style={{ fontSize: '0.82em', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase' }}>
-                  ACTIVE ROOT EXPLORATION
-                </span>
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginTop: '0.3rem' }}>
-                  <span style={{ fontSize: '2.2em', fontWeight: 900, color: 'var(--brand-primary)' }}>{selectedRoot.root}</span>
-                  <span style={{ fontSize: '1.6em', fontWeight: 800, color: 'var(--brand-gold)' }}>({selectedRoot.han})</span>
-                </div>
-                <div style={{ fontSize: '1em', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
-                  {learningMode === 'zh' ? '釋義：' : 'Meaning: '}
-                  <strong>{loc(selectedRoot, 'meaning')}</strong>
-                </div>
-              </div>
-
-              <button
-                className="speaker-btn"
-                onClick={() => playWord(selectedRoot.root, `root_${selectedRoot.root}`)}
-                title={`播放 ${selectedRoot.root} 發音`}
-              >
-                <Volume2 size={20} />
-              </button>
-            </div>
-
-            {/* Phonological Rule Note */}
-            {selectedRoot.phonologyNote && (
-              <div style={{ background: 'var(--bg-main)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', marginBottom: '1.2rem', fontSize: '0.88em', color: 'var(--text-secondary)', borderLeft: '3px solid var(--brand-gold)' }}>
-                📖 <strong>{learningMode === 'zh' ? '音韻考證：' : 'Phonetics: '}</strong>
-                {learningMode === 'zh' ? selectedRoot.phonologyNoteZh : selectedRoot.phonologyNoteEn}
-              </div>
-            )}
-
-            {/* Derived Compound Words Grid */}
-            <h4 style={{ fontSize: '1.1em', fontWeight: 800, marginBottom: '0.8rem', color: 'var(--text-primary)' }}>
-              {learningMode === 'zh' ? '衍生高頻複合詞 (Compounds)' : 'Derived Compounds'}
-            </h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {selectedRoot.compounds?.map((c, cIdx) => {
-                const isPlayingC = activeKey === c.viet;
-                const isFalseFriend = !!c.falseFriend;
-                const isExpanded = expandedFalseFriend === c.viet;
-                return (
-                  <div key={cIdx} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                    <div
-                      onClick={() => isFalseFriend && setExpandedFalseFriend(isExpanded ? null : c.viet)}
-                      style={{
-                        background: 'var(--bg-main)',
-                        padding: '0.85rem 1.1rem',
-                        borderRadius: 'var(--radius-md)',
-                        border: isExpanded ? '2px solid #ff9800' : '1px solid var(--border-color)',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        alignItems: 'center',
-                        gap: '0.75rem',
-                        transition: 'all 0.2s ease',
-                        cursor: isFalseFriend ? 'pointer' : 'default'
-                      }}
-                    >
-                      <div>
-                        <div style={{ fontSize: '1.15em', fontWeight: 800, color: 'var(--brand-accent)' }}>
-                          {c.viet}
-                          <span style={{ fontSize: '0.85em', color: 'var(--brand-gold)', marginLeft: '0.5rem', fontWeight: 700 }}>
-                            [{c.han}]
-                          </span>
-                          {isFalseFriend && (
-                            <span style={{ marginLeft: '0.5rem', fontSize: '0.75em', background: '#ff9800', color: '#fff', padding: '0.2rem 0.4rem', borderRadius: '4px' }}>
-                              ⚠️ 假朋友
-                            </span>
-                          )}
-                        </div>
-                        <div style={{ fontSize: '0.9em', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
-                          {learningMode === 'zh' ? c.zh : c.en}
-                        </div>
-                      </div>
-
-                      <button
-                        className={`speaker-btn mini-btn ${isPlayingC ? 'playing' : ''}`}
-                        onClick={(e) => { e.stopPropagation(); playWord(c.viet, c.viet); }}
-                        title={`朗讀 ${c.viet}`}
-                      >
-                        <Volume2 size={16} />
-                      </button>
-                    </div>
-                    {isExpanded && isFalseFriend && (
-                      <div style={{ padding: '0.75rem', background: '#fff4e5', borderLeft: '4px solid #ff9800', borderRadius: '4px', fontSize: '0.9em', color: '#663c00' }}>
-                        <strong>字面直譯：</strong> {c.falseFriend.literalZh}<br/>
-                        <div style={{ marginTop: '0.3rem' }}><strong>⚠️ 注意：</strong> {c.falseFriend.warningZh}</div>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
-      </div>
-      )}
     </div>
   );
 };
