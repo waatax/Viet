@@ -614,6 +614,7 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
     setPuzzleDone(false);
   }, [activeDayIdx]);
 
+  const currentDay = FAST_TRACK_DAYS[activeDayIdx] || FAST_TRACK_DAYS[0];
   const currentDrill = FAST_TRACK_DRILLS[currentDay.day] || FAST_TRACK_DRILLS[1];
   const currentCulture = FAST_TRACK_CULTURE_TIPS[currentDay.day] || FAST_TRACK_CULTURE_TIPS[1];
 
@@ -646,8 +647,6 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
     isSubmitted: false,
     isCorrect: null
   });
-
-  const currentDay = FAST_TRACK_DAYS[activeDayIdx] || FAST_TRACK_DAYS[0];
 
   useEffect(() => {
     localStorage.setItem('viet_fasttrack_completed_days', JSON.stringify(completedDays));

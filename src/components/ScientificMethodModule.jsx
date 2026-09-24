@@ -66,6 +66,14 @@ export const RESEARCH_PANELS = [
         descEn: 'Systematic mapping of Northern 6-tone vs Southern 5-tone systems and consonant shifts for accent agility.',
         appZh: '落實於「南北口音一鍵無縫切換」與「方言補強專區」。',
         appEn: 'Engineered into the instant North/South accent toggle and dialect guide.'
+      },
+      {
+        nameZh: '對比分析與攣生最小對立對記憶法 (Contrastive Minimal Pairs & Mnemonic Anchoring)',
+        nameEn: 'Contrastive Minimal Pairs & Mnemonic Anchoring',
+        descZh: '針對中文母語者的音韻負遷移（聲調微差、長短母音 a/ă、送氣 t/th 倒置）與漢越假朋友（bác sĩ 醫生、lịch sự 禮貌），運用 A/B 極限聽音切換、靈魂口訣與「一句辨雙詞」共現法，徹底終結認知混淆。',
+        descEn: 'Targets L1 interference in tone contours, vowel lengths, and false cognates using A/B acoustic contrasts and co-occurrence mnemonics.',
+        appZh: '落實於「閃卡模組·相近似字·攣生對比記憶卡系統」與「隨堂極速辨析微測驗」。',
+        appEn: 'Implemented in the Confusables & Minimal Pairs Mnemonic Lab and Active Discrimination Drills.'
       }
     ]
   },
