@@ -14,18 +14,18 @@ export const liveMarketTicker = [
     val: '25,485',
     delta: '+0.12%',
     type: 'up',
-    note: '牌價高檔盤整',
-    noteVi: 'Tỷ giá niêm yết neo vùng đỉnh'
+    note: '中心匯率 24,265 上限盤整',
+    noteVi: 'Tỷ giá niêm yết neo sát trần biên độ'
   },
   {
     id: 'twdvnd',
     name: 'TWD/VND (1台幣)',
     nameVi: 'TWD/VND (1 Đài tệ)',
-    val: '791.5 ₫',
+    val: '792.5 ₫',
     delta: '+0.08%',
     type: 'up',
-    note: '1萬越盾折合 126.3 NT$',
-    noteVi: '10.000 VND quy đổi 12,63 NT$'
+    note: '1萬越盾折合 126.2 NT$',
+    noteVi: '10.000 VND quy đổi 12,62 NT$'
   },
   {
     id: 'sbv_refinance',
@@ -34,7 +34,7 @@ export const liveMarketTicker = [
     val: '4.50%',
     delta: '持平',
     type: 'neutral',
-    note: '維持寬鬆以挺GDP',
+    note: '維持寬鬆以挺實體GDP',
     noteVi: 'Duy trì nới lỏng hỗ trợ GDP'
   },
   {
@@ -44,8 +44,8 @@ export const liveMarketTicker = [
     val: '4.80%',
     delta: '+0.10%',
     type: 'up',
-    note: '公股行庫微調',
-    noteVi: 'Khối quốc doanh nhích nhẹ'
+    note: '公股行庫資金成本平穩',
+    noteVi: 'Khối quốc doanh giữ ổn định'
   },
   {
     id: 'preferential_loan',
@@ -54,8 +54,8 @@ export const liveMarketTicker = [
     val: '4.00%',
     delta: '法定上限',
     type: 'neutral',
-    note: '支持高科技與中小企',
-    noteVi: 'Hỗ trợ công nghệ cao & SME'
+    note: '支持高科技、中小企與出口',
+    noteVi: 'Trần bảo hộ công nghệ cao & SME'
   },
   {
     id: 'trade_surplus',
@@ -64,8 +64,8 @@ export const liveMarketTicker = [
     val: '$26.85 B',
     delta: '+14.2% YoY',
     type: 'up',
-    note: '創同期歷來次高',
-    noteVi: 'Mức cao thứ 2 trong lịch sử'
+    note: '創歷年同期次高水準',
+    noteVi: 'Mức thặng dư cao thứ 2 lịch sử'
   },
   {
     id: 'fdi_disbursed',
@@ -74,8 +74,48 @@ export const liveMarketTicker = [
     val: '$23.80 B',
     delta: '+8.6% YoY',
     type: 'up',
-    note: '電子封測與光伏主導',
-    noteVi: 'Bán dẫn & năng lượng dẫn dắt'
+    note: '半導體封測與AI伺服器領軍',
+    noteVi: 'Bán dẫn & chuỗi AI dẫn dắt'
+  },
+  {
+    id: 'credit_growth',
+    name: '銀行體系信貸增長',
+    nameVi: 'Tăng trưởng tín dụng',
+    val: '15.0%',
+    delta: '目標區間',
+    type: 'neutral',
+    note: '央行引導資金聚焦實體經濟',
+    noteVi: 'SBV hướng dòng vốn vào sản xuất'
+  },
+  {
+    id: 'taiwan_fdi',
+    name: '台商累計投資規模',
+    nameVi: 'Lũy kế FDI Đài Loan',
+    val: '$40.2 B',
+    delta: '全越第4大',
+    type: 'up',
+    note: '電子資通訊與精密製造重鎮',
+    noteVi: 'Đứng thứ 4 toàn quốc về FDI'
+  },
+  {
+    id: 'north_railway',
+    name: '中越標準軌鐵路',
+    nameVi: 'ĐS khổ 1.435mm Lào Cai - HP',
+    val: '289.34兆₫',
+    delta: '$11.05B USD',
+    type: 'up',
+    note: '363km直通海防瀝縣深水港',
+    noteVi: 'Kết nối đường sắt liên vận QT'
+  },
+  {
+    id: 'long_thanh',
+    name: '隆城國際機場一期',
+    nameVi: 'Sân bay QT Long Thành',
+    val: '2026/12',
+    delta: '商業啟航',
+    type: 'up',
+    note: '4F頂級門戶，年吞吐2500萬人',
+    noteVi: 'Đại dự án cửa ngõ Đông Nam Bộ'
   },
   {
     id: 'vnindex',
@@ -84,7 +124,7 @@ export const liveMarketTicker = [
     val: '1,288.4',
     delta: '+0.45%',
     type: 'up',
-    note: '邁向升級富時新興市場',
+    note: '推進富時新興市場升級評級',
     noteVi: 'Tiến trình nâng hạng thị trường FTSE'
   },
   {
@@ -92,20 +132,20 @@ export const liveMarketTicker = [
     name: 'SJC 金條買賣',
     nameVi: 'Vàng miếng SJC',
     val: '80.5M - 82.5M',
-    delta: '溢價收斂',
+    delta: '價差收窄',
     type: 'neutral',
-    note: '央行直售平抑黑市',
-    noteVi: 'SBV bán can thiệp ổn định thị trường'
+    note: '四大公股行直售平抑黑市',
+    noteVi: 'Big 4 can thiệp ổn định thị trường'
   },
   {
     id: 'gdp_target',
-    name: '2026 全年 GDP 目標',
-    nameVi: 'Mục tiêu tăng trưởng GDP 2026',
-    val: '6.8% ~ 7.0%',
-    delta: '穩居東協之冠',
+    name: '十四大GDP戰略雄心',
+    nameVi: 'Mục tiêu GDP Đại hội XIV',
+    val: '7.5% ~ 8.0%',
+    delta: '衝刺雙位數',
     type: 'up',
-    note: '出口與公眾投資雙輪驅動',
-    noteVi: 'Động lực từ xuất khẩu & đầu tư công'
+    note: '世銀認定晉升中高所得國家',
+    noteVi: 'Mục tiêu tăng trưởng 2026-2030'
   }
 ];
 
@@ -645,6 +685,95 @@ export const commercialBankRates = [
     homeLoanPromoVi: '7,1% (cố định năm đầu)',
     specialNote: '零售資產品質最優，房貸與中小企質押放款壞帳率低於 1.2%。',
     specialNoteVi: 'Chất lượng tài sản bán lẻ chuẩn mực, kiểm soát nợ xấu bất động sản và SME dưới 1,2%.'
+  },
+  // ── 台灣主要在越商業銀行分行 (Taiwanese Commercial Banks in Vietnam) ──
+  {
+    id: 'esun_vn',
+    name: '玉山銀行 (E.SUN Bank) 越南分行',
+    nameVi: 'Ngân hàng E.SUN - Chi nhánh TP. Hồ Chí Minh / Đồng Nai',
+    shortName: 'E.SUN',
+    type: 'taiwan',
+    typeLabel: '台資外商行庫',
+    typeLabelVi: 'Ngân hàng Đài Loan (FDI)',
+    logo: '🏔️',
+    demand: '0.10%',
+    m1: '2.80%',
+    m3: '3.20%',
+    m6: '4.20%',
+    m12: '5.00%',
+    m24: '5.20%',
+    shortLoan: '5.5% ~ 7.0%',
+    midLongLoan: '7.5% ~ 9.2%',
+    homeLoanPromo: '6.8% (台籍幹部房貸專案)',
+    homeLoanPromoVi: '6,8% (Gói vay mua nhà chuyên gia)',
+    specialNote: '台商赴越設廠首選！提供台幣／越盾雙幣帳戶、DICA資本金專戶及中越雙語網銀。',
+    specialNoteVi: 'Đầu mối hàng đầu của doanh nghiệp FDI Đài Loan, thanh toán song phương TWD-VND và tài khoản vốn DICA.'
+  },
+  {
+    id: 'mega_vn',
+    name: '兆豐國際商業銀行 (Mega Bank) 越南分行',
+    nameVi: 'Ngân hàng Mega ICBC - Chi nhánh TP.HCM',
+    shortName: 'MEGA',
+    type: 'taiwan',
+    typeLabel: '台資外商行庫',
+    typeLabelVi: 'Ngân hàng Đài Loan (FDI)',
+    logo: '🌐',
+    demand: '0.10%',
+    m1: '2.70%',
+    m3: '3.10%',
+    m6: '4.10%',
+    m12: '4.95%',
+    m24: '5.10%',
+    shortLoan: '5.6% ~ 7.2%',
+    midLongLoan: '7.6% ~ 9.5%',
+    homeLoanPromo: '7.0% (首年固定)',
+    homeLoanPromoVi: '7,0% (cố định năm đầu)',
+    specialNote: '外匯信用狀（L/C）與跨境供應鏈貿易融資老牌主力行，台越跨國聯貸經驗豐富。',
+    specialNoteVi: 'Thế mạnh truyền thống về tài trợ thương mại L/C xuất nhập khẩu và thu xếp vốn tín dụng hợp vốn.'
+  },
+  {
+    id: 'ctbc_vn',
+    name: '中國信託商業銀行 (CTBC) 越南分行',
+    nameVi: 'Ngân hàng CTBC - Chi nhánh TP.HCM',
+    shortName: 'CTBC',
+    type: 'taiwan',
+    typeLabel: '台資外商行庫',
+    typeLabelVi: 'Ngân hàng Đài Loan (FDI)',
+    logo: '🟢',
+    demand: '0.10%',
+    m1: '2.90%',
+    m3: '3.30%',
+    m6: '4.30%',
+    m12: '5.10%',
+    m24: '5.30%',
+    shortLoan: '5.7% ~ 7.3%',
+    midLongLoan: '7.8% ~ 9.6%',
+    homeLoanPromo: '6.9% (首年固定)',
+    homeLoanPromoVi: '6,9% (cố định năm đầu)',
+    specialNote: '跨國科技大廠電子聯貸、跨國供應鏈資金池管理與台派幹部個人金融服務完善。',
+    specialNoteVi: 'Dịch vụ ngân hàng số quản trị dòng tiền doanh nghiệp, tài trợ chuỗi cung ứng công nghệ cao.'
+  },
+  {
+    id: 'cathay_vn',
+    name: '國泰世華銀行 (Cathay United Bank) 越南子行/分行',
+    nameVi: 'Ngân hàng Cathay United Bank - Chi nhánh Chu Lai & VPĐD TP.HCM',
+    shortName: 'CUB',
+    type: 'taiwan',
+    typeLabel: '台資外商行庫',
+    typeLabelVi: 'Ngân hàng Đài Loan (FDI)',
+    logo: '🌳',
+    demand: '0.10%',
+    m1: '2.75%',
+    m3: '3.15%',
+    m6: '4.15%',
+    m12: '5.00%',
+    m24: '5.20%',
+    shortLoan: '5.5% ~ 7.0%',
+    midLongLoan: '7.6% ~ 9.3%',
+    homeLoanPromo: '6.9% (首年固定)',
+    homeLoanPromoVi: '6,9% (cố định năm đầu)',
+    specialNote: '深耕中越與南越，結合國泰人壽保險金控優勢，提供綠色融資與全方位資產規劃。',
+    specialNoteVi: 'Kết hợp giải pháp tài chính xanh và bảo hiểm doanh nghiệp, hỗ trợ nhà đầu tư Đài Loan mở rộng thị trường.'
   }
 ];
 
@@ -1115,45 +1244,45 @@ export const deepAnalysisDossiers = [
   },
   {
     id: 'DOSSIER-2026-08',
-    issueNo: 'VN-MACRO-001',
-    date: '2026-07-03',
-    category: 'regulations',
-    categoryLabel: '政策法規',
-    categoryLabelVi: 'Pháp lý & Thuế khóa',
-    readTime: '13 分鐘',
-    readTimeVi: '13 phút đọc',
+    issueNo: 'VN-MACRO-005',
+    date: '2026-08-07',
+    category: 'fdi_compliance',
+    categoryLabel: '外資合規',
+    categoryLabelVi: 'Tuân thủ & Pháp lý FDI',
+    readTime: '14 分鐘',
+    readTimeVi: '14 phút đọc',
     title: '台商赴越投資最新稅務與海關合規避坑指南：移轉訂價（TP）、薪資社保勞檢與外匯管制穿透式審計',
     titleVi: 'Cẩm nang tuân thủ pháp lý & thuế cho nhà đầu tư FDI: Giao dịch liên kết, bảo hiểm xã hội và tài khoản vốn DICA',
     subtitle: '查廠風暴常態化：從借名登記（Nominee）法律風險到跨境關係人交易合規底線深度盤點',
     subtitleVi: 'Thanh tra thuế dựa trên dữ liệu lớn, kiểm soát chặt chẽ lãi vay EBITDA 30% và thủ tục chuyển lợi nhuận hợp pháp về nước',
-    author: '外商投資合規與涉外爭端律師團',
-    authorVi: 'Đoàn Luật sư Pháp chế Doanh nghiệp & Đầu tư Quốc tế',
-    tags: ['移轉訂價 TP', '海關查廠', '勞動社保', '外匯管制', '借名登記風險'],
-    tagsVi: ['Giao dịch liên kết', 'Thanh tra thuế', 'Bảo hiểm xã hội', 'Tài khoản DICA', 'Pháp lý FDI'],
+    author: '跨國台商稅務法律諮詢組 · 資深會計師',
+    authorVi: 'Tổ Tư vấn Pháp lý & Thuế Doanh nghiệp FDI · Chuyên gia Kiểm toán',
+    tags: ['台商在越合規', '移轉訂價查核', 'DICA資本帳戶', '外籍幹部社保', '反借名登記'],
+    tagsVi: ['Tuân thủ FDI', 'Chuyển giá (TP)', 'Tài khoản DICA', 'BHXH chuyên gia', 'Pháp lý lao động'],
     kpis: [
-      { label: '關係人交易查核率', labelVi: 'Tỷ lệ thanh tra liên kết', val: '85% 大型外企', type: 'red' },
-      { label: '基本薪資調整', labelVi: 'Tăng lương tối thiểu vùng', val: '+6.0% 平均調幅', type: 'gold' },
-      { label: '合法利潤結匯週期', labelVi: 'Chuyển lợi nhuận ra nước ngoài', val: '每年 3 月財報後', type: 'blue' }
+      { label: '關係人利息抵扣上限', labelVi: 'Trần chi phí lãi vay', val: 'EBITDA × 30%', type: 'red' },
+      { label: '法定資本匯入期限', labelVi: 'Thời hạn góp đủ vốn', val: 'IRC發照 90 天', type: 'gold' },
+      { label: '查稅追溯期法定上限', labelVi: 'Thời hiệu truy thu thuế', val: '最長 10 年', type: 'blue' }
     ],
-    summary: '近年來赴越投資設廠的台商與外資企業數量屢創新高，但隨之而來的稅務法務合規代價亦顯著攀升。越南稅務總局與勞動榮軍社會部已告別過往對外商睜一隻眼閉一隻眼的寬鬆監管，全面啟動「智慧稅務系統」與「大數據比對」。其中，跨國母子公司間的移轉訂價（Transfer Pricing / 第 132/2020/NĐ-CP 號法令）成為稅捐機關稽查重點，許多台商因長年帳面申報微利或虧損，遭到追繳數十億越盾稅款與滯納金。此外，針對外國幹部工作證（Work Permit）、強制性社會保險足額繳納、以及資金合法匯回母國的專用資本帳戶（DICA）合規，本篇為高階管理層梳理最關鍵的生存守則。',
-    summaryVi: 'Các cơ quan quản lý thuế và lao động tại Việt Nam đang đẩy mạnh ứng dụng hệ thống đối soát dữ liệu điện tử. Trọng tâm thanh tra tập trung vào giao dịch liên kết theo Nghị định 132/2020/NĐ-CP (khống chế chi phí lãi vay không quá 30% EBITDA), việc trích nộp bảo hiểm xã hội bắt buộc cho lao động nước ngoài, và việc tuân thủ tuyệt đối quy định giao dịch vốn qua tài khoản đầu tư trực tiếp (DICA) của Ngân hàng Nhà nước.',
+    summary: '2026 年越南稅務總局、海關總局與各省勞動榮軍社會廳聯手推動「大數據穿透式監管」。許多初入越南的台商中小企業，因延續早期在中國大陸或東南亞其他國家的粗放經營習慣，面臨巨額補稅與停工處罰。本報告深度盤點四大地雷領域：嚴格禁止越南籍自然人「借名登記（Nominee）」持有外資股權、法令第 132/2020 號關係人貸款利息扣除上限（EBITDA 30%）、外匯 DICA 專用資本帳戶的嚴格管制、以及新修訂外籍幹部強制納入養老與工傷社會保險的勞檢趨勢，為在越企業經營層構築法律安全護城河。',
+    summaryVi: 'Năm 2026, các cơ quan chức năng Việt Nam đẩy mạnh thanh tra dựa trên dữ liệu lớn. Doanh nghiệp FDI cần tuân thủ nghiêm ngặt 4 nội dung cốt lõi: Tuyệt đối không sử dụng thỏa thuận đứng tên hộ (Nominee); kiểm soát trần chi phí lãi vay giao dịch liên kết theo Nghị định 132; nộp đủ vốn điều lệ qua tài khoản DICA trong 90 ngày; và tham gia đầy đủ bảo hiểm xã hội cho lao động nước ngoài để tránh rủi ro pháp lý.',
     sections: [
       {
-        heading: '一、移轉訂價（TP）：長年虧損已成查稅頭號引信',
-        headingVi: '1. Giao dịch liên kết: Rủi ro khi kê khai lỗ kéo dài',
-        content: '越南第 132 號法令對關聯方交易有極其嚴苛的認定標準：\n1. 關聯方貸款利息扣除上限（EBITDA 30%）：母公司借款給在越子公司，其每年度列支之利息費用總額不得超過企業息稅折舊前利潤（EBITDA）的 30%，超出部分必須剔除並繳納所得稅。\n2. 三代報告申報義務：符合規模門檻的企業，每年必須備妥本地文檔（Local File）、主體文檔（Master File）及國別報告（CbCR）。若無法提供可比對之獨立第三方交易價格證明，稅官有權依同業平均利潤率逕行核定補稅。',
-        contentVi: 'Nghị định 132 khống chế chi phí lãi vay được trừ khi tính thuế TNDN ở mức 30% EBITDA. Doanh nghiệp cần lập đầy đủ hồ sơ xác định giá giao dịch liên kết (Hồ sơ quốc gia, Hồ sơ tập đoàn toàn cầu) để tránh bị ấn định thuế.'
+        heading: '一、借名登記（Nominee）：外商絕對不可觸碰的法律高壓電',
+        headingVi: '1. Rủi ro pháp lý nghiêm trọng khi nhờ người đứng tên hộ (Nominee)',
+        content: '部分台商為了規避外資設立審批週期，或圖謀投資未對外資開放之行業，選擇借用越南本地人名義持有公司 100% 股權或購買土地使用權。越南法院與公安部在最新執法解釋中明確：此類借名協議屬於「以合法形式掩蓋非法目的之無效民事交易」，不受任何法律保護。一旦發生糾紛或遭舉報，外商不僅將喪失所有廠房資產，更可能涉及刑法第 200 條逃稅罪或非法經營罪而被驅逐出境。唯一合法途徑是按《投資法》正式申請 IRC 投資執照與 ERC 企業執照。',
+        contentVi: 'Mọi hình thức ủy thác hoặc nhờ người mang quốc tịch Việt Nam đứng tên sở hữu doanh nghiệp hoặc quyền sử dụng đất đều bị coi là giao dịch giả tạo vô hiệu theo Bộ luật Dân sự. Nhà đầu tư nước ngoài có nguy cơ mất trắng toàn bộ tài sản đầu tư và bị xử lý theo pháp luật.'
       },
       {
-        heading: '二、外匯生命線：直接投資資本帳戶（DICA）不得兒戲',
-        headingVi: '2. Tài khoản vốn đầu tư trực tiếp (DICA): Mạch máu tài chính hợp pháp',
-        content: '許多台商在設立初期常犯下致命錯誤：將註冊資本金透過私人帳戶或一般經常性帳戶匯入越南。\n根據越南國家銀行規定：\n- 外國投資者所有資本金注入、中長期外債借款，以及未來每年度合法稅後利潤匯回母國，必須一律透過在越南境內銀行開立的「直接投資資本專用帳戶（DICA Account）」辦理。\n- 若違反專戶規定，不僅資本金無法合法驗資入帳，未來工廠賺取之盈餘亦將永遠無法合法兌換為美金匯出境外，甚至面臨嚴重的洗錢防制調查。',
-        contentVi: 'Mọi dòng vốn góp điều lệ, giải ngân vốn vay nước ngoài và chuyển lợi nhuận hợp pháp về nước bắt buộc phải thông qua Tài khoản vốn DICA mở tại NHTM được phép tại Việt Nam, tuyệt đối không sử dụng tài khoản thanh toán thông thường.'
+        heading: '二、移轉訂價與利息扣除上限（EBITDA 30%）：查稅新常態',
+        headingVi: '2. Thanh tra chuyển giá & Khống chế chi phí lãi vay liên kết 30% EBITDA',
+        content: '依據第 132/2020/NĐ-CP 號議定，外資企業與母公司或關係人之間若存在大額借款，其可列報稅前扣除之淨利息支出上限不得超過 EBITDA（息稅折舊攤銷前利潤）的 30%。許多台資工廠早期資本額偏低，高度仰賴台灣母公司借貸融資，利息支出極高，導致利息被稅務局大量剔除補徵 20% 企業所得稅。此外，連續 3 年申報虧損但營收持續擴大、或與母公司原材料採購價明顯偏離市場行情的企業，均被列入稅務自動稽查預警名單。',
+        contentVi: 'Nghị định 132 quy định tổng chi phí lãi vay được trừ khi tính thuế TNDN của doanh nghiệp có giao dịch liên kết không vượt quá 30% EBITDA. Các công ty FDI báo lỗ liên tiếp hoặc có biên lợi nhuận bất thường so với tập đoàn sẽ bị đưa vào danh sách thanh tra trọng điểm.'
       },
       {
-        heading: '三、勞檢與幹部工作證合規：杜絕商務簽非法打工',
+        heading: '三、外籍幹部工作許可與強制社會保險審查',
         headingVi: '3. Giấy phép lao động & Bảo hiểm xã hội cho chuyên gia nước ngoài',
-        content: '越南自修訂《外國人在越勞動管理法令》後，全面清查持商務簽證（DN/DN1）長期在工廠現場從事管理與技術操作之外籍幹部。\n外籍幹部在越常駐滿 30 天以上，必須依法取得省勞動廳核發的工作許可證（Work Permit）或工作免證確認書，並申請兩年期暫住證（TRC）。同時，自 2022 年起，在越外籍員工亦必須按規定投保強制性疾病、工傷與退休養老社會保險（個人負擔 8%、企業負擔 17.5%），不可存僥倖心理規避提撥。',
+        content: '越南自修訂《外國人在越勞動管理法令》後，全面清查持商務簽證（DN/DN1）長期在工廠現場從事管理與技術操作之外籍幹部。外籍幹部在越常駐滿 30 天以上，必須依法取得省勞動廳核發的工作許可證（Work Permit）或工作免證確認書，並申請兩年期暫住證（TRC）。同時，自 2022 年起，在越外籍員工亦必須按規定投保強制性疾病、工傷與退休養老社會保險（個人負擔 8%、企業負擔 17.5%），不可存僥倖心理規避提撥。',
         contentVi: 'Chuyên gia nước ngoài làm việc từ 30 ngày trở lên phải có Giấy phép lao động hoặc xác nhận miễn cấp giấy phép, đồng thời tham gia đầy đủ BHXH bắt buộc theo luật định để đảm bảo tuân thủ pháp luật lao động.'
       }
     ],
@@ -1162,11 +1291,270 @@ export const deepAnalysisDossiers = [
       { term: 'Tài khoản vốn đầu tư trực tiếp (DICA)', hanViet: '帳款資本投資直接', meaning: '直接投資資本專用外匯帳戶' },
       { term: 'Giấy phép lao động (Work Permit)', hanViet: '紙准勞動', meaning: '外國籍幹部合法工作許可證' }
     ]
+  },
+  {
+    id: 'DOSSIER-2026-09',
+    issueNo: 'VN-MACRO-009',
+    date: '2026-09-18',
+    category: 'politics',
+    categoryLabel: '總體政經',
+    categoryLabelVi: 'Chính trị - Vĩ mô',
+    readTime: '15 分鐘',
+    readTimeVi: '15 phút đọc',
+    title: '越共十四大（Đại hội XIV）新政與體制改革全景：蘇林總書記主導下「行政精簡、容錯免責與10% GDP增長雄心」對外商投資之深遠變革',
+    titleVi: 'Đại hội XIV và cải cách thể chế: Tinh gọn bộ máy, cơ chế bảo vệ cán bộ và mục tiêu tăng trưởng GDP hai con số',
+    subtitle: '中央確立「反腐法治化與審批加速並行」，以體制突破解決基層官僚怠政，開啟2026-2030經濟起飛新階段',
+    subtitleVi: 'Tháo gỡ điểm nghẽn thể chế, khơi thông dòng vốn đầu tư công và củng cố niềm tin chiến lược cho cộng đồng FDI',
+    author: '東協政經研究室 · 首席體制政策分析師',
+    authorVi: 'Trung tâm Nghiên cứu Kinh tế ASEAN · Chuyên gia Phân tích Thể chế',
+    tags: ['越共十四大', '蘇林體制', '行政精簡', '容錯免責機制', '10% GDP目標'],
+    tagsVi: ['Đại hội Đảng XIV', 'Cải cách thể chế', 'Bảo vệ cán bộ', 'Tăng trưởng hai con số', 'Môi trường kinh doanh'],
+    kpis: [
+      { label: '十四大代表大會席次', labelVi: 'Đại biểu dự Đại hội', val: '1,590 席', type: 'blue' },
+      { label: '2026-2030 GDP年均目標', labelVi: 'Mục tiêu GDP 2026-30', val: '10.0% 雄心', type: 'green' },
+      { label: '公建撥款完成率目標', labelVi: 'Giải ngân đầu tư công', val: '≥ 95% 全國', type: 'gold' }
+    ],
+    summary: '2026年是越南政經格局的里程碑年份。隨著越共第十四次全國代表大會（Đại hội Đảng XIV）的確立，蘇林（Tô Lâm）總書記進一步兼任國家主席，實現了數十年來最高權力結構的高度集中與決策效率化。在反腐倡廉步入「法治化、制度化」新常態的同時，中央大刀闊斧實施第 73 號結論，明文保護「敢想、敢做、敢為公眾利益承擔責任」的幹部，徹底破除地方行政官僚因畏懼查案而導致的「審批停滯、公建預算沉睡」沉疴。大會正式將 2026-2030 年 GDP 年均增長目標定錨於 10% 的衝刺水準，世界銀行亦正式將越南升格為中高所得國家（Upper-Middle Income Economy）。本文深入解讀十四大人事佈局、精簡政府部會職能、以及對跨國 FDI 外資的最強制度定心丸。',
+    summaryVi: 'Năm 2026 ghi dấu bước ngoặt lịch sử với Đại hội đại biểu toàn quốc lần thứ XIV của Đảng. Tổng Bí thư Tô Lâm định hình phong cách lãnh đạo quyết đoán, thống nhất ý chí chính trị để tinh gọn bộ máy và đẩy nhanh cải cách thể chế. Việc thực thi triệt để cơ chế bảo vệ cán bộ dám nghĩ dám làm đã phá tan tâm lý sợ sai, giải phóng hàng chục tỷ USD vốn đầu tư công tồn ngân. Đại hội XIV xác lập mục tiêu tăng trưởng GDP bình quân 10%/năm giai đoạn 2026-2030, đưa Việt Nam vững vàng bước vào nhóm các quốc gia có thu nhập trung bình cao theo chuẩn World Bank.',
+    sections: [
+      {
+        heading: '一、最高權力集中化：決策鏈條縮短與政策高度連續性',
+        headingVi: '1. Tinh gọn bộ máy lãnh đạo: Rút ngắn chu trình ra quyết định',
+        content: '蘇林總書記全面主導越共最高決策中樞，消除了此前因權力過渡帶來的政策觀望期。十四大政治報告草案著重強調：政治穩定是越南在東協中最具吸引力的核心比較優勢；反腐敗並非為了抑制經濟活動，而是掃除尋租障礙、建立乾淨透明的市場規則。中央明確指示，任何司法查辦程序不得影響合法企業的正常生產經營，尤其是具有外資標竿意義的高科技專案。',
+        contentVi: 'Sự nhất quán và quyết đoán trong bộ máy lãnh đạo cấp cao giúp rút ngắn đáng kể thời gian ban hành các quyết sách kinh tế vĩ mô. Thông điệp đối ngoại nhất quán: Ổn định chính trị là lợi thế cạnh tranh cốt lõi; minh bạch hóa thể chế là chìa khóa để giữ chân dòng vốn FDI thế hệ mới.'
+      },
+      {
+        heading: '二、破除怠政：容錯免責機制解鎖數百億美元公共財政',
+        headingVi: '2. Tháo gỡ điểm nghẽn hành chính: Cơ chế bảo vệ cán bộ giải phóng nguồn lực',
+        content: '此前嚴厲打貪曾導致部分省級官員「不敢批公文、推託招標」。2025至2026年間，政府出台了前所未有的「免責容錯細則」與「責任倒查機制」，明確界定：幹部只要無個人貪瀆利益，基於集體決策推動重大基建與外資審批出現客觀偏差的，免予追究紀律處分；反之，對刻意怠惰拖延審批導致公建預算滯留者進行嚴肅問責。這一政策立竿見影，帶動南北高鐵、胡志明三環路、河內四環路及各大港口工程撥款率突破 95%。',
+        contentVi: 'Cơ chế bảo vệ cán bộ năng động, sáng tạo vì lợi ích chung đã tạo luồng sinh khí mới cho bộ máy công quyền từ trung ương đến địa phương. Tỷ lệ giải ngân đầu tư công vượt 95%, trực tiếp kích hoạt chuỗi cung ứng vật liệu, xây dựng và logistics toàn quốc.'
+      },
+      {
+        heading: '三、十四大五大經濟支柱與外商投資新紅利',
+        headingVi: '3. Năm trụ cột kinh tế Đại hội XIV: Cơ hội mới cho cộng đồng FDI',
+        content: '越共十四大綱領明確確立五大驅動引擎：\n1. 高端先進外資准入：從「廉價代工」全面轉向半導體、AI 資料中心、綠能材料與航太零部件。\n2. 國家行政精簡：合併重疊部會職能，省級行政區規劃整併，全面推行 100% 數位在線審批。\n3. 能源綠色轉型：全面實施第八版電力規劃（PDP8）與直接購電協議（DPPA），向跨國企業保證綠電供給。\n4. 本國龍頭民營經濟扶植：打造能與外商深度對接的本土一級（Tier 1）供應商。\n5. 世紀基礎設施網：貫通中越 1,435mm 標準軌鐵路、南北 350km/h 客運高鐵與隆城國際門戶機場。',
+        contentVi: 'Đại hội XIV mở ra chương mới với 5 trụ cột phát triển: Lựa chọn FDI công nghệ cao; tinh gọn tổ chức bộ máy nhà nước; đảm bảo an ninh năng lượng xanh qua DPPA; phát triển doanh nghiệp tư nhân đầu đàn; và hoàn thiện mạng lưới hạ tầng kết nối chiến lược.'
+      }
+    ],
+    terms: [
+      { term: 'Đại hội Đảng toàn quốc lần thứ XIV', hanViet: '大會黨全國次第十四', meaning: '越共第十四次全國代表大會' },
+      { term: 'Cơ chế bảo vệ cán bộ năng động sáng tạo', hanViet: '機制保護幹部能動創意', meaning: '保護勇於創新幹部免責容錯機制' },
+      { term: 'Tinh gọn tổ chức bộ máy', hanViet: '精簡組織部機', meaning: '政府行政機構與官僚體系精簡改革' }
+    ]
+  },
+  {
+    id: 'DOSSIER-2026-10',
+    issueNo: 'VN-MACRO-010',
+    date: '2026-09-12',
+    category: 'supply_chain',
+    categoryLabel: '供應鏈與基建',
+    categoryLabelVi: 'Hạ tầng & Chuỗi cung ứng',
+    readTime: '16 分鐘',
+    readTimeVi: '16 phút đọc',
+    title: '北越河內與紅河三角洲高科技重鎮崛起：中越1,435mm標準軌鐵路、500kV三迴線保電與台韓半導體AI伺服器供應鏈集聚',
+    titleVi: 'Vùng kinh tế Bắc Bộ và chuỗi công nghệ cao: Tuyến đường sắt 1.435mm Lào Cai - Hà Nội - Hải Phòng, đường dây 500kV mạch 3 và hệ sinh thái bán dẫn',
+    subtitle: '110億美元標準軌鐵路直通海防瀝縣深水港，519公里三迴線終結缺電，鴻海、廣達、仁寶、艾克爾重兵佈局',
+    subtitleVi: 'Đột phá kết nối liên vận đường sắt với Trung Quốc, đảm bảo an ninh năng lượng cho các tổ hợp bán dẫn Amkor, Hana Micron và máy chủ AI',
+    author: '北越工業廊帶與物流研究小組 · 資深供應鏈顧問',
+    authorVi: 'Nhóm Nghiên cứu Hành lang Công nghiệp Bắc Bộ · Chuyên gia Chuỗi cung ứng',
+    tags: ['北越科技走廊', '老街河內海防鐵路', '500kV三迴線', '半導體封測', '鴻海廣達仁寶'],
+    tagsVi: ['Hành lang Bắc Bộ', 'Đường sắt Lào Cai - Hải Phòng', '500kV mạch 3', 'Bán dẫn OSAT', 'Chuỗi cung ứng AI'],
+    kpis: [
+      { label: '標準軌鐵路投資總額', labelVi: 'Vốn đầu tư đường sắt', val: '289.34兆₫ ($11B)', type: 'gold' },
+      { label: '500kV三迴線全長', labelVi: 'Chiều dài 500kV mạch 3', val: '519 km (已通電)', type: 'green' },
+      { label: '北越半導體投資總額', labelVi: 'FDI bán dẫn miền Bắc', val: '逾 45 億美元', type: 'blue' }
+    ],
+    summary: '北越紅河三角洲正在經歷半世紀以來最劇烈的地緣產業重構。隨著越南國會2026年正式批准將「老街－河內－海防」1,435mm 標準軌鐵路總投資調整至 289.34 萬億越盾（約 110.5 億美元），中越鐵路「換軌轉運」的歷史瓶頸被徹底粉碎。這條 363 公里的雙線電氣化國際貨運走廊將中國西南腹地（雲南昆明、四川重慶）與越南北方第一大港海防瀝縣（Lạch Huyện）深水港無縫銜接。與此同時，全長 519 公里的國家級 500kV 三迴線（廣澤－浦內）高壓輸電工程正式全線投產，將中部與南部充沛電力輸送至北越工業中心，徹底消除了外資最擔憂的夏季斷電隱患。在電力與物流雙重保障下，北寧、北江、永福、南定成為全球半導體封測（Amkor 16億美元、Hana Micron 10億美元）與 AI 伺服器代工（鴻海、廣達、仁寶、光寶）的最核心重鎮。',
+    summaryVi: 'Vùng kinh tế trọng điểm Bắc Bộ đang vươn lên thành cứ điểm công nghệ cao hàng đầu khu vực nhờ hai cú hích hạ tầng thế kỷ: Dự án đường sắt tiêu chuẩn 1.435mm Lào Cai - Hà Nội - Hải Phòng trị giá 11,05 tỷ USD kết nối trực tiếp với Trung Quốc và cảng nước sâu Lạch Huyện; cùng đường dây 500kV mạch 3 Quảng Trạch - Phố Nối dài 519km xóa tan nguy cơ thiếu điện. Hệ sinh thái sản xuất bán dẫn (Amkor, Hana Micron) và máy chủ AI (Foxconn, Quanta, Compal, Lite-On) tại Bắc Ninh, Bắc Giang, Vĩnh Phúc, Nam Định được tiếp thêm động lực mở rộng quy mô chưa từng có.',
+    sections: [
+      {
+        heading: '一、中越 1,435mm 標準軌鐵路：重塑泛亞陸海物流走廊',
+        headingVi: '1. Tuyến đường sắt khổ 1.435mm: Đột phá logistics xuyên biên giới',
+        content: '此前中越跨境鐵路因越南採用 1,000mm 米軌而中國採用 1,435mm 標準軌，所有進出口貨物必須在老街或同登口岸進行吊裝換軌，耗時且成本高昂。新批准的老街－河內－海防標準軌工程，設計時速客運 160 km/h、貨運 120 km/h，預計 2030 年全面完工通車。屆時，高科技電子零件從深圳、昆明至北越工廠，成品自海防港直接裝船出海的綜合物流時效將縮短 40% 以上，為「中國+1」佈局提供無可替代的陸海聯運優勢。',
+        contentVi: 'Tuyến đường sắt khổ tiêu chuẩn 1.435mm kết nối trực tiếp mạng lưới đường sắt quốc tế, giải quyết triệt để nút thắt sang tải tại biên giới. Hàng hóa linh kiện công nghệ từ Tây Nam Trung Quốc có thể vận chuyển thẳng về các KCN Bắc Ninh, Bắc Giang và ra cảng Lạch Huyện với chi phí logistics giảm tới 40%.'
+      },
+      {
+        heading: '二、500kV 三迴線與電力 PDP8：終結高科技斷電焦慮',
+        headingVi: '2. Đường dây 500kV mạch 3 & Quy hoạch VIII: An ninh năng lượng vững vàng',
+        content: '2023 年夏季北越的大規模輪流停電曾重創外資信心。為此，政府下達軍令狀以創紀錄速度在 2024 年底建成了 519 公里的 500kV 廣澤－浦內輸電幹線，輸電能力提升至 2,000 MW 以上。結合總理府第 80/2024/NĐ-CP 號議定所頒布的「直接購電協議（DPPA）」，蘋果、輝達、英特爾等跨國供應鏈企業可在不經由國營 EVN 中介下，直接與再生能源電廠簽署綠電購售合約，順利履行 RE100 跨國減碳承諾。',
+        contentVi: 'Đường dây 500kV mạch 3 giải tỏa dứt điểm bài toán cung ứng điện cho các nhà máy công nghệ cao miền Bắc. Đi kèm Nghị định 80 về cơ chế mua bán điện trực tiếp (DPPA), các tập đoàn đa quốc gia có thể chủ động tiếp cận nguồn năng lượng tái tạo, đáp ứng các tiêu chuẩn khắt khe về ESG và RE100.'
+      },
+      {
+        heading: '三、台韓高科技電子巨頭的北越版圖大擴張',
+        headingVi: '3. Bản đồ mở rộng của các tập đoàn công nghệ Đài Loan & Hàn Quốc',
+        content: '• 鴻海集團（Foxconn）：在越總投資突破 50 億美元，北江富康科技加碼 3.5 億美元專攻 AI 光通訊與精密零件；\n• 廣達電腦（Quanta）：南定廠一期投產後迅速推動二期，總投資達 2.4 億美元打造全球筆電製造副中心；\n• 仁寶（Compal）：永福廠加速轉型為全球高階 AI 伺服器製造中心；\n• 艾克爾（Amkor）：北寧 16 億美元封測園區成為其全球最大晶片組裝測試基地；\n• 韓美半導體（Hana Micron）：北江 10 億美元記憶體封測廠全面量產，融入三星全球半導體鏈。',
+        contentVi: 'Miền Bắc chứng kiến cuộc đua mở rộng công suất: Foxconn nâng tổng vốn lên 5 tỷ USD với dự án FuKang; Quanta tăng vốn lên 240 triệu USD tại Nam Định; Compal đẩy mạnh sản xuất máy chủ AI tại Vĩnh Phúc; Amkor giải ngân nhà máy 1,6 tỷ USD tại Bắc Ninh; và Hana Micron vận hành cơ sở 1 tỷ USD tại Bắc Giang.'
+      }
+    ],
+    terms: [
+      { term: 'Đường sắt khổ tiêu chuẩn 1.435 mm', hanViet: '鐵路苦標準 1.435 mm', meaning: '1,435毫米國際標準軌鐵路' },
+      { term: 'Đường dây 500kV mạch 3', hanViet: '線路 500kV 脈三', meaning: '國家級500千伏超高壓第三迴路輸電線' },
+      { term: 'Cơ chế mua bán điện trực tiếp (DPPA)', hanViet: '機制買賣電直接', meaning: '直接購電協議 (發電商直售綠電予大用電戶)' }
+    ]
+  },
+  {
+    id: 'DOSSIER-2026-11',
+    issueNo: 'VN-MACRO-011',
+    date: '2026-09-08',
+    category: 'regional',
+    categoryLabel: '南越商業與重劃',
+    categoryLabelVi: 'Vùng TP.HCM & Miền Nam',
+    readTime: '14 分鐘',
+    readTimeVi: '14 phút đọc',
+    title: '南越大胡志明「雙核驅動」戰略：守添國際金融中心（IFC）、49億美元芹苴國際轉運港與隆城機場2026年啟航全解析',
+    titleVi: 'Chiến lược động lực kép Vùng TP.HCM: Trung tâm Tài chính Quốc tế Thủ Thiêm, Siêu cảng trung chuyển Cần Giờ 4,9 tỷ USD và Sân bay Long Thành',
+    subtitle: '第323/2025/NĐ-CP號議定釋放金融沙盒紅利，三環路與一號地鐵貫通，東南部工業走廊迎來世紀大升級',
+    subtitleVi: 'Nghị định 323 về trung tâm tài chính, siêu cảng đón tàu mẹ 24.000 TEU và đại bàng logistics hội tụ tại cửa ngõ Đông Nam Bộ',
+    author: '南越都市與金融地理研究中心 · 首席經濟學家',
+    authorVi: 'Trung tâm Nghiên cứu Kinh tế Vùng TP.HCM · Chuyên gia Địa kinh tế',
+    tags: ['大胡志明都會圈', '守添金融中心', '芹苴國際轉運港', '隆城機場2026', '第98號決議'],
+    tagsVi: ['Vùng đô thị TP.HCM', 'IFC Thủ Thiêm', 'Cảng Cần Giờ', 'Sân bay Long Thành', 'Nghị quyết 98'],
+    kpis: [
+      { label: '芹苴深水港總投資', labelVi: 'Tổng vốn cảng Cần Giờ', val: '$4.9 B (超大型)', type: 'gold' },
+      { label: '隆城國際機場首期啟用', labelVi: 'Khai thác thương mại', val: '2026 年 12 月', type: 'green' },
+      { label: '守添IFC地標大樓規劃', labelVi: 'Tháp tài chính IFC', val: '99 樓旗艦地標', type: 'blue' }
+    ],
+    summary: '胡志明市正藉由國會第 98/2023/QH15 號特別機制決議與中央第 323/2025/NĐ-CP 號議定，重塑其作為東南亞經濟與金融樞紐的核心地位。在戰略佈局上，南越正形成「守添國際金融中心（金融大腦）＋芹苴國際轉運深水港與隆城國際機場（物流雙翼）＋平陽同奈工業廊帶（製造實體）」的超級集群。守添新城區第一功能區已劃定 11 塊戰略金融土地，規劃 99 層旗艦金融塔並實行外匯與離岸金融沙盒。總投資 49 億美元的芹苴國際轉運港引入全球第二大船商 MSC/TIL 聯手興建，將具備停靠 24,000 TEU 超級母船能力。與此同時，胡志明地鐵一號線穩定營運，隆城國際機場一期定於 2026 年 12 月商業啟航，南越經貿進入歷史黃金爆發期。',
+    summaryVi: 'TP. Hồ Chí Minh đang bứt phá mạnh mẽ nhờ Nghị quyết 98 và Nghị định 323 của Chính phủ về đề án Trung tâm Tài chính Quốc tế (IFC). Không gian phát triển hình thành mô hình tam giác vàng: Thủ Thiêm (đầu não tài chính tiền tệ), Siêu cảng trung chuyển quốc tế Cần Giờ 4,9 tỷ USD và Sân bay Long Thành (đôi cánh logistics biển - không), kết nối hữu cơ với vùng công nghiệp Bình Dương - Đồng Nai - Long An. Tuyến Metro số 1 vận hành cùng tiến độ khánh thành Sân bay Long Thành vào tháng 12/2026 đưa vị thế kinh tế miền Nam lên tầm cao mới.',
+    sections: [
+      {
+        heading: '一、守添國際金融中心（IFC）：東協新離岸金融特區',
+        headingVi: '1. Trung tâm Tài chính Quốc tế Thủ Thiêm: Đặc khu tài chính thế hệ mới',
+        content: '依據中央最新法令，胡志明市正加速在守添（Thủ Thiêm）建設國際金融中心。政府規劃了三階段藍圖，並在核心一區預留 11 塊優質土地，由跨國財團主導設計 99 層「IFC-99F」金融摩天樓。核心政策亮點在於「受控監管沙盒（Sandbox）」：允許合格外國金融機構在此開展自由外匯兌換、離岸資本融資、金融科技試驗及綠色碳金融交易，稅收適用 10% 優惠所得稅率與外籍高端人才個稅減免。',
+        contentVi: 'Đề án IFC Thủ Thiêm quy hoạch cụm tháp tài chính 99 tầng trên 11 lô đất vàng tại Khu chức năng số 1. Điểm mấu chốt là cơ chế thử nghiệm có kiểm soát (Sandbox), nới lỏng quản lý ngoại hối, miễn giảm thuế cho chuyên gia quốc tế nhằm thu hút các định chế tài chính toàn cầu.'
+      },
+      {
+        heading: '二、49 億美元芹苴國際轉運深水港：比肩新加坡的航運心臟',
+        headingVi: '2. Siêu cảng trung chuyển quốc tế Cần Giờ 4,9 tỷ USD',
+        content: '由越南海事總公司（VIMC）、西貢港與地中海航運（MSC）旗下碼頭投資公司（TIL）聯手打造的芹苴港專案，總投資額達 49 億美元，規劃長達 7.2 公里的連續深水碼頭。該專案預計於 2026 年底迎來動工里程碑，2030 年一期吞吐能力達到 480 萬 TEU，終期達 1,690 萬 TEU。這將從根本上改變東南亞航運版圖，直接吸引原本停靠新加坡與馬來西亞港口的歐美幹線超級母船停靠。',
+        contentVi: 'Liên danh VIMC, Cảng Sài Gòn và hãng tàu hàng hải hàng đầu thế giới MSC/TIL hợp tác phát triển siêu cảng Cần Giờ với tổng vốn 4,9 tỷ USD. Khi hoàn thành, cụm cảng có khả năng tiếp nhận tàu mẹ 250.000 DWT (24.000 TEU), cạnh tranh trực tiếp với các trung tâm trung chuyển quốc tế trong khu vực.'
+      },
+      {
+        heading: '三、隆城機場 2026 商業啟航與東南部大動脈三環路',
+        headingVi: '3. Sân bay Long Thành cất cánh 12/2026 và Vành đai 3 liên vùng',
+        content: '4F 級隆城國際機場一期工程各項跑道與巨型蓮花造型客運航廈已進入機電調試與聯調測試階段，官方確認將於 2026 年 12 月正式投入商業營運，年設計旅客吞吐量 2,500 萬人次與貨物 120 萬噸。機場與胡志明三環路（Vành đai 3）、邊和－頭頓高速公路、隆城－新山一聯絡道同步成網，將原本擁擠不堪的平陽－同奈－胡志明市物流車程縮短一半以上。',
+        contentVi: 'Đại công trình Sân bay Long Thành giai đoạn 1 với công suất 25 triệu khách/năm chốt lịch khai thác thương mại vào tháng 12/2026. Mạng lưới hạ tầng kết nối gồm Vành đai 3 và cao tốc Biên Hòa - Vũng Tàu giúp rút ngắn hơn 50% thời gian vận chuyển hàng hóa xuất nhập khẩu của các cụm công nghiệp Đông Nam Bộ.'
+      }
+    ],
+    terms: [
+      { term: 'Trung tâm Tài chính Quốc tế (IFC)', hanViet: '中心財務國際', meaning: '守添國際金融中心' },
+      { term: 'Cảng trung chuyển quốc tế Cần Giờ', hanViet: '港中轉國際芹苴', meaning: '芹苴超級國際貨櫃轉運深水港' },
+      { term: 'Cơ chế thử nghiệm có kiểm soát (Sandbox)', hanViet: '機制試驗有檢索', meaning: '金融創新與離岸外匯監管沙盒' }
+    ]
+  },
+  {
+    id: 'DOSSIER-2026-12',
+    issueNo: 'VN-MACRO-012',
+    date: '2026-09-01',
+    category: 'fdi_compliance',
+    categoryLabel: '台商法規實務',
+    categoryLabelVi: 'Tuân thủ & Pháp lý FDI',
+    readTime: '15 分鐘',
+    readTimeVi: '15 phút đọc',
+    title: '2026台商在越營運合規指南：全球最低稅負《投資支持基金》第182號議定、新社保法、防洗產地穿透式查驗與台資銀行匯兌避險實務',
+    titleVi: 'Cẩm nang quản trị & tuân thủ cho doanh nghiệp FDI Đài Loan 2026: Quỹ hỗ trợ đầu tư Nghị định 182, Luật BHXH mới và an toàn xuất xứ C/O',
+    subtitle: '最高50%研發補貼沖抵15%最低稅負，C/O防規避查核應對，玉山、兆豐、中信等台資行庫實務操作守則',
+    subtitleVi: 'Tận dụng cơ chế bù đắp thuế tối thiểu toàn cầu, kiểm soát rủi ro truy xuất nguồn gốc linh kiện và quản trị dòng tiền song phương',
+    author: '跨國台商稅務法律諮詢組 · 資深會計師與合規顧問',
+    authorVi: 'Tổ Tư vấn Pháp lý & Thuế Doanh nghiệp FDI · Chuyên gia Kiểm toán',
+    tags: ['台商營運實務', '投資支持基金182號', '全球最低稅負', '新社保法2025', '台資銀行匯兌'],
+    tagsVi: ['FDI Đài Loan', 'Quỹ hỗ trợ đầu tư', 'Thuế tối thiểu toàn cầu', 'Luật BHXH 2024', 'Ngân hàng Đài Loan'],
+    kpis: [
+      { label: '高科技研發投資補貼上限', labelVi: 'Hỗ trợ chi phí đầu tư R&D', val: '最高 50%', type: 'green' },
+      { label: '全球最低稅負標準率', labelVi: 'Thuế bổ sung tối thiểu', val: '15.0% QDMTT', type: 'gold' },
+      { label: '新社保法僱主繳納總費率', labelVi: 'Tỷ lệ đóng BHXH người SDLD', val: '20.5%', type: 'blue' }
+    ],
+    summary: '面對全球經濟格局變化與越南法治環境的深刻轉型，2026年台商在越運營進入「高度專業化與法規合規化」的分水嶺。針對經濟合作暨發展組織（OECD）全球最低稅負制（Pillar Two，15% QDMTT）對跨國台資大型集團優惠稅率的衝擊，越南政府正式實施第 182/2024/NĐ-CP 號議定，設立「國家投資支持基金（Quỹ hỗ trợ đầu tư）」，提供高達 50% 的研發中心、晶片製造與高科技專案固定資產投資直接財政補貼，為合規大廠提供充分對沖補償。同時，2025年7月生效的新《社會保險法》嚴格落實外籍員工強制納保與養老提撥；美國海關（CBP）與越南海關總局聯合啟動原料穿透式追溯查驗防堵「洗產地」。在金流端，玉山銀行、兆豐銀行、中國信託等台資行庫為台商架構了 DICA 專戶、跨境無本金遠期（NDF）匯率避險與台幣直兌渠道。本報告為台商負責人與財務主管提供最全面的合規操作手冊。',
+    summaryVi: 'Năm 2026 đánh dấu bước chuyển trọng yếu trong quản trị tuân thủ của cộng đồng doanh nghiệp FDI Đài Loan tại Việt Nam. Để bù đắp tác động từ Thuế tối thiểu toàn cầu (Pillar Two 15%), Chính phủ đã ban hành Nghị định số 182/2024/NĐ-CP thành lập Quỹ hỗ trợ đầu tư, tài trợ trực tiếp bằng tiền mặt lên tới 50% chi phí đầu tư cơ sở hạ tầng, R&D và đào tạo nhân lực bán dẫn - AI. Bên cạnh đó, Luật BHXH mới có hiệu lực từ 01/7/2025 cùng các quy định hậu kiểm C/O chống lẩn tránh xuất xứ đòi hỏi doanh nghiệp phải chuyên nghiệp hóa hệ thống kế toán - hải quan. Mạng lưới các chi nhánh ngân hàng Đài Loan như E.SUN, Mega, CTBC, Cathay đóng vai trò cầu nối tài chính đắc lực hỗ trợ quản trị rủi ro tỷ giá.',
+    sections: [
+      {
+        heading: '一、第 182/2024/NĐ-CP 號議定：《投資支持基金》現金補貼全攻略',
+        headingVi: '1. Nghị định 182/2024/NĐ-CP: Cơ chế hỗ trợ tài chính từ Quỹ hỗ trợ đầu tư',
+        content: '為解決跨國企業因補繳 15% 最低稅負而失去投資誘因的問題，越南依 Decree 182 設立國家投資支持基金。符合條件的台資大廠（如年營業額逾 7.5 億歐元母公司之在越子公司、高科技半導體製造商、AI 研發中心）可申請多項直接現金補助：\n• 基礎設施與研發設備投資：最高給予 50% 購置成本補貼；\n• 人才培訓與專業技術認證：每人每年最高補貼 5,000 萬越盾；\n• 綠色工廠升級（節能減排、屋頂光電設備）：最高補貼 30% 改造支出。\n這項法案徹底消除了大台商對稅負優惠被「沒收」的焦慮，轉而將省下的稅額轉化為實體工廠升級基金。',
+        contentVi: 'Nghị định 182/2024/NĐ-CP thiết lập hành lang hỗ trợ thiết thực cho các dự án công nghệ cao: Hỗ trợ tới 50% chi phí đầu tư tài sản cố định cho R&D; tài trợ kinh phí đào tạo nhân lực chất lượng cao; và hỗ trợ doanh nghiệp đạt chứng chỉ xanh Net Zero, trực tiếp bù đắp phần thuế tối thiểu toàn cầu phải nộp thêm.'
+      },
+      {
+        heading: '二、防洗產地稽查升級：海關 BOM 料件核銷與 C/O 穿透式溯源',
+        headingVi: '2. Siết chặt xuất xứ hàng hóa: Tránh bẫy gian lận C/O và kiểm tra định mức BOM',
+        content: '越南對美出口順差突破千億美元後，美國商務部（DOC）與海關（CBP）加大對越南轉口產品的防規避（Anti-Circumvention）調查力度。重點行業包括：太陽能電池板、鋼鐵、鋁材、木製家具、電子連接線纜及網通設備。台商必須注意：\n1. 嚴禁單純自中國進口散件在越僅作「螺絲起子簡易組裝（Minor Assembly）」即申請越南產地證 Form B 或 Form ICO；\n2. 每年會計年度結束後 90 天內，必須向海關提交精確的料件決算報告（Báo cáo quyết toán hải quan），進口原物料庫存、在製品消耗與出口成品重量必須透過 ERP 系統能被嚴格比對。損耗率偏離合理範圍將面臨巨額補稅與關稅欺詐刑事起訴。',
+        contentVi: 'Tổng cục Hải quan tăng cường phối hợp với CBP Hoa Kỳ truy xuất nguồn gốc nguyên liệu đến cấp độ linh kiện. Doanh nghiệp chế xuất EPE bắt buộc phải nộp báo cáo quyết toán đúng hạn trong 90 ngày sau năm tài chính, chuẩn hóa bảng định mức tiêu hao nguyên vật liệu BOM, tuyệt đối tránh các thao tác lắp ráp giản đơn để né thuế phòng vệ thương mại.'
+      },
+      {
+        heading: '三、台資行庫實務：DICA 帳戶、跨境匯款與 NDF 匯率避險矩陣',
+        headingVi: '3. Nghiệp vụ ngân hàng Đài Loan: Quản trị tài khoản DICA và bảo hiểm tỷ giá',
+        content: '在越營運台商應充分運用玉山銀行、兆豐銀行、中國信託等在地合法分行優勢：\n• DICA 資本金帳戶：必須在發照 90 天內依章程出資期限將注冊資本金自海外母公司匯入。非經 DICA 專戶之資金不能認定為合法法定股本，亦無法在往後年度合法匯出稅後利潤；\n• 跨國利潤匯回：每年需在完成第三方審計及繳清所得稅款並取得稅務局無欠稅證明後方可辦理匯回；\n• 匯率避險：在 USD/VND 波動加劇之際，台商可透過台資行庫簽訂 3~6 個月無本金交割遠期合約（NDF）或換匯換利合約（CCS），將匯率波動風險鎖定在 1% 以內，避免匯損侵蝕微薄利潤。',
+        contentVi: 'Các chi nhánh ngân hàng Đài Loan tại Việt Nam (E.SUN, Mega, CTBC, Cathay) hỗ trợ toàn diện: Mở và quản lý tài khoản vốn đầu tư DICA đúng chuẩn 90 ngày; tư vấn hồ sơ chuyển lợi nhuận hợp pháp về nước sau kiểm toán; và cung ứng các hợp đồng phái sinh tiền tệ kỳ hạn NDF để khóa thiểu rủi ro tỷ giá cho doanh nghiệp xuất nhập khẩu.'
+      }
+    ],
+    terms: [
+      { term: 'Quỹ hỗ trợ đầu tư (Nghị định 182/2024/NĐ-CP)', hanViet: '基金補助投資', meaning: '越南國家投資支持基金 (提供最高50%研發與建廠補貼)' },
+      { term: 'Báo cáo quyết toán hải quan', hanViet: '報告決算海關', meaning: '年度進出口保稅料件核銷決算報告' },
+      { term: 'Chống lẩn tránh biện pháp phòng vệ thương mại', hanViet: '防隱避辦法防衛商賣', meaning: '打擊轉口洗產地防規避貿易救濟措施' }
+    ]
   }
 ];
 
 // ── 7B. 南越外商實務指南 (South Vietnam Foreign Business Guide - Bilingual) ──
 export const southVietnamBusinessData = {
+  // ── 2026年南越大胡志明四大世紀重磅專案
+  megaprojects2026: [
+    {
+      id: 'thu_thiem_ifc',
+      name: '守添國際金融中心 (Thu Thiem IFC)',
+      nameVi: 'Trung tâm Tài chính Quốc tế Thủ Thiêm',
+      location: '胡志明市守德市守添新城區第一功能區',
+      locationVi: 'Khu chức năng số 1, KĐT mới Thủ Thiêm, TP. Thủ Đức',
+      investment: '預計超 100 億美元（分階段開發）',
+      investmentVi: 'Dự kiến trên 10 tỷ USD (phát triển nhiều giai đoạn)',
+      timeline: '2025-2035 年全期規劃（2026年完成立法沙盒）',
+      status: '政策落地 · 法令第323/2025/NĐ-CP號核定',
+      statusVi: 'Đã ban hành Nghị định 323/2025/NĐ-CP',
+      highlights: '規劃11個核心地塊，籌建99層「IFC-99F」金融旗艦地標。實施監管沙盒（Sandbox），外匯自由兌換與資本項下開放，對標新加坡與杜拜。',
+      highlightsVi: 'Quy hoạch 11 lô đất vàng, đề xuất tòa tháp tài chính 99 tầng. Cơ chế thử nghiệm có kiểm soát (Sandbox) tự do ngoại hối theo chuẩn mực quốc tế.'
+    },
+    {
+      id: 'can_gio_port',
+      name: '芹苴國際轉運深水港 (Can Gio Super Port)',
+      nameVi: 'Cảng trung chuyển quốc tế Cần Giờ',
+      location: '胡志明市芹苴縣島嶼深水門戶（同奈河與龍海河交匯處）',
+      locationVi: 'Cù lao Con Chó, huyện Cần Giờ, TP. Hồ Chí Minh',
+      investment: '49 億美元（約合 128 萬億越盾）',
+      investmentVi: '4,9 tỷ USD (khoảng 128.000 tỷ đồng)',
+      timeline: '2026年底前動工 · 2030年一期480萬TEU · 終期1,690萬TEU',
+      status: '政府核准投資案 · 全球第二大船商MSC/TIL聯合開發',
+      statusVi: 'Chính phủ phê duyệt chủ trương, liên danh VIMC - Cảng Sài Gòn - MSC/TIL',
+      highlights: '碼頭總長度7.2公里，可停靠當今世界最大24,000 TEU（25萬DWT）母船，與新加坡競爭國際貨櫃中轉業務。',
+      highlightsVi: 'Bến dài 7,2 km tiếp nhận tàu mẹ 24.000 TEU, giảm chi phí trung chuyển khu vực và củng cố vị thế hàng hải VN.'
+    },
+    {
+      id: 'metro_line_1',
+      name: '胡志明市地鐵一號線 (Metro Line 1)',
+      nameVi: 'Tuyến Metro số 1 Bến Thành - Suối Tiên',
+      location: '第1郡濱城市場至守德市仙泉仙湖公園 / 高科技園區',
+      locationVi: 'Bến Thành (Quận 1) - Suối Tiên (TP. Thủ Đức)',
+      investment: '43.7 萬億越盾（日本JICA官方發展援助ODA貸款）',
+      investmentVi: '43.700 tỷ đồng (Vốn vay ODA Nhật Bản qua JICA)',
+      timeline: '2024年12月22日正式通車商業運營 · 2025-2026年全速載客',
+      status: '穩定商業營運中 · 貫穿市中心與高科技園區',
+      statusVi: 'Đã vận hành thương mại chính thức từ 22/12/2024',
+      highlights: '全越第一條城市地下＋高架軌道，全長19.7公里，設14座車站，從市中心第一郡至高科技園區（SHTP）僅需20分鐘。',
+      highlightsVi: 'Tuyến đường sắt đô thị ngầm & trên cao đầu tiên, 19,7 km với 14 ga, rút ngắn thời gian vào trung tâm xuống 20 phút.'
+    },
+    {
+      id: 'long_thanh_airport',
+      name: '隆城國際機場一期 (Long Thanh Airport Phase 1)',
+      nameVi: 'Cảng hàng không quốc tế Long Thành - Giai đoạn 1',
+      location: '同奈省隆城縣（距胡志明市中心約40公里）',
+      locationVi: 'Huyện Long Thành, tỉnh Đồng Nai',
+      investment: '46.6 億美元（一期）· 全三期超 160 億美元',
+      investmentVi: '4,66 tỷ USD (Giai đoạn 1) · Toàn bộ 3 giai đoạn trên 16 tỷ USD',
+      timeline: '2025年底技術試飛 · 2026年12月正式商業通航營運',
+      status: '工程最後衝刺 · 4F頂級國際航空樞紐',
+      statusVi: 'Chốt mốc vận hành thương mại vào tháng 12/2026',
+      highlights: '年吞吐量2,500萬人次與120萬噸貨物，設4,000米跑道與巨型蓮花航廈，與新山一機場構成南越雙門戶樞紐。',
+      highlightsVi: 'Công suất 25 triệu khách & 1,2 triệu tấn hàng/năm, đường cất hạ cánh 4.000m cấp 4F, giải tỏa áp lực Tân Sơn Nhất.'
+    }
+  ],
   // ── 外商設立速覽
   setupOverview: {
     title: '南越外資企業設立全攻略',
@@ -1981,6 +2369,206 @@ export const hcmcTourismData = {
 };
 
 // ── 8. 越南總體政經必備漢越詞彙對照庫 (Bilingual Lexicon) ──
+
+// ── 7D. 北越河內與紅河三角洲區域發展戰略庫 (Northern Regional Strategy Data - Bilingual) ──
+export const northVietnamDevelopmentData = {
+  // 區域綜述與重大政策
+  regionalOverview: {
+    title: '北越河內與紅河三角洲區域戰略發展全圖',
+    titleVi: 'Chiến lược phát triển Vùng kinh tế Thủ đô Hà Nội & Đồng bằng sông Hồng',
+    desc: '以河內《首都法》特權政策為龍頭，貫通中越1,435mm標準軌鐵路、海防瀝縣深水港、500kV三迴線保電工程，打造全球半導體OSAT與AI伺服器製造第一高地。',
+    descVi: 'Đầu tàu Luật Thủ đô Hà Nội, kết nối đường sắt tiêu chuẩn 1.435mm, cảng biển nước sâu Lạch Huyện và đường dây 500kV mạch 3 tạo động lực cho chuỗi bán dẫn & AI.',
+    provinces: ['河內市（Hà Nội）', '北寧省（Bắc Ninh）', '北江省（Bắc Giang）', '海防市（Hải Phòng）', '廣寧省（Quảng Ninh）', '永福省（Vĩnh Phúc）', '南定省（Nam Định）', '太原省（Thái Nguyên）'],
+    provincesVi: ['TP. Hà Nội', 'Tỉnh Bắc Ninh', 'Tỉnh Bắc Giang', 'TP. Hải Phòng', 'Tỉnh Quảng Ninh', 'Tỉnh Vĩnh Phúc', 'Tỉnh Nam Định', 'Tỉnh Thái Nguyên']
+  },
+
+  // 首都法與地方治理特權
+  capitalLaw2024: {
+    title: '2024年修訂版《首都法》（Luật Thủ đô，2025年1月1日正式實施）',
+    titleVi: 'Luật Thủ đô sửa đổi 2024 (Hiệu lực từ 01/01/2025)',
+    summary: '越南國會賦予河內市史上最高的行政與財政自主權，推動「紅河景觀軸線」與「TOD大眾運輸導向城市開發」，對高科技引資與高端外籍人才實施前所未有的特惠政策。',
+    summaryVi: 'Quốc hội trao quyền tự chủ đặc thù tối đa cho Hà Nội: Phát triển đô thị TOD, thu hút nhân tài khoa học công nghệ và thành lập Khu công nghệ cao Hòa Lạc.',
+    keyPoints: [
+      {
+        title: 'TOD 軌道交通土地綜合開發',
+        titleVi: 'Mô hình TOD dọc các tuyến đường sắt đô thị',
+        desc: '允許河內市政府自主徵收並拍賣地鐵車站周邊土地，土地出讓收益100%全額留存河內市財政，專款專用於加速建設14條地鐵路網。'
+      },
+      {
+        title: '高科技研發戰略人才稅負全免',
+        titleVi: 'Miễn thuế TNDN & TNCN cho nhân lực chất lượng cao',
+        desc: '在和樂高科技園區（Hòa Lạc）從事晶片設計、生物醫藥、AI研發的外籍專家與戰略科學家，享有所得稅全額減免及住房補貼。'
+      },
+      {
+        title: '行政許可直接下放市人委會',
+        titleVi: 'Phân cấp triệt để thẩm quyền chấp thuận chủ trương đầu tư',
+        desc: '規模5萬億越盾以下之重大工業與城建專案，免經中央部會漫長會審，由河內市人民委員會直接一站式核發投資執照（IRC）。'
+      }
+    ]
+  },
+
+  // 北越重大基礎建設大動脈
+  infrastructurePillars: [
+    {
+      id: 'railway_1435',
+      name: '中越老街－河內－海防 1,435mm 標準軌鐵路',
+      nameVi: 'Tuyến đường sắt Lào Cai - Hà Nội - Hải Phòng khổ 1.435mm',
+      investment: '289.34 萬億越盾（約 110.5 億美元，國會2026年最新調增）',
+      investmentVi: '289.340 tỷ đồng (khoảng 11,05 tỷ USD, Quốc hội điều chỉnh 2026)',
+      timeline: '2025年12月19日站前工程開工 · 2030年全線通車',
+      timelineVi: 'Khởi công 19/12/2025 · Hoàn thành trước năm 2030',
+      specs: '正線全長 363.3 km ＋ 支線 63.3 km · 雙線電氣化 · 客運 160 km/h · 貨運 120 km/h',
+      specsVi: 'Tuyến chính 363,3 km + tuyến nhánh 63,3 km · Đường đôi điện khí hóa · Tốc độ 160/120 km/h',
+      impact: '貫穿中越邊境河口口岸直通海防瀝縣深水港，終結百年米軌換軌歷史，昆明與西南大宗貨物可一車到底直航出海。',
+      impactVi: 'Kết nối liên vận quốc tế với Trung Quốc qua cửa khẩu Lào Cai, vận chuyển hàng hóa thẳng ra cảng nước sâu Lạch Huyện.'
+    },
+    {
+      id: 'power_500kv_circuit3',
+      name: '500kV 廣澤－浦內第三迴路輸電幹線（519公里）',
+      nameVi: 'Đường dây 500kV mạch 3 Quảng Trạch - Phố Nối (519 km)',
+      investment: '22.3 萬億越盾（由越南輸電總公司 EVNNPT 投資）',
+      investmentVi: '22.300 tỷ đồng (EVNNPT làm chủ đầu tư)',
+      timeline: '已全線竣工通電運營 · 創造國家級超高壓電網建設奇蹟',
+      timelineVi: 'Đã hoàn thành đóng điện vận hành toàn tuyến',
+      specs: '全長 519 km · 跨越 9 省 · 輸電容量由 2,200 MW 提升至 5,000 MW',
+      specsVi: 'Dài 519 km qua 9 tỉnh thành · Nâng năng lực truyền tải lên 5.000 MW',
+      impact: '將中部和南部豐富的再生能源與火電大容量直送北越，徹底解除三星、鴻海、力積電工廠夏季停電夢魘。',
+      impactVi: 'Giải quyết triệt để nguy cơ thiếu điện cục bộ miền Bắc, bảo đảm an ninh năng lượng cho chuỗi cung ứng toàn cầu.'
+    },
+    {
+      id: 'lach_huyen_port',
+      name: '海防瀝縣國際深水港碼頭擴建（Berths 3-6）',
+      nameVi: 'Cảng nước sâu Lạch Huyện - Bến 3 đến bến 6',
+      investment: '逾 30 萬億越盾（海防港股份公司與海軍西貢新港聯貸）',
+      investmentVi: 'Trên 30.000 tỷ đồng (Cảng Hải Phòng & Tân Cảng Sài Gòn)',
+      timeline: '3、4號碼頭試營運 · 5、6號碼頭2026年全面驗收',
+      timelineVi: 'Bến 3, 4 khai thác thử nghiệm · Bến 5, 6 hoàn tất 2026',
+      specs: '可接泊 100,000 ~ 132,000 DWT 超巴拿馬型貨櫃巨輪（8,000 ~ 14,000 TEU）',
+      specsVi: 'Tiếp nhận tàu container sức chở 8.000 - 14.000 TEU (132.000 DWT)',
+      impact: '貨櫃自北越工廠直發美西洛杉磯或歐洲鹿特丹，無需再轉運香港或新加坡，節省4~7天航程與大量轉運費。',
+      impactVi: 'Tàu mẹ đi thẳng bờ Tây Hoa Kỳ và châu Âu không qua trung chuyển, tiết kiệm 4-7 ngày hải trình.'
+    },
+    {
+      id: 'hanoi_ring_road_4',
+      name: '河內首都圈四環路高速公路 (Vành đai 4 Vùng Thủ đô)',
+      nameVi: 'Dự án đường Vành đai 4 - Vùng Thủ đô Hà Nội',
+      investment: '85.8 萬億越盾（PPP 公私協力模式）',
+      investmentVi: '85.800 tỷ đồng (Hình thức PPP)',
+      timeline: '2023年動工 · 預計2027年全線通車',
+      timelineVi: 'Khởi công 2023 · Dự kiến khai thác toàn tuyến 2027',
+      specs: '全長 112.8 km，串聯河內（58km）、興安（19km）、北寧（25km）三大核心工業重鎮',
+      specsVi: 'Dài 112,8 km kết nối Hà Nội, Hưng Yên và Bắc Ninh',
+      impact: '將北寧與興安的大批電子零組件載運時間縮短60%，繞開河內市中心尖峰塞車堵塞。',
+      impactVi: 'Tái cơ cấu không gian phát triển, kết nối mạng lưới cao tốc hướng tâm và giảm tải cho nội đô.'
+    }
+  ],
+
+  // 北越六大高科技半導體與AI製造聚落
+  highTechClusters: [
+    {
+      province: '北寧省（Bắc Ninh）',
+      provinceVi: 'Tỉnh Bắc Ninh',
+      role: '全球半導體封裝測試與電子組裝第一聚落',
+      roleVi: 'Trung tâm đóng gói bán dẫn & lắp ráp điện tử',
+      tenants: 'Amkor Technology ($1.6B 先進封測)、Foxconn (鴻海)、GoerTek (歌爾泰)、Samsung Display',
+      highlights: '全越人均GDP最高省份之一，半導體後段製程產值全越第一，工業區入住率90%以上。',
+      rentUsd: '$3.5 ~ $4.5/㎡/月',
+      advantage: '鄰近河內內排機場（Noi Bai），空運高附加價值半導體晶片僅需45分鐘。'
+    },
+    {
+      province: '北江省（Bắc Giang）',
+      provinceVi: 'Tỉnh Bắc Giang',
+      role: 'AI伺服器零組件與晶片封裝新基地',
+      roleVi: 'Cứu cánh sản xuất linh kiện AI & đóng gói chip nhớ',
+      tenants: 'Hana Micron ($1B 晶片封測)、鴻海富康科技 ($350M+ AI光通訊)、Luxshare (立訊精密)',
+      highlights: '台商與韓商近年擴廠首選，土地儲備充足，與廣西憑祥接壤物流通暢。',
+      rentUsd: '$2.8 ~ $3.8/㎡/月',
+      advantage: '直接承接北寧外溢效應，勞動力供應充沛且工資較河內市區低15%~20%。'
+    },
+    {
+      province: '海防市（Hải Phòng）',
+      provinceVi: 'TP. Hải Phòng',
+      role: '北方第一大港、汽車與重工業重鎮',
+      roleVi: 'Thủ phủ cảng biển, công nghiệp ô tô & điện tử',
+      tenants: 'LG Group ($8.2B 系列工廠：LG Display/LG Electronics)、VinFast (電動車超大型基地)、Pegatron (和碩)',
+      highlights: '擁有瀝縣深水港與廷武保稅物流區，海運進出口零時差，享受沿海經濟特區最優稅收。',
+      rentUsd: '$3.8 ~ $5.0/㎡/月',
+      advantage: '深水港通航能力無可取代，可直接容納萬箱級大貨櫃輪。'
+    },
+    {
+      province: '永福省（Vĩnh Phúc）',
+      provinceVi: 'Tỉnh Vĩnh Phúc',
+      role: 'AI伺服器雲端算力硬體與精密汽車零件',
+      roleVi: 'Trung tâm máy chủ AI & phụ tùng ô tô xe máy',
+      tenants: 'Compal (仁寶電腦 AI伺服器工廠)、Toyota、Honda、台灣精密機械聚落',
+      highlights: '仁寶電腦重倉投資打造全球AI伺服器主力工廠，供應微軟、亞馬遜、谷歌雲端基礎設施。',
+      rentUsd: '$3.0 ~ $4.0/㎡/月',
+      advantage: '老牌日台商製造基地，高素質工程技師儲備充足，緊鄰河內市北門戶。'
+    },
+    {
+      province: '南定省（Nam Định）',
+      provinceVi: 'Tỉnh Nam Định',
+      role: '廣達全球筆記型電腦與雲端設備基地',
+      roleVi: 'Trung tâm máy tính xách tay Quanta Computer',
+      tenants: 'Quanta Computer (廣達電腦 $240M 二期工廠)、Toray、長春石化等',
+      highlights: '全球NB代工龍頭廣達在越南唯一的策略基地，帶動數十家台灣一級被動元件與線材配套廠進駐。',
+      rentUsd: '$2.2 ~ $3.0/㎡/月',
+      advantage: '紅河三角洲南緣新興開發區，勞動力充沛且用工成本極具優勢。'
+    },
+    {
+      province: '廣寧省（Quảng Ninh）',
+      provinceVi: 'Tỉnh Quảng Ninh',
+      role: '綠能發電、高科技電源與汽車線束',
+      roleVi: 'Năng lượng xanh & linh kiện điện tử nguồn',
+      tenants: 'Lite-On (光寶科技 $1.2B)、Jinko Solar (晶科能源 $1.5B)、Foxconn 廣寧廠',
+      highlights: '連續多年蟬聯越南省級競爭力指數（PCI）全國第一名，行政審批效率全國最快。',
+      rentUsd: '$2.5 ~ $3.5/㎡/月',
+      advantage: '毗鄰中國芒街口岸與下龍灣物流軸，地方政府招商主動性極高。'
+    }
+  ],
+
+  // 南越 vs 北越 投資戰略環境全方位對比矩陣
+  regionalComparisonMatrix: [
+    {
+      dimension: '地理與供應鏈銜接',
+      dimensionVi: 'Vị trí & Chuỗi cung ứng',
+      north: '與中國陸路接壤（老街/同登/芒街），零組件 12~24 小時卡車直達，最適合「中國+1」佈局。',
+      south: '遠離中國邊境，海運原物料需 3~5 天；但緊鄰東協航運心臟馬六甲海峽。'
+    },
+    {
+      dimension: '電力供應與穩定性',
+      dimensionVi: 'Nguồn điện & Độ tin cậy',
+      north: '500kV三迴線已通電，供電穩定度回升至 99.9%；有直接購電（DPPA）綠電合約支持。',
+      south: '歷史供電極為穩定，水電、火電與天然氣發電網絡充沛，幾乎無停電風險。'
+    },
+    {
+      dimension: '港口航運條件',
+      dimensionVi: 'Hạ tầng cảng biển',
+      north: '海防瀝縣深水港（13.2萬噸級），直航美西與歐洲；另有河內內排空運樞紐。',
+      south: '巴地頭頓蓋梅-氏布深水港（25萬噸級超母船），未來有49億美元芹苴國際轉運港。'
+    },
+    {
+      dimension: '主導產業群落',
+      dimensionVi: 'Cụm ngành thống trị',
+      north: '半導體封裝測試（Amkor/Hana）、AI伺服器（鴻海/廣達/仁寶）、智慧手機（三星）。',
+      south: '精密製造、商業貿易、高科技研發（SHTP/Intel）、金融服務、化工紡織、鞋業食品。'
+    },
+    {
+      dimension: '工業用地與廠房租金',
+      dimensionVi: 'Giá thuê đất & Nhà xưởng',
+      north: '$120 ~ $180/㎡/租期（北寧/海防核心偏高，南定/廣寧約 $90~$120）。',
+      south: '$130 ~ $220/㎡/租期（胡志明/平陽核心緊缺，龍安與西寧約 $100~$140）。'
+    },
+    {
+      dimension: '勞動工資與人力儲備',
+      dimensionVi: 'Lao động & Chi phí nhân công',
+      north: '工資略低（約南越 90%~95%），理工科工程師基礎紮實（河內各名牌理工大學密集）。',
+      south: '工資稍高，外語人才與國際商務經理人充沛，服務業成熟，流動性較高。'
+    }
+  ]
+};
+
+// ── 8. 越南總體政經必備漢越詞彙對照庫 (Bilingual Lexicon) ──
 export const macroVocabularyGlossary = [
   { viet: 'Tỷ giá hối đoái', hanViet: '比價匯兌', meaning: '匯率、外匯兌換率', sample: 'Tỷ giá hối đoái USD/VND đang dao động ổn định quanh mức 25,480.' },
   { viet: 'Ngân hàng Nhà nước (SBV)', hanViet: '銀行國家', meaning: '越南國家銀行 (中央銀行)', sample: 'Ngân hàng Nhà nước điều hành chính sách tiền tệ linh hoạt để kiểm soát lạm phát.' },
@@ -2272,10 +2860,260 @@ export const officialReferenceSources = [
     freqVi: 'Thời gian thực',
     scope: '全球跨國資金配置、東南亞外匯儲備走勢、越南盾與亞洲貨幣波動監測。',
     scopeVi: 'Dòng vốn tổ chức toàn cầu, biến động tiền tệ châu Á và chính sách lãi suất vĩ mô.'
+  },
+  // 類別 4: 台灣官方與在越經貿組織 (Taiwanese Bilateral Trade & Official Channels)
+  {
+    id: 'ref_ctcvn',
+    category: 'taiwan',
+    categoryLabel: '台商組織與外貿',
+    categoryLabelVi: 'Tổ chức Doanh nghiệp Đài Loan',
+    name: '越南台灣商會聯合總會 (CTCVN)',
+    nameVi: 'Hiệp hội Thương nhân Đài Loan tại Việt Nam (CTCVN)',
+    org: 'Council of Taiwanese Chambers of Commerce in Vietnam',
+    url: 'https://www.ctcvn.vn',
+    domain: 'ctcvn.vn',
+    freq: '即時 / 週度',
+    freqVi: 'Hàng tuần',
+    scope: '全越16個分會即時動態、薪資調查、勞動部會商、稅務查檢通報、重大政策研討會。',
+    scopeVi: 'Thông tin 16 chi hội, khảo sát tiền lương, đối thoại chính sách và hỗ trợ doanh nhân.'
+  },
+  {
+    id: 'ref_teco_hanoi',
+    category: 'taiwan',
+    categoryLabel: '台商組織與外貿',
+    categoryLabelVi: 'Tổ chức Doanh nghiệp Đài Loan',
+    name: '駐越南台北經濟文化辦事處 (TECO 河內)',
+    nameVi: 'Văn phòng Kinh tế Văn hóa Đài Bắc tại Hà Nội',
+    org: 'Taipei Economic and Cultural Office in Vietnam',
+    url: 'https://www.roc-taiwan.org/vn',
+    domain: 'roc-taiwan.org/vn',
+    freq: '即時 (Real-time)',
+    freqVi: 'Thời gian thực',
+    scope: '台灣官方駐越代表機構，雙邊投資協定、官方經貿法規分析、台商權益保障與領事服務。',
+    scopeVi: 'Cơ quan đại diện chính thức của Đài Loan, xúc tiến đầu tư và bảo hộ thương nhân.'
+  },
+  {
+    id: 'ref_teco_hcmc',
+    category: 'taiwan',
+    categoryLabel: '台商組織與外貿',
+    categoryLabelVi: 'Tổ chức Doanh nghiệp Đài Loan',
+    name: '駐胡志明市台北經濟文化辦事處 (TECO 胡志明)',
+    nameVi: 'Văn phòng Kinh tế Văn hóa Đài Bắc tại TP.HCM',
+    org: 'Taipei Economic and Cultural Office in HCMC',
+    url: 'https://www.roc-taiwan.org/vnsgn',
+    domain: 'roc-taiwan.org/vnsgn',
+    freq: '即時 (Real-time)',
+    freqVi: 'Thời gian thực',
+    scope: '南越台商第一線服務總部，緊急協助、投資法令諮詢、南越台商糾紛調解與商務驗證。',
+    scopeVi: 'Đầu mối hỗ trợ doanh nghiệp FDI Đài Loan tại các tỉnh thành phía Nam.'
+  },
+  {
+    id: 'ref_taitra',
+    category: 'taiwan',
+    categoryLabel: '台商組織與外貿',
+    categoryLabelVi: 'Tổ chức Doanh nghiệp Đài Loan',
+    name: '外貿協會胡志明市 / 河內台灣貿易中心 (TAITRA)',
+    nameVi: 'Trung tâm Xúc tiến Thương mại Đài Loan (TAITRA)',
+    org: 'Taiwan Trade Center in Vietnam',
+    url: 'https://vietnam.taiwantrade.com',
+    domain: 'taiwantrade.com',
+    freq: '即時 / 月度',
+    freqVi: 'Hàng tháng',
+    scope: '台越雙邊貿易採購媒合、台灣精品展、供應鏈商機拓銷、工業展會台商展團。',
+    scopeVi: 'Kết nối giao thương B2B, xúc tiến xuất khẩu và hội chợ công nghiệp quốc tế.'
+  },
+  {
+    id: 'ref_tita_moea',
+    category: 'taiwan',
+    categoryLabel: '台商組織與外貿',
+    categoryLabelVi: 'Tổ chức Doanh nghiệp Đài Loan',
+    name: '經濟部國際貿易署-越南專區',
+    nameVi: 'Cục Thương mại Quốc tế - Bộ Kinh tế Đài Loan (TITA)',
+    org: 'International Trade Administration, MOEA Taiwan',
+    url: 'https://www.trade.gov.tw',
+    domain: 'trade.gov.tw',
+    freq: '即時 (Real-time)',
+    freqVi: 'Liên tục',
+    scope: '全球經貿資訊網越南經貿情勢報告、美國防規避調查預警、台越雙邊貿易統計。',
+    scopeVi: 'Báo cáo tình hình kinh tế Việt Nam, cảnh báo phòng vệ thương mại quốc tế.'
+  },
+  {
+    id: 'ref_esun_hcmc',
+    category: 'taiwan',
+    categoryLabel: '台商組織與外貿',
+    categoryLabelVi: 'Tổ chức Doanh nghiệp Đài Loan',
+    name: '玉山銀行越南分行 (E.SUN Bank Vietnam)',
+    nameVi: 'Ngân hàng E.SUN Việt Nam',
+    org: 'E.SUN Commercial Bank Vietnam',
+    url: 'https://www.esunbank.com/bank/about/locations/overseas/vietnam',
+    domain: 'esunbank.com',
+    freq: '即時牌告',
+    freqVi: 'Hàng ngày',
+    scope: '台商DICA資本金專戶開設指引、TWD/VND直接結售匯牌價、企業跨境理財服務。',
+    scopeVi: 'Tài khoản vốn đầu tư FDI, tỷ giá giao dịch song phương và giải pháp tài chính.'
+  },
+  {
+    id: 'ref_mega_hcmc',
+    category: 'taiwan',
+    categoryLabel: '台商組織與外貿',
+    categoryLabelVi: 'Tổ chức Doanh nghiệp Đài Loan',
+    name: '兆豐銀行胡志明市分行 (Mega Bank Vietnam)',
+    nameVi: 'Ngân hàng Mega ICBC Chi nhánh TP.HCM',
+    org: 'Mega International Commercial Bank HCMC',
+    url: 'https://www.megabank.com.tw',
+    domain: 'megabank.com.tw',
+    freq: '每日牌價',
+    freqVi: 'Hàng ngày',
+    scope: '跨國貿易融資、信用狀（L/C）開立、美元與越盾大型聯貸案主辦業務。',
+    scopeVi: 'Tài trợ thương mại quốc tế, mở L/C và thu xếp vốn tín dụng ngoại tệ.'
+  },
+  {
+    id: 'ref_ctbc_hcmc',
+    category: 'taiwan',
+    categoryLabel: '台商組織與外貿',
+    categoryLabelVi: 'Tổ chức Doanh nghiệp Đài Loan',
+    name: '中國信託越南分行 (CTBC Vietnam)',
+    nameVi: 'Ngân hàng CTBC Chi nhánh TP.HCM',
+    org: 'CTBC Bank Co., Ltd. Vietnam',
+    url: 'https://www.ctbcbank.com',
+    domain: 'ctbcbank.com',
+    freq: '即時服務',
+    freqVi: 'Liên tục',
+    scope: '科技大廠外幣聯貸、現金管理池、外派幹部海外薪資帳戶與私人財富管理。',
+    scopeVi: 'Tín dụng doanh nghiệp công nghệ cao, quản trị vốn lưu động và dịch vụ cá nhân.'
+  },
+
+  // 類別 5: 產業與法規智庫 (Industrial Regulators & Research Think Tanks)
+  {
+    id: 'ref_moit',
+    category: 'gov',
+    categoryLabel: '政府與央行',
+    categoryLabelVi: 'Cơ quan Nhà nước & NHTW',
+    name: '越南工商部 (MOIT)',
+    nameVi: 'Bộ Công Thương Việt Nam (MOIT)',
+    org: 'Ministry of Industry and Trade of Vietnam',
+    url: 'https://moit.gov.vn',
+    domain: 'moit.gov.vn',
+    freq: '即時 (Real-time)',
+    freqVi: 'Thời gian thực',
+    scope: '第八版電力規劃（PDP8）、直接購電協議（DPPA）發布、進出口原產地證（C/O）管理。',
+    scopeVi: 'Quy hoạch điện VIII, cơ chế DPPA, quản lý xuất xứ hàng hóa C/O và xúc tiến công nghiệp.'
+  },
+  {
+    id: 'ref_evn',
+    category: 'gov',
+    categoryLabel: '政府與央行',
+    categoryLabelVi: 'Cơ quan Nhà nước & NHTW',
+    name: '越南電力集團 (EVN)',
+    nameVi: 'Tập đoàn Điện lực Việt Nam (EVN)',
+    org: 'Vietnam Electricity (EVN)',
+    url: 'https://www.evn.com.vn',
+    domain: 'evn.com.vn',
+    freq: '即時電網監控',
+    freqVi: 'Hàng ngày',
+    scope: '500kV三迴線輸電監測、全越工業用電尖離峰時段費率表、再生能源併網公告。',
+    scopeVi: 'Vận hành hệ thống điện quốc gia, biểu giá bán lẻ điện sản xuất và năng lượng sạch.'
+  },
+  {
+    id: 'ref_vietnam_briefing',
+    category: 'media',
+    categoryLabel: '權威財經媒體',
+    categoryLabelVi: 'Báo chí & Truyền thông',
+    name: 'Vietnam Briefing (Dezan Shira & Associates)',
+    nameVi: 'Vietnam Briefing - Dezan Shira',
+    org: 'Dezan Shira & Associates',
+    url: 'https://www.vietnam-briefing.com',
+    domain: 'vietnam-briefing.com',
+    freq: '每週 (Weekly)',
+    freqVi: 'Hàng tuần',
+    scope: '全球最低稅負在越實施、外商勞檢工作許可、投資支持基金法令專業法律剖析。',
+    scopeVi: 'Phân tích pháp lý chuyên sâu về thuế, nhân sự, FDI và quy định thương mại.'
+  },
+  {
+    id: 'ref_ssi_research',
+    category: 'banking',
+    categoryLabel: '金融與行庫',
+    categoryLabelVi: 'Ngân hàng & Tài chính',
+    name: 'SSI 證券智庫研究部 (SSI Research)',
+    nameVi: 'Bộ phận Nghiên cứu & Phân tích - Chứng khoán SSI',
+    org: 'SSI Securities Corporation',
+    url: 'https://www.ssi.com.vn',
+    domain: 'ssi.com.vn',
+    freq: '每週 / 月度報告',
+    freqVi: 'Báo cáo tuần / tháng',
+    scope: '越南宏觀經濟深度報告、銀行業淨利差（NIM）預測、工業地產租金回報率分析。',
+    scopeVi: 'Báo cáo chiến lược vĩ mô, định giá cổ phiếu, ngành ngân hàng và bất động sản KCN.'
   }
 ];
 
 // ── 10. 雙語國際化字典 (Macro UI Localization Dictionary - zh / vi) ──
+
+// ── 9B. 官方情報取得渠道與未來高效更新標準指南 (Intelligence Channels & SOP Register) ──
+export const intelligenceChannelsSop = {
+  title: '越南政經情報來源取得渠道與未來高效更新標準指南 (Future Maintenance SOP)',
+  titleVi: 'Quy trình chuẩn hóa tra cứu và cập nhật dữ liệu vĩ mô định kỳ',
+  desc: '為確保未來維護本專案數據庫具備最高效率與官方可信度，特梳理本情報取得 SOP 規範，明確各機構資訊釋放節奏、核心抓取路徑與交叉驗證方法。',
+  descVi: 'Hướng dẫn quy chuẩn tra cứu, cập nhật dữ liệu vĩ mô chính xác, nhanh chóng từ các nguồn chính thống.',
+  rhythms: [
+    {
+      period: '每日 08:30 ~ 09:30（即時盤中）',
+      periodVi: 'Hàng ngày (08:30 - 09:30)',
+      target: '央行中心匯率、商業銀行牌告匯率、SJC 黃金官方直售價',
+      targetVi: 'Tỷ giá trung tâm SBV, niêm yết ngân hàng thương mại, giá vàng SJC',
+      channel: '越南國家銀行 (SBV 官網首頁) ＋ Vietcombank 牌告匯率專區 ＋ 臺灣銀行牌告匯率',
+      urls: ['https://www.sbv.gov.vn', 'https://www.vietcombank.com.vn', 'https://rate.bot.com.tw'],
+      actionZh: '記錄 SBV 每日中心匯率（Tỷ giá trung tâm）與計算 ±5% 上下限（Trần/Sàn）。至 VCB 抓取 USD/VND 與 TWD/VND 現匯買賣價。',
+      actionVi: 'Ghi nhận tỷ giá trung tâm và tính biên độ trần/sàn ±5%. Tra cứu tỷ giá mua/bán USD và TWD tại Vietcombank.'
+    },
+    {
+      period: '每半個月（15日與次月初）',
+      periodVi: 'Định kỳ 15 ngày & đầu tháng',
+      target: '越南海關進出口即時通關速報、貨物貿易順逆差',
+      targetVi: 'Báo cáo tình hình xuất nhập khẩu Tổng cục Hải quan',
+      channel: '越南海關總局（Tổng cục Hải quan）統計公報專題',
+      urls: ['https://www.customs.gov.vn'],
+      actionZh: '下載海關半月期（Kỳ 1 / Kỳ 2）進出口統計速報，提取累計進出口總額、貿易順差、對美順差及電子零組件進口額。',
+      actionVi: 'Tải báo cáo nhanh XNK kỳ 1 và kỳ 2, cập nhật kim ngạch xuất siêu lũy kế và các nhóm hàng chủ lực.'
+    },
+    {
+      period: '每月 28 ~ 30 日（月度總經）',
+      periodVi: 'Ngày 28-30 hàng tháng',
+      target: '統計總局總經月報（GDP、CPI、IIP、零售）、計畫投資部 FDI 統計',
+      targetVi: 'Báo cáo kinh tế xã hội GSO & tình hình thu hút vốn FDI từ Bộ KH&ĐT',
+      channel: '越南統計總局 (GSO) ＋ 越南投資報 (Báo Đầu tư)',
+      urls: ['https://www.gso.gov.vn', 'https://baodautu.vn', 'https://www.mpi.gov.vn'],
+      actionZh: '抓取 GSO 月度社會經濟情勢報告（Báo cáo tình hình kinh tế - xã hội）。記錄累計 FDI 註冊資金與實際到位資金，核對 CPI 通膨年增率。',
+      actionVi: 'Thu thập báo cáo KT-XH tháng của GSO, số liệu FDI đăng ký mới & giải ngân, chỉ số CPI và sản xuất công nghiệp IIP.'
+    },
+    {
+      period: '每季度末（3/6/9/12月下旬）',
+      periodVi: 'Cuối mỗi quý',
+      target: '季度實質 GDP 成長率、央行貨幣政策會議、銀行業信用額度（Room）',
+      targetVi: 'Tăng trưởng GDP quý, điều hành chính sách tiền tệ và tăng trưởng tín dụng',
+      channel: 'GSO 季度統計發布會 ＋ 越南政府電子門戶 (VGP) ＋ VnEconomy',
+      urls: ['https://baochinhphu.vn', 'https://vneconomy.vn'],
+      actionZh: '更新五季度 GDP 柱狀圖數據點、SBV 再融資利率與存款準備率是否有調整公告。',
+      actionVi: 'Cập nhật số liệu tăng trưởng GDP quý, rà soát quyết định lãi suất điều hành và thông tư mới của SBV.'
+    },
+    {
+      period: '重大政策突發／議定頒布時',
+      periodVi: 'Khi có văn bản pháp luật mới',
+      target: '總理頒布之重要議定（Nghị định）、國會法律（Luật）、台商最新合規指引',
+      targetVi: 'Nghị định Chính phủ, Luật của Quốc hội và khuyến nghị cho doanh nghiệp FDI',
+      channel: '政府公報 (Cổng TTĐT Chính phủ) ＋ CTCVN 越南台灣商會總會 ＋ TECO 經貿專區',
+      urls: ['https://baochinhphu.vn', 'https://www.ctcvn.vn', 'https://www.trade.gov.tw'],
+      actionZh: '查閱最新議定全文（如第 182 號投資支持基金議定、第 80 號直接購電 DPPA 議定、第 323 號守添金融中心議定），撰寫智庫專題 Dossier。',
+      actionVi: 'Cập nhật các chính sách đột phá: Quỹ hỗ trợ đầu tư, DPPA, IFC Thủ Thiêm và cẩm nang tuân thủ pháp lý.'
+    }
+  ],
+  verificationRules: [
+    '數據一律以官方部會原件（SBV / GSO / Customs / MPI）為第一準則，財經媒體報導為輔助解釋。',
+    '匯率與存貸利率牌價每日以 Vietcombank（VCB）官網 09:00 公布為全越基準。',
+    '若外媒（彭博、日經）與越南官方數據出現口徑落差，以越南海關總局（CIF進口 / FOB出口）與 GSO 實際發布為準，並在備註註記國際機構口徑差額。',
+    '台商動態與在地生活資訊優先核實 CTCVN 總會及平陽、同奈、胡志明分會公告。'
+  ]
+};
+
 export const macroI18n = {
   zh: {
     terminalBadge: 'FINANCIAL INTELLIGENCE TERMINAL',
@@ -2335,10 +3173,12 @@ export const macroI18n = {
       radar: '📡 Radar Vĩ mô',
       rates: '🏛️ SBV & Ngân hàng',
       trade: '🚢 Ngoại thương & Hải quan',
+      south_biz: '🏢 Miền Nam & FDI Đài Loan',
+      north_dev: '🚄 Hà Nội & Vùng Bắc Bộ',
       dossiers: '📑 Báo cáo Chuyên sâu',
       calc: '🧮 Công cụ Tính toán',
       lexicon: '📖 Thuật ngữ Vĩ mô',
-      sources: '🔗 Nguồn tham khảo'
+      sources: '🔗 Nguồn tin & Kênh dữ liệu'
     },
     fxSectionTitle: 'Diễn biến tỷ giá USD/VND · Theo dõi toàn cảnh hàng tuần trong 5 năm qua',
     twdSectionTitle: 'Diễn biến tỷ giá TWD/VND · Theo dõi toàn cảnh hàng tuần trong 5 năm qua',

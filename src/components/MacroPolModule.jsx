@@ -4,7 +4,8 @@ import {
   DollarSign, ShieldAlert, FileText, Calendar, Clock, BookOpen,
   Filter, ChevronRight, X, Copy, Check, BarChart3, PieChart,
   Percent, Layers, ExternalLink, Sliders, RefreshCw, Volume2,
-  Building2, Ship, ArrowRight, Award, AlertTriangle, Info, CheckCircle2
+  Building2, Ship, ArrowRight, Award, AlertTriangle, Info, CheckCircle2,
+  Train, Zap, Cpu, MapPin, Compass, Briefcase
 } from 'lucide-react';
 import {
   liveMarketTicker,
@@ -17,6 +18,9 @@ import {
   commercialBankRates,
   tradeAndCustomsData,
   deepAnalysisDossiers,
+  southVietnamBusinessData,
+  northVietnamDevelopmentData,
+  intelligenceChannelsSop,
   macroVocabularyGlossary,
   officialReferenceSources,
   macroI18n
@@ -89,6 +93,17 @@ export default function MacroPolModule() {
   // ── In-App Modal Reader State ──
   const [activeModalDossier, setActiveModalDossier] = useState(null);
   const [copiedSummaryId, setCopiedSummaryId] = useState(null);
+
+  // ── South Vietnam & Taiwan Business Subtab State ──
+  const [southSubTab, setSouthSubTab] = useState('megaprojects'); // 'megaprojects' | 'zones' | 'setup' | 'labor' | 'taiwan_hub' | 'warnings'
+  const [selectedIndustrialZoneId, setSelectedIndustrialZoneId] = useState('shtp');
+
+  // ── North Vietnam Regional Strategy Subtab State ──
+  const [northSubTab, setNorthSubTab] = useState('pillars'); // 'pillars' | 'clusters' | 'matrix'
+  const [selectedClusterIdx, setSelectedClusterIdx] = useState(0);
+
+  // ── Future Maintenance SOP Toggle ──
+  const [showSopDetails, setShowSopDetails] = useState(true);
 
   // ── Calculators State ──
   // 1. Currency converter
@@ -385,6 +400,18 @@ export default function MacroPolModule() {
               onClick={() => setActiveSection('trade')}
             >
               <Ship size={15} /> {t.navTabs.trade}
+            </button>
+            <button
+              className={`macro-shortcut-chip ${activeSection === 'south_biz' ? 'active' : ''}`}
+              onClick={() => setActiveSection('south_biz')}
+            >
+              <Building2 size={15} /> {t.navTabs.south_biz}
+            </button>
+            <button
+              className={`macro-shortcut-chip ${activeSection === 'north_dev' ? 'active' : ''}`}
+              onClick={() => setActiveSection('north_dev')}
+            >
+              <Train size={15} /> {t.navTabs.north_dev}
             </button>
             <button
               className={`macro-shortcut-chip ${activeSection === 'dossiers' ? 'active' : ''}`}
@@ -1285,6 +1312,12 @@ export default function MacroPolModule() {
               >
                 {macroLang === 'vi' ? 'TMCP tư nhân' : '民營股份制商業銀行'}
               </button>
+              <button
+                className={`filter-chip ${bankTypeFilter === 'taiwan' ? 'active' : ''}`}
+                onClick={() => setBankTypeFilter('taiwan')}
+              >
+                {macroLang === 'vi' ? '🇹🇼 Ngân hàng Đài Loan' : '🇹🇼 台資外商銀行'}
+              </button>
             </div>
 
             <div className="macro-table-sort">
@@ -1528,8 +1561,9 @@ export default function MacroPolModule() {
                 { id: 'finance', label: '貨幣金融', labelVi: 'Tiền tệ - Tài chính' },
                 { id: 'banking', label: '銀行利率', labelVi: 'Ngân hàng & Lãi suất' },
                 { id: 'customs', label: '外貿海關', labelVi: 'Thương mại & Hải quan' },
-                { id: 'fdi', label: '外資供應鏈', labelVi: 'Chuỗi cung ứng FDI' },
-                { id: 'regulations', label: '政策法規', labelVi: 'Pháp lý & Thuế' }
+                { id: 'supply_chain', label: '北越與供應鏈', labelVi: 'Bắc Bộ & Chuỗi cung ứng' },
+                { id: 'regional', label: '南越與大專案', labelVi: 'Miền Nam & Đại dự án' },
+                { id: 'fdi_compliance', label: '台商法規實務', labelVi: 'FDI Đài Loan & Pháp lý' }
               ].map(cat => (
                 <button
                   key={cat.id}
@@ -1931,6 +1965,60 @@ export default function MacroPolModule() {
             </div>
           </div>
 
+                    {/* ── Intelligence Channels & Maintenance SOP Card ── */}
+          <div className="macro-sop-container">
+            <div className="macro-sop-header" onClick={() => setShowSopDetails(!showSopDetails)}>
+              <div className="sop-header-title">
+                <Compass size={18} color="var(--macro-accent)" />
+                <span>{macroLang === 'vi' ? intelligenceChannelsSop.titleVi : intelligenceChannelsSop.title}</span>
+              </div>
+              <button className="sop-toggle-btn">
+                {showSopDetails ? (macroLang === 'vi' ? 'Thu gọn ▲' : '收合指南 ▲') : (macroLang === 'vi' ? 'Xem chi tiết ▼' : '展開指南 ▼')}
+              </button>
+            </div>
+
+            {showSopDetails && (
+              <div className="macro-sop-body">
+                <p className="sop-desc">
+                  {macroLang === 'vi' ? intelligenceChannelsSop.descVi : intelligenceChannelsSop.desc}
+                </p>
+
+                <div className="sop-rhythms-grid">
+                  {intelligenceChannelsSop.rhythms.map((r, rIdx) => (
+                    <div key={rIdx} className="sop-rhythm-card">
+                      <div className="sop-card-time">{macroLang === 'vi' ? r.periodVi : r.period}</div>
+                      <h4 className="sop-card-target">{macroLang === 'vi' ? r.targetVi : r.target}</h4>
+                      <div className="sop-card-channel">
+                        <b>{macroLang === 'vi' ? 'Kênh tra cứu:' : '抓取來源：'}</b> {r.channel}
+                      </div>
+                      <div className="sop-card-action">
+                        {macroLang === 'vi' ? r.actionVi : r.actionZh}
+                      </div>
+                      <div className="sop-card-links">
+                        {r.urls.map((u, uIdx) => (
+                          <a key={uIdx} href={u} target="_blank" rel="noopener noreferrer" className="sop-link-pill">
+                            {u.replace('https://', '')} <ExternalLink size={10} />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="sop-rules-box">
+                  <div className="rules-title">
+                    <ShieldCheck size={16} /> {macroLang === 'vi' ? 'Quy tắc vàng xác thực dữ liệu (Verification Rules):' : '官方數據交叉查驗四大鐵律 (Verification Rules)：'}
+                  </div>
+                  <ul>
+                    {intelligenceChannelsSop.verificationRules.map((rule, ruleIdx) => (
+                      <li key={ruleIdx}>{rule}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+
           <div className="macro-sources-toolbar">
             <div className="macro-sources-filter-pills">
               <button
@@ -1950,6 +2038,12 @@ export default function MacroPolModule() {
                 onClick={() => setRefCategory('banking')}
               >
                 {t.sourcesFilterBanking}
+              </button>
+              <button
+                className={`macro-source-filter-btn ${refCategory === 'taiwan' ? 'active' : ''}`}
+                onClick={() => setRefCategory('taiwan')}
+              >
+                {macroLang === 'vi' ? '🇹🇼 Doanh nghiệp Đài Loan' : '🇹🇼 台商與雙邊機構'}
               </button>
               <button
                 className={`macro-source-filter-btn ${refCategory === 'media' ? 'active' : ''}`}
