@@ -90,16 +90,16 @@ export const Navbar = ({
     <header className="header-container">
       <nav className="navbar" aria-label={learningMode === 'zh' ? '主要導覽與學習設定' : 'Primary navigation and learning settings'}>
         <div className="nav-content">
-          <div className="nav-brand-and-modules">
+          <div className="nav-brand-and-finder">
             {/* Brand Logo */}
             <button className="brand-logo" onClick={() => { audioEngine.playHaptic('tap'); setActiveTab('path'); }} aria-label={t('brandName')}>
               <span className="flag-badge" aria-hidden="true"><span>★</span> VIỆT</span>
               <span className="brand-copy">
-                <span style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                <span className="brand-title-line">
                   <strong>{t('brandName')}</strong>
-                  <span style={{ fontSize: '0.65rem', fontWeight: 800, background: 'rgba(234, 179, 8, 0.18)', color: 'var(--brand-gold)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-full)', padding: '0.05rem 0.4rem', lineHeight: 1.3 }}>v2.6</span>
+                  <span className="brand-ver-badge">v2.6</span>
                 </span>
-                <small>{t('brandSub')}</small>
+                <small className="brand-tagline">{t('brandSub')}</small>
               </span>
             </button>
 
@@ -110,36 +110,9 @@ export const Navbar = ({
               title={learningMode === 'zh' ? '快速搜尋全站 100+ 章節與課程 (快捷鍵: Ctrl+K)' : 'Search 100+ Chapters & Lessons (Ctrl+K)'}
             >
               <Search size={15} className="finder-search-icon" />
-              <span>{learningMode === 'zh' ? '全域查章節' : 'Search Chapters'}</span>
+              <span className="finder-btn-text">{learningMode === 'zh' ? '全域查章節' : 'Search Chapters'}</span>
               <kbd className="finder-kbd-shortcut">Ctrl K</kbd>
             </button>
-
-            {/* Desktop Top Level Category Group Navigation */}
-            <div className="nav-categories-bar" role="tablist" aria-label={learningMode === 'zh' ? '分類導覽' : 'Category navigation'}>
-              {NAV_GROUPS.map(group => {
-                const isGroupActive = activeGroupObj.id === group.id;
-                const groupLabel = group.labelKey ? t(group.labelKey) : t('tabs.path');
-                const Icon = group.items[0]?.icon || Map;
-                return (
-                  <button
-                    key={group.id}
-                    className={`nav-cat-btn ${isGroupActive ? 'active' : ''}`}
-                    onClick={() => handleSelectGroup(group)}
-                    role="tab"
-                    aria-selected={isGroupActive}
-                    title={groupLabel}
-                  >
-                    <Icon size={15} strokeWidth={2.2} />
-                    <span>{groupLabel}</span>
-                    {group.items.length > 1 && (
-                      <span className="cat-counter-badge">
-                        {group.items.length}
-                      </span>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
           </div>
 
           {/* Mobile Quick Action Buttons (Top Bar) */}
@@ -225,7 +198,11 @@ export const Navbar = ({
           <div id="header-settings" className={`header-settings ${menuOpen ? 'is-open' : ''}`}>
             {/* Language Subsystem Switch */}
             <div className="track-badge-container">
-              <button className="subsystem-switch-btn" onClick={() => toggleLearningMode()}>
+              <button
+                className="subsystem-switch-btn"
+                onClick={() => toggleLearningMode()}
+                title={learningMode === 'zh' ? '切換為英文介面 (English Mode)' : '切換為中文介面 (Chinese Mode)'}
+              >
                 <Globe size={15} />
                 <span className="mode-text">{learningMode === 'zh' ? '中文' : 'English'}</span>
                 <span className="switch-tag">{learningMode === 'zh' ? 'EN' : '中文'}</span>
@@ -242,15 +219,15 @@ export const Navbar = ({
                 <span className="hub-stat-item quest-stat" onClick={(e) => { e.stopPropagation(); onOpenDailyQuests(); }}>
                   🎯 {completedQuestsCount}/{dailyQuests.length}
                 </span>
-                <span className="hub-stat-divider">•</span>
+                <span className="hub-stat-divider quest-divider">•</span>
                 <span className="hub-stat-item level-stat">
                   <Star size={13} /> Lv.{currentLevel}
                 </span>
-                <span className="hub-stat-divider">•</span>
+                <span className="hub-stat-divider level-divider">•</span>
                 <span className="hub-stat-item streak-stat">
-                  <Flame size={13} /> {userStats.streak}天
+                  <Flame size={13} className="streak-flame-animated" /> {userStats.streak}天
                 </span>
-                <span className="hub-stat-divider">•</span>
+                <span className="hub-stat-divider streak-divider">•</span>
                 <span className="hub-stat-item xp-stat">
                   <Trophy size={13} /> {userStats.xp}
                 </span>
@@ -258,7 +235,7 @@ export const Navbar = ({
 
               {/* Accent Quick Switcher (North vs South) */}
               <button
-                className="control-btn accent-toggle-btn"
+                className={`control-btn accent-toggle-btn accent-${selectedAccent}`}
                 onClick={() => {
                   audioEngine.playHaptic('selection');
                   setSelectedAccent(prev => prev === 'north' ? 'south' : 'north');
@@ -266,26 +243,16 @@ export const Navbar = ({
                 title={learningMode === 'zh'
                   ? (selectedAccent === 'north' ? '當前口音：河內標準音 (北越)。點擊切換為西貢商業音 (南越)' : '當前口音：西貢商業音 (南越)。點擊切換為河內標準音 (北越)')
                   : (selectedAccent === 'north' ? 'Accent: Hanoi (North). Click for Saigon (South)' : 'Accent: Saigon (South). Click for Hanoi (North)')}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                  padding: '0.35rem 0.75rem',
-                  borderRadius: 'var(--radius-full)',
-                  border: '1px solid var(--border-color)',
-                  background: selectedAccent === 'north' ? 'rgba(59, 130, 246, 0.12)' : 'rgba(16, 185, 129, 0.12)',
-                  color: selectedAccent === 'north' ? '#3b82f6' : '#10b981',
-                  fontWeight: 800,
-                  fontSize: '0.85rem',
-                  cursor: 'pointer'
-                }}
+                aria-label={selectedAccent === 'north' ? '口音：河內標準音' : '口音：西貢商業音'}
               >
-                <span>{selectedAccent === 'north' ? '🏛️ 河內音' : '🌴 西貢音'}</span>
+                <span className="accent-icon">{selectedAccent === 'north' ? '🏛️' : '🌴'}</span>
+                <span className="accent-label-full">{selectedAccent === 'north' ? '河內音' : '西貢音'}</span>
+                <span className="accent-label-short">{selectedAccent === 'north' ? '北' : '南'}</span>
               </button>
 
               {/* Speech Speed Switcher (1.0x vs 0.75x) */}
               <button
-                className="control-btn speed-toggle-btn"
+                className={`control-btn speed-toggle-btn ${speechRate <= 0.85 ? 'is-slow' : 'is-normal'}`}
                 onClick={() => {
                   audioEngine.playHaptic('tap');
                   if (setSpeechRate) {
@@ -293,21 +260,10 @@ export const Navbar = ({
                   }
                 }}
                 title={learningMode === 'zh' ? '點擊切換正常語速 (1.0x) 或慢速精聽 (0.75x)' : 'Toggle standard (1.0x) or slow study speed (0.75x)'}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.3rem',
-                  padding: '0.35rem 0.65rem',
-                  borderRadius: 'var(--radius-full)',
-                  border: '1px solid var(--border-color)',
-                  background: speechRate <= 0.85 ? 'rgba(245, 158, 11, 0.14)' : 'var(--bg-card)',
-                  color: speechRate <= 0.85 ? 'var(--brand-gold)' : 'var(--text-secondary)',
-                  fontWeight: 800,
-                  fontSize: '0.85rem',
-                  cursor: 'pointer'
-                }}
+                aria-label={speechRate <= 0.85 ? '慢速精聽 0.75x' : '標準語速 1.0x'}
               >
-                <span>{speechRate <= 0.85 ? '🐢 0.75x' : '🐰 1.0x'}</span>
+                <span className="speed-icon">{speechRate <= 0.85 ? '🐢' : '🐰'}</span>
+                <span className="speed-label">{speechRate <= 0.85 ? '0.75x' : '1.0x'}</span>
               </button>
 
               {/* Audio Diagnostic Studio Trigger Button */}
@@ -318,36 +274,24 @@ export const Navbar = ({
                   if (onOpenAudioDiagnostic) onOpenAudioDiagnostic();
                 }}
                 title={learningMode === 'zh' ? '開啟音訊引擎健康檢驗儀與發音沙盒 (4,005 完整音庫)' : 'Open Audio Diagnostic Studio (4,005 audio files)'}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.35rem',
-                  padding: '0.35rem 0.65rem',
-                  borderRadius: 'var(--radius-full)',
-                  border: '1px solid rgba(16, 185, 129, 0.35)',
-                  background: 'rgba(16, 185, 129, 0.12)',
-                  color: '#10b981',
-                  fontWeight: 800,
-                  fontSize: '0.85rem',
-                  cursor: 'pointer'
-                }}
+                aria-label="開啟音訊健康檢驗儀"
               >
                 <AudioLines size={14} />
-                <span>{learningMode === 'zh' ? '🎧 檢音儀' : '🎧 Audio Lab'}</span>
+                <span className="audio-diag-label">{learningMode === 'zh' ? '檢音儀' : 'Lab'}</span>
               </button>
 
-              {/* Font Size Selector (Stepper + Direct Buttons) */}
-              <div className="font-size-selector" aria-label={t('fontSize')} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}>
+              {/* Font Size Selector (Adaptive Stepper + Direct Options) */}
+              <div className="font-size-selector" aria-label={t('fontSize')}>
                 <button
-                  className="size-option-btn"
+                  className="size-option-btn stepper-btn"
                   onClick={() => stepFontSize(-1)}
                   disabled={fontSize === 'small'}
                   title="縮小字體 (A-)"
-                  style={{ padding: '0.2rem 0.45rem', fontWeight: 800 }}
+                  aria-label="縮小字體"
                 >
                   A-
                 </button>
-                <div style={{ display: 'inline-flex', gap: '0.15rem' }}>
+                <div className="font-size-direct-list">
                   {FONT_SIZES.map((size) => (
                     <button
                       key={size}
@@ -360,12 +304,15 @@ export const Navbar = ({
                     </button>
                   ))}
                 </div>
+                <span className="font-size-compact-indicator" title={`當前字級: ${FONT_SIZE_LABELS[fontSize] || '100%'}`}>
+                  {fontSize === 'small' ? '小' : (fontSize === 'normal' ? '中' : (fontSize === 'large' ? '大' : (fontSize === 'xlarge' ? '特' : '超')))}
+                </span>
                 <button
-                  className="size-option-btn"
+                  className="size-option-btn stepper-btn"
                   onClick={() => stepFontSize(1)}
                   disabled={fontSize === 'xxlarge'}
                   title="放大字體 (A+)"
-                  style={{ padding: '0.2rem 0.45rem', fontWeight: 800 }}
+                  aria-label="放大字體"
                 >
                   A+
                 </button>
@@ -373,23 +320,49 @@ export const Navbar = ({
 
               {/* Theme Toggle (3-state: Light / Sepia / Dark) */}
               <button
-                className="control-btn theme-toggle-btn"
+                className={`control-btn theme-toggle-btn theme-${theme}`}
                 onClick={cycleTheme}
                 title={theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}
-                style={{
-                  background: theme === 'sepia' ? 'rgba(217, 119, 6, 0.15)' : undefined,
-                  color: theme === 'sepia' ? 'var(--brand-gold)' : undefined
-                }}
+                aria-label={theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}
               >
-                {theme === 'light' && <Sun size={16} />}
-                {theme === 'sepia' && <BookOpen size={16} />}
-                {theme === 'dark' && <Moon size={16} />}
-                <span>{theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}</span>
+                {theme === 'light' && <Sun size={15} />}
+                {theme === 'sepia' && <BookOpen size={15} />}
+                {theme === 'dark' && <Moon size={15} />}
+                <span className="theme-toggle-label">{theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}</span>
               </button>
             </div>
           </div>
         </div>
       </nav>
+
+      {/* Row 2: Desktop Categories Navigation Bar */}
+      <div className="desktop-categories-nav" role="tablist" aria-label={learningMode === 'zh' ? '分類導覽' : 'Category navigation'}>
+        <div className="desktop-categories-content">
+          {NAV_GROUPS.map(group => {
+            const isGroupActive = activeGroupObj.id === group.id;
+            const groupLabel = group.labelKey ? t(group.labelKey) : t('tabs.path');
+            const Icon = group.items[0]?.icon || Map;
+            return (
+              <button
+                key={group.id}
+                className={`nav-cat-btn ${isGroupActive ? 'active' : ''}`}
+                onClick={() => handleSelectGroup(group)}
+                role="tab"
+                aria-selected={isGroupActive}
+                title={groupLabel}
+              >
+                <Icon size={15} strokeWidth={2.2} />
+                <span className="nav-cat-label">{groupLabel}</span>
+                {group.items.length > 1 && (
+                  <span className="cat-counter-badge">
+                    {group.items.length}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       {/* Subnav Module Bar: Displays Sub-items of Active Group */}
       {activeGroupObj && activeGroupObj.items.length > 1 && (
