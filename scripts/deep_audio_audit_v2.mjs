@@ -8,8 +8,8 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
 function cleanText(text) {
   if (!text) return '';
   let cleaned = String(text);
-  cleaned = cleaned.replace(/\([^)]*[\u4e00-\u9fa5A-Za-z]+[^)]*\)/g, ' ');
-  cleaned = cleaned.replace(/（[^）]*[\u4e00-\u9fa5A-Za-z]+[^）]*）/g, ' ');
+  cleaned = cleaned.replace(/\([^)]*\)/g, ' ');
+  cleaned = cleaned.replace(/（[^）]*）/g, ' ');
   cleaned = cleaned.replace(/\[[^\]]*\]/g, ' ');
   cleaned = cleaned.replace(/[\u4e00-\u9fa5]/g, ' ');
   cleaned = cleaned.replace(/[，。！？；：（）「」『』、《》“”‘’…—]/g, ' ');

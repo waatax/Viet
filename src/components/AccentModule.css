@@ -1,0 +1,220 @@
+/* ==========================================================================
+   AccentModule.css - 南北越口音與方言比較館專屬樣式
+   ========================================================================== */
+
+.dialect-geography-hero {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  background: var(--bg-card, #1e293b);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-2xl, 20px);
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+}
+
+[data-theme="light"] .dialect-geography-hero {
+  background: #ffffff;
+  border-color: rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 900px) {
+  .dialect-geography-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dialect-map-card {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 240px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dialect-map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.dialect-map-card:hover .dialect-map-img {
+  transform: scale(1.04);
+}
+
+.dialect-map-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.2) 0%, rgba(15, 23, 42, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.dialect-map-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.dialect-map-subtitle {
+  color: #38bdf8;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.dialect-regions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.dialect-region-card {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: all 0.2s ease;
+}
+
+[data-theme="light"] .dialect-region-card {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.dialect-region-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dialect-region-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.dialect-region-name {
+  font-size: 1rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.dialect-region-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.dialect-feature-item {
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.dialect-feature-item strong {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.dialect-words-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.dialect-word-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--bg-card, #1e293b);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.25rem 0.55rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+[data-theme="light"] .dialect-word-pill {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.dialect-word-pill:hover {
+  border-color: var(--brand-emerald, #10b981);
+  color: var(--brand-emerald, #10b981);
+}
+
+/* 語音系統對照全表 */
+.dialect-table-wrapper {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  background: var(--bg-card, #1e293b);
+}
+
+[data-theme="light"] .dialect-table-wrapper {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.dialect-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.dialect-comparison-table th {
+  background: rgba(15, 23, 42, 0.8);
+  padding: 0.85rem 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+[data-theme="light"] .dialect-comparison-table th {
+  background: #f1f5f9;
+  border-bottom-color: #e2e8f0;
+}
+
+.dialect-comparison-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+[data-theme="light"] .dialect-comparison-table td {
+  border-bottom-color: #f1f5f9;
+}
+
+.dialect-comparison-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="light"] .dialect-comparison-table tr:hover td {
+  background: #f8fafc;
+}

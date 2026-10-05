@@ -1,0 +1,248 @@
+/* ==========================================================================
+   GrammarModule.css - 越南語語法體系與圖解專屬樣式
+   ========================================================================== */
+
+/* 核心思維 3 大視覺圖解走廊 */
+.grammar-visual-mindmap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* 圖解 1: 語序與後置修飾實景圖 */
+.grammar-hero-banner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 1.5rem;
+  background: var(--bg-card, #1e293b);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-2xl, 20px);
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25);
+  align-items: center;
+}
+
+[data-theme="light"] .grammar-hero-banner {
+  background: #ffffff;
+  border-color: rgba(226, 232, 240, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 860px) {
+  .grammar-hero-banner {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grammar-hero-img-box {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 200px;
+  background: #0f172a;
+}
+
+.grammar-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.4s ease;
+}
+
+.grammar-hero-img-box:hover .grammar-hero-img {
+  transform: scale(1.05);
+}
+
+.grammar-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.75) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 0.85rem;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.grammar-flow-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.grammar-flow-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.4rem;
+}
+
+.flow-step-block {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+[data-theme="light"] .flow-step-block {
+  background: #f8fafc;
+}
+
+.flow-step-block.primary {
+  border-color: var(--brand-gold, #f59e0b);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.flow-step-block.secondary {
+  border-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.flow-step-block.tertiary {
+  border-color: #a855f7;
+  background: rgba(168, 85, 247, 0.1);
+}
+
+.flow-arrow {
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+/* 圖解 2: 時態助詞時間軸 */
+.tense-timeline-card {
+  background: var(--bg-card, #1e293b);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl, 16px);
+  padding: 1.4rem;
+}
+
+[data-theme="light"] .tense-timeline-card {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.tense-timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.tense-node {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 12px;
+  padding: 1rem;
+  border-top: 4px solid var(--brand-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+[data-theme="light"] .tense-node {
+  background: #f8fafc;
+}
+
+.tense-node-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+/* 圖解 3: 情感天平 (Bị vs Được) */
+.sentiment-balance-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .sentiment-balance-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sentiment-box {
+  border-radius: 14px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.sentiment-box.positive {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-left: 5px solid #10b981;
+}
+
+.sentiment-box.negative {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-left: 5px solid #ef4444;
+}
+
+/* 量詞分類系統表格 */
+.classifiers-table-wrapper {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2.5rem;
+  background: var(--bg-card, #1e293b);
+}
+
+[data-theme="light"] .classifiers-table-wrapper {
+  background: #ffffff;
+  border-color: #e2e8f0;
+}
+
+.classifiers-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.classifiers-table th {
+  background: rgba(15, 23, 42, 0.8);
+  padding: 0.85rem 1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+[data-theme="light"] .classifiers-table th {
+  background: #f1f5f9;
+  border-bottom-color: #e2e8f0;
+}
+
+.classifiers-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+[data-theme="light"] .classifiers-table td {
+  border-bottom-color: #f1f5f9;
+}
+
+.classifiers-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="light"] .classifiers-table tr:hover td {
+  background: #f8fafc;
+}

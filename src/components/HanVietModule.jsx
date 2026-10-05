@@ -71,7 +71,7 @@ export const MIDDLE_CHINESE_8_TONES_MATRIX = [
     examples: [
       { han: '進', vi: 'Tiến', note: '國語: ㄐㄧㄣˋ / 越: Tiến' },
       { han: '氣', vi: 'Khí', note: '國語: ㄑㄧˋ / 越: Khí' },
-      { han: '普', vi: 'Phổ', note: '國語: ㄆㄨˇ / 越: Phổ' },
+      { han: '信', vi: 'Tín', note: '國語: ㄒㄧㄣˋ / 越: Tín' },
       { han: '世', vi: 'Thế', note: '國語: ㄕˋ / 越: Thế' }
     ]
   },
@@ -238,11 +238,214 @@ export const HAN_VIET_SOUND_RULES = [
 ];
 
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Search, Volume2, Sparkles, Award, ArrowRight, Layers, HelpCircle } from 'lucide-react';
+import { BookOpen, Search, Volume2, Sparkles, Award, ArrowRight, Layers, HelpCircle, Briefcase, FileText } from 'lucide-react';
 import { hanVietRoots } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
+import './HanVietModule.css';
+
+const getAssetUrl = (path) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${cleanBase}${cleanPath}`;
+};
+
+export const HIGH_FREQUENCY_BUSINESS_HANVIET = [
+  {
+    viet: 'Hợp đồng',
+    han: '合同',
+    ipa: '/həːp˧˨ˀ ɗəwŋ˨˩/',
+    taiwan: 'ㄏㄜˊ ㄊㄨㄥˊ / ha̍p-tông',
+    fieldZh: '經貿契約',
+    meaningZh: '契約、合同、合約',
+    meaningEn: 'Contract / Agreement',
+    exampleVi: 'Ký kết hợp đồng thương mại.',
+    exampleZh: '簽署商業合同。',
+    exampleEn: 'Sign a commercial contract.'
+  },
+  {
+    viet: 'Đầu tư',
+    han: '投資',
+    ipa: '/ɗəw˨˩ tɯː˧˧/',
+    taiwan: 'ㄊㄡˊ ㄗ / tâu-chu',
+    fieldZh: '資本經貿',
+    meaningZh: '投資 (FDI)',
+    meaningEn: 'Investment',
+    exampleVi: 'Thu hút vốn đầu tư nước ngoài.',
+    exampleZh: '吸引外國投資資金。',
+    exampleEn: 'Attract foreign investment capital.'
+  },
+  {
+    viet: 'Doanh nghiệp',
+    han: '企業 (營業者)',
+    ipa: '/zaɲ˧˧ ŋiəp˧˨ˀ/',
+    taiwan: 'ㄑㄧˋ ㄧㄝˋ / îng-gia̍p',
+    fieldZh: '商業組織',
+    meaningZh: '企業、事業單位',
+    meaningEn: 'Enterprise / Business',
+    exampleVi: 'Doanh nghiệp có vốn đầu tư nước ngoài.',
+    exampleZh: '外商投資企業。',
+    exampleEn: 'Foreign invested enterprise.'
+  },
+  {
+    viet: 'Kinh tế',
+    han: '經濟',
+    ipa: '/kiɲ˧˧ te˧˦/',
+    taiwan: 'ㄐㄧㄥ ㄐㄧˋ / king-chè',
+    fieldZh: '總體經貿',
+    meaningZh: '經濟、經世濟民',
+    meaningEn: 'Economy / Economics',
+    exampleVi: 'Kinh tế Việt Nam phát triển nhanh.',
+    exampleZh: '越南經濟快速發展。',
+    exampleEn: 'Vietnamese economy develops rapidly.'
+  },
+  {
+    viet: 'Tài chính',
+    han: '財務 (財政)',
+    ipa: '/taːj˨˩ ciɲ˧˦/',
+    taiwan: 'ㄘㄞˊ ㄨˋ / châi-chèng',
+    fieldZh: '會計金融',
+    meaningZh: '財務、金融、財政',
+    meaningEn: 'Finance / Financial',
+    exampleVi: 'Báo cáo tài chính năm 2026.',
+    exampleZh: '2026年財務報告。',
+    exampleEn: 'Financial report of year 2026.'
+  },
+  {
+    viet: 'Thương mại',
+    han: '商貿 (商業)',
+    ipa: '/tʰɨəŋ˧˧ maːj˧˨ˀ/',
+    taiwan: 'ㄕㄤ ㄇㄠˋ / siong-māu',
+    fieldZh: '國際經貿',
+    meaningZh: '貿易、商務、經商',
+    meaningEn: 'Trade / Commerce',
+    exampleVi: 'Thương mại điện tử rất phát triển.',
+    exampleZh: '電子商務非常發達。',
+    exampleEn: 'E-commerce is highly developed.'
+  },
+  {
+    viet: 'Phát triển',
+    han: '發展',
+    ipa: '/faːt˧˦ cjəːn˧˩˨/',
+    taiwan: 'ㄈㄚ ㄓㄢˇ / huat-tián',
+    fieldZh: '戰略願景',
+    meaningZh: '發展、拓展、壯大',
+    meaningEn: 'Development / Growth',
+    exampleVi: 'Chiến lược phát triển dài hạn.',
+    exampleZh: '長期發展戰略。',
+    exampleEn: 'Long-term development strategy.'
+  },
+  {
+    viet: 'Hợp tác',
+    han: '合作',
+    ipa: '/həːp˧˨ˀ taːk˧˦/',
+    taiwan: 'ㄏㄜˊ ㄗㄨㄛˋ / ha̍p-chok',
+    fieldZh: '商業合作',
+    meaningZh: '合作、攜手合作',
+    meaningEn: 'Cooperation / Partnership',
+    exampleVi: 'Tăng cường hợp tác song phương.',
+    exampleZh: '加強雙邊合作。',
+    exampleEn: 'Strengthen bilateral cooperation.'
+  },
+  {
+    viet: 'Quản lý',
+    han: '管理',
+    ipa: '/kwaːn˧˩˨ li˧˦/',
+    taiwan: 'ㄍㄨㄢˇ ㄌㄧˇ / koán-lí',
+    fieldZh: '組織運營',
+    meaningZh: '管理、統籌、掌管',
+    meaningEn: 'Management / Administration',
+    exampleVi: 'Quản lý nhân sự và tiến độ sản xuất.',
+    exampleZh: '管理行政人事與生產進度。',
+    exampleEn: 'Manage HR and production progress.'
+  },
+  {
+    viet: 'Chính sách',
+    han: '政策',
+    ipa: '/ciɲ˧˦ sac˧˦/',
+    taiwan: 'ㄓㄥˋ ㄘㄜˋ / chèng-chhek',
+    fieldZh: '法規行政',
+    meaningZh: '政策、方針、策略',
+    meaningEn: 'Policy / Regulation',
+    exampleVi: 'Chính sách ưu đãi thuế cho nhà đầu tư.',
+    exampleZh: '對投資者的租稅優惠政策。',
+    exampleEn: 'Tax incentive policies for investors.'
+  },
+  {
+    viet: 'Quy định',
+    han: '規定',
+    ipa: '/kwi˧˧ ɗiɲ˧˨ˀ/',
+    taiwan: 'ㄍㄨㄟ ㄉㄧㄥˋ / kui-tēng',
+    fieldZh: '合規法制',
+    meaningZh: '規定、規章、準則',
+    meaningEn: 'Regulation / Rules',
+    exampleVi: 'Tuân thủ nghiêm ngặt quy định pháp luật.',
+    exampleZh: '嚴格遵守法律法規規定。',
+    exampleEn: 'Strictly comply with legal regulations.'
+  },
+  {
+    viet: 'Ngân hàng',
+    han: '銀行',
+    ipa: '/ŋən˧˧ haːŋ˨˩/',
+    taiwan: 'ㄧㄣˊ ㄏㄤˊ / gûn-hâng',
+    fieldZh: '金融匯兌',
+    meaningZh: '銀行、金融行庫',
+    meaningEn: 'Bank / Banking',
+    exampleVi: 'Mở tài khoản tại ngân hàng Vietcombank.',
+    exampleZh: '在 Vietcombank 銀行開立帳戶。',
+    exampleEn: 'Open an account at Vietcombank.'
+  },
+  {
+    viet: 'Hải quan',
+    han: '海關',
+    ipa: '/haːj˧˩˨ kwaːn˧˧/',
+    taiwan: 'ㄏㄞˇ ㄍㄨㄢ / hái-koan',
+    fieldZh: '物流通關',
+    meaningZh: '海關、進出口檢驗',
+    meaningEn: 'Customs / Border inspection',
+    exampleVi: 'Thủ tục thông quan tại cảng Cát Lái.',
+    exampleZh: '吉萊港的通關海關手續。',
+    exampleEn: 'Customs clearance procedures at Cat Lai port.'
+  },
+  {
+    viet: 'Hội nghị',
+    han: '會議',
+    ipa: '/hoj˧˨ˀ ŋi˧˨ˀ/',
+    taiwan: 'ㄏㄨㄟˋ ㄧˋ / hōe-gī',
+    fieldZh: '商務拜會',
+    meaningZh: '會議、大會、峰會',
+    meaningEn: 'Conference / Meeting',
+    exampleVi: 'Tham gia hội nghị xúc tiến đầu tư.',
+    exampleZh: '參加投資促進招商會議。',
+    exampleEn: 'Attend investment promotion conference.'
+  },
+  {
+    viet: 'Ký kết',
+    han: '簽署 (記結)',
+    ipa: '/ki˧˦ ket˧˦/',
+    taiwan: 'ㄑㄧㄢ ㄕㄨˋ / ki-kiat',
+    fieldZh: '商務締約',
+    meaningZh: '簽約、簽署協定',
+    meaningEn: 'Sign / Finalize agreement',
+    exampleVi: 'Hai bên đã ký kết thỏa thuận hợp tác.',
+    exampleZh: '雙方已簽署合作備忘協議。',
+    exampleEn: 'Both parties signed the cooperation agreement.'
+  },
+  {
+    viet: 'Dự án',
+    han: '專案 (預案)',
+    ipa: '/zɨ˧˨ˀ aːn˧˦/',
+    taiwan: 'ㄓㄨㄢ ㄢˋ / ī-àn',
+    fieldZh: '工程規劃',
+    meaningZh: '專案、工程項目、計畫案',
+    meaningEn: 'Project / Initiative',
+    exampleVi: 'Triển khai dự án xây dựng nhà máy.',
+    exampleZh: '開展建造新廠房專案。',
+    exampleEn: 'Implement factory construction project.'
+  }
+];
 
 export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
   const { learningMode, loc } = useLanguage();
@@ -420,6 +623,31 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
 
   return (
     <div className="module-container">
+      {/* Hero Banner with Scenario Illustration */}
+      <div className="hanviet-hero-card">
+        <div className="hanviet-hero-banner">
+          <img
+            src={getAssetUrl('images/scenarios/business.jpg')}
+            alt="Vietnam Business & Trade Illustration"
+            className="hanviet-hero-img"
+            loading="lazy"
+          />
+          <div className="hanviet-hero-overlay">
+            <h2 className="hanviet-hero-title">
+              <span>🏛️</span>
+              {learningMode === 'zh'
+                ? '漢越詞實戰總覽：解鎖 70% 現代經貿、法律與正式書面語'
+                : 'Sino-Vietnamese Lexicon: Mastering 70% of Formal & Business Vietnamese'}
+            </h2>
+            <p className="hanviet-hero-desc">
+              {learningMode === 'zh'
+                ? '漢越詞源自唐宋中古漢語借詞，台語、客家話與現代華語母語者擁有天然的直覺轉換優勢。掌握音變與四聲八調規律，數千個高階經貿單字無痛秒記！'
+                : 'Derived from Middle Chinese, Sino-Vietnamese vocabulary offers massive cognitive leverage. Master regular sound shifts to unlock thousands of advanced words effortlessly.'}
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Header Banner */}
       <div className="section-header">
         <h2 className="section-title">
@@ -710,6 +938,133 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
             </p>
           </div>
 
+          {/* 🌟 1. Sino-Vietnamese Tone Transformation Formula Chart */}
+          <div className="tone-formula-container">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
+              <Sparkles size={22} color="var(--brand-gold)" />
+              <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
+                {learningMode === 'zh'
+                  ? '中古漢語聲調 ➔ 現代越語六聲調轉換公式圖解'
+                  : 'Middle Chinese to Vietnamese 6 Tones Transformation Formula'}
+              </h3>
+            </div>
+            <p style={{ margin: '0 0 1rem 0', color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.55 }}>
+              {learningMode === 'zh'
+                ? '【核心推導心法】中古漢語四聲（平、上、去、入）按「清聲母（陰）」與「濁聲母（陽）」分化為八個調類。在越語中，陰陽與調形有一對一嚴格規律：'
+                : 'Core transformation mechanism: 4 Middle Chinese tones split into 8 tonal categories via voiceless vs. voiced initials.'}
+            </p>
+
+            <div className="tone-formula-grid">
+              {/* Formula Card 1: Ping */}
+              <div className="tone-formula-card" style={{ borderTop: '4px solid #3b82f6' }}>
+                <div className="tone-formula-header">
+                  <strong style={{ fontSize: '1.05rem', color: '#1d4ed8' }}>1. 平聲 (Ping Tones)</strong>
+                  <span className="tone-formula-badge" style={{ background: 'rgba(59, 130, 246, 0.1)', color: '#2563eb' }}>
+                    舒緩平調
+                  </span>
+                </div>
+                <div className="tone-flow-row">
+                  <span className="tone-flow-source">清聲母 (陰平 / 國語1聲)</span>
+                  <span className="tone-flow-arrow">➔</span>
+                  <span className="tone-flow-target" style={{ color: '#2563eb' }}>
+                    平聲 (Ngang · 44)
+                  </span>
+                </div>
+                <div className="tone-flow-row">
+                  <span className="tone-flow-source">濁聲母 (陽平 / 國語2聲)</span>
+                  <span className="tone-flow-arrow">➔</span>
+                  <span className="tone-flow-target" style={{ color: '#10b981' }}>
+                    玄聲 (Huyền · 31 `)
+                  </span>
+                </div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                  例：心 Tâm (平) vs 平 Bình (玄)
+                </div>
+              </div>
+
+              {/* Formula Card 2: Shang */}
+              <div className="tone-formula-card" style={{ borderTop: '4px solid #f59e0b' }}>
+                <div className="tone-formula-header">
+                  <strong style={{ fontSize: '1.05rem', color: '#b45309' }}>2. 上聲 (Shang Tones)</strong>
+                  <span className="tone-formula-badge" style={{ background: 'rgba(245, 158, 11, 0.15)', color: '#d97706' }}>
+                    轉折升降
+                  </span>
+                </div>
+                <div className="tone-flow-row">
+                  <span className="tone-flow-source">清聲母 (陰上 / 國語3聲)</span>
+                  <span className="tone-flow-arrow">➔</span>
+                  <span className="tone-flow-target" style={{ color: '#d97706' }}>
+                    問聲 (Hỏi · 313 ̉)
+                  </span>
+                </div>
+                <div className="tone-flow-row">
+                  <span className="tone-flow-source">濁聲母 (陽上 / 台語2聲)</span>
+                  <span className="tone-flow-arrow">➔</span>
+                  <span className="tone-flow-target" style={{ color: '#8b5cf6' }}>
+                    跌聲 (Ngã · 35̃ ̃)
+                  </span>
+                </div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                  例：草 Thảo (問) vs 語 Ngữ (跌)
+                </div>
+              </div>
+
+              {/* Formula Card 3: Qu */}
+              <div className="tone-formula-card" style={{ borderTop: '4px solid #ef4444' }}>
+                <div className="tone-formula-header">
+                  <strong style={{ fontSize: '1.05rem', color: '#b91c1c' }}>3. 去聲 (Qu Tones)</strong>
+                  <span className="tone-formula-badge" style={{ background: 'rgba(239, 68, 68, 0.1)', color: '#ef4444' }}>
+                    去入急墜
+                  </span>
+                </div>
+                <div className="tone-flow-row">
+                  <span className="tone-flow-source">清聲母 (陰去 / 國語4聲)</span>
+                  <span className="tone-flow-arrow">➔</span>
+                  <span className="tone-flow-target" style={{ color: '#ef4444' }}>
+                    銳聲 (Sắc · 35 ˊ)
+                  </span>
+                </div>
+                <div className="tone-flow-row">
+                  <span className="tone-flow-source">濁聲母 (陽去 / 台語7聲)</span>
+                  <span className="tone-flow-arrow">➔</span>
+                  <span className="tone-flow-target" style={{ color: '#475569' }}>
+                    重聲 (Nặng · 21 ̣)
+                  </span>
+                </div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                  例：進 Tiến (銳) vs 大 Đại (重)
+                </div>
+              </div>
+
+              {/* Formula Card 4: Ru */}
+              <div className="tone-formula-card" style={{ borderTop: '4px solid #8b5cf6' }}>
+                <div className="tone-formula-header">
+                  <strong style={{ fontSize: '1.05rem', color: '#6d28d9' }}>4. 入聲促音 (Ru Sheng -p/-t/-c/-ch)</strong>
+                  <span className="tone-formula-badge" style={{ background: 'rgba(139, 92, 246, 0.15)', color: '#7c3aed' }}>
+                    塞音急收
+                  </span>
+                </div>
+                <div className="tone-flow-row">
+                  <span className="tone-flow-source">清入 (台語4聲 -p/-t/-k)</span>
+                  <span className="tone-flow-arrow">➔</span>
+                  <span className="tone-flow-target" style={{ color: '#dc2626' }}>
+                    入聲銳調 (Sắc · 45)
+                  </span>
+                </div>
+                <div className="tone-flow-row">
+                  <span className="tone-flow-source">陽入 (台語8聲 -p/-t/-k)</span>
+                  <span className="tone-flow-arrow">➔</span>
+                  <span className="tone-flow-target" style={{ color: '#334155' }}>
+                    入聲重調 (Nặng · 21)
+                  </span>
+                </div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
+                  例：國 Quốc (銳) vs 學 Học (重)
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* 🌟 Master 8-Tones Correspondence Matrix */}
           <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', border: '1.5px solid var(--border-color)', boxShadow: 'var(--card-shadow)' }}>
             <div style={{ marginBottom: '1.2rem' }}>
@@ -850,6 +1205,105 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* 🌟 2. High Frequency Business Han-Viet Master Table */}
+          <div className="business-hanviet-container">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <Briefcase size={22} color="var(--brand-primary)" />
+                <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
+                  {learningMode === 'zh'
+                    ? '經貿商務高頻漢越詞速查對照表 (16 大核心雙音節專有名詞)'
+                    : 'High-Frequency Business Sino-Vietnamese Master Reference'}
+                </h3>
+              </div>
+              <span className="han-tag-chip" style={{ fontSize: '0.85rem' }}>
+                💼 職場商貿台商必備
+              </span>
+            </div>
+            <p style={{ margin: '0 0 1rem 0', color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.55 }}>
+              {learningMode === 'zh'
+                ? '在越南商貿、工廠管理、外商投資與簽署合同中出現頻率最高的核心漢越雙音節詞彙。每組皆提供注音/台語對照、情境例句與原生語音朗讀：'
+                : 'Top practical Sino-Vietnamese compounds commonly used in business meetings, legal contracts, and investments.'}
+            </p>
+
+            <div className="business-hanviet-table-wrapper">
+              <table className="business-hanviet-table">
+                <thead>
+                  <tr>
+                    <th>{learningMode === 'zh' ? '越語詞彙' : 'Vietnamese'}</th>
+                    <th>{learningMode === 'zh' ? '漢字對應' : 'Han'}</th>
+                    <th>{learningMode === 'zh' ? '類別 / 釋義' : 'Category & Meaning'}</th>
+                    <th>{learningMode === 'zh' ? '注音 / 台語對比' : 'Zhuyin / Taiwanese'}</th>
+                    <th>{learningMode === 'zh' ? '商貿實戰例句' : 'Practical Example'}</th>
+                    <th>{learningMode === 'zh' ? '發音' : 'Audio'}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {HIGH_FREQUENCY_BUSINESS_HANVIET.map((item, idx) => {
+                    const isWordPlaying = activeKey === `biz_word_${idx}` || activeKey === item.viet;
+                    const isSentPlaying = activeKey === `biz_sent_${idx}` || activeKey === item.exampleVi;
+                    return (
+                      <tr key={idx}>
+                        <td>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                            <strong style={{ fontSize: '1.05rem', color: 'var(--brand-primary)' }}>
+                              {item.viet}
+                            </strong>
+                            <button
+                              className={`speaker-btn mini-btn ${isWordPlaying ? 'playing' : ''}`}
+                              onClick={() => playWord(item.viet, `biz_word_${idx}`)}
+                              title={`朗讀單字 ${item.viet}`}
+                            >
+                              <Volume2 size={13} />
+                            </button>
+                          </div>
+                          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontFamily: 'var(--font-family-mono)' }}>
+                            {item.ipa}
+                          </div>
+                        </td>
+                        <td>
+                          <strong style={{ fontSize: '1.15rem', color: 'var(--brand-gold)' }}>
+                            {item.han}
+                          </strong>
+                        </td>
+                        <td>
+                          <span className="han-tag-chip" style={{ marginBottom: '0.25rem' }}>
+                            {item.fieldZh}
+                          </span>
+                          <div style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+                            {learningMode === 'zh' ? item.meaningZh : item.meaningEn}
+                          </div>
+                        </td>
+                        <td style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>
+                          {item.taiwan}
+                        </td>
+                        <td>
+                          <div style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--brand-primary)', marginBottom: '0.15rem' }}>
+                            {item.exampleVi}
+                          </div>
+                          <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                            {learningMode === 'zh' ? item.exampleZh : item.exampleEn}
+                          </div>
+                        </td>
+                        <td>
+                          <button
+                            className={`speaker-btn ${isSentPlaying ? 'playing' : ''}`}
+                            onClick={() => playWord(item.exampleVi, `biz_sent_${idx}`)}
+                            title={`朗讀例句: ${item.exampleVi}`}
+                            style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem', padding: '0.35rem 0.65rem' }}
+                          >
+                            <Volume2 size={14} />
+                            <span>{learningMode === 'zh' ? '聽例句' : 'Listen'}</span>
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       )}

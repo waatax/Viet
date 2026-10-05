@@ -1,10 +1,149 @@
 import React, { useState } from 'react';
 import {
   LifeBuoy, Volume2, Search, Sparkles, Filter, ChevronRight, ShieldAlert,
-  Utensils, Car, ShoppingBag, HeartPulse, Hotel, Users, Maximize2, X
+  Utensils, Car, ShoppingBag, HeartPulse, Hotel, Users, Maximize2, X, PhoneCall, AlertCircle
 } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import './EmergencyKitModule.css';
+
+const getAssetUrl = (path) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${cleanBase}${cleanPath}`;
+};
+
+export const EMERGENCY_HOTLINES = [
+  {
+    number: '113',
+    nameZh: '警察報案專線 (Cảnh sát)',
+    nameEn: 'Police Emergency (113)',
+    vietAudio: 'Cảnh sát',
+    color: '#ef4444',
+    scopeZh: '遭逢重大犯罪、人身威脅、交通事故、財物被竊、遺失護照需報案筆錄。',
+    scopeEn: 'Crime reporting, personal danger, traffic accidents, lost passport reporting.'
+  },
+  {
+    number: '114',
+    nameZh: '消防救援火警 (Cứu hỏa)',
+    nameEn: 'Fire Department (114)',
+    vietAudio: 'Cứu hỏa',
+    color: '#ea580c',
+    scopeZh: '火災警報、受困電梯、天然災害受困救援。',
+    scopeEn: 'Fire fighting, disaster rescue, trapped in buildings.'
+  },
+  {
+    number: '115',
+    nameZh: '急救救護車 (Cấp cứu y tế)',
+    nameEn: 'Ambulance & Medical (115)',
+    vietAudio: 'Cấp cứu y tế',
+    color: '#0284c7',
+    scopeZh: '嚴重突發急症、嚴重外傷流血、心肌梗塞、昏迷休克緊急送醫。',
+    scopeEn: 'Medical emergency, severe injury, ambulance dispatch.'
+  },
+  {
+    number: '+84-913-219-986',
+    nameZh: '駐河內台北辦事處急難救助',
+    nameEn: 'TECO Hanoi Emergency Hotline',
+    vietAudio: null,
+    color: '#10b981',
+    scopeZh: '北越地區（河內、海防等）台灣國民遭遇車禍、重大傷病、逮捕拘留或護照遺失急難求助。',
+    scopeEn: 'Emergency assistance for Taiwanese citizens in Northern Vietnam.'
+  },
+  {
+    number: '+84-903-837-336',
+    nameZh: '駐胡志明市台北辦事處急難救助',
+    nameEn: 'TECO HCMC Emergency Hotline',
+    vietAudio: null,
+    color: '#059669',
+    scopeZh: '南越地區（胡志明市、平陽、同奈、隆安等）台灣國民重大急難求助。',
+    scopeEn: 'Emergency assistance for Taiwanese citizens in Southern Vietnam.'
+  }
+];
+
+export const SYMPTOM_POINT_SPEAK_LIST = [
+  {
+    viet: 'Tôi bị sốt cao.',
+    zh: '我發高燒。',
+    en: 'I have a high fever.',
+    bodyPartZh: '全身發燒',
+    icon: '🌡️',
+    tipZh: '藥局溝通必備，可要求退燒藥「Thuốc hạ sốt (Paracetamol)」。'
+  },
+  {
+    viet: 'Tôi bị đau đầu dữ dội.',
+    zh: '我頭痛非常劇烈。',
+    en: 'I have a severe headache.',
+    bodyPartZh: '頭部劇痛',
+    icon: '🤕',
+    tipZh: '可要求止痛藥「Thuốc giảm đau」，保持水分攝取。'
+  },
+  {
+    viet: 'Tôi bị đau bụng và tiêu chảy.',
+    zh: '我肚子痛而且拉肚子。',
+    en: 'I have stomachache and diarrhea.',
+    bodyPartZh: '腸胃腹瀉',
+    icon: '🤢',
+    tipZh: '水土不服最常見，藥局可買電解質沖泡包「Oresol」。'
+  },
+  {
+    viet: 'Tôi bị buồn nôn và chóng mặt.',
+    zh: '我感到噁心想吐而且頭暈。',
+    en: 'I feel nauseous and dizzy.',
+    bodyPartZh: '頭暈噁心',
+    icon: '💫',
+    tipZh: '疑似中暑或輕微食物中毒，應儘速至通風陰涼處平躺。'
+  },
+  {
+    viet: 'Tôi bị đau dạ dày.',
+    zh: '我胃痛。',
+    en: 'I have a stomach ache / gastric pain.',
+    bodyPartZh: '胃痛胃痙攣',
+    icon: '⚡',
+    tipZh: '吃太多辣椒或不耐冰品時引起，可詢問胃乳片。'
+  },
+  {
+    viet: 'Tôi bị dị ứng phát ban ngứa.',
+    zh: '我過敏起紅疹發癢。',
+    en: 'I have an allergic reaction and rash.',
+    bodyPartZh: '皮膚紅疹',
+    icon: '⚠️',
+    tipZh: '海鮮或花生過敏時出示給藥師，可拿抗組織胺藥物。'
+  },
+  {
+    viet: 'Tôi bị ho và đau họng.',
+    zh: '我咳嗽而且喉嚨痛。',
+    en: 'I have a cough and sore throat.',
+    bodyPartZh: '咽喉呼吸道',
+    icon: '😷',
+    tipZh: '吹冷氣或溫差過大引起，可要喉片與止咳藥水。'
+  },
+  {
+    viet: 'Tôi bị khó thở và tức ngực.',
+    zh: '我呼吸困難而且胸悶。',
+    en: 'I have difficulty breathing and chest tightness.',
+    bodyPartZh: '心肺呼吸',
+    icon: '🫀',
+    tipZh: '⚠️ 重症警訊！應立即撥打 115 救護車送往大醫院急診。'
+  },
+  {
+    viet: 'Tôi bị say nắng và mất nước.',
+    zh: '我中暑而且脫水。',
+    en: 'I have heatstroke and dehydration.',
+    bodyPartZh: '中暑脫水',
+    icon: '☀️',
+    tipZh: '越南夏季高溫常見，需立即移至陰涼處補充水分與鹽分。'
+  },
+  {
+    viet: 'Cho tôi thuốc giảm đau và hạ sốt.',
+    zh: '請給我止痛藥和退燒藥。',
+    en: 'Please give me painkillers and fever reducers.',
+    bodyPartZh: '綜合備藥',
+    icon: '💊',
+    tipZh: '在 Pharmacity / Long Châu 連鎖藥局的標準買藥通用金句。'
+  }
+];
 
 export const EMERGENCY_CATEGORIES = [
   { id: 'all', labelZh: '全部急救卡', labelEn: 'All Cards', icon: '⚡' },
@@ -250,6 +389,173 @@ export const EmergencyKitModule = ({ selectedAccent = 'north' }) => {
 
   return (
     <div className="module-container emergency-kit-module">
+      {/* Hero Banner with Pharmacy & Clinic Scenario Illustration */}
+      <div className="emergency-hero-card">
+        <div className="emergency-hero-banner">
+          <img
+            src={getAssetUrl('images/scenarios/pharmacy_clinic.jpg')}
+            alt="Vietnam Pharmacy Clinic Emergency"
+            className="emergency-hero-img"
+            loading="lazy"
+          />
+          <div className="emergency-hero-overlay">
+            <h2 className="emergency-hero-title">
+              <span>🚨</span>
+              {learningMode === 'zh'
+                ? '越南生活急難救助、報案電話與就醫指認速查箱'
+                : 'Vietnam Emergency Hotlines & Medical Survival Guide'}
+            </h2>
+            <p className="emergency-hero-desc">
+              {learningMode === 'zh'
+                ? '出國差旅最重要的生命防護線！收錄全越三大公共緊急報案電話、辦事處急難救助專線，以及 10 大常見身體症狀雙語指認點讀表。'
+                : 'Your essential safety net in Vietnam: official emergency hotlines, embassy support, and point-and-speak medical symptom cards.'}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* 🌟 1. Vietnam Emergency & Assistance Hotlines */}
+      <div className="hotlines-container">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '0.4rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <PhoneCall size={22} color="#ef4444" />
+            <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
+              {learningMode === 'zh'
+                ? '越南重要緊急報案與外館急難救助專線 (一鍵快速撥打)'
+                : 'Essential Vietnam Emergency Hotlines & Embassy Contacts'}
+            </h3>
+          </div>
+          <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#dc2626', background: 'rgba(239, 68, 68, 0.12)', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
+            🆘 24小時全年無休
+          </span>
+        </div>
+        <p style={{ margin: '0 0 1rem 0', fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+          {learningMode === 'zh'
+            ? '在越南境內遇到犯罪、受困、疾病或重大意外時，請立即撥打下列專線；點擊發音可聆聽越南語名稱：'
+            : 'Immediate emergency contacts across police, fire, ambulance, and diplomatic assistance.'}
+        </p>
+
+        <div className="hotlines-grid">
+          {EMERGENCY_HOTLINES.map((item, idx) => (
+            <div key={idx} className="hotline-card" style={{ borderLeft: `4px solid ${item.color}` }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <span className="hotline-number-badge" style={{ color: item.color }}>
+                  {item.number}
+                </span>
+                <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
+                  {item.vietAudio && (
+                    <button
+                      className="speaker-btn mini-btn"
+                      onClick={() => handleSpeak(item.vietAudio, false)}
+                      title={`朗讀: ${item.vietAudio}`}
+                    >
+                      <Volume2 size={13} />
+                    </button>
+                  )}
+                  <a
+                    href={`tel:${item.number.replace(/[^0-9+]/g, '')}`}
+                    className="primary-action"
+                    style={{ padding: '0.3rem 0.7rem', fontSize: '0.82rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
+                  >
+                    <PhoneCall size={12} /> {learningMode === 'zh' ? '撥打' : 'Call'}
+                  </a>
+                </div>
+              </div>
+              <div>
+                <strong style={{ fontSize: '1.02rem', color: 'var(--text-primary)', display: 'block', marginBottom: '0.25rem' }}>
+                  {learningMode === 'zh' ? item.nameZh : item.nameEn}
+                </strong>
+                <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.45 }}>
+                  {learningMode === 'zh' ? item.scopeZh : item.scopeEn}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 🌟 2. 10 Core Medical Symptoms Point & Speak Table */}
+      <div className="symptoms-container">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '0.4rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+            <HeartPulse size={22} color="#dc2626" />
+            <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
+              {learningMode === 'zh'
+                ? '藥局與診所急診：10 大常見不適症狀指認點讀表'
+                : 'Pharmacy & Clinic: 10 Core Symptoms Point & Speak Table'}
+            </h3>
+          </div>
+          <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#0284c7', background: 'rgba(2, 132, 199, 0.12)', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
+            🏥 就醫出示專用
+          </span>
+        </div>
+        <p style={{ margin: '0 0 1rem 0', fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+          {learningMode === 'zh'
+            ? '突發身體不適時，若無法用越語流暢表達，點擊發音朗讀，或點選右側「出示」按鈕放大給越南藥師或醫生看：'
+            : 'Point-and-speak table for medical clinics and pharmacies with instant pronunciation and full-screen display.'}
+        </p>
+
+        <div className="symptoms-table-wrapper">
+          <table className="symptoms-table">
+            <thead>
+              <tr>
+                <th>{learningMode === 'zh' ? '部位 / 類別' : 'Part'}</th>
+                <th>{learningMode === 'zh' ? '越語症狀句' : 'Vietnamese'}</th>
+                <th>{learningMode === 'zh' ? '中文 / 英文釋義' : 'Meaning'}</th>
+                <th>{learningMode === 'zh' ? '藥局應對指南' : 'Advice'}</th>
+                <th>{learningMode === 'zh' ? '朗讀 / 出示' : 'Action'}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {SYMPTOM_POINT_SPEAK_LIST.map((symp, sIdx) => (
+                <tr key={sIdx}>
+                  <td>
+                    <span className="symptom-tag">
+                      {symp.icon} {symp.bodyPartZh}
+                    </span>
+                  </td>
+                  <td>
+                    <strong style={{ fontSize: '1.02rem', color: 'var(--brand-primary)' }}>
+                      {symp.viet}
+                    </strong>
+                  </td>
+                  <td>
+                    <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: '0.92rem' }}>
+                      {symp.zh}
+                    </div>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                      {symp.en}
+                    </div>
+                  </td>
+                  <td style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
+                    💡 {symp.tipZh}
+                  </td>
+                  <td>
+                    <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
+                      <button
+                        className="speaker-btn mini-btn"
+                        onClick={() => handleSpeak(symp.viet, false)}
+                        title={`播放: ${symp.viet}`}
+                      >
+                        <Volume2 size={14} />
+                      </button>
+                      <button
+                        className="secondary-action"
+                        onClick={() => setFullscreenCard(symp)}
+                        title="放大螢幕出示給藥師看"
+                        style={{ padding: '0.35rem 0.55rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
+                      >
+                        <Maximize2 size={12} /> {learningMode === 'zh' ? '出示' : 'Show'}
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       {/* Hero Header */}
       <section className="emergency-hero" style={{
         background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(245, 158, 11, 0.15) 100%)',

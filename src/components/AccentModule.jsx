@@ -3,6 +3,105 @@ import { Compass, Volume2, ArrowRight, RefreshCw, CheckCircle, Play, Sparkles, M
 import { accentDifferences } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import './AccentModule.css';
+
+const getAssetUrl = (path) => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${base}${cleanPath}`;
+};
+
+export const DIALECT_REGIONS_DATA = [
+  {
+    id: 'north',
+    nameZh: '北越 · 河內首都圈 (Hà Nội)',
+    nameVi: 'Phương Ngữ Bắc Bộ',
+    badge: '廣播標準腔 · 政治文化中心',
+    color: '#3b82f6',
+    tones: '完整 6 個聲調 (平、玄、問、跌、銳、重)',
+    toneFeature: '問聲 (Hỏi) 降升飽滿 (31-12)；跌聲 (Ngã) 喉門明顯中斷 (35̃)',
+    consonants: 'd, gi, r 完全合流為清脆 [z]；tr, ch 合流為 [c]',
+    lifestyleWords: [
+      { vi: 'Thìa', zh: '湯匙 / 勺子', audioText: 'thìa' },
+      { vi: 'Hoa quả', zh: '水果 (通用)', audioText: 'hoa quả' },
+      { vi: 'Vâng ạ', zh: '遵命 / 是的 (敬語)', audioText: 'vâng ạ' },
+      { vi: 'Điều hòa', zh: '冷氣機 / 空調', audioText: 'điều hòa' }
+    ]
+  },
+  {
+    id: 'central',
+    nameZh: '中越 · 峴港與順化古都 (Huế / Đà Nẵng)',
+    nameVi: 'Phương Ngữ Trung Bộ',
+    badge: '古都韻味 · 音律厚重急促',
+    color: '#a855f7',
+    tones: '5 個聲調 (問聲常與跌聲合流為重聲)',
+    toneFeature: '聲調深沉急促，問跌調常轉為重音 (Nặng)，音域較低',
+    consonants: '保留古代古越語清晰捲舌音，發音短促',
+    lifestyleWords: [
+      { vi: 'Chi, Rứa', zh: '什麼、怎樣 (順化方言)', audioText: 'chi' },
+      { vi: 'Mô, Tê', zh: '哪裡、那裡 (中越特色)', audioText: 'mô' },
+      { vi: 'Nước', zh: '水 (生活必備)', audioText: 'nước' },
+      { vi: 'Mẹ', zh: '母親 / 媽媽', audioText: 'mẹ' }
+    ]
+  },
+  {
+    id: 'south',
+    nameZh: '南越 · 胡志明市西貢 (TP. Hồ Chí Minh)',
+    nameVi: 'Phương Ngữ Nam Bộ',
+    badge: '經濟火車頭 · 柔和熱情明快',
+    color: '#10b981',
+    tones: '5 個聲調 (問聲與跌聲合流，無喉塞音)',
+    toneFeature: '問聲與跌聲合併為柔和下降調，不帶喉音跳躍，發音平易近人',
+    consonants: 'd, gi 讀滑音 [j] (似 y)；tr, r 鮮明捲舌；v 經常讀為 y',
+    lifestyleWords: [
+      { vi: 'Muỗng', zh: '湯匙 (南越習慣)', audioText: 'muỗng' },
+      { vi: 'Trái cây', zh: '水果 (南越習慣)', audioText: 'trái cây' },
+      { vi: 'Dạ', zh: '好的 / 是的 (南越應答敬語)', audioText: 'dạ' },
+      { vi: 'Máy lạnh', zh: '冷氣機 (冷機)', audioText: 'máy lạnh' }
+    ]
+  }
+];
+
+export const DIALECT_SYSTEM_COMPARISON = [
+  {
+    featureZh: '聲調數量與體系',
+    northZh: '6 聲調齊全 (平玄問跌銳重)',
+    southZh: '5 聲調 (問聲與跌聲合流)',
+    noteZh: '南越人說 sữa (牛奶) 與 sửa (修理) 聲調相同，主要由上下文判斷'
+  },
+  {
+    featureZh: '聲母 d / gi 讀音',
+    northZh: '讀為清脆齒齦擦音 [z] (似「日」或「ㄗ」)',
+    southZh: '讀為硬腭滑音 [j] (似注音「ㄧ」或英文 y)',
+    noteZh: '例如 dạ (是的)：北越發 [zạ]，南越發 [yạ]'
+  },
+  {
+    featureZh: '聲母 r 讀音',
+    northZh: '讀為 [z] (與 d, gi 合流)',
+    southZh: '保留捲舌或閃音 [ʐ / r] (明顯震動)',
+    noteZh: '例如 rất (非常)：北越發 [zất]，南越發捲舌 [rất]'
+  },
+  {
+    featureZh: '聲母 tr vs ch 讀音',
+    northZh: 'tr 與 ch 合流，一律讀不捲舌 [c] (似「ㄐ/ㄗ」)',
+    southZh: 'tr 捲舌 [ʈ]，ch 不捲舌 [c]，壁壘分明',
+    noteZh: '例如 trời (天)：北越讀「chời」，南越捲舌讀「trời」'
+  },
+  {
+    featureZh: '聲母 v 讀音',
+    northZh: '唇齒擦音 [v] (乾淨咬唇)',
+    southZh: '口語常弱化為滑音 [j] (似 y)',
+    noteZh: '例如 về (回)：南越常讀成「yề」；vào (進) 常讀成「yào」'
+  },
+  {
+    featureZh: '韻尾 -t vs -c (在 i, ê 之後)',
+    northZh: '嚴格區分 -t (舌尖抵齒) 與 -c (舌根抵腭)',
+    southZh: '-t 與 -c 常混同讀為 [-t̚] 或硬腭入聲',
+    noteZh: '例如 ít (少) 與 ích (益)，在南部聽感極為相近'
+  }
+];
 
 export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
   const { learningMode, loc, t } = useLanguage();
@@ -183,6 +282,111 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
             </button>
           </div>
         </div>
+      </div>
+
+      {/* 越南南北地理與方言版圖視覺總覽 */}
+      <div className="dialect-geography-hero">
+        <div className="dialect-map-card">
+          <img
+            src={getAssetUrl('images/scenarios/vietnam_map.jpg')}
+            alt="Bản đồ phương ngữ Việt Nam"
+            className="dialect-map-img"
+            loading="lazy"
+          />
+          <div className="dialect-map-overlay">
+            <div className="dialect-map-title">
+              <MapPin size={18} color="#38bdf8" />
+              <span>{learningMode === 'zh' ? '越南三大方言分佈圖' : 'Vietnam Dialect Geography'}</span>
+            </div>
+            <div className="dialect-map-subtitle">
+              {learningMode === 'zh' ? '北越 (河內) · 中越 (順化) · 南越 (胡志明市)' : 'North (Hanoi) · Central (Hue) · South (HCMC)'}
+            </div>
+          </div>
+        </div>
+
+        <div className="dialect-regions-grid">
+          {DIALECT_REGIONS_DATA.map((region) => (
+            <div
+              key={region.id}
+              className="dialect-region-card"
+              style={{ borderTop: `4px solid ${region.color}` }}
+            >
+              <div className="dialect-region-header">
+                <div>
+                  <h4 className="dialect-region-name" style={{ color: region.color }}>
+                    {learningMode === 'zh' ? region.nameZh : region.nameVi}
+                  </h4>
+                  <span className="dialect-region-badge">{region.badge}</span>
+                </div>
+              </div>
+
+              <div className="dialect-feature-item">
+                <strong>🎵 聲調體系：</strong>{region.tones}
+              </div>
+              <div className="dialect-feature-item">
+                <strong>🗣️ 聲調聽感：</strong>{region.toneFeature}
+              </div>
+              <div className="dialect-feature-item">
+                <strong>🔤 聲母特色：</strong>{region.consonants}
+              </div>
+
+              <div>
+                <div style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: '0.2rem' }}>
+                  {learningMode === 'zh' ? '代表性生活詞彙 (點擊發音)：' : 'Key Vocabulary (Tap to listen):'}
+                </div>
+                <div className="dialect-words-row">
+                  {region.lifestyleWords.map((item, wIdx) => {
+                    const isNorth = region.id === 'north';
+                    const targetAccent = isNorth ? 'north' : 'south';
+                    const wordKey = `geo_word_${region.id}_${wIdx}`;
+                    const isPlaying = activeKey === wordKey;
+
+                    return (
+                      <button
+                        key={wIdx}
+                        className="dialect-word-pill"
+                        onClick={() => playSingleWord(item.audioText, targetAccent, wordKey)}
+                        style={{
+                          borderColor: isPlaying ? region.color : undefined,
+                          background: isPlaying ? `${region.color}15` : undefined
+                        }}
+                        title={learningMode === 'zh' ? `${item.zh} (點擊試聽)` : item.zh}
+                      >
+                        <Volume2 size={12} color={region.color} />
+                        <strong>{item.vi}</strong>
+                        <span style={{ fontSize: '0.74rem', color: 'var(--text-secondary)' }}>({item.zh})</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 南北語音體系對照全表 */}
+      <div className="dialect-table-wrapper">
+        <table className="dialect-comparison-table">
+          <thead>
+            <tr>
+              <th>{learningMode === 'zh' ? '語音與語法維度' : 'Linguistic Dimension'}</th>
+              <th>🏛️ {learningMode === 'zh' ? '北越 (河內音 / 官方規範)' : 'Northern Dialect (Hanoi)'}</th>
+              <th>🌴 {learningMode === 'zh' ? '南越 (胡志明市 / 西貢音)' : 'Southern Dialect (Saigon)'}</th>
+              <th>💡 {learningMode === 'zh' ? '實戰交流指南' : 'Practical Tip'}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {DIALECT_SYSTEM_COMPARISON.map((row, rIdx) => (
+              <tr key={rIdx}>
+                <td style={{ fontWeight: 800, color: 'var(--text-primary)' }}>{row.featureZh}</td>
+                <td style={{ color: '#3b82f6', fontWeight: 600 }}>{row.northZh}</td>
+                <td style={{ color: '#10b981', fontWeight: 600 }}>{row.southZh}</td>
+                <td style={{ fontSize: '0.86rem' }}>{row.noteZh}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
       {/* Sub Navigation Bar */}

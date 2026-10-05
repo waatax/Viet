@@ -1,11 +1,12 @@
 {
   "name": "viet-learning-hub",
   "private": true,
-  "version": "2.5.0",
+  "version": "2.7.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "test:audio": "node scripts/spot_check_audio_correctness.mjs && node scripts/deep_audio_audit_v2.mjs",
     "build:audio": "node scripts/build_audio_bank.js",
     "preview": "vite preview",
     "predeploy": "npm run build",

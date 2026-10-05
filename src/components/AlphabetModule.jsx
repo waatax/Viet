@@ -115,6 +115,16 @@ import {
 } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import {
+  SyllableAnatomyFigure,
+  VowelChartFigure,
+  ArticulationFigure,
+  FinalsFigure,
+  ToneContourFigure,
+  ToneTypingFigure,
+  SpellingRulesFigure,
+  DiphthongSpellingFigure
+} from './visuals/PhoneticsVisuals';
 
 export const AlphabetModule = ({ selectedAccent = 'north' }) => {
   const { learningMode, loc, t } = useLanguage();
@@ -218,7 +228,7 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
         return {
           path: "M 20 30 Q 80 58 110 56 Q 145 42 180 20",
           dots: [{ cx: 20, cy: 30 }, { cx: 110, cy: 56 }, { cx: 180, cy: 20 }],
-          desc: "31 → 12 → 35 降後微揚"
+          desc: "313 降後回升"
         };
       case 'nga':
         return {
@@ -266,7 +276,7 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
           onClick={() => setActivePhoneticTab('mouth')}
         >
           <Sparkles size={17} />
-          <span>{learningMode === 'zh' ? '👄 10大難音口型祕訣' : '👄 Articulation Guide'}</span>
+          <span>{learningMode === 'zh' ? `👄 ${mouthPhoneticGuide.length}大難音口型祕訣` : '👄 Articulation Guide'}</span>
         </button>
         <button
           className={`biz-nav-tab ${activePhoneticTab === 'compound' ? 'active' : ''}`}
@@ -303,6 +313,11 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
       {/* ==================================================== */}
       {activePhoneticTab === 'letters' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          <div>
+            <SyllableAnatomyFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 1 · 音節結構' : 'Figure 1 · Syllable'} />
+            <VowelChartFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 2 · 母音舌位' : 'Figure 2 · Vowels'} />
+          </div>
+
           {/* 12 Single Vowels Showcase */}
           <div style={{ background: 'var(--bg-accent)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', borderLeft: '4px solid var(--brand-primary)' }}>
             <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.2rem', fontWeight: 900, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -464,12 +479,14 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           <div style={{ background: 'var(--bg-accent)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', borderLeft: '4px solid var(--brand-primary)' }}>
             <h3 style={{ margin: '0 0 0.5rem', fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              👄 華語母語者 10 大難發音：口型、舌位與注音對照全攻略
+              👄 華語母語者 {mouthPhoneticGuide.length} 大難發音：口型、舌位與注音對照全攻略
             </h3>
             <p style={{ margin: 0, color: 'var(--text-secondary)', fontSize: '0.94rem', lineHeight: 1.6 }}>
-              許多外國人學越語常因「用國語發音肌肉硬套」而產生嚴重口音。掌握以下 10 個關鍵口型舌位要訣，就能徹底打通發音關卡！
+              許多外國人學越語常因「用國語發音肌肉硬套」而產生嚴重口音。先用下方剖面圖找到每個音的「發音部位」，再逐一掌握 {mouthPhoneticGuide.length} 個關鍵口型舌位要訣，就能徹底打通發音關卡！
             </p>
           </div>
+
+          <ArticulationFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 3 · 發音部位' : 'Figure 3 · Articulation'} />
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
             {mouthPhoneticGuide.map((item, idx) => (
@@ -578,6 +595,8 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
             </p>
           </div>
 
+          <SpellingRulesFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 4 · 拼寫規則' : 'Figure 4 · Spelling'} />
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
             {vietnameseCompoundConsonants.map((cc, idx) => (
               <div
@@ -655,6 +674,8 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
               越南語的尾音分為<strong>「4大鼻音韻尾」</strong>與<strong>「4大入聲阻氣塞音」</strong>。遇到入聲字 (-p, -t, -c, -ch) 時，<strong>只做口形、絕不爆破氣流</strong>，且依據越語音韻法，<strong>入聲字只能搭配 Sắc (銳聲) 與 Nặng (重聲)</strong> 兩種短促聲調！
             </p>
           </div>
+
+          <FinalsFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 5 · 韻尾配對' : 'Figure 5 · Finals'} />
 
           {vietnameseFinalConsonants.map((group, gIdx) => (
             <div key={gIdx} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -734,6 +755,8 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
             </p>
           </div>
 
+          <DiphthongSpellingFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 6 · 雙母音拼寫' : 'Figure 6 · Diphthongs'} />
+
           {vietnameseDiphthongsTriphthongs.map((grp, gIdx) => (
             <div key={gIdx} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <h4 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
@@ -799,6 +822,8 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
       {/* ==================================================== */}
       {activePhoneticTab === 'tones' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+          <ToneContourFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 7 · 六調總覽' : 'Figure 7 · Tone Chart'} />
+
           {/* 6 Tones Pitch Visualizer Cards */}
           <div>
             <h3 style={{ fontSize: '1.25rem', fontWeight: 900, marginBottom: '0.5rem', color: 'var(--text-primary)' }}>
@@ -1068,7 +1093,7 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
                   閉音節（後面帶尾輔音 -n, -ng, -c, -p 等）時，聲調一律標在第二個主要母音上。
                 </div>
                 <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
-                  {[{ vi: 'tiến', zh: '前進' }, { vi: 'muốn', zh: '想要' }, { vi: 'đường', zh: '道路' }, { vi: 'thực', zh: '真實' }].map((w, idx) => (
+                  {[{ vi: 'tiến', zh: '前進' }, { vi: 'muốn', zh: '想要' }, { vi: 'đường', zh: '道路' }, { vi: 'thuyền', zh: '船' }].map((w, idx) => (
                     <button key={idx} onClick={() => handleSpeak(w.vi, `ortho_4_${idx}`)} style={{ background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-xs)', padding: '0.25rem 0.55rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem' }}>
                       <strong style={{ color: 'var(--brand-primary)' }}>{w.vi}</strong>
                       <span style={{ color: 'var(--text-muted)' }}>({w.zh})</span>
@@ -1080,11 +1105,12 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
 
               <div style={{ background: 'var(--bg-main)', border: '1px solid var(--border-color)', borderLeft: '4px solid #ef4444', borderRadius: 'var(--radius-md)', padding: '1rem', gridColumn: '1 / -1' }}>
                 <div style={{ fontWeight: 800, fontSize: '0.98rem', color: '#ef4444', marginBottom: '0.35rem' }}>
-                  5. 現代部頒標準 (2018 Bộ GD&ĐT) vs 傳統習慣 (oa, oe, uy)
+                  5. 介音 o／u 開頭的韻母 (oa, oe, uy)：新式 vs 舊式兩種標法
                 </div>
                 <div style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginBottom: '0.6rem', lineHeight: 1.45 }}>
-                  <strong>【現代新標準】：</strong>標在主母音（開口度較大者，即第二個字母）：<code>hòa</code> (和平), <code>khỏe</code> (健康), <code>thủy</code> (水)。<br />
-                  <strong>【傳統舊習慣】：</strong>部分舊報章常標在介音：<code>hoà</code>, <code>khoẻ</code>, <code>thuỷ</code>。兩者皆通用，但官方公文與各檢定考試推薦採用新標準！
+                  <strong>【新式・依音節結構】：</strong>o／u 在這裡是介音 /w/，真正的主要元音是後面的 a／e／y，所以聲調標在第二個字母：<code>hoà</code> (和平), <code>khoẻ</code> (健康), <code>thuỷ</code> (水)。教育部 2018 年《暫行拼寫規定》與新版教科書採用此式。<br />
+                  <strong>【舊式・傳統習慣】：</strong>聲調標在第一個字母：<code>hòa</code>, <code>khỏe</code>, <code>thủy</code>。目前報章、網路與多數輸入法預設仍最常見。<br />
+                  兩者都算正確、意思完全相同；同一篇文章內保持一致即可。注意：若後面還有韻尾（如 <code>hoàng</code>、<code>toán</code>），則兩派都標在主要元音上。
                 </div>
                 <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
                   {[{ vi: 'hòa', zh: '和平/協調' }, { vi: 'khỏe', zh: '健康/強健' }, { vi: 'thủy', zh: '水運/海產' }].map((w, idx) => (
@@ -1098,6 +1124,8 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
               </div>
             </div>
           </div>
+
+          <ToneTypingFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 8 · 輸入法' : 'Figure 8 · Typing'} />
 
           {/* 6 Tones Ear-Trainer Interactive Sandbox */}
           <div style={{

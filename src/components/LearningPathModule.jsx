@@ -3,12 +3,210 @@ import {
   Compass, CheckCircle, Circle, Target, BookOpen, ArrowRight, Flag, Sparkles,
   AudioLines, MessagesSquare, ShoppingBag, GraduationCap, Play, Route, Brain, Clock, Layers3,
   Zap, LifeBuoy, ShieldCheck, Award, Briefcase, CheckSquare, Square, ChevronDown, ChevronUp, Flame,
-  Search, Landmark, Layers, ArrowUpRight
+  Search, Landmark, Layers, ArrowUpRight, Volume2, MapPin, Coffee, Building2
 } from 'lucide-react';
 import { learningPath, flashcardsDeck } from '../data/vietnameseData';
 import { SYLLABUS_REGISTRY } from '../config/syllabusRegistry';
 import { srsEngine } from '../services/srsEngine';
+import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import './LearningPathModule.css';
+
+export const VIETNAM_LANDSCAPES = [
+  {
+    id: 'hcmc',
+    nameZh: '胡志明市金融特區',
+    nameVi: 'Thành phố Hồ Chí Minh',
+    nameEn: 'Ho Chi Minh City (Saigon)',
+    accent: '🌴 西貢商業音',
+    accentType: 'south',
+    image: 'hcmc_skyline_illustration.jpg',
+    badgeZh: '南越經濟火車頭',
+    badgeEn: 'Economic Hub',
+    descZh: '第一郡金融CBD、咖啡公寓、西貢歌劇院與現代都會，外資FDI與台商聚落重鎮。',
+    descEn: 'District 1 CBD, Cafe Apartments, Opera House, and premier FDI destination.',
+    audioText: 'Thành phố Hồ Chí Minh',
+    targetModule: 'business'
+  },
+  {
+    id: 'benthanh',
+    nameZh: '檳城市場與百年商街',
+    nameVi: 'Chợ Bến Thành',
+    nameEn: 'Ben Thanh Market',
+    accent: '🌴 西貢熱帶市集音',
+    accentType: 'south',
+    image: 'ben_thanh_market_illustration.jpg',
+    badgeZh: '市集採購殺價實戰',
+    badgeEn: 'Bargaining & Market',
+    descZh: '百年歷史經典圓環地標，傳統服飾奧黛、腰果咖啡乾貨與道地小吃應有盡有。',
+    descEn: 'Centennial landmark market for street food, cashews, dried fruits, and bargaining.',
+    audioText: 'Chợ Bến Thành',
+    targetModule: 'shopping'
+  },
+  {
+    id: 'coffee_food',
+    nameZh: '越式滴漏咖啡與美食盛宴',
+    nameVi: 'Cà Phê Phin & Ẩm Thực',
+    nameEn: 'Vietnamese Coffee & Cuisine',
+    accent: '🇻🇳 全國經典風情',
+    accentType: 'north',
+    image: 'viet_coffee_food_illustration.jpg',
+    badgeZh: '慢生活與舌尖記憶',
+    badgeEn: 'Gastronomy & Coffee',
+    descZh: '早晨一杯滴滴冰奶咖啡 (Cà phê sữa đá)，搭配現烤牛肉河粉與法國麵包，體驗真正慢活。',
+    descEn: 'Slow-drip condensed milk iced coffee, beef pho soup, and crispy banh mi baguettes.',
+    audioText: 'Cà phê sữa đá và phở bò',
+    targetModule: 'topics'
+  },
+  {
+    id: 'industrial',
+    nameZh: '南部外資工廠製造特區',
+    nameVi: 'Khu Công Nghiệp Phía Nam',
+    nameEn: 'Southern Industrial Zone',
+    accent: '💼 產線品保與商務音',
+    accentType: 'south',
+    image: 'south_vietnam_industrial_illustration.jpg',
+    badgeZh: 'SMT產線與供應鏈',
+    badgeEn: 'FDI Manufacturing',
+    descZh: '平陽、同奈、隆安台商工廠實況：產線巡檢、AQL抽驗、加班調度與紅發票開立。',
+    descEn: 'Binh Duong & Dong Nai factory clusters: QA audits, shift scheduling, and commercial terms.',
+    audioText: 'Khu công nghiệp phía Nam',
+    targetModule: 'business'
+  },
+  {
+    id: 'dalat',
+    nameZh: '大叻高原避暑山城',
+    nameVi: 'Đà Lạt · Thành Phố Ngàn Hoa',
+    nameEn: 'Dalat Pine Highlands',
+    accent: '⛰️ 高原清涼音',
+    accentType: 'south',
+    image: 'da_lat_mountain_illustration.jpg',
+    badgeZh: '萬花之城與殖民洋樓',
+    badgeEn: 'Cool Retreat',
+    descZh: '海拔1,500公尺高原松林，法式建築林立，盛產高山茶、草莓與鮮花，四季涼爽。',
+    descEn: '1,500m elevation pine hills, French villas, artichoke tea, and cool spring climate.',
+    audioText: 'Đà Lạt thành phố ngàn hoa',
+    targetModule: 'conversation'
+  },
+  {
+    id: 'mekong',
+    nameZh: '湄公河三角洲水鄉',
+    nameVi: 'Đồng Bằng Sông Cửu Long',
+    nameEn: 'Mekong River Delta',
+    accent: '🛶 水鄉西南民謠音',
+    accentType: 'south',
+    image: 'mekong_delta_illustration.jpg',
+    badgeZh: '九龍江魚米之鄉',
+    badgeEn: 'Waterways & Fruits',
+    descZh: '熱帶果園、水上市場小舟穿梭，豐富水產與傳統民歌，感受最淳樸親切的南越熱情。',
+    descEn: 'Floating markets in Can Tho, tropical orchards, boat tours, and southern hospitality.',
+    audioText: 'Đồng bằng sông Cửu Long',
+    targetModule: 'conversation'
+  },
+  {
+    id: 'cuchi',
+    nameZh: '古芝地道歷史遺產',
+    nameVi: 'Địa Đạo Củ Chi',
+    nameEn: 'Cu Chi Historic Tunnels',
+    accent: '🏛️ 歷史文化專題音',
+    accentType: 'south',
+    image: 'cu_chi_tunnels_illustration.jpg',
+    badgeZh: '世界軍事奇蹟',
+    badgeEn: 'Historical Heritage',
+    descZh: '深入地下三層、長達250公里的縱橫地道網絡，親歷越南近代抗爭史與熱帶雨林。',
+    descEn: '250km underground tunnel complex showing resilience, survival tactics, and history.',
+    audioText: 'Địa đạo Củ Chi',
+    targetModule: 'macropol'
+  },
+  {
+    id: 'vungtau',
+    nameZh: '頭頓海濱休閒度假地',
+    nameVi: 'Bãi Biển Vũng Tàu',
+    nameEn: 'Vung Tau Coastal Beach',
+    accent: '🌊 濱海放鬆慢步調',
+    accentType: 'south',
+    image: 'vung_tau_beach_illustration.jpg',
+    badgeZh: '西貢近郊海鮮大道',
+    badgeEn: 'Seaside Getaway',
+    descZh: '距離胡志明市僅兩小時車程，迎著海風漫步海濱公路、品嚐現撈生猛海鮮排檔。',
+    descEn: 'Seaside city with golden sand beaches, seafood night markets, and lighthouse vistas.',
+    audioText: 'Bãi biển Vũng Tàu',
+    targetModule: 'conversation'
+  }
+];
+
+export const VIETNAMESE_ETIQUETTE_TIPS = [
+  {
+    id: 'trada',
+    icon: '🍵',
+    tagZh: '國民待客之道',
+    tagEn: 'Hospitality',
+    titleZh: '落座先來一杯茶：Trà Đá 冰茶哲學',
+    titleEn: 'Trà Đá: The Iced Tea Philosophy',
+    phraseVi: 'Trà đá vỉa hè',
+    audioText: 'Trà đá vỉa hè',
+    descZh: '無論走進路邊小吃攤或商務餐館，店家必先奉上一杯免費或極便宜的冰茉莉花茶（Trà đá）。這不僅是解暑，更是越南人打開話匣子、營造親切放鬆氣氛的必備開場白。',
+    descEn: 'Iced jasmine tea is universally served across eateries, acting as an instant social icebreaker and cooling relief.',
+    color: '#10b981',
+    bg: 'rgba(16, 185, 129, 0.12)'
+  },
+  {
+    id: 'crossing',
+    icon: '🛵',
+    tagZh: '行人求生心法',
+    tagEn: 'Street Safety',
+    titleZh: '等速向前別猶豫：穿過機車洪流',
+    titleEn: 'Crossing the Motorbike Waves',
+    phraseVi: 'Băng qua đường một cách tự tin',
+    audioText: 'Băng qua đường một cách tự tin',
+    descZh: '在河內或胡志明市過斑馬線，千萬不要突然停下或急退！騎士依靠預判軌跡繞過行人。只需步伐穩健、保持等速向前慢行，配合目光接觸（Eye contact），便能安全穿行。',
+    descEn: 'Walk steadily without sudden stops or retreats. Riders anticipate your trajectory and naturally glide around you.',
+    color: '#f59e0b',
+    bg: 'rgba(245, 158, 11, 0.12)'
+  },
+  {
+    id: 'honorifics',
+    icon: '🧧',
+    tagZh: '長幼儒家禮節',
+    tagEn: 'Respect & Manners',
+    titleZh: '雙手接物與長輩尊稱：極致禮貌細節',
+    titleEn: 'Two Hands & Honorifics',
+    phraseVi: 'Lễ phép với người lớn tuổi',
+    audioText: 'Lễ phép với người lớn tuổi',
+    descZh: '遞交名片、現金或奉茶時，雙手遞上（或左手托右手肘）。稱呼長輩切勿直呼其名，必須冠以稱謂（如 Bác Minh, Chị Lan），並在發言句首加「Dạ」、句尾加「ạ」以示尊重。',
+    descEn: 'Always use both hands when passing cards or gifts. Never address elders by name alone; prepend proper kinship titles.',
+    color: '#3b82f6',
+    bg: 'rgba(59, 130, 246, 0.12)'
+  },
+  {
+    id: 'nhau',
+    icon: '🍻',
+    tagZh: '應酬社交密碼',
+    tagEn: 'Social Drinking',
+    titleZh: '1, 2, 3, Dzô!：越式熱炒搏感情',
+    titleEn: '1, 2, 3, Dzô! Cheers Culture',
+    phraseVi: 'Một, hai, ba, dzô!',
+    audioText: 'Một, hai, ba, dzô!',
+    descZh: '在熱炒攤（Quán nhậu）舉杯敬酒時，所有人齊聲高喊「Một, hai, ba, dzô!（1、2、3，乾杯！）」。碰杯時晚輩杯緣稍低於長輩，是建立深厚信任與人脈的最佳場域。',
+    descEn: 'The hearty chant "Một, hai, ba, dzô!" unites colleagues and partners at dinner, building genuine camaraderie.',
+    color: '#ec4899',
+    bg: 'rgba(236, 72, 153, 0.12)'
+  },
+  {
+    id: 'kilogram',
+    icon: '⚖️',
+    tagZh: '市場購物眉角',
+    tagEn: 'Market Units',
+    titleZh: '一公斤不等於一台斤：算清計量基數',
+    titleEn: 'Buying by Ký (Kg) not Jin',
+    phraseVi: 'Mua hàng theo Ký',
+    audioText: 'Mua hàng theo Ký',
+    descZh: '台灣習慣算台斤（600g），但越南全境傳統市場與超市一律採公制「公斤（Ký / kg）」。問價時老闆報的是整整 1,000 公克的價格，換算時記得切勿誤以為價格偏貴！',
+    descEn: 'Vietnamese markets strictly use kilograms (1,000g), unlike the traditional Taiwanese jin (600g).',
+    color: '#8b5cf6',
+    bg: 'rgba(139, 92, 246, 0.12)'
+  }
+];
 
 export const ADAPTIVE_TRACKS = [
   {
@@ -247,6 +445,12 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
       ...prev,
       [key]: !prev[key]
     }));
+  };
+
+  const handlePlayLandscape = (e, text, accent = 'north') => {
+    e.stopPropagation();
+    audioEngine.playHaptic('tap');
+    audioEngine.speak(text, { accent });
   };
 
   const percent = Math.round((completed.length / learningPath.length) * 100);
@@ -548,6 +752,84 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
         </div>
       </section>
 
+      {/* 🇻🇳 越南人文地理與生活實境圖解景觀專區 */}
+      <section className="cultural-landscapes-section">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.5rem' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <MapPin size={15} />
+              <span>{learningMode === 'zh' ? '越南人文地理實景' : 'Cultural Geography & Destinations'}</span>
+            </div>
+            <h2 style={{ fontSize: '1.45rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.35rem 0 0.2rem' }}>
+              {learningMode === 'zh' ? '🇻🇳 越南人文地理與生活實境圖解 (Cultural Landscapes)' : '🇻🇳 Living Environments & Cultural Landscapes'}
+            </h2>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh' 
+                ? '走進真實越南！結合地理風貌、地標發音與實戰情境直達，全方位掌握南北文化思維與語言脈絡。' 
+                : 'Immerse into authentic Vietnam: geographical vistas, native pronunciations, and direct scenario links.'}
+            </p>
+          </div>
+        </div>
+
+        <div className="landscape-grid">
+          {VIETNAM_LANDSCAPES.map(land => (
+            <div
+              key={land.id}
+              className="landscape-card"
+              onClick={() => {
+                audioEngine.playHaptic('tap');
+                setActiveTab(land.targetModule);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+            >
+              <div className="landscape-img-wrap">
+                <img
+                  src={`${import.meta.env.BASE_URL || '/'}images/${land.image}`}
+                  alt={land.nameZh}
+                  className="landscape-img"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+                <div className="landscape-img-overlay">
+                  <span className="landscape-badge">
+                    {learningMode === 'zh' ? land.badgeZh : land.badgeEn}
+                  </span>
+                  <span className="landscape-accent-tag">
+                    {land.accent}
+                  </span>
+                </div>
+              </div>
+
+              <div className="landscape-content">
+                <div className="landscape-title-row">
+                  <span className="landscape-name-zh">
+                    {learningMode === 'zh' ? land.nameZh : land.nameEn}
+                  </span>
+                  <button
+                    className="landscape-listen-btn"
+                    onClick={(e) => handlePlayLandscape(e, land.audioText, land.accentType)}
+                    title="聆聽地標發音"
+                    aria-label={`聆聽 ${land.nameVi} 發音`}
+                  >
+                    <Volume2 size={14} />
+                  </button>
+                </div>
+                <div className="landscape-name-vi">{land.nameVi}</div>
+                <p className="landscape-desc">
+                  {learningMode === 'zh' ? land.descZh : land.descEn}
+                </p>
+                <div className="landscape-footer-cta">
+                  <span>{learningMode === 'zh' ? '前往相關學習模組' : 'Explore Module'}</span>
+                  <ArrowRight size={13} />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* 7-Day Fast-Track Banner */}
       <section style={{
         margin: '1.75rem 0',
@@ -685,6 +967,53 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
           <BookOpen size={18} />
           {learningMode === 'zh' ? '進入越南政經門戶' : 'Explore Macro Hub'}
         </button>
+      </section>
+
+      {/* 💡 越南跨文化避坑與社交禮儀圖解專區 */}
+      <section className="cultural-tips-section">
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
+          <Sparkles size={18} style={{ color: 'var(--brand-gold)' }} />
+          <h2 style={{ fontSize: '1.45rem', fontWeight: 900, color: 'var(--text-primary)', margin: 0 }}>
+            {learningMode === 'zh' ? '💡 越南跨文化避坑與社交禮儀圖解指南' : '💡 Cultural Etiquette & Living Hacks Guide'}
+          </h2>
+        </div>
+        <p style={{ margin: '0 0 1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+          {learningMode === 'zh'
+            ? '在地人沒說但超重要的 5 大日常溝通眉角！從茶桌習慣、馬路求生到商務宴飲禮儀，避免踩雷、迅速融入。'
+            : '5 essential cultural survival rules: tea table habits, road safety, and dinner manners for seamless integration.'}
+        </p>
+
+        <div className="etiquette-grid">
+          {VIETNAMESE_ETIQUETTE_TIPS.map(tip => (
+            <div key={tip.id} className="etiquette-card" style={{ borderLeft: `4px solid ${tip.color}` }}>
+              <div className="etiquette-header">
+                <div className="etiquette-icon-wrap" style={{ background: tip.bg }}>
+                  <span>{tip.icon}</span>
+                </div>
+                <span className="etiquette-tag" style={{ background: tip.bg, color: tip.color }}>
+                  {learningMode === 'zh' ? tip.tagZh : tip.tagEn}
+                </span>
+              </div>
+              <strong className="etiquette-title">
+                {learningMode === 'zh' ? tip.titleZh : tip.titleEn}
+              </strong>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '0.3rem 0 0.5rem' }}>
+                <span className="etiquette-vi">{tip.phraseVi}</span>
+                <button
+                  className="landscape-listen-btn"
+                  onClick={(e) => handlePlayLandscape(e, tip.audioText)}
+                  title="聆聽發音"
+                  aria-label={`聆聽 ${tip.phraseVi} 發音`}
+                >
+                  <Volume2 size={13} />
+                </button>
+              </div>
+              <p className="etiquette-desc">
+                {learningMode === 'zh' ? tip.descZh : tip.descEn}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* SRS Retention Status Hub */}

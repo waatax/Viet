@@ -2,12 +2,162 @@ import React, { useState, useEffect } from 'react';
 import {
   ShoppingBag, DollarSign, Calculator, Volume2, ArrowRight, Landmark,
   Tag, ShieldCheck, Sparkles, Coins, Search, CheckCircle2, Gift,
-  Shirt, Apple, CreditCard, Flame, HelpCircle, Play, Pause
+  Shirt, Apple, CreditCard, Flame, HelpCircle, Play, Pause, AlertTriangle
 } from 'lucide-react';
 import { numbersAndCurrency } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { numberToVietnamese } from '../utils/numberConverter';
+import './ShoppingModule.css';
+
+const getAssetUrl = (path) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${cleanBase}${cleanPath}`;
+};
+
+export const BARGAINING_FLOWCHART_STEPS = [
+  {
+    step: 'Step 1',
+    badge: '1. 詢價試探',
+    phraseVi: 'Cái này bao nhiêu tiền một cái?',
+    phraseZh: '這個一個多少錢？',
+    tipZh: '保持親切微笑問價，先聽老闆開出的初始底牌。',
+    tipEn: 'Politely inquire the starting price with a warm smile.'
+  },
+  {
+    step: 'Step 2',
+    badge: '2. 友善斡旋',
+    phraseVi: 'Bớt chút được không chị, em mua mở hàng?',
+    phraseZh: '可以算便宜點嗎姐姐，我買當開市？',
+    tipZh: '「Mở hàng」(開市好彩頭) 是越南文化中極為受歡迎的溫和還價藉口！',
+    tipEn: '"Mở hàng" invokes opening good luck, highly effective in Vietnam.'
+  },
+  {
+    step: 'Step 3',
+    badge: '3. 堅定出價',
+    phraseVi: 'Hai trăm nghìn được không, em lấy hai cái luôn!',
+    phraseZh: '二十萬好嗎，我直接拿兩個！',
+    tipZh: '以「買複數/打包」為籌碼，提出心目中 7~8 折的明確目標價。',
+    tipEn: 'Bundle items to lock in a 20-30% discount gracefully.'
+  },
+  {
+    step: 'Step 4',
+    badge: '4. 愉快成交',
+    phraseVi: 'Được rồi, tính tiền và cho em xin túi nilon nha!',
+    phraseZh: '好成交，算錢並請給我塑膠袋喔！',
+    tipZh: '達成共識後乾脆爽朗結帳，並檢查收到鈔票是否完整無缺。',
+    tipEn: 'Confirm deal smoothly and check change banknotes for intactness.'
+  }
+];
+
+export const VND_BANKNOTE_DENOMINATIONS = [
+  {
+    value: '500.000 ₫',
+    badgeClass: 'note-badge-500k',
+    colorZh: '藍綠色 (Xanh lam)',
+    material: 'Polymer (高分子塑膠鈔)',
+    spokenNorth: 'Năm trăm nghìn đồng',
+    spokenSouth: 'Năm trăm ngàn đồng',
+    slang: 'Năm xị / 500k',
+    approxTwd: '~NT$ 640',
+    purchasingPowerZh: '商務晚宴招待、四星級渡假飯店一晚、高級雙人按摩 SPA',
+    purchasingPowerEn: 'Business banquet dinner, 1 night in a 4-star hotel, luxury couple spa',
+    warning: '⚠️ 注意：顏色與 2 萬盾相似，在昏暗燈光或夜市付錢時切勿看錯！'
+  },
+  {
+    value: '200.000 ₫',
+    badgeClass: 'note-badge-200k',
+    colorZh: '橘棕色 (Đỏ nâu)',
+    material: 'Polymer (高分子塑膠鈔)',
+    spokenNorth: 'Hai trăm nghìn đồng',
+    spokenSouth: 'Hai trăm ngàn đồng',
+    slang: 'Hai xị / 200k',
+    approxTwd: '~NT$ 255',
+    purchasingPowerZh: '市集採買一公斤頂級帶皮腰果、兩人份海鮮火鍋熱炒',
+    purchasingPowerEn: '1kg premium roasted cashews, seafood hotpot for 2',
+    warning: null
+  },
+  {
+    value: '100.000 ₫',
+    badgeClass: 'note-badge-100k',
+    colorZh: '深綠色 (Xanh lá đậm)',
+    material: 'Polymer (高分子塑膠鈔)',
+    spokenNorth: 'Một trăm nghìn đồng',
+    spokenSouth: 'Một trăm ngàn đồng',
+    slang: 'Một xị / Một lít / 100k',
+    approxTwd: '~NT$ 128',
+    purchasingPowerZh: '連鎖星巴克特大杯咖啡、精美越式刺繡手袋伴手禮',
+    purchasingPowerEn: 'Starbucks Venti beverage, handcrafted embroidered pouch',
+    warning: null
+  },
+  {
+    value: '50.000 ₫',
+    badgeClass: 'note-badge-50k',
+    colorZh: '粉紫色 (Hồng tím)',
+    material: 'Polymer (高分子塑膠鈔)',
+    spokenNorth: 'Năm mươi nghìn đồng',
+    spokenSouth: 'Năm mươi ngàn đồng',
+    slang: 'Năm chục / 50k',
+    approxTwd: '~NT$ 64',
+    purchasingPowerZh: '一碗生牛肉河粉 (Phở bò) + 一杯無糖茉莉冰茶 (Trà đá)',
+    purchasingPowerEn: '1 bowl of traditional beef pho + iced jasmine tea',
+    warning: null
+  },
+  {
+    value: '20.000 ₫',
+    badgeClass: 'note-badge-20k',
+    colorZh: '淺天藍色 (Xanh lơ)',
+    material: 'Polymer (高分子塑膠鈔)',
+    spokenNorth: 'Hai mươi nghìn đồng',
+    spokenSouth: 'Hai mươi ngàn đồng',
+    slang: 'Hai chục / 20k',
+    approxTwd: '~NT$ 25',
+    purchasingPowerZh: '街頭道地冰煉乳咖啡 (Cà phê sữa đá) 或新鮮現剖椰子水',
+    purchasingPowerEn: '1 street iced milk coffee or fresh whole coconut',
+    warning: '⚠️ 注意：色調接近 50 萬盾，找零或收付時請認明「20.000」字樣！'
+  },
+  {
+    value: '10.000 ₫',
+    badgeClass: 'note-badge-10k',
+    colorZh: '黃褐色 (Vàng nâu)',
+    material: 'Polymer (高分子塑膠鈔)',
+    spokenNorth: 'Mười nghìn đồng',
+    spokenSouth: 'Mười ngàn đồng',
+    slang: 'Một chục / 10k',
+    approxTwd: '~NT$ 13',
+    purchasingPowerZh: '一份經典越式法國麵包夾肉 (Bánh mì) 或一大瓶礦泉水',
+    purchasingPowerEn: '1 traditional street banh mi or 1.5L mineral water bottle',
+    warning: null
+  },
+  {
+    value: '5.000 ₫',
+    badgeClass: 'note-badge-small',
+    colorZh: '藍灰色 (Xanh xám)',
+    material: 'Cotton (傳統紙鈔)',
+    spokenNorth: 'Năm nghìn đồng',
+    spokenSouth: 'Năm ngàn đồng',
+    slang: '5k',
+    approxTwd: '~NT$ 6',
+    purchasingPowerZh: '商場機車停車費 (Gửi xe máy)、公廁清潔費',
+    purchasingPowerEn: 'Motorbike parking fee, public restroom charge',
+    warning: null
+  },
+  {
+    value: '2.000 ₫ / 1.000 ₫',
+    badgeClass: 'note-badge-small',
+    colorZh: '棕褐/紫灰色',
+    material: 'Cotton (傳統紙鈔)',
+    spokenNorth: 'Một nghìn / Hai nghìn',
+    spokenSouth: 'Một ngàn / Hai ngàn',
+    slang: '1k - 2k',
+    approxTwd: '~NT$ 1~3',
+    purchasingPowerZh: '超商找零小額零錢、超商常以濕紙巾或喉糖代替找零',
+    purchasingPowerEn: 'Small change in supermarkets, often replaced by wet wipes or candies',
+    warning: null
+  }
+];
 
 export const ShoppingModule = ({ selectedAccent }) => {
   const { learningMode, loc, t } = useLanguage();
@@ -145,6 +295,31 @@ export const ShoppingModule = ({ selectedAccent }) => {
 
   return (
     <div className="module-container">
+      {/* Hero Banner with Ben Thanh Market Illustration */}
+      <div className="shopping-hero-card">
+        <div className="shopping-hero-banner">
+          <img
+            src={getAssetUrl('images/ben_thanh_market_illustration.jpg')}
+            alt="Ben Thanh Market Saigon"
+            className="shopping-hero-img"
+            loading="lazy"
+          />
+          <div className="shopping-hero-overlay">
+            <h2 className="shopping-hero-title">
+              <span>🛍️</span>
+              {learningMode === 'zh'
+                ? '越南市集、高頻物價與大額盾幣速讀特訓'
+                : 'Vietnamese Street Market, Currency Ladder & Bargaining Hub'}
+            </h2>
+            <p className="shopping-hero-desc">
+              {learningMode === 'zh'
+                ? '從胡志明市濱城市場到河內同春市場，掌握高分子塑膠鈔面額特徵、越南在地「去三個零」速算思維與 4 步優雅殺價藝術，買得道地不踩雷！'
+                : 'Master VND polymer banknote colors, rapid zero-dropping mental math, and 4-step courteous bargaining from Saigon to Hanoi.'}
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Header Banner */}
       <div className="section-header">
         <h2 className="section-title">
@@ -324,6 +499,55 @@ export const ShoppingModule = ({ selectedAccent }) => {
                   ? '精選 45+ 句夜市殺價、特產伴手禮、服飾試穿、水果秤重與行動支付高頻句型，配備真人朗讀與實戰秘技'
                   : 'Master 45+ practical shopping phrases across bargaining, souvenirs, clothing, fruit markets, and payments.'}
               </p>
+            </div>
+          </div>
+
+          {/* 🌟 4-Step Practical Bargaining Flowchart */}
+          <div className="bargaining-flowchart-card">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '0.4rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <Flame size={20} color="var(--brand-accent)" />
+                <h4 style={{ margin: 0, fontSize: '1.2rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
+                  {learningMode === 'zh'
+                    ? '在地達人：市集殺價實戰 4 步曲流程圖'
+                    : '4-Step Market Bargaining Action Roadmap'}
+                </h4>
+              </div>
+              <span style={{ fontSize: '0.82rem', fontWeight: 700, color: '#059669', background: 'rgba(16, 185, 129, 0.12)', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
+                ✨ 濱城市場 / 同春市場實測推薦
+              </span>
+            </div>
+            <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+              {learningMode === 'zh'
+                ? '在傳統市場或觀光夜市買腰果、咖啡與手工藝品時，遵循這四個心理節奏，親切有禮卻堅定，輕鬆達成雙贏好成交：'
+                : 'Follow this 4-step psychological progression to bargain gracefully and secure reasonable local discounts.'}
+            </p>
+
+            <div className="flowchart-step-grid">
+              {BARGAINING_FLOWCHART_STEPS.map((step, sIdx) => {
+                const isPlaying = activeKey === `flow_step_${sIdx}` || activeKey === step.phraseVi;
+                return (
+                  <div key={sIdx} className="flowchart-step-box">
+                    <div className="flowchart-step-header">
+                      <span className="flowchart-step-badge">{step.badge}</span>
+                      <button
+                        className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
+                        onClick={() => handleSpeakText(step.phraseVi, `flow_step_${sIdx}`)}
+                        title={`朗讀: ${step.phraseVi}`}
+                      >
+                        <Volume2 size={13} />
+                      </button>
+                    </div>
+                    <div>
+                      <div className="flowchart-viet-phrase">{step.phraseVi}</div>
+                      <div className="flowchart-zh-phrase">{step.phraseZh}</div>
+                    </div>
+                    <div className="flowchart-tip">
+                      💡 {learningMode === 'zh' ? step.tipZh : step.tipEn}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
@@ -533,9 +757,129 @@ export const ShoppingModule = ({ selectedAccent }) => {
         </div>
       )}
 
-      {/* TAB 3: PRICE TIERS */}
+      {/* TAB 3: PRICE TIERS & BANKNOTE DENOMINATIONS */}
       {activeTabSub === 'brackets' && (
-        <div className="simulator-box">
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+          {/* 🌟 Master Banknote Denomination Ladder Table */}
+          <div className="denomination-container">
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.6rem', marginBottom: '0.4rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                <Coins size={22} color="var(--brand-gold)" />
+                <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 900, color: 'var(--brand-primary)' }}>
+                  {learningMode === 'zh'
+                    ? '越南盾紙鈔全額階梯、特徵與口語稱呼全覽表'
+                    : 'Vietnamese Dong Banknotes: Denomination Ladder & Spoken Terms'}
+                </h3>
+              </div>
+              <span className="flowchart-step-badge">
+                💵 現金辨識與防混手冊
+              </span>
+            </div>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
+              {learningMode === 'zh'
+                ? '越南目前流通 1 萬至 50 萬盾的「高分子聚合物塑膠鈔 (Polymer)」以及小額棉紙鈔。掌握北越/南越稱呼與常見俗稱，快速建立盾幣價值感：'
+                : 'Vietnam uses modern Polymer banknotes for 10k-500k notes, plus cotton notes for small change. Learn North/South spoken forms and slang.'}
+            </p>
+
+            <div className="denomination-table-wrapper">
+              <table className="denomination-table">
+                <thead>
+                  <tr>
+                    <th>{learningMode === 'zh' ? '面額鈔票' : 'Denomination'}</th>
+                    <th>{learningMode === 'zh' ? '材質與色調' : 'Color & Material'}</th>
+                    <th>{learningMode === 'zh' ? '北越口語 / 南越口語' : 'North / South Spoken'}</th>
+                    <th>{learningMode === 'zh' ? '在地口語俗稱' : 'Local Slang'}</th>
+                    <th>{learningMode === 'zh' ? '約合台幣' : 'TWD Approx'}</th>
+                    <th>{learningMode === 'zh' ? '日常購買力指標' : 'Purchasing Power'}</th>
+                    <th>{learningMode === 'zh' ? '發音' : 'Audio'}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {VND_BANKNOTE_DENOMINATIONS.map((note, nIdx) => {
+                    const isNorthPlaying = activeKey === `note_north_${nIdx}` || activeKey === note.spokenNorth;
+                    const isSouthPlaying = activeKey === `note_south_${nIdx}` || activeKey === note.spokenSouth;
+                    return (
+                      <tr key={nIdx}>
+                        <td>
+                          <span className={`note-badge ${note.badgeClass}`}>
+                            {note.value}
+                          </span>
+                        </td>
+                        <td>
+                          <div style={{ fontWeight: 700, color: 'var(--text-primary)' }}>{note.colorZh}</div>
+                          <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>{note.material}</div>
+                        </td>
+                        <td>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.2rem' }}>
+                            <span style={{ fontSize: '0.78rem', color: 'var(--brand-accent)', fontWeight: 800 }}>北:</span>
+                            <span style={{ fontWeight: 700, fontSize: '0.88rem' }}>{note.spokenNorth}</span>
+                            <button
+                              className={`speaker-btn mini-btn ${isNorthPlaying ? 'playing' : ''}`}
+                              onClick={() => handleSpeakText(note.spokenNorth, `note_north_${nIdx}`)}
+                              title={`北越音: ${note.spokenNorth}`}
+                            >
+                              <Volume2 size={12} />
+                            </button>
+                          </div>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                            <span style={{ fontSize: '0.78rem', color: 'var(--brand-gold)', fontWeight: 800 }}>南:</span>
+                            <span style={{ fontWeight: 700, fontSize: '0.88rem' }}>{note.spokenSouth}</span>
+                            <button
+                              className={`speaker-btn mini-btn ${isSouthPlaying ? 'playing' : ''}`}
+                              onClick={() => handleSpeakText(note.spokenSouth, `note_south_${nIdx}`)}
+                              title={`南越音: ${note.spokenSouth}`}
+                            >
+                              <Volume2 size={12} />
+                            </button>
+                          </div>
+                        </td>
+                        <td>
+                          <span style={{ fontWeight: 800, color: 'var(--brand-primary)', background: 'var(--bg-main)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid var(--border-color)', fontSize: '0.84rem' }}>
+                            {note.slang}
+                          </span>
+                        </td>
+                        <td style={{ fontWeight: 800, color: 'var(--brand-accent)' }}>
+                          {note.approxTwd}
+                        </td>
+                        <td style={{ fontSize: '0.86rem', color: 'var(--text-secondary)' }}>
+                          <div>{learningMode === 'zh' ? note.purchasingPowerZh : note.purchasingPowerEn}</div>
+                          {note.warning && (
+                            <div style={{ fontSize: '0.78rem', color: '#d97706', fontWeight: 700, marginTop: '0.25rem' }}>
+                              {note.warning}
+                            </div>
+                          )}
+                        </td>
+                        <td>
+                          <button
+                            className="speaker-btn mini-btn"
+                            onClick={() => handleSpeakText(selectedAccent === 'north' ? note.spokenNorth : note.spokenSouth)}
+                            title="朗讀常用稱呼"
+                          >
+                            <Volume2 size={14} />
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Crucial Alert Banner */}
+            <div className="currency-warning-box">
+              <AlertTriangle size={24} color="#d97706" style={{ flexShrink: 0, marginTop: '0.15rem' }} />
+              <div>
+                <strong style={{ fontSize: '0.96rem', color: '#b45309', display: 'block', marginBottom: '0.2rem' }}>
+                  ⚠️ 極度重要：50 萬盾 (500.000₫) 與 2 萬盾 (20.000₫) 藍色防搞混指南
+                </strong>
+                <p style={{ margin: 0, fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                  這兩張鈔票同為淺藍至藍綠色高分子塑膠材質，在計程車內、夜市暗處極容易付錯！請記住秘訣：<strong>50 萬盾面額較大、紙鈔尺寸略大、中央有鮮明的透明防偽視窗</strong>；付大鈔前先將紙鈔攤平看清四個零與五個零。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="simulator-box" style={{ margin: 0 }}>
           <h3 style={{ fontSize: '1.25em', fontWeight: 800, marginBottom: '1.2rem' }}>
             {learningMode === 'zh' ? '越南日常生活與商業物價分級階梯' : 'Everyday VND Price Tiers'}
           </h3>
@@ -572,7 +916,8 @@ export const ShoppingModule = ({ selectedAccent }) => {
             </table>
           </div>
         </div>
-      )}
+      </div>
+    )}
 
       {/* TAB 4: BANKING & DIALOGUES */}
       {activeTabSub === 'banking' && (

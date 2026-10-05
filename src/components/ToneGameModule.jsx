@@ -7,6 +7,7 @@ import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 import './ToneGameModule.css';
+import { ToneContourFigure, ToneConfusionFigure } from './visuals/PhoneticsVisuals';
 
 const TONES = [
   { id: 'ngang', mark: ' ', nameVi: 'Ngang', nameZh: '平聲 (Ngang)', nameEn: 'Level Tone', pitch: '44', example: 'ma', color: '#3b82f6', contour: 'M 10 30 L 90 30' },
@@ -43,39 +44,39 @@ export const SIX_TONE_SANDBOX_SYLLABLES = [
     ]
   },
   {
-    base: 'ca',
-    name: 'ca 系列 (飲食與日常)',
+    base: 'la',
+    name: 'la 系列 (六調全為真實詞)',
     tones: [
-      { id: 'ngang', vi: 'ca', zh: '唱歌/大杯', pitch: '44', note: '平緩中高' },
-      { id: 'huyen', vi: 'cà', zh: '茄子/咖啡', pitch: '31', note: '舒緩低降' },
-      { id: 'sac', vi: 'cá', zh: '魚肉/海鮮', pitch: '35', note: '昂揚急升' },
-      { id: 'hoi', vi: 'cả', zh: '全部/長兄', pitch: '313', note: '降後微揚' },
-      { id: 'nga', vi: 'cã', zh: '吵架 (古語)', pitch: '35̃', note: '微阻高揚' },
-      { id: 'nang', vi: 'cạ', zh: '搭檔/麻吉', pitch: '21', note: '急墜短促' }
+      { id: 'ngang', vi: 'la', zh: '喊叫/騾子', pitch: '44', note: '平緩中高' },
+      { id: 'huyen', vi: 'là', zh: '是 (繫詞)', pitch: '31', note: '舒緩低降' },
+      { id: 'sac', vi: 'lá', zh: '葉子', pitch: '35', note: '昂揚急升' },
+      { id: 'hoi', vi: 'lả', zh: '虛脫/無力', pitch: '313', note: '降後微揚' },
+      { id: 'nga', vi: 'lã', zh: '白開水 (nước lã)', pitch: '35̃', note: '微阻高揚' },
+      { id: 'nang', vi: 'lạ', zh: '陌生/奇怪', pitch: '21', note: '急墜短促' }
     ]
   },
   {
     base: 'ban',
-    name: 'ban 系列 (尾鼻音 -n 對比)',
+    name: 'ban 系列 (尾鼻音 -n · 跌聲為練習音節)',
     tones: [
       { id: 'ngang', vi: 'ban', zh: '部門/白天', pitch: '44', note: '平緩中高' },
       { id: 'huyen', vi: 'bàn', zh: '桌子/商量', pitch: '31', note: '舒緩低降' },
       { id: 'sac', vi: 'bán', zh: '賣出/出售', pitch: '35', note: '昂揚急升' },
       { id: 'hoi', vi: 'bản', zh: '版本/村落', pitch: '313', note: '降後微揚' },
-      { id: 'nga', vi: 'bãn', zh: '平坦遼闊', pitch: '35̃', note: '微阻高揚' },
+      { id: 'nga', vi: 'bãn', zh: '（無此詞・僅練調值）', pitch: '35̃', note: '微阻高揚' },
       { id: 'nang', vi: 'bạn', zh: '朋友/夥伴', pitch: '21', note: '急墜短促' }
     ]
   },
   {
-    base: 'ti',
-    name: 'ti 系列 (閉母音 i 對比)',
+    base: 'bi',
+    name: 'bi 系列 (閉母音 i · 含漢越詞)',
     tones: [
-      { id: 'ngang', vi: 'ti', zh: '奶嘴/微細', pitch: '44', note: '平緩中高' },
-      { id: 'huyen', vi: 'tì', zh: '脾臟/依託', pitch: '31', note: '舒緩低降' },
-      { id: 'sac', vi: 'tí', zh: '一點點/子時', pitch: '35', note: '昂揚急升' },
-      { id: 'hoi', vi: 'tỉ', zh: '十億/比例', pitch: '313', note: '降後微揚' },
-      { id: 'nga', vi: 'tĩ', zh: '陶壺 (古音)', pitch: '35̃', note: '微阻高揚' },
-      { id: 'nang', vi: 'tị', zh: '避難/嫉妒', pitch: '21', note: '急墜短促' }
+      { id: 'ngang', vi: 'bi', zh: '彈珠/滾珠', pitch: '44', note: '平緩中高' },
+      { id: 'huyen', vi: 'bì', zh: '表皮/袋子 (皮)', pitch: '31', note: '舒緩低降' },
+      { id: 'sac', vi: 'bí', zh: '南瓜/祕 (bí mật)', pitch: '35', note: '昂揚急升' },
+      { id: 'hoi', vi: 'bỉ', zh: '鄙/比利時 (Bỉ)', pitch: '313', note: '降後微揚' },
+      { id: 'nga', vi: 'bĩ', zh: '否 (否極泰來 bĩ cực thái lai)', pitch: '35̃', note: '微阻高揚' },
+      { id: 'nang', vi: 'bị', zh: '被/遭受', pitch: '21', note: '急墜短促' }
     ]
   }
 ];
@@ -531,11 +532,26 @@ export const ToneGameModule = ({ selectedAccent = 'north', updateUserStats }) =>
               </div>
             )}
           </div>
+
+          <div style={{ marginTop: '2rem' }}>
+            <ToneConfusionFigure
+              accent={selectedAccent}
+              collapsible
+              defaultOpen={false}
+              badge={learningMode === 'zh' ? '賽前暖身 · 易混聲調' : 'Warm-up · Tricky pairs'}
+            />
+          </div>
         </>
       )}
 
       {/* TAB 2: 6-Tone Sandbox Explorer */}
       {activeTab === 'sandbox' && (
+        <>
+        <ToneContourFigure
+          accent={selectedAccent}
+          defaultOverlay
+          badge={learningMode === 'zh' ? '圖解 · 六調 vs 國語四聲' : 'Figure · Tones vs Mandarin'}
+        />
         <div style={{
           background: 'var(--bg-card)',
           border: '1.5px solid var(--border-color)',
@@ -711,6 +727,13 @@ export const ToneGameModule = ({ selectedAccent = 'north', updateUserStats }) =>
             })}
           </div>
         </div>
+        <div style={{ marginTop: '2rem' }}>
+          <ToneConfusionFigure
+            accent={selectedAccent}
+            badge={learningMode === 'zh' ? '圖解 · 易混聲調對照' : 'Figure · Tricky pairs'}
+          />
+        </div>
+        </>
       )}
     </div>
   );

@@ -1,0 +1,250 @@
+/* LearningPathModule - Visual Architecture & Cultural Landscapes */
+
+.cultural-landscapes-section {
+  margin: 2.25rem 0;
+  padding: 1.75rem 2rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-highlight);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+}
+
+.landscape-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.landscape-card {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+.landscape-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand-accent);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+.landscape-img-wrap {
+  width: 100%;
+  height: 160px;
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-card-subtle);
+}
+
+.landscape-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.landscape-card:hover .landscape-img {
+  transform: scale(1.08);
+}
+
+.landscape-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(10, 14, 23, 0.85) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.85rem;
+}
+
+.landscape-badge {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.landscape-accent-tag {
+  align-self: flex-end;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--brand-gold);
+  background: rgba(234, 179, 8, 0.2);
+  border: 1px solid var(--brand-gold);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.landscape-content {
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.landscape-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.landscape-name-zh {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--text-primary);
+}
+
+.landscape-listen-btn {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.landscape-listen-btn:hover {
+  background: var(--brand-accent);
+  color: #fff;
+  border-color: var(--brand-accent);
+  transform: scale(1.1);
+}
+
+.landscape-name-vi {
+  font-size: 0.82rem;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.landscape-desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.landscape-footer-cta {
+  margin-top: 0.85rem;
+  padding-top: 0.65rem;
+  border-top: 1px dashed var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--brand-accent);
+}
+
+/* Cultural Etiquette Cheat Sheet */
+.cultural-tips-section {
+  margin: 2.25rem 0;
+  padding: 1.75rem 2rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--card-shadow);
+}
+
+.etiquette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.etiquette-card {
+  background: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.etiquette-card:hover {
+  border-color: var(--border-highlight);
+  background: var(--bg-card-subtle);
+  transform: translateY(-2px);
+}
+
+.etiquette-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.etiquette-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.etiquette-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+}
+
+.etiquette-title {
+  font-size: 1.02rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.etiquette-vi {
+  font-size: 0.8rem;
+  color: var(--brand-accent);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.etiquette-desc {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .cultural-landscapes-section,
+  .cultural-tips-section {
+    padding: 1.25rem 1rem;
+  }
+  .landscape-grid,
+  .etiquette-grid {
+    grid-template-columns: 1fr;
+  }
+}

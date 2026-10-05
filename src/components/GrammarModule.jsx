@@ -427,11 +427,104 @@ export const GRAMMAR_DRILLS = [
 import React, { useState, useEffect } from 'react';
 import {
   Layers, Puzzle, CheckCircle, RefreshCw, Volume2, ArrowRight, Sparkles,
-  CheckCircle2, XCircle, BookOpen, Award, Check, HelpCircle, Headphones
+  CheckCircle2, XCircle, BookOpen, Award, Check, HelpCircle, Headphones,
+  Clock, HeartHandshake, AlertCircle, ShieldCheck
 } from 'lucide-react';
 import { grammarRules, interactivePuzzles } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import './GrammarModule.css';
+
+const getAssetUrl = (path) => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${base}${cleanPath}`;
+};
+
+export const UNIVERSAL_CLASSIFIERS = [
+  {
+    classifier: 'Cái',
+    categoryZh: '一般無生命人造物 / 家俱器具',
+    ruleZh: '越語使用頻率最高的量詞，指桌椅、電器、工具等日常人造物品。',
+    exampleVi: 'cái bàn',
+    exampleZh: '一張桌子',
+    sampleSentence: 'Tôi muốn mua cái bàn này.'
+  },
+  {
+    classifier: 'Con',
+    categoryZh: '活體動物 / 具生命動態之物 / 刀具道路',
+    ruleZh: '修飾所有動物 (狗貓魚鳥)，亦修飾具攻擊性或延伸動態之物 (刀 con dao, 路 con đường)。',
+    exampleVi: 'con chó',
+    exampleZh: '一隻狗',
+    sampleSentence: 'Nhà tôi có một con chó.'
+  },
+  {
+    classifier: 'Người',
+    categoryZh: '人物 / 職業身分 / 國籍',
+    ruleZh: '指稱一般人、朋友、長輩或特定國籍人士，具禮貌尊重語感。',
+    exampleVi: 'người bạn',
+    exampleZh: '一位朋友',
+    sampleSentence: 'Anh ấy là người bạn thân của tôi.'
+  },
+  {
+    classifier: 'Chiếc',
+    categoryZh: '交通工具 (車船機) / 成雙之單物 (鞋襪手套)',
+    ruleZh: '嚴格用於各類交通工具 (xe máy, ô tô, máy bay)，或成雙成對中單獨的一件。',
+    exampleVi: 'chiếc xe máy',
+    exampleZh: '一輛機車',
+    sampleSentence: 'Chiếc xe máy này rất mới.'
+  },
+  {
+    classifier: 'Bức',
+    categoryZh: '平面展示物 / 藝術品 / 牆面信件',
+    ruleZh: '修飾畫作 (bức tranh)、相片 (bức ảnh)、牆壁 (bức tường)、信件 (bức thư)。',
+    exampleVi: 'bức tranh',
+    exampleZh: '一幅畫作',
+    sampleSentence: 'Bức tranh này rất đẹp.'
+  },
+  {
+    classifier: 'Tờ',
+    categoryZh: '薄紙 / 報紙 / 票券 / 紙幣',
+    ruleZh: '修飾單張薄片紙質物品：tờ báo (報紙)、tờ giấy (紙)、tờ tiền (鈔票)。',
+    exampleVi: 'tờ báo',
+    exampleZh: '一份報紙',
+    sampleSentence: 'Cho tôi xem tờ báo hôm nay.'
+  },
+  {
+    classifier: 'Quả / Trái',
+    categoryZh: '球狀物 / 水果 / 心臟山丘',
+    ruleZh: '北越習慣稱「Quả」，南越習慣稱「Trái」，修飾所有水果或球形器官。',
+    exampleVi: 'quả táo',
+    exampleZh: '一顆蘋果',
+    sampleSentence: 'Tôi ăn một quả táo.'
+  },
+  {
+    classifier: 'Cuốn / Quyển',
+    categoryZh: '裝訂成冊之書籍 / 筆記本 / 字典',
+    ruleZh: '北越常用「Quyển」，南越常用「Cuốn」，修飾所有裝訂成冊出版物。',
+    exampleVi: 'cuốn sách',
+    exampleZh: '一本書',
+    sampleSentence: 'Cuốn sách này rất hay.'
+  },
+  {
+    classifier: 'Ngôi',
+    categoryZh: '大型建築物 / 廟宇居所 / 星辰',
+    ruleZh: '修飾具神聖、溫馨或崇高感之建築：ngôi nhà (房子)、ngôi chùa (寺廟)、ngôi sao (星星)。',
+    exampleVi: 'ngôi nhà',
+    exampleZh: '一棟房子',
+    sampleSentence: 'Ngôi nhà này rất đẹp.'
+  },
+  {
+    classifier: 'Cây',
+    categoryZh: '樹木植物 / 筆具雨傘 / 長條直立物',
+    ruleZh: '修飾天然樹木 (cây cối)，或筆直長條工具：cây bút (筆)、cây dù (傘)、cây cầu (橋)。',
+    exampleVi: 'cây bút',
+    exampleZh: '一支筆',
+    sampleSentence: 'Cho tôi mượn cây bút này.'
+  }
+];
 
 export const GrammarModule = ({ selectedAccent, updateUserStats, setActiveTab: setModuleTab }) => {
   const { learningMode, loc, t } = useLanguage();
@@ -612,30 +705,215 @@ export const GrammarModule = ({ selectedAccent, updateUserStats, setActiveTab: s
       {/* TAB 1: 20 Core Rules Grid */}
       {activeTab === 'rules' && (
         <>
-          {/* Key Concept Educational Banner */}
-          <div className="educational-block" style={{ background: 'var(--bg-accent)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', marginBottom: '2rem', borderLeft: '4px solid var(--brand-primary)' }}>
-            <h3 style={{ fontSize: '1.2em', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Sparkles size={20} color="var(--brand-primary)" />
-              {learningMode === 'zh' ? '核心思維：越語與中文的兩大決定性差異' : 'Key Concepts: SVO & Post-Nominal Modification'}
-            </h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.2rem', color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-              <div style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ fontWeight: 800, color: 'var(--brand-primary)', marginBottom: '0.4rem' }}>
-                  1. 形容詞嚴格「後置修飾」
-                </h4>
-                <p style={{ fontSize: '0.9rem', margin: 0 }}>
-                  中文說「白襯衫、冰咖啡」，越語嚴格反過來「中心名詞在前，形容詞在後」：<code>áo trắng</code> (襯衫 白)、<code>cà phê đá</code> (咖啡 冰)。
-                </p>
+          {/* 語法核心思維 3 大視覺圖解走廊 */}
+          <div className="grammar-visual-mindmap">
+            {/* 圖解 1: 核心名詞與形容詞後置修飾實景流程圖 */}
+            <div className="grammar-hero-banner">
+              <div className="grammar-hero-img-box">
+                <img
+                  src={getAssetUrl('images/viet_coffee_food_illustration.jpg')}
+                  alt="Cà phê sữa đá - 越式冰奶咖啡"
+                  className="grammar-hero-img"
+                  loading="lazy"
+                />
+                <div className="grammar-hero-overlay">
+                  <span>☕ 經典範例：Cà phê sữa đá (冰奶咖啡)</span>
+                </div>
               </div>
-              <div style={{ background: 'var(--bg-card)', padding: '1rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
-                <h4 style={{ fontWeight: 800, color: 'var(--brand-green)', marginBottom: '0.4rem' }}>
-                  2. 動詞不變形，由時態助詞標記
-                </h4>
-                <p style={{ fontSize: '0.9rem', margin: 0 }}>
-                  動詞永遠維持原型！透過動詞前的助詞表示時間：<code>đã</code> (過去已做)、<code>đang</code> (正在進行)、<code>sẽ</code> (將要發生)。
+
+              <div className="grammar-flow-content">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--brand-gold)', fontWeight: 800, fontSize: '0.85rem' }}>
+                  <Sparkles size={16} />
+                  <span>{learningMode === 'zh' ? '越語決定性語序法則 01' : 'Core Syntax Principle 01'}</span>
+                </div>
+                <h3 style={{ margin: 0, fontSize: '1.25rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                  {learningMode === 'zh' ? '中心名詞在前，修飾形容詞逐層「後置」' : 'Head Noun Initial, Modifiers Post-posed'}
+                </h3>
+                <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                  {learningMode === 'zh'
+                    ? '與中文、英語「修飾語放前面」截然相反！越語一律「核心主體先出，特徵屬性後補」。例如點一杯冰奶咖啡：'
+                    : 'Contrary to English/Chinese, the head noun appears first, followed by sequential descriptors:'}
                 </p>
+
+                <div className="grammar-flow-steps">
+                  <div className="flow-step-block primary">
+                    <span style={{ fontSize: '0.72rem', color: 'var(--brand-gold)', fontWeight: 800 }}>① 核心名詞</span>
+                    <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)' }}>Cà phê</strong>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>(咖啡)</span>
+                  </div>
+                  <span className="flow-arrow">➔</span>
+                  <div className="flow-step-block secondary">
+                    <span style={{ fontSize: '0.72rem', color: '#38bdf8', fontWeight: 800 }}>② 特徵1 (加奶)</span>
+                    <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)' }}>sữa</strong>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>(煉乳/奶)</span>
+                  </div>
+                  <span className="flow-arrow">➔</span>
+                  <div className="flow-step-block tertiary">
+                    <span style={{ fontSize: '0.72rem', color: '#a855f7', fontWeight: 800 }}>③ 特徵2 (加冰)</span>
+                    <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)' }}>đá</strong>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>(冰塊)</span>
+                  </div>
+                  <button
+                    className="mini-btn"
+                    onClick={() => audioEngine.speak('cà phê sữa đá', { accent: selectedAccent, key: 'visual_caphe' })}
+                    style={{ marginLeft: '0.5rem', padding: '0.45rem 0.8rem', borderRadius: '9999px', display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: 'var(--brand-emerald)', color: '#fff', border: 'none', cursor: 'pointer', fontWeight: 700 }}
+                  >
+                    <Volume2 size={14} />
+                    <span>聆聽</span>
+                  </button>
+                </div>
               </div>
             </div>
+
+            {/* 圖解 2: 三大時態助詞時間軸 */}
+            <div className="tense-timeline-card">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.3rem' }}>
+                <Clock size={18} color="var(--brand-primary)" />
+                <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                  {learningMode === 'zh' ? '越語三大時態助詞時間軸 (動詞不變形)' : 'Pre-verbal Aspect Particles Timeline'}
+                </h3>
+              </div>
+              <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                {learningMode === 'zh'
+                  ? '越語動詞完全無過去式、進行式之詞尾屈折變化，只需在動詞前加上時態助詞：'
+                  : 'No verbal conjugation required. Simply place temporal markers directly before verbs:'}
+              </p>
+
+              <div className="tense-timeline-grid">
+                <div className="tense-node" style={{ borderTopColor: '#f59e0b' }}>
+                  <div className="tense-node-title">
+                    <span style={{ color: '#f59e0b' }}>ĐÃ (已 / 過去)</span>
+                    <span style={{ fontSize: '1.2rem' }}>⏪</span>
+                  </div>
+                  <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                    表示動作已經發生或完成。
+                  </div>
+                  <div style={{ background: 'rgba(0,0,0,0.15)', padding: '0.4rem 0.6rem', borderRadius: '6px', fontSize: '0.85rem' }}>
+                    <strong>Tôi đã ăn cơm.</strong> (我已經吃過飯了)
+                  </div>
+                </div>
+
+                <div className="tense-node" style={{ borderTopColor: '#3b82f6' }}>
+                  <div className="tense-node-title">
+                    <span style={{ color: '#3b82f6' }}>ĐANG (正在 / 進行)</span>
+                    <span style={{ fontSize: '1.2rem' }}>⏸️</span>
+                  </div>
+                  <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                    表示動作當前正在進行中。
+                  </div>
+                  <div style={{ background: 'rgba(0,0,0,0.15)', padding: '0.4rem 0.6rem', borderRadius: '6px', fontSize: '0.85rem' }}>
+                    <strong>Tôi đang học tiếng Việt.</strong> (我正在學越南語)
+                  </div>
+                </div>
+
+                <div className="tense-node" style={{ borderTopColor: '#10b981' }}>
+                  <div className="tense-node-title">
+                    <span style={{ color: '#10b981' }}>SẼ (將要 / 未來)</span>
+                    <span style={{ fontSize: '1.2rem' }}>⏩</span>
+                  </div>
+                  <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                    表示未來即將發生的動作或計畫。
+                  </div>
+                  <div style={{ background: 'rgba(0,0,0,0.15)', padding: '0.4rem 0.6rem', borderRadius: '6px', fontSize: '0.85rem' }}>
+                    <strong>Tôi sẽ đi Việt Nam.</strong> (我將會去越南)
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* 圖解 3: 被動感情天平 (Bị vs Được) */}
+            <div className="sentiment-balance-grid">
+              <div className="sentiment-box negative">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#ef4444', fontWeight: 800, fontSize: '1.05rem' }}>
+                  <AlertCircle size={18} />
+                  <span>BỊ 🌧️ (非自願 / 負面受害)</span>
+                </div>
+                <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.45 }}>
+                  用於遭受痛苦、損失、懲罰或不幸遭遇，表達委屈遺憾。
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: '0.3rem' }}>
+                  <span style={{ background: 'rgba(239, 68, 68, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '6px', fontSize: '0.82rem', color: '#ef4444', fontWeight: 700 }}>
+                    Bị phạt (被罰)
+                  </span>
+                  <span style={{ background: 'rgba(239, 68, 68, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '6px', fontSize: '0.82rem', color: '#ef4444', fontWeight: 700 }}>
+                    Bị ốm (生病)
+                  </span>
+                  <span style={{ background: 'rgba(239, 68, 68, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '6px', fontSize: '0.82rem', color: '#ef4444', fontWeight: 700 }}>
+                    Bị trễ xe (被耽誤/錯過車)
+                  </span>
+                </div>
+              </div>
+
+              <div className="sentiment-box positive">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#10b981', fontWeight: 800, fontSize: '1.05rem' }}>
+                  <ShieldCheck size={18} />
+                  <span>ĐƯỢC ☀️ (幸運獲得 / 正面受益)</span>
+                </div>
+                <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.45 }}>
+                  用於獲得好處、稱讚、榮耀、允許或幸運機會，表達喜悅慶幸。
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginTop: '0.3rem' }}>
+                  <span style={{ background: 'rgba(16, 185, 129, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '6px', fontSize: '0.82rem', color: '#10b981', fontWeight: 700 }}>
+                    Được khen (受表揚)
+                  </span>
+                  <span style={{ background: 'rgba(16, 185, 129, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '6px', fontSize: '0.82rem', color: '#10b981', fontWeight: 700 }}>
+                    Được thăng chức (升遷)
+                  </span>
+                  <span style={{ background: 'rgba(16, 185, 129, 0.15)', padding: '0.2rem 0.5rem', borderRadius: '6px', fontSize: '0.82rem', color: '#10b981', fontWeight: 700 }}>
+                    Được mời (受邀)
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 越語十大常用核心量詞體系全景表 */}
+          <div className="classifiers-table-wrapper">
+            <div style={{ padding: '1rem 1.25rem', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+              <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--brand-primary)' }}>
+                <BookOpen size={18} />
+                <span>{learningMode === 'zh' ? '越語十大核心量詞分類全景表' : 'Top 10 Universal Classifiers Table'}</span>
+              </h3>
+              <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                公式：數詞 + <strong>量詞</strong> + 名詞 (例如：một <strong>cái</strong> bàn)
+              </span>
+            </div>
+            <table className="classifiers-table">
+              <thead>
+                <tr>
+                  <th>{learningMode === 'zh' ? '核心量詞' : 'Classifier'}</th>
+                  <th>{learningMode === 'zh' ? '適用範疇與特徵' : 'Scope & Category'}</th>
+                  <th>{learningMode === 'zh' ? '搭配使用規則' : 'Usage Rule'}</th>
+                  <th>{learningMode === 'zh' ? '代表性詞組 (發音)' : 'Phrase (Audio)'}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {UNIVERSAL_CLASSIFIERS.map((item, cIdx) => (
+                  <tr key={cIdx}>
+                    <td style={{ fontWeight: 800, fontSize: '1.05rem', color: 'var(--brand-gold)' }}>
+                      {item.classifier}
+                    </td>
+                    <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>
+                      {item.categoryZh}
+                    </td>
+                    <td style={{ fontSize: '0.88rem' }}>
+                      {item.ruleZh}
+                    </td>
+                    <td>
+                      <button
+                        className="mini-btn"
+                        onClick={() => audioEngine.speak(item.exampleVi, { accent: selectedAccent, key: `cls_${cIdx}` })}
+                        style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', padding: '0.3rem 0.65rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'var(--bg-main)', cursor: 'pointer', fontSize: '0.85rem', fontWeight: 700 }}
+                      >
+                        <Volume2 size={13} color="var(--brand-emerald)" />
+                        <span>{item.exampleVi}</span>
+                        <span style={{ color: 'var(--text-secondary)', fontSize: '0.78rem' }}>({item.exampleZh})</span>
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
           <div className="grid-cards" style={{ marginBottom: '2.5rem' }}>

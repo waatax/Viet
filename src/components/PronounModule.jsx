@@ -1,8 +1,101 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Users, HelpCircle, CheckCircle, Volume2, Sparkles, UserCheck, ArrowRight, BookOpen, ShieldCheck, Award, Briefcase } from 'lucide-react';
+import { Users, HelpCircle, CheckCircle, Volume2, Sparkles, UserCheck, ArrowRight, BookOpen, ShieldCheck, Award, Briefcase, Building, Home } from 'lucide-react';
 import { pronounKinshipData, corporatePronounHierarchy, politenessRules } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { KinshipTreeFigure, AgeLadderFigure, OrgChartFigure } from './visuals/PronounVisuals';
+import './PronounModule.css';
+
+const getAssetUrl = (path) => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${base}${cleanPath}`;
+};
+
+export const MASTER_PRONOUN_MATRIX = [
+  {
+    targetRoleZh: '年長男性 (哥哥輩 / 年輕男士)',
+    targetRoleEn: 'Older Male / Young Gentleman',
+    youCallThem: 'Anh',
+    theyCallYou: 'Em',
+    selfCall: 'Em',
+    contextZh: '商務拜訪、日常問路、咖啡廳店員對顧客',
+    exampleVi: 'Chào anh, em có thể giúp gì cho anh?',
+    exampleZh: '哥你好，我能為您提供什麼協助？'
+  },
+  {
+    targetRoleZh: '年長女性 (姐姐輩 / 年輕女士)',
+    targetRoleEn: 'Older Female / Young Lady',
+    youCallThem: 'Chị',
+    theyCallYou: 'Em',
+    selfCall: 'Em',
+    contextZh: '市集買菜、公司女同事、飯店前台接待',
+    exampleVi: 'Chào chị, em gửi chị danh thiếp ạ.',
+    exampleZh: '姐您好，我遞給您我的名片。'
+  },
+  {
+    targetRoleZh: '同齡平輩朋友 / 同學',
+    targetRoleEn: 'Same-Age Peer / Classmate',
+    youCallThem: 'Bạn',
+    theyCallYou: 'Bạn',
+    selfCall: 'Tôi / Mình',
+    contextZh: '同齡好友、大學同學、隨和聚餐',
+    exampleVi: 'Chào bạn, hôm nay mình đi uống cà phê nhé!',
+    exampleZh: '朋友你好，今天我們去喝咖啡吧！'
+  },
+  {
+    targetRoleZh: '年幼晚輩 (弟妹輩 / 學生 / 年輕店員)',
+    targetRoleEn: 'Younger Peer / Junior / Waiter',
+    youCallThem: 'Em',
+    theyCallYou: 'Anh (若您是男) / Chị (若您是女)',
+    selfCall: 'Anh / Chị',
+    contextZh: '餐廳呼喚服務生 (Em ơi!)、學長姐對學弟妹',
+    exampleVi: 'Em ơi, cho anh xem thực đơn với!',
+    exampleZh: '服務生小弟/妹，請給我看一下菜單！'
+  },
+  {
+    targetRoleZh: '長輩叔叔輩 (40~60歲中年男性)',
+    targetRoleEn: 'Senior Uncle (40-60 Male)',
+    youCallThem: 'Chú / Bác',
+    theyCallYou: 'Cháu',
+    selfCall: 'Cháu / Em',
+    contextZh: '長輩長官、司機大叔、房東先生',
+    exampleVi: 'Dạ, cháu chào chú ạ!',
+    exampleZh: '您好，晚輩向叔叔問好！'
+  },
+  {
+    targetRoleZh: '長輩阿姨輩 (40~60歲中年女性 / 女老師)',
+    targetRoleEn: 'Senior Aunt / Female Teacher',
+    youCallThem: 'Cô / Bác',
+    theyCallYou: 'Cháu / Em',
+    selfCall: 'Cháu / Em',
+    contextZh: '女老師 (Cô giáo)、房東阿姨、市場熱情老闆娘',
+    exampleVi: 'Dạ, em chào cô giáo ạ!',
+    exampleZh: '老師好，學生向老師問好！'
+  },
+  {
+    targetRoleZh: '祖父母長者輩 (65歲以上男女)',
+    targetRoleEn: 'Grandparent Generation (65+)',
+    youCallThem: 'Ông (男) / Bà (女)',
+    theyCallYou: 'Cháu / Con',
+    selfCall: 'Cháu / Con',
+    contextZh: '銀髮長者、家族祖父母、德高望重者',
+    exampleVi: 'Dạ, cháu kính chúc ông bà mạnh khỏe ạ!',
+    exampleZh: '晚輩敬祝爺爺奶奶身體健康！'
+  },
+  {
+    targetRoleZh: '公司總經理 / 廠長 / 職場最高主管',
+    targetRoleEn: 'General Director / Plant Manager',
+    youCallThem: 'Giám đốc',
+    theyCallYou: 'Anh / Chị / Em',
+    selfCall: 'Em (晚輩) / Tôi (正式代表)',
+    contextZh: '正式跨國商務簽約、工廠大會、高層拜訪',
+    exampleVi: 'Dạ, em chào Giám đốc Nam ạ!',
+    exampleZh: '總經理您好！(晚輩自稱 em，句尾 ạ)'
+  }
+];
 
 export const PronounModule = ({ selectedAccent, updateUserStats }) => {
   const { learningMode, loc } = useLanguage();
@@ -413,6 +506,108 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
         </div>
       </div>
 
+      {/* Visual aids: family tree + age ladder */}
+      <KinshipTreeFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 1 · 家族稱謂樹' : 'Figure 1 · Family tree'} />
+      <AgeLadderFigure accent={selectedAccent} badge={learningMode === 'zh' ? '圖解 2 · 年齡階梯' : 'Figure 2 · Age ladder'} />
+
+      {/* 雙場景實景插畫卡：職場商務 vs 日常人倫 */}
+      <div className="pronoun-hero-banners">
+        <div className="pronoun-scene-card">
+          <img
+            src={getAssetUrl('images/scenarios/business.jpg')}
+            alt="商務職場稱謂與長官禮儀"
+            className="pronoun-scene-img"
+            loading="lazy"
+          />
+          <div className="pronoun-scene-overlay">
+            <h4 className="pronoun-scene-title">
+              <Building size={18} color="#38bdf8" />
+              <span>{learningMode === 'zh' ? '商務職場階級稱呼' : 'Corporate Hierarchy'}</span>
+            </h4>
+            <div className="pronoun-scene-desc">
+              {learningMode === 'zh' ? '總經理 (Giám đốc) · 部門主管 · 晚輩謙稱 Em · 雙手遞名片' : 'Director · Manager · Subordinate Em · Business cards'}
+            </div>
+          </div>
+        </div>
+
+        <div className="pronoun-scene-card">
+          <img
+            src={getAssetUrl('images/hcmc_skyline_illustration.jpg')}
+            alt="日常人倫網絡與鄰里長輩稱呼"
+            className="pronoun-scene-img"
+            loading="lazy"
+          />
+          <div className="pronoun-scene-overlay">
+            <h4 className="pronoun-scene-title">
+              <Home size={18} color="#10b981" />
+              <span>{learningMode === 'zh' ? '日常生活人倫網絡' : 'Daily Life & Community'}</span>
+            </h4>
+            <div className="pronoun-scene-desc">
+              {learningMode === 'zh' ? '叔叔 (Chú) · 阿姨 (Cô) · 兄姐 (Anh/Chị) · 溫馨人情稱謂' : 'Uncle · Aunt · Older Siblings · Warm reciprocal respect'}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 越語人稱代詞全景十字速查總表 */}
+      <div className="pronoun-matrix-wrapper">
+        <div style={{ padding: '1rem 1.25rem', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <h3 style={{ margin: 0, fontSize: '1.15rem', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--brand-primary)' }}>
+            <Users size={18} />
+            <span>{learningMode === 'zh' ? '越語黃金人稱代詞十字速查總表' : 'Master Reciprocal Pronouns Matrix Table'}</span>
+          </h3>
+          <span style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+            💡 鏡像法則：稱對方為 Anh 則自稱 Em；稱對方為 Chú 則自稱 Cháu
+          </span>
+        </div>
+        <table className="pronoun-matrix-table">
+          <thead>
+            <tr>
+              <th>{learningMode === 'zh' ? '對話對象身分與年齡階層' : 'Target Role & Age'}</th>
+              <th>🗣️ {learningMode === 'zh' ? '您稱呼對方 (You)' : 'You Address Them'}</th>
+              <th>👤 {learningMode === 'zh' ? '對方稱呼您 (They call you)' : 'They Address You'}</th>
+              <th>🙋 {learningMode === 'zh' ? '您的自稱 (I/Me)' : 'Your Self-Reference'}</th>
+              <th>💡 {learningMode === 'zh' ? '適用生活情境' : 'Context'}</th>
+              <th>🔊 {learningMode === 'zh' ? '實戰例句與發音' : 'Sample Sentence'}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {MASTER_PRONOUN_MATRIX.map((row, pIdx) => (
+              <tr key={pIdx}>
+                <td style={{ fontWeight: 800, color: 'var(--text-primary)' }}>
+                  {learningMode === 'zh' ? row.targetRoleZh : row.targetRoleEn}
+                </td>
+                <td style={{ color: '#38bdf8', fontWeight: 800, fontSize: '1.02rem' }}>
+                  {row.youCallThem}
+                </td>
+                <td style={{ color: '#f59e0b', fontWeight: 700 }}>
+                  {row.theyCallYou}
+                </td>
+                <td style={{ color: '#10b981', fontWeight: 800, fontSize: '1.02rem' }}>
+                  {row.selfCall}
+                </td>
+                <td style={{ fontSize: '0.85rem' }}>
+                  {row.contextZh}
+                </td>
+                <td>
+                  <button
+                    className="mini-btn"
+                    onClick={() => handleSpeak(row.exampleVi, `pronoun_sample_${pIdx}`)}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', padding: '0.3rem 0.65rem', borderRadius: '8px', border: '1px solid var(--border-color)', background: 'var(--bg-main)', cursor: 'pointer', fontSize: '0.84rem', fontWeight: 700 }}
+                  >
+                    <Volume2 size={13} color="var(--brand-emerald)" />
+                    <span>{row.exampleVi}</span>
+                  </button>
+                  <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', marginTop: '0.2rem' }}>
+                    {row.exampleZh}
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
       {/* Interactive Situational Challenge */}
       <div style={{
         marginBottom: '2.5rem',
@@ -486,7 +681,7 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
         {selectedAnswer !== null && (
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', background: 'var(--bg-main)', padding: '0.85rem 1.25rem', borderRadius: 'var(--radius-md)' }}>
             <div style={{ fontSize: '0.92em', fontWeight: 700, color: selectedAnswer === PRONOUN_SCENARIOS[scenarioIdx].answer ? '#10b981' : '#f59e0b', flex: '1 1 320px' }}>
-              {learningMode === 'zh' ? PRONOUN_SCENARIOS[scenarioIdx].explainZh : PRONOUN_SCENARIOS[scenarioIdx].explainZh}
+              {learningMode === 'zh' ? PRONOUN_SCENARIOS[scenarioIdx].explainZh : (PRONOUN_SCENARIOS[scenarioIdx].explainEn || PRONOUN_SCENARIOS[scenarioIdx].explainZh)}
             </div>
             <button
               className="primary-action"
@@ -723,6 +918,13 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
               </div>
             ))}
           </div>
+
+          <OrgChartFigure
+            accent={selectedAccent}
+            collapsible
+            defaultOpen={false}
+            badge={learningMode === 'zh' ? '圖解 3 · 企業職稱' : 'Figure 3 · Org chart'}
+          />
 
           {/* 4 Golden Rules */}
           <div style={{ background: 'var(--bg-accent)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', border: '1.5px solid var(--brand-gold)' }}>

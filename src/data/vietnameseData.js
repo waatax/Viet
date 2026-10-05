@@ -658,6 +658,12 @@ export const tonePitfallGuide = [
     pitfallEn: '4. Vowel duration neglect (a vs ă, ơ vs â)',
     descZh: '「Tai (耳朵)」長度是「Tay (手臂)」的兩倍；「Can (勸阻)」與「Cân (公斤)」長短分明，長短不同會導致完全不同的單字意思！',
     tipZh: '長母音拉長 1.5 倍拍子，短母音急促帶過。'
+  },
+  {
+    pitfallZh: '5. 雙元音聲調標記位置新舊規範混淆 (New vs Old Tone Placement Rule)',
+    pitfallEn: '5. Diacritic placement confusion in diphthongs (Official New vs Traditional Old)',
+    descZh: '在雙元音（如 oa, oe, uy）拼寫中常見兩種標法：傳統舊式（hoà, hoạ, thuỷ）將聲調標在第一個介音；而越南教育部官方規範（Quy định số 1988/QĐ-BGDĐT）則採「新式標法」（hòa, họa, thủy, toán），將聲調精確標在音節主要元音上。兩種在越南報章書籍皆可見，但官方公文、教科書與國家檢定 (iVPT) 一律以新式規範為準。',
+    tipZh: '標調口訣：有尾輔音必標在主要元音（如 toán, hoàn, tuyết）；無尾輔音時新制一律標在開口度較大的主元音（如 hòa, họa, thủy）。'
   }
 ];
 
@@ -8631,39 +8637,159 @@ export const flashcardsDeck = [
   { id: 100, viet: 'Sức khỏe dồi dào', zh: '身體健康 / 活力充沛', en: 'Abundant health and vitality', hanViet: '', category: '節慶祝福', example: 'Kính chúc ông bà năm mới dồi dào sức khỏe và sống lâu trăm tuổi!' }
 ];
 
-// 10. 語法規則與互動拼句 (Grammar Principles & Sentence Builder)
+// 10. 語法核心體系與互動拼句 (Grammar Core Principles & Sentence Builder)
 export const grammarRules = [
   {
     titleZh: '1. 越南語基本句型 (S + V + O 語序)',
     titleEn: '1. Basic SVO Word Order',
-    descriptionZh: '越南語的基本語序與中文、英文相同，均為主詞 (Subject) + 動詞 (Verb) + 受詞 (Object)。沒有動詞變位。',
-    descriptionEn: 'Vietnamese follows Subject + Verb + Object (SVO) order, similar to English and Chinese. Verbs do not conjugate.',
-    exampleZh: 'Tôi (我) + ăn (吃) + cơm (飯) = 我吃飯。',
-    exampleEn: 'Tôi (I) + ăn (eat) + cơm (rice) = I eat rice.'
+    descriptionZh: '越南語的基本語序與中文完全相同，均為主詞 (S) + 動詞 (V) + 受詞 (O)。動詞無形態變化，不因人稱、性別或時態變位。',
+    descriptionEn: 'Vietnamese follows Subject + Verb + Object (SVO) order. Verbs never conjugate for person, gender, or tense.',
+    formulaZh: '主詞 (S) + 動詞 (V) + 受詞 (O)',
+    formulaEn: 'Subject + Verb + Object',
+    examples: [
+      { vi: 'Tôi ăn cơm.', zh: '我吃飯。', en: 'I eat rice.' },
+      { vi: 'Anh ấy học tiếng Việt.', zh: '他學越南語。', en: 'He studies Vietnamese.' },
+      { vi: 'Chúng tôi yêu Việt Nam.', zh: '我們愛越南。', en: 'We love Vietnam.' }
+    ],
+    tipZh: '口訣：像講中文一樣直接按順序說，動詞永遠用原形！',
+    tipEn: 'Pro-tip: Keep verb in dictionary base form at all times.'
   },
   {
-    titleZh: '2. 形容詞後置修飾原則 (Adjective Modifier Position)',
+    titleZh: '2. 形容詞後置修飾原則 (重要核心！)',
     titleEn: '2. Post-nominal Adjective Rule',
-    descriptionZh: '【核心重點】越南語的形容詞修飾名詞時，必須放在名詞的「後面」！（與中英文相反）',
-    descriptionEn: 'Adjectives strictly follow the noun they modify (e.g. "Coffee milk ice" for Iced Milk Coffee).',
-    exampleZh: 'Cà phê (咖啡) + sữa (牛奶) + đá (冰) = 冰牛奶咖啡',
-    exampleEn: 'Cà phê (coffee) + sữa (milk) + đá (ice) = Iced Milk Coffee'
+    descriptionZh: '【核心重點】越南語的形容詞修飾名詞時，必須放在名詞的「後面」！這與中英文「紅色的花」相反，越南語是「花紅色」。',
+    descriptionEn: 'Adjectives strictly follow the noun they modify (head-initial syntax), opposite to Chinese and English.',
+    formulaZh: '中心名詞 (N) + 形容詞 (Adj) + 指示詞 (này/đó)',
+    formulaEn: 'Noun + Adjective + Demonstrative',
+    examples: [
+      { vi: 'Cà phê sữa đá', zh: '冰牛奶咖啡 (咖啡 + 奶 + 冰)', en: 'Iced milk coffee (Coffee + milk + ice)' },
+      { vi: 'Áo trắng này', zh: '這件白襯衫 (衣服 + 白 + 這)', en: 'This white shirt (Shirt + white + this)' },
+      { vi: 'Xe hơi mới', zh: '新汽車 (汽車 + 新)', en: 'New car (Car + new)' }
+    ],
+    tipZh: '口訣：先說東西是什麼，再補充它的顏色、形狀與新舊！',
+    tipEn: 'Pro-tip: State the object first, then describe its attributes.'
   },
   {
-    titleZh: '3. 時間時態助詞 (Time & Aspect Markers)',
+    titleZh: '3. 時間時態體態標記 (Đã / Đang / Sẽ / Vừa / Mới)',
     titleEn: '3. Tense & Aspect Markers',
-    descriptionZh: '越南語動詞無形態變化，透過放在動詞前的助詞表達時態：Đang (正在 / -ing)、Đã (已經 / Past)、Sẽ (將要 / Will)、Chưa (尚未 / Not yet)。',
-    descriptionEn: 'Tenses are expressed via pre-verbal particles: Đang (progressive), Đã (past), Sẽ (future), Chưa (not yet).',
-    exampleZh: 'Tôi đang học tiếng Việt. (我正在學越南語。)',
-    exampleEn: 'Tôi đang học tiếng Việt. (I am learning Vietnamese.)'
+    descriptionZh: '動詞本身不變形，透過在動詞前方添加時態助詞標記：Đã (已/過去)、Đang (正在/進行)、Sẽ (將/未來)、Vừa/Mới (剛才)、Chưa (尚未)。',
+    descriptionEn: 'Tenses and aspects are indicated via pre-verbal particles without verbal inflection.',
+    formulaZh: '主詞 + 時態助詞 (Đã/Đang/Sẽ/Chưa) + 動詞',
+    formulaEn: 'Subject + Aspect Marker + Verb',
+    examples: [
+      { vi: 'Tôi đang học tiếng Việt.', zh: '我正在學越南語。', en: 'I am learning Vietnamese.' },
+      { vi: 'Anh ấy đã về nước.', zh: '他已經回國了。', en: 'He has already returned to his country.' },
+      { vi: 'Ngày mai chúng tôi sẽ ký hợp đồng.', zh: '明天我們將簽署合約。', en: 'We will sign the contract tomorrow.' },
+      { vi: 'Tôi chưa ăn cơm.', zh: '我還沒吃飯。', en: 'I have not eaten yet.' }
+    ],
+    tipZh: '日常口語中，若有「hôm qua (昨天)」、「ngày mai (明天)」等明確時間副詞，時態助詞常可省略。',
+    tipEn: 'Markers can often be omitted if temporal adverbs (yesterday, tomorrow) are explicit.'
   },
   {
     titleZh: '4. 被動與受益語氣 (Bị vs Được)',
     titleEn: '4. Passive & Benefactive (Bị vs Được)',
-    descriptionZh: '表達被動或遭遇：遭遇負面/不幸用 "Bị"；獲得幸運/好處用 "Được"。',
-    descriptionEn: 'Passive voice: Use "Bị" for negative/unwanted experiences; use "Được" for positive/fortunate experiences.',
-    exampleZh: 'Bị phạt (被罰款) vs Được khen (受到稱讚)',
-    exampleEn: 'Bị phạt (Got fined) vs Được khen (Was praised)'
+    descriptionZh: '越南語被動語態帶有強烈的感情色彩：遭遇負面、不幸或非自願用「Bị」；獲得幸運、好處或稱許用「Được」。',
+    descriptionEn: 'Passive voice carries emotional polarity: "Bị" denotes adverse events; "Được" denotes fortunate/beneficial outcomes.',
+    formulaZh: '負面遭遇：S + Bị + (對象) + V | 正面受益：S + Được + (對象) + V',
+    formulaEn: 'Adverse: S + Bị + V | Fortunate: S + Được + V',
+    examples: [
+      { vi: 'Tôi bị phạt tiền.', zh: '我被罰款。(不幸遭遇)', en: 'I was fined. (Unwanted)' },
+      { vi: 'Anh ấy được thăng chức.', zh: '他獲得升遷。(幸運好處)', en: 'He was promoted. (Fortunate)' },
+      { vi: 'Hôm nay trời mưa nên em bị ướt áo.', zh: '今天下雨所以我衣服被淋濕了。', en: 'It rained today so my clothes got wet.' }
+    ],
+    tipZh: '商業談判或社交場合中，多用「Được」表達客氣與受寵若驚，例如「Rất vui được gặp anh」(很高興得以見到哥)。',
+    tipEn: 'In business, use "Được" to convey humility and gratitude.'
+  },
+  {
+    titleZh: '5. 經典量詞體系 (Cái, Con, Người, Cuốn, Bức, Chiếc)',
+    titleEn: '5. Classifier System',
+    descriptionZh: '數詞與名詞之間必須放置量詞。主要核心：cái (無生物/物件)、con (活物/動物)、người (人)、cuốn/quyển (書籍)、chiếc (車輛或成雙之一)。',
+    descriptionEn: 'Classifiers must link numerals with nouns. "Cái" for inanimate items, "con" for living creatures, "người" for people.',
+    formulaZh: '數詞 + 量詞 + 名詞 + (形容詞)',
+    formulaEn: 'Numeral + Classifier + Noun + (Adjective)',
+    examples: [
+      { vi: 'Hai con cá', zh: '兩條魚 (活物量詞 con)', en: 'Two fish' },
+      { vi: 'Một cái bàn lớn', zh: '一張大桌子 (物品量詞 cái)', en: 'One large table' },
+      { vi: 'Ba người khách', zh: '三位客人 (人物量詞 người)', en: 'Three guests' },
+      { vi: 'Một cuốn sách hay', zh: '一本好書 (書籍量詞 cuốn)', en: 'An interesting book' }
+    ],
+    tipZh: '當「cái」置於名詞前無數詞時，常帶有特指「這個/那件」的功能。',
+    tipEn: 'Standalone "cái" before a noun often acts as a definite article.'
+  },
+  {
+    titleZh: '6. 萬能是非疑問句 (Có ... không? / Phải không?)',
+    titleEn: '6. Yes/No Questions (Có ... không?)',
+    descriptionZh: '日常最萬能的是非問句架構：在動詞或形容詞前後包夾「Có ... không?」，意為「有沒有...？/ 是否...？」。',
+    descriptionEn: 'Universal question structure wraps verb or adjective with "Có ... không?".',
+    formulaZh: '主詞 + Có + [動詞/形容詞] + Không?',
+    formulaEn: 'Subject + Có + [Verb/Adj] + Không?',
+    examples: [
+      { vi: 'Bạn có khỏe không?', zh: '你身體好嗎？(你好嗎？)', en: 'How are you? / Are you well?' },
+      { vi: 'Cái này có cay không?', zh: '這個會辣嗎？', en: 'Is this spicy?' },
+      { vi: 'Anh có hiểu không?', zh: '哥明白聽懂了嗎？', en: 'Do you understand, brother?' }
+    ],
+    tipZh: '回答時：肯定回「Có」(有/是)；否定回「Không」(不/沒有)。乾脆俐落！',
+    tipEn: 'Answer "Có" for yes, "Không" for no.'
+  },
+  {
+    titleZh: '7. 三大否定詞辨析 (Không, Chưa, Đừng)',
+    titleEn: '7. Negation System (Không, Chưa, Đừng)',
+    descriptionZh: 'Không (非客觀事實/否定意志「不」)、Chưa (時間體態「尚未/還沒」，暗示未來可能發生)、Đừng (祈使句「別/請勿」)。',
+    descriptionEn: '"Không" for factual negation, "Chưa" for "not yet" (anticipating future occurrence), "Đừng" for negative imperatives.',
+    formulaZh: '事實否定：Không + V | 尚未完成：Chưa + V | 勸阻禁止：Đừng + V',
+    formulaEn: 'Factual: Không + V | Not yet: Chưa + V | Imperative: Đừng + V',
+    examples: [
+      { vi: 'Tôi không biết.', zh: '我不知道。(客觀事實否定)', en: 'I do not know.' },
+      { vi: 'Tôi chưa ăn cơm.', zh: '我還沒吃飯。(待會可能會吃)', en: 'I have not eaten yet.' },
+      { vi: 'Đừng lo lắng nhé!', zh: '別擔心喔！(祈使勸阻)', en: 'Do not worry!' }
+    ],
+    tipZh: '當被問「Ăn cơm chưa?」(吃飽沒？) 時，如果還沒吃，務必回答「Chưa」，切勿回答「Không」(否則意思是「我不吃」)。',
+    tipEn: 'Always reply "Chưa" to "Ăn cơm chưa?", never "Không".'
+  },
+  {
+    titleZh: '8. 核心方向動詞與趨向介詞 (Đi, Đến, Về, Ở)',
+    titleEn: '8. Motion & Directional Verbs (Đi, Đến, Về, Ở)',
+    descriptionZh: 'Đi (離去/前往)、Đến/Tới (到達/來到)、Về (返回歸屬地/家鄉/祖國)、Ở (定居/停留於某處)。回到家鄉或母國必用「Về」。',
+    descriptionEn: 'Đi (go away), Đến (arrive), Về (return home/country of origin), Ở (stay/at). "Về" strictly applies to returning home.',
+    formulaZh: '動詞 + 地點名詞 (如 Đi làm, Về nhà, Đến sân bay, Ở khách sạn)',
+    formulaEn: 'Motion Verb + Location Noun',
+    examples: [
+      { vi: 'Tôi đi làm, tối về nhà ở Hà Nội.', zh: '我去上班，晚上回河內的家。', en: 'I go to work, and return home in Hanoi in the evening.' },
+      { vi: 'Bao giờ anh về Đài Loan?', zh: '哥什麼時候回台灣？', en: 'When do you return to Taiwan, brother?' },
+      { vi: 'Chúng tôi vừa đến sân bay Tân Sơn Nhất.', zh: '我們剛抵達新山一機場。', en: 'We just arrived at Tan Son Nhat airport.' }
+    ],
+    tipZh: '回越南稱為「Về Việt Nam」，回台灣稱為「Về Đài Loan」，體現歸屬感與尊重。',
+    tipEn: 'Using "Về" honors the emotional bond with one’s home country.'
+  },
+  {
+    titleZh: '9. 關係修飾代詞與繫詞 (Mà & Là)',
+    titleEn: '9. Relative Marker & Essential Copula (Mà & Là)',
+    descriptionZh: '「Mà」用於引導關係子句「...的」或表示轉折並列「又便宜又好吃 (Rẻ mà ngon)」；「Là」為繫詞「是」，連接名詞不可省略。',
+    descriptionEn: '"Mà" connects relative modifying clauses or contrasts; "Là" is the indispensable copula "to be".',
+    formulaZh: '名詞 + Mà + 子句 | 主詞 + Là + 身份/名詞',
+    formulaEn: 'Noun + Mà + Clause | Subject + Là + Noun',
+    examples: [
+      { vi: 'Người mà tôi gặp hôm qua là giám đốc.', zh: '我昨天遇見的那個人是總經理。', en: 'The person whom I met yesterday is the general manager.' },
+      { vi: 'Món này ngon mà rẻ.', zh: '這道菜好吃而且便宜。', en: 'This dish is delicious and inexpensive.' },
+      { vi: 'Tôi là người Đài Loan.', zh: '我是台灣人。(Là 不可省略)', en: 'I am Taiwanese.' }
+    ],
+    tipZh: '越南語在「主詞 + 形容詞」時不加 Là（如 Tôi khỏe，不可說 Tôi là khỏe）。',
+    tipEn: 'Never use "Là" before pure adjectives (say "Tôi khỏe", not "Tôi là khỏe").'
+  },
+  {
+    titleZh: '10. 比較級與最高級 (Hơn vs Nhất)',
+    titleEn: '10. Comparison & Superlatives (Hơn vs Nhất)',
+    descriptionZh: '比較級：主詞 + 形容詞 + Hơn + 比較對象 (比...更...)；最高級：形容詞 + Nhất (最...)。結構清晰優雅。',
+    descriptionEn: 'Comparative: S + Adj + Hơn + Object (More than...); Superlative: Adj + Nhất (The most...).',
+    formulaZh: '比較級：S + Adj + Hơn + O | 最高級：S + Adj + Nhất',
+    formulaEn: 'Comparative: S + Adj + Hơn + O | Superlative: S + Adj + Nhất',
+    examples: [
+      { vi: 'Hà Nội lạnh hơn Sài Gòn.', zh: '河內比西貢冷。', en: 'Hanoi is colder than Saigon.' },
+      { vi: 'Phở bò ở đây ngon nhất!', zh: '這裡的牛肉河粉最好吃！', en: 'Beef pho here is the most delicious!' },
+      { vi: 'Cái này đắt hơn cái kia.', zh: '這個比那個貴。', en: 'This one is more expensive than that one.' }
+    ],
+    tipZh: '表達「一樣/相等」時使用「Bằng」或「Như」，例如「Ngon như mẹ nấu」(如同媽媽煮的一樣美味)。',
+    tipEn: 'For equality, use "Bằng" or "Như" (e.g. delicious as mom’s cooking).'
   }
 ];
 
@@ -8695,6 +8821,34 @@ export const interactivePuzzles = [
     sentenceEn: 'We will sign the business contract tomorrow',
     correctOrder: ['Ngày mai', 'chúng tôi', 'ký', 'hợp đồng'],
     words: ['hợp đồng', 'Ngày mai', 'ký', 'chúng tôi']
+  },
+  {
+    id: 'p5',
+    sentenceZh: '請給我一杯冰牛奶咖啡',
+    sentenceEn: 'Please give me a glass of iced milk coffee',
+    correctOrder: ['Cho tôi', 'một ly', 'cà phê', 'sữa đá'],
+    words: ['cà phê', 'Cho tôi', 'sữa đá', 'một ly']
+  },
+  {
+    id: 'p6',
+    sentenceZh: '很高興在越南認識你',
+    sentenceEn: 'Very glad to meet you in Vietnam',
+    correctOrder: ['Rất vui', 'được gặp', 'bạn', 'ở Việt Nam'],
+    words: ['bạn', 'ở Việt Nam', 'Rất vui', 'được gặp']
+  },
+  {
+    id: 'p7',
+    sentenceZh: '請問洗手間在哪裡呢',
+    sentenceEn: 'Excuse me where is the restroom',
+    correctOrder: ['Làm ơn', 'cho hỏi', 'nhà vệ sinh', 'ở đâu'],
+    words: ['nhà vệ sinh', 'Làm ơn', 'ở đâu', 'cho hỏi']
+  },
+  {
+    id: 'p8',
+    sentenceZh: '祝貴公司新年萬事如意',
+    sentenceEn: 'Wishing your company a new year with all wishes fulfilled',
+    correctOrder: ['Chúc quý công ty', 'năm mới', 'vạn sự', 'như ý'],
+    words: ['năm mới', 'như ý', 'Chúc quý công ty', 'vạn sự']
   }
 ];
 

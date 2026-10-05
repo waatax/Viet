@@ -2,12 +2,21 @@ import React, { useEffect, useState, useMemo } from 'react';
 import {
   Sun, Moon, Type, Flame, Trophy, Globe, Menu, X,
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
-  Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, Settings2, Star, Mic, Puzzle, Music, Zap, Brain, LifeBuoy, Award, Briefcase, ChevronRight, Search, Landmark
+  Layers3, BookOpen, BookOpenText, UsersRound, BadgeCheck, BookMarked, Settings2, Star, Mic, Puzzle, Music, Zap, Brain, LifeBuoy, Award, Briefcase, ChevronRight, Search, Landmark
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 import { audioEngine } from '../services/audioEngine';
 import { NAV_GROUPS } from '../config/navigation';
+
+const FONT_SIZES = ['small', 'normal', 'large', 'xlarge', 'xxlarge'];
+const FONT_SIZE_LABELS = {
+  small: '88%',
+  normal: '100%',
+  large: '114%',
+  xlarge: '128%',
+  xxlarge: '144%'
+};
 
 export const Navbar = ({
   theme,
@@ -23,10 +32,28 @@ export const Navbar = ({
   setSpeechRate,
   onOpenAchievements,
   onOpenDailyQuests,
-  onOpenChapterFinder
+  onOpenChapterFinder,
+  onOpenAudioDiagnostic
 }) => {
   const { learningMode, toggleLearningMode, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const stepFontSize = (delta) => {
+    audioEngine.playHaptic('selection');
+    const currentIndex = FONT_SIZES.indexOf(fontSize);
+    const validIdx = currentIndex === -1 ? 1 : currentIndex;
+    const nextIndex = Math.max(0, Math.min(FONT_SIZES.length - 1, validIdx + delta));
+    setFontSize(FONT_SIZES[nextIndex]);
+  };
+
+  const cycleTheme = () => {
+    audioEngine.playHaptic('selection');
+    setTheme(prev => {
+      if (prev === 'light') return 'sepia';
+      if (prev === 'sepia') return 'dark';
+      return 'light';
+    });
+  };
   
   const { currentXpInLevel, requiredXpForNextLevel, progressPercent } = gamificationEngine.getLevelProgress(userStats.xp);
   const currentLevel = gamificationEngine.calculateLevel(userStats.xp);
@@ -135,12 +162,52 @@ export const Navbar = ({
               <Trophy size={14} /> {userStats.xp}
             </button>
 
+            {/* Mobile Direct Font Resizing Stepper */}
+            <div className="mobile-quick-font-stepper" aria-label="字級縮放">
+              <button
+                className="mobile-quick-font-btn"
+                onClick={() => stepFontSize(-1)}
+                disabled={fontSize === 'small'}
+                title="縮小字體 (A-)"
+                aria-label="縮小字體"
+              >
+                A-
+              </button>
+              <span className="mobile-quick-font-indicator" title={`字級: ${FONT_SIZE_LABELS[fontSize] || '100%'}`}>
+                {fontSize === 'small' ? '小' : (fontSize === 'normal' ? '中' : (fontSize === 'large' ? '大' : (fontSize === 'xlarge' ? '特' : '超')))}
+              </span>
+              <button
+                className="mobile-quick-font-btn"
+                onClick={() => stepFontSize(1)}
+                disabled={fontSize === 'xxlarge'}
+                title="放大字體 (A+)"
+                aria-label="放大字體"
+              >
+                A+
+              </button>
+            </div>
+
             <button
               className="icon-control"
-              onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}
-              aria-label={theme === 'light' ? t('darkTheme') : t('lightTheme')}
+              onClick={cycleTheme}
+              aria-label={theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}
+              title={theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}
             >
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+              {theme === 'light' && <Sun size={18} />}
+              {theme === 'sepia' && <BookOpen size={18} />}
+              {theme === 'dark' && <Moon size={18} />}
+            </button>
+
+            <button
+              className="icon-control"
+              onClick={() => {
+                audioEngine.playHaptic('tap');
+                if (onOpenAudioDiagnostic) onOpenAudioDiagnostic();
+              }}
+              title={learningMode === 'zh' ? '開啟音訊健康檢驗儀' : 'Audio Diagnostics'}
+              aria-label="開啟音訊健康檢驗儀"
+            >
+              <AudioLines size={18} />
             </button>
 
             <button
@@ -243,29 +310,81 @@ export const Navbar = ({
                 <span>{speechRate <= 0.85 ? '🐢 0.75x' : '🐰 1.0x'}</span>
               </button>
 
-              {/* Font Size Selector */}
-              <div className="font-size-selector" aria-label={t('fontSize')}>
-                <Type size={13} aria-hidden="true" />
-                {['small', 'normal', 'large', 'xlarge'].map((size, index) => (
-                  <button
-                    key={size}
-                    className={`size-option-btn ${fontSize === size ? 'active' : ''}`}
-                    onClick={() => setFontSize(size)}
-                    aria-pressed={fontSize === size}
-                  >
-                    {t(['sizeSmall', 'sizeNormal', 'sizeLarge', 'sizeXLarge'][index])}
-                  </button>
-                ))}
+              {/* Audio Diagnostic Studio Trigger Button */}
+              <button
+                className="control-btn audio-diag-toggle-btn"
+                onClick={() => {
+                  audioEngine.playHaptic('tap');
+                  if (onOpenAudioDiagnostic) onOpenAudioDiagnostic();
+                }}
+                title={learningMode === 'zh' ? '開啟音訊引擎健康檢驗儀與發音沙盒 (4,005 完整音庫)' : 'Open Audio Diagnostic Studio (4,005 audio files)'}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  padding: '0.35rem 0.65rem',
+                  borderRadius: 'var(--radius-full)',
+                  border: '1px solid rgba(16, 185, 129, 0.35)',
+                  background: 'rgba(16, 185, 129, 0.12)',
+                  color: '#10b981',
+                  fontWeight: 800,
+                  fontSize: '0.85rem',
+                  cursor: 'pointer'
+                }}
+              >
+                <AudioLines size={14} />
+                <span>{learningMode === 'zh' ? '🎧 檢音儀' : '🎧 Audio Lab'}</span>
+              </button>
+
+              {/* Font Size Selector (Stepper + Direct Buttons) */}
+              <div className="font-size-selector" aria-label={t('fontSize')} style={{ display: 'inline-flex', alignItems: 'center', gap: '0.2rem' }}>
+                <button
+                  className="size-option-btn"
+                  onClick={() => stepFontSize(-1)}
+                  disabled={fontSize === 'small'}
+                  title="縮小字體 (A-)"
+                  style={{ padding: '0.2rem 0.45rem', fontWeight: 800 }}
+                >
+                  A-
+                </button>
+                <div style={{ display: 'inline-flex', gap: '0.15rem' }}>
+                  {FONT_SIZES.map((size) => (
+                    <button
+                      key={size}
+                      className={`size-option-btn ${fontSize === size ? 'active' : ''}`}
+                      onClick={() => { audioEngine.playHaptic('selection'); setFontSize(size); }}
+                      aria-pressed={fontSize === size}
+                      title={FONT_SIZE_LABELS[size]}
+                    >
+                      {size === 'small' ? '小' : (size === 'normal' ? '中' : (size === 'large' ? '大' : (size === 'xlarge' ? '特' : '超')))}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  className="size-option-btn"
+                  onClick={() => stepFontSize(1)}
+                  disabled={fontSize === 'xxlarge'}
+                  title="放大字體 (A+)"
+                  style={{ padding: '0.2rem 0.45rem', fontWeight: 800 }}
+                >
+                  A+
+                </button>
               </div>
 
-              {/* Theme Toggle */}
+              {/* Theme Toggle (3-state: Light / Sepia / Dark) */}
               <button
                 className="control-btn theme-toggle-btn"
-                onClick={() => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))}
-                title={theme === 'light' ? t('darkTheme') : t('lightTheme')}
+                onClick={cycleTheme}
+                title={theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}
+                style={{
+                  background: theme === 'sepia' ? 'rgba(217, 119, 6, 0.15)' : undefined,
+                  color: theme === 'sepia' ? 'var(--brand-gold)' : undefined
+                }}
               >
-                {theme === 'light' ? <Moon size={16} /> : <Sun size={16} />}
-                <span>{theme === 'light' ? t('darkTheme') : t('lightTheme')}</span>
+                {theme === 'light' && <Sun size={16} />}
+                {theme === 'sepia' && <BookOpen size={16} />}
+                {theme === 'dark' && <Moon size={16} />}
+                <span>{theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}</span>
               </button>
             </div>
           </div>
@@ -297,74 +416,132 @@ export const Navbar = ({
         </div>
       )}
 
+      {/* Mobile Drawer Backdrop overlay */}
+      {menuOpen && (
+        <div className="mobile-drawer-backdrop" onClick={() => setMenuOpen(false)} aria-hidden="true" />
+      )}
+
       {/* Mobile Drawer Menu Organized by Groups */}
       {menuOpen && (
         <div className="mobile-nav-grouped-drawer">
           <div className="mobile-drawer-header">
             <span className="mobile-drawer-title">
-              {learningMode === 'zh' ? '📚 全站模組選單' : '📚 All Learning Modules'}
+              {learningMode === 'zh' ? '📚 全站模組與設定' : '📚 Modules & Settings'}
             </span>
             <button className="mobile-drawer-close" onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(false); }}>
               <X size={18} />
             </button>
           </div>
 
-          {/* Mobile Quick Accent & Speed Controls */}
-          <div style={{
-            display: 'flex',
-            gap: '0.6rem',
-            padding: '0.5rem 1rem 0.8rem',
-            borderBottom: '1px solid var(--border-color)'
-          }}>
-            <button
-              onClick={() => {
-                audioEngine.playHaptic('selection');
-                setSelectedAccent(prev => prev === 'north' ? 'south' : 'north');
-              }}
-              style={{
-                flex: 1,
-                padding: '0.6rem',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--border-color)',
-                background: selectedAccent === 'north' ? 'rgba(59, 130, 246, 0.15)' : 'rgba(16, 185, 129, 0.15)',
-                color: selectedAccent === 'north' ? '#3b82f6' : '#10b981',
-                fontWeight: 800,
-                fontSize: '0.85rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.4rem',
-                cursor: 'pointer'
-              }}
-            >
-              <span>{selectedAccent === 'north' ? '🏛️ 河內音 (北)' : '🌴 西貢音 (南)'}</span>
-            </button>
+          {/* Mobile Reading & Display Settings Card */}
+          <div className="mobile-drawer-settings-card">
+            {/* Theme Row */}
+            <div className="drawer-setting-row">
+              <span className="drawer-setting-label">
+                <Sun size={14} /> {learningMode === 'zh' ? '閱讀主題' : 'Theme'}
+              </span>
+              <div className="drawer-theme-pill-group">
+                <button
+                  className={`drawer-theme-pill ${theme === 'light' ? 'active' : ''}`}
+                  onClick={() => { audioEngine.playHaptic('selection'); setTheme('light'); }}
+                >
+                  <Sun size={12} /> {learningMode === 'zh' ? '清朗' : 'Light'}
+                </button>
+                <button
+                  className={`drawer-theme-pill ${theme === 'sepia' ? 'active' : ''}`}
+                  onClick={() => { audioEngine.playHaptic('selection'); setTheme('sepia'); }}
+                >
+                  <BookOpen size={12} /> {learningMode === 'zh' ? '護眼' : 'Sepia'}
+                </button>
+                <button
+                  className={`drawer-theme-pill ${theme === 'dark' ? 'active' : ''}`}
+                  onClick={() => { audioEngine.playHaptic('selection'); setTheme('dark'); }}
+                >
+                  <Moon size={12} /> {learningMode === 'zh' ? '曜石' : 'Dark'}
+                </button>
+              </div>
+            </div>
 
-            <button
-              onClick={() => {
-                audioEngine.playHaptic('tap');
-                if (setSpeechRate) {
-                  setSpeechRate(speechRate <= 0.85 ? 1.0 : 0.75);
-                }
-              }}
-              style={{
-                flex: 1,
-                padding: '0.6rem',
-                borderRadius: 'var(--radius-md)',
-                border: '1px solid var(--border-color)',
-                background: speechRate <= 0.85 ? 'rgba(245, 158, 11, 0.15)' : 'var(--bg-card)',
-                color: speechRate <= 0.85 ? 'var(--brand-gold)' : 'var(--text-secondary)',
-                fontWeight: 800,
-                fontSize: '0.85rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '0.4rem',
-                cursor: 'pointer'
-              }}
-            >
-              <span>{speechRate <= 0.85 ? '🐢 0.75x 慢速' : '🐰 1.0x 正常'}</span>
-            </button>
+            {/* Font Size Stepper Row */}
+            <div className="drawer-setting-row">
+              <span className="drawer-setting-label">
+                <Type size={14} /> {learningMode === 'zh' ? '字級縮放' : 'Font Size'}
+              </span>
+              <div className="drawer-font-stepper">
+                <button
+                  className="drawer-font-stepper-btn"
+                  onClick={() => stepFontSize(-1)}
+                  disabled={fontSize === 'small'}
+                  aria-label="縮小字體"
+                >
+                  A-
+                </button>
+                <span className="drawer-font-stepper-val">
+                  {FONT_SIZE_LABELS[fontSize] || '100%'}
+                </span>
+                <button
+                  className="drawer-font-stepper-btn"
+                  onClick={() => stepFontSize(1)}
+                  disabled={fontSize === 'xxlarge'}
+                  aria-label="放大字體"
+                >
+                  A+
+                </button>
+              </div>
+            </div>
+
+            {/* Accent & Speed Row */}
+            <div className="drawer-setting-row" style={{ marginTop: '0.2rem' }}>
+              <button
+                onClick={() => {
+                  audioEngine.playHaptic('selection');
+                  setSelectedAccent(prev => prev === 'north' ? 'south' : 'north');
+                }}
+                style={{
+                  flex: 1,
+                  padding: '0.45rem',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--border-color)',
+                  background: selectedAccent === 'north' ? 'rgba(59, 130, 246, 0.12)' : 'rgba(16, 185, 129, 0.12)',
+                  color: selectedAccent === 'north' ? '#3b82f6' : '#10b981',
+                  fontWeight: 800,
+                  fontSize: '0.8rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.3rem',
+                  cursor: 'pointer'
+                }}
+              >
+                <span>{selectedAccent === 'north' ? '🏛️ 河內音' : '🌴 西貢音'}</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  audioEngine.playHaptic('tap');
+                  if (setSpeechRate) {
+                    setSpeechRate(speechRate <= 0.85 ? 1.0 : 0.75);
+                  }
+                }}
+                style={{
+                  flex: 1,
+                  padding: '0.45rem',
+                  borderRadius: 'var(--radius-sm)',
+                  border: '1px solid var(--border-color)',
+                  background: speechRate <= 0.85 ? 'rgba(245, 158, 11, 0.14)' : 'var(--bg-subtle)',
+                  color: speechRate <= 0.85 ? 'var(--brand-gold)' : 'var(--text-secondary)',
+                  fontWeight: 800,
+                  fontSize: '0.8rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.3rem',
+                  cursor: 'pointer'
+                }}
+              >
+                <span>{speechRate <= 0.85 ? '🐢 0.75x' : '🐰 1.0x'}</span>
+              </button>
+            </div>
           </div>
 
           {/* Quick Chapter Finder Trigger inside drawer */}

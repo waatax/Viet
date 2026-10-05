@@ -3,13 +3,99 @@ import {
   Sparkles, Volume2, Play, Pause, RotateCw, CheckCircle2,
   XCircle, Award, BookOpen, Layers, MessageSquare, ChevronRight,
   ChevronLeft, HelpCircle, ShieldCheck, Zap, Globe, ArrowRight,
-  ThumbsUp, ThumbsDown, Star, Check
+  ThumbsUp, ThumbsDown, Star, Check, MapPin
 } from 'lucide-react';
 import { SITUATIONAL_TOPICS } from '../data/situationalTopicsData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
 import './TopicMasteryModule.css';
+
+const getAssetUrl = (path) => {
+  if (!path) return '';
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+  const cleanPath = path.startsWith('/') ? path : `/${path}`;
+  return `${base}${cleanPath}`;
+};
+
+const TOPIC_ILLUSTRATIONS = {
+  business_greeting: {
+    image: 'images/scenarios/business.jpg',
+    tagZh: '商務拜訪與名片交換',
+    tagEn: 'Corporate Networking & Meeting',
+    locationZh: '胡志明市金融區 · 跨國商務會議室',
+    locationEn: 'HCMC Financial District · Corporate Boardroom',
+    highlightVi: 'Dạ, em chào Giám đốc ạ!',
+    highlightZh: '尊稱與雙手遞名片是跨國職場最深信任起點'
+  },
+  dining_restaurant: {
+    image: 'images/viet_coffee_food_illustration.jpg',
+    tagZh: '道地美食與點餐客製',
+    tagEn: 'Vietnamese Cuisine & Dining',
+    locationZh: '西貢傳統食肆 · 越式特調咖啡館',
+    locationEn: 'Saigon Heritage Eateries & Coffee Lounge',
+    highlightVi: 'Em ơi, cho anh/chị xem thực đơn!',
+    highlightZh: '「Cho tôi...」是點餐萬用鑰匙，香草、檸檬、魚露隨心調味'
+  },
+  family_kinship: {
+    image: 'images/hcmc_skyline_illustration.jpg',
+    tagZh: '家庭倫理與敬語稱謂',
+    tagEn: 'Family Ties & Honorific Kinship',
+    locationZh: '越南都會風貌 · 傳統家庭生活聚落',
+    locationEn: 'Metropolitan Saigon · Community & Family Life',
+    highlightVi: 'Gia đình bạn có mấy người?',
+    highlightZh: '長幼有序的「Anh, Chị, Em, Bác, Chú」編織深厚人情網絡'
+  },
+  health_medical: {
+    image: 'images/scenarios/pharmacy_clinic.jpg',
+    tagZh: '藥局諮詢與就醫問診',
+    tagEn: 'Pharmacy & Clinical Health',
+    locationZh: '越南市區連鎖藥局 (Pharmacity) · 綜合門診',
+    locationEn: 'Local Pharmacy (Pharmacity) & Medical Clinics',
+    highlightVi: 'Tôi bị đau đầu và sốt cao.',
+    highlightZh: '清晰陳述「Bị + 症狀」，藥師為您精準分包調配成藥'
+  },
+  date_time_stay: {
+    image: 'images/scenarios/travel.jpg',
+    tagZh: '行程規劃與停留時間',
+    tagEn: 'Itinerary Planning & Time of Stay',
+    locationZh: '新山一國際機場 · 飯店大廳接待處',
+    locationEn: 'Tan Son Nhat Airport & Hotel Reception',
+    highlightVi: 'Hôm nay là Thứ mấy?',
+    highlightZh: '星期二稱「Thứ hai」，順序推進，輕鬆掌握東南亞節奏'
+  },
+  pricing_bargaining: {
+    image: 'images/ben_thanh_market_illustration.jpg',
+    tagZh: '市集詢價與技巧議價',
+    tagEn: 'Market Bargaining & Shopping',
+    locationZh: '第一郡百年名勝 · 檳城市場 (Chợ Bến Thành)',
+    locationEn: 'District 1 Landmark · Ben Thanh Market',
+    highlightVi: 'Cái này bao nhiêu tiền vậy chị?',
+    highlightZh: '「Bớt một chút được không?」微笑議價，收穫在地親切人情味'
+  },
+  numbers_scale: {
+    image: 'images/south_vietnam_industrial_illustration.jpg',
+    tagZh: '百萬貨幣與量詞計數',
+    tagEn: 'Large Scale Numbers & Logistics',
+    locationZh: '平陽省外資工業區 · 商貿採購會計處',
+    locationEn: 'Binh Duong Industrial FDI Zone & Accounting Desk',
+    highlightVi: 'Một triệu năm trăm ngàn đồng.',
+    highlightZh: '掌握千 (nghìn/ngàn)、百萬 (triệu)、十億 (tỷ) 迅速精算越幣匯率'
+  }
+};
+
+const getTopicIllustration = (topicId = '') => {
+  if (TOPIC_ILLUSTRATIONS[topicId]) return TOPIC_ILLUSTRATIONS[topicId];
+  if (topicId.includes('business')) return TOPIC_ILLUSTRATIONS.business_greeting;
+  if (topicId.includes('dining')) return TOPIC_ILLUSTRATIONS.dining_restaurant;
+  if (topicId.includes('family')) return TOPIC_ILLUSTRATIONS.family_kinship;
+  if (topicId.includes('health')) return TOPIC_ILLUSTRATIONS.health_medical;
+  if (topicId.includes('date') || topicId.includes('time')) return TOPIC_ILLUSTRATIONS.date_time_stay;
+  if (topicId.includes('price') || topicId.includes('bargain')) return TOPIC_ILLUSTRATIONS.pricing_bargaining;
+  if (topicId.includes('number')) return TOPIC_ILLUSTRATIONS.numbers_scale;
+  return TOPIC_ILLUSTRATIONS.business_greeting;
+};
 
 const getCategoryIcon = (category = '') => {
   const c = (category || '').toLowerCase();
@@ -37,49 +123,49 @@ const getTopicSpeakerVisual = (speaker = '', topicId = '', lineIndex = 0, learni
 
   if (!isSpeakerB) {
     // Speaker A (Learner / Visitor / Customer)
-    if (topicId === 'business_greeting' || s.includes('đài loan') || s.includes('khách')) {
+    if (topicId.includes('business') || s.includes('đài loan') || s.includes('khách')) {
       return { icon: '💼', role: learningMode === 'zh' ? '商務代表 (明先生)' : 'Project Manager (Minh)', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
     }
-    if (topicId === 'dining' || s.includes('khách')) {
+    if (topicId.includes('dining') || s.includes('khách')) {
       return { icon: '🍜', role: learningMode === 'zh' ? '用餐顧客' : 'Diner', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
     }
-    if (topicId === 'family') {
+    if (topicId.includes('family')) {
       return { icon: '🧑', role: learningMode === 'zh' ? '外國朋友' : 'Friend', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
     }
-    if (topicId === 'health') {
+    if (topicId.includes('health')) {
       return { icon: '🤒', role: learningMode === 'zh' ? '身體不適者' : 'Patient', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
     }
-    if (topicId === 'date_time') {
+    if (topicId.includes('date') || topicId.includes('time')) {
       return { icon: '✈️', role: learningMode === 'zh' ? '自由行旅客' : 'Traveler', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
     }
-    if (topicId === 'price_bargain') {
+    if (topicId.includes('price') || topicId.includes('bargain')) {
       return { icon: '🛍️', role: learningMode === 'zh' ? '市集買家' : 'Shopper', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
     }
-    if (topicId === 'numbers_math') {
+    if (topicId.includes('number')) {
       return { icon: '🔢', role: learningMode === 'zh' ? '詢價採購' : 'Buyer', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
     }
     return { icon: '🎒', role: learningMode === 'zh' ? '學習者' : 'Learner', color: '#3b82f6', bg: 'rgba(59, 130, 246, 0.15)' };
   } else {
     // Speaker B (Local Host / Vendor / Specialist)
-    if (topicId === 'business_greeting' || s.includes('giám đốc')) {
+    if (topicId.includes('business') || s.includes('giám đốc')) {
       return { icon: '👔', role: learningMode === 'zh' ? '總經理 (Nam 總)' : 'Director Nam', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
     }
-    if (topicId === 'dining' || s.includes('phục vụ') || s.includes('quán')) {
+    if (topicId.includes('dining') || s.includes('phục vụ') || s.includes('quán')) {
       return { icon: '👨‍🍳', role: learningMode === 'zh' ? '店員 / 跑堂' : 'Server', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
     }
-    if (topicId === 'family' || s.includes('bạn')) {
+    if (topicId.includes('family') || s.includes('bạn')) {
       return { icon: '👩', role: learningMode === 'zh' ? '在地越南朋友' : 'Local Friend', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
     }
-    if (topicId === 'health' || s.includes('bác sĩ') || s.includes('dược sĩ')) {
+    if (topicId.includes('health') || s.includes('bác sĩ') || s.includes('dược sĩ')) {
       return { icon: '👨‍⚕️', role: learningMode === 'zh' ? '主治醫師 / 藥師' : 'Doctor / Pharmacist', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
     }
-    if (topicId === 'date_time' || s.includes('lễ tân')) {
+    if (topicId.includes('date') || topicId.includes('time') || s.includes('lễ tân')) {
       return { icon: '🏨', role: learningMode === 'zh' ? '飯店前台櫃檯' : 'Hotel Front Desk', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
     }
-    if (topicId === 'price_bargain' || s.includes('chủ quán') || s.includes('bán')) {
+    if (topicId.includes('price') || topicId.includes('bargain') || s.includes('chủ quán') || s.includes('bán')) {
       return { icon: '🛒', role: learningMode === 'zh' ? '市場熱情攤主' : 'Market Vendor', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
     }
-    if (topicId === 'numbers_math') {
+    if (topicId.includes('number')) {
       return { icon: '🧮', role: learningMode === 'zh' ? '收銀會計' : 'Accountant', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
     }
     return { icon: '🇻🇳', role: learningMode === 'zh' ? '在地母語者' : 'Local Host', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
@@ -191,6 +277,7 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats }
   }, [activeTopicId]);
 
   const currentTopic = SITUATIONAL_TOPICS.find(t => t.id === activeTopicId) || SITUATIONAL_TOPICS[0];
+  const topicVisual = getTopicIllustration(currentTopic.id);
 
   // Play single Vietnamese text
   const handleSpeak = (text, key) => {
@@ -369,61 +456,112 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats }
     <div className="topics-mastery-container">
       {/* 1. 英雄旗艦專區 */}
       <section className="topics-hero">
-        <div className="topics-hero-content">
-          <div className="topics-hero-badge">
-            <Sparkles size={15} />
-            <span>{learningMode === 'zh' ? '7大核心情境專題深造' : '7 Situational Mastery Tracks'}</span>
-          </div>
-
-          <h1 className="topics-hero-title">
-            <span>{currentTopic.icon}</span>
-            <span>{learningMode === 'zh' ? currentTopic.titleZh : currentTopic.titleEn}</span>
-            <small style={{ fontSize: '1rem', color: 'var(--text-secondary)', fontWeight: 600 }}>({currentTopic.titleVi})</small>
-          </h1>
-
-          <p className="topics-hero-desc">
-            {learningMode === 'zh' ? currentTopic.summaryZh : currentTopic.summaryEn}
-          </p>
-
-          {/* 全域聲學控制列 */}
-          <div className="topics-global-controls">
-            {/* 口音切換 */}
-            <div className="topics-control-group">
-              <span className="topics-ctrl-label">{learningMode === 'zh' ? '發音腔調:' : 'Dialect:'}</span>
-              <button
-                className={`topics-toggle-btn ${accent === 'north' ? 'active' : ''}`}
-                onClick={() => { audioEngine.playHaptic('selection'); setAccent('north'); }}
-              >
-                {learningMode === 'zh' ? '北越 (河內)' : 'North (Hanoi)'}
-              </button>
-              <button
-                className={`topics-toggle-btn ${accent === 'south' ? 'active' : ''}`}
-                onClick={() => { audioEngine.playHaptic('selection'); setAccent('south'); }}
-              >
-                {learningMode === 'zh' ? '南越 (西貢)' : 'South (Saigon)'}
-              </button>
+        <div className="topics-hero-grid">
+          <div className="topics-hero-content">
+            <div className="topics-hero-badge">
+              <Sparkles size={15} />
+              <span>{learningMode === 'zh' ? '7大核心情境專題深造' : '7 Situational Mastery Tracks'}</span>
             </div>
 
-            {/* 語速切換 */}
-            <div className="topics-control-group">
-              <span className="topics-ctrl-label">{learningMode === 'zh' ? '語速:' : 'Speed:'}</span>
+            <h1 className="topics-hero-title">
+              <span className="topic-title-icon">{currentTopic.icon}</span>
+              <span className="topic-title-main">{learningMode === 'zh' ? currentTopic.titleZh : currentTopic.titleEn}</span>
+              <span className="topic-title-vi-wrap">
+                <span className="topic-title-vi">({currentTopic.titleVi})</span>
+                <button
+                  className={`audio-icon-btn title-audio-btn ${audioState.isPlaying && audioState.activeKey === `topic_title_${currentTopic.id}` ? 'playing' : ''}`}
+                  onClick={() => handleSpeak(currentTopic.titleVi, `topic_title_${currentTopic.id}`)}
+                  title={learningMode === 'zh' ? '聆聽專題越文發音' : 'Listen topic title pronunciation'}
+                >
+                  <Volume2 size={16} />
+                </button>
+              </span>
+            </h1>
+
+            <p className="topics-hero-desc">
+              {learningMode === 'zh' ? currentTopic.summaryZh : currentTopic.summaryEn}
+            </p>
+
+            {/* 專題情境精髓心法 */}
+            <div className="topics-hero-takeaway">
+              <span className="takeaway-badge">💡 {learningMode === 'zh' ? '實戰心法' : 'Key Insight'}</span>
+              <span className="takeaway-text">{topicVisual.highlightZh}</span>
+            </div>
+
+            {/* 全域聲學控制列 */}
+            <div className="topics-global-controls">
+              {/* 口音切換 */}
+              <div className="topics-control-group">
+                <span className="topics-ctrl-label">{learningMode === 'zh' ? '發音腔調:' : 'Dialect:'}</span>
+                <button
+                  className={`topics-toggle-btn ${accent === 'north' ? 'active' : ''}`}
+                  onClick={() => { audioEngine.playHaptic('selection'); setAccent('north'); }}
+                >
+                  {learningMode === 'zh' ? '北越 (河內)' : 'North (Hanoi)'}
+                </button>
+                <button
+                  className={`topics-toggle-btn ${accent === 'south' ? 'active' : ''}`}
+                  onClick={() => { audioEngine.playHaptic('selection'); setAccent('south'); }}
+                >
+                  {learningMode === 'zh' ? '南越 (西貢)' : 'South (Saigon)'}
+                </button>
+              </div>
+
+              {/* 語速切換 */}
+              <div className="topics-control-group">
+                <span className="topics-ctrl-label">{learningMode === 'zh' ? '語速:' : 'Speed:'}</span>
+                <button
+                  className={`topics-toggle-btn ${playbackSpeed === 0.75 ? 'active' : ''}`}
+                  onClick={() => { audioEngine.playHaptic('selection'); setPlaybackSpeed(0.75); }}
+                >
+                  0.75x
+                </button>
+                <button
+                  className={`topics-toggle-btn ${playbackSpeed === 1.0 ? 'active' : ''}`}
+                  onClick={() => { audioEngine.playHaptic('selection'); setPlaybackSpeed(1.0); }}
+                >
+                  1.0x
+                </button>
+                <button
+                  className={`topics-toggle-btn ${playbackSpeed === 1.25 ? 'active' : ''}`}
+                  onClick={() => { audioEngine.playHaptic('selection'); setPlaybackSpeed(1.25); }}
+                >
+                  1.25x
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* 右側情境專題插畫旗艦卡 */}
+          <div className="topic-hero-visual-card">
+            <div className="topic-hero-img-wrap">
+              <img
+                src={getAssetUrl(topicVisual.image)}
+                alt={currentTopic.titleZh}
+                className="topic-hero-img"
+                loading="eager"
+              />
+              <div className="topic-hero-img-overlay">
+                <span className="topic-hero-loc-tag">
+                  <MapPin size={12} />
+                  <span>{learningMode === 'zh' ? topicVisual.locationZh : topicVisual.locationEn}</span>
+                </span>
+                <span className="topic-hero-category-chip">
+                  {learningMode === 'zh' ? topicVisual.tagZh : topicVisual.tagEn}
+                </span>
+              </div>
+            </div>
+            <div className="topic-hero-quote-bar">
+              <div className="topic-hero-quote-content">
+                <div className="topic-hero-quote-vi">“{topicVisual.highlightVi}”</div>
+                <div className="topic-hero-quote-zh">{topicVisual.highlightZh}</div>
+              </div>
               <button
-                className={`topics-toggle-btn ${playbackSpeed === 0.75 ? 'active' : ''}`}
-                onClick={() => { audioEngine.playHaptic('selection'); setPlaybackSpeed(0.75); }}
+                className={`audio-icon-btn quote-audio-btn ${audioState.isPlaying && audioState.activeKey === `topic_highlight_${currentTopic.id}` ? 'playing' : ''}`}
+                onClick={() => handleSpeak(topicVisual.highlightVi, `topic_highlight_${currentTopic.id}`)}
+                title={learningMode === 'zh' ? '聆聽專題代表金句發音' : 'Listen situational motto pronunciation'}
               >
-                0.75x
-              </button>
-              <button
-                className={`topics-toggle-btn ${playbackSpeed === 1.0 ? 'active' : ''}`}
-                onClick={() => { audioEngine.playHaptic('selection'); setPlaybackSpeed(1.0); }}
-              >
-                1.0x
-              </button>
-              <button
-                className={`topics-toggle-btn ${playbackSpeed === 1.25 ? 'active' : ''}`}
-                onClick={() => { audioEngine.playHaptic('selection'); setPlaybackSpeed(1.25); }}
-              >
-                1.25x
+                <Volume2 size={18} />
               </button>
             </div>
           </div>
@@ -553,16 +691,24 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats }
                 const isPlaying = audioState.isPlaying && audioState.activeKey === key;
                 return (
                   <div key={idx} className="formula-card">
+                    <div className="formula-badge-row">
+                      <span className="formula-index-badge">
+                        📐 {learningMode === 'zh' ? `句型公式 0${idx + 1}` : `Formula 0${idx + 1}`}
+                      </span>
+                    </div>
                     <div className="formula-pattern">{pat.pattern}</div>
-                    <div className="formula-meaning">{pat.meaningZh}</div>
+                    <div className="formula-meaning">{learningMode === 'zh' ? pat.meaningZh : (pat.meaningEn || pat.meaningZh)}</div>
                     <div className="formula-example-box">
                       <div>
                         <strong style={{ color: 'var(--text-primary)' }}>{pat.example}</strong>
-                        <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{pat.exampleZh}</div>
+                        <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                          {learningMode === 'zh' ? pat.exampleZh : (pat.exampleEn || pat.exampleZh)}
+                        </div>
                       </div>
                       <button
                         className={`audio-icon-btn ${isPlaying ? 'playing' : ''}`}
                         onClick={() => handleSpeak(pat.example, key)}
+                        title={learningMode === 'zh' ? '聆聽例句發音' : 'Listen example pronunciation'}
                       >
                         <Volume2 size={16} />
                       </button>
@@ -610,6 +756,34 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats }
            ======================================================== */}
         {activeView === 'dialogue' && (
           <div className="dialogue-section">
+            {/* 情境插畫視覺導引橫幅 */}
+            <div className="dialogue-scene-banner">
+              <div className="dialogue-scene-bg-wrap">
+                <img
+                  src={getAssetUrl(topicVisual.image)}
+                  alt={currentDialogue.titleZh}
+                  className="dialogue-scene-bg-img"
+                  loading="lazy"
+                />
+                <div className="dialogue-scene-bg-overlay" />
+              </div>
+              <div className="dialogue-scene-info">
+                <div className="dialogue-scene-badge-row">
+                  <span className="dialogue-scene-tag">
+                    🎭 {learningMode === 'zh' ? '情境模擬對話' : 'Role-play Dialogue'} · #{activeDialogueIndex + 1}
+                  </span>
+                  <span className="dialogue-scene-loc">
+                    <MapPin size={12} />
+                    <span>{learningMode === 'zh' ? topicVisual.locationZh : topicVisual.locationEn}</span>
+                  </span>
+                </div>
+                <h3 className="dialogue-scene-headline">
+                  <span>{currentDialogue.titleZh}</span>
+                  <small>({currentDialogue.titleEn})</small>
+                </h3>
+              </div>
+            </div>
+
             {/* 對話切換列 */}
             <div className="dialogue-switcher">
               {currentTopic.dialogues?.map((diag, idx) => (

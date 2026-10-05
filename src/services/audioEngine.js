@@ -314,9 +314,9 @@ class AudioEngine {
     if (!text) return '';
     let cleaned = String(text);
 
-    // 1. Remove Chinese characters and translations in parentheses or brackets e.g. (店員), （客棧）, [z] 像 Z
-    cleaned = cleaned.replace(/\([^)]*[\u4e00-\u9fa5A-Za-z]+[^)]*\)/g, ' ');
-    cleaned = cleaned.replace(/（[^）]*[\u4e00-\u9fa5A-Za-z]+[^）]*）/g, ' ');
+    // 1. Remove parenthetical annotations, translations, and bracketed notes e.g. (店員), （客棧）, (hoặc Bác/Chú), [Tên]
+    cleaned = cleaned.replace(/\([^)]*\)/g, ' ');
+    cleaned = cleaned.replace(/（[^）]*）/g, ' ');
     cleaned = cleaned.replace(/\[[^\]]*\]/g, ' ');
 
     // 2. Remove isolated Chinese characters and Chinese fullwidth punctuation
@@ -344,17 +344,27 @@ class AudioEngine {
     if (!text) return null;
     const rawClean = text.trim();
     const isSouth = accent === 'south';
+    const stripped = rawClean.replace(/[.,?!;:…]+$/g, '').trim();
+    const lower = rawClean.toLowerCase();
+    const strippedLower = stripped.toLowerCase();
 
     if (isSouth) {
       const southPhonetic = this.toSouthernPhonetic(rawClean);
+      const southStripped = southPhonetic.replace(/[.,?!;:…]+$/g, '').trim();
       const candidates = [
         `${rawClean}_south`,
         southPhonetic,
+        southStripped,
         this.normalizedManifest.get(southPhonetic),
         this.normalizedManifest.get(southPhonetic.toLowerCase()),
+        this.normalizedManifest.get(southStripped),
+        this.normalizedManifest.get(southStripped.toLowerCase()),
         rawClean,
+        stripped,
         this.normalizedManifest.get(rawClean),
-        this.normalizedManifest.get(rawClean.toLowerCase())
+        this.normalizedManifest.get(lower),
+        this.normalizedManifest.get(stripped),
+        this.normalizedManifest.get(strippedLower)
       ];
       for (const cand of candidates) {
         if (cand && this.manifest[cand]) return this.manifest[cand];
@@ -362,13 +372,19 @@ class AudioEngine {
       }
     } else {
       const northPhonetic = rawClean.replace(/\bngàn\b/gi, 'nghìn');
+      const northStripped = northPhonetic.replace(/[.,?!;:…]+$/g, '').trim();
       const candidates = [
         `${rawClean}_north`,
         rawClean,
+        stripped,
         northPhonetic,
+        northStripped,
         this.normalizedManifest.get(rawClean),
-        this.normalizedManifest.get(rawClean.toLowerCase()),
-        this.normalizedManifest.get(northPhonetic)
+        this.normalizedManifest.get(lower),
+        this.normalizedManifest.get(stripped),
+        this.normalizedManifest.get(strippedLower),
+        this.normalizedManifest.get(northPhonetic),
+        this.normalizedManifest.get(northStripped)
       ];
       for (const cand of candidates) {
         if (cand && this.manifest[cand]) return this.manifest[cand];
@@ -420,7 +436,16 @@ class AudioEngine {
         const audioPath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${manifestFile}`;
         this.playLocalFile(audioPath, rate, options)
           .catch(() => {
-            this.fallbackSpeech(cleanedText, rate, { ...options, accent });
+            // Secondary relative attempt in case BASE_URL pathing differs on current origin
+            const relativeAudioPath = `./audio/${manifestFile}`;
+            if (relativeAudioPath !== audioPath) {
+              this.playLocalFile(relativeAudioPath, rate, options)
+                .catch(() => {
+                  this.fallbackSpeech(cleanedText, rate, { ...options, accent });
+                });
+            } else {
+              this.fallbackSpeech(cleanedText, rate, { ...options, accent });
+            }
           });
         return;
       }
@@ -448,7 +473,10 @@ class AudioEngine {
         this.currentAudio = audio;
         audio.playbackRate = Math.min(Math.max(rate, 0.5), 2.0);
 
+        let finished = false;
         const cleanup = () => {
+          if (finished) return;
+          finished = true;
           audio.removeEventListener('ended', handleEnded);
           audio.removeEventListener('error', handleError);
           audio.removeEventListener('pause', handlePause);
@@ -456,20 +484,27 @@ class AudioEngine {
 
         const handleEnded = () => {
           cleanup();
-          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+          if (this.currentAudio === audio) {
+            this.currentAudio = null;
+            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+          }
           if (options.onEnd) options.onEnd();
           resolve();
         };
 
         const handlePause = () => {
-          if (this.currentAudio === audio && audio.currentTime === 0) {
-            cleanup();
+          cleanup();
+          if (this.currentAudio === audio) {
+            this.currentAudio = null;
             this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
           }
         };
 
         const handleError = (e) => {
           cleanup();
+          if (this.currentAudio === audio) {
+            this.currentAudio = null;
+          }
           reject(e);
         };
 
@@ -481,6 +516,9 @@ class AudioEngine {
         if (playPromise !== undefined) {
           playPromise.catch((e) => {
             cleanup();
+            if (this.currentAudio === audio) {
+              this.currentAudio = null;
+            }
             reject(e);
           });
         }

@@ -1,5 +1,5 @@
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { ArrowUp, Settings2, Sparkles, Trophy, Award, X, Target } from 'lucide-react';
+import { ArrowUp, Settings2, Sparkles, Trophy, Award, X, Target, Activity } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { useLanguage } from './context/LanguageContext';
@@ -31,6 +31,7 @@ const ToneGameModule = lazyNamed(() => import('./components/ToneGameModule'), 'd
 const AchievementsModal = lazyNamed(() => import('./components/AchievementsModal'), 'default');
 const DailyQuestModal = lazyNamed(() => import('./components/DailyQuestModal'), 'default');
 const ChapterFinderModal = lazyNamed(() => import('./components/ChapterFinderModal'), 'default');
+const AudioDiagnosticModal = lazyNamed(() => import('./components/AudioDiagnosticModal'), 'default');
 
 const getModuleFromHash = () => {
   const moduleId = window.location.hash.replace(/^#\/?/, '');
@@ -73,6 +74,7 @@ export function App() {
   const [isAchievementsModalOpen, setIsAchievementsModalOpen] = useState(false);
   const [isDailyQuestsOpen, setIsDailyQuestsOpen] = useState(false);
   const [isChapterFinderOpen, setIsChapterFinderOpen] = useState(false);
+  const [isAudioDiagOpen, setIsAudioDiagOpen] = useState(false);
 
   // User Gamification Stats
   const [userStats, setUserStats] = useState(() => {
@@ -137,12 +139,16 @@ export function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // Global Keyboard Shortcut: Ctrl+K or Cmd+K to open Chapter Finder
+  // Global Keyboard Shortcuts: Ctrl+K (Finder), Ctrl+Shift+A (Audio Diagnostics)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setIsChapterFinderOpen(prev => !prev);
+      }
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a') {
+        e.preventDefault();
+        setIsAudioDiagOpen(prev => !prev);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -249,6 +255,7 @@ export function App() {
         onOpenAchievements={() => setIsAchievementsModalOpen(true)}
         onOpenDailyQuests={() => setIsDailyQuestsOpen(true)}
         onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
+        onOpenAudioDiagnostic={() => setIsAudioDiagOpen(true)}
       />
 
       {/* Main Learning Module View */}
@@ -396,6 +403,15 @@ export function App() {
         />
       </Suspense>
 
+      {/* Audio Diagnostic Studio Modal */}
+      <Suspense fallback={null}>
+        <AudioDiagnosticModal
+          isOpen={isAudioDiagOpen}
+          onClose={() => setIsAudioDiagOpen(false)}
+          selectedAccent={selectedAccent}
+        />
+      </Suspense>
+
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
@@ -414,6 +430,16 @@ export function App() {
           </div>
 
           <div className="footer-settings-controls" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
+            <button
+              className="secondary-action"
+              onClick={() => { audioEngine.playHaptic('tap'); setIsAudioDiagOpen(true); }}
+              style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem', border: '1px solid rgba(16, 185, 129, 0.4)', color: '#10b981', background: 'rgba(16, 185, 129, 0.12)' }}
+              title="音訊健康檢驗儀 (Ctrl+Shift+A)"
+            >
+              <Activity size={14} color="#10b981" />
+              <span>{learningMode === 'zh' ? '🎧 檢音儀 (4,005 音檔)' : '🎧 Audio Lab'}</span>
+            </button>
+
             <button
               className="secondary-action"
               onClick={() => { audioEngine.playHaptic('tap'); setIsDailyQuestsOpen(true); }}

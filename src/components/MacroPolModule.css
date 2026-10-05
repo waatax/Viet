@@ -46,7 +46,8 @@
   --macro-shadow-lg: 0 12px 32px -4px rgba(15, 23, 42, 0.08);
 }
 
-[data-theme="paper"] {
+[data-theme="paper"],
+[data-theme="sepia"] {
   --macro-bg: #f5eedc;
   --macro-bg-card: #fdfbf7;
   --macro-bg-card-hover: #faf5ea;

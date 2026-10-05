@@ -50,6 +50,23 @@ import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 
+const getAssetUrl = (path) => {
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${cleanBase}${cleanPath}`;
+};
+
+export const FAST_TRACK_DAY_ILLUSTRATIONS = {
+  1: { image: 'images/scenarios/business.jpg', alt: 'Day 1: 禮貌社交破冰' },
+  2: { image: 'images/viet_coffee_food_illustration.jpg', alt: 'Day 2: 點餐與越南咖啡' },
+  3: { image: 'images/ben_thanh_market_illustration.jpg', alt: 'Day 3: 市場殺價與算錢' },
+  4: { image: 'images/scenarios/travel.jpg', alt: 'Day 4: 計程車Grab與問路' },
+  5: { image: 'images/hcmc_skyline_illustration.jpg', alt: 'Day 5: 人稱稱謂與社交' },
+  6: { image: 'images/scenarios/nhau_culture.jpg', alt: 'Day 6: 熱炒聚餐敬酒文化' },
+  7: { image: 'images/scenarios/pharmacy_clinic.jpg', alt: 'Day 7: 藥局看診與突發急救' }
+};
+
 export const FAST_TRACK_DAYS = [
   {
     day: 1,
@@ -819,6 +836,38 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
         padding: '2rem',
         boxShadow: '0 8px 30px rgba(0,0,0,0.04)'
       }}>
+        {/* Day Scenario Illustration Banner */}
+        {FAST_TRACK_DAY_ILLUSTRATIONS[currentDay.day] && (
+          <div style={{
+            position: 'relative',
+            height: '190px',
+            width: '100%',
+            borderRadius: 'var(--radius-md)',
+            overflow: 'hidden',
+            marginBottom: '1.5rem',
+            boxShadow: '0 4px 14px rgba(0,0,0,0.08)'
+          }}>
+            <img
+              src={getAssetUrl(FAST_TRACK_DAY_ILLUSTRATIONS[currentDay.day].image)}
+              alt={FAST_TRACK_DAY_ILLUSTRATIONS[currentDay.day].alt}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              loading="lazy"
+            />
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%)',
+              display: 'flex',
+              alignItems: 'flex-end',
+              padding: '1rem 1.25rem'
+            }}>
+              <span style={{ color: '#ffffff', fontWeight: 800, fontSize: '1.05rem', textShadow: '0 2px 4px rgba(0,0,0,0.8)' }}>
+                📍 {learningMode === 'zh' ? `情境實景：${currentDay.titleZh}` : `Scenario Context: ${currentDay.titleEn}`}
+              </span>
+            </div>
+          </div>
+        )}
+
         {/* Day Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', borderBottom: '1px solid var(--border-color)', paddingBottom: '1.5rem', marginBottom: '1.75rem' }}>
           <div>
