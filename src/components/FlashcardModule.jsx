@@ -13,6 +13,7 @@ import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
+import { VocabAudioBatchSection } from './VocabAudioBatchSection';
 import './FlashcardModule.css';
 
 const topicCategoryMap = {
@@ -103,6 +104,9 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
         if (item.targetParam?.mode === 'confusables') {
           return 'confusables';
         }
+        if (item.targetParam?.mode === 'audioBatches') {
+          return 'audioBatches';
+        }
       }
     } catch {}
     return 'frequency';
@@ -172,6 +176,8 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
           setSelectedConfusableCategory(chap.targetParam.confusableType);
         }
         setConfusableIndex(0);
+      } else if (chap?.targetParam?.mode === 'audioBatches') {
+        setActiveMasterMode('audioBatches');
       } else if (chap?.targetParam?.tier) {
         setActiveMasterMode('frequency');
         setSelectedTier(chap.targetParam.tier);
@@ -664,6 +670,10 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
       const { activeMasterMode, handleCardClick, handleAnswer, handlePlayAbAudio, handleConfusableAnswer, handleStepConfusable } = handlersRef.current;
 
+      if (activeMasterMode === 'audioBatches') {
+        return;
+      }
+
       if (activeMasterMode === 'confusables') {
         if (e.code === 'Space') {
           e.preventDefault();
@@ -742,7 +752,7 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
       </div>
 
       {/* ── Master Deck Mode Switcher ── */}
-      <div className="fc-master-mode-switch" style={{ maxWidth: '640px', margin: '0 auto 1.5rem' }}>
+      <div className="fc-master-mode-switch" style={{ maxWidth: '860px', margin: '0 auto 1.5rem', flexWrap: 'wrap' }}>
         <button
           className={`fc-mode-pill-btn ${activeMasterMode === 'frequency' ? 'active' : ''}`}
           onClick={() => {
@@ -766,6 +776,18 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
           <Zap size={18} />
           <span>{learningMode === 'zh' ? '相近似字·攣生記憶卡 (中文專用)' : 'Confusables & Minimal Pairs'}</span>
           <span className="badge-pill-count">{CONFUSABLE_STATS.totalPairs}組</span>
+        </button>
+
+        <button
+          className={`fc-mode-pill-btn ${activeMasterMode === 'audioBatches' ? 'active' : ''}`}
+          onClick={() => {
+            audioEngine.playHaptic('selection');
+            setActiveMasterMode('audioBatches');
+          }}
+        >
+          <Headphones size={18} />
+          <span>{learningMode === 'zh' ? '🎧 1000 基礎單字·磨耳朵特訓 (每50字念3次)' : '🎧 1000 Vocab Audio Batches'}</span>
+          <span className="badge-pill-count" style={{ background: '#10b981', color: '#fff' }}>20組 · 4hr</span>
         </button>
       </div>
 
@@ -1067,6 +1089,13 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
       )}
 
       {/* ─────────────────────────────────────────────────────────────
+          MODE C: 基礎 1,000 單字·磨耳朵特訓區 (每 50 字 · 越中循環三次)
+          ───────────────────────────────────────────────────────────── */}
+      {activeMasterMode === 'audioBatches' && (
+        <VocabAudioBatchSection selectedAccent={selectedAccent} />
+      )}
+
+      {/* ─────────────────────────────────────────────────────────────
           MODE B: 全頻高頻分級字庫閃卡 (Frequency Lexicon Deck)
           ───────────────────────────────────────────────────────────── */}
       {activeMasterMode === 'frequency' && (
@@ -1101,6 +1130,64 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
               </button>
             ))}
           </div>
+
+          {/* Special Ear-Training Audio Batches Entry Banner for Top 1,000 */}
+          {selectedTier === 'top1k' && (
+            <div 
+              style={{
+                maxWidth: '850px',
+                margin: '0 auto 1.25rem',
+                background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(37, 99, 235, 0.12) 100%)',
+                border: '1.5px solid rgba(16, 185, 129, 0.35)',
+                borderRadius: '1rem',
+                padding: '0.85rem 1.25rem',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: '0.75rem',
+                cursor: 'pointer',
+                boxShadow: '0 4px 14px rgba(16, 185, 129, 0.08)'
+              }}
+              onClick={() => {
+                audioEngine.playHaptic('selection');
+                setActiveMasterMode('audioBatches');
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <div style={{ background: '#10b981', color: '#fff', borderRadius: '50%', width: '38px', height: '38px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Headphones size={20} />
+                </div>
+                <div>
+                  <div style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)' }}>
+                    🎧 {learningMode === 'zh' ? '正在學習 Top 1,000 基礎單字？立即開啟【20 大批次語音磨耳朵特訓】' : 'Top 1000 Vocab Audio Immersion Lab'}
+                  </div>
+                  <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                    {learningMode === 'zh' ? '每 50 字獨立音檔 · (一次越文 + 一次中文) × 3 循環念三次 · 支援背景連續播放與離線下載' : '50 words per batch · (Viet + Meaning) × 3 triple repetition audio files.'}
+                  </div>
+                </div>
+              </div>
+              <button 
+                style={{
+                  background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '9999px',
+                  padding: '0.45rem 1rem',
+                  fontSize: '0.82rem',
+                  fontWeight: 700,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.35rem',
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 6px rgba(16, 185, 129, 0.3)'
+                }}
+              >
+                <span>{learningMode === 'zh' ? '前往磨耳朵特訓' : 'Open Audio Lab'}</span>
+                <ArrowRight size={14} />
+              </button>
+            </div>
+          )}
 
           {/* Search Bar & Quick Navigation */}
           <div style={{ maxWidth: '720px', margin: '0 auto 1rem', display: 'flex', gap: '0.6rem', alignItems: 'center', flexWrap: 'wrap' }}>

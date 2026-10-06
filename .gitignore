@@ -31,6 +31,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 scripts/cache/
+scripts/audio_cache/
 
 # ==============================================================================
 # Standard Dependencies & Build Outputs

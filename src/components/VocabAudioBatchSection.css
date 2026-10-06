@@ -1,0 +1,974 @@
+/* VocabAudioBatchSection.css - High Performance Ear Training Lab */
+
+.vocab-batch-audio-section {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 0.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ── Hero Header ── */
+.vba-hero-header {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(16, 185, 129, 0.08) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.vba-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(37, 99, 235, 0.12);
+  color: #2563eb;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.vba-hero-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary, #0f172a);
+  margin: 0;
+  line-height: 1.35;
+}
+
+.vba-hero-desc {
+  max-width: 800px;
+  font-size: 0.95rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Global Progress Card */
+.vba-global-progress-card {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 0.5rem;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 1rem;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.vba-gp-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.88rem;
+  color: var(--text-secondary, #475569);
+}
+
+.vba-gp-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
+}
+
+.vba-gp-numbers strong {
+  color: #10b981;
+  font-size: 1.05rem;
+}
+
+.vba-gp-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-secondary, #f1f5f9);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.vba-gp-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #10b981 0%, #3b82f6 100%);
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+}
+
+/* ── 20 Batches Carousel / Grid ── */
+.vba-batches-selector-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.vba-batches-selector-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.vba-sub-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  margin: 0;
+}
+
+.vba-batches-count-pill {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--brand-primary, #2563eb);
+  background: rgba(37, 99, 235, 0.08);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.vba-batches-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.75rem;
+  max-height: 290px;
+  overflow-y: auto;
+  padding: 0.25rem;
+  scrollbar-width: thin;
+}
+
+.vba-batch-card-btn {
+  background: var(--card-bg, #ffffff);
+  border: 1.5px solid var(--border-color, #e2e8f0);
+  border-radius: 0.85rem;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.vba-batch-card-btn:hover {
+  border-color: var(--brand-primary, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.vba-batch-card-btn.active {
+  border-color: var(--brand-primary, #2563eb);
+  background: rgba(37, 99, 235, 0.04);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.vba-bc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vba-bc-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  background: var(--bg-secondary, #f1f5f9);
+  color: var(--text-secondary, #64748b);
+}
+
+.vba-batch-card-btn.active .vba-bc-badge {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.vba-bc-percent {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.vba-bc-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vba-bc-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-secondary, #64748b);
+}
+
+.vba-bc-mini-bar {
+  width: 100%;
+  height: 3px;
+  background: var(--border-color, #e2e8f0);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 0.2rem;
+}
+
+.vba-bc-mini-fill {
+  height: 100%;
+  background: #10b981;
+  border-radius: 9999px;
+}
+
+/* ── Sticky Audio Player Console ── */
+.vba-player-console {
+  position: sticky;
+  top: 1rem;
+  z-index: 40;
+  background: var(--card-bg, #ffffff);
+  border: 1.5px solid rgba(37, 99, 235, 0.3);
+  border-radius: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+.vba-player-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.vba-now-playing-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.vba-np-batch-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary, #0f172a);
+}
+
+.vba-np-words-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.vba-np-hint {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #64748b);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.vba-player-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vba-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.85rem;
+  background: var(--bg-secondary, #f1f5f9);
+  color: var(--text-primary, #1e293b);
+  border: 1px solid var(--border-color, #cbd5e1);
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.vba-download-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+/* Scrub Bar */
+.vba-scrub-bar-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.vba-scrub-slider {
+  width: 100%;
+  height: 6px;
+  -webkit-appearance: none;
+  background: var(--bg-secondary, #e2e8f0);
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.vba-scrub-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2563eb;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+  transition: transform 0.1s ease;
+}
+
+.vba-scrub-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+.vba-scrub-times {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  font-family: monospace;
+  color: var(--text-secondary, #64748b);
+}
+
+/* Control Cluster */
+.vba-controls-cluster {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.vba-ctrl-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--bg-secondary, #f8fafc);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary, #64748b);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vba-ctrl-pill-btn:hover {
+  border-color: var(--brand-primary, #2563eb);
+  color: var(--brand-primary, #2563eb);
+}
+
+.vba-ctrl-pill-btn.active {
+  background: rgba(37, 99, 235, 0.12);
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.vba-main-play-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.vba-step-btn {
+  background: var(--bg-secondary, #f1f5f9);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary, #334155);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.vba-step-btn:hover {
+  background: #e2e8f0;
+  color: #2563eb;
+}
+
+.vba-step-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1;
+  position: absolute;
+  bottom: 4px;
+}
+
+.vba-main-play-btn {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  transition: all 0.2s ease;
+}
+
+.vba-main-play-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
+}
+
+.vba-main-play-btn.playing {
+  animation: vbaPulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes vbaPulseGlow {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.vba-speed-selector {
+  display: flex;
+  background: var(--bg-secondary, #f1f5f9);
+  padding: 0.2rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.vba-speed-btn {
+  padding: 0.25rem 0.55rem;
+  background: transparent;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-secondary, #64748b);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vba-speed-btn.active {
+  background: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.vba-audio-warning {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #d97706;
+  font-size: 0.82rem;
+  background: #fef3c7;
+  padding: 0.4rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+/* ── 50 Words Study Companion Toolbar ── */
+.vba-wordlist-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.vba-wl-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 1rem;
+  padding: 0.85rem 1.25rem;
+}
+
+.vba-wl-title-area {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.vba-wl-title-area h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  margin: 0;
+}
+
+.vba-wl-count-badge {
+  font-size: 0.82rem;
+  color: var(--text-secondary, #64748b);
+  font-weight: 500;
+}
+
+.vba-wl-mastery-status {
+  font-size: 0.85rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+.vba-wl-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.vba-search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-secondary, #f8fafc);
+  border: 1px solid var(--border-color, #cbd5e1);
+  border-radius: 9999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+.vba-search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.85rem;
+  color: var(--text-primary, #0f172a);
+  width: 150px;
+}
+
+.vba-clear-search {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #94a3b8;
+}
+
+.vba-filter-pills {
+  display: flex;
+  background: var(--bg-secondary, #f1f5f9);
+  padding: 0.2rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.vba-fp-btn {
+  padding: 0.25rem 0.65rem;
+  border: none;
+  background: transparent;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary, #64748b);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vba-fp-btn.active {
+  background: #ffffff;
+  color: var(--brand-primary, #2563eb);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.vba-view-mode-toggle {
+  display: flex;
+  background: var(--bg-secondary, #f1f5f9);
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.vba-vm-btn {
+  padding: 0.3rem 0.45rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary, #64748b);
+  border-radius: 0.35rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vba-vm-btn.active {
+  background: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* ── View 1: Cards Grid ── */
+.vba-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.vba-word-card {
+  background: var(--card-bg, #ffffff);
+  border: 1.5px solid var(--border-color, #e2e8f0);
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.vba-word-card:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.vba-word-card.mastered {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.02);
+}
+
+.vba-wc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vba-wc-rank {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  background: var(--bg-secondary, #f1f5f9);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+.vba-wc-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.vba-wc-pos {
+  font-size: 0.72rem;
+  padding: 0.12rem 0.4rem;
+  border-radius: 4px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.vba-wc-hanviet {
+  font-size: 0.72rem;
+  padding: 0.12rem 0.4rem;
+  border-radius: 4px;
+  background: #fef3c7;
+  color: #b45309;
+  font-weight: 600;
+}
+
+.vba-mastery-chk {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+}
+
+.vba-wc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.vba-wc-viet-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.vba-wc-viet {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary, #0f172a);
+  letter-spacing: -0.01em;
+}
+
+.vba-wc-speak-btn {
+  background: var(--bg-secondary, #eff6ff);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2563eb;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.vba-wc-speak-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.vba-wc-zh {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary, #334155);
+  line-height: 1.4;
+}
+
+.vba-wc-example-box {
+  background: var(--bg-secondary, #f8fafc);
+  border-left: 3px solid #3b82f6;
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.5rem 0.65rem;
+  margin-top: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.vba-wc-ex-vi {
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.vba-wc-ex-zh {
+  color: #64748b;
+}
+
+/* ── View 2: Table View ── */
+.vba-table-container {
+  overflow-x: auto;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.vba-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  text-align: left;
+}
+
+.vba-table th {
+  background: var(--bg-secondary, #f8fafc);
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: var(--text-secondary, #475569);
+  border-bottom: 1.5px solid var(--border-color, #e2e8f0);
+  white-space: nowrap;
+}
+
+.vba-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color, #f1f5f9);
+  color: var(--text-primary, #1e293b);
+  vertical-align: middle;
+}
+
+.vba-table tr:hover {
+  background: rgba(59, 130, 246, 0.02);
+}
+
+.vba-table tr.mastered {
+  background: rgba(16, 185, 129, 0.02);
+}
+
+.vba-td-rank {
+  font-weight: 700;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.vba-td-viet-btn {
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #2563eb;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+}
+
+.vba-td-viet-btn:hover {
+  text-decoration: underline;
+}
+
+.vba-table-pos {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.vba-td-hanviet {
+  color: #b45309;
+  font-weight: 600;
+  font-size: 0.82rem;
+}
+
+.vba-td-spoken {
+  font-size: 0.78rem;
+  color: #64748b;
+  font-weight: normal;
+}
+
+.vba-td-example .vba-ex-vi {
+  font-size: 0.82rem;
+  color: #1e293b;
+}
+
+.vba-td-example .vba-ex-zh {
+  font-size: 0.78rem;
+  color: #64748b;
+}
+
+.vba-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  background: var(--card-bg, #ffffff);
+  border: 1px dashed var(--border-color, #cbd5e1);
+  border-radius: 1rem;
+  gap: 0.75rem;
+  color: #64748b;
+}
+
+/* ── SLA Educational Guide Card ── */
+.vba-sla-guide-card {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.06) 0%, rgba(59, 130, 246, 0.06) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.vba-sla-icon {
+  background: rgba(245, 158, 11, 0.15);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vba-sla-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vba-sla-content h4 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary, #0f172a);
+  margin: 0;
+}
+
+.vba-sla-content p {
+  font-size: 0.88rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.vba-sla-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.vba-sla-step-item {
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.vba-sla-step-num {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #d97706;
+}
+
+.vba-sla-step-item p {
+  font-size: 0.82rem;
+  color: var(--text-secondary, #334155);
+  line-height: 1.45;
+}
+
+/* ── Responsive Mobile Optimizations ── */
+@media (max-width: 768px) {
+  .vba-hero-title {
+    font-size: 1.25rem;
+  }
+  .vba-batches-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    max-height: 240px;
+  }
+  .vba-controls-cluster {
+    justify-content: center;
+  }
+  .vba-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  .vba-player-console {
+    padding: 1rem;
+    top: 0.5rem;
+  }
+}
