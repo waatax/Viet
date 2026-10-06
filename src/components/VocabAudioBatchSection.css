@@ -103,7 +103,85 @@
   transition: width 0.4s ease;
 }
 
-/* ── 20 Batches Carousel / Grid ── */
+/* ── Tier Level Switcher Pills ── */
+.vba-tier-selector-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 1.15rem;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.vba-tier-selector-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-secondary, #475569);
+}
+
+.vba-tier-selector-pills {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.vba-tier-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.15rem;
+  background: var(--bg-secondary, #f8fafc);
+  border: 1.5px solid var(--border-color, #e2e8f0);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: left;
+}
+
+.vba-tier-pill:hover {
+  border-color: var(--brand-primary, #2563eb);
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.vba-tier-pill.active {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border-color: var(--brand-primary, #2563eb);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+}
+
+.vba-tp-label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+}
+
+.vba-tier-pill.active .vba-tp-label {
+  color: var(--brand-primary, #2563eb);
+}
+
+.vba-tp-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: var(--card-bg, #ffffff);
+  border: 1px solid var(--border-color, #cbd5e1);
+  color: var(--text-secondary, #64748b);
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.vba-tier-pill.active .vba-tp-badge {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+}
+
+/* ── Batches Carousel / Grid ── */
 .vba-batches-selector-wrapper {
   display: flex;
   flex-direction: column;

@@ -3,9 +3,13 @@ import {
   Volume2, Play, Pause, RotateCcw, RotateCw, SkipBack, SkipForward, 
   Download, CheckCircle2, Circle, Headphones, Sparkles, BookOpen, 
   Search, Check, List, LayoutGrid, Info, ArrowRight, Zap, RefreshCw, 
-  Share2, VolumeX, AlertCircle
+  Share2, VolumeX, AlertCircle, Layers
 } from 'lucide-react';
-import { VOCAB_1000_BATCHES, VOCAB_BATCH_STATS } from '../data/vocab1000Batches';
+import { 
+  VOCAB_TIERS_CONFIG, 
+  VOCAB_BATCHES_BY_TIER, 
+  VOCAB_1000_BATCHES 
+} from '../data/vocabBatchesData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import './VocabAudioBatchSection.css';
@@ -13,13 +17,27 @@ import './VocabAudioBatchSection.css';
 export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards }) => {
   const { learningMode, t } = useLanguage();
 
-  // Active Batch state (1 - 20)
+  // Active Tier state ('top1k' | 'top3k' | 'curated')
+  const [selectedTier, setSelectedTier] = useState(() => {
+    try {
+      const saved = localStorage.getItem('viet_active_vocab_tier');
+      if (saved && (saved === 'top1k' || saved === 'top3k' || saved === 'curated')) return saved;
+    } catch {}
+    return 'top1k';
+  });
+
+  // Batches for current tier
+  const batchesForTier = useMemo(() => {
+    return VOCAB_BATCHES_BY_TIER[selectedTier] || VOCAB_1000_BATCHES || [];
+  }, [selectedTier]);
+
+  // Active Batch state (1 - N)
   const [selectedBatchId, setSelectedBatchId] = useState(() => {
     try {
       const saved = localStorage.getItem('viet_active_vocab_batch');
       if (saved) {
         const val = parseInt(saved, 10);
-        if (val >= 1 && val <= 20) return val;
+        if (val >= 1) return val;
       }
     } catch {}
     return 1;
@@ -53,8 +71,8 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
 
   // Current batch object
   const currentBatch = useMemo(() => {
-    return VOCAB_1000_BATCHES.find(b => b.batchId === selectedBatchId) || VOCAB_1000_BATCHES[0];
-  }, [selectedBatchId]);
+    return batchesForTier.find(b => b.batchId === selectedBatchId) || batchesForTier[0] || {};
+  }, [batchesForTier, selectedBatchId]);
 
   // Audio Source URL resolution compatible with Vite BASE_URL & GitHub Pages
   const audioSrc = useMemo(() => {
@@ -65,14 +83,15 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
     return `${base}audio/batches/${currentBatch.fileName}`;
   }, [currentBatch]);
 
-  // Save selected batch
+  // Save selected batch and tier
   useEffect(() => {
     try {
+      localStorage.setItem('viet_active_vocab_tier', selectedTier);
       localStorage.setItem('viet_active_vocab_batch', selectedBatchId.toString());
     } catch {}
-  }, [selectedBatchId]);
+  }, [selectedTier, selectedBatchId]);
 
-  // When changing batch, reset or reload audio
+  // When changing batch or tier, reset audio
   useEffect(() => {
     setAudioError(null);
     if (audioRef.current) {
@@ -84,7 +103,7 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
         });
       }
     }
-  }, [selectedBatchId, audioSrc]);
+  }, [selectedTier, selectedBatchId, audioSrc]);
 
   // Handle Play/Pause
   const togglePlay = () => {
@@ -141,9 +160,8 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
         audioRef.current.currentTime = 0;
         audioRef.current.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
       }
-    } else if (autoAdvance && selectedBatchId < VOCAB_1000_BATCHES.length) {
+    } else if (autoAdvance && selectedBatchId < batchesForTier.length) {
       setSelectedBatchId(prev => prev + 1);
-      // Play next batch automatically
       setTimeout(() => {
         if (audioRef.current) {
           audioRef.current.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
@@ -216,9 +234,21 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
     return currentBatch.words.filter(w => !!masteredMap[w.id]).length;
   }, [currentBatch, masteredMap]);
 
-  const totalMasteredCount = useMemo(() => {
-    return Object.values(masteredMap).filter(Boolean).length;
-  }, [masteredMap]);
+  // Tier stats
+  const currentTierConfig = useMemo(() => {
+    return VOCAB_TIERS_CONFIG.find(t => t.id === selectedTier) || VOCAB_TIERS_CONFIG[0];
+  }, [selectedTier]);
+
+  const tierTotalWords = currentTierConfig.wordsCount || batchesForTier.reduce((sum, b) => sum + (b.wordCount || 0), 0);
+  const tierMasteredCount = useMemo(() => {
+    let cnt = 0;
+    batchesForTier.forEach(b => {
+      (b.words || []).forEach(w => {
+        if (masteredMap[w.id]) cnt++;
+      });
+    });
+    return cnt;
+  }, [batchesForTier, masteredMap]);
 
   return (
     <div className="vocab-batch-audio-section">
@@ -237,58 +267,88 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
       <div className="vba-hero-header">
         <div className="vba-badge-pill">
           <Headphones size={15} />
-          <span>{learningMode === 'zh' ? '高頻核心 1000 單字 · 磨耳朵特訓' : 'Top 1000 Foundation Audio Immersion'}</span>
+          <span>{learningMode === 'zh' ? '越南語高頻詞庫 · 全能磨耳朵特訓庫' : 'All-Tiers Audio Immersion Lab'}</span>
         </div>
         <h3 className="vba-hero-title">
-          {learningMode === 'zh' ? '每 50 字獨立音檔 · (一次越文 + 一次中文) × 3 循環沈浸' : '50-Word Audio Batches · (Viet + Meaning) × 3 Repetition Lab'}
+          {learningMode === 'zh' ? '每 50 字獨立音檔 · (一次越文 + 一次中文) × 3 循環沈浸' : '50-Word Audio Batches · (Viet + Meaning) × 3 Repetition'}
         </h3>
         <p className="vba-hero-desc">
           {learningMode === 'zh' 
-            ? '嚴格依據認知心理學「聽覺暫存 → 意象建立 → 肌肉跟讀 (Shadowing)」三遍黃金循環。全套 20 大主題批次，覆蓋日常口語 85% 核心詞彙，隨時隨地戴上耳機高效磨耳朵！'
-            : 'SLA neuro-immersion designed for ear training: 20 themed batches of 50 words each. Each word repeats 3 times with crisp Vietnamese pronunciation and instant translation.'}
+            ? '嚴格依據認知心理學「聽覺暫存 → 意象建立 → 肌肉跟讀 (Shadowing)」三遍黃金循環。支援基礎 Top 1k、社交 Top 3k 及經典情境字卡，隨時隨地戴上耳機高效磨耳朵！'
+            : 'SLA neuro-immersion designed for ear training: themed batches of 50 words each. Each word repeats 3 times with crisp Vietnamese pronunciation and instant translation.'}
         </p>
 
-        {/* Global Progress Bar */}
+        {/* Global Progress Bar for Current Tier */}
         <div className="vba-global-progress-card">
           <div className="vba-gp-info">
             <span className="vba-gp-label">
               <Sparkles size={14} color="#f59e0b" />
-              {learningMode === 'zh' ? '基礎 1000 字掌握進度' : 'Overall 1,000 Vocab Progress'}
+              {learningMode === 'zh' ? `${currentTierConfig.labelZh} 掌握進度` : 'Tier Mastery Progress'}
             </span>
             <span className="vba-gp-numbers">
-              <strong>{totalMasteredCount}</strong> / 1000 字 ({((totalMasteredCount / 1000) * 100).toFixed(1)}%)
+              <strong>{tierMasteredCount}</strong> / {tierTotalWords} 字 ({((tierMasteredCount / (tierTotalWords || 1)) * 100).toFixed(1)}%)
             </span>
           </div>
           <div className="vba-gp-bar-bg">
             <div 
               className="vba-gp-bar-fill" 
-              style={{ width: `${Math.min(100, (totalMasteredCount / 1000) * 100)}%` }} 
+              style={{ width: `${Math.min(100, (tierMasteredCount / (tierTotalWords || 1)) * 100)}%` }} 
             />
           </div>
         </div>
       </div>
 
-      {/* ── 20 Batches Selector Carousel ── */}
+      {/* ── Tier Level Switcher Pills ── */}
+      <div className="vba-tier-selector-container">
+        <div className="vba-tier-selector-header">
+          <Layers size={16} color="var(--brand-primary)" />
+          <span>{learningMode === 'zh' ? '選擇學習詞庫階梯 (Tier)' : 'Select Vocabulary Tier'}</span>
+        </div>
+        <div className="vba-tier-selector-pills">
+          {VOCAB_TIERS_CONFIG.filter(t => ['top1k', 'top3k', 'curated'].includes(t.id)).map(tc => {
+            const isActive = selectedTier === tc.id;
+            return (
+              <button
+                key={tc.id}
+                className={`vba-tier-pill ${isActive ? 'active' : ''}`}
+                onClick={() => {
+                  setSelectedTier(tc.id);
+                  setSelectedBatchId(1);
+                  audioEngine.playHaptic('selection');
+                }}
+              >
+                <span className="vba-tp-label">{learningMode === 'zh' ? tc.labelZh : tc.labelEn}</span>
+                <span className="vba-tp-badge">{tc.batchesCount}組 · {tc.wordsCount}字</span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* ── Batches Selector Carousel / Grid ── */}
       <div className="vba-batches-selector-wrapper">
         <div className="vba-batches-selector-header">
           <h4 className="vba-sub-title">
             <BookOpen size={18} />
-            {learningMode === 'zh' ? '選擇練習批次 (共 20 組 · 每組 50 字)' : 'Select Study Batch (20 Batches)'}
+            {learningMode === 'zh' 
+              ? `${currentTierConfig.labelZh} (共 ${batchesForTier.length} 組 · 每組 50 字)` 
+              : `Batches in ${currentTierConfig.labelEn} (${batchesForTier.length} batches)`}
           </h4>
           <span className="vba-batches-count-pill">
-            {learningMode === 'zh' ? `當前：第 ${selectedBatchId} 組 / 20` : `Batch ${selectedBatchId} of 20`}
+            {learningMode === 'zh' ? `當前：第 ${selectedBatchId} 組 / ${batchesForTier.length}` : `Batch ${selectedBatchId} of ${batchesForTier.length}`}
           </span>
         </div>
 
         <div className="vba-batches-grid">
-          {VOCAB_1000_BATCHES.map(b => {
+          {batchesForTier.map(b => {
             const isActive = b.batchId === selectedBatchId;
-            const bMastered = b.words.filter(w => !!masteredMap[w.id]).length;
-            const bPercent = Math.round((bMastered / b.words.length) * 100);
+            const bWords = b.words || [];
+            const bMastered = bWords.filter(w => !!masteredMap[w.id]).length;
+            const bPercent = bWords.length > 0 ? Math.round((bMastered / bWords.length) * 100) : 0;
 
             return (
               <button
-                key={b.batchId}
+                key={`${selectedTier}_${b.batchId}`}
                 className={`vba-batch-card-btn ${isActive ? 'active' : ''}`}
                 onClick={() => {
                   setSelectedBatchId(b.batchId);
@@ -302,9 +362,8 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
                 <div className="vba-bc-title">{learningMode === 'zh' ? b.titleZh : b.titleEn}</div>
                 <div className="vba-bc-meta">
                   <span>⏱️ 約 {Math.round((b.duration || 450) / 60)} 分鐘</span>
-                  <span>{bMastered}/50 熟記</span>
+                  <span>{bMastered}/{b.wordCount} 熟記</span>
                 </div>
-                {/* Mini progress line */}
                 <div className="vba-bc-mini-bar">
                   <div className="vba-bc-mini-fill" style={{ width: `${bPercent}%` }} />
                 </div>
@@ -326,7 +385,7 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
             <div className="vba-np-hint">
               {learningMode === 'zh' 
                 ? '🎧 正在播放 (一次越文 + 一次中文) × 3 循環磨耳朵' 
-                : '🎧 Playing (1× Viet + 1× English) × 3 Cycles'}
+                : '🎧 Playing (1× Viet + 1× Translation) × 3 Cycles'}
             </div>
           </div>
 
@@ -442,16 +501,15 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
 
       {/* ── 50 Words Study Companion Section ── */}
       <div className="vba-wordlist-section">
-        {/* Word list control toolbar */}
         <div className="vba-wl-toolbar">
           <div className="vba-wl-title-area">
             <h4>
               <List size={18} />
               {learningMode === 'zh' ? `第 ${selectedBatchId} 組單字對照清單` : `Batch ${selectedBatchId} Word List`}
-              <span className="vba-wl-count-badge">({filteredWords.length} / 50 字)</span>
+              <span className="vba-wl-count-badge">({filteredWords.length} / {currentBatch.wordCount || 50} 字)</span>
             </h4>
             <span className="vba-wl-mastery-status">
-              已熟記：<strong>{batchMasteredCount}</strong> / 50
+              已熟記：<strong>{batchMasteredCount}</strong> / {currentBatch.wordCount || 50}
             </span>
           </div>
 

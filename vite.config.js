@@ -22,7 +22,7 @@ export default defineConfig({
           if (id.includes('frequencyVocabularyData.js')) {
             return 'data-vocab';
           }
-          if (id.includes('vocab1000Batches.js')) {
+          if (id.includes('vocab1000Batches.js') || id.includes('vocabBatchesData.js')) {
             return 'data-vocab-batches';
           }
           if (id.includes('situationalScenarios.js')) {

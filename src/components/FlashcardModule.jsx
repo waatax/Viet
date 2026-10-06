@@ -786,8 +786,8 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
           }}
         >
           <Headphones size={18} />
-          <span>{learningMode === 'zh' ? '🎧 1000 基礎單字·磨耳朵特訓 (每50字念3次)' : '🎧 1000 Vocab Audio Batches'}</span>
-          <span className="badge-pill-count" style={{ background: '#10b981', color: '#fff' }}>20組 · 4hr</span>
+          <span>{learningMode === 'zh' ? '🎧 全頻單字·磨耳朵特訓 (每50字念3次)' : '🎧 Vocab Audio Batches'}</span>
+          <span className="badge-pill-count" style={{ background: '#10b981', color: '#fff' }}>64組 · 13hr</span>
         </button>
       </div>
 
@@ -1131,8 +1131,8 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
             ))}
           </div>
 
-          {/* Special Ear-Training Audio Batches Entry Banner for Top 1,000 */}
-          {selectedTier === 'top1k' && (
+          {/* Special Ear-Training Audio Batches Entry Banner for Selected Tier */}
+          {['top1k', 'top3k', 'curated'].includes(selectedTier) && (
             <div 
               style={{
                 maxWidth: '850px',
@@ -1150,6 +1150,9 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
                 boxShadow: '0 4px 14px rgba(16, 185, 129, 0.08)'
               }}
               onClick={() => {
+                try {
+                  localStorage.setItem('viet_active_vocab_tier', selectedTier);
+                } catch {}
                 audioEngine.playHaptic('selection');
                 setActiveMasterMode('audioBatches');
               }}
@@ -1160,7 +1163,9 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
                 </div>
                 <div>
                   <div style={{ fontWeight: 800, fontSize: '0.98rem', color: 'var(--text-primary)' }}>
-                    🎧 {learningMode === 'zh' ? '正在學習 Top 1,000 基礎單字？立即開啟【20 大批次語音磨耳朵特訓】' : 'Top 1000 Vocab Audio Immersion Lab'}
+                    🎧 {learningMode === 'zh' 
+                      ? `正在學習 ${selectedTier === 'top1k' ? 'Top 1,000 基礎單字' : selectedTier === 'top3k' ? 'Top 3,000 生活社交單字' : '經典情境字卡'}？立即開啟【語音磨耳朵特訓】` 
+                      : `Open Audio Immersion Lab for ${selectedTier.toUpperCase()}`}
                   </div>
                   <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
                     {learningMode === 'zh' ? '每 50 字獨立音檔 · (一次越文 + 一次中文) × 3 循環念三次 · 支援背景連續播放與離線下載' : '50 words per batch · (Viet + Meaning) × 3 triple repetition audio files.'}

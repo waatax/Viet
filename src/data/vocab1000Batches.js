@@ -1,13 +1,9 @@
-/**
- * 基礎核心 1000 單字 20 大批次語音特訓庫 (每 50 字 · 越中循環三次)
- * Generated authentic neuro-TTS vocabulary ear-training database
- */
-
 export const VOCAB_1000_BATCHES = [
   {
     "batchId": 1,
+    "tier": "top1k",
     "titleZh": "第 01 組 · 核心日常與高頻人稱",
-    "titleEn": "Batch 01 · Foundation Vocabulary",
+    "titleEn": "Batch 01 · Top 1,000",
     "range": "1 - 50",
     "startRank": 1,
     "endRank": 50,
@@ -670,8 +666,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 2,
+    "tier": "top1k",
     "titleZh": "第 02 組 · 生活基礎動詞與行動",
-    "titleEn": "Batch 02 · Foundation Vocabulary",
+    "titleEn": "Batch 02 · Top 1,000",
     "range": "51 - 100",
     "startRank": 51,
     "endRank": 100,
@@ -1334,8 +1331,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 3,
+    "tier": "top1k",
     "titleZh": "第 03 組 · 時間方位與空間概念",
-    "titleEn": "Batch 03 · Foundation Vocabulary",
+    "titleEn": "Batch 03 · Top 1,000",
     "range": "101 - 150",
     "startRank": 101,
     "endRank": 150,
@@ -1998,8 +1996,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 4,
+    "tier": "top1k",
     "titleZh": "第 04 組 · 社交問候與情感溝通",
-    "titleEn": "Batch 04 · Foundation Vocabulary",
+    "titleEn": "Batch 04 · Top 1,000",
     "range": "151 - 200",
     "startRank": 151,
     "endRank": 200,
@@ -2662,8 +2661,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 5,
+    "tier": "top1k",
     "titleZh": "第 05 組 · 飲食餐飲與生活消費",
-    "titleEn": "Batch 05 · Foundation Vocabulary",
+    "titleEn": "Batch 05 · Top 1,000",
     "range": "201 - 250",
     "startRank": 201,
     "endRank": 250,
@@ -3326,8 +3326,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 6,
+    "tier": "top1k",
     "titleZh": "第 06 組 · 居家作息與家庭親屬",
-    "titleEn": "Batch 06 · Foundation Vocabulary",
+    "titleEn": "Batch 06 · Top 1,000",
     "range": "251 - 300",
     "startRank": 251,
     "endRank": 300,
@@ -3990,8 +3991,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 7,
+    "tier": "top1k",
     "titleZh": "第 07 組 · 工作職場與日常協作",
-    "titleEn": "Batch 07 · Foundation Vocabulary",
+    "titleEn": "Batch 07 · Top 1,000",
     "range": "301 - 350",
     "startRank": 301,
     "endRank": 350,
@@ -4654,8 +4656,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 8,
+    "tier": "top1k",
     "titleZh": "第 08 組 · 交通出行與城市方位",
-    "titleEn": "Batch 08 · Foundation Vocabulary",
+    "titleEn": "Batch 08 · Top 1,000",
     "range": "351 - 400",
     "startRank": 351,
     "endRank": 400,
@@ -5318,8 +5321,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 9,
+    "tier": "top1k",
     "titleZh": "第 09 組 · 人際互動與性格情緒",
-    "titleEn": "Batch 09 · Foundation Vocabulary",
+    "titleEn": "Batch 09 · Top 1,000",
     "range": "401 - 450",
     "startRank": 401,
     "endRank": 450,
@@ -5982,8 +5986,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 10,
+    "tier": "top1k",
     "titleZh": "第 10 組 · 狀態程度與修飾描述",
-    "titleEn": "Batch 10 · Foundation Vocabulary",
+    "titleEn": "Batch 10 · Top 1,000",
     "range": "451 - 500",
     "startRank": 451,
     "endRank": 500,
@@ -6646,8 +6651,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 11,
+    "tier": "top1k",
     "titleZh": "第 11 組 · 數量貨幣與買賣商務",
-    "titleEn": "Batch 11 · Foundation Vocabulary",
+    "titleEn": "Batch 11 · Top 1,000",
     "range": "501 - 550",
     "startRank": 501,
     "endRank": 550,
@@ -7310,8 +7316,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 12,
+    "tier": "top1k",
     "titleZh": "第 12 組 · 身體健康與醫療保健",
-    "titleEn": "Batch 12 · Foundation Vocabulary",
+    "titleEn": "Batch 12 · Top 1,000",
     "range": "551 - 600",
     "startRank": 551,
     "endRank": 600,
@@ -7974,8 +7981,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 13,
+    "tier": "top1k",
     "titleZh": "第 13 組 · 休閒娛樂與旅行生活",
-    "titleEn": "Batch 13 · Foundation Vocabulary",
+    "titleEn": "Batch 13 · Top 1,000",
     "range": "601 - 650",
     "startRank": 601,
     "endRank": 650,
@@ -8638,8 +8646,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 14,
+    "tier": "top1k",
     "titleZh": "第 14 組 · 天氣環境與自然萬物",
-    "titleEn": "Batch 14 · Foundation Vocabulary",
+    "titleEn": "Batch 14 · Top 1,000",
     "range": "651 - 700",
     "startRank": 651,
     "endRank": 700,
@@ -9302,8 +9311,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 15,
+    "tier": "top1k",
     "titleZh": "第 15 組 · 學習教育與科技資訊",
-    "titleEn": "Batch 15 · Foundation Vocabulary",
+    "titleEn": "Batch 15 · Top 1,000",
     "range": "701 - 750",
     "startRank": 701,
     "endRank": 750,
@@ -9966,8 +9976,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 16,
+    "tier": "top1k",
     "titleZh": "第 16 組 · 溝通表達與邏輯論理",
-    "titleEn": "Batch 16 · Foundation Vocabulary",
+    "titleEn": "Batch 16 · Top 1,000",
     "range": "751 - 800",
     "startRank": 751,
     "endRank": 800,
@@ -10630,8 +10641,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 17,
+    "tier": "top1k",
     "titleZh": "第 17 組 · 社會百態與生活制度",
-    "titleEn": "Batch 17 · Foundation Vocabulary",
+    "titleEn": "Batch 17 · Top 1,000",
     "range": "801 - 850",
     "startRank": 801,
     "endRank": 850,
@@ -11294,8 +11306,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 18,
+    "tier": "top1k",
     "titleZh": "第 18 組 · 抽象思維與概念理解",
-    "titleEn": "Batch 18 · Foundation Vocabulary",
+    "titleEn": "Batch 18 · Top 1,000",
     "range": "851 - 900",
     "startRank": 851,
     "endRank": 900,
@@ -11958,8 +11971,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 19,
+    "tier": "top1k",
     "titleZh": "第 19 組 · 進階行動與精準修飾",
-    "titleEn": "Batch 19 · Foundation Vocabulary",
+    "titleEn": "Batch 19 · Top 1,000",
     "range": "901 - 950",
     "startRank": 901,
     "endRank": 950,
@@ -12622,8 +12636,9 @@ export const VOCAB_1000_BATCHES = [
   },
   {
     "batchId": 20,
+    "tier": "top1k",
     "titleZh": "第 20 組 · 綜合應用與全能詞彙",
-    "titleEn": "Batch 20 · Foundation Vocabulary",
+    "titleEn": "Batch 20 · Top 1,000",
     "range": "951 - 1000",
     "startRank": 951,
     "endRank": 1000,
@@ -13285,10 +13300,3 @@ export const VOCAB_1000_BATCHES = [
     "duration": 729.2
   }
 ];
-
-export const VOCAB_BATCH_STATS = {
-  totalBatches: 20,
-  wordsPerBatch: 50,
-  totalWords: 1000,
-  totalDurationMinutes: 243.4
-};
