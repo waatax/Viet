@@ -4,9 +4,10 @@ import { practicalPhrases } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './SentenceBuilderModule.css';
 
-export const SentenceBuilderModule = ({ selectedAccent = 'north', updateUserStats }) => {
+export const SentenceBuilderModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode, t } = useLanguage();
   const [difficulty, setDifficulty] = useState('all'); // 'all' | 'easy' (3-5 words) | 'medium' (6-8 words) | 'hard' (9+ words)
   const [selectedCat, setSelectedCat] = useState('all');
@@ -276,6 +277,29 @@ export const SentenceBuilderModule = ({ selectedAccent = 'north', updateUserStat
           </div>
         )}
       </div>
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="sentence"
+        moduleTitleZh="拼句特訓 · 實戰句構挑戰"
+        moduleTitleEn="Sentence Builder Challenge"
+        nextModuleId="quiz"
+        nextModuleTitleZh="iVPT 全真綜合能力模擬測驗"
+        nextModuleTitleEn="Comprehensive iVPT Exam"
+        bonusXp={30}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '透過單字積木拖曳，擺脫直譯依賴，強化 SVO 與修飾語後置正確語序',
+          '在即時拼句判定與語音朗讀中，建立整句語感肌肉記憶',
+          '挑戰初級短句至進階複合長句，驗證語法與字彙綜合應用力'
+        ]}
+        relatedModules={[
+          { id: 'grammar', icon: '📚', titleZh: '30大語法法則', descZh: '深入句型法則剖析' },
+          { id: 'quiz', icon: '🏆', titleZh: '綜合模擬測驗', descZh: '全真題庫實戰檢測' },
+          { id: 'conversation', icon: '💬', titleZh: '49大情境對話', descZh: '整段真實對話演練' }
+        ]}
+      />
     </div>
   );
 };

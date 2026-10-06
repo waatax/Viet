@@ -29,6 +29,7 @@ import { CulturalTipsCard } from './CulturalTipsCard';
 import RealMenuViewer from './RealMenuViewer';
 import CityGuideViewer from './CityGuideViewer';
 import { useLanguage } from '../context/LanguageContext';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 
 export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, t } = useLanguage();
@@ -495,6 +496,29 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
           </div>
         </div>
       </div>
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="conversation"
+        moduleTitleZh="49 大情境日常生活對話與角色扮演"
+        moduleTitleEn="49 Situational Scenarios & Role-Play Engine"
+        nextModuleId="shadowing"
+        nextModuleTitleZh="影子跟讀與語音辨識診斷"
+        nextModuleTitleEn="Acoustic Shadowing Trainer"
+        bonusXp={40}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '親歷 49 大真實越南情境（咖啡廳、居酒屋、租屋、看診、通關、商務談判等）',
+          '透過分段精聽、慢速回放與情境詞彙閃卡，多維度吸收對話精髓',
+          '在角色扮演分支互動中驗證開口反應速度與語用得體度'
+        ]}
+        relatedModules={[
+          { id: 'shadowing', icon: '🎙️', titleZh: '影子跟讀特訓', descZh: '戴上耳機跟讀原音語調' },
+          { id: 'grammar', icon: '📚', titleZh: '30大核心語法', descZh: '解析對話背後句型規則' },
+          { id: 'fasttrack', icon: '⚡', titleZh: '7天生活速成', descZh: '精煉核心生存短句' }
+        ]}
+      />
     </div>
   );
 };

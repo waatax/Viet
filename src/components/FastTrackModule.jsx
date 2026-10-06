@@ -49,6 +49,7 @@ import {
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 
 const getAssetUrl = (path) => {
   const base = import.meta.env.BASE_URL || '/';
@@ -1370,6 +1371,29 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
           )}
         </div>
       </div>
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="fasttrack"
+        moduleTitleZh="7 天生活基本溝通速成破冰計畫"
+        moduleTitleEn="7-Day Fast-Track Survival Vietnamese"
+        nextModuleId="topics"
+        nextModuleTitleZh="7 大生活與商業情境專題深造"
+        nextModuleTitleEn="7 Situational Mastery Modules"
+        bonusXp={50}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '打通 7 天 35 句高頻實戰生存短句（問候、點咖啡、殺價、叫車、稱謂、熱炒聚餐、交友）',
+          '掌握「Ít đường / Ít sữa (少糖少奶)」與「Bao nhiêu tiền (多少錢)」生活生存密碼',
+          '建立開口自信心，奠定初入越南生活與差旅的堅實基礎'
+        ]}
+        relatedModules={[
+          { id: 'topics', icon: '✨', titleZh: '7大情境專題深造', descZh: '深入商務、餐飲、家庭等情境' },
+          { id: 'emergency', icon: '🛟', titleZh: '生活急救錦囊', descZh: '緊急求助、藥局症狀點讀' },
+          { id: 'shopping', icon: '🛍️', titleZh: '市集採購殺價實戰', descZh: '數字換算與貨幣防被坑' }
+        ]}
+      />
     </div>
   );
 };

@@ -4,8 +4,9 @@ import { quizzes } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 
-export const QuizModule = ({ userStats, updateUserStats, selectedAccent }) => {
+export const QuizModule = ({ userStats, updateUserStats, selectedAccent, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [currentQuizIdx, setCurrentQuizIdx] = useState(0);
@@ -345,6 +346,29 @@ export const QuizModule = ({ userStats, updateUserStats, selectedAccent }) => {
           </div>
         </div>
       )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="quiz"
+        moduleTitleZh="iVPT 全真綜合能力模擬測驗"
+        moduleTitleEn="Comprehensive iVPT & CEFR Examination"
+        nextModuleId="flashcards"
+        nextModuleTitleZh="10,000 高頻分級詞庫 (SM-2 SRS)"
+        nextModuleTitleEn="10,000 High-Frequency SRS Flashcards"
+        bonusXp={45}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '完成跨領域全真綜合測驗，評估聲調聽力、漢越字根、職場稱謂與生活算價綜合實力',
+          '獲得 CEFR A1~B1 等級診斷報告，清楚掌握個人能力水位',
+          '善用錯題回顧機制，針對答錯題型進行高強度定點複習'
+        ]}
+        relatedModules={[
+          { id: 'flashcards', icon: '🧠', titleZh: '智能間隔閃卡', descZh: '補強測驗遇到的生詞' },
+          { id: 'sentence', icon: '🧩', titleZh: '拼句特訓挑戰', descZh: '鍛鍊長句語法與語序' },
+          { id: 'conversation', icon: '💬', titleZh: '49大情境對話', descZh: '加強真實場景綜合聽力' }
+        ]}
+      />
     </div>
   );
 };

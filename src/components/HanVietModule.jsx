@@ -243,6 +243,7 @@ import { hanVietRoots } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './HanVietModule.css';
 
 const getAssetUrl = (path) => {
@@ -447,7 +448,7 @@ export const HIGH_FREQUENCY_BUSINESS_HANVIET = [
   }
 ];
 
-export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
+export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, loc } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeHanTab, setActiveHanTab] = useState('roots'); // 'roots' | 'rules' | 'combiner' | 'falsefriends'
@@ -1478,6 +1479,29 @@ export const HanVietModule = ({ selectedAccent, updateUserStats }) => {
       </div>
     </div>
   )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="hanviet"
+        moduleTitleZh="漢越同源詞與中古漢語百大字根"
+        moduleTitleEn="Sino-Vietnamese Cognates & 100 Roots"
+        nextModuleId="flashcards"
+        nextModuleTitleZh="10,000 高頻分級詞庫 (SM-2 SRS)"
+        nextModuleTitleEn="10,000 High-Frequency SRS Flashcards"
+        bonusXp={35}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '掌握中古漢語八調（平上去入）與越南語六聲調對映矩陣，見字推音',
+          '熟練雙唇音 (B/P/PH)、舌尖音 (Đ/TH) 音變轉換規律，字根倍速擴充詞彙',
+          '辨析 Bác sĩ (醫生), Sinh viên (大學生), Cẩn thận (小心) 等高頻假友陷阱詞'
+        ]}
+        relatedModules={[
+          { id: 'flashcards', icon: '🧠', titleZh: '智能間隔閃卡', descZh: '10,000 詞庫抗遺忘固化' },
+          { id: 'business', icon: '💼', titleZh: '商務出差旗艦', descZh: '高頻漢越經貿契約術語' },
+          { id: 'macropol', icon: '🏛️', titleZh: '越南政經智庫', descZh: '政經社論高階詞彙' }
+        ]}
+      />
     </div>
   );
 };

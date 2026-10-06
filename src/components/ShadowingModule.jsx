@@ -7,6 +7,7 @@ import { practicalPhrases } from '../data/vietnameseData';
 import { situationalScenarios } from '../data/situationalScenarios';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './ShadowingModule.css';
 
 const stripVietnameseDiacritics = (str = '') => {
@@ -40,7 +41,7 @@ const scenarioDialoguePhrases = situationalScenarios.slice(0, 8).flatMap(sc =>
 
 const ALL_SHADOWING_PHRASES = [...practicalPhrases, ...scenarioDialoguePhrases];
 
-const ShadowingModule = ({ selectedAccent = 'north', updateUserStats }) => {
+const ShadowingModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [phrases, setPhrases] = useState([]);
@@ -523,6 +524,29 @@ const ShadowingModule = ({ selectedAccent = 'north', updateUserStats }) => {
           </button>
         </div>
       </div>
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="shadowing"
+        moduleTitleZh="影子跟讀與語音音高診斷"
+        moduleTitleEn="Acoustic Shadowing & Prosody Trainer"
+        nextModuleId="conversation"
+        nextModuleTitleZh="49 大情境日常對話實戰"
+        nextModuleTitleEn="49 Situational Scenarios"
+        bonusXp={35}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '透過即時語音辨識反饋，校準發音準確度與聲調高低軌跡',
+          '逐字聲調診斷（準確、調偏、未出聲），靶向克服發音盲區',
+          '在影子跟讀過程中將短句轉化為本能語感，提升開口流暢度'
+        ]}
+        relatedModules={[
+          { id: 'conversation', icon: '💬', titleZh: '49大情境對話', descZh: '情境角色扮演對話' },
+          { id: 'tonegame', icon: '🎵', titleZh: '聲調聽力競技場', descZh: '聽音辨調強化' },
+          { id: 'phrases', icon: '📝', titleZh: '常用實用短句', descZh: '生活高頻句庫跟讀' }
+        ]}
+      />
     </div>
   );
 };

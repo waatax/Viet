@@ -18,10 +18,12 @@ export const NAV_GROUPS = [
     ]
   },
   {
-    id: 'macropol',
-    labelKey: 'tabs.groupMacro',
+    id: 'basics',
+    labelKey: 'tabs.groupBasics',
     items: [
-      { id: 'macropol', labelKey: 'tabs.macropol', icon: Landmark }
+      { id: 'alphabet', labelKey: 'tabs.alphabet', icon: Languages },
+      { id: 'tonegame', labelKey: 'tabs.tonegame', icon: Music },
+      { id: 'pronoun', labelKey: 'tabs.pronoun', icon: UsersRound }
     ]
   },
   {
@@ -32,15 +34,6 @@ export const NAV_GROUPS = [
       { id: 'fasttrack', labelKey: 'tabs.fasttrack', icon: Zap },
       { id: 'business', labelKey: 'tabs.business', icon: Briefcase },
       { id: 'emergency', labelKey: 'tabs.emergency', icon: LifeBuoy }
-    ]
-  },
-  {
-    id: 'basics',
-    labelKey: 'tabs.groupBasics',
-    items: [
-      { id: 'alphabet', labelKey: 'tabs.alphabet', icon: Languages },
-      { id: 'tonegame', labelKey: 'tabs.tonegame', icon: Music },
-      { id: 'pronoun', labelKey: 'tabs.pronoun', icon: UsersRound }
     ]
   },
   {
@@ -69,6 +62,13 @@ export const NAV_GROUPS = [
       { id: 'hanviet', labelKey: 'tabs.hanviet', icon: BookOpenText },
       { id: 'shopping', labelKey: 'tabs.shopping', icon: ShoppingBag },
       { id: 'accent', labelKey: 'tabs.accent', icon: BookMarked }
+    ]
+  },
+  {
+    id: 'macropol',
+    labelKey: 'tabs.groupMacro',
+    items: [
+      { id: 'macropol', labelKey: 'tabs.macropol', icon: Landmark }
     ]
   },
   {

@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './EmergencyKitModule.css';
 
 const getAssetUrl = (path) => {
@@ -361,7 +362,7 @@ export const EMERGENCY_CARDS = [
   }
 ];
 
-export const EmergencyKitModule = ({ selectedAccent = 'north' }) => {
+export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode } = useLanguage();
   const [selectedCat, setSelectedCat] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -741,6 +742,29 @@ export const EmergencyKitModule = ({ selectedAccent = 'north' }) => {
           </div>
         </div>
       )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="emergency"
+        moduleTitleZh="生活急難救助與就醫指認錦囊"
+        moduleTitleEn="Survival Audio Kit & Medical Emergency"
+        nextModuleId="phrases"
+        nextModuleTitleZh="生活實用高頻短句速查"
+        nextModuleTitleEn="Practical Daily Phrases"
+        bonusXp={30}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '熟悉全越三大緊急電話（113 警察、114 消防、115 急救）及駐外辦事處 24 小時急難專線',
+          '掌握 10 大常見身體不適與過敏雙語指認卡（頭痛、腹瀉、發燒、藥物過敏）',
+          '學會「Làm ơn giúp tôi (請幫幫我)」與「Tôi bị... (我遭遇...)」求助核心句型'
+        ]}
+        relatedModules={[
+          { id: 'phrases', icon: '📝', titleZh: '常用實用短句', descZh: '交通、住宿、餐飲全句庫' },
+          { id: 'fasttrack', icon: '⚡', titleZh: '7天生活速成', descZh: '快速掌握日常生活交流' },
+          { id: 'conversation', icon: '💬', titleZh: '情境對話實戰', descZh: '藥局與診所完整對話' }
+        ]}
+      />
     </div>
   );
 };

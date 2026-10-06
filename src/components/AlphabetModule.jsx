@@ -125,8 +125,9 @@ import {
   SpellingRulesFigure,
   DiphthongSpellingFigure
 } from './visuals/PhoneticsVisuals';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 
-export const AlphabetModule = ({ selectedAccent = 'north' }) => {
+export const AlphabetModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
   const [activePhoneticTab, setActivePhoneticTab] = useState('letters'); // 'letters' | 'compound' | 'finals' | 'diphthongs' | 'tones'
   const [activeFilter, setActiveFilter] = useState('all'); // 'all' | 'vowel' | 'consonant'
@@ -1245,6 +1246,29 @@ export const AlphabetModule = ({ selectedAccent = 'north' }) => {
           </div>
         </div>
       )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="alphabet"
+        moduleTitleZh="29字母與6大聲調語音打底"
+        moduleTitleEn="29 Letters & 6 Tones Phonetics"
+        nextModuleId="tonegame"
+        nextModuleTitleZh="聲調競技場與聽音特訓 2.0"
+        nextModuleTitleEn="6-Tone Arena & Ear-Trainer"
+        bonusXp={30}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '掌握 29 個字母與母音/子音讀音，精確拿捏 ng, nh, th, ph, kh 等特殊輔音發音技巧',
+          '理解 6 大聲調走向（平調、玄調、問調、跌調、銳調、重調），告別國語四聲負遷移',
+          '掌握介音與韻尾拼讀法則，建立「見字能讀、聽音能拼」的語音直覺'
+        ]}
+        relatedModules={[
+          { id: 'tonegame', icon: '🎵', titleZh: '聲調聽力競技場', descZh: '聽音辨調趣味闖關' },
+          { id: 'pronoun', icon: '👥', titleZh: '人稱代名詞體系', descZh: '生活與職場稱謂第一課' },
+          { id: 'accent', icon: '🇻🇳', titleZh: '南北主流口音辨析', descZh: '河內腔 vs 西貢腔對照' }
+        ]}
+      />
     </div>
   );
 };

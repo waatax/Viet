@@ -268,25 +268,25 @@ export function App() {
                 onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
               />
             )}
-            {activeTab === 'topics' && <TopicMasteryModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'macropol' && <MacroPolModule />}
+            {activeTab === 'topics' && <TopicMasteryModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'macropol' && <MacroPolModule setActiveTab={setActiveTab} updateUserStats={updateUserStats} />}
             {activeTab === 'fasttrack' && <FastTrackModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
-            {activeTab === 'business' && <BusinessHubModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'science' && <ScientificMethodModule />}
-            {activeTab === 'emergency' && <EmergencyKitModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} />}
-            {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'business' && <BusinessHubModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'science' && <ScientificMethodModule setActiveTab={setActiveTab} updateUserStats={updateUserStats} />}
+            {activeTab === 'emergency' && <EmergencyKitModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} setActiveTab={setActiveTab} updateUserStats={updateUserStats} />}
+            {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'conversation' && <ConversationModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
-            {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'flashcards' && <FlashcardModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'grammar' && <GrammarModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
-            {activeTab === 'hanviet' && <HanVietModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'pronoun' && <PronounModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'quiz' && <QuizModule userStats={userStats} updateUserStats={updateUserStats} selectedAccent={selectedAccent} />}
-            {activeTab === 'shadowing' && <ShadowingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'sentence' && <SentenceBuilderModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
-            {activeTab === 'tonegame' && <ToneGameModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
+            {activeTab === 'hanviet' && <HanVietModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'pronoun' && <PronounModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'quiz' && <QuizModule userStats={userStats} updateUserStats={updateUserStats} selectedAccent={selectedAccent} setActiveTab={setActiveTab} />}
+            {activeTab === 'shadowing' && <ShadowingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'sentence' && <SentenceBuilderModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'tonegame' && <ToneGameModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
           </Suspense>
         </ErrorBoundary>
       </main>

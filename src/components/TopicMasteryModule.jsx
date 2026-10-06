@@ -9,6 +9,7 @@ import { SITUATIONAL_TOPICS } from '../data/situationalTopicsData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './TopicMasteryModule.css';
 
 const getAssetUrl = (path) => {
@@ -172,7 +173,7 @@ const getTopicSpeakerVisual = (speaker = '', topicId = '', lineIndex = 0, learni
   }
 };
 
-export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats }) => {
+export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode, t } = useLanguage();
 
   // Active Topic
@@ -1194,6 +1195,29 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats }
           </div>
         )}
       </div>
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="topics"
+        moduleTitleZh="7 大生活與商業情境專題深造"
+        moduleTitleEn="7 Situational Mastery Specializations"
+        nextModuleId="conversation"
+        nextModuleTitleZh="49 大情境生活對話實戰"
+        nextModuleTitleEn="49 Situational Scenarios"
+        bonusXp={40}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '全面涵蓋 7 大核心專題：商務問候、餐廳點餐、家庭親屬、健康就醫、日期停留、價格殺價、大額數字',
+          '掌握「Cho tôi...」萬用點餐句構與「Bị + 症狀」精準就診溝通法則',
+          '雙人角色扮演對話演練與專屬主題閃卡複習'
+        ]}
+        relatedModules={[
+          { id: 'business', icon: '💼', titleZh: '商務出差旗艦', descZh: '工廠巡檢與宴飲應酬' },
+          { id: 'conversation', icon: '💬', titleZh: '49大情境對話', descZh: '生活、旅遊、外派全情境' },
+          { id: 'shopping', icon: '🛍️', titleZh: '市集採購殺價實戰', descZh: '市場還價與數字大額計算' }
+        ]}
+      />
     </div>
   );
 };

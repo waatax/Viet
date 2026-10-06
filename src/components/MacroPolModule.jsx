@@ -26,9 +26,10 @@ import {
   macroI18n
 } from '../data/macroData';
 import { audioEngine } from '../services/audioEngine';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './MacroPolModule.css';
 
-export default function MacroPolModule() {
+export default function MacroPolModule({ setActiveTab, updateUserStats }) {
   // ── Language State (Tiếng Việt / 繁體中文) ──
   const [macroLang, setMacroLang] = useState(() => {
     return localStorage.getItem('macropol_lang') || 'zh';
@@ -2222,6 +2223,29 @@ export default function MacroPolModule() {
           </div>
         </div>
       )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="macropol"
+        moduleTitleZh="越南政經智庫 · 宏觀總經情報中心"
+        moduleTitleEn="Vietnam Macro & Political Intelligence Hub"
+        nextModuleId="business"
+        nextModuleTitleZh="越南商務出差與工廠製造外派旗艦"
+        nextModuleTitleEn="Business & FDI Manufacturing Hub"
+        bonusXp={50}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '追蹤 USD/VND 五年歷史匯率波動走勢與 SBV 基準利率/四大行放款定存利率矩陣',
+          '掌握越南海關清關法規、原產地證明 (C/O) 與外貿物流合規審核標準',
+          '深度解析越共十四大人事權力佈局、南北經貿走廊政策及 FDI 跨國投資戰略'
+        ]}
+        relatedModules={[
+          { id: 'business', icon: '💼', titleZh: '商務出差旗艦', descZh: '工廠巡檢與宴飲應酬實務' },
+          { id: 'science', icon: '🧠', titleZh: '科學方法研究', descZh: '5大跨學科學習體系' },
+          { id: 'hanviet', icon: '📖', titleZh: '漢越同源字根', descZh: '智庫政經社論專業名詞' }
+        ]}
+      />
     </div>
   );
 }

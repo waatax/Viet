@@ -3,6 +3,7 @@ import { BookOpen, Copy, Search, Volume2, Bookmark, Check, Sparkles, Filter, Che
 import { practicalPhrases } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 
 const categoryIcons = {
   "問候與禮貌 / Greetings": "👋",
@@ -27,7 +28,7 @@ const categoryIcons = {
   "日常短句速查 / Daily Expressions": "📝"
 };
 
-export const PhrasesModule = ({ selectedAccent }) => {
+export const PhrasesModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -598,6 +599,29 @@ export const PhrasesModule = ({ selectedAccent }) => {
           </button>
         </div>
       )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="phrases"
+        moduleTitleZh="日常生活常用實用短句大全"
+        moduleTitleEn="Practical Daily Expressions Library"
+        nextModuleId="conversation"
+        nextModuleTitleZh="49 大情境生活對話實戰"
+        nextModuleTitleEn="49 Situational Scenarios"
+        bonusXp={30}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '全面涵蓋 20 大高頻生活場景短句（咖啡、餐飲、交通、住宿、租屋、休閒等）',
+          '利用一鍵複製與語音朗讀功能，在出國前或街頭即時調用',
+          '善用星號收藏書籤，建立專屬個人高頻愛用句庫'
+        ]}
+        relatedModules={[
+          { id: 'conversation', icon: '💬', titleZh: '49大情境對話', descZh: '深入雙向情境角色扮演' },
+          { id: 'flashcards', icon: '🧠', titleZh: '智能間隔閃卡', descZh: '10,000 高頻單字固化' },
+          { id: 'shadowing', icon: '🎙️', titleZh: '影子跟讀內化', descZh: '麥克風跟讀練習' }
+        ]}
+      />
     </div>
   );
 };

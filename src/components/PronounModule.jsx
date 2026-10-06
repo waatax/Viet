@@ -4,6 +4,7 @@ import { pronounKinshipData, corporatePronounHierarchy, politenessRules } from '
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { KinshipTreeFigure, AgeLadderFigure, OrgChartFigure } from './visuals/PronounVisuals';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './PronounModule.css';
 
 const getAssetUrl = (path) => {
@@ -97,7 +98,7 @@ export const MASTER_PRONOUN_MATRIX = [
   }
 ];
 
-export const PronounModule = ({ selectedAccent, updateUserStats }) => {
+export const PronounModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, loc } = useLanguage();
   const [activeKey, setActiveKey] = useState(null);
 
@@ -950,6 +951,29 @@ export const PronounModule = ({ selectedAccent, updateUserStats }) => {
           </div>
         </div>
       </div>
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="pronoun"
+        moduleTitleZh="人稱代名詞與職場敬語稱謂"
+        moduleTitleEn="Pronoun Hierarchy & Corporate Politeness"
+        nextModuleId="conversation"
+        nextModuleTitleZh="49 大情境日常對話實戰"
+        nextModuleTitleEn="49 Situational Scenarios"
+        bonusXp={30}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '掌握「稱對方為尊、自稱隨之配合」的相對論稱謂思維（Anh/Chị/Em/Chú/Cô/Bác）',
+          '熟練職場職稱稱謂與敬語標誌：句首 Dạ、句尾 ạ，展現最高專業尊重',
+          '避開直呼「Tôi - Bạn」之疏離感，用親屬稱謂快速拉近越南人脈距離'
+        ]}
+        relatedModules={[
+          { id: 'fasttrack', icon: '⚡', titleZh: '7天生活基本速成', descZh: '生活高頻開口破冰金句' },
+          { id: 'business', icon: '💼', titleZh: '商務出差與經貿特訓', descZh: '工廠巡檢與宴飲應酬' },
+          { id: 'conversation', icon: '💬', titleZh: '情境對話角色扮演', descZh: '走入咖啡廳、市場實戰' }
+        ]}
+      />
     </div>
   );
 };

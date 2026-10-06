@@ -12,6 +12,7 @@ import { CONFUSABLE_PAIRS, CONFUSABLE_CATEGORIES, CONFUSABLE_STATS } from '../da
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './FlashcardModule.css';
 
 const topicCategoryMap = {
@@ -1570,6 +1571,29 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
           </div>
         </div>
       )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="flashcards"
+        moduleTitleZh="10,000 高頻分級詞庫 (SM-2 間隔重複)"
+        moduleTitleEn="10,000 High-Frequency SRS Flashcards"
+        nextModuleId="grammar"
+        nextModuleTitleZh="30 大核心實用語法法則"
+        nextModuleTitleEn="30 Core Grammar Rules"
+        bonusXp={40}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '遵循 SM-2 科學記憶遺忘曲線，精準排程複習，對抗艾賓浩斯遺忘法則',
+          '突破 Top 1k~10k 詞彙量階梯，掌握實戰生詞詞性與真比例分佈',
+          '相近似字與孿生混淆庫聽力精準對照，破除音近字辨音盲區'
+        ]}
+        relatedModules={[
+          { id: 'hanviet', icon: '📖', titleZh: '漢越同源字根', descZh: '利用漢字偏旁倍速聯想' },
+          { id: 'sentence', icon: '🧩', titleZh: '拼句特訓挑戰', descZh: '將背誦的單字拼成活句子' },
+          { id: 'quiz', icon: '🏆', titleZh: '綜合模擬測驗', descZh: '即時檢驗詞彙量掌握度' }
+        ]}
+      />
     </div>
   );
 };

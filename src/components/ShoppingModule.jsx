@@ -8,6 +8,7 @@ import { numbersAndCurrency } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { numberToVietnamese } from '../utils/numberConverter';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './ShoppingModule.css';
 
 const getAssetUrl = (path) => {
@@ -159,7 +160,7 @@ export const VND_BANKNOTE_DENOMINATIONS = [
   }
 ];
 
-export const ShoppingModule = ({ selectedAccent }) => {
+export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
   const [inputAmount, setInputAmount] = useState('2500000000'); // Default 2.5 Billion VND
   const [exchangeRateTwd, setExchangeRateTwd] = useState(780); // ~780 VND per TWD
@@ -1183,6 +1184,28 @@ export const ShoppingModule = ({ selectedAccent }) => {
         </div>
       )}
 
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="shopping"
+        moduleTitleZh="市場生活購物與大額算價實戰"
+        moduleTitleEn="Market Shopping, Bargaining & Currency Scale"
+        nextModuleId="conversation"
+        nextModuleTitleZh="49 大情境生活對話實戰"
+        nextModuleTitleEn="49 Situational Scenarios"
+        bonusXp={30}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '精通越南盾萬進位讀法（nghìn 千, triệu 百萬, tỷ 十億）與台幣/美金換算公式',
+          '辨析 500k vs 20k、100k vs 10k 同色系鈔票，避免找零被掉包或多付',
+          '掌握傳統市集四步殺價戰術（問價 ➔ 試探 ➔ 斡旋 ➔ 成交）與開市好彩頭說法'
+        ]}
+        relatedModules={[
+          { id: 'fasttrack', icon: '⚡', titleZh: '7天生活速成', descZh: 'Day 3 專攻市集殺價金句' },
+          { id: 'conversation', icon: '💬', titleZh: '情境對話實戰', descZh: '檳城市場、超市購物對話' },
+          { id: 'business', icon: '💼', titleZh: '商務出差旗艦', descZh: '大額合約報價與紅發票' }
+        ]}
+      />
     </div>
   );
 };

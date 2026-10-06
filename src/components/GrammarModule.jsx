@@ -433,6 +433,7 @@ import {
 import { grammarRules, interactivePuzzles } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './GrammarModule.css';
 
 const getAssetUrl = (path) => {
@@ -1223,6 +1224,29 @@ export const GrammarModule = ({ selectedAccent, updateUserStats, setActiveTab: s
           )}
         </div>
       )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="grammar"
+        moduleTitleZh="30 大核心實用語法法則"
+        moduleTitleEn="30 Core Vietnamese Grammar Rules"
+        nextModuleId="sentence"
+        nextModuleTitleZh="拼句特訓 · 實戰句構挑戰"
+        nextModuleTitleEn="Sentence Builder Challenge"
+        bonusXp={35}
+        setActiveTab={setModuleTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '熟練 SVO 基礎語序與「形容詞/修飾語嚴格後置」思維（如 Cà phê sữa đá）',
+          '掌握三大時態標記（Đã 過去、Đang 進行、Sẽ 未來）與語氣助詞（Được 獲益 vs Bị 受害）',
+          '理解 cái, con, người, chiếc 等越語核心量詞體系與問句 Có ... không 句型'
+        ]}
+        relatedModules={[
+          { id: 'sentence', icon: '🧩', titleZh: '互動拼句特訓', descZh: '把學到的語法排成句子' },
+          { id: 'hanviet', icon: '📖', titleZh: '漢越同源字根', descZh: '漢字構詞倍速擴充詞彙' },
+          { id: 'conversation', icon: '💬', titleZh: '情境對話實戰', descZh: '生活與商務真實演練' }
+        ]}
+      />
     </div>
   );
 };

@@ -22,9 +22,10 @@ import {
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './BusinessHubModule.css';
 
-export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats }) => {
+export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab: setModuleTab }) => {
   const { learningMode, t } = useLanguage();
   const [activeTab, setActiveTab] = useState(() => {
     try {
@@ -1726,6 +1727,29 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats })
           </div>
         </div>
       )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="business"
+        moduleTitleZh="越南商務出差與工廠製造外派旗艦"
+        moduleTitleEn="Business & FDI Manufacturing Hub"
+        nextModuleId="macropol"
+        nextModuleTitleZh="越南政經智庫 · 宏觀總經情報中心"
+        nextModuleTitleEn="Macro & Political Intelligence Hub"
+        bonusXp={40}
+        setActiveTab={setModuleTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '掌握 SMT 產線巡檢、AQL 驗貨標準、加班調度與工廠品保商務專業用語',
+          '透徹理解「紅發票 (Hóa đơn đỏ)」、稅籍代碼與外貿合約審核關鍵條款',
+          '熟練宴飲社交「1, 2, 3, Dzô!」敬酒禮節與 Zalo 商務人脈加深信任之道'
+        ]}
+        relatedModules={[
+          { id: 'macropol', icon: '🏛️', titleZh: '越南政經智庫', descZh: '5年匯率、央行利率、十四大' },
+          { id: 'hanviet', icon: '📖', titleZh: '漢越同源字根', descZh: '高頻經貿契約漢字讀音' },
+          { id: 'topics', icon: '✨', titleZh: '7大情境專題', descZh: '商務拜訪與名片交換禮儀' }
+        ]}
+      />
     </div>
   );
 };

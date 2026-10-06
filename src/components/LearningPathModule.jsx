@@ -255,6 +255,78 @@ export const ADAPTIVE_TRACKS = [
   }
 ];
 
+export const MODULE_KNOWLEDGE_MAP = [
+  {
+    tierId: 'basics',
+    tierNameZh: '1. 語音與音系打底',
+    tierNameEn: 'Phonetics & Tonal Foundations',
+    tierDescZh: '從 0 開始建立精確發音、調值走向與南北越主流口音辨別力。',
+    tierDescEn: 'Master 29 letters, 6 tones, and North-South accents from scratch.',
+    color: '#3b82f6',
+    modules: [
+      { id: 'alphabet', icon: '🔤', titleZh: '字母發音打底', titleEn: 'Alphabet & IPA', level: 'A1', hours: '5h', descZh: '29字母、單複母音與特殊輔音開口要領' },
+      { id: 'tonegame', icon: '🎵', titleZh: '聲調聽力競技場', titleEn: '6-Tone Arena', level: 'A1', hours: '4h', descZh: '6大聲調調值高低、沙盤對照與闖關聽辨' },
+      { id: 'accent', icon: '🇻🇳', titleZh: '南北口音對照', titleEn: 'North vs South', level: 'A1-B1', hours: '3h', descZh: '河內標準音 vs 西貢商業音對比與切換' }
+    ]
+  },
+  {
+    tierId: 'fasttrack',
+    tierNameZh: '2. 生活實戰與破冰生存',
+    tierNameEn: 'Survival & Fast-Track Fluency',
+    tierDescZh: '最高頻的生活場景速成，迅速開口、點餐叫車、市場購物不踩雷。',
+    tierDescEn: 'High-frequency survival phrases for immediate daily communication.',
+    color: '#f59e0b',
+    modules: [
+      { id: 'fasttrack', icon: '⚡', titleZh: '7天生活速成', titleEn: '7-Day Fast-Track', level: 'A1', hours: '7h', descZh: '35句高頻開口破冰、少糖少奶與實戰短劇' },
+      { id: 'emergency', icon: '🛟', titleZh: '生活急救錦囊', titleEn: 'Emergency Kit', level: 'A1', hours: '2h', descZh: '113/114/115緊急專線、10大症狀點讀卡' },
+      { id: 'phrases', icon: '📝', titleZh: '實用短句大全', titleEn: 'Daily Phrases', level: 'A1-A2', hours: '8h', descZh: '20大情境日常生活短句速查與音檔朗讀' },
+      { id: 'shopping', icon: '🛍️', titleZh: '市集採購算價', titleEn: 'Market Bargaining', level: 'A1-A2', hours: '4h', descZh: '萬進位貨幣算價、防坑防假、四步殺價法' }
+    ]
+  },
+  {
+    tierId: 'conversation',
+    tierNameZh: '3. 深度情境與口語對話',
+    tierNameEn: 'Situational Dialogues & Immersion',
+    tierDescZh: '置身真實越南社交與生活，在雙向角色扮演與影子跟讀中內化母語節奏。',
+    tierDescEn: 'Branching role-plays and voice shadowing across authentic scenarios.',
+    color: '#10b981',
+    modules: [
+      { id: 'conversation', icon: '💬', titleZh: '49大情境對話', titleEn: '49 Scenarios', level: 'A1-B2', hours: '18h', descZh: '涵蓋食衣住行、租屋看診與分段雙語精聽' },
+      { id: 'topics', icon: '✨', titleZh: '7大情境專題', titleEn: '7 Deep Topics', level: 'A2-B1', hours: '10h', descZh: '商務拜訪、家庭稱謂、健康醫療與數字量詞' },
+      { id: 'shadowing', icon: '🎙️', titleZh: '影子跟讀特訓', titleEn: 'Voice Shadowing', level: 'A1-B2', hours: '6h', descZh: '麥克風語音辨識、逐字音高聲調診斷' }
+    ]
+  },
+  {
+    tierId: 'grammar_vocab',
+    tierNameZh: '4. 語法結構與字根網絡',
+    tierNameEn: 'Grammar Syntax & Han-Viet Roots',
+    tierDescZh: '從字根與核心句型舉一反三，掌握漢字同源詞與 SVO 語序本質。',
+    tierDescEn: 'Unlock 30 grammar rules and Sino-Vietnamese cognates.',
+    color: '#8b5cf6',
+    modules: [
+      { id: 'pronoun', icon: '👥', titleZh: '人稱代名詞體系', titleEn: 'Pronoun Matrix', level: 'A1-B1', hours: '4h', descZh: '年齡相對論稱謂、職場階層與敬語 ạ' },
+      { id: 'grammar', icon: '📚', titleZh: '30大核心語法', titleEn: '30 Grammar Rules', level: 'A1-B2', hours: '12h', descZh: '形容詞後置、三大時態與受益/受害語氣' },
+      { id: 'sentence', icon: '🧩', titleZh: '互動拼句特訓', titleEn: 'Sentence Builder', level: 'A1-B1', hours: '5h', descZh: '積木拖曳拼句、動態糾錯與語感塑造' },
+      { id: 'hanviet', icon: '📖', titleZh: '漢越同源字根', titleEn: 'Han-Viet Roots', level: 'A2-C1', hours: '10h', descZh: '中古漢語八調對應、假友詞辨析與萬詞推導' }
+    ]
+  },
+  {
+    tierId: 'business_macro',
+    tierNameZh: '5. 高階外派、政經智庫與測驗',
+    tierNameEn: 'Business FDI, Macro & Certification',
+    tierDescZh: '商務談判、工廠品保巡檢、5年匯率政經智庫與全真 iVPT 綜合認證。',
+    tierDescEn: 'SMT factory audits, 5Y macro dashboards, and official test prep.',
+    color: '#ef4444',
+    modules: [
+      { id: 'flashcards', icon: '🧠', titleZh: '10,000分級閃卡', titleEn: '10k SRS Deck', level: 'A1-C2', hours: '30h', descZh: 'SM-2 間隔重複、孿生混淆字庫與全詞性' },
+      { id: 'quiz', icon: '🏆', titleZh: 'iVPT 綜合測驗', titleEn: 'iVPT Exam Prep', level: 'A1-B2', hours: '6h', descZh: '全真題庫模擬、能力等級診斷與錯題複習' },
+      { id: 'business', icon: '💼', titleZh: '商務出差旗艦', titleEn: 'Business Hub', level: 'B1-C1', hours: '15h', descZh: 'SMT工廠巡檢、AQL抽驗、紅發票與應酬' },
+      { id: 'macropol', icon: '🏛️', titleZh: '越南政經智庫', titleEn: 'Macro Intelligence', level: 'B2-C2', hours: '20h', descZh: '5年USD/VND匯率、央行利率、十四大專題' },
+      { id: 'science', icon: '🔬', titleZh: '科學方法研究', titleEn: 'Science & SLA Hub', level: 'All', hours: '4h', descZh: '5大跨學科二語習得研究與文獻基石' }
+    ]
+  }
+];
+
 export const PEDAGOGICAL_STEPS = [
   {
     step: '1',
@@ -567,6 +639,213 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
         </div>
       </section>
 
+      {/* 🚀 今日推薦 3 步黃金動能循環 (Today's 3-Step Momentum Loop) */}
+      <section className="daily-momentum-card" style={{
+        margin: '1.75rem 0',
+        padding: '1.75rem',
+        background: 'linear-gradient(135deg, color-mix(in srgb, var(--bg-card) 92%, #2563eb 8%) 0%, color-mix(in srgb, var(--bg-card) 95%, #10b981 5%) 100%)',
+        border: '2px solid var(--border-highlight)',
+        borderRadius: 'var(--radius-xl)',
+        boxShadow: 'var(--card-shadow)',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '4px',
+          background: 'linear-gradient(90deg, #3b82f6, #10b981, #f59e0b)'
+        }} />
+
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.78rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <Flame size={15} color="var(--brand-gold)" />
+              <span>{learningMode === 'zh' ? '高黏著動能 · 二語習得每日最佳化' : 'Daily Momentum Acquisition Cycle'}</span>
+            </div>
+            <h2 style={{ fontSize: '1.38rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.25rem 0 0.15rem' }}>
+              {learningMode === 'zh' ? '⚡ 今日黃金學習 3 步閉環 (20 分鐘最優路徑)' : '⚡ Today\'s 3-Step Golden Momentum Loop'}
+            </h2>
+            <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh'
+                ? '不需猶豫今天學什麼！按照「溫故 ➔ 吸收 ➔ 輸出」科學節奏，每天 20 分鐘自然養成母語神經迴路。'
+                : 'No more guessing what to study: Review ➔ Acquire ➔ Output. 20 mins a day for effortless fluency.'}
+            </p>
+          </div>
+
+          <button
+            onClick={() => {
+              audioEngine.playHaptic('success');
+              setActiveTab('flashcards');
+            }}
+            style={{
+              padding: '0.75rem 1.4rem',
+              borderRadius: 'var(--radius-full)',
+              background: 'linear-gradient(135deg, var(--brand-accent), #1d4ed8)',
+              color: '#fff',
+              border: 'none',
+              fontWeight: 800,
+              fontSize: '0.94rem',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              boxShadow: '0 4px 15px rgba(37, 99, 235, 0.35)',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            <Play size={16} fill="currentColor" />
+            <span>{learningMode === 'zh' ? '一鍵啟動今日閉環' : 'Start Today\'s Loop'}</span>
+          </button>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+          gap: '1rem'
+        }}>
+          {/* Step 1 */}
+          <div
+            onClick={() => {
+              audioEngine.playHaptic('tap');
+              setActiveTab('flashcards');
+            }}
+            style={{
+              background: 'var(--bg-main)',
+              border: '1.5px solid var(--border-color)',
+              borderRadius: 'var(--radius-lg)',
+              padding: '1.2rem',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              display: 'flex',
+              flexDirection: 'column',
+              position: 'relative'
+            }}
+            className="momentum-step-card"
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
+              <span style={{
+                background: 'rgba(59, 130, 246, 0.15)',
+                color: '#3b82f6',
+                fontWeight: 900,
+                fontSize: '0.76rem',
+                padding: '0.2rem 0.6rem',
+                borderRadius: 'var(--radius-full)'
+              }}>
+                STEP 1 · 5 分鐘
+              </span>
+              <span style={{ fontSize: '1.35rem' }}>🧠</span>
+            </div>
+            <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)', marginBottom: '0.3rem' }}>
+              {learningMode === 'zh' ? '溫故知新：SM-2 智能閃卡' : 'Review: SM-2 Spaced Repetition'}
+            </strong>
+            <p style={{ margin: 0, fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.45, flexGrow: 1 }}>
+              {learningMode === 'zh'
+                ? `抗遺忘記憶喚醒！今日排程有 ${srsStats.dueCount > 0 ? srsStats.dueCount : '10'} 個到期單字等待鞏固長期記憶。`
+                : `Beat the forgetting curve with active recall flashcards.`}
+            </p>
+            <div style={{ marginTop: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem', fontWeight: 800, color: '#3b82f6' }}>
+              <span>{learningMode === 'zh' ? '進入閃卡庫' : 'Open Deck'}</span>
+              <ArrowRight size={14} />
+            </div>
+          </div>
+
+          {/* Step 2 */}
+          <div
+            onClick={() => {
+              audioEngine.playHaptic('tap');
+              setActiveTab(fastTrackCount < 7 ? 'fasttrack' : 'topics');
+            }}
+            style={{
+              background: 'var(--bg-main)',
+              border: '1.5px solid var(--border-color)',
+              borderRadius: 'var(--radius-lg)',
+              padding: '1.2rem',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              display: 'flex',
+              flexDirection: 'column',
+              position: 'relative'
+            }}
+            className="momentum-step-card"
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
+              <span style={{
+                background: 'rgba(234, 179, 8, 0.15)',
+                color: 'var(--brand-gold)',
+                fontWeight: 900,
+                fontSize: '0.76rem',
+                padding: '0.2rem 0.6rem',
+                borderRadius: 'var(--radius-full)'
+              }}>
+                STEP 2 · 10 分鐘
+              </span>
+              <span style={{ fontSize: '1.35rem' }}>⚡</span>
+            </div>
+            <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)', marginBottom: '0.3rem' }}>
+              {learningMode === 'zh' ? '核心吸收：今日進度章節' : 'Core Lesson: Today\'s Focus'}
+            </strong>
+            <p style={{ margin: 0, fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.45, flexGrow: 1 }}>
+              {learningMode === 'zh'
+                ? (fastTrackCount < 7 ? `7天生活速成：第 ${fastTrackCount + 1} 天破冰實戰！精讀 5 句道地金句與對話。` : '7大情境專題：商務談判、點餐飲食與日常生活深度吸收。')
+                : 'Acquire high-frequency language patterns through structured immersion.'}
+            </p>
+            <div style={{ marginTop: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem', fontWeight: 800, color: 'var(--brand-gold)' }}>
+              <span>{learningMode === 'zh' ? (fastTrackCount < 7 ? `挑戰 Day ${fastTrackCount + 1}` : '進入情境專題') : 'Start Lesson'}</span>
+              <ArrowRight size={14} />
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div
+            onClick={() => {
+              audioEngine.playHaptic('tap');
+              setActiveTab('sentence');
+            }}
+            style={{
+              background: 'var(--bg-main)',
+              border: '1.5px solid var(--border-color)',
+              borderRadius: 'var(--radius-lg)',
+              padding: '1.2rem',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              display: 'flex',
+              flexDirection: 'column',
+              position: 'relative'
+            }}
+            className="momentum-step-card"
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
+              <span style={{
+                background: 'rgba(16, 185, 129, 0.15)',
+                color: '#10b981',
+                fontWeight: 900,
+                fontSize: '0.76rem',
+                padding: '0.2rem 0.6rem',
+                borderRadius: 'var(--radius-full)'
+              }}>
+                STEP 3 · 5 分鐘
+              </span>
+              <span style={{ fontSize: '1.35rem' }}>🎯</span>
+            </div>
+            <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)', marginBottom: '0.3rem' }}>
+              {learningMode === 'zh' ? '實戰輸出：拼句與對話模擬' : 'Output: Sentence & Dialogue'}
+            </strong>
+            <p style={{ margin: 0, fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.45, flexGrow: 1 }}>
+              {learningMode === 'zh'
+                ? '立即轉化為產出！透過拼句特訓或情境對話角色扮演，驗證今天所學，鎖定記憶。'
+                : 'Convert passive knowledge into active communicative fluency.'}
+            </p>
+            <div style={{ marginTop: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem', fontWeight: 800, color: '#10b981' }}>
+              <span>{learningMode === 'zh' ? '立即拼句實戰' : 'Start Output'}</span>
+              <ArrowRight size={14} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Adaptive 3-Track Goal Switcher */}
       <section className="adaptive-tracks-card" style={{
         margin: '1.75rem 0',
@@ -746,6 +1025,132 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
               <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.78rem', fontWeight: 700, color: 'var(--brand-accent)' }}>
                 <span>{learningMode === 'zh' ? '前往章節' : 'Start'}</span>
                 <ArrowRight size={13} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 🗺️ 全域 20 大模組知識體系全景地圖 (20-Module SLA Knowledge Map) */}
+      <section className="knowledge-map-section" style={{
+        margin: '2rem 0',
+        padding: '1.75rem',
+        background: 'var(--bg-card)',
+        border: '1.5px solid var(--border-color)',
+        borderRadius: 'var(--radius-xl)',
+        boxShadow: 'var(--card-shadow)'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+              <Layers size={16} />
+              <span>{learningMode === 'zh' ? '全域架構 · 零死角全景導航' : 'Complete 20-Module Knowledge Architecture'}</span>
+            </div>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.35rem 0 0.2rem' }}>
+              {learningMode === 'zh' ? '🗺️ 全域 20 大模組知識體系地圖 (Knowledge Highway)' : '🗺️ 20-Module Full Knowledge Map'}
+            </h2>
+            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh'
+                ? '依二語習得（SLA）科學認知階梯劃分：發音打底 ➔ 生活破冰 ➔ 深度對話 ➔ 語法字根 ➔ 智庫經貿，各模組無縫相連。'
+                : 'Structured by SLA cognitive stages: Phonetics ➔ Survival ➔ Scenarios ➔ Syntax & Roots ➔ Business & Macro Intelligence.'}
+            </p>
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          {MODULE_KNOWLEDGE_MAP.map((tier) => (
+            <div
+              key={tier.tierId}
+              style={{
+                background: 'var(--bg-main)',
+                border: '1px solid var(--border-color)',
+                borderLeft: `5px solid ${tier.color}`,
+                borderRadius: 'var(--radius-lg)',
+                padding: '1.25rem'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.85rem' }}>
+                <div>
+                  <h3 style={{ margin: 0, fontSize: '1.12rem', fontWeight: 900, color: 'var(--text-primary)' }}>
+                    {learningMode === 'zh' ? tier.tierNameZh : tier.tierNameEn}
+                  </h3>
+                  <p style={{ margin: '0.2rem 0 0', fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                    {learningMode === 'zh' ? tier.tierDescZh : tier.tierDescEn}
+                  </p>
+                </div>
+                <span style={{
+                  fontSize: '0.74rem',
+                  fontWeight: 800,
+                  color: tier.color,
+                  background: 'var(--bg-card)',
+                  padding: '0.2rem 0.65rem',
+                  borderRadius: 'var(--radius-full)',
+                  border: `1px solid ${tier.color}`
+                }}>
+                  {tier.modules.length} {learningMode === 'zh' ? '個核心模組' : 'Modules'}
+                </span>
+              </div>
+
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
+                gap: '0.75rem'
+              }}>
+                {tier.modules.map((mod) => (
+                  <div
+                    key={mod.id}
+                    onClick={() => {
+                      audioEngine.playHaptic('tap');
+                      setActiveTab(mod.id);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    style={{
+                      background: 'var(--bg-card)',
+                      border: '1px solid var(--border-color)',
+                      borderRadius: 'var(--radius-md)',
+                      padding: '0.9rem 1rem',
+                      cursor: 'pointer',
+                      transition: 'all 0.15s ease',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      boxShadow: 'var(--card-shadow)'
+                    }}
+                    className="knowledge-mod-card"
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                        <span style={{ fontSize: '1.3rem' }}>{mod.icon}</span>
+                        <strong style={{ fontSize: '0.94rem', color: 'var(--text-primary)' }}>
+                          {learningMode === 'zh' ? mod.titleZh : mod.titleEn}
+                        </strong>
+                      </div>
+                      <span style={{
+                        fontSize: '0.7rem',
+                        fontWeight: 900,
+                        background: 'rgba(37, 99, 235, 0.1)',
+                        color: 'var(--brand-accent)',
+                        padding: '0.15rem 0.45rem',
+                        borderRadius: 'var(--radius-full)'
+                      }}>
+                        {mod.level}
+                      </span>
+                    </div>
+
+                    <p style={{ margin: '0 0 0.6rem', fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.4, flexGrow: 1 }}>
+                      {mod.descZh}
+                    </p>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '0.4rem', borderTop: '1px solid var(--border-subtle)', marginTop: 'auto' }}>
+                      <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 700 }}>
+                        ⏱ {mod.hours}
+                      </span>
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', fontSize: '0.76rem', fontWeight: 800, color: 'var(--brand-accent)' }}>
+                        <span>進入</span>
+                        <ArrowRight size={12} />
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}

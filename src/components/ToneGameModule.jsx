@@ -6,6 +6,7 @@ import {
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
+import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './ToneGameModule.css';
 import { ToneContourFigure, ToneConfusionFigure } from './visuals/PhoneticsVisuals';
 
@@ -140,7 +141,7 @@ const REAL_WORDS = [
   { word: 'chào', tone: 'huyen', base: 'chao', hint: 'chào (問好 · 玄聲)', level: 'real' }
 ];
 
-export const ToneGameModule = ({ selectedAccent = 'north', updateUserStats }) => {
+export const ToneGameModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab: setModuleTab }) => {
   const { learningMode } = useLanguage();
   
   // Tab: 'game' (遊戲聽力競技) vs 'sandbox' (六調沙盤對照)
@@ -735,6 +736,29 @@ export const ToneGameModule = ({ selectedAccent = 'north', updateUserStats }) =>
         </div>
         </>
       )}
+
+      {/* Chapter Milestone & Recommended Next Steps */}
+      <ModuleMilestoneCard
+        currentModuleId="tonegame"
+        moduleTitleZh="聲調競技場與聽音辨調沙盤 2.0"
+        moduleTitleEn="6-Tone Game & Pitch Sandbox"
+        nextModuleId="pronoun"
+        nextModuleTitleZh="稱謂人稱代名詞與敬語系統"
+        nextModuleTitleEn="Pronoun System & Politeness"
+        bonusXp={35}
+        setActiveTab={setModuleTab}
+        updateUserStats={updateUserStats}
+        summaryHighlights={[
+          '聽音辨析平聲 (44)、玄聲 (31)、問聲 (313)、跌聲 (35̃)、銳聲 (35)、重聲 (21) 調值高低',
+          '掌握問聲 (Hỏi) 與跌聲 (Ngã)、銳聲 (Sắc) 與重聲 (Nặng) 經典易混聲調對比',
+          '在 ma, ba, la 經典沙盤中建立聲門阻斷與喉部肌肉直覺'
+        ]}
+        relatedModules={[
+          { id: 'alphabet', icon: '🔤', titleZh: '字母發音打底', descZh: '29字母與拼讀法則' },
+          { id: 'pronoun', icon: '👥', titleZh: '人稱代名詞體系', descZh: '對稱敬語稱謂實戰' },
+          { id: 'accent', icon: '🇻🇳', titleZh: '南北口音辨析', descZh: '南越玄問合流辨識' }
+        ]}
+      />
     </div>
   );
 };
