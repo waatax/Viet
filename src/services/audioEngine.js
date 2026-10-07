@@ -24,6 +24,8 @@ class AudioEngine {
     this.hasNativeVietVoice = false;
     this.manifest = audioManifest || {};
     this.normalizedManifest = new Map();
+    this.sessionId = 0;
+    this.currentCleanup = null;
     
     this.initManifest();
     
@@ -189,7 +191,8 @@ class AudioEngine {
     if (this.manifest) {
       Object.entries(this.manifest).forEach(([text, file]) => {
         if (text && file) {
-          const trimmed = text.trim();
+          const nfc = String(text).normalize('NFC');
+          const trimmed = nfc.trim();
           this.normalizedManifest.set(trimmed, file);
           this.normalizedManifest.set(trimmed.toLowerCase(), file);
           
@@ -308,32 +311,65 @@ class AudioEngine {
 
   /**
    * Cleans Vietnamese text for crystal-clear TTS pronunciation
-   * Removes Chinese/English annotations, brackets, symbols, and formatting
+   * Removes HTML tags, markdown, Chinese/English annotations, brackets, symbols, and formatting
    */
   cleanText(text) {
     if (!text) return '';
-    let cleaned = String(text);
+    let cleaned = String(text).normalize('NFC');
 
-    // 1. Remove parenthetical annotations, translations, and bracketed notes e.g. (店員), （客棧）, (hoặc Bác/Chú), [Tên]
+    // 1. Remove HTML tags completely (e.g. <mark>bánh</mark> -> bánh)
+    cleaned = cleaned.replace(/<[^>]+>/g, ' ');
+
+    // 2. Remove markdown formatting (*bold*, _italic_, `code`, ~strike~)
+    cleaned = cleaned.replace(/[*_#`~]/g, ' ');
+
+    // 3. Remove parenthetical annotations, translations, and bracketed notes e.g. (店員), （客棧）, (hoặc Bác/Chú), [Tên]
     cleaned = cleaned.replace(/\([^)]*\)/g, ' ');
     cleaned = cleaned.replace(/（[^）]*）/g, ' ');
     cleaned = cleaned.replace(/\[[^\]]*\]/g, ' ');
 
-    // 2. Remove isolated Chinese characters and Chinese fullwidth punctuation
+    // 4. Remove isolated Chinese characters and Chinese fullwidth punctuation
     cleaned = cleaned.replace(/[\u4e00-\u9fa5]/g, ' ');
     cleaned = cleaned.replace(/[，。！？；：（）「」『』、《》“”‘’…—]/g, ' ');
 
-    // 3. Clean currency symbols: only when preceded by digits
+    // 5. Clean currency symbols: only when preceded by digits
     cleaned = cleaned.replace(/(\d+[\d.,]*)\s*(?:đ|₫|VND)(?![a-zA-Zà-ỹÀ-Ỹ])/gi, (_, num) => `${num} đồng `);
     cleaned = cleaned.replace(/(\d+[\d.,]*)\s*k(?![a-zA-Zà-ỹÀ-Ỹ])/gi, (_, num) => `${num} nghìn `);
     cleaned = cleaned.replace(/NT\$/gi, ' ');
     cleaned = cleaned.replace(/\$/g, ' ');
     cleaned = cleaned.replace(/~/g, ' ');
 
-    // 4. Remove unwanted symbols while keeping valid Vietnamese diacritics
+    // 6. Remove unwanted symbols while keeping valid Vietnamese diacritics
     cleaned = cleaned.replace(/[—_=+*#@$%^&|\\/<>]/g, ' ');
     cleaned = cleaned.replace(/\s+/g, ' ').trim();
 
+    return cleaned;
+  }
+
+  /**
+   * Cleans Chinese or English definitions/translations for natural TTS reading
+   */
+  cleanNativeText(text, lang = 'zh') {
+    if (!text) return '';
+    let cleaned = String(text).normalize('NFC');
+
+    // 1. Remove HTML tags and markdown
+    cleaned = cleaned.replace(/<[^>]+>/g, ' ');
+    cleaned = cleaned.replace(/[*_#`~]/g, ' ');
+
+    // 2. Remove parenthetical annotations e.g. (名詞), (熱), [formal]
+    cleaned = cleaned.replace(/\([^)]*\)/g, ' ');
+    cleaned = cleaned.replace(/（[^）]*）/g, ' ');
+    cleaned = cleaned.replace(/\[[^\]]*\]/g, ' ');
+
+    // 3. Replace slashes so TTS does not pronounce "斜線" or "slash"
+    if (lang === 'zh') {
+      cleaned = cleaned.replace(/[/／]/g, '、');
+    } else {
+      cleaned = cleaned.replace(/[/／]/g, ' or ');
+    }
+
+    cleaned = cleaned.replace(/\s+/g, ' ').trim();
     return cleaned;
   }
 
@@ -342,7 +378,8 @@ class AudioEngine {
    */
   resolveManifestFile(text, accent = 'north') {
     if (!text) return null;
-    const rawClean = text.trim();
+    const nfc = String(text).normalize('NFC');
+    const rawClean = nfc.replace(/<[^>]+>/g, ' ').replace(/[*_#`~]/g, ' ').trim();
     const isSouth = accent === 'south';
     const stripped = rawClean.replace(/[.,?!;:…]+$/g, '').trim();
     const lower = rawClean.toLowerCase();
@@ -396,21 +433,47 @@ class AudioEngine {
   }
 
   /**
+   * Preload an audio file into cache for instant zero-latency playback
+   */
+  preload(rawText, options = {}) {
+    if (!rawText || typeof window === 'undefined') return;
+    const accent = options.accent || 'north';
+    const cleanedText = this.cleanText(rawText);
+    const manifestFile = this.resolveManifestFile(cleanedText, accent) || this.resolveManifestFile(rawText, accent);
+    if (manifestFile) {
+      const baseUrl = import.meta.env.BASE_URL || '/';
+      const audioPath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${manifestFile}`;
+      if (!this.audioCache.has(audioPath)) {
+        try {
+          const audio = new Audio(audioPath);
+          audio.preload = 'auto';
+          this.audioCache.set(audioPath, audio);
+        } catch (e) {}
+      }
+    }
+  }
+
+  /**
    * Main speech method with prioritized pre-bundled audio bank fallback
-   * @param {string} rawText - Vietnamese text
-   * @param {object} options - { rate: number, accent: 'north'|'south', key: string, onEnd: func, onStart: func }
+   * @param {string} rawText - Vietnamese text or native translation
+   * @param {object} options - { rate: number, accent: 'north'|'south', key: string, lang: 'vi'|'zh'|'en', onEnd: func, onStart: func }
    */
   speak(rawText, options = {}) {
     if (!rawText) return;
 
-    // Stop previous audio completely
+    // Stop previous audio completely & invalidate any previous async session
     this.stop();
+
+    this.sessionId = (this.sessionId || 0) + 1;
+    const session = this.sessionId;
 
     const accent = options.accent || 'north';
     const lang = options.lang || 'vi';
     
-    // For non-Vietnamese, skip text sanitization that removes Chinese
-    const cleanedText = lang === 'vi' ? this.cleanText(rawText) : rawText.trim();
+    // Clean text properly by language
+    const cleanedText = lang === 'vi' 
+      ? this.cleanText(rawText) 
+      : this.cleanNativeText(rawText, lang);
     if (!cleanedText) return;
 
     const defaultBaseRate = accent === 'south' ? 1.04 : 0.96;
@@ -434,17 +497,21 @@ class AudioEngine {
       if (manifestFile) {
         const baseUrl = import.meta.env.BASE_URL || '/';
         const audioPath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${manifestFile}`;
-        this.playLocalFile(audioPath, rate, options)
-          .catch(() => {
+        this.playLocalFile(audioPath, rate, options, session)
+          .catch((err) => {
+            if (this.sessionId !== session) return;
+            if (err?.name === 'AbortError') return;
             // Secondary relative attempt in case BASE_URL pathing differs on current origin
             const relativeAudioPath = `./audio/${manifestFile}`;
             if (relativeAudioPath !== audioPath) {
-              this.playLocalFile(relativeAudioPath, rate, options)
-                .catch(() => {
-                  this.fallbackSpeech(cleanedText, rate, { ...options, accent });
+              this.playLocalFile(relativeAudioPath, rate, options, session)
+                .catch((err2) => {
+                  if (this.sessionId !== session) return;
+                  if (err2?.name === 'AbortError') return;
+                  this.fallbackSpeech(cleanedText, rate, { ...options, accent }, session);
                 });
             } else {
-              this.fallbackSpeech(cleanedText, rate, { ...options, accent });
+              this.fallbackSpeech(cleanedText, rate, { ...options, accent }, session);
             }
           });
         return;
@@ -452,14 +519,18 @@ class AudioEngine {
     }
 
     // 2. Fallback: Web Speech API or Online Stream
-    this.fallbackSpeech(cleanedText, rate, { ...options, accent });
+    this.fallbackSpeech(cleanedText, rate, { ...options, accent }, session);
   }
 
   /**
-   * Plays a pre-bundled local MP3 audio file
+   * Plays a pre-bundled local MP3 audio file with session safety and memory protection
    */
-  playLocalFile(audioUrl, rate = 1.0, options = {}) {
+  playLocalFile(audioUrl, rate = 1.0, options = {}, session = null) {
     return new Promise((resolve, reject) => {
+      if (session !== null && this.sessionId !== session) {
+        return resolve();
+      }
+
       try {
         let audio = this.audioCache.get(audioUrl);
         if (!audio) {
@@ -480,15 +551,21 @@ class AudioEngine {
           audio.removeEventListener('ended', handleEnded);
           audio.removeEventListener('error', handleError);
           audio.removeEventListener('pause', handlePause);
+          if (this.currentCleanup === cleanup) {
+            this.currentCleanup = null;
+          }
         };
+        this.currentCleanup = cleanup;
 
         const handleEnded = () => {
           cleanup();
           if (this.currentAudio === audio) {
             this.currentAudio = null;
-            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
           }
-          if (options.onEnd) options.onEnd();
+          if (session === null || this.sessionId === session) {
+            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+            if (options.onEnd) options.onEnd();
+          }
           resolve();
         };
 
@@ -496,6 +573,8 @@ class AudioEngine {
           cleanup();
           if (this.currentAudio === audio) {
             this.currentAudio = null;
+          }
+          if (session === null || this.sessionId === session) {
             this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
           }
         };
@@ -504,6 +583,9 @@ class AudioEngine {
           cleanup();
           if (this.currentAudio === audio) {
             this.currentAudio = null;
+          }
+          if (session !== null && this.sessionId !== session) {
+            return resolve();
           }
           reject(e);
         };
@@ -519,6 +601,9 @@ class AudioEngine {
             if (this.currentAudio === audio) {
               this.currentAudio = null;
             }
+            if (e?.name === 'AbortError' || (session !== null && this.sessionId !== session)) {
+              return resolve();
+            }
             reject(e);
           });
         }
@@ -531,14 +616,18 @@ class AudioEngine {
   /**
    * Fallback to Web Speech API first, then online audio stream
    */
-  fallbackSpeech(cleanedText, rate, options = {}) {
+  fallbackSpeech(cleanedText, rate, options = {}, session = null) {
+    if (session !== null && this.sessionId !== session) return;
+
     const isSouth = options.accent === 'south';
     const speechText = isSouth ? this.toSouthernPhonetic(cleanedText) : cleanedText;
 
-    this.playWebSpeech(speechText, rate, options)
+    this.playWebSpeech(speechText, rate, options, session)
       .catch(() => {
-        this.playOnlineStream(speechText, rate, options)
+        if (session !== null && this.sessionId !== session) return;
+        this.playOnlineStream(speechText, rate, options, session)
           .catch((err) => {
+            if (session !== null && this.sessionId !== session) return;
             console.warn('Audio fallback stream failed:', err);
             this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
             if (options.onEnd) options.onEnd();
@@ -548,11 +637,15 @@ class AudioEngine {
 
   /**
    * Tier 1: Web Speech API (synthesizes vi-VN natively with dialect pitch/rate contour)
+   * Strictly verifies native Vietnamese voice presence to avoid English voices mispronouncing Vietnamese
    */
-  playWebSpeech(text, rate = 1.0, options = {}) {
+  playWebSpeech(text, rate = 1.0, options = {}, session = null) {
     return new Promise((resolve, reject) => {
       if (!this.synth) {
         return reject(new Error('Speech synthesis not supported'));
+      }
+      if (session !== null && this.sessionId !== session) {
+        return resolve();
       }
 
       try {
@@ -573,6 +666,10 @@ class AudioEngine {
           const vietVoice = this.getVietnameseVoice();
           if (vietVoice) {
             utterance.voice = vietVoice;
+          } else {
+            // Strictly reject if no genuine native Vietnamese voice is installed!
+            // This immediately routes to Google's authentic native Vietnamese TTS stream
+            return reject(new Error('No native vi-VN voice installed'));
           }
         } else {
           const voices = this.synth.getVoices() || [];
@@ -583,29 +680,39 @@ class AudioEngine {
         }
 
         utterance.onend = () => {
-          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
-          if (options.onEnd) options.onEnd();
+          if (session === null || this.sessionId === session) {
+            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+            if (options.onEnd) options.onEnd();
+          }
           resolve();
         };
 
         utterance.onerror = (e) => {
-          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+          if (session === null || this.sessionId === session) {
+            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+          }
           reject(e);
         };
 
         this.synth.speak(utterance);
       } catch (err) {
-        this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+        if (session === null || this.sessionId === session) {
+          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+        }
         reject(err);
       }
     });
   }
 
   /**
-   * Tier 2: Online audio stream fallback
+   * Tier 2: Online audio stream fallback (Google Neural Stream)
    */
-  playOnlineStream(text, rate = 1.0, options = {}) {
+  playOnlineStream(text, rate = 1.0, options = {}, session = null) {
     return new Promise((resolve, reject) => {
+      if (session !== null && this.sessionId !== session) {
+        return resolve();
+      }
+
       try {
         const encodedText = encodeURIComponent(text.slice(0, 200));
         const tl = options.lang === 'zh' ? 'zh-TW' : (options.lang === 'en' ? 'en-US' : 'vi');
@@ -623,28 +730,42 @@ class AudioEngine {
         this.currentAudio = audio;
         audio.playbackRate = Math.min(Math.max(rate, 0.5), 2.0);
 
+        let finished = false;
         const cleanup = () => {
+          if (finished) return;
+          finished = true;
           audio.removeEventListener('ended', handleEnded);
           audio.removeEventListener('error', handleError);
           audio.removeEventListener('pause', handlePause);
+          if (this.currentCleanup === cleanup) {
+            this.currentCleanup = null;
+          }
         };
+        this.currentCleanup = cleanup;
 
         const handleEnded = () => {
           cleanup();
-          this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
-          if (options.onEnd) options.onEnd();
+          if (session === null || this.sessionId === session) {
+            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+            if (options.onEnd) options.onEnd();
+          }
           resolve();
         };
 
         const handlePause = () => {
           if (this.currentAudio === audio && audio.currentTime === 0) {
             cleanup();
-            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+            if (session === null || this.sessionId === session) {
+              this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
+            }
           }
         };
 
         const handleError = (e) => {
           cleanup();
+          if (session !== null && this.sessionId !== session) {
+            return resolve();
+          }
           reject(e);
         };
 
@@ -656,6 +777,9 @@ class AudioEngine {
         if (playPromise !== undefined) {
           playPromise.catch((e) => {
             cleanup();
+            if (e?.name === 'AbortError' || (session !== null && this.sessionId !== session)) {
+              return resolve();
+            }
             reject(e);
           });
         }
@@ -1274,6 +1398,16 @@ class AudioEngine {
    * Immediately stops any playing audio, utterance, or oscillator
    */
   stop() {
+    this.sessionId = (this.sessionId || 0) + 1;
+
+    // 0. Clean up active audio event listeners
+    if (this.currentCleanup) {
+      try {
+        this.currentCleanup();
+      } catch (e) {}
+      this.currentCleanup = null;
+    }
+
     // 1. Stop HTML5 Audio
     if (this.currentAudio) {
       try {

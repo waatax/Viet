@@ -92,8 +92,14 @@ const getToneColor = (tone) => {
   }
 };
 
-export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
+export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
+
+  // Local flashcard dialect selector ('north' vs 'south')
+  const [flashcardAccent, setFlashcardAccent] = useState(selectedAccent || 'north');
+  useEffect(() => {
+    if (selectedAccent) setFlashcardAccent(selectedAccent);
+  }, [selectedAccent]);
   
   // Master Deck Mode: 'frequency' (10k Graded Vocab) vs 'confusables' (相近似字·攣生對比記憶庫)
   const [activeMasterMode, setActiveMasterMode] = useState(() => {
@@ -161,8 +167,9 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
 
   // Deck Autoplay state
   const [isPlayingDeck, setIsPlayingDeck] = useState(false);
-  const [playMode, setPlayMode] = useState('zh-vi'); // 'zh-vi' | 'vi-zh' | 'vi-only'
+  const [playMode, setPlayMode] = useState('zh-vi'); // 'zh-vi' | 'vi-zh' | 'vi-only' | 'repeat-3x'
   const [playbackSpeed, setPlaybackSpeed] = useState(0.9);
+  const [currentRepeatRound, setCurrentRepeatRound] = useState(1);
   const isPlayingDeckRef = useRef(false);
   const timerRef = useRef(null);
 
@@ -360,11 +367,42 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
 
   const currentCard = reviewDeck[currentIndex] || reviewDeck[0];
 
+  // Preload next upcoming cards for instant zero-latency audio playback
+  useEffect(() => {
+    if (reviewDeck && reviewDeck.length > 0) {
+      const next1 = reviewDeck[currentIndex + 1];
+      const next2 = reviewDeck[currentIndex + 2];
+      if (next1) audioEngine.preload(next1.viet, { accent: flashcardAccent });
+      if (next2) audioEngine.preload(next2.viet, { accent: flashcardAccent });
+    }
+  }, [currentIndex, reviewDeck, flashcardAccent]);
+
+  // Audio-First Mode: auto-pronounce when new card is shown
+  useEffect(() => {
+    if (audioFirstMode && currentCard && !isFlipped && !isPlayingDeck && activeMasterMode === 'frequency') {
+      const timer = setTimeout(() => {
+        audioEngine.speak(currentCard.viet, { accent: flashcardAccent, key: `fc_${currentCard.id}` });
+      }, 240);
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, audioFirstMode, activeMasterMode, isFlipped]);
+
+  const stopDeckPlayback = () => {
+    if (isPlayingDeckRef.current || isPlayingDeck) {
+      setIsPlayingDeck(false);
+      isPlayingDeckRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+      audioEngine.stop();
+      setCurrentRepeatRound(1);
+    }
+  };
+
   // Frequency Mode Auto-Play Logic
-  const playDeckInSequence = (index, part = 'first', currentPlayMode = 'zh-vi', speed = 0.9) => {
+  const playDeckInSequence = (index, part = 'first', currentPlayMode = 'zh-vi', speed = 0.9, round = 1) => {
     if (!isPlayingDeckRef.current || index >= reviewDeck.length) {
       setIsPlayingDeck(false);
       isPlayingDeckRef.current = false;
+      setCurrentRepeatRound(1);
       return;
     }
 
@@ -372,62 +410,85 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
     if (!card) {
       setIsPlayingDeck(false);
       isPlayingDeckRef.current = false;
+      setCurrentRepeatRound(1);
       return;
     }
 
     setCurrentIndex(index);
+    setCurrentRepeatRound(round);
     const nativeText = learningMode === 'zh' ? card.zh : (card.en || card.zh);
     const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
 
-    if (currentPlayMode === 'vi-only') {
-      setIsFlipped(false);
-      audioEngine.speak(card.viet, {
-        accent: selectedAccent,
-        lang: 'vi',
-        rate: speed,
-        key: `fc_seq_viet_${card.id}`,
-        onEnd: () => {
+    if (currentPlayMode === 'repeat-3x') {
+      // 黃金記憶循環：每個單字 (一次越文 + 一次中文) × 3 念三次
+      if (part === 'first' || part === 'viet') {
+        setIsFlipped(false);
+        timerRef.current = setTimeout(() => {
           if (!isPlayingDeckRef.current) return;
-          const gap = speed < 0.85 ? 1800 : 1400;
-          timerRef.current = setTimeout(() => {
-            if (isPlayingDeckRef.current) {
-              if (index + 1 < reviewDeck.length) {
-                playDeckInSequence(index + 1, 'first', currentPlayMode, speed);
+          audioEngine.speak(card.viet, {
+            accent: flashcardAccent,
+            lang: 'vi',
+            rate: speed,
+            key: `fc_seq_3x_vi_${card.id}`,
+            onEnd: () => {
+              if (!isPlayingDeckRef.current) return;
+              timerRef.current = setTimeout(() => {
+                if (isPlayingDeckRef.current) {
+                  playDeckInSequence(index, 'native', currentPlayMode, speed, round);
+                }
+              }, 320);
+            }
+          });
+        }, 160);
+      } else {
+        // part === 'native'
+        setIsFlipped(true);
+        timerRef.current = setTimeout(() => {
+          if (!isPlayingDeckRef.current) return;
+          audioEngine.speak(nativeText, {
+            lang: nativeLang,
+            rate: speed,
+            key: `fc_seq_3x_native_${card.id}`,
+            onEnd: () => {
+              if (!isPlayingDeckRef.current) return;
+              if (round < 3) {
+                // Next round for same card
+                timerRef.current = setTimeout(() => {
+                  if (isPlayingDeckRef.current) {
+                    playDeckInSequence(index, 'viet', currentPlayMode, speed, round + 1);
+                  }
+                }, 420);
               } else {
-                setIsPlayingDeck(false);
-                isPlayingDeckRef.current = false;
+                // Completed 3 rounds! Advance smoothly to next card
+                const gap = speed < 0.85 ? 1600 : 1200;
+                timerRef.current = setTimeout(() => {
+                  if (isPlayingDeckRef.current) {
+                    if (index + 1 < reviewDeck.length) {
+                      playDeckInSequence(index + 1, 'viet', currentPlayMode, speed, 1);
+                    } else {
+                      setIsPlayingDeck(false);
+                      isPlayingDeckRef.current = false;
+                      setCurrentRepeatRound(1);
+                    }
+                  }
+                }, gap);
               }
             }
-          }, gap);
-        }
-      });
-    } else if (currentPlayMode === 'zh-vi') {
-      if (part === 'first') {
-        setIsFlipped(true);
-        audioEngine.speak(nativeText, {
-          lang: nativeLang,
-          rate: speed,
-          key: `fc_seq_native_${card.id}`,
-          onEnd: () => {
-            if (!isPlayingDeckRef.current) return;
-            timerRef.current = setTimeout(() => {
-              if (isPlayingDeckRef.current) {
-                setIsFlipped(false);
-                playDeckInSequence(index, 'second', currentPlayMode, speed);
-              }
-            }, 350);
-          }
-        });
-      } else {
-        setIsFlipped(false);
+          });
+        }, 160);
+      }
+    } else if (currentPlayMode === 'vi-only') {
+      setIsFlipped(false);
+      timerRef.current = setTimeout(() => {
+        if (!isPlayingDeckRef.current) return;
         audioEngine.speak(card.viet, {
-          accent: selectedAccent,
+          accent: flashcardAccent,
           lang: 'vi',
           rate: speed,
           key: `fc_seq_viet_${card.id}`,
           onEnd: () => {
             if (!isPlayingDeckRef.current) return;
-            const gap = speed < 0.85 ? 1600 : 1300;
+            const gap = speed < 0.85 ? 1800 : 1400;
             timerRef.current = setTimeout(() => {
               if (isPlayingDeckRef.current) {
                 if (index + 1 < reviewDeck.length) {
@@ -440,64 +501,114 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
             }, gap);
           }
         });
+      }, 150);
+    } else if (currentPlayMode === 'zh-vi') {
+      if (part === 'first') {
+        setIsFlipped(true);
+        timerRef.current = setTimeout(() => {
+          if (!isPlayingDeckRef.current) return;
+          audioEngine.speak(nativeText, {
+            lang: nativeLang,
+            rate: speed,
+            key: `fc_seq_native_${card.id}`,
+            onEnd: () => {
+              if (!isPlayingDeckRef.current) return;
+              timerRef.current = setTimeout(() => {
+                if (isPlayingDeckRef.current) {
+                  setIsFlipped(false);
+                  playDeckInSequence(index, 'second', currentPlayMode, speed);
+                }
+              }, 350);
+            }
+          });
+        }, 150);
+      } else {
+        setIsFlipped(false);
+        timerRef.current = setTimeout(() => {
+          if (!isPlayingDeckRef.current) return;
+          audioEngine.speak(card.viet, {
+            accent: flashcardAccent,
+            lang: 'vi',
+            rate: speed,
+            key: `fc_seq_viet_${card.id}`,
+            onEnd: () => {
+              if (!isPlayingDeckRef.current) return;
+              const gap = speed < 0.85 ? 1600 : 1300;
+              timerRef.current = setTimeout(() => {
+                if (isPlayingDeckRef.current) {
+                  if (index + 1 < reviewDeck.length) {
+                    playDeckInSequence(index + 1, 'first', currentPlayMode, speed);
+                  } else {
+                    setIsPlayingDeck(false);
+                    isPlayingDeckRef.current = false;
+                  }
+                }
+              }, gap);
+            }
+          });
+        }, 150);
       }
     } else {
       if (part === 'first') {
         setIsFlipped(false);
-        audioEngine.speak(card.viet, {
-          accent: selectedAccent,
-          lang: 'vi',
-          rate: speed,
-          key: `fc_seq_viet_${card.id}`,
-          onEnd: () => {
-            if (!isPlayingDeckRef.current) return;
-            timerRef.current = setTimeout(() => {
-              if (isPlayingDeckRef.current) {
-                setIsFlipped(true);
-                playDeckInSequence(index, 'second', currentPlayMode, speed);
-              }
-            }, 350);
-          }
-        });
+        timerRef.current = setTimeout(() => {
+          if (!isPlayingDeckRef.current) return;
+          audioEngine.speak(card.viet, {
+            accent: flashcardAccent,
+            lang: 'vi',
+            rate: speed,
+            key: `fc_seq_viet_${card.id}`,
+            onEnd: () => {
+              if (!isPlayingDeckRef.current) return;
+              timerRef.current = setTimeout(() => {
+                if (isPlayingDeckRef.current) {
+                  setIsFlipped(true);
+                  playDeckInSequence(index, 'second', currentPlayMode, speed);
+                }
+              }, 350);
+            }
+          });
+        }, 150);
       } else {
         setIsFlipped(true);
-        audioEngine.speak(nativeText, {
-          lang: nativeLang,
-          rate: speed,
-          key: `fc_seq_native_${card.id}`,
-          onEnd: () => {
-            if (!isPlayingDeckRef.current) return;
-            const gap = speed < 0.85 ? 1600 : 1300;
-            timerRef.current = setTimeout(() => {
-              if (isPlayingDeckRef.current) {
-                if (index + 1 < reviewDeck.length) {
-                  setIsFlipped(false);
-                  playDeckInSequence(index + 1, 'first', currentPlayMode, speed);
-                } else {
-                  setIsPlayingDeck(false);
-                  isPlayingDeckRef.current = false;
+        timerRef.current = setTimeout(() => {
+          if (!isPlayingDeckRef.current) return;
+          audioEngine.speak(nativeText, {
+            lang: nativeLang,
+            rate: speed,
+            key: `fc_seq_native_${card.id}`,
+            onEnd: () => {
+              if (!isPlayingDeckRef.current) return;
+              const gap = speed < 0.85 ? 1600 : 1300;
+              timerRef.current = setTimeout(() => {
+                if (isPlayingDeckRef.current) {
+                  if (index + 1 < reviewDeck.length) {
+                    setIsFlipped(false);
+                    playDeckInSequence(index + 1, 'first', currentPlayMode, speed);
+                  } else {
+                    setIsPlayingDeck(false);
+                    isPlayingDeckRef.current = false;
+                  }
                 }
-              }
-            }, gap);
-          }
-        });
+              }, gap);
+            }
+          });
+        }, 150);
       }
     }
   };
 
   const handlePlayDeck = (mode = 'zh-vi') => {
     if (isPlayingDeck) {
-      setIsPlayingDeck(false);
-      isPlayingDeckRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
-      audioEngine.stop();
+      stopDeckPlayback();
       return;
     }
 
     setPlayMode(mode);
     setIsPlayingDeck(true);
     isPlayingDeckRef.current = true;
-    playDeckInSequence(currentIndex, 'first', mode, playbackSpeed);
+    setCurrentRepeatRound(1);
+    playDeckInSequence(currentIndex, mode === 'repeat-3x' ? 'viet' : 'first', mode, playbackSpeed, 1);
   };
 
   // ── Confusables A/B Audio Switcher ──
@@ -533,7 +644,7 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
       setActiveSpeakingWord(wordObj.viet);
 
       audioEngine.speak(wordObj.viet, {
-        accent: selectedAccent,
+        accent: flashcardAccent,
         lang: 'vi',
         rate: 0.82,
         key: `conf_${currentP.id}_${idx}`,
@@ -608,24 +719,16 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
   };
 
   const handleCardClick = () => {
-    if (isPlayingDeck) {
-      setIsPlayingDeck(false);
-      isPlayingDeckRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
-    }
+    stopDeckPlayback();
     const nextFlipped = !isFlipped;
     setIsFlipped(nextFlipped);
     if (!isFlipped && currentCard) {
-      audioEngine.speak(currentCard.viet, { accent: selectedAccent, key: `fc_${currentCard.id}` });
+      audioEngine.speak(currentCard.viet, { accent: flashcardAccent, key: `fc_${currentCard.id}` });
     }
   };
 
   const handleAnswer = (quality) => {
-    if (isPlayingDeck) {
-      setIsPlayingDeck(false);
-      isPlayingDeckRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
-    }
+    stopDeckPlayback();
     setIsFlipped(false);
     if (currentCard) {
       if (updateUserStats && quality > 0) updateUserStats(quality > 0 ? 10 : 2);
@@ -645,12 +748,52 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
     }, 180);
   };
 
+  const handleReplayCurrent = () => {
+    if (activeMasterMode === 'confusables') {
+      handlePlayAbAudio();
+    } else if (currentCard) {
+      audioEngine.speak(currentCard.viet, { accent: flashcardAccent, key: `fc_${currentCard.id}` });
+    }
+  };
+
+  const handleToggleAccent = () => {
+    const next = flashcardAccent === 'north' ? 'south' : 'north';
+    setFlashcardAccent(next);
+    audioEngine.playHaptic('selection');
+    if (currentCard) {
+      audioEngine.speak(currentCard.viet, { accent: next, key: `fc_${currentCard.id}` });
+    }
+  };
+
+  const handleJump = (e) => {
+    e.preventDefault();
+    stopDeckPlayback();
+    const target = parseInt(jumpInput, 10);
+    if (!isNaN(target) && target >= 1 && target <= reviewDeck.length) {
+      setCurrentIndex(target - 1);
+      setIsFlipped(false);
+      setJumpInput('');
+    }
+  };
+
+  const handleStep = (delta) => {
+    stopDeckPlayback();
+    const nextIdx = Math.max(0, Math.min(reviewDeck.length - 1, currentIndex + delta));
+    setCurrentIndex(nextIdx);
+    setIsFlipped(false);
+  };
+
   const handlersRef = useRef({ 
     handleCardClick: null, 
     handleAnswer: null, 
     handlePlayAbAudio: null, 
-    handleConfusableAnswer: null,
+    handleConfusableAnswer: null, 
     handleStepConfusable: null,
+    handleReplayCurrent: null,
+    handleToggleAccent: null,
+    handlePlayDeck: null,
+    handleStep: null,
+    playMode: 'zh-vi',
     activeMasterMode: 'frequency'
   });
 
@@ -661,16 +804,63 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
       handlePlayAbAudio, 
       handleConfusableAnswer, 
       handleStepConfusable,
+      handleReplayCurrent,
+      handleToggleAccent,
+      handlePlayDeck,
+      handleStep,
+      playMode,
       activeMasterMode 
     };
-  }, [handleCardClick, handleAnswer, handlePlayAbAudio, handleConfusableAnswer, handleStepConfusable, activeMasterMode]);
+  }, [handleCardClick, handleAnswer, handlePlayAbAudio, handleConfusableAnswer, handleStepConfusable, handleReplayCurrent, handleToggleAccent, handlePlayDeck, handleStep, playMode, activeMasterMode]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-      const { activeMasterMode, handleCardClick, handleAnswer, handlePlayAbAudio, handleConfusableAnswer, handleStepConfusable } = handlersRef.current;
+      const { 
+        activeMasterMode, 
+        handleCardClick, 
+        handleAnswer, 
+        handlePlayAbAudio, 
+        handleConfusableAnswer, 
+        handleStepConfusable,
+        handleReplayCurrent,
+        handleToggleAccent,
+        handlePlayDeck,
+        handleStep,
+        playMode 
+      } = handlersRef.current;
 
       if (activeMasterMode === 'audioBatches') {
+        return;
+      }
+
+      if (e.code === 'KeyR') {
+        e.preventDefault();
+        handleReplayCurrent();
+        return;
+      }
+
+      if (e.code === 'KeyN') {
+        e.preventDefault();
+        handleToggleAccent();
+        return;
+      }
+
+      if (e.code === 'KeyP') {
+        e.preventDefault();
+        handlePlayDeck(playMode);
+        return;
+      }
+
+      if (e.code === 'BracketLeft') {
+        e.preventDefault();
+        handleStep(-1);
+        return;
+      }
+
+      if (e.code === 'BracketRight') {
+        e.preventDefault();
+        handleStep(1);
         return;
       }
 
@@ -710,23 +900,12 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const handleJump = (e) => {
-    e.preventDefault();
-    const target = parseInt(jumpInput, 10);
-    if (!isNaN(target) && target >= 1 && target <= reviewDeck.length) {
-      setCurrentIndex(target - 1);
-      setIsFlipped(false);
-      setJumpInput('');
-    }
-  };
+  const isCardPlaying = activeKey === `fc_${currentCard?.id}` || 
+                        activeKey === currentCard?.viet || 
+                        activeKey === `fc_seq_viet_${currentCard?.id}` ||
+                        activeKey === `fc_seq_3x_vi_${currentCard?.id}`;
 
-  const handleStep = (delta) => {
-    const nextIdx = Math.max(0, Math.min(reviewDeck.length - 1, currentIndex + delta));
-    setCurrentIndex(nextIdx);
-    setIsFlipped(false);
-  };
-
-  const isCardPlaying = activeKey === `fc_${currentCard?.id}` || activeKey === currentCard?.viet || activeKey === `fc_seq_viet_${currentCard?.id}`;
+  const isSentencePlaying = activeKey === `fc_ex_${currentCard?.id}`;
 
   const tierButtons = [
     { id: 'top1k', labelZh: '🌟 Top 1,000 (A1-A2 基礎)', labelEn: '🌟 Top 1,000 (A1-A2)', color: '#10b981' },
@@ -1312,7 +1491,7 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
           </div>
 
           {/* Continuous Unit Audio Playback Toolbar */}
-          <div style={{ maxWidth: '650px', margin: '0 auto 1rem', display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
+          <div style={{ maxWidth: '750px', margin: '0 auto 1rem', display: 'flex', justifyContent: 'center', gap: '8px', flexWrap: 'wrap', alignItems: 'center' }}>
             {/* Mode 1: Once Chinese, Once Vietnamese (中+越) */}
             <button 
               className={`control-btn play-full-btn ${isPlayingDeck && playMode === 'zh-vi' ? 'playing' : ''}`}
@@ -1397,6 +1576,44 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
               </span>
             </button>
 
+            {/* Mode 4: Golden 3x Repetition (念三次: 越+中 × 3) */}
+            <button 
+              className={`control-btn play-full-btn ${isPlayingDeck && playMode === 'repeat-3x' ? 'playing' : ''}`}
+              onClick={() => handlePlayDeck('repeat-3x')}
+              style={{ 
+                background: isPlayingDeck && playMode === 'repeat-3x' ? 'var(--brand-primary)' : 'linear-gradient(135deg, #10b981 0%, #059669 100%)', 
+                color: '#fff',
+                opacity: isPlayingDeck && playMode !== 'repeat-3x' ? 0.6 : 1,
+                padding: '0.45rem 0.85rem',
+                fontSize: '0.85em',
+                fontWeight: 800,
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem',
+                borderRadius: '6px',
+                border: 'none',
+                cursor: 'pointer',
+                boxShadow: isPlayingDeck && playMode === 'repeat-3x' ? '0 0 10px rgba(225, 29, 72, 0.4)' : 'none'
+              }}
+              title={learningMode === 'zh' ? '黃金記憶法則：每張字卡 (一次越文 + 一次中文) × 3 循環念三次，並自動翻面' : 'Repeat 3x (Viet + Meaning) x 3'}
+            >
+              {isPlayingDeck && playMode === 'repeat-3x' ? <Pause size={14} /> : <Headphones size={14} />}
+              <span>
+                {isPlayingDeck && playMode === 'repeat-3x'
+                  ? (learningMode === 'zh' ? `暫停 (第${currentRepeatRound}/3遍)` : `Pause (${currentRepeatRound}/3)`)
+                  : (learningMode === 'zh' ? <>念三次 (越+中×3)</> : <>3x Loop</>)}
+              </span>
+            </button>
+
+            {/* North vs South Dialect Switcher Pill */}
+            <button
+              className="fc-accent-toggle-btn"
+              onClick={handleToggleAccent}
+              title={learningMode === 'zh' ? '點擊即時切換北部(河內)或南部(西貢)口音 [快捷鍵 N]' : 'Toggle North / South accent [N]'}
+            >
+              <span>{flashcardAccent === 'north' ? '🏛️ 北部 (河內)' : '🌴 南部 (西貢)'}</span>
+            </button>
+
             {/* Speed Toggle Chips */}
             <div className="speed-toggle-group" style={{ display: 'inline-flex', background: 'var(--bg-secondary)', borderRadius: '6px', padding: '2px', border: '1px solid var(--border-color)' }}>
               <button 
@@ -1436,16 +1653,21 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
             </div>
           </div>
 
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontSize: '0.95em', fontWeight: 600, color: 'var(--text-primary)' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '0.8rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer', fontSize: '0.92em', fontWeight: 700, color: 'var(--text-primary)' }}>
               <input 
                 type="checkbox" 
                 checked={audioFirstMode} 
                 onChange={(e) => setAudioFirstMode(e.target.checked)} 
                 style={{ cursor: 'pointer' }}
               />
-              {learningMode === 'zh' ? 'Audio First (聽音盲測)' : 'Audio First Mode'}
+              <span>{learningMode === 'zh' ? 'Audio First (聽音盲測)' : 'Audio First Mode'}</span>
             </label>
+            {audioFirstMode && (
+              <span style={{ fontSize: '0.78rem', color: 'var(--brand-accent)', background: 'rgba(139, 92, 246, 0.1)', padding: '0.15rem 0.55rem', borderRadius: '4px' }}>
+                {learningMode === 'zh' ? '新卡自動發音 · 按空白鍵揭曉' : 'Auto-pronounces · Press Space to reveal'}
+              </span>
+            )}
           </div>
 
           {/* Progress & Quick Step Bar */}
@@ -1545,10 +1767,34 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
                       style={{ color: isCardPlaying ? 'var(--brand-primary)' : 'var(--brand-accent)', cursor: 'pointer' }}
                       onClick={(e) => {
                         e.stopPropagation();
-                        audioEngine.speak(currentCard.viet, { accent: selectedAccent, key: `fc_${currentCard.id}` });
+                        audioEngine.speak(currentCard.viet, { accent: flashcardAccent, key: `fc_${currentCard.id}` });
                       }}
+                      title="點擊朗讀單字"
                     />
+                    {isCardPlaying && (
+                      <span className="fc-soundwave" style={{ color: 'var(--brand-primary)', marginLeft: '2px' }}>
+                        <span></span><span></span><span></span>
+                      </span>
+                    )}
                   </div>
+
+                  {audioFirstMode && !isFlipped && (
+                    <div style={{ marginTop: '0.85rem', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.4rem' }}>
+                      <button
+                        className="fc-replay-audio-btn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleReplayCurrent();
+                        }}
+                      >
+                        <Volume2 size={18} />
+                        <span>{learningMode === 'zh' ? '重播發音 (快捷鍵 R)' : 'Replay Audio (R)'}</span>
+                      </button>
+                      <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                        {learningMode === 'zh' ? '盲聽辨義 · 按 [空白鍵] 翻面確認' : 'Recall first · Press [Space] to reveal'}
+                      </span>
+                    </div>
+                  )}
 
                   {currentCard.hanViet && (
                     <div style={{ fontSize: '1.05em', color: 'var(--brand-gold)', marginTop: '0.75rem', fontWeight: 800 }}>
@@ -1578,18 +1824,27 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
                   </div>
 
                   {currentCard.example && (
-                    <div style={{ fontSize: '0.95em', color: 'var(--text-secondary)', marginBottom: '1rem', maxWidth: '460px', lineHeight: 1.5, background: 'rgba(0,0,0,0.03)', padding: '0.6rem 0.9rem', borderRadius: '8px' }}>
+                    <div 
+                      className={`flashcard-example-box ${isSentencePlaying ? 'fc-sentence-playing' : ''}`}
+                      style={{ fontSize: '0.95em', color: 'var(--text-secondary)', marginBottom: '1rem', maxWidth: '460px', lineHeight: 1.5, background: 'rgba(0,0,0,0.03)', padding: '0.6rem 0.9rem', borderRadius: '8px', transition: 'all 0.2s ease' }}
+                    >
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
                         <strong style={{ color: 'var(--text-primary)' }}>{currentCard.example}</strong>
                         <Volume2 
                           size={18} 
-                          style={{ cursor: 'pointer', color: 'var(--brand-accent)', flexShrink: 0 }}
+                          className={isSentencePlaying ? 'playing-pulse' : ''}
+                          style={{ cursor: 'pointer', color: isSentencePlaying ? 'var(--brand-primary)' : 'var(--brand-accent)', flexShrink: 0 }}
                           onClick={(e) => {
                             e.stopPropagation();
-                            audioEngine.speak(currentCard.example, { accent: selectedAccent, key: `fc_ex_${currentCard.id}` });
+                            audioEngine.speak(currentCard.example, { accent: flashcardAccent, key: `fc_ex_${currentCard.id}` });
                           }}
                           title="朗讀例句"
                         />
+                        {isSentencePlaying && (
+                          <span className="fc-soundwave" style={{ color: 'var(--brand-primary)' }}>
+                            <span></span><span></span><span></span>
+                          </span>
+                        )}
                       </div>
                       {currentCard.exampleZh && learningMode === 'zh' && (
                         <div style={{ color: 'var(--text-muted)', fontSize: '0.88em', marginTop: '0.3rem' }}>
@@ -1603,7 +1858,7 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
                     className={`speaker-btn ${isCardPlaying ? 'playing' : ''}`}
                     onClick={(e) => {
                       e.stopPropagation();
-                      audioEngine.speak(currentCard.viet, { accent: selectedAccent, key: `fc_${currentCard.id}` });
+                      audioEngine.speak(currentCard.viet, { accent: flashcardAccent, key: `fc_${currentCard.id}` });
                     }}
                     title={t('common.listen')}
                   >
@@ -1659,7 +1914,9 @@ export const FlashcardModule = ({ selectedAccent, updateUserStats, setActiveTab 
 
           {/* Keyboard Shortcut Indicator */}
           <div style={{ textAlign: 'center', marginTop: '0.9rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-            ⌨️ {learningMode === 'zh' ? '鍵盤快捷鍵：[空白鍵] 翻轉 · [1 / ←] 重來 · [2] 困難 · [3 / →] 良好 · [4] 容易' : 'Shortcuts: [Space] Flip · [1/←] Again · [2] Hard · [3/→] Good · [4] Easy'}
+            ⌨️ {learningMode === 'zh' 
+              ? '快捷鍵：[空白鍵] 翻轉 · [R] 重播發音 · [N] 切換南北口音 · [P] 連續播放 · [1/←] 重來 · [2] 困難 · [3/→] 良好 · [4] 容易 · [ [ / ] ] 上下張' 
+              : 'Shortcuts: [Space] Flip · [R] Replay · [N] North/South Dialect · [P] Autoplay · [1/←] Again · [2] Hard · [3/→] Good · [4] Easy · [ [ / ] ] Prev/Next'}
           </div>
         </div>
       )}

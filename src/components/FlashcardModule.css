@@ -437,3 +437,100 @@
   color: #991b1b;
   border: 1px solid rgba(239, 68, 68, 0.3);
 }
+
+/* --- Flashcard Audio & Playback Enhancements --- */
+.fc-soundwave {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+.fc-soundwave span {
+  display: inline-block;
+  width: 3px;
+  background: currentColor;
+  border-radius: 2px;
+  animation: fcSoundWaveAnim 0.75s ease-in-out infinite alternate;
+}
+
+.fc-soundwave span:nth-child(1) { height: 6px; animation-delay: 0s; }
+.fc-soundwave span:nth-child(2) { height: 14px; animation-delay: 0.15s; }
+.fc-soundwave span:nth-child(3) { height: 9px; animation-delay: 0.3s; }
+
+@keyframes fcSoundWaveAnim {
+  0% { height: 4px; }
+  100% { height: 16px; }
+}
+
+.playing-pulse {
+  animation: fcIconPulse 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes fcIconPulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(225, 29, 72, 0)); }
+  100% { transform: scale(1.22); filter: drop-shadow(0 0 8px rgba(225, 29, 72, 0.6)); }
+}
+
+.fc-accent-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fc-accent-toggle-btn:hover {
+  background: var(--bg-secondary);
+  border-color: var(--brand-accent);
+}
+
+.fc-replay-audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-full, 9999px);
+  border: 1.5px solid var(--brand-primary);
+  background: rgba(225, 29, 72, 0.08);
+  color: var(--brand-primary);
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 1rem;
+}
+
+.fc-replay-audio-btn:hover {
+  background: var(--brand-primary);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25);
+}
+
+.fc-sentence-playing {
+  background: rgba(225, 29, 72, 0.08) !important;
+  border: 1px solid rgba(225, 29, 72, 0.3) !important;
+  box-shadow: 0 0 12px rgba(225, 29, 72, 0.15) !important;
+}
+
+.fc-repeat-round-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full, 9999px);
+  background: #10b981;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}

@@ -192,10 +192,24 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
     audioEngine.playHaptic('tap');
   };
 
-  // Speak single word individually
+  // Speak single word individually (auto-pauses background audio to prevent conflict)
   const speakSingleWord = (vietText, e) => {
     if (e) e.stopPropagation();
+    if (audioRef.current && !audioRef.current.paused) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
     audioEngine.speak(vietText, { accent: selectedAccent, key: `batch_word_${vietText}` });
+  };
+
+  // Speak example sentence individually
+  const speakExampleSentence = (exampleText, e) => {
+    if (e) e.stopPropagation();
+    if (audioRef.current && !audioRef.current.paused) {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+    audioEngine.speak(exampleText, { accent: selectedAccent, key: `batch_ex_${exampleText}` });
   };
 
   // Format time mm:ss
@@ -616,7 +630,17 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
 
                     {word.example && (
                       <div className="vba-wc-example-box">
-                        <div className="vba-wc-ex-vi">{word.example}</div>
+                        <div className="vba-wc-ex-vi" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.4rem' }}>
+                          <span>{word.example}</span>
+                          <button
+                            className="vba-wc-speak-btn"
+                            style={{ padding: '2px', width: '22px', height: '22px', flexShrink: 0 }}
+                            onClick={(e) => speakExampleSentence(word.example, e)}
+                            title={learningMode === 'zh' ? '聆聽例句發音' : 'Speak Example'}
+                          >
+                            <Volume2 size={13} />
+                          </button>
+                        </div>
                         {word.exampleZh && (
                           <div className="vba-wc-ex-zh">{word.exampleZh}</div>
                         )}
@@ -672,9 +696,19 @@ export const VocabAudioBatchSection = ({ selectedAccent = 'north', onBackToCards
                       </td>
                       <td className="vba-td-example">
                         {word.example ? (
-                          <div>
-                            <div className="vba-ex-vi">{word.example}</div>
-                            {word.exampleZh && <div className="vba-ex-zh">{word.exampleZh}</div>}
+                          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.4rem' }}>
+                            <div>
+                              <div className="vba-ex-vi">{word.example}</div>
+                              {word.exampleZh && <div className="vba-ex-zh">{word.exampleZh}</div>}
+                            </div>
+                            <button
+                              className="vba-wc-speak-btn"
+                              style={{ padding: '2px', width: '22px', height: '22px', flexShrink: 0 }}
+                              onClick={(e) => speakExampleSentence(word.example, e)}
+                              title={learningMode === 'zh' ? '聆聽例句發音' : 'Speak Example'}
+                            >
+                              <Volume2 size={13} />
+                            </button>
                           </div>
                         ) : '-'}
                       </td>
