@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   LifeBuoy, Volume2, Search, Sparkles, Filter, ChevronRight, ShieldAlert,
-  Utensils, Car, ShoppingBag, HeartPulse, Hotel, Users, Maximize2, X, PhoneCall, AlertCircle
+  Utensils, Car, ShoppingBag, HeartPulse, Hotel, Users, Maximize2, X, PhoneCall, AlertCircle, Star
 } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { bookmarkService } from '../services/bookmarkService';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './EmergencyKitModule.css';
 
@@ -367,6 +368,11 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
   const [selectedCat, setSelectedCat] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [fullscreenCard, setFullscreenCard] = useState(null);
+  const [, setBmTick] = useState(0);
+
+  useEffect(() => {
+    return bookmarkService.subscribe(() => setBmTick(t => t + 1));
+  }, []);
 
   const filteredCards = EMERGENCY_CARDS.filter(card => {
     const matchesCat = selectedCat === 'all' || card.category === selectedCat;
@@ -541,6 +547,25 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
                         <Volume2 size={14} />
                       </button>
                       <button
+                        className="speaker-btn mini-btn"
+                        onClick={() => {
+                          audioEngine.playHaptic('tap');
+                          bookmarkService.toggle({
+                            id: `emg_symp_${symp.viet}`,
+                            viet: symp.viet,
+                            zh: symp.zh,
+                            en: symp.en,
+                            category: '生活急救 · 就醫症狀',
+                            module: 'emergency',
+                            tag: '醫療急救'
+                          });
+                        }}
+                        title={bookmarkService.isBookmarked(symp.viet) ? '取消收藏' : '加入個人生詞本'}
+                        style={{ color: bookmarkService.isBookmarked(symp.viet) ? '#eab308' : 'var(--text-muted)' }}
+                      >
+                        <Star size={13} fill={bookmarkService.isBookmarked(symp.viet) ? '#eab308' : 'none'} />
+                      </button>
+                      <button
                         className="secondary-action"
                         onClick={() => setFullscreenCard(symp)}
                         title="放大螢幕出示給藥師看"
@@ -664,14 +689,38 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
                 </button>
               </div>
 
-              <button
-                className="secondary-action"
-                onClick={() => setFullscreenCard(card)}
-                title="放大螢幕出示給當地人看"
-                style={{ padding: '0.45rem 0.65rem', color: 'var(--text-secondary)' }}
-              >
-                <Maximize2 size={16} />
-              </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                <button
+                  className="secondary-action"
+                  onClick={() => {
+                    audioEngine.playHaptic('tap');
+                    bookmarkService.toggle({
+                      id: `emg_card_${card.viet}`,
+                      viet: card.viet,
+                      zh: card.zh,
+                      en: card.en,
+                      category: `生活急救 · ${card.category}`,
+                      module: 'emergency',
+                      tag: '生存急救字卡'
+                    });
+                  }}
+                  title={bookmarkService.isBookmarked(card.viet) ? '取消收藏' : '加入個人生詞本'}
+                  style={{
+                    padding: '0.45rem 0.65rem',
+                    color: bookmarkService.isBookmarked(card.viet) ? '#eab308' : 'var(--text-secondary)'
+                  }}
+                >
+                  <Star size={16} fill={bookmarkService.isBookmarked(card.viet) ? '#eab308' : 'none'} />
+                </button>
+                <button
+                  className="secondary-action"
+                  onClick={() => setFullscreenCard(card)}
+                  title="放大螢幕出示給當地人看"
+                  style={{ padding: '0.45rem 0.65rem', color: 'var(--text-secondary)' }}
+                >
+                  <Maximize2 size={16} />
+                </button>
+              </div>
             </div>
           </div>
         ))}

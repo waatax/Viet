@@ -7,6 +7,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 import { audioEngine } from '../services/audioEngine';
+import { bookmarkService } from '../services/bookmarkService';
 import { NAV_GROUPS } from '../config/navigation';
 
 const FONT_SIZES = ['small', 'normal', 'large', 'xlarge', 'xxlarge'];
@@ -33,10 +34,26 @@ export const Navbar = ({
   onOpenAchievements,
   onOpenDailyQuests,
   onOpenChapterFinder,
-  onOpenAudioDiagnostic
+  onOpenAudioDiagnostic,
+  onOpenBookmarks
 }) => {
   const { learningMode, toggleLearningMode, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [bookmarkCount, setBookmarkCount] = useState(() => bookmarkService.getCount());
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+
+  useEffect(() => {
+    const unsubBm = bookmarkService.subscribe(items => {
+      setBookmarkCount(items.length);
+    });
+    const unsubAudio = audioEngine.subscribe(state => {
+      setIsAudioPlaying(state.isPlaying);
+    });
+    return () => {
+      unsubBm();
+      unsubAudio();
+    };
+  }, []);
 
   const stepFontSize = (delta) => {
     audioEngine.playHaptic('selection');
@@ -133,6 +150,19 @@ export const Navbar = ({
               title="成就進度"
             >
               <Trophy size={14} /> {userStats.xp}
+            </button>
+
+            <button
+              className="mobile-bookmark-btn"
+              onClick={() => {
+                audioEngine.playHaptic('tap');
+                if (onOpenBookmarks) onOpenBookmarks();
+              }}
+              title={learningMode === 'zh' ? '個人生詞本' : 'Word Bank'}
+              aria-label="生詞本"
+            >
+              <Star size={16} fill={bookmarkCount > 0 ? '#eab308' : 'none'} color={bookmarkCount > 0 ? '#eab308' : 'currentColor'} />
+              {bookmarkCount > 0 && <span className="mobile-badge-count">{bookmarkCount}</span>}
             </button>
 
             {/* Mobile Direct Font Resizing Stepper */}
@@ -264,6 +294,21 @@ export const Navbar = ({
               >
                 <span className="speed-icon">{speechRate <= 0.85 ? '🐢' : '🐰'}</span>
                 <span className="speed-label">{speechRate <= 0.85 ? '0.75x' : '1.0x'}</span>
+              </button>
+
+              {/* Personal Word Bank & Bookmarks Trigger */}
+              <button
+                className={`control-btn bookmarks-toggle-btn ${bookmarkCount > 0 ? 'has-bookmarks' : ''}`}
+                onClick={() => {
+                  audioEngine.playHaptic('tap');
+                  if (onOpenBookmarks) onOpenBookmarks();
+                }}
+                title={learningMode === 'zh' ? '開啟個人生詞本與收藏庫 (快捷鍵: Ctrl+B)' : 'Open Personal Word Bank (Ctrl+B)'}
+                aria-label="開啟生詞本與收藏庫"
+              >
+                <Star size={14} className={bookmarkCount > 0 ? 'star-active-glow' : ''} fill={bookmarkCount > 0 ? '#eab308' : 'none'} color={bookmarkCount > 0 ? '#eab308' : 'currentColor'} />
+                <span className="bookmarks-pill-label">{learningMode === 'zh' ? '生詞本' : 'Word Bank'}</span>
+                {bookmarkCount > 0 && <span className="bookmarks-header-count">{bookmarkCount}</span>}
               </button>
 
               {/* Audio Diagnostic Studio Trigger Button */}
@@ -525,6 +570,19 @@ export const Navbar = ({
             <Search size={16} />
             <span>{learningMode === 'zh' ? '🔍 開啟全域章節速查盤 (100+ 章節)' : '🔍 Open Chapter Finder (100+ Lessons)'}</span>
             <ChevronRight size={14} />
+          </button>
+
+          {/* Quick Word Bank Trigger inside drawer */}
+          <button
+            className="mobile-drawer-finder-btn"
+            style={{ borderColor: 'rgba(234, 179, 8, 0.4)', background: 'rgba(234, 179, 8, 0.08)' }}
+            onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(false); if (onOpenBookmarks) onOpenBookmarks(); }}
+          >
+            <Star size={16} fill={bookmarkCount > 0 ? '#eab308' : 'none'} color="#eab308" />
+            <span style={{ color: 'var(--brand-gold)' }}>
+              {learningMode === 'zh' ? `⭐ 我的個人生詞本與收藏庫 (${bookmarkCount})` : `⭐ Personal Word Bank (${bookmarkCount})`}
+            </span>
+            <ChevronRight size={14} color="#eab308" />
           </button>
 
           {NAV_GROUPS.map(group => (

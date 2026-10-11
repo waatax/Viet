@@ -3,7 +3,7 @@ import {
   Briefcase, Plane, FileText, Factory, Beer, Zap, Trophy, Volume2,
   CheckCircle2, AlertCircle, ArrowRight, RefreshCw, Flame, Award,
   Building, ShieldCheck, Heart, Sparkles, Copy, Check, Info, Users, Clock,
-  MapPin, MessageCircle, Send, Presentation, QrCode, Tag
+  MapPin, MessageCircle, Send, Presentation, QrCode, Tag, Star
 } from 'lucide-react';
 import {
   businessCategories,
@@ -20,6 +20,7 @@ import {
   businessProficiencyTest
 } from '../data/businessData';
 import { audioEngine } from '../services/audioEngine';
+import { bookmarkService } from '../services/bookmarkService';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
@@ -63,6 +64,36 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
 
   const handleSpeak = (text, key) => {
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
+  };
+
+  // Global Bookmarks State
+  const [bookmarkedMap, setBookmarkedMap] = useState({});
+
+  useEffect(() => {
+    const updateBookmarks = () => {
+      const allBookmarks = bookmarkService.getAll();
+      const map = {};
+      allBookmarks.forEach(b => {
+        map[b.viet] = true;
+      });
+      setBookmarkedMap(map);
+    };
+    updateBookmarks();
+    const unsubscribe = bookmarkService.subscribe(updateBookmarks);
+    return () => unsubscribe();
+  }, []);
+
+  const handleToggleBookmark = (e, { viet, zh, category = 'business', note = '商務出差' }) => {
+    e.stopPropagation();
+    audioEngine.playHaptic('tap');
+    const added = bookmarkService.toggle({
+      viet,
+      chinese: zh,
+      category,
+      source: '商務出差旗艦',
+      note
+    });
+    setBookmarkedMap(prev => ({ ...prev, [viet]: added }));
   };
 
   // ----------------------------------------------------
@@ -530,16 +561,43 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1.05rem' }}>
+                    <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1.05rem', flex: 1 }}>
                       {phrase.viet}
                     </span>
-                    <button
-                      className={`speaker-btn ${activeKey === `expo-${activeExpoStageIdx}-${pIdx}` ? 'playing' : ''}`}
-                      onClick={() => handleSpeak(phrase.viet, `expo-${activeExpoStageIdx}-${pIdx}`)}
-                      aria-label="播放發音"
-                    >
-                      <Volume2 size={16} />
-                    </button>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                      <button
+                        onClick={(e) => handleToggleBookmark(e, {
+                          viet: phrase.viet,
+                          zh: (learningMode === 'zh' ? phrase.zh : phrase.en) || phrase.hintZh,
+                          category: 'business',
+                          note: `商展拓銷：${tradeShowGuide.stages[activeExpoStageIdx].stageNameZh}`
+                        })}
+                        title={bookmarkedMap[phrase.viet] ? '從生詞本移除' : '收藏此商務商展短句'}
+                        style={{
+                          width: '32px',
+                          height: '32px',
+                          borderRadius: 'var(--radius-full)',
+                          border: bookmarkedMap[phrase.viet] ? '1px solid var(--brand-gold)' : '1px solid var(--border-color)',
+                          background: bookmarkedMap[phrase.viet] ? 'rgba(234, 179, 8, 0.2)' : 'var(--bg-main)',
+                          color: bookmarkedMap[phrase.viet] ? 'var(--brand-gold)' : 'var(--text-muted)',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease'
+                        }}
+                        aria-label="收藏商務金句"
+                      >
+                        <Star size={15} fill={bookmarkedMap[phrase.viet] ? 'currentColor' : 'none'} />
+                      </button>
+                      <button
+                        className={`speaker-btn ${activeKey === `expo-${activeExpoStageIdx}-${pIdx}` ? 'playing' : ''}`}
+                        onClick={() => handleSpeak(phrase.viet, `expo-${activeExpoStageIdx}-${pIdx}`)}
+                        aria-label="播放發音"
+                      >
+                        <Volume2 size={16} />
+                      </button>
+                    </div>
                   </div>
                   <span style={{ fontSize: '0.9rem', color: 'var(--brand-primary)', fontWeight: 700 }}>
                     {learningMode === 'zh' ? phrase.zh : phrase.en}
@@ -619,18 +677,45 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                   <strong style={{ fontSize: '0.9rem', color: 'var(--text-primary)' }}>🗣️ 必備口語金句：</strong>
                   {city.mustKnowPhrases.map((phrase, idx) => (
                     <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-input)', padding: '0.5rem 0.75rem', borderRadius: 'var(--radius-xs)' }}>
-                      <div>
+                      <div style={{ flex: 1, marginRight: '0.5rem' }}>
                         <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-primary)' }}>{phrase.viet}</div>
                         <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{phrase.zh}</div>
                       </div>
-                      <button
-                        className={`speaker-btn ${activeKey === `city-${city.id}-${idx}` ? 'playing' : ''}`}
-                        onClick={() => handleSpeak(phrase.viet, `city-${city.id}-${idx}`)}
-                        aria-label="播放金句發音"
-                        title="朗讀金句"
-                      >
-                        <Volume2 size={15} />
-                      </button>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                        <button
+                          onClick={(e) => handleToggleBookmark(e, {
+                            viet: phrase.viet,
+                            zh: phrase.zh,
+                            category: 'business',
+                            note: `${city.cityNameZh}商務金句`
+                          })}
+                          title={bookmarkedMap[phrase.viet] ? '從生詞本移除' : '收藏此城市商務金句'}
+                          style={{
+                            width: '28px',
+                            height: '28px',
+                            borderRadius: 'var(--radius-full)',
+                            border: bookmarkedMap[phrase.viet] ? '1px solid var(--brand-gold)' : '1px solid var(--border-color)',
+                            background: bookmarkedMap[phrase.viet] ? 'rgba(234, 179, 8, 0.2)' : 'var(--bg-main)',
+                            color: bookmarkedMap[phrase.viet] ? 'var(--brand-gold)' : 'var(--text-muted)',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            cursor: 'pointer',
+                            transition: 'all 0.15s ease'
+                          }}
+                          aria-label="收藏金句"
+                        >
+                          <Star size={14} fill={bookmarkedMap[phrase.viet] ? 'currentColor' : 'none'} />
+                        </button>
+                        <button
+                          className={`speaker-btn ${activeKey === `city-${city.id}-${idx}` ? 'playing' : ''}`}
+                          onClick={() => handleSpeak(phrase.viet, `city-${city.id}-${idx}`)}
+                          aria-label="播放金句發音"
+                          title="朗讀金句"
+                        >
+                          <Volume2 size={15} />
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -666,7 +751,32 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                   <h4 style={{ margin: 0, fontSize: '1.1rem', fontWeight: 900, color: '#0068ff' }}>
                     {learningMode === 'zh' ? tpl.titleZh : tpl.titleEn}
                   </h4>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                    <button
+                      onClick={(e) => handleToggleBookmark(e, {
+                        viet: tpl.viet,
+                        zh: tpl.zh,
+                        category: 'business',
+                        note: `Zalo商務話術：${tpl.titleZh}`
+                      })}
+                      title={bookmarkedMap[tpl.viet] ? '從生詞本移除' : '收藏此 Zalo 開發範本至生詞本'}
+                      style={{
+                        width: '30px',
+                        height: '30px',
+                        borderRadius: 'var(--radius-full)',
+                        border: bookmarkedMap[tpl.viet] ? '1px solid var(--brand-gold)' : '1px solid var(--border-color)',
+                        background: bookmarkedMap[tpl.viet] ? 'rgba(234, 179, 8, 0.2)' : 'var(--bg-main)',
+                        color: bookmarkedMap[tpl.viet] ? 'var(--brand-gold)' : 'var(--text-muted)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                        transition: 'all 0.15s ease'
+                      }}
+                      aria-label="收藏Zalo範本"
+                    >
+                      <Star size={15} fill={bookmarkedMap[tpl.viet] ? 'currentColor' : 'none'} />
+                    </button>
                     <button
                       className={`speaker-btn mini-btn ${activeKey === `zalo-tpl-${idx}` ? 'playing' : ''}`}
                       onClick={() => handleSpeak(tpl.viet, `zalo-tpl-${idx}`)}

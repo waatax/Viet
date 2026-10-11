@@ -9,6 +9,7 @@ import { SITUATIONAL_TOPICS } from '../data/situationalTopicsData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
+import { bookmarkService } from '../services/bookmarkService';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './TopicMasteryModule.css';
 
@@ -223,6 +224,11 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
   // Quiz state
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [quizSubmitted, setQuizSubmitted] = useState(false);
+
+  const [, setBmTick] = useState(0);
+  useEffect(() => {
+    return bookmarkService.subscribe(() => setBmTick(t => t + 1));
+  }, []);
 
   // Subscribe to AudioEngine state
   useEffect(() => {
@@ -659,13 +665,38 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
                         <span>{getCategoryIcon(item.category)}</span>
                         <span>{item.category}</span>
                       </span>
-                      <button
-                        className={`audio-icon-btn ${isPlaying ? 'playing' : ''}`}
-                        onClick={() => handleSpeak(item.viet, key)}
-                        title={learningMode === 'zh' ? '聆聽道地發音' : 'Listen pronunciation'}
-                      >
-                        <Volume2 size={18} />
-                      </button>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                        <button
+                          className={`audio-icon-btn ${isPlaying ? 'playing' : ''}`}
+                          onClick={() => handleSpeak(item.viet, key)}
+                          title={learningMode === 'zh' ? '聆聽道地發音' : 'Listen pronunciation'}
+                        >
+                          <Volume2 size={18} />
+                        </button>
+                        <button
+                          className="audio-icon-btn"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            audioEngine.playHaptic('tap');
+                            bookmarkService.toggle({
+                              id: `topic_${activeTopicId}_${item.viet}`,
+                              viet: item.viet,
+                              zh: item.zh,
+                              en: item.en,
+                              category: item.category || '情境專題',
+                              module: 'topics',
+                              tag: '實戰金句',
+                              hanViet: item.hanViet || ''
+                            });
+                          }}
+                          title={bookmarkService.isBookmarked(item.viet) ? '取消收藏' : '加入個人生詞本'}
+                          style={{
+                            color: bookmarkService.isBookmarked(item.viet) ? '#eab308' : 'var(--text-muted)'
+                          }}
+                        >
+                          <Star size={16} fill={bookmarkService.isBookmarked(item.viet) ? '#eab308' : 'none'} />
+                        </button>
+                      </div>
                     </div>
 
                     <div className="survival-viet-text">{item.viet}</div>
@@ -870,12 +901,37 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
                         </div>
                         <div className="chat-viet-text">
                           <span>{line.viet}</span>
-                          <button
-                            className={`audio-icon-btn ${isPlaying ? 'playing' : ''}`}
-                            onClick={() => handleSpeak(line.viet, key)}
-                          >
-                            <Volume2 size={16} />
-                          </button>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                            <button
+                              className={`audio-icon-btn ${isPlaying ? 'playing' : ''}`}
+                              onClick={() => handleSpeak(line.viet, key)}
+                              title={learningMode === 'zh' ? '播放單句朗讀' : 'Play line'}
+                            >
+                              <Volume2 size={16} />
+                            </button>
+                            <button
+                              className="audio-icon-btn"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                audioEngine.playHaptic('tap');
+                                bookmarkService.toggle({
+                                  id: `topic_line_${line.viet}`,
+                                  viet: line.viet,
+                                  zh: line.zh,
+                                  en: line.en,
+                                  category: currentTopic.titleZh || '情境對話',
+                                  module: 'topics',
+                                  tag: '情境對話金句'
+                                });
+                              }}
+                              title={bookmarkService.isBookmarked(line.viet) ? '取消收藏' : '加入個人生詞本'}
+                              style={{
+                                color: bookmarkService.isBookmarked(line.viet) ? '#eab308' : 'var(--text-muted)'
+                              }}
+                            >
+                              <Star size={15} fill={bookmarkService.isBookmarked(line.viet) ? '#eab308' : 'none'} />
+                            </button>
+                          </div>
                         </div>
                         <div className="chat-meaning-text">
                           {learningMode === 'zh' ? line.zh : line.en}

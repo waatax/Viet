@@ -3,7 +3,7 @@ import {
   Brain, Volume2, RotateCw, CheckCircle2, XCircle, ArrowRight, RefreshCw, 
   Sparkles, Award, Play, Pause, Search, ChevronLeft, ChevronRight, 
   ChevronsLeft, ChevronsRight, X, Headphones, AlertTriangle, BookOpen, 
-  Music, Type, AudioLines, Zap, Check, HelpCircle, Layers3, Lightbulb
+  Music, Type, AudioLines, Zap, Check, HelpCircle, Layers3, Lightbulb, Star
 } from 'lucide-react';
 import { flashcardsDeck } from '../data/vietnameseData';
 import { SITUATIONAL_TOPICS } from '../data/situationalTopicsData';
@@ -12,6 +12,7 @@ import { CONFUSABLE_PAIRS, CONFUSABLE_CATEGORIES, CONFUSABLE_STATS } from '../da
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
+import { bookmarkService } from '../services/bookmarkService';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import { VocabAudioBatchSection } from './VocabAudioBatchSection';
 import './FlashcardModule.css';
@@ -211,11 +212,32 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
     return FREQUENCY_VOCABULARY.filter(w => w.tier === selectedTier);
   }, [selectedTier]);
 
+  const [bookmarksList, setBookmarksList] = useState(() => bookmarkService.getAll());
+  useEffect(() => {
+    return bookmarkService.subscribe(setBookmarksList);
+  }, []);
+
+  const handleToggleCardBookmark = (card) => {
+    if (!card) return;
+    audioEngine.playHaptic('tap');
+    bookmarkService.toggle({
+      id: `fc_${card.id || card.viet}`,
+      viet: card.viet,
+      zh: card.zh || '',
+      en: card.en || '',
+      category: card.category || '萬詞核心',
+      module: 'flashcards',
+      tag: '分級單字',
+      hanViet: card.hanViet || ''
+    });
+  };
+
   // Compute available categories & POS in current tier
   const availableCategories = useMemo(() => {
     if (selectedTier === 'curated') {
-      return [
-        { id: 'all', labelZh: `全部 (${curatedDeck.length})`, labelEn: `All (${curatedDeck.length})` },
+      const list = [
+        { id: 'all', labelZh: '全部情境', labelEn: 'All Topics' },
+        { id: '問候與禮貌', labelZh: '👋 問候與禮貌', labelEn: '👋 Greetings' },
         { id: '購物殺價', labelZh: '🛍️ 購物殺價', labelEn: '🛍️ Shopping' },
         { id: '餐飲美食', labelZh: '🍜 餐飲美食', labelEn: '🍜 Food' },
         { id: '商務職場', labelZh: '💼 商務職場', labelEn: '💼 Business' },
@@ -223,6 +245,15 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
         { id: '社交日常', labelZh: '💬 社交日常', labelEn: '💬 Social' },
         { id: '漢越核心', labelZh: '📖 漢越核心', labelEn: '📖 Han-Viet' }
       ];
+      const bookmarkedCount = tierDeck.filter(w => bookmarkService.isBookmarked(w.viet)).length;
+      if (bookmarkedCount > 0) {
+        list.splice(1, 0, {
+          id: 'bookmarked',
+          labelZh: `⭐ 我的收藏 (${bookmarkedCount})`,
+          labelEn: `⭐ Starred (${bookmarkedCount})`
+        });
+      }
+      return list;
     }
     const catMap = new Map();
     tierDeck.forEach(w => {
@@ -231,11 +262,19 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
       }
     });
     const list = [{ id: 'all', labelZh: `全部 (${tierDeck.length})`, labelEn: `All (${tierDeck.length})` }];
+    const bookmarkedCount = tierDeck.filter(w => bookmarkService.isBookmarked(w.viet)).length;
+    if (bookmarkedCount > 0) {
+      list.push({
+        id: 'bookmarked',
+        labelZh: `⭐ 我的收藏 (${bookmarkedCount})`,
+        labelEn: `⭐ Starred (${bookmarkedCount})`
+      });
+    }
     catMap.forEach((cnt, cat) => {
       list.push({ id: cat, labelZh: `${cat} (${cnt})`, labelEn: `${cat} (${cnt})` });
     });
     return list;
-  }, [selectedTier, tierDeck]);
+  }, [selectedTier, tierDeck, bookmarksList]);
 
   const availablePos = useMemo(() => {
     if (selectedTier === 'curated') return [];
@@ -255,7 +294,9 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
   // Filter deck based on query, category, POS
   const filteredDeck = useMemo(() => {
     let result = tierDeck;
-    if (selectedCategory !== 'all') {
+    if (selectedCategory === 'bookmarked') {
+      result = result.filter(w => bookmarkService.isBookmarked(w.viet));
+    } else if (selectedCategory !== 'all') {
       result = result.filter(w => w.category === selectedCategory);
     }
     if (selectedPos !== 'all') {
@@ -271,7 +312,7 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
       );
     }
     return result;
-  }, [tierDeck, selectedCategory, selectedPos, searchQuery]);
+  }, [tierDeck, selectedCategory, selectedPos, searchQuery, bookmarksList]);
 
   // SRS Filter & Counts
   const { reviewDeck, srsCounts } = useMemo(() => {
@@ -1750,6 +1791,30 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
                     <span className="tone-symbol" style={{ background: 'var(--bg-accent)', color: 'var(--brand-gold)' }}>
                       {currentCard.category || '生活日常'}
                     </span>
+                    <button
+                      className="fc-card-star-btn"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleToggleCardBookmark(currentCard);
+                      }}
+                      title={bookmarkService.isBookmarked(currentCard.viet) ? '取消收藏' : '加入個人生詞本'}
+                      style={{
+                        background: bookmarkService.isBookmarked(currentCard.viet) ? 'rgba(234, 179, 8, 0.18)' : 'var(--bg-card)',
+                        border: '1px solid ' + (bookmarkService.isBookmarked(currentCard.viet) ? 'var(--brand-gold)' : 'var(--border-color)'),
+                        color: bookmarkService.isBookmarked(currentCard.viet) ? 'var(--brand-gold)' : 'var(--text-muted)',
+                        borderRadius: 'var(--radius-full)',
+                        padding: '0.2rem 0.65rem',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.35rem',
+                        fontSize: '0.78rem',
+                        fontWeight: 800
+                      }}
+                    >
+                      <Star size={13} fill={bookmarkService.isBookmarked(currentCard.viet) ? '#eab308' : 'none'} color="#eab308" />
+                      <span>{bookmarkService.isBookmarked(currentCard.viet) ? (learningMode === 'zh' ? '已收藏' : 'Starred') : (learningMode === 'zh' ? '收藏' : 'Star')}</span>
+                    </button>
                   </div>
 
                   <div style={{ fontSize: '2.6em', fontWeight: 900, color: 'var(--brand-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', lineHeight: 1.2 }}>

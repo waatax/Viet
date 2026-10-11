@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Volume2, Play, Pause, FastForward, Eye, EyeOff, Sparkles, MessageCircle, MapPin, Layers, CheckCircle } from 'lucide-react';
+import { Volume2, Play, Pause, FastForward, Eye, EyeOff, Sparkles, MessageCircle, MapPin, Layers, CheckCircle, Star, Copy, Check } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { bookmarkService } from '../services/bookmarkService';
 
 const TypewriterText = ({ text, isActive, speed = 30 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -111,6 +112,33 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
   const isPlayingFullRef = useRef(false);
   const currentIdxRef = useRef(0);
   const timerRef = useRef(null);
+
+  const [copiedLineIdx, setCopiedLineIdx] = useState(null);
+  const [, setBmTick] = useState(0);
+
+  useEffect(() => {
+    return bookmarkService.subscribe(() => setBmTick(t => t + 1));
+  }, []);
+
+  const handleCopyLine = (vietText, translation, idx) => {
+    navigator.clipboard?.writeText(`${vietText}\n${translation || ''}`);
+    audioEngine.playHaptic('tap');
+    setCopiedLineIdx(idx);
+    setTimeout(() => setCopiedLineIdx(null), 1800);
+  };
+
+  const handleToggleBookmark = (line, vietText) => {
+    audioEngine.playHaptic('tap');
+    bookmarkService.toggle({
+      id: `scn_line_${vietText}`,
+      viet: vietText,
+      zh: line.zh || '',
+      en: line.en || '',
+      category: scenario.titleZh || '情境對話',
+      module: 'conversation',
+      tag: '情境金句'
+    });
+  };
 
   // Active dialogue section object
   const activeSection = sections.find(s => s.id === activeSectionId) || sections[0];
@@ -453,15 +481,39 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
                   )}
                 </div>
 
-                {/* Single line audio trigger */}
-                <div className="bubble-footer-actions">
+                {/* Single line actions: audio, bookmark, copy */}
+                <div className="bubble-footer-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
                   <button 
                     className={`line-audio-trigger ${isActive ? 'playing' : ''}`}
                     onClick={() => handlePlayLine(vietText, idx, playbackSpeed)}
                     title={learningMode === 'zh' ? '單句朗讀' : 'Play line'}
                   >
-                    <Volume2 size={16} />
+                    <Volume2 size={15} />
                     <span>{playbackSpeed < 0.85 ? (learningMode === 'zh' ? '慢速朗讀' : 'Slow') : (learningMode === 'zh' ? '朗讀' : 'Play')}</span>
+                  </button>
+
+                  <button
+                    className="line-audio-trigger"
+                    style={{
+                      background: bookmarkService.isBookmarked(vietText) ? 'rgba(234, 179, 8, 0.15)' : 'transparent',
+                      borderColor: bookmarkService.isBookmarked(vietText) ? 'var(--brand-gold)' : 'var(--border-color)',
+                      color: bookmarkService.isBookmarked(vietText) ? 'var(--brand-gold)' : 'var(--text-muted)'
+                    }}
+                    onClick={() => handleToggleBookmark(line, vietText)}
+                    title={bookmarkService.isBookmarked(vietText) ? '取消收藏' : '加入生詞本'}
+                  >
+                    <Star size={15} fill={bookmarkService.isBookmarked(vietText) ? '#eab308' : 'none'} color="#eab308" />
+                    <span>{bookmarkService.isBookmarked(vietText) ? (learningMode === 'zh' ? '已收藏' : 'Starred') : (learningMode === 'zh' ? '收藏' : 'Star')}</span>
+                  </button>
+
+                  <button
+                    className="line-audio-trigger"
+                    style={{ background: 'transparent', color: 'var(--text-muted)' }}
+                    onClick={() => handleCopyLine(vietText, learningMode === 'zh' ? line.zh : line.en, idx)}
+                    title={learningMode === 'zh' ? '複製整句' : 'Copy'}
+                  >
+                    {copiedLineIdx === idx ? <Check size={14} color="#10b981" /> : <Copy size={14} />}
+                    <span>{copiedLineIdx === idx ? (learningMode === 'zh' ? '已複製' : 'Copied') : (learningMode === 'zh' ? '複製' : 'Copy')}</span>
                   </button>
                 </div>
               </div>

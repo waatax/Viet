@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Volume2, Sparkles, Bookmark, BookOpen, Play, Pause } from 'lucide-react';
+import { Volume2, Sparkles, Bookmark, BookOpen, Play, Pause, Star } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
+import { bookmarkService } from '../services/bookmarkService';
 
 export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
   const { learningMode } = useLanguage();
@@ -301,13 +302,37 @@ export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
             <div key={idx} className={`vocab-card-item ${isPlaying ? 'playing-card' : ''}`}>
               <div className="vocab-card-top">
                 <div className="vocab-viet">{vietText}</div>
-                <button 
-                  className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`} 
-                  onClick={() => handlePlayVocab(vietText, itemKey)}
-                  title="播放單字發音"
-                >
-                  <Volume2 size={15} />
-                </button>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                  <button 
+                    className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`} 
+                    onClick={() => handlePlayVocab(vietText, itemKey)}
+                    title="播放單字發音"
+                  >
+                    <Volume2 size={15} />
+                  </button>
+                  <button
+                    className="speaker-btn mini-btn"
+                    onClick={() => {
+                      audioEngine.playHaptic('tap');
+                      bookmarkService.toggle({
+                        id: `scn_vocab_${vietText}`,
+                        viet: vietText,
+                        zh: item.zh || '',
+                        en: item.en || '',
+                        category: scenario.titleZh || '情境生詞',
+                        module: 'conversation',
+                        tag: '情境單字',
+                        note: item.note || ''
+                      });
+                    }}
+                    title={bookmarkService.isBookmarked(vietText) ? '取消收藏' : '加入個人生詞本'}
+                    style={{
+                      color: bookmarkService.isBookmarked(vietText) ? '#eab308' : 'var(--text-muted)'
+                    }}
+                  >
+                    <Star size={14} fill={bookmarkService.isBookmarked(vietText) ? '#eab308' : 'none'} />
+                  </button>
+                </div>
               </div>
 
               {phoneticText && (

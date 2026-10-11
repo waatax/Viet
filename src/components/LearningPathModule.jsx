@@ -3,12 +3,15 @@ import {
   Compass, CheckCircle, Circle, Target, BookOpen, ArrowRight, Flag, Sparkles,
   AudioLines, MessagesSquare, ShoppingBag, GraduationCap, Play, Route, Brain, Clock, Layers3,
   Zap, LifeBuoy, ShieldCheck, Award, Briefcase, CheckSquare, Square, ChevronDown, ChevronUp, Flame,
-  Search, Landmark, Layers, ArrowUpRight, Volume2, MapPin, Coffee, Building2
+  Search, Landmark, Layers, ArrowUpRight, Volume2, MapPin, Coffee, Building2,
+  Star, RotateCw, Copy, Check, Bookmark
 } from 'lucide-react';
 import { learningPath, flashcardsDeck } from '../data/vietnameseData';
 import { SYLLABUS_REGISTRY } from '../config/syllabusRegistry';
+import { NAV_GROUPS } from '../config/navigation';
 import { srsEngine } from '../services/srsEngine';
 import { audioEngine } from '../services/audioEngine';
+import { bookmarkService } from '../services/bookmarkService';
 import { useLanguage } from '../context/LanguageContext';
 import './LearningPathModule.css';
 
@@ -205,6 +208,72 @@ export const VIETNAMESE_ETIQUETTE_TIPS = [
     descEn: 'Vietnamese markets strictly use kilograms (1,000g), unlike the traditional Taiwanese jin (600g).',
     color: '#8b5cf6',
     bg: 'rgba(139, 92, 246, 0.12)'
+  }
+];
+
+export const VIETNAMESE_PROVERBS = [
+  {
+    id: 'proverb_iron_needle',
+    vi: 'Có công mài sắt, có ngày nên kim.',
+    zh: '只要功夫深，鐵杵磨成針。比喻只要有毅力與耐心，再艱巨的學習目標終能達成。',
+    en: 'With perseverance, an iron rod can be ground into a needle. Practice makes perfect.',
+    hanViet: 'CÔNG (功) · MÀI · SẮT (鐵) · KIM (針)',
+    culturalContext: '越南家喻戶曉的立志諺語，勉勵人持之以恆。',
+    audioText: 'Có công mài sắt, có ngày nên kim'
+  },
+  {
+    id: 'proverb_learn_eating_speaking',
+    vi: 'Học ăn, học nói, học gói, học mở.',
+    zh: '學吃、學說、學包、學解。指為人處世的禮儀與應對進退，凡事皆須從小處細心學習。',
+    en: 'Learn how to eat, how to speak, how to wrap, and how to unwrap. Master all life courtesies.',
+    hanViet: 'HỌC (學) · ĂN (吃) · NÓI (說)',
+    culturalContext: '長輩教導晚輩舉止得體、謙虛謹慎的至理名言。',
+    audioText: 'Học ăn, học nói, học gói, học mở'
+  },
+  {
+    id: 'proverb_travel_day_learn_basket',
+    vi: 'Đi một ngày đàng, học một sàng khôn.',
+    zh: '行一日路，長一籮智。意即「讀萬卷書不如行萬里路」，走出舒適圈開拓眼界。',
+    en: "Travel a day's journey, gain a basket full of wisdom. Experience broadens the mind.",
+    hanViet: 'KHÔN (坤/智) · ĐÀNG (路)',
+    culturalContext: '鼓勵旅行與實踐，親身體驗異國風土人情獲益良多。',
+    audioText: 'Đi một ngày đàng, học một sàng khôn'
+  },
+  {
+    id: 'proverb_eat_fruit_remember_planter',
+    vi: 'Ăn quả nhớ kẻ trồng cây.',
+    zh: '吃果子拜樹頭（飲水思源）。享受成果時，永遠不忘開拓者與恩人的付出。',
+    en: 'When eating fruit, remember who planted the tree. Gratitude and honoring roots.',
+    hanViet: 'QUẢ (果) · KẺ · TRỒNG · CÂY (樹)',
+    culturalContext: '越南尊師重道與崇敬先祖文化的核心價值觀。',
+    audioText: 'Ăn quả nhớ kẻ trồng cây'
+  },
+  {
+    id: 'proverb_words_no_money',
+    vi: 'Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau.',
+    zh: '話語無須金錢買，擇善而言悅人心。良言一句三冬暖，注重談吐修養與同理心。',
+    en: 'Words cost no money to buy; choose your words carefully to please one another.',
+    hanViet: 'LỜI (言) · TIỀN (錢) · MUA (買)',
+    culturalContext: '強調口語溝通的柔和藝術，在職場與日常交往特別受用。',
+    audioText: 'Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau'
+  },
+  {
+    id: 'proverb_one_tree_not_mountain',
+    vi: 'Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.',
+    zh: '獨木不成林，三木成高山。強調眾志成城、團隊協同合作的力量。',
+    en: 'A single tree makes not a forest; three trees grouped form a high mountain. Unity is strength.',
+    hanViet: 'CÂY (木) · NON (山) · CAO (高)',
+    culturalContext: '象徵越南民族團結克服困難與歷史挑戰的集體精神。',
+    audioText: 'Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao'
+  },
+  {
+    id: 'proverb_ask_to_know',
+    vi: 'Muốn biết phải hỏi, muốn giỏi phải học.',
+    zh: '欲知須發問，欲精須向學。不恥下問、勇於求知是成為專家的唯一捷徑。',
+    en: 'If you want to know, ask; if you want to excel, learn.',
+    hanViet: 'BIẾT (知) · HỎI (問) · GIỎI · HỌC (學)',
+    culturalContext: '鼓勵主動開口發問，是越語學習者的最佳座右銘。',
+    audioText: 'Muốn biết phải hỏi, muốn giỏi phải học'
   }
 ];
 
@@ -540,6 +609,83 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
     { id: 'hanviet', icon: BookOpen, titleZh: '漢越同源字根', titleEn: 'Han-Viet Roots', descZh: '百大字根倍速記詞', descEn: '100 Core cognate roots', tone: 'purple' }
   ];
 
+  // Last visited module state for "Resume Learning"
+  const [lastVisited] = useState(() => {
+    try {
+      const raw = localStorage.getItem('viet_last_visited');
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        if (parsed?.tab && parsed.tab !== 'path') return parsed;
+      }
+    } catch {}
+    return null;
+  });
+
+  const lastVisitedModule = useMemo(() => {
+    if (!lastVisited?.tab || lastVisited.tab === 'path') return null;
+    for (const group of NAV_GROUPS) {
+      const found = group.items.find(i => i.id === lastVisited.tab);
+      if (found) return found;
+    }
+    return null;
+  }, [lastVisited]);
+
+  const LastVisitedIcon = lastVisitedModule?.icon || Compass;
+
+  const formatRelativeTime = (timestamp) => {
+    if (!timestamp) return '';
+    const diffSec = Math.floor((Date.now() - timestamp) / 1000);
+    if (diffSec < 60) return learningMode === 'zh' ? '剛剛' : 'just now';
+    if (diffSec < 3600) return `${Math.floor(diffSec / 60)} ${learningMode === 'zh' ? '分鐘前' : 'mins ago'}`;
+    if (diffSec < 86400) return `${Math.floor(diffSec / 3600)} ${learningMode === 'zh' ? '小時前' : 'hrs ago'}`;
+    return `${Math.floor(diffSec / 86400)} ${learningMode === 'zh' ? '天前' : 'days ago'}`;
+  };
+
+  // Daily Proverb State
+  const [quoteIdx, setQuoteIdx] = useState(() => {
+    const now = new Date();
+    const startOfYear = new Date(now.getFullYear(), 0, 0);
+    const diff = now - startOfYear;
+    const oneDay = 1000 * 60 * 60 * 24;
+    const dayOfYear = Math.floor(diff / oneDay);
+    return dayOfYear % VIETNAMESE_PROVERBS.length;
+  });
+
+  const currentProverb = VIETNAMESE_PROVERBS[quoteIdx];
+  const [isProverbBookmarked, setIsProverbBookmarked] = useState(() => {
+    return bookmarkService.isBookmarked(currentProverb.vi);
+  });
+  const [copiedProverb, setCopiedProverb] = useState(false);
+
+  useEffect(() => {
+    setIsProverbBookmarked(bookmarkService.isBookmarked(currentProverb.vi));
+  }, [currentProverb]);
+
+  const handleNextQuote = () => {
+    audioEngine.playHaptic('tap');
+    setQuoteIdx(prev => (prev + 1) % VIETNAMESE_PROVERBS.length);
+  };
+
+  const handleToggleProverbBookmark = () => {
+    audioEngine.playHaptic('tap');
+    const added = bookmarkService.toggle({
+      viet: currentProverb.vi,
+      chinese: currentProverb.zh,
+      english: currentProverb.en,
+      category: 'phrases',
+      source: '每日道地諺語金句',
+      note: currentProverb.hanViet
+    });
+    setIsProverbBookmarked(added);
+  };
+
+  const handleCopyProverb = () => {
+    navigator.clipboard?.writeText(`${currentProverb.vi}\n${currentProverb.zh}`);
+    setCopiedProverb(true);
+    audioEngine.playHaptic('tap');
+    setTimeout(() => setCopiedProverb(false), 2000);
+  };
+
   return (
     <div className="module-container">
       {/* Hero Section with Live Progress Ring */}
@@ -575,6 +721,86 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
           </div>
         </div>
       </section>
+
+      {/* ⚡ 接續上次學習橫幅 (Resume Learning Flow) */}
+      {lastVisitedModule && (
+        <section className="resume-learning-banner" style={{
+          margin: '1.25rem 0',
+          padding: '1.1rem 1.5rem',
+          background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(16, 185, 129, 0.1) 100%)',
+          border: '1.5px solid rgba(59, 130, 246, 0.35)',
+          borderRadius: 'var(--radius-lg)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: '1rem',
+          boxShadow: '0 4px 18px rgba(37, 99, 235, 0.08)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem' }}>
+            <div style={{
+              width: '44px',
+              height: '44px',
+              borderRadius: 'var(--radius-md)',
+              background: 'var(--brand-primary)',
+              color: '#fff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: '0 4px 12px rgba(37, 99, 235, 0.35)'
+            }}>
+              <LastVisitedIcon size={24} />
+            </div>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{
+                  fontSize: '0.72rem',
+                  fontWeight: 800,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em',
+                  background: 'rgba(59, 130, 246, 0.2)',
+                  color: 'var(--brand-primary)',
+                  padding: '0.15rem 0.55rem',
+                  borderRadius: 'var(--radius-full)'
+                }}>
+                  ⚡ {learningMode === 'zh' ? '接續上次進度' : 'Resume Flow'}
+                </span>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                  {formatRelativeTime(lastVisited.time)}
+                </span>
+              </div>
+              <strong style={{ fontSize: '1.1rem', color: 'var(--text-primary)', display: 'block', marginTop: '0.2rem' }}>
+                {t(lastVisitedModule.labelKey) || lastVisited.tab}
+              </strong>
+            </div>
+          </div>
+
+          <button
+            onClick={() => {
+              audioEngine.playHaptic('tap');
+              setActiveTab(lastVisited.tab);
+            }}
+            style={{
+              padding: '0.65rem 1.35rem',
+              borderRadius: 'var(--radius-full)',
+              background: 'var(--brand-primary)',
+              color: '#fff',
+              border: 'none',
+              fontWeight: 800,
+              fontSize: '0.92rem',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.45rem',
+              boxShadow: '0 4px 14px rgba(37, 99, 235, 0.3)',
+              transition: 'all 0.15s ease'
+            }}
+          >
+            <span>{learningMode === 'zh' ? '繼續學習' : 'Resume Learning'}</span>
+            <ArrowRight size={16} />
+          </button>
+        </section>
+      )}
 
       {/* Daily Study Goal Selector Bar */}
       <section style={{
@@ -842,6 +1068,174 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
               <span>{learningMode === 'zh' ? '立即拼句實戰' : 'Start Output'}</span>
               <ArrowRight size={14} />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 🌟 今日道地越語諺語金句 (Daily Vietnamese Wisdom & Quote) */}
+      <section className="daily-wisdom-card" style={{
+        margin: '1.75rem 0',
+        padding: '1.5rem 1.75rem',
+        background: 'linear-gradient(135deg, color-mix(in srgb, var(--bg-card) 94%, #f59e0b 6%) 0%, color-mix(in srgb, var(--bg-card) 96%, #8b5cf6 4%) 100%)',
+        border: '1.5px solid rgba(245, 158, 11, 0.35)',
+        borderRadius: 'var(--radius-xl)',
+        boxShadow: 'var(--card-shadow)',
+        position: 'relative'
+      }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <span style={{ fontSize: '1.4rem' }}>📜</span>
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <strong style={{ fontSize: '1.15rem', color: 'var(--text-primary)' }}>
+                  {learningMode === 'zh' ? '今日道地越語諺語金句 (Tục Ngữ & Ca Dao)' : 'Daily Vietnamese Wisdom & Proverb'}
+                </strong>
+                <span style={{
+                  fontSize: '0.72rem',
+                  fontWeight: 800,
+                  color: 'var(--brand-gold)',
+                  background: 'rgba(234, 179, 8, 0.15)',
+                  padding: '0.15rem 0.55rem',
+                  borderRadius: 'var(--radius-full)'
+                }}>
+                  #{quoteIdx + 1} / {VIETNAMESE_PROVERBS.length}
+                </span>
+              </div>
+              <p style={{ margin: '0.15rem 0 0', fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
+                {learningMode === 'zh' ? '每日一句母語智慧，內化道地越式思維與文化哲理' : 'Absorb daily native wisdom, metaphors, and cultural philosophies'}
+              </p>
+            </div>
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <button
+              onClick={handleNextQuote}
+              title={learningMode === 'zh' ? '換下一句諺語' : 'Next Proverb'}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '0.35rem',
+                padding: '0.45rem 0.85rem',
+                borderRadius: 'var(--radius-full)',
+                border: '1px solid var(--border-color)',
+                background: 'var(--bg-main)',
+                color: 'var(--text-secondary)',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                cursor: 'pointer'
+              }}
+            >
+              <RotateCw size={13} />
+              <span>{learningMode === 'zh' ? '🎲 換一句' : '🎲 Next'}</span>
+            </button>
+          </div>
+        </div>
+
+        <div style={{
+          background: 'var(--bg-main)',
+          border: '1px solid var(--border-color)',
+          borderRadius: 'var(--radius-lg)',
+          padding: '1.25rem 1.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.75rem'
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.75rem' }}>
+            <div style={{ flex: 1, minWidth: '240px' }}>
+              <div style={{
+                fontSize: '1.35rem',
+                fontWeight: 900,
+                color: 'var(--brand-accent)',
+                lineHeight: 1.4,
+                letterSpacing: '0.01em'
+              }}>
+                "{currentProverb.vi}"
+              </div>
+              <div style={{
+                fontSize: '0.98rem',
+                color: 'var(--text-primary)',
+                marginTop: '0.4rem',
+                lineHeight: 1.5,
+                fontWeight: 600
+              }}>
+                {learningMode === 'zh' ? currentProverb.zh : currentProverb.en}
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <button
+                onClick={() => {
+                  audioEngine.playHaptic('tap');
+                  audioEngine.speak(currentProverb.audioText, { accent: 'north' });
+                }}
+                className="speaker-btn"
+                title="河內標準音朗讀"
+                style={{ width: '36px', height: '36px' }}
+              >
+                <Volume2 size={18} />
+              </button>
+              <button
+                onClick={handleToggleProverbBookmark}
+                title={isProverbBookmarked ? '從生詞本移除' : '收藏此金句至全域生詞本'}
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: 'var(--radius-full)',
+                  border: isProverbBookmarked ? '1.5px solid var(--brand-gold)' : '1px solid var(--border-color)',
+                  background: isProverbBookmarked ? 'rgba(234, 179, 8, 0.2)' : 'var(--bg-main)',
+                  color: isProverbBookmarked ? 'var(--brand-gold)' : 'var(--text-muted)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                <Star size={18} fill={isProverbBookmarked ? 'currentColor' : 'none'} />
+              </button>
+              <button
+                onClick={handleCopyProverb}
+                title="複製越文與註解"
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: 'var(--radius-full)',
+                  border: '1px solid var(--border-color)',
+                  background: 'var(--bg-main)',
+                  color: copiedProverb ? '#10b981' : 'var(--text-muted)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease'
+                }}
+              >
+                {copiedProverb ? <Check size={17} /> : <Copy size={17} />}
+              </button>
+            </div>
+          </div>
+
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            gap: '0.6rem',
+            borderTop: '1px dashed var(--border-color)',
+            paddingTop: '0.65rem',
+            fontSize: '0.84rem'
+          }}>
+            <span style={{
+              background: 'rgba(139, 92, 246, 0.12)',
+              color: '#8b5cf6',
+              fontWeight: 800,
+              padding: '0.15rem 0.55rem',
+              borderRadius: 'var(--radius-sm)'
+            }}>
+              📖 漢越字根拆解：{currentProverb.hanViet}
+            </span>
+            <span style={{ color: 'var(--text-secondary)' }}>
+              💡 <strong>文化背景：</strong>{currentProverb.culturalContext}
+            </span>
           </div>
         </div>
       </section>

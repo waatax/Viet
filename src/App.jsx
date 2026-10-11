@@ -32,6 +32,7 @@ const AchievementsModal = lazyNamed(() => import('./components/AchievementsModal
 const DailyQuestModal = lazyNamed(() => import('./components/DailyQuestModal'), 'default');
 const ChapterFinderModal = lazyNamed(() => import('./components/ChapterFinderModal'), 'default');
 const AudioDiagnosticModal = lazyNamed(() => import('./components/AudioDiagnosticModal'), 'default');
+const BookmarksModal = lazyNamed(() => import('./components/BookmarksModal'), 'default');
 
 const getModuleFromHash = () => {
   const moduleId = window.location.hash.replace(/^#\/?/, '');
@@ -75,6 +76,7 @@ export function App() {
   const [isDailyQuestsOpen, setIsDailyQuestsOpen] = useState(false);
   const [isChapterFinderOpen, setIsChapterFinderOpen] = useState(false);
   const [isAudioDiagOpen, setIsAudioDiagOpen] = useState(false);
+  const [isBookmarksOpen, setIsBookmarksOpen] = useState(false);
 
   // User Gamification Stats
   const [userStats, setUserStats] = useState(() => {
@@ -139,12 +141,16 @@ export function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // Global Keyboard Shortcuts: Ctrl+K (Finder), Ctrl+Shift+A (Audio Diagnostics)
+  // Global Keyboard Shortcuts: Ctrl+K (Finder), Ctrl+B (Bookmarks), Ctrl+Shift+A (Audio Diagnostics)
   useEffect(() => {
     const handleKeyDown = (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
         setIsChapterFinderOpen(prev => !prev);
+      }
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b') {
+        e.preventDefault();
+        setIsBookmarksOpen(prev => !prev);
       }
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'a') {
         e.preventDefault();
@@ -171,6 +177,16 @@ export function App() {
     const nextHash = `#/${nextModule}`;
     if (window.location.hash !== nextHash) window.location.hash = nextHash;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Persist last visited module for Resume Learning feature
+    if (nextModule !== 'path') {
+      try {
+        localStorage.setItem('viet_last_visited', JSON.stringify({
+          moduleId: nextModule,
+          timestamp: Date.now()
+        }));
+      } catch (e) {}
+    }
   };
 
   // Effect: Window scroll listener for back-to-top
@@ -256,6 +272,7 @@ export function App() {
         onOpenDailyQuests={() => setIsDailyQuestsOpen(true)}
         onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
         onOpenAudioDiagnostic={() => setIsAudioDiagOpen(true)}
+        onOpenBookmarks={() => setIsBookmarksOpen(true)}
       />
 
       {/* Main Learning Module View */}
@@ -409,6 +426,16 @@ export function App() {
           isOpen={isAudioDiagOpen}
           onClose={() => setIsAudioDiagOpen(false)}
           selectedAccent={selectedAccent}
+        />
+      </Suspense>
+
+      {/* Personal Word Bank & Bookmarks Modal */}
+      <Suspense fallback={null}>
+        <BookmarksModal
+          isOpen={isBookmarksOpen}
+          onClose={() => setIsBookmarksOpen(false)}
+          selectedAccent={selectedAccent}
+          updateUserStats={updateUserStats}
         />
       </Suspense>
 

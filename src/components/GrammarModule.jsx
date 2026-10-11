@@ -428,10 +428,11 @@ import React, { useState, useEffect } from 'react';
 import {
   Layers, Puzzle, CheckCircle, RefreshCw, Volume2, ArrowRight, Sparkles,
   CheckCircle2, XCircle, BookOpen, Award, Check, HelpCircle, Headphones,
-  Clock, HeartHandshake, AlertCircle, ShieldCheck
+  Clock, HeartHandshake, AlertCircle, ShieldCheck, Star
 } from 'lucide-react';
 import { grammarRules, interactivePuzzles } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
+import { bookmarkService } from '../services/bookmarkService';
 import { useLanguage } from '../context/LanguageContext';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './GrammarModule.css';
@@ -578,6 +579,39 @@ export const GrammarModule = ({ selectedAccent, updateUserStats, setActiveTab: s
     });
     return () => unsubscribe();
   }, []);
+
+  // Bookmarked rules tracking
+  const [bookmarkedMap, setBookmarkedMap] = useState(() => {
+    const map = {};
+    EXPANDED_GRAMMAR_RULES.forEach((r) => {
+      map[r.exampleVi] = bookmarkService.isBookmarked(r.exampleVi);
+    });
+    return map;
+  });
+
+  useEffect(() => {
+    const unsubscribe = bookmarkService.subscribe(() => {
+      const map = {};
+      EXPANDED_GRAMMAR_RULES.forEach((r) => {
+        map[r.exampleVi] = bookmarkService.isBookmarked(r.exampleVi);
+      });
+      setBookmarkedMap(map);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const handleToggleRuleBookmark = (e, rule) => {
+    e.stopPropagation();
+    audioEngine.playHaptic('tap');
+    const added = bookmarkService.toggle({
+      viet: rule.exampleVi,
+      chinese: (learningMode === 'zh' ? rule.exampleZh : rule.exampleEn) || rule.titleZh,
+      category: 'grammar',
+      source: '30大核心語法',
+      note: learningMode === 'zh' ? rule.titleZh : rule.titleEn
+    });
+    setBookmarkedMap(prev => ({ ...prev, [rule.exampleVi]: added }));
+  };
 
   const playSnapSound = () => {
     try {
@@ -924,10 +958,30 @@ export const GrammarModule = ({ selectedAccent, updateUserStats, setActiveTab: s
               const isPlaying = activeKey === ruleKey || activeKey === slowKey;
               return (
                 <div key={idx} className={`learning-card ${isPlaying ? 'playing-card' : ''}`}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
-                    <h3 style={{ fontSize: '1.15em', fontWeight: 800, color: 'var(--brand-accent)', margin: 0 }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: '1.15em', fontWeight: 800, color: 'var(--brand-accent)', margin: 0, flex: 1 }}>
                       {learningMode === 'zh' ? rule.titleZh : rule.titleEn}
                     </h3>
+                    <button
+                      onClick={(e) => handleToggleRuleBookmark(e, rule)}
+                      title={bookmarkedMap[rule.exampleVi] ? '從生詞本移除' : '收藏此語法例句至生詞本'}
+                      style={{
+                        background: bookmarkedMap[rule.exampleVi] ? 'rgba(234, 179, 8, 0.2)' : 'transparent',
+                        border: bookmarkedMap[rule.exampleVi] ? '1px solid rgba(234, 179, 8, 0.4)' : '1px solid transparent',
+                        borderRadius: 'var(--radius-full)',
+                        cursor: 'pointer',
+                        padding: '0.25rem 0.45rem',
+                        color: bookmarkedMap[rule.exampleVi] ? 'var(--brand-gold)' : 'var(--text-muted)',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                        transition: 'all 0.15s ease'
+                      }}
+                      aria-label="收藏語法例句"
+                    >
+                      <Star size={16} fill={bookmarkedMap[rule.exampleVi] ? 'currentColor' : 'none'} />
+                    </button>
                   </div>
                   <p style={{ fontSize: '0.92em', color: 'var(--text-secondary)', marginBottom: '0.8rem', lineHeight: 1.55 }}>
                     {learningMode === 'zh' ? rule.descriptionZh : rule.descriptionEn}

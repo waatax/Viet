@@ -747,6 +747,70 @@ button:active:not(:disabled),
   color: var(--text-secondary);
 }
 
+/* Personal Word Bank Header Button */
+.bookmarks-toggle-btn {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  font-weight: 700;
+  transition: all var(--transition-fast);
+}
+
+.bookmarks-toggle-btn.has-bookmarks {
+  border-color: rgba(234, 179, 8, 0.4);
+  background: rgba(234, 179, 8, 0.08);
+}
+
+.bookmarks-toggle-btn:hover {
+  border-color: var(--brand-gold);
+  background: rgba(234, 179, 8, 0.14);
+}
+
+.bookmarks-header-count {
+  background: var(--brand-gold);
+  color: #fff;
+  border-radius: var(--radius-full);
+  padding: 0.05rem 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.mobile-bookmark-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.55rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  min-width: 34px;
+  min-height: 32px;
+}
+
+.mobile-bookmark-btn .mobile-badge-count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: var(--brand-gold);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 900;
+  border-radius: var(--radius-full);
+  padding: 0.05rem 0.35rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.star-active-glow {
+  filter: drop-shadow(0 0 4px rgba(234, 179, 8, 0.5));
+}
+
 /* Audio Lab Button */
 .audio-diag-toggle-btn {
   background: rgba(16, 185, 129, 0.12);
