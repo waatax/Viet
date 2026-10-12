@@ -180,6 +180,30 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, auto
     }
   }, [activeSectionId, scenario.id, autoStart]);
 
+  // Desktop keyboard shortcuts (Space: play/pause, ArrowRight/Left: next/prev line, R: replay line)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const tag = e.target?.tagName?.toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || e.target?.isContentEditable) return;
+
+      if (e.code === 'Space') {
+        e.preventDefault();
+        player.toggleMode(player.mode || 'vi-zh');
+      } else if (e.code === 'ArrowRight') {
+        e.preventDefault();
+        player.next();
+      } else if (e.code === 'ArrowLeft') {
+        e.preventDefault();
+        player.prev();
+      } else if (e.key === 'r' || e.key === 'R') {
+        e.preventDefault();
+        player.replay();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [player]);
+
   const handleCopyLine = (vietText, translation, idx) => {
     navigator.clipboard?.writeText(`${vietText}\n${translation || ''}`);
     audioEngine.playHaptic('tap');
@@ -295,15 +319,35 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, auto
             ? `共 ${dialogues.length} 句 · 點「▶ 從此句」可從任一句開始連播`
             : `${dialogues.length} lines · tap "▶ From here" to start at any line`}
         </span>
-        <button
-          className="control-btn toggle-trans-btn"
-          onClick={() => setShowTranslations(prev => !prev)}
-          title={showTranslations ? '隱藏中文/英文翻譯以考驗聽力' : '顯示翻譯'}
-          aria-pressed={!showTranslations}
-        >
-          {showTranslations ? <EyeOff size={15} /> : <Eye size={15} />}
-          <span>{showTranslations ? (learningMode === 'zh' ? '隱藏翻譯 (聽力模式)' : 'Hide Translation') : (learningMode === 'zh' ? '顯示翻譯' : 'Show Translation')}</span>
-        </button>
+        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem', flexWrap: 'wrap' }}>
+          <span
+            style={{
+              fontSize: '0.74rem',
+              color: 'var(--text-secondary)',
+              background: 'var(--bg-secondary)',
+              padding: '0.2rem 0.55rem',
+              borderRadius: '6px',
+              border: '1px solid var(--border-color)',
+              fontWeight: 600,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem'
+            }}
+            title={learningMode === 'zh' ? '桌面端鍵盤控制：空白鍵 播放/暫停，左右方向鍵 跳句，R鍵 重播' : 'Keyboard shortcuts: Space (play/pause), Left/Right (prev/next), R (replay)'}
+          >
+            <span>⌨️</span>
+            <span>Space / ← / → / R</span>
+          </span>
+          <button
+            className="control-btn toggle-trans-btn"
+            onClick={() => setShowTranslations(prev => !prev)}
+            title={showTranslations ? '隱藏中文/英文翻譯以考驗聽力' : '顯示翻譯'}
+            aria-pressed={!showTranslations}
+          >
+            {showTranslations ? <EyeOff size={15} /> : <Eye size={15} />}
+            <span>{showTranslations ? (learningMode === 'zh' ? '隱藏翻譯 (聽力模式)' : 'Hide Translation') : (learningMode === 'zh' ? '顯示翻譯' : 'Show Translation')}</span>
+          </button>
+        </div>
       </div>
 
       {/* Dialogue Chat Feed */}

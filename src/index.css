@@ -1466,11 +1466,141 @@ button:active:not(:disabled),
   box-shadow: 0 3px 10px rgba(var(--brand-accent-rgb), 0.3);
 }
 
+/* Widescreen Desktop Shell Extension */
+.conversation-module-widescreen {
+  max-width: 98vw !important;
+  width: 100% !important;
+  padding-left: clamp(0.75rem, 1.8vw, 2.25rem) !important;
+  padding-right: clamp(0.75rem, 1.8vw, 2.25rem) !important;
+  transition: max-width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scenario-view-mode-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.widescreen-toggle-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.42rem 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-size: calc(0.85rem * var(--font-scale));
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.widescreen-toggle-chip:hover {
+  background: var(--bg-card-hover);
+  color: var(--text-primary);
+  border-color: var(--brand-accent);
+}
+
+.widescreen-toggle-chip.active {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.2));
+  color: var(--brand-accent);
+  border-color: var(--brand-accent);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+}
+
+.kb-kbd-badge {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  background: var(--bg-surface, rgba(0, 0, 0, 0.06));
+  border: 1px solid var(--border-subtle, rgba(0, 0, 0, 0.12));
+  color: inherit;
+}
+
 .scenario-workspace-grid {
   display: grid;
   grid-template-columns: 340px 1fr;
   gap: 1.75rem;
   min-width: 0;
+}
+
+/* Widescreen 3-Column Immersive Workbench Mode */
+@media (min-width: 1080px) {
+  .scenario-workspace-grid.widescreen-active {
+    grid-template-columns: 290px minmax(460px, 1.25fr) minmax(380px, 460px);
+    gap: 1.5rem;
+    align-items: start;
+    max-width: 100% !important;
+  }
+
+  .scenario-workspace-grid.widescreen-active .scenario-sidebar {
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+  }
+
+  .scenario-workspace-grid.widescreen-active .scenario-detail-panel {
+    min-width: 0;
+  }
+
+  .scenario-workspace-grid.widescreen-active .scenario-exegesis-panel {
+    position: sticky;
+    top: 80px;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-right: 4px;
+    animation: fadeInExegesisPanel 0.25s ease-out;
+  }
+}
+
+@keyframes fadeInExegesisPanel {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.exegesis-panel-dock-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.exegesis-dock-title {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.exegesis-dock-tag {
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.scenario-exegesis-tab-container {
+  margin-top: 1rem;
 }
 
 @media (max-width: 960px) {

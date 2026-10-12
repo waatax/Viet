@@ -19,9 +19,16 @@ import {
   ChevronRight,
   Filter,
   ClipboardList,
-  Map
+  Map,
+  Maximize2,
+  Minimize2,
+  Columns,
+  Monitor,
+  LayoutGrid
 } from 'lucide-react';
 import { situationalScenarios, scenarioCategories } from '../data/situationalScenarios';
+import { getScenarioExegesis } from '../data/scenarioExegesisData';
+import { ScenarioExegesisCard } from './ScenarioExegesisCard';
 import { DialoguePlayer } from './DialoguePlayer';
 import { RolePlayEngine } from './RolePlayEngine';
 import { ScenarioVocabDeck } from './ScenarioVocabDeck';
@@ -49,9 +56,65 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
     } catch {}
     return situationalScenarios[0]?.id || 'cafe';
   });
-  const [activeViewTab, setActiveViewTab] = useState('dialogue'); // 'dialogue' | 'roleplay' | 'vocab' | 'culture'
+  const [activeViewTab, setActiveViewTab] = useState('dialogue'); // 'dialogue' | 'roleplay' | 'vocab' | 'culture' | 'exegesis'
   // Set when "auto-continue" moves to the next scenario so its dialogue starts by itself
   const [dialogueAutoStart, setDialogueAutoStart] = useState(null);
+
+  // Widescreen & Fullscreen layout states
+  const [isWidescreen, setIsWidescreen] = useState(() => {
+    try {
+      const saved = localStorage.getItem('viet_widescreen_mode');
+      if (saved !== null) return saved === 'true';
+      return typeof window !== 'undefined' && window.innerWidth >= 1200;
+    } catch {
+      return false;
+    }
+  });
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const toggleWidescreen = () => {
+    setIsWidescreen(prev => {
+      const next = !prev;
+      try { localStorage.setItem('viet_widescreen_mode', String(next)); } catch {}
+      return next;
+    });
+  };
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(() => {});
+    } else {
+      if (document.exitFullscreen) document.exitFullscreen().catch(() => {});
+    }
+  };
+
+  useEffect(() => {
+    const handleFsChange = () => {
+      setIsFullscreen(Boolean(document.fullscreenElement));
+    };
+    document.addEventListener('fullscreenchange', handleFsChange);
+    return () => document.removeEventListener('fullscreenchange', handleFsChange);
+  }, []);
+
+  // Keyboard shortcut: F for widescreen, Shift+F for fullscreen
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      const tag = e.target?.tagName?.toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || e.target?.isContentEditable) return;
+
+      if (e.key === 'f' || e.key === 'F') {
+        if (e.shiftKey) {
+          e.preventDefault();
+          toggleFullscreen();
+        } else {
+          e.preventDefault();
+          toggleWidescreen();
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   useEffect(() => {
     const handleJump = (e) => {
@@ -65,6 +128,7 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
   }, []);
 
   const currentScenario = situationalScenarios.find(s => s.id === activeScenarioId) || situationalScenarios[0];
+  const currentExegesis = useMemo(() => getScenarioExegesis(currentScenario?.id), [currentScenario?.id]);
 
   const [debouncedSearchQuery, setDebouncedSearchQuery] = useState('');
 
@@ -131,7 +195,7 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
   };
 
   return (
-    <div className="module-container">
+    <div className={`module-container ${isWidescreen ? 'conversation-module-widescreen' : ''}`}>
       {/* Header Banner */}
       <div className="section-header">
         <h2 className="section-title">
@@ -179,7 +243,7 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
         </ul>
       </div>
 
-      {/* Category Filter Pills & Search Bar */}
+      {/* Category Filter Pills & Search Bar with Widescreen Toolbar */}
       <div className="scenario-filter-bar">
         <div className="search-input-wrapper">
           <Search size={17} className="search-icon" />
@@ -203,10 +267,33 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
             </button>
           ))}
         </div>
+
+        <div className="scenario-view-mode-actions">
+          <button
+            className={`widescreen-toggle-chip ${isWidescreen ? 'active' : ''}`}
+            onClick={toggleWidescreen}
+            title={learningMode === 'zh' ? '切換電腦橫式寬螢幕三欄沉浸工作台 (快捷鍵 F)' : 'Toggle Widescreen 3-Column Workbench (Key F)'}
+            aria-pressed={isWidescreen}
+          >
+            <Columns size={15} />
+            <span>{learningMode === 'zh' ? (isWidescreen ? '三欄工作台' : '展開三欄') : (isWidescreen ? '3-Col Mode' : 'Expand 3-Col')}</span>
+            <span className="kb-kbd-badge">F</span>
+          </button>
+
+          <button
+            className={`widescreen-toggle-chip ${isFullscreen ? 'active' : ''}`}
+            onClick={toggleFullscreen}
+            title={learningMode === 'zh' ? '切換瀏覽器橫式全螢幕 (快捷鍵 Shift+F)' : 'Toggle Fullscreen Mode (Key Shift+F)'}
+            aria-pressed={isFullscreen}
+          >
+            {isFullscreen ? <Minimize2 size={15} /> : <Maximize2 size={15} />}
+            <span>{learningMode === 'zh' ? (isFullscreen ? '退出全螢幕' : '全螢幕') : (isFullscreen ? 'Exit Full' : 'Fullscreen')}</span>
+          </button>
+        </div>
       </div>
 
-      {/* Main Grid: Left Scenario List Carousel / Right Detail Workstation */}
-      <div className="scenario-workspace-grid">
+      {/* Main Grid: Left Scenario List / Middle Detail Workstation / Right Exegesis Panel (in widescreen) */}
+      <div className={`scenario-workspace-grid ${isWidescreen ? 'widescreen-active' : ''}`}>
         {/* Scenario List (Left Sidebar / Drawer) */}
         <div className="scenario-sidebar">
           <div className="sidebar-header-badge">
@@ -306,13 +393,33 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
               <span>{learningMode === 'zh' ? '4. 文化秘笈 & 避坑' : '4. Cultural Tips'}</span>
             </button>
 
+            {currentExegesis && (
+              <button 
+                className={`view-tab-btn ${activeViewTab === 'exegesis' ? 'active' : ''} highlight-tab`}
+                onClick={() => {
+                  setActiveViewTab('exegesis');
+                  if (isWidescreen) {
+                    const el = document.getElementById('scenario-exegesis-panel');
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                  }
+                }}
+              >
+                <BookOpen size={16} />
+                <span>
+                  {learningMode === 'zh'
+                    ? (isWidescreen ? '5. 深度研經 (右欄已展開)' : '5. 深度研經剖析')
+                    : (isWidescreen ? '5. Exegesis (Right)' : '5. In-Depth Exegesis')}
+                </span>
+              </button>
+            )}
+
             {currentScenario.realMenu && (
               <button 
                 className={`view-tab-btn ${activeViewTab === 'menu' ? 'active' : ''} highlight-tab`}
                 onClick={() => setActiveViewTab('menu')}
               >
                 <ClipboardList size={16} />
-                <span>{currentScenario.id === 'haircut' ? (learningMode === 'zh' ? '5. 實體價目表解析' : '5. Service Price List') : (learningMode === 'zh' ? '5. 實際菜單解析' : '5. Real Menu Guide')}</span>
+                <span>{currentScenario.id === 'haircut' ? (learningMode === 'zh' ? '6. 實體價目表解析' : '6. Service Price List') : (learningMode === 'zh' ? '6. 實際菜單解析' : '6. Real Menu Guide')}</span>
               </button>
             )}
 
@@ -322,7 +429,7 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
                 onClick={() => setActiveViewTab('cityGuide')}
               >
                 <Map size={16} />
-                <span>{learningMode === 'zh' ? '5. 城市景點指南' : '5. City Guides'}</span>
+                <span>{learningMode === 'zh' ? '7. 城市景點指南' : '7. City Guides'}</span>
               </button>
             )}
           </div>
@@ -359,6 +466,16 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
               <CulturalTipsCard 
                 scenario={currentScenario} 
               />
+            )}
+
+            {activeViewTab === 'exegesis' && (
+              <div className="scenario-exegesis-tab-container">
+                <ScenarioExegesisCard
+                  exegesis={currentExegesis}
+                  scenario={currentScenario}
+                  selectedAccent={selectedAccent}
+                />
+              </div>
             )}
 
             {activeViewTab === 'menu' && (
@@ -516,13 +633,33 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
             </div>
           </div>
         </div>
+
+        {/* Right Third-Column: In-Depth Exegesis Workstation (Widescreen Mode) */}
+        {isWidescreen && (
+          <aside id="scenario-exegesis-panel" className="scenario-exegesis-panel">
+            <div className="exegesis-panel-dock-header">
+              <div className="exegesis-dock-title">
+                <BookOpen size={17} color="var(--brand-primary, #3b82f6)" />
+                <span>{learningMode === 'zh' ? '深度研經即時工作台' : 'In-Depth Exegesis Desk'}</span>
+              </div>
+              <span className="exegesis-dock-tag">
+                {learningMode === 'zh' ? '公式 · 詞源考 · 南北矩陣' : 'Syntax · Cognates · Dialects'}
+              </span>
+            </div>
+            <ScenarioExegesisCard
+              exegesis={currentExegesis}
+              scenario={currentScenario}
+              selectedAccent={selectedAccent}
+            />
+          </aside>
+        )}
       </div>
 
       {/* Chapter Milestone & Recommended Next Steps */}
       <ModuleMilestoneCard
         currentModuleId="conversation"
-        moduleTitleZh="49 大情境日常生活對話與角色扮演"
-        moduleTitleEn="49 Situational Scenarios & Role-Play Engine"
+        moduleTitleZh={`${situationalScenarios.length} 大情境日常生活對話與角色扮演`}
+        moduleTitleEn={`${situationalScenarios.length} Situational Scenarios & Role-Play Engine`}
         nextModuleId="shadowing"
         nextModuleTitleZh="影子跟讀與語音辨識診斷"
         nextModuleTitleEn="Acoustic Shadowing Trainer"

@@ -1,0 +1,458 @@
+/* ScenarioExegesisCard.css - 深度研經資料卡片樣式 */
+
+.scenario-exegesis-root {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--bg-card, rgba(255, 255, 255, 0.85));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px;
+  border: 1px solid var(--border-color, rgba(226, 232, 240, 0.8));
+  padding: 1.25rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+  animation: fadeInExegesis 0.3s ease-out;
+}
+
+@keyframes fadeInExegesis {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Header Banner */
+.exegesis-header {
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-subtle, rgba(226, 232, 240, 0.6));
+}
+
+.exegesis-header-title-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.exegesis-icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  flex-shrink: 0;
+}
+
+.exegesis-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  letter-spacing: -0.02em;
+}
+
+.exegesis-subtitle {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary, #64748b);
+  line-height: 1.4;
+}
+
+/* Grid layout for sections */
+.exegesis-sections-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+/* Section Box Base */
+.exegesis-card-box {
+  background: var(--bg-surface, rgba(248, 250, 252, 0.75));
+  border: 1px solid var(--border-subtle, rgba(226, 232, 240, 0.8));
+  border-radius: 14px;
+  padding: 1rem 1.15rem;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.exegesis-card-box:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.exegesis-box-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.85rem 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary, #1e293b);
+}
+
+.box-title-icon {
+  font-size: 1.1rem;
+}
+
+/* 1. Core Grammar Formulas */
+.formulas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.formula-item {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 11px;
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.formula-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.formula-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.18rem 0.55rem;
+  background: #eff6ff;
+  color: #2563eb;
+  border-radius: 6px;
+  border: 1px solid #bfdbfe;
+}
+
+.formula-syntax-vi {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: #1e40af;
+  background: #f0fdf4;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #bbf7d0;
+}
+
+.formula-syntax-zh {
+  font-size: 0.82rem;
+  color: var(--text-secondary, #64748b);
+  font-weight: 500;
+}
+
+.formula-explain {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--text-primary, #334155);
+  line-height: 1.45;
+}
+
+.formula-example-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+  padding: 0.55rem 0.75rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border-left: 3px solid #3b82f6;
+}
+
+.example-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.example-vi {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.example-zh {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.example-speak-btn {
+  background: #eff6ff;
+  border: none;
+  color: #2563eb;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  flex-shrink: 0;
+}
+
+.example-speak-btn:hover {
+  background: #2563eb;
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+/* 2. Han-Viet Roots */
+.hanviet-roots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.65rem;
+}
+
+.hanviet-root-pill {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.6rem 0.8rem;
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.hanviet-term {
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #854d0e;
+}
+
+.hanviet-origin {
+  font-size: 0.8rem;
+  color: #64748b;
+  line-height: 1.35;
+}
+
+/* 3. North vs South Dialect Matrix */
+.dialect-contrast-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dialect-contrast-feature {
+  font-size: 0.85rem;
+  color: #334155;
+  background: #f1f5f9;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+}
+
+.dialect-contrast-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.dialect-col {
+  padding: 0.75rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.north-col {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.south-col {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.dialect-col-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.north-col .dialect-col-tag {
+  color: #b91c1c;
+}
+
+.south-col .dialect-col-tag {
+  color: #15803d;
+}
+
+.dialect-col-text {
+  font-size: 0.84rem;
+  color: #1e293b;
+  line-height: 1.45;
+  white-space: pre-line;
+}
+
+.dialect-contrast-note {
+  font-size: 0.82rem;
+  color: #475569;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  line-height: 1.4;
+}
+
+/* 4. Cultural Notes */
+.culture-tips-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.culture-tip-item {
+  font-size: 0.85rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+/* 5. Colloquial Slang & Extensions */
+.colloquial-cards-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 0.75rem;
+}
+
+.colloquial-card {
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: 10px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.colloquial-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.colloquial-vi {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.colloquial-audio-btn {
+  background: #f1f5f9;
+  border: none;
+  color: #475569;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.colloquial-audio-btn:hover {
+  background: #3b82f6;
+  color: #ffffff;
+}
+
+.colloquial-zh {
+  font-size: 0.82rem;
+  color: #475569;
+}
+
+.colloquial-note {
+  font-size: 0.76rem;
+  color: #64748b;
+  margin-top: 0.15rem;
+}
+
+/* Dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+  .scenario-exegesis-root {
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(51, 65, 85, 0.8);
+  }
+  .exegesis-title {
+    color: #f1f5f9;
+  }
+  .exegesis-subtitle {
+    color: #94a3b8;
+  }
+  .exegesis-card-box {
+    background: rgba(15, 23, 42, 0.5);
+    border-color: rgba(51, 65, 85, 0.6);
+  }
+  .exegesis-box-title {
+    color: #f8fafc;
+  }
+  .formula-item {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  .formula-badge {
+    background: #1e3a8a;
+    color: #93c5fd;
+    border-color: #1d4ed8;
+  }
+  .formula-syntax-vi {
+    background: #064e3b;
+    color: #6ee7b7;
+    border-color: #047857;
+  }
+  .formula-example-bar {
+    background: #0f172a;
+  }
+  .example-vi {
+    color: #f1f5f9;
+  }
+  .hanviet-root-pill {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  .hanviet-term {
+    color: #fde047;
+  }
+  .dialect-contrast-feature {
+    background: #1e293b;
+    color: #cbd5e1;
+  }
+  .north-col {
+    background: rgba(127, 29, 29, 0.2);
+    border-color: #7f1d1d;
+  }
+  .south-col {
+    background: rgba(20, 83, 45, 0.2);
+    border-color: #14532d;
+  }
+  .dialect-col-text {
+    color: #e2e8f0;
+  }
+  .dialect-contrast-note {
+    background: rgba(120, 53, 15, 0.25);
+    border-color: #78350f;
+    color: #fef08a;
+  }
+  .colloquial-card {
+    background: #1e293b;
+    border-color: #334155;
+  }
+  .colloquial-vi {
+    color: #f1f5f9;
+  }
+}
