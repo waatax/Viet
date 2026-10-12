@@ -1,5 +1,5 @@
 /**
- * Comprehensive Situational Vietnamese Dataset (26大實戰情境全能越語數據庫 - 教科書權威版)
+ * Comprehensive Situational Vietnamese Dataset (64大實戰情境全能越語數據庫 - 完整教學會話旗艦版)
  * Standardized for Taiwan learners (ZH Mode) & Global English track (EN Mode)
  * Includes dialogue scripts, interactive role-play questions, vocabulary deck, and cultural tips.
  */
@@ -7,8 +7,23 @@
 export const scenarioCategories = [
   {
     "id": "all",
-    "labelZh": "全部情境 (49個)",
-    "labelEn": "All Scenarios (43)"
+    "labelZh": "全部情境 (64個)",
+    "labelEn": "All Scenarios (64)"
+  },
+  {
+    "id": "stage",
+    "labelZh": "🎓 階梯進階 (5個)",
+    "labelEn": "🎓 Multi-Stage (5)"
+  },
+  {
+    "id": "fasttrack",
+    "labelZh": "⚡ 7天速成 (7個)",
+    "labelEn": "⚡ Fast Track (7)"
+  },
+  {
+    "id": "banking",
+    "labelZh": "🏛️ 銀行金融 (3個)",
+    "labelEn": "🏛️ Banking (3)"
   },
   {
     "id": "business",
@@ -21,14 +36,14 @@ export const scenarioCategories = [
     "labelEn": "🍜 Food & Dining (6)"
   },
   {
-    "id": "daily",
-    "labelZh": "💇 生活服務 (5個)",
-    "labelEn": "💇 Daily Life & Services (4)"
-  },
-  {
     "id": "travel",
     "labelZh": "✈️ 旅遊出行 (6個)",
     "labelEn": "✈️ Travel & Transport (5)"
+  },
+  {
+    "id": "daily",
+    "labelZh": "💇 生活服務 (5個)",
+    "labelEn": "💇 Daily Life & Services (4)"
   },
   {
     "id": "meeting",
@@ -58,7 +73,7 @@ export const scenarioCategories = [
   {
     "id": "emergency",
     "labelZh": "🚨 緊急求助",
-    "labelEn": "🚨 Emergency & Police"
+    "labelEn": "🚨 Emergency & Safety"
   }
 ];
 
@@ -12937,6 +12952,1490 @@ export const situationalScenarios = [
         "zh": "過敏反應",
         "en": "Allergy",
         "hanViet": "Dị ứng (異應)"
+      }
+    ]
+  },
+  {
+    "id": "stage1_greeting",
+    "category": "stage",
+    "tagZh": "A1 零基礎破冰",
+    "tagEn": "Stage 1 A1",
+    "icon": "🤝",
+    "image": "scenarios/business.jpg",
+    "titleZh": "日常打招呼與自我介紹 (Chào hỏi & Giới thiệu)",
+    "titleEn": "Greetings & Self Introduction",
+    "titleVi": "階段 1：零基礎破冰 (A1 / 越語初發)",
+    "summaryZh": "【階段 1：零基礎破冰 (A1 / 越語初發)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "summaryEn": "Systematic multi-stage dialogue progression for Stage 1: Absolute Beginner (iVPT A1).",
+    "dialogues": [
+      {
+        "speaker": "Nam",
+        "role": "learner",
+        "viet": "Xin chào! Tôi là Nam. Rất vui được gặp bạn.",
+        "zh": "你好！我是 Nam。很高興認識你。",
+        "en": "Hello! I am Nam. Nice to meet you."
+      },
+      {
+        "speaker": "Lan",
+        "role": "npc",
+        "viet": "Chào anh Nam! Em là Lan. Anh là người nước nào?",
+        "zh": "Nam 哥你好！我是 Lan。你是哪國人？",
+        "en": "Hello Nam! I am Lan. Which country are you from?"
+      },
+      {
+        "speaker": "Nam",
+        "role": "learner",
+        "viet": "Tôi là người Đài Loan. Còn em?",
+        "zh": "我是台灣人。那你呢？",
+        "en": "I am Taiwanese. And you?"
+      },
+      {
+        "speaker": "Lan",
+        "role": "npc",
+        "viet": "Em là người Việt Nam. Anh học tiếng Việt lâu chưa?",
+        "zh": "我是越南人。你學越南語很久了嗎？",
+        "en": "I am Vietnamese. Have you been learning Vietnamese for long?"
+      },
+      {
+        "speaker": "Nam",
+        "role": "learner",
+        "viet": "Tôi mới học được hai tháng thôi.",
+        "zh": "我才剛學了兩個月而已。",
+        "en": "I have only learned for two months."
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "s1_d1",
+        "titleZh": "初次見面 (Gặp nhau lần đầu)",
+        "titleVi": "初次見面 (Gặp nhau lần đầu)",
+        "titleEn": "Meeting for the First Time",
+        "summaryZh": "初次見面 (Gặp nhau lần đầu)",
+        "summaryEn": "Meeting for the First Time",
+        "lines": [
+          {
+            "speaker": "Nam",
+            "role": "learner",
+            "viet": "Xin chào! Tôi là Nam. Rất vui được gặp bạn.",
+            "zh": "你好！我是 Nam。很高興認識你。",
+            "en": "Hello! I am Nam. Nice to meet you."
+          },
+          {
+            "speaker": "Lan",
+            "role": "npc",
+            "viet": "Chào anh Nam! Em là Lan. Anh là người nước nào?",
+            "zh": "Nam 哥你好！我是 Lan。你是哪國人？",
+            "en": "Hello Nam! I am Lan. Which country are you from?"
+          },
+          {
+            "speaker": "Nam",
+            "role": "learner",
+            "viet": "Tôi là người Đài Loan. Còn em?",
+            "zh": "我是台灣人。那你呢？",
+            "en": "I am Taiwanese. And you?"
+          },
+          {
+            "speaker": "Lan",
+            "role": "npc",
+            "viet": "Em là người Việt Nam. Anh học tiếng Việt lâu chưa?",
+            "zh": "我是越南人。你學越南語很久了嗎？",
+            "en": "I am Vietnamese. Have you been learning Vietnamese for long?"
+          },
+          {
+            "speaker": "Nam",
+            "role": "learner",
+            "viet": "Tôi mới học được hai tháng thôi.",
+            "zh": "我才剛學了兩個月而已。",
+            "en": "I have only learned for two months."
+          }
+        ]
+      }
+    ],
+    "vocab": []
+  },
+  {
+    "id": "stage2_dining_transport",
+    "category": "stage",
+    "tagZh": "A2 餐飲與搭車",
+    "tagEn": "Stage 2 A2",
+    "icon": "🍜",
+    "image": "viet_coffee_food_illustration.jpg",
+    "titleZh": "餐廳點餐與交通搭車 (Nhà hàng & Giao thông)",
+    "titleEn": "Restaurant Ordering & Transportation",
+    "titleVi": "階段 2：生存餐飲與問路 (A2 / 初級流利)",
+    "summaryZh": "【階段 2：生存餐飲與問路 (A2 / 初級流利)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "summaryEn": "Systematic multi-stage dialogue progression for Stage 2: Survival & Dining (iVPT A2).",
+    "dialogues": [
+      {
+        "speaker": "Khách",
+        "role": "learner",
+        "viet": "Em ơi! Cho anh xem thực đơn.",
+        "zh": "服務員！給我看一下菜單。",
+        "en": "Excuse me! Please show me the menu."
+      },
+      {
+        "speaker": "Nhân viên",
+        "role": "npc",
+        "viet": "Dạ, thực đơn đây ạ. Anh dùng gì?",
+        "zh": "好的，菜單在這裡。哥想點什麼？",
+        "en": "Here is the menu. What would you like to order?"
+      },
+      {
+        "speaker": "Khách",
+        "role": "learner",
+        "viet": "Cho anh một tô phở bò tái và một ly cà phê sữa đá.",
+        "zh": "給我一碗半熟牛肉河粉和一杯冰牛奶咖啡。",
+        "en": "Please give me a bowl of rare beef pho and an iced milk coffee."
+      },
+      {
+        "speaker": "Nhân viên",
+        "role": "npc",
+        "viet": "Anh có ăn hành và rau thơm không ạ?",
+        "zh": "哥要加蔥和香菜嗎？",
+        "en": "Do you eat scallions and herbs?"
+      },
+      {
+        "speaker": "Khách",
+        "role": "learner",
+        "viet": "Có chứ, cho nhiều rau sống nhé! Tính tiền cho anh luôn.",
+        "zh": "要的，多給點生菜喔！順便幫我結帳。",
+        "en": "Yes, lots of fresh herbs please! Also the bill please."
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "s2_d1",
+        "titleZh": "點牛肉河粉與冰奶咖 (Gọi Phở & Cà phê)",
+        "titleVi": "點牛肉河粉與冰奶咖 (Gọi Phở & Cà phê)",
+        "titleEn": "Ordering Pho & Iced Milk Coffee",
+        "summaryZh": "點牛肉河粉與冰奶咖 (Gọi Phở & Cà phê)",
+        "summaryEn": "Ordering Pho & Iced Milk Coffee",
+        "lines": [
+          {
+            "speaker": "Khách",
+            "role": "learner",
+            "viet": "Em ơi! Cho anh xem thực đơn.",
+            "zh": "服務員！給我看一下菜單。",
+            "en": "Excuse me! Please show me the menu."
+          },
+          {
+            "speaker": "Nhân viên",
+            "role": "npc",
+            "viet": "Dạ, thực đơn đây ạ. Anh dùng gì?",
+            "zh": "好的，菜單在這裡。哥想點什麼？",
+            "en": "Here is the menu. What would you like to order?"
+          },
+          {
+            "speaker": "Khách",
+            "role": "learner",
+            "viet": "Cho anh một tô phở bò tái và một ly cà phê sữa đá.",
+            "zh": "給我一碗半熟牛肉河粉和一杯冰牛奶咖啡。",
+            "en": "Please give me a bowl of rare beef pho and an iced milk coffee."
+          },
+          {
+            "speaker": "Nhân viên",
+            "role": "npc",
+            "viet": "Anh có ăn hành và rau thơm không ạ?",
+            "zh": "哥要加蔥和香菜嗎？",
+            "en": "Do you eat scallions and herbs?"
+          },
+          {
+            "speaker": "Khách",
+            "role": "learner",
+            "viet": "Có chứ, cho nhiều rau sống nhé! Tính tiền cho anh luôn.",
+            "zh": "要的，多給點生菜喔！順便幫我結帳。",
+            "en": "Yes, lots of fresh herbs please! Also the bill please."
+          }
+        ]
+      },
+      {
+        "id": "s2_d2",
+        "titleZh": "搭乘計程車與指路 (Đi Taxi & Chỉ đường)",
+        "titleVi": "搭乘計程車與指路 (Đi Taxi & Chỉ đường)",
+        "titleEn": "Taking a Taxi & Giving Directions",
+        "summaryZh": "搭乘計程車與指路 (Đi Taxi & Chỉ đường)",
+        "summaryEn": "Taking a Taxi & Giving Directions",
+        "lines": [
+          {
+            "speaker": "Khách",
+            "role": "learner",
+            "viet": "Bác tài ơi, cho tôi đến chợ Bến Thành.",
+            "zh": "司機大哥，請載我到檳城市場。",
+            "en": "Driver, please take me to Ben Thanh Market."
+          },
+          {
+            "speaker": "Tài xế",
+            "role": "npc",
+            "viet": "Dạ được, anh lên xe đi ạ.",
+            "zh": "好的，請上車。",
+            "en": "Sure, please get in."
+          },
+          {
+            "speaker": "Khách",
+            "role": "learner",
+            "viet": "Đến ngã tư phía trước thì rẽ phải nhé.",
+            "zh": "到前面的十字路口請右轉。",
+            "en": "Turn right at the upcoming intersection."
+          },
+          {
+            "speaker": "Tài xế",
+            "role": "npc",
+            "viet": "Đến nơi rồi ạ. Hết tám mươi nghìn đồng.",
+            "zh": "到了。總共八萬越南盾 (80,000 VND)。",
+            "en": "Here we are. That is 80,000 VND."
+          }
+        ]
+      }
+    ],
+    "vocab": []
+  },
+  {
+    "id": "stage3_clinic_housing",
+    "category": "stage",
+    "tagZh": "B1 門診就醫與租屋",
+    "tagEn": "Stage 3 B1",
+    "icon": "🏥",
+    "image": "scenarios/pharmacy_clinic.jpg",
+    "titleZh": "看病買藥與租屋合約 (Khám bệnh & Thuê nhà)",
+    "titleEn": "Doctor Visit & Apartment Rental",
+    "titleVi": "階段 3：融入生活與醫療 (B1 / 中級實用)",
+    "summaryZh": "【階段 3：融入生活與醫療 (B1 / 中級實用)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "summaryEn": "Systematic multi-stage dialogue progression for Stage 3: Living & Healthcare (iVPT B1).",
+    "dialogues": [
+      {
+        "speaker": "Bác sĩ",
+        "role": "npc",
+        "viet": "Chào anh, anh cảm thấy trong người thế nào?",
+        "zh": "你好，你哪裡感覺不舒服？",
+        "en": "Hello, what symptoms are you feeling?"
+      },
+      {
+        "speaker": "Bệnh nhân",
+        "role": "npc",
+        "viet": "Tôi bị sốt cao từ tối qua và đau họng nhiều.",
+        "zh": "我從昨晚開始發高燒，而且喉嚨很痛。",
+        "en": "I have had a high fever since last night and severe sore throat."
+      },
+      {
+        "speaker": "Bác sĩ",
+        "role": "npc",
+        "viet": "Anh há miệng ra để tôi kiểm tra họng nhé.",
+        "zh": "請張開嘴巴讓我檢查一下喉嚨。",
+        "en": "Please open your mouth so I can check your throat."
+      },
+      {
+        "speaker": "Bác sĩ",
+        "role": "npc",
+        "viet": "Anh bị viêm họng cấp. Uống thuốc này ngày ba lần sau bữa ăn nhé.",
+        "zh": "您是急性咽喉炎。這款藥每天飯後吃三次喔。",
+        "en": "You have acute pharyngitis. Take this medicine 3 times a day after meals."
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "s3_d1",
+        "titleZh": "在診所與藥局看病 (Tại phòng khám & Nhà thuốc)",
+        "titleVi": "在診所與藥局看病 (Tại phòng khám & Nhà thuốc)",
+        "titleEn": "At the Clinic & Pharmacy",
+        "summaryZh": "在診所與藥局看病 (Tại phòng khám & Nhà thuốc)",
+        "summaryEn": "At the Clinic & Pharmacy",
+        "lines": [
+          {
+            "speaker": "Bác sĩ",
+            "role": "npc",
+            "viet": "Chào anh, anh cảm thấy trong người thế nào?",
+            "zh": "你好，你哪裡感覺不舒服？",
+            "en": "Hello, what symptoms are you feeling?"
+          },
+          {
+            "speaker": "Bệnh nhân",
+            "role": "npc",
+            "viet": "Tôi bị sốt cao từ tối qua và đau họng nhiều.",
+            "zh": "我從昨晚開始發高燒，而且喉嚨很痛。",
+            "en": "I have had a high fever since last night and severe sore throat."
+          },
+          {
+            "speaker": "Bác sĩ",
+            "role": "npc",
+            "viet": "Anh há miệng ra để tôi kiểm tra họng nhé.",
+            "zh": "請張開嘴巴讓我檢查一下喉嚨。",
+            "en": "Please open your mouth so I can check your throat."
+          },
+          {
+            "speaker": "Bác sĩ",
+            "role": "npc",
+            "viet": "Anh bị viêm họng cấp. Uống thuốc này ngày ba lần sau bữa ăn nhé.",
+            "zh": "您是急性咽喉炎。這款藥每天飯後吃三次喔。",
+            "en": "You have acute pharyngitis. Take this medicine 3 times a day after meals."
+          }
+        ]
+      }
+    ],
+    "vocab": []
+  },
+  {
+    "id": "stage4_biz_contract",
+    "category": "stage",
+    "tagZh": "B2 商業會議簽約",
+    "tagEn": "Stage 4 B2",
+    "icon": "💼",
+    "image": "scenarios/business.jpg",
+    "titleZh": "商業會議與簽署合約 (Họp thương mại & Ký hợp đồng)",
+    "titleEn": "Business Meeting & Contract Signing",
+    "titleVi": "階段 4：商務談判與職場 (B2 / 中高級商務)",
+    "summaryZh": "【階段 4：商務談判與職場 (B2 / 中高級商務)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "summaryEn": "Systematic multi-stage dialogue progression for Stage 4: Business & Negotiation (iVPT B2).",
+    "dialogues": [
+      {
+        "speaker": "Giám đốc",
+        "role": "npc",
+        "viet": "Chào ông Chen! Rất hân hạnh được đón tiếp phái đoàn của ông.",
+        "zh": "陳總您好！非常榮幸接待您的代表團。",
+        "en": "Welcome Mr. Chen! Great honor to host your delegation."
+      },
+      {
+        "speaker": "Ông Chen",
+        "role": "npc",
+        "viet": "Cảm ơn ông Nguyễn. Chúng tôi rất quan tâm đến năng lực sản xuất của quý công ty.",
+        "zh": "謝謝阮總。我們非常關注貴公司的生產產能。",
+        "en": "Thank you Mr. Nguyen. We are very interested in your manufacturing capacity."
+      },
+      {
+        "speaker": "Giám đốc",
+        "role": "npc",
+        "viet": "Chúng tôi cam kết đảm bảo tiêu chuẩn chất lượng và giao hàng đúng hạn.",
+        "zh": "我們承諾保證質量標準並按時交貨。",
+        "en": "We commit to ensuring quality standards and on-time delivery."
+      },
+      {
+        "speaker": "Ông Chen",
+        "role": "npc",
+        "viet": "Tuyệt vời. Chúng ta hãy xem xét các điều khoản thanh toán trong hợp đồng.",
+        "zh": "太好了。讓我們檢視合同中的付款條款。",
+        "en": "Excellent. Let us review the payment terms in the contract."
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "s4_d1",
+        "titleZh": "洽談合作合約 (Thảo luận hợp đồng hợp tác)",
+        "titleVi": "洽談合作合約 (Thảo luận hợp đồng hợp tác)",
+        "titleEn": "Discussing Partnership Contract",
+        "summaryZh": "洽談合作合約 (Thảo luận hợp đồng hợp tác)",
+        "summaryEn": "Discussing Partnership Contract",
+        "lines": [
+          {
+            "speaker": "Giám đốc",
+            "role": "npc",
+            "viet": "Chào ông Chen! Rất hân hạnh được đón tiếp phái đoàn của ông.",
+            "zh": "陳總您好！非常榮幸接待您的代表團。",
+            "en": "Welcome Mr. Chen! Great honor to host your delegation."
+          },
+          {
+            "speaker": "Ông Chen",
+            "role": "npc",
+            "viet": "Cảm ơn ông Nguyễn. Chúng tôi rất quan tâm đến năng lực sản xuất của quý công ty.",
+            "zh": "謝謝阮總。我們非常關注貴公司的生產產能。",
+            "en": "Thank you Mr. Nguyen. We are very interested in your manufacturing capacity."
+          },
+          {
+            "speaker": "Giám đốc",
+            "role": "npc",
+            "viet": "Chúng tôi cam kết đảm bảo tiêu chuẩn chất lượng và giao hàng đúng hạn.",
+            "zh": "我們承諾保證質量標準並按時交貨。",
+            "en": "We commit to ensuring quality standards and on-time delivery."
+          },
+          {
+            "speaker": "Ông Chen",
+            "role": "npc",
+            "viet": "Tuyệt vời. Chúng ta hãy xem xét các điều khoản thanh toán trong hợp đồng.",
+            "zh": "太好了。讓我們檢視合同中的付款條款。",
+            "en": "Excellent. Let us review the payment terms in the contract."
+          }
+        ]
+      }
+    ],
+    "vocab": []
+  },
+  {
+    "id": "stage5_fdi_economy",
+    "category": "stage",
+    "tagZh": "C1 外商FDI經貿",
+    "tagEn": "Stage 5 C1",
+    "icon": "📈",
+    "image": "south_vietnam_industrial_illustration.jpg",
+    "titleZh": "台越投資與經貿發展論壇 (Đầu tư & Kinh tế)",
+    "titleEn": "Investment & Macroeconomics Forum",
+    "titleVi": "階段 5：高階專業與檢定 (C1-C2 / 高級專業)",
+    "summaryZh": "【階段 5：高階專業與檢定 (C1-C2 / 高級專業)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "summaryEn": "Systematic multi-stage dialogue progression for Stage 5: Master & Professional (iVPT C1-C2).",
+    "dialogues": [
+      {
+        "speaker": "Chuyên gia",
+        "role": "npc",
+        "viet": "Việt Nam đang là điểm đến hấp dẫn đối với các tập đoàn công nghệ toàn cầu.",
+        "zh": "越南正成為全球高科技集團極具吸引力的投資目的地。",
+        "en": "Vietnam is an attractive destination for global tech conglomerates."
+      },
+      {
+        "speaker": "Nhà đầu tư",
+        "role": "npc",
+        "viet": "Chính sách ưu đãi thuế và nguồn nhân lực trẻ là yếu tố then chốt thu hút chúng tôi.",
+        "zh": "稅收優惠政策與年輕人力資源是吸引我們投資的關鍵要素。",
+        "en": "Preferential tax policies and young human resources are the key factors attracting us."
+      },
+      {
+        "speaker": "Chuyên gia",
+        "role": "npc",
+        "viet": "Sự phát triển bền vững cần đi đôi với chuyển đổi số và bảo vệ môi trường.",
+        "zh": "永續發展必須與數位轉型及環境保護並駕齊驅。",
+        "en": "Sustainable development must accompany digital transformation and environmental protection."
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "s5_d1",
+        "titleZh": "外商直接投資 (FDI) 趨勢分析",
+        "titleVi": "外商直接投資 (FDI) 趨勢分析",
+        "titleEn": "FDI Foreign Investment Analysis",
+        "summaryZh": "外商直接投資 (FDI) 趨勢分析",
+        "summaryEn": "FDI Foreign Investment Analysis",
+        "lines": [
+          {
+            "speaker": "Chuyên gia",
+            "role": "npc",
+            "viet": "Việt Nam đang là điểm đến hấp dẫn đối với các tập đoàn công nghệ toàn cầu.",
+            "zh": "越南正成為全球高科技集團極具吸引力的投資目的地。",
+            "en": "Vietnam is an attractive destination for global tech conglomerates."
+          },
+          {
+            "speaker": "Nhà đầu tư",
+            "role": "npc",
+            "viet": "Chính sách ưu đãi thuế và nguồn nhân lực trẻ là yếu tố then chốt thu hút chúng tôi.",
+            "zh": "稅收優惠政策與年輕人力資源是吸引我們投資的關鍵要素。",
+            "en": "Preferential tax policies and young human resources are the key factors attracting us."
+          },
+          {
+            "speaker": "Chuyên gia",
+            "role": "npc",
+            "viet": "Sự phát triển bền vững cần đi đôi với chuyển đổi số và bảo vệ môi trường.",
+            "zh": "永續發展必須與數位轉型及環境保護並駕齊驅。",
+            "en": "Sustainable development must accompany digital transformation and environmental protection."
+          }
+        ]
+      }
+    ],
+    "vocab": []
+  },
+  {
+    "id": "bank_open_account",
+    "category": "banking",
+    "tagZh": "個人臨櫃開戶",
+    "tagEn": "Banking Services",
+    "icon": "🏦",
+    "image": "scenarios/business.jpg",
+    "titleZh": "1. 臨櫃開立個人帳戶 (Mở tài khoản ngân hàng)",
+    "titleEn": "1. Opening a Bank Account (Mở tài khoản ngân hàng)",
+    "titleVi": "1. 臨櫃開立個人帳戶 (Mở tài khoản ngân hàng)",
+    "summaryZh": "越南商業銀行實戰情境：1. 臨櫃開立個人帳戶 (Mở tài khoản ngân hàng)，標準對話練習與金融業務。",
+    "summaryEn": "Vietnamese commercial banking scenario: 1. Opening a Bank Account (Mở tài khoản ngân hàng).",
+    "dialogues": [
+      {
+        "speaker": "Khách hàng",
+        "role": "learner",
+        "viet": "Cho tôi mở một tài khoản ngân hàng cá nhân.",
+        "zh": "我要辦理一個個人銀行帳戶。",
+        "en": "I would like to open a personal bank account."
+      },
+      {
+        "speaker": "Giao dịch viên",
+        "role": "npc",
+        "viet": "Anh vui lòng cho tôi xem hộ chiếu và visa còn hạn ạ.",
+        "zh": "請出示您的護照與有效簽證。",
+        "en": "Please show me your valid passport and visa."
+      },
+      {
+        "speaker": "Khách hàng",
+        "role": "learner",
+        "viet": "Gửi cô hộ chiếu và hợp đồng lao động của tôi.",
+        "zh": "這是我的護照與工作合約。",
+        "en": "Here are my passport and employment contract."
+      },
+      {
+        "speaker": "Giao dịch viên",
+        "role": "npc",
+        "viet": "Anh điền vào tờ khai này và ký tên ở đây nhé.",
+        "zh": "請填寫這張申請表並在此簽名。",
+        "en": "Please fill in this application form and sign here."
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "1. 臨櫃開立個人帳戶 (Mở tài khoản ngân hàng)",
+        "titleVi": "1. 臨櫃開立個人帳戶 (Mở tài khoản ngân hàng)",
+        "titleEn": "1. Opening a Bank Account (Mở tài khoản ngân hàng)",
+        "summaryZh": "1. 臨櫃開立個人帳戶 (Mở tài khoản ngân hàng)",
+        "lines": [
+          {
+            "speaker": "Khách hàng",
+            "role": "learner",
+            "viet": "Cho tôi mở một tài khoản ngân hàng cá nhân.",
+            "zh": "我要辦理一個個人銀行帳戶。",
+            "en": "I would like to open a personal bank account."
+          },
+          {
+            "speaker": "Giao dịch viên",
+            "role": "npc",
+            "viet": "Anh vui lòng cho tôi xem hộ chiếu và visa còn hạn ạ.",
+            "zh": "請出示您的護照與有效簽證。",
+            "en": "Please show me your valid passport and visa."
+          },
+          {
+            "speaker": "Khách hàng",
+            "role": "learner",
+            "viet": "Gửi cô hộ chiếu và hợp đồng lao động của tôi.",
+            "zh": "這是我的護照與工作合約。",
+            "en": "Here are my passport and employment contract."
+          },
+          {
+            "speaker": "Giao dịch viên",
+            "role": "npc",
+            "viet": "Anh điền vào tờ khai này và ký tên ở đây nhé.",
+            "zh": "請填寫這張申請表並在此簽名。",
+            "en": "Please fill in this application form and sign here."
+          }
+        ]
+      }
+    ],
+    "vocab": []
+  },
+  {
+    "id": "bank_wire_transfer",
+    "category": "banking",
+    "tagZh": "大額商務轉帳",
+    "tagEn": "Banking Services",
+    "icon": "💳",
+    "image": "scenarios/business.jpg",
+    "titleZh": "2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+    "titleEn": "2. Large Wire Transfer (Chuyển khoản số tiền lớn)",
+    "titleVi": "2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+    "summaryZh": "越南商業銀行實戰情境：2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)，標準對話練習與金融業務。",
+    "summaryEn": "Vietnamese commercial banking scenario: 2. Large Wire Transfer (Chuyển khoản số tiền lớn).",
+    "dialogues": [
+      {
+        "speaker": "Khách hàng",
+        "role": "learner",
+        "viet": "Tôi muốn chuyển khoản hai tỷ đồng cho công ty đối tác.",
+        "zh": "我想轉帳二十億越南盾 (2,000,000,000 VND) 給合作公司。",
+        "en": "I want to transfer 2 billion VND to our partner company."
+      },
+      {
+        "speaker": "Giao dịch viên",
+        "role": "npc",
+        "viet": "Dạ, anh vui lòng điền số tài khoản thụ hưởng và nội dung chuyển tiền.",
+        "zh": "好的，請填寫收款帳號與轉帳備註內容。",
+        "en": "Yes sir, please fill in the beneficiary account number and remarks."
+      },
+      {
+        "speaker": "Khách hàng",
+        "role": "learner",
+        "viet": "Phí chuyển khoản là bao nhiêu?",
+        "zh": "轉帳手續費是多少？",
+        "en": "How much is the bank transfer fee?"
+      },
+      {
+        "speaker": "Giao dịch viên",
+        "role": "npc",
+        "viet": "Phí là mười một nghìn đồng đã bao gồm thuế VAT ạ.",
+        "zh": "手續費包含加值稅共 11,000 越南盾。",
+        "en": "The fee is 11,000 VND inclusive of VAT."
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+        "titleVi": "2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+        "titleEn": "2. Large Wire Transfer (Chuyển khoản số tiền lớn)",
+        "summaryZh": "2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+        "lines": [
+          {
+            "speaker": "Khách hàng",
+            "role": "learner",
+            "viet": "Tôi muốn chuyển khoản hai tỷ đồng cho công ty đối tác.",
+            "zh": "我想轉帳二十億越南盾 (2,000,000,000 VND) 給合作公司。",
+            "en": "I want to transfer 2 billion VND to our partner company."
+          },
+          {
+            "speaker": "Giao dịch viên",
+            "role": "npc",
+            "viet": "Dạ, anh vui lòng điền số tài khoản thụ hưởng và nội dung chuyển tiền.",
+            "zh": "好的，請填寫收款帳號與轉帳備註內容。",
+            "en": "Yes sir, please fill in the beneficiary account number and remarks."
+          },
+          {
+            "speaker": "Khách hàng",
+            "role": "learner",
+            "viet": "Phí chuyển khoản là bao nhiêu?",
+            "zh": "轉帳手續費是多少？",
+            "en": "How much is the bank transfer fee?"
+          },
+          {
+            "speaker": "Giao dịch viên",
+            "role": "npc",
+            "viet": "Phí là mười một nghìn đồng đã bao gồm thuế VAT ạ.",
+            "zh": "手續費包含加值稅共 11,000 越南盾。",
+            "en": "The fee is 11,000 VND inclusive of VAT."
+          }
+        ]
+      }
+    ],
+    "vocab": []
+  },
+  {
+    "id": "bank_deposit_interest",
+    "category": "banking",
+    "tagZh": "定期定存利息",
+    "tagEn": "Banking Services",
+    "icon": "💰",
+    "image": "scenarios/business.jpg",
+    "titleZh": "3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+    "titleEn": "3. Term Deposit & Interest Rates (Gửi tiết kiệm & Lãi suất)",
+    "titleVi": "3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+    "summaryZh": "越南商業銀行實戰情境：3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)，標準對話練習與金融業務。",
+    "summaryEn": "Vietnamese commercial banking scenario: 3. Term Deposit & Interest Rates (Gửi tiết kiệm & Lãi suất).",
+    "dialogues": [
+      {
+        "speaker": "Khách hàng",
+        "role": "learner",
+        "viet": "Lãi suất gửi tiết kiệm kỳ hạn mười hai tháng là bao nhiêu?",
+        "zh": "十二個月期的定期存款年利率是多少？",
+        "en": "What is the 12-month fixed deposit interest rate?"
+      },
+      {
+        "speaker": "Giao dịch viên",
+        "role": "npc",
+        "viet": "Hiện tại lãi suất là năm phẩy năm phần trăm một năm ạ.",
+        "zh": "目前年利率是 5.5%。",
+        "en": "Currently the rate is 5.5% per annum."
+      },
+      {
+        "speaker": "Khách hàng",
+        "role": "learner",
+        "viet": "Tôi muốn gửi năm tỷ đồng kỳ hạn một năm.",
+        "zh": "我想辦理五十億盾 (5,000,000,000 VND) 的一年期定存。",
+        "en": "I would like to deposit 5 billion VND for one year."
+      },
+      {
+        "speaker": "Giao dịch viên",
+        "role": "npc",
+        "viet": "Dạ, tôi sẽ làm sổ tiết kiệm ngay cho anh.",
+        "zh": "好的，我馬上為您辦理定存存摺。",
+        "en": "Certainly, I will issue your passbook right away."
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+        "titleVi": "3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+        "titleEn": "3. Term Deposit & Interest Rates (Gửi tiết kiệm & Lãi suất)",
+        "summaryZh": "3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+        "lines": [
+          {
+            "speaker": "Khách hàng",
+            "role": "learner",
+            "viet": "Lãi suất gửi tiết kiệm kỳ hạn mười hai tháng là bao nhiêu?",
+            "zh": "十二個月期的定期存款年利率是多少？",
+            "en": "What is the 12-month fixed deposit interest rate?"
+          },
+          {
+            "speaker": "Giao dịch viên",
+            "role": "npc",
+            "viet": "Hiện tại lãi suất là năm phẩy năm phần trăm một năm ạ.",
+            "zh": "目前年利率是 5.5%。",
+            "en": "Currently the rate is 5.5% per annum."
+          },
+          {
+            "speaker": "Khách hàng",
+            "role": "learner",
+            "viet": "Tôi muốn gửi năm tỷ đồng kỳ hạn một năm.",
+            "zh": "我想辦理五十億盾 (5,000,000,000 VND) 的一年期定存。",
+            "en": "I would like to deposit 5 billion VND for one year."
+          },
+          {
+            "speaker": "Giao dịch viên",
+            "role": "npc",
+            "viet": "Dạ, tôi sẽ làm sổ tiết kiệm ngay cho anh.",
+            "zh": "好的，我馬上為您辦理定存存摺。",
+            "en": "Certainly, I will issue your passbook right away."
+          }
+        ]
+      }
+    ],
+    "vocab": []
+  },
+  {
+    "id": "ft_day1_fasttrack",
+    "category": "fasttrack",
+    "tagZh": "Day 1 速成",
+    "tagEn": "Day 1 FastTrack",
+    "icon": "🤝",
+    "image": "scenarios/travel.jpg",
+    "titleZh": "Day 1: 3秒禮貌社交破冰",
+    "titleEn": "Day 1: 3-Second Polite Icebreaker",
+    "titleVi": "Ngày 1: Thực Chiến",
+    "summaryZh": "掌握最核心的問候、道謝、道歉與應答，踏出開口第一步！",
+    "summaryEn": "Master essential greetings, thanks, apologies, and polite responses.",
+    "dialogues": [
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Dạ, em chào anh ạ! Em tên là Minh.",
+        "zh": "您好哥哥！我的名字叫阿明。",
+        "en": "Hello brother! My name is Minh."
+      },
+      {
+        "speaker": "B (Người Việt)",
+        "role": "npc",
+        "viet": "Chào em! Rất vui được gặp em ở Việt Nam.",
+        "zh": "你好！很高興在越南見到你。",
+        "en": "Hello! Very glad to meet you in Vietnam."
+      },
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Dạ, cảm ơn anh nhiều! Em mới học tiếng Việt.",
+        "zh": "好的，非常感謝哥！我剛開始學越南語。",
+        "en": "Thank you very much! I just started learning Vietnamese."
+      },
+      {
+        "speaker": "B (Người Việt)",
+        "role": "npc",
+        "viet": "Em nói tiếng Việt giỏi quá, cố lên nhé!",
+        "zh": "你越南語說得很棒喔，加油！",
+        "en": "You speak Vietnamese very well, keep it up!"
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "Day 1: 3秒禮貌社交破冰",
+        "titleVi": "Ngày 1",
+        "titleEn": "Day 1: 3-Second Polite Icebreaker",
+        "summaryZh": "掌握最核心的問候、道謝、道歉與應答，踏出開口第一步！",
+        "lines": [
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Dạ, em chào anh ạ! Em tên là Minh.",
+            "zh": "您好哥哥！我的名字叫阿明。",
+            "en": "Hello brother! My name is Minh."
+          },
+          {
+            "speaker": "B (Người Việt)",
+            "role": "npc",
+            "viet": "Chào em! Rất vui được gặp em ở Việt Nam.",
+            "zh": "你好！很高興在越南見到你。",
+            "en": "Hello! Very glad to meet you in Vietnam."
+          },
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Dạ, cảm ơn anh nhiều! Em mới học tiếng Việt.",
+            "zh": "好的，非常感謝哥！我剛開始學越南語。",
+            "en": "Thank you very much! I just started learning Vietnamese."
+          },
+          {
+            "speaker": "B (Người Việt)",
+            "role": "npc",
+            "viet": "Em nói tiếng Việt giỏi quá, cố lên nhé!",
+            "zh": "你越南語說得很棒喔，加油！",
+            "en": "You speak Vietnamese very well, keep it up!"
+          }
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "viet": "Xin chào!",
+        "zh": "你好！(通用)",
+        "en": "Hello! (Universal)"
+      },
+      {
+        "viet": "Cảm ơn nhiều!",
+        "zh": "非常感謝！",
+        "en": "Thank you very much!"
+      },
+      {
+        "viet": "Xin lỗi nhé!",
+        "zh": "不好意思 / 對不起！",
+        "en": "Excuse me / Sorry!"
+      },
+      {
+        "viet": "Dạ, vâng ạ.",
+        "zh": "好的 / 是的 (超有禮貌應答)",
+        "en": "Yes, understood (very polite)"
+      },
+      {
+        "viet": "Rất vui được gặp bạn!",
+        "zh": "很高興認識你！",
+        "en": "Nice to meet you!"
+      }
+    ]
+  },
+  {
+    "id": "ft_day2_fasttrack",
+    "category": "fasttrack",
+    "tagZh": "Day 2 速成",
+    "tagEn": "Day 2 FastTrack",
+    "icon": "☕",
+    "image": "scenarios/travel.jpg",
+    "titleZh": "Day 2: 點餐與越南咖啡魔術密碼",
+    "titleEn": "Day 2: Ordering Food & Coffee Magic Codes",
+    "titleVi": "Ngày 2: Thực Chiến",
+    "summaryZh": "解鎖越南最著名的咖啡、法棍麵包與河粉點餐秘訣！",
+    "summaryEn": "Unlock ordering secrets for Vietnamese iced coffee, Bánh mì, and Phở.",
+    "dialogues": [
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Em ơi! Cho anh một ly cà phê sữa đá, ít đường.",
+        "zh": "服務生！給我一杯冰煉乳咖啡，少糖。",
+        "en": "Excuse me! One iced milk coffee, less sugar please."
+      },
+      {
+        "speaker": "B (Nhân viên)",
+        "role": "npc",
+        "viet": "Dạ có ngay ạ! Anh có dùng thêm bánh mì không?",
+        "zh": "馬上來！哥哥要加點法國麵包嗎？",
+        "en": "Coming right up! Would you like a Bánh mì as well?"
+      },
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Cho anh thêm một ổ bánh mì thịt nguội nhé.",
+        "zh": "再給我一份火腿法國麵包喔。",
+        "en": "Add one cold-cuts Bánh mì please."
+      },
+      {
+        "speaker": "B (Nhân viên)",
+        "role": "npc",
+        "viet": "Dạ vâng, tổng cộng 45 nghìn đồng ạ.",
+        "zh": "好的，一共是四萬五千越盾。",
+        "en": "Understood, total is 45,000 VND."
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "Day 2: 點餐與越南咖啡魔術密碼",
+        "titleVi": "Ngày 2",
+        "titleEn": "Day 2: Ordering Food & Coffee Magic Codes",
+        "summaryZh": "解鎖越南最著名的咖啡、法棍麵包與河粉點餐秘訣！",
+        "lines": [
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Em ơi! Cho anh một ly cà phê sữa đá, ít đường.",
+            "zh": "服務生！給我一杯冰煉乳咖啡，少糖。",
+            "en": "Excuse me! One iced milk coffee, less sugar please."
+          },
+          {
+            "speaker": "B (Nhân viên)",
+            "role": "npc",
+            "viet": "Dạ có ngay ạ! Anh có dùng thêm bánh mì không?",
+            "zh": "馬上來！哥哥要加點法國麵包嗎？",
+            "en": "Coming right up! Would you like a Bánh mì as well?"
+          },
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Cho anh thêm một ổ bánh mì thịt nguội nhé.",
+            "zh": "再給我一份火腿法國麵包喔。",
+            "en": "Add one cold-cuts Bánh mì please."
+          },
+          {
+            "speaker": "B (Nhân viên)",
+            "role": "npc",
+            "viet": "Dạ vâng, tổng cộng 45 nghìn đồng ạ.",
+            "zh": "好的，一共是四萬五千越盾。",
+            "en": "Understood, total is 45,000 VND."
+          }
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "viet": "Cho tôi một ly Cà phê sữa đá.",
+        "zh": "請給我一杯冰煉乳咖啡。",
+        "en": "Please give me one iced milk coffee."
+      },
+      {
+        "viet": "Cho tôi một tô Phở bò.",
+        "zh": "請給我一碗牛肉河粉。",
+        "en": "Please give me a bowl of beef Phở."
+      },
+      {
+        "viet": "Không đường, ít đá nha!",
+        "zh": "不要糖，少冰喔！",
+        "en": "No sugar, less ice please!"
+      },
+      {
+        "viet": "Có bánh mì không?",
+        "zh": "有越式法國麵包嗎？",
+        "en": "Do you have Bánh mì?"
+      },
+      {
+        "viet": "Ngon quá, cảm ơn nhé!",
+        "zh": "太好吃了，謝謝你！",
+        "en": "So delicious, thank you!"
+      }
+    ]
+  },
+  {
+    "id": "ft_day3_fasttrack",
+    "category": "fasttrack",
+    "tagZh": "Day 3 速成",
+    "tagEn": "Day 3 FastTrack",
+    "icon": "💵",
+    "image": "scenarios/travel.jpg",
+    "titleZh": "Day 3: 市場殺價與數字貨幣秒算",
+    "titleEn": "Day 3: Market Bargaining & VND Numbers",
+    "titleVi": "Ngày 3: Thực Chiến",
+    "summaryZh": "攻克百萬越南盾換算，享受夜市與傳統市場自在購物的樂趣！",
+    "summaryEn": "Master million-VND currency conversions and bargain like a pro.",
+    "dialogues": [
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Chị ơi, cái áo này bao nhiêu tiền?",
+        "zh": "姐姐，這件衣服多少錢？",
+        "en": "Sister, how much is this shirt?"
+      },
+      {
+        "speaker": "B (Chủ quán)",
+        "role": "npc",
+        "viet": "Một trăm năm mươi nghìn (150k) em ơi.",
+        "zh": "十五萬盾喔弟弟。",
+        "en": "150,000 VND, dear."
+      },
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Đắt quá! Bớt chút được không? Một trăm nghìn (100k) nha!",
+        "zh": "太貴了！可以算便宜點嗎？十萬盾好嗎！",
+        "en": "Too expensive! Can you discount? 100k okay?"
+      },
+      {
+        "speaker": "B (Chủ quán)",
+        "role": "npc",
+        "viet": "Thôi được rồi, mở hàng cho em 100k đó!",
+        "zh": "好吧，算你開市價 100k 賣給你！",
+        "en": "Alright, opening special for you 100k!"
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "Day 3: 市場殺價與數字貨幣秒算",
+        "titleVi": "Ngày 3",
+        "titleEn": "Day 3: Market Bargaining & VND Numbers",
+        "summaryZh": "攻克百萬越南盾換算，享受夜市與傳統市場自在購物的樂趣！",
+        "lines": [
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Chị ơi, cái áo này bao nhiêu tiền?",
+            "zh": "姐姐，這件衣服多少錢？",
+            "en": "Sister, how much is this shirt?"
+          },
+          {
+            "speaker": "B (Chủ quán)",
+            "role": "npc",
+            "viet": "Một trăm năm mươi nghìn (150k) em ơi.",
+            "zh": "十五萬盾喔弟弟。",
+            "en": "150,000 VND, dear."
+          },
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Đắt quá! Bớt chút được không? Một trăm nghìn (100k) nha!",
+            "zh": "太貴了！可以算便宜點嗎？十萬盾好嗎！",
+            "en": "Too expensive! Can you discount? 100k okay?"
+          },
+          {
+            "speaker": "B (Chủ quán)",
+            "role": "npc",
+            "viet": "Thôi được rồi, mở hàng cho em 100k đó!",
+            "zh": "好吧，算你開市價 100k 賣給你！",
+            "en": "Alright, opening special for you 100k!"
+          }
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "viet": "Cái này bao nhiêu tiền?",
+        "zh": "這個多少錢？",
+        "en": "How much is this?"
+      },
+      {
+        "viet": "Năm mươi nghìn (50k) đồng.",
+        "zh": "五萬越盾 (約 65 台幣)。",
+        "en": "Fifty thousand VND (~$2 USD)."
+      },
+      {
+        "viet": "Đắt quá! Bớt chút được không?",
+        "zh": "太貴了！可以算便宜一點嗎？",
+        "en": "Too expensive! Can you give a discount?"
+      },
+      {
+        "viet": "Một trăm nghìn (100k) được không?",
+        "zh": "十萬盾可以嗎？",
+        "en": "Is 100k VND okay?"
+      },
+      {
+        "viet": "Tôi lấy cái này, tính tiền nha.",
+        "zh": "我要買這個，結帳喔。",
+        "en": "I will take this, bill please."
+      }
+    ]
+  },
+  {
+    "id": "ft_day4_fasttrack",
+    "category": "fasttrack",
+    "tagZh": "Day 4 速成",
+    "tagEn": "Day 4 FastTrack",
+    "icon": "🚕",
+    "image": "scenarios/travel.jpg",
+    "titleZh": "Day 4: 計程車、Grab 與問路導航",
+    "titleEn": "Day 4: Taxi, Grab & Directions",
+    "titleVi": "Ngày 4: Thực Chiến",
+    "summaryZh": "出門搭車不迷路！精準指揮司機直走、轉彎與停車。",
+    "summaryEn": "Navigate taxis, Grab, and street directions with full confidence.",
+    "dialogues": [
+      {
+        "speaker": "A (Tài xế)",
+        "role": "learner",
+        "viet": "Chào anh, anh muốn đi đến đâu ạ?",
+        "zh": "你好先生，您要去哪裡呢？",
+        "en": "Hello, where would you like to go?"
+      },
+      {
+        "speaker": "B (Bạn)",
+        "role": "npc",
+        "viet": "Cho tôi đến chợ Bến Thành, đi thẳng đường này nhé.",
+        "zh": "請帶我到濱城市場，沿這條路直走喔。",
+        "en": "To Ben Thanh Market please, go straight along this street."
+      },
+      {
+        "speaker": "A (Tài xế)",
+        "role": "learner",
+        "viet": "Đến ngã tư này rẽ trái hay rẽ phải anh?",
+        "zh": "到這個十字路口要左轉還是右轉呢？",
+        "en": "Turn left or right at this intersection?"
+      },
+      {
+        "speaker": "B (Bạn)",
+        "role": "npc",
+        "viet": "Rẽ phải, rồi dừng ở trước cổng chợ giúp tôi!",
+        "zh": "右轉，然後幫我停在市場大門前！",
+        "en": "Turn right, then stop in front of the market gate!"
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "Day 4: 計程車、Grab 與問路導航",
+        "titleVi": "Ngày 4",
+        "titleEn": "Day 4: Taxi, Grab & Directions",
+        "summaryZh": "出門搭車不迷路！精準指揮司機直走、轉彎與停車。",
+        "lines": [
+          {
+            "speaker": "A (Tài xế)",
+            "role": "learner",
+            "viet": "Chào anh, anh muốn đi đến đâu ạ?",
+            "zh": "你好先生，您要去哪裡呢？",
+            "en": "Hello, where would you like to go?"
+          },
+          {
+            "speaker": "B (Bạn)",
+            "role": "npc",
+            "viet": "Cho tôi đến chợ Bến Thành, đi thẳng đường này nhé.",
+            "zh": "請帶我到濱城市場，沿這條路直走喔。",
+            "en": "To Ben Thanh Market please, go straight along this street."
+          },
+          {
+            "speaker": "A (Tài xế)",
+            "role": "learner",
+            "viet": "Đến ngã tư này rẽ trái hay rẽ phải anh?",
+            "zh": "到這個十字路口要左轉還是右轉呢？",
+            "en": "Turn left or right at this intersection?"
+          },
+          {
+            "speaker": "B (Bạn)",
+            "role": "npc",
+            "viet": "Rẽ phải, rồi dừng ở trước cổng chợ giúp tôi!",
+            "zh": "右轉，然後幫我停在市場大門前！",
+            "en": "Turn right, then stop in front of the market gate!"
+          }
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "viet": "Cho tôi đến chợ Bến Thành.",
+        "zh": "請帶我到濱城市場。",
+        "en": "Please take me to Ben Thanh Market."
+      },
+      {
+        "viet": "Đi thẳng, rồi rẽ trái / rẽ phải.",
+        "zh": "直走，然後左轉 / 右轉。",
+        "en": "Go straight, then turn left / turn right."
+      },
+      {
+        "viet": "Dừng ở đây nhé!",
+        "zh": "請停在這裡喔！",
+        "en": "Please stop here!"
+      },
+      {
+        "viet": "Bao xa nữa thì đến?",
+        "zh": "還要多久/多遠才會到？",
+        "en": "How much further until we arrive?"
+      },
+      {
+        "viet": "Đến nơi rồi, cảm ơn anh!",
+        "zh": "到了，謝謝司機大哥！",
+        "en": "We have arrived, thank you!"
+      }
+    ]
+  },
+  {
+    "id": "ft_day5_fasttrack",
+    "category": "fasttrack",
+    "tagZh": "Day 5 速成",
+    "tagEn": "Day 5 FastTrack",
+    "icon": "👥",
+    "image": "scenarios/travel.jpg",
+    "titleZh": "Day 5: 稱謂神算與人際搞定術",
+    "titleEn": "Day 5: Kinship Pronouns & Social Magic",
+    "titleVi": "Ngày 5: Thực Chiến",
+    "summaryZh": "徹底攻克越南人際稱謂系統，叫對稱呼好感度瞬間爆表！",
+    "summaryEn": "Master Vietnamese kinship pronouns so you address everyone with charm.",
+    "dialogues": [
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Cháu chào Bác ạ! Bác có khỏe không?",
+        "zh": "晚輩向伯伯問好！伯伯身體好嗎？",
+        "en": "Hello Uncle! How are you doing?"
+      },
+      {
+        "speaker": "B (Bác)",
+        "role": "npc",
+        "viet": "Chào cháu! Bác khỏe, cháu sang chơi vui không?",
+        "zh": "你好！伯伯很好，你在這裡玩得開心嗎？",
+        "en": "Hello! I am well, having fun here?"
+      },
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Dạ, cháu rất thích Việt Nam, con người ở đây rất thân thiện ạ.",
+        "zh": "是的，晚輩非常喜歡越南，這裡的人都很友善！",
+        "en": "Yes, I really love Vietnam, the people here are so friendly."
+      },
+      {
+        "speaker": "B (Bác)",
+        "role": "npc",
+        "viet": "Tốt quá, khi nào rảnh lại ghé nhà Bác chơi nhé!",
+        "zh": "太好了，有空再來伯伯家坐坐！",
+        "en": "Wonderful, visit us again when you are free!"
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "Day 5: 稱謂神算與人際搞定術",
+        "titleVi": "Ngày 5",
+        "titleEn": "Day 5: Kinship Pronouns & Social Magic",
+        "summaryZh": "徹底攻克越南人際稱謂系統，叫對稱呼好感度瞬間爆表！",
+        "lines": [
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Cháu chào Bác ạ! Bác có khỏe không?",
+            "zh": "晚輩向伯伯問好！伯伯身體好嗎？",
+            "en": "Hello Uncle! How are you doing?"
+          },
+          {
+            "speaker": "B (Bác)",
+            "role": "npc",
+            "viet": "Chào cháu! Bác khỏe, cháu sang chơi vui không?",
+            "zh": "你好！伯伯很好，你在這裡玩得開心嗎？",
+            "en": "Hello! I am well, having fun here?"
+          },
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Dạ, cháu rất thích Việt Nam, con người ở đây rất thân thiện ạ.",
+            "zh": "是的，晚輩非常喜歡越南，這裡的人都很友善！",
+            "en": "Yes, I really love Vietnam, the people here are so friendly."
+          },
+          {
+            "speaker": "B (Bác)",
+            "role": "npc",
+            "viet": "Tốt quá, khi nào rảnh lại ghé nhà Bác chơi nhé!",
+            "zh": "太好了，有空再來伯伯家坐坐！",
+            "en": "Wonderful, visit us again when you are free!"
+          }
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "viet": "Chào Anh / Chào Chị!",
+        "zh": "哥哥好 / 姐姐好 (同輩年輕男女尊稱)。",
+        "en": "Hello older brother / older sister (polite peer)."
+      },
+      {
+        "viet": "Em chào Bác / Chào Cô ạ!",
+        "zh": "晚輩向長輩伯伯 / 阿姨問好！",
+        "en": "Greeting senior gentlemen (Bác) or ladies (Cô)."
+      },
+      {
+        "viet": "Em ơi, cho anh/chị gọi món!",
+        "zh": "服務生小弟/小妹，我要點餐！",
+        "en": "Excuse me, I would like to order!"
+      },
+      {
+        "viet": "Anh/Chị tên là gì?",
+        "zh": "請問您的大名叫什麼？",
+        "en": "What is your name?"
+      },
+      {
+        "viet": "Tôi là người Đài Loan.",
+        "zh": "我是台灣人。",
+        "en": "I am Taiwanese."
+      }
+    ]
+  },
+  {
+    "id": "ft_day6_fasttrack",
+    "category": "fasttrack",
+    "tagZh": "Day 6 速成",
+    "tagEn": "Day 6 FastTrack",
+    "icon": "🛍️",
+    "image": "scenarios/travel.jpg",
+    "titleZh": "Day 6: 便利超商與逛街結帳",
+    "titleEn": "Day 6: Convenience Store & Shopping Checkout",
+    "titleVi": "Ngày 6: Thực Chiến",
+    "summaryZh": "超商買水、買生活用品、刷卡與發票生活實戰。",
+    "summaryEn": "Convenience store shopping, paying with card or cash, and receipts.",
+    "dialogues": [
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Em ơi, cho anh lấy chai nước suối này và bao bánh quy.",
+        "zh": "店員，我要買這瓶礦泉水和這包餅乾。",
+        "en": "One bottle of water and this biscuit packet please."
+      },
+      {
+        "speaker": "B (Thu ngân)",
+        "role": "npc",
+        "viet": "Dạ của anh hết ba mươi nghìn đồng (30k).",
+        "zh": "好的，一共是三萬越盾。",
+        "en": "Total is 30,000 VND."
+      },
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Anh quét mã VietQR thanh toán nhé.",
+        "zh": "我掃 VietQR 條碼付款喔。",
+        "en": "I will scan VietQR code to pay."
+      },
+      {
+        "speaker": "B (Thu ngân)",
+        "role": "npc",
+        "viet": "Dạ được ạ, mã ở đây. Cho em gửi hóa đơn!",
+        "zh": "好的，條碼在這裡。發票收據給您！",
+        "en": "Sure, code is here. Here is your receipt!"
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "Day 6: 便利超商與逛街結帳",
+        "titleVi": "Ngày 6",
+        "titleEn": "Day 6: Convenience Store & Shopping Checkout",
+        "summaryZh": "超商買水、買生活用品、刷卡與發票生活實戰。",
+        "lines": [
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Em ơi, cho anh lấy chai nước suối này và bao bánh quy.",
+            "zh": "店員，我要買這瓶礦泉水和這包餅乾。",
+            "en": "One bottle of water and this biscuit packet please."
+          },
+          {
+            "speaker": "B (Thu ngân)",
+            "role": "npc",
+            "viet": "Dạ của anh hết ba mươi nghìn đồng (30k).",
+            "zh": "好的，一共是三萬越盾。",
+            "en": "Total is 30,000 VND."
+          },
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Anh quét mã VietQR thanh toán nhé.",
+            "zh": "我掃 VietQR 條碼付款喔。",
+            "en": "I will scan VietQR code to pay."
+          },
+          {
+            "speaker": "B (Thu ngân)",
+            "role": "npc",
+            "viet": "Dạ được ạ, mã ở đây. Cho em gửi hóa đơn!",
+            "zh": "好的，條碼在這裡。發票收據給您！",
+            "en": "Sure, code is here. Here is your receipt!"
+          }
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "viet": "Có nước suối không em?",
+        "zh": "有礦泉水嗎？",
+        "en": "Do you have bottled water?"
+      },
+      {
+        "viet": "Có thể thanh toán bằng thẻ không?",
+        "zh": "可以用信用卡付款嗎？",
+        "en": "Can I pay by credit card?"
+      },
+      {
+        "viet": "Cho tôi xin cái túi / hóa đơn.",
+        "zh": "請給我一個提袋 / 發票收據。",
+        "en": "Please give me a bag / receipt."
+      },
+      {
+        "viet": "Tôi có thể thử cái này được không?",
+        "zh": "我可以試穿/試用這個嗎？",
+        "en": "Can I try this on / try this?"
+      },
+      {
+        "viet": "Đủ tiền rồi, cảm ơn em nhé!",
+        "zh": "錢剛好，謝謝你！",
+        "en": "Exact amount, thank you!"
+      }
+    ]
+  },
+  {
+    "id": "ft_day7_fasttrack",
+    "category": "fasttrack",
+    "tagZh": "Day 7 速成",
+    "tagEn": "Day 7 FastTrack",
+    "icon": "💬",
+    "image": "scenarios/travel.jpg",
+    "titleZh": "Day 7: 社交閒聊與結交越南好友",
+    "titleEn": "Day 7: Small Talk & Making Local Friends",
+    "titleVi": "Ngày 7: Thực Chiến",
+    "summaryZh": "聊家鄉、交換 Zalo、相約喝咖啡，建立深厚跨國友誼！",
+    "summaryEn": "Chat about hometowns, exchange Zalo, meet for coffee, make lifelong friends!",
+    "dialogues": [
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Quê bạn ở đâu vậy? Bạn ở Sài Gòn lâu chưa?",
+        "zh": "你的家鄉在哪裡呢？你在西貢很久了嗎？",
+        "en": "Where is your hometown? Have you lived in Saigon long?"
+      },
+      {
+        "speaker": "B (Bạn Việt)",
+        "role": "npc",
+        "viet": "Quê mình ở Đà Nẵng, mình vào Sài Gòn làm việc 3 năm rồi.",
+        "zh": "我家鄉在峴港，我來西貢工作三年了。",
+        "en": "My hometown is Da Nang, I have worked in Saigon for 3 years."
+      },
+      {
+        "speaker": "A (Bạn)",
+        "role": "learner",
+        "viet": "Ồ tuyệt quá! Khi nào rảnh, mình đi cà phê nhé!",
+        "zh": "哇太棒了！有空的時候，我們一起去喝咖啡吧！",
+        "en": "Oh wonderful! When you are free, let us go for coffee!"
+      },
+      {
+        "speaker": "B (Bạn Việt)",
+        "role": "npc",
+        "viet": "Nhất trí luôn! Kết bạn Zalo với mình nha!",
+        "zh": "完全贊同！加我的 Zalo 好友吧！",
+        "en": "Totally agreed! Let us connect on Zalo!"
+      }
+    ],
+    "dialogueSections": [
+      {
+        "id": "d1",
+        "titleZh": "Day 7: 社交閒聊與結交越南好友",
+        "titleVi": "Ngày 7",
+        "titleEn": "Day 7: Small Talk & Making Local Friends",
+        "summaryZh": "聊家鄉、交換 Zalo、相約喝咖啡，建立深厚跨國友誼！",
+        "lines": [
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Quê bạn ở đâu vậy? Bạn ở Sài Gòn lâu chưa?",
+            "zh": "你的家鄉在哪裡呢？你在西貢很久了嗎？",
+            "en": "Where is your hometown? Have you lived in Saigon long?"
+          },
+          {
+            "speaker": "B (Bạn Việt)",
+            "role": "npc",
+            "viet": "Quê mình ở Đà Nẵng, mình vào Sài Gòn làm việc 3 năm rồi.",
+            "zh": "我家鄉在峴港，我來西貢工作三年了。",
+            "en": "My hometown is Da Nang, I have worked in Saigon for 3 years."
+          },
+          {
+            "speaker": "A (Bạn)",
+            "role": "learner",
+            "viet": "Ồ tuyệt quá! Khi nào rảnh, mình đi cà phê nhé!",
+            "zh": "哇太棒了！有空的時候，我們一起去喝咖啡吧！",
+            "en": "Oh wonderful! When you are free, let us go for coffee!"
+          },
+          {
+            "speaker": "B (Bạn Việt)",
+            "role": "npc",
+            "viet": "Nhất trí luôn! Kết bạn Zalo với mình nha!",
+            "zh": "完全贊同！加我的 Zalo 好友吧！",
+            "en": "Totally agreed! Let us connect on Zalo!"
+          }
+        ]
+      }
+    ],
+    "vocab": [
+      {
+        "viet": "Quê bạn ở đâu?",
+        "zh": "你的家鄉在哪裡？",
+        "en": "Where is your hometown?"
+      },
+      {
+        "viet": "Bạn thích ăn món Việt nào nhất?",
+        "zh": "你最喜歡吃哪道越南菜？",
+        "en": "What is your favorite Vietnamese food?"
+      },
+      {
+        "viet": "Khi nào rảnh, mình đi cà phê nhé!",
+        "zh": "有空的時候，我們一起去喝咖啡吧！",
+        "en": "When you are free, let us go for coffee!"
+      },
+      {
+        "viet": "Kết bạn Zalo / Facebook với mình nha!",
+        "zh": "加我的 Zalo / Facebook 好友吧！",
+        "en": "Let us connect on Zalo / Facebook!"
+      },
+      {
+        "viet": "Chúc bạn một ngày vui vẻ!",
+        "zh": "祝你有愉快美好的一天！",
+        "en": "Wish you a wonderful and joyful day!"
       }
     ]
   }

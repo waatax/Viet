@@ -89,6 +89,10 @@ export function useDialoguePlayback({ lines = [], accent = 'north', nativeLang =
     }
   }, []);
 
+  const playSingleLine = useCallback((index, mode = 'vi-zh') => {
+    seqRef.current?.playSingleLine(index, mode);
+  }, []);
+
   const pause = useCallback(() => seqRef.current?.pause(), []);
   const resume = useCallback(() => seqRef.current?.resume(), []);
   const togglePause = useCallback(() => seqRef.current?.togglePause(), []);
@@ -109,6 +113,7 @@ export function useDialoguePlayback({ lines = [], accent = 'north', nativeLang =
     play,
     toggleMode,
     playFrom,
+    playSingleLine,
     pause,
     resume,
     togglePause,

@@ -44,7 +44,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Eye, EyeOff, Puzzle, ThumbsUp, ThumbsDown,
   Zap, Calendar, CheckCircle2, Circle, Volume2, Sparkles, Trophy,
-  ArrowRight, ShieldCheck, HelpCircle, Heart, Star, Award, ChevronRight, Play, MessageSquare, Lightbulb, Users
+  ArrowRight, ShieldCheck, HelpCircle, Heart, Star, Award, ChevronRight, Play, MessageSquare, Lightbulb, Users, Headphones
 } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -1125,9 +1125,41 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
                       </div>
                     </div>
 
-                    <button className="speaker-btn" style={{ padding: '0.35rem', flexShrink: 0, marginTop: '4px' }} title="發音">
-                      <Volume2 size={16} />
-                    </button>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', flexShrink: 0, marginTop: '4px' }}>
+                      <button
+                        className={`speaker-btn mini-btn ${isSequenceLine ? 'playing' : ''}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          audioEngine.playHaptic('tap');
+                          dialoguePlayer.playFrom(lIdx);
+                        }}
+                        title={learningMode === 'zh' ? '從此句開始連播' : 'Play from here'}
+                      >
+                        <Play size={13} />
+                      </button>
+                      <button
+                        className={`speaker-btn mini-btn ${isSequenceLine && dialoguePlayer.mode === 'vi-zh' ? 'playing' : ''}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          audioEngine.playHaptic('tap');
+                          dialoguePlayer.playSingleLine(lIdx, 'vi-zh');
+                        }}
+                        title={learningMode === 'zh' ? '精聽此句 (一句越文 一句中文)' : 'Play Viet + Translation'}
+                        style={{ color: 'var(--brand-gold, #ca8a04)' }}
+                      >
+                        <Headphones size={13} />
+                      </button>
+                      <button
+                        className="speaker-btn mini-btn"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handlePlayAudio(line.viet);
+                        }}
+                        title={learningMode === 'zh' ? '單句朗讀 (越文原音)' : 'Play Viet'}
+                      >
+                        <Volume2 size={13} />
+                      </button>
+                    </div>
                   </div>
                 );
               })}

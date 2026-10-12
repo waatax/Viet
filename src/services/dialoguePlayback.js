@@ -26,11 +26,11 @@ export const DEFAULT_PREFS = {
 };
 
 const GAP_MS = {
-  betweenReps: 550,
-  viToNative: 380,
-  betweenLines: 750,
-  betweenLinesSlow: 1000,
-  loopRestart: 1600
+  betweenReps: 450,
+  viToNative: 320,
+  betweenLines: 650,
+  betweenLinesSlow: 900,
+  loopRestart: 1400
 };
 
 // ---------------------------------------------------------------------------
@@ -86,6 +86,7 @@ export class DialogueSequencer {
     this.token = 0;
     this.timers = new Set();
     this.selfStopping = false;
+    this.singleLineOnly = false;
 
     this.unsubscribeState = audioEngine.subscribe(this.handleEngineState);
     this.unsubscribeStop = audioEngine.onStop(this.handleExternalStop);
@@ -170,6 +171,7 @@ export class DialogueSequencer {
   start({ lines, mode = 'vi-zh', fromIndex = 0, ...ctx } = {}) {
     if (activeSequencer && activeSequencer !== this) activeSequencer.halt();
     activeSequencer = this;
+    this.singleLineOnly = false;
 
     if (ctx) this.updateContext(ctx);
     if (lines) this.setLines(lines, this.ctx.nativeLang);
@@ -181,6 +183,21 @@ export class DialogueSequencer {
     this.setState({ status: 'playing', mode: PLAY_MODES.includes(mode) ? mode : 'vi-zh', index, part: null, rep: 0 });
     this.bindMediaSession();
     this.runLine(index);
+  }
+
+  playSingleLine(index, mode = 'vi-zh') {
+    if (activeSequencer && activeSequencer !== this) activeSequencer.halt();
+    activeSequencer = this;
+    this.singleLineOnly = true;
+
+    if (!this.lines.length) return;
+
+    this.token++;
+    this.clearTimers();
+    const targetIdx = Math.min(Math.max(index, 0), this.lines.length - 1);
+    this.setState({ status: 'playing', mode: PLAY_MODES.includes(mode) ? mode : 'vi-zh', index: targetIdx, part: null, rep: 0 });
+    this.bindMediaSession();
+    this.runLine(targetIdx);
   }
 
   pause() {
@@ -234,6 +251,7 @@ export class DialogueSequencer {
 
   jumpTo(index, mode = this.state.mode) {
     if (!this.lines.length) return;
+    this.singleLineOnly = false;
     if (this.state.status === 'idle' || mode !== this.state.mode) {
       this.start({ mode, fromIndex: index });
       return;
@@ -345,6 +363,13 @@ export class DialogueSequencer {
       return;
     }
 
+    // Translation finished: if single line only, release cleanly
+    if (this.singleLineOnly) {
+      this.token++;
+      this.release();
+      return;
+    }
+
     // Translation finished → next line
     this.later(() => this.runLine(index + 1), lineGap);
   }
@@ -353,6 +378,11 @@ export class DialogueSequencer {
     if (this.state.mode === 'vi-zh' && this.lines[index]?.native) {
       this.later(() => this.speakPart(index, 'native', 0), GAP_MS.viToNative);
     } else {
+      if (this.singleLineOnly) {
+        this.token++;
+        this.release();
+        return;
+      }
       this.later(() => this.runLine(index + 1), lineGap);
     }
   }

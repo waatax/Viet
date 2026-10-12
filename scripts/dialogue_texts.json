@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-11T23:56:16.767Z",
-  "totalLines": 652,
+  "generatedAt": "2026-10-12T01:57:26.284Z",
+  "totalLines": 777,
   "zh": [
     {
       "raw": "我想去越南旅遊，你能介紹幾個城市給我嗎？",
@@ -2528,6 +2528,506 @@
       "source": "scenario-vocab:pharmacy_clinic_visit"
     },
     {
+      "raw": "你好！我是 Nam。很高興認識你。",
+      "cleaned": "你好！我是 Nam。很高興認識你。",
+      "source": "scenario:stage1_greeting:s1_d1"
+    },
+    {
+      "raw": "Nam 哥你好！我是 Lan。你是哪國人？",
+      "cleaned": "Nam 哥你好！我是 Lan。你是哪國人？",
+      "source": "scenario:stage1_greeting:s1_d1"
+    },
+    {
+      "raw": "我是台灣人。那你呢？",
+      "cleaned": "我是台灣人。那你呢？",
+      "source": "scenario:stage1_greeting:s1_d1"
+    },
+    {
+      "raw": "我是越南人。你學越南語很久了嗎？",
+      "cleaned": "我是越南人。你學越南語很久了嗎？",
+      "source": "scenario:stage1_greeting:s1_d1"
+    },
+    {
+      "raw": "我才剛學了兩個月而已。",
+      "cleaned": "我才剛學了兩個月而已。",
+      "source": "scenario:stage1_greeting:s1_d1"
+    },
+    {
+      "raw": "服務員！給我看一下菜單。",
+      "cleaned": "服務員！給我看一下菜單。",
+      "source": "scenario:stage2_dining_transport:s2_d1"
+    },
+    {
+      "raw": "好的，菜單在這裡。哥想點什麼？",
+      "cleaned": "好的，菜單在這裡。哥想點什麼？",
+      "source": "scenario:stage2_dining_transport:s2_d1"
+    },
+    {
+      "raw": "給我一碗半熟牛肉河粉和一杯冰牛奶咖啡。",
+      "cleaned": "給我一碗半熟牛肉河粉和一杯冰牛奶咖啡。",
+      "source": "scenario:stage2_dining_transport:s2_d1"
+    },
+    {
+      "raw": "哥要加蔥和香菜嗎？",
+      "cleaned": "哥要加蔥和香菜嗎？",
+      "source": "scenario:stage2_dining_transport:s2_d1"
+    },
+    {
+      "raw": "要的，多給點生菜喔！順便幫我結帳。",
+      "cleaned": "要的，多給點生菜喔！順便幫我結帳。",
+      "source": "scenario:stage2_dining_transport:s2_d1"
+    },
+    {
+      "raw": "司機大哥，請載我到檳城市場。",
+      "cleaned": "司機大哥，請載我到檳城市場。",
+      "source": "scenario:stage2_dining_transport:s2_d2"
+    },
+    {
+      "raw": "好的，請上車。",
+      "cleaned": "好的，請上車。",
+      "source": "scenario:stage2_dining_transport:s2_d2"
+    },
+    {
+      "raw": "到前面的十字路口請右轉。",
+      "cleaned": "到前面的十字路口請右轉。",
+      "source": "scenario:stage2_dining_transport:s2_d2"
+    },
+    {
+      "raw": "到了。總共八萬越南盾 (80,000 VND)。",
+      "cleaned": "到了。總共八萬越南盾 。",
+      "source": "scenario:stage2_dining_transport:s2_d2"
+    },
+    {
+      "raw": "你好，你哪裡感覺不舒服？",
+      "cleaned": "你好，你哪裡感覺不舒服？",
+      "source": "scenario:stage3_clinic_housing:s3_d1"
+    },
+    {
+      "raw": "我從昨晚開始發高燒，而且喉嚨很痛。",
+      "cleaned": "我從昨晚開始發高燒，而且喉嚨很痛。",
+      "source": "scenario:stage3_clinic_housing:s3_d1"
+    },
+    {
+      "raw": "請張開嘴巴讓我檢查一下喉嚨。",
+      "cleaned": "請張開嘴巴讓我檢查一下喉嚨。",
+      "source": "scenario:stage3_clinic_housing:s3_d1"
+    },
+    {
+      "raw": "您是急性咽喉炎。這款藥每天飯後吃三次喔。",
+      "cleaned": "您是急性咽喉炎。這款藥每天飯後吃三次喔。",
+      "source": "scenario:stage3_clinic_housing:s3_d1"
+    },
+    {
+      "raw": "陳總您好！非常榮幸接待您的代表團。",
+      "cleaned": "陳總您好！非常榮幸接待您的代表團。",
+      "source": "scenario:stage4_biz_contract:s4_d1"
+    },
+    {
+      "raw": "謝謝阮總。我們非常關注貴公司的生產產能。",
+      "cleaned": "謝謝阮總。我們非常關注貴公司的生產產能。",
+      "source": "scenario:stage4_biz_contract:s4_d1"
+    },
+    {
+      "raw": "我們承諾保證質量標準並按時交貨。",
+      "cleaned": "我們承諾保證質量標準並按時交貨。",
+      "source": "scenario:stage4_biz_contract:s4_d1"
+    },
+    {
+      "raw": "太好了。讓我們檢視合同中的付款條款。",
+      "cleaned": "太好了。讓我們檢視合同中的付款條款。",
+      "source": "scenario:stage4_biz_contract:s4_d1"
+    },
+    {
+      "raw": "越南正成為全球高科技集團極具吸引力的投資目的地。",
+      "cleaned": "越南正成為全球高科技集團極具吸引力的投資目的地。",
+      "source": "scenario:stage5_fdi_economy:s5_d1"
+    },
+    {
+      "raw": "稅收優惠政策與年輕人力資源是吸引我們投資的關鍵要素。",
+      "cleaned": "稅收優惠政策與年輕人力資源是吸引我們投資的關鍵要素。",
+      "source": "scenario:stage5_fdi_economy:s5_d1"
+    },
+    {
+      "raw": "永續發展必須與數位轉型及環境保護並駕齊驅。",
+      "cleaned": "永續發展必須與數位轉型及環境保護並駕齊驅。",
+      "source": "scenario:stage5_fdi_economy:s5_d1"
+    },
+    {
+      "raw": "我要辦理一個個人銀行帳戶。",
+      "cleaned": "我要辦理一個個人銀行帳戶。",
+      "source": "scenario:bank_open_account:d1"
+    },
+    {
+      "raw": "請出示您的護照與有效簽證。",
+      "cleaned": "請出示您的護照與有效簽證。",
+      "source": "scenario:bank_open_account:d1"
+    },
+    {
+      "raw": "這是我的護照與工作合約。",
+      "cleaned": "這是我的護照與工作合約。",
+      "source": "scenario:bank_open_account:d1"
+    },
+    {
+      "raw": "請填寫這張申請表並在此簽名。",
+      "cleaned": "請填寫這張申請表並在此簽名。",
+      "source": "scenario:bank_open_account:d1"
+    },
+    {
+      "raw": "我想轉帳二十億越南盾 (2,000,000,000 VND) 給合作公司。",
+      "cleaned": "我想轉帳二十億越南盾 給合作公司。",
+      "source": "scenario:bank_wire_transfer:d1"
+    },
+    {
+      "raw": "好的，請填寫收款帳號與轉帳備註內容。",
+      "cleaned": "好的，請填寫收款帳號與轉帳備註內容。",
+      "source": "scenario:bank_wire_transfer:d1"
+    },
+    {
+      "raw": "轉帳手續費是多少？",
+      "cleaned": "轉帳手續費是多少？",
+      "source": "scenario:bank_wire_transfer:d1"
+    },
+    {
+      "raw": "手續費包含加值稅共 11,000 越南盾。",
+      "cleaned": "手續費包含加值稅共 11,000 越南盾。",
+      "source": "scenario:bank_wire_transfer:d1"
+    },
+    {
+      "raw": "十二個月期的定期存款年利率是多少？",
+      "cleaned": "十二個月期的定期存款年利率是多少？",
+      "source": "scenario:bank_deposit_interest:d1"
+    },
+    {
+      "raw": "目前年利率是 5.5%。",
+      "cleaned": "目前年利率是 5.5%。",
+      "source": "scenario:bank_deposit_interest:d1"
+    },
+    {
+      "raw": "我想辦理五十億盾 (5,000,000,000 VND) 的一年期定存。",
+      "cleaned": "我想辦理五十億盾 的一年期定存。",
+      "source": "scenario:bank_deposit_interest:d1"
+    },
+    {
+      "raw": "好的，我馬上為您辦理定存存摺。",
+      "cleaned": "好的，我馬上為您辦理定存存摺。",
+      "source": "scenario:bank_deposit_interest:d1"
+    },
+    {
+      "raw": "您好哥哥！我的名字叫阿明。",
+      "cleaned": "您好哥哥！我的名字叫阿明。",
+      "source": "scenario:ft_day1_fasttrack:d1"
+    },
+    {
+      "raw": "你好！很高興在越南見到你。",
+      "cleaned": "你好！很高興在越南見到你。",
+      "source": "scenario:ft_day1_fasttrack:d1"
+    },
+    {
+      "raw": "好的，非常感謝哥！我剛開始學越南語。",
+      "cleaned": "好的，非常感謝哥！我剛開始學越南語。",
+      "source": "scenario:ft_day1_fasttrack:d1"
+    },
+    {
+      "raw": "你越南語說得很棒喔，加油！",
+      "cleaned": "你越南語說得很棒喔，加油！",
+      "source": "scenario:ft_day1_fasttrack:d1"
+    },
+    {
+      "raw": "你好！(通用)",
+      "cleaned": "你好！",
+      "source": "scenario-vocab:ft_day1_fasttrack"
+    },
+    {
+      "raw": "非常感謝！",
+      "cleaned": "非常感謝！",
+      "source": "scenario-vocab:ft_day1_fasttrack"
+    },
+    {
+      "raw": "不好意思 / 對不起！",
+      "cleaned": "不好意思 、 對不起！",
+      "source": "scenario-vocab:ft_day1_fasttrack"
+    },
+    {
+      "raw": "好的 / 是的 (超有禮貌應答)",
+      "cleaned": "好的 、 是的",
+      "source": "scenario-vocab:ft_day1_fasttrack"
+    },
+    {
+      "raw": "很高興認識你！",
+      "cleaned": "很高興認識你！",
+      "source": "scenario-vocab:ft_day1_fasttrack"
+    },
+    {
+      "raw": "服務生！給我一杯冰煉乳咖啡，少糖。",
+      "cleaned": "服務生！給我一杯冰煉乳咖啡，少糖。",
+      "source": "scenario:ft_day2_fasttrack:d1"
+    },
+    {
+      "raw": "馬上來！哥哥要加點法國麵包嗎？",
+      "cleaned": "馬上來！哥哥要加點法國麵包嗎？",
+      "source": "scenario:ft_day2_fasttrack:d1"
+    },
+    {
+      "raw": "再給我一份火腿法國麵包喔。",
+      "cleaned": "再給我一份火腿法國麵包喔。",
+      "source": "scenario:ft_day2_fasttrack:d1"
+    },
+    {
+      "raw": "好的，一共是四萬五千越盾。",
+      "cleaned": "好的，一共是四萬五千越盾。",
+      "source": "scenario:ft_day2_fasttrack:d1"
+    },
+    {
+      "raw": "請給我一杯冰煉乳咖啡。",
+      "cleaned": "請給我一杯冰煉乳咖啡。",
+      "source": "scenario-vocab:ft_day2_fasttrack"
+    },
+    {
+      "raw": "請給我一碗牛肉河粉。",
+      "cleaned": "請給我一碗牛肉河粉。",
+      "source": "scenario-vocab:ft_day2_fasttrack"
+    },
+    {
+      "raw": "不要糖，少冰喔！",
+      "cleaned": "不要糖，少冰喔！",
+      "source": "scenario-vocab:ft_day2_fasttrack"
+    },
+    {
+      "raw": "有越式法國麵包嗎？",
+      "cleaned": "有越式法國麵包嗎？",
+      "source": "scenario-vocab:ft_day2_fasttrack"
+    },
+    {
+      "raw": "太好吃了，謝謝你！",
+      "cleaned": "太好吃了，謝謝你！",
+      "source": "scenario-vocab:ft_day2_fasttrack"
+    },
+    {
+      "raw": "姐姐，這件衣服多少錢？",
+      "cleaned": "姐姐，這件衣服多少錢？",
+      "source": "scenario:ft_day3_fasttrack:d1"
+    },
+    {
+      "raw": "十五萬盾喔弟弟。",
+      "cleaned": "十五萬盾喔弟弟。",
+      "source": "scenario:ft_day3_fasttrack:d1"
+    },
+    {
+      "raw": "太貴了！可以算便宜點嗎？十萬盾好嗎！",
+      "cleaned": "太貴了！可以算便宜點嗎？十萬盾好嗎！",
+      "source": "scenario:ft_day3_fasttrack:d1"
+    },
+    {
+      "raw": "好吧，算你開市價 100k 賣給你！",
+      "cleaned": "好吧，算你開市價 100k 賣給你！",
+      "source": "scenario:ft_day3_fasttrack:d1"
+    },
+    {
+      "raw": "這個多少錢？",
+      "cleaned": "這個多少錢？",
+      "source": "scenario-vocab:ft_day3_fasttrack"
+    },
+    {
+      "raw": "五萬越盾 (約 65 台幣)。",
+      "cleaned": "五萬越盾 。",
+      "source": "scenario-vocab:ft_day3_fasttrack"
+    },
+    {
+      "raw": "太貴了！可以算便宜一點嗎？",
+      "cleaned": "太貴了！可以算便宜一點嗎？",
+      "source": "scenario-vocab:ft_day3_fasttrack"
+    },
+    {
+      "raw": "十萬盾可以嗎？",
+      "cleaned": "十萬盾可以嗎？",
+      "source": "scenario-vocab:ft_day3_fasttrack"
+    },
+    {
+      "raw": "我要買這個，結帳喔。",
+      "cleaned": "我要買這個，結帳喔。",
+      "source": "scenario-vocab:ft_day3_fasttrack"
+    },
+    {
+      "raw": "你好先生，您要去哪裡呢？",
+      "cleaned": "你好先生，您要去哪裡呢？",
+      "source": "scenario:ft_day4_fasttrack:d1"
+    },
+    {
+      "raw": "請帶我到濱城市場，沿這條路直走喔。",
+      "cleaned": "請帶我到濱城市場，沿這條路直走喔。",
+      "source": "scenario:ft_day4_fasttrack:d1"
+    },
+    {
+      "raw": "到這個十字路口要左轉還是右轉呢？",
+      "cleaned": "到這個十字路口要左轉還是右轉呢？",
+      "source": "scenario:ft_day4_fasttrack:d1"
+    },
+    {
+      "raw": "右轉，然後幫我停在市場大門前！",
+      "cleaned": "右轉，然後幫我停在市場大門前！",
+      "source": "scenario:ft_day4_fasttrack:d1"
+    },
+    {
+      "raw": "請帶我到濱城市場。",
+      "cleaned": "請帶我到濱城市場。",
+      "source": "scenario-vocab:ft_day4_fasttrack"
+    },
+    {
+      "raw": "直走，然後左轉 / 右轉。",
+      "cleaned": "直走，然後左轉 、 右轉。",
+      "source": "scenario-vocab:ft_day4_fasttrack"
+    },
+    {
+      "raw": "請停在這裡喔！",
+      "cleaned": "請停在這裡喔！",
+      "source": "scenario-vocab:ft_day4_fasttrack"
+    },
+    {
+      "raw": "還要多久/多遠才會到？",
+      "cleaned": "還要多久、多遠才會到？",
+      "source": "scenario-vocab:ft_day4_fasttrack"
+    },
+    {
+      "raw": "到了，謝謝司機大哥！",
+      "cleaned": "到了，謝謝司機大哥！",
+      "source": "scenario-vocab:ft_day4_fasttrack"
+    },
+    {
+      "raw": "晚輩向伯伯問好！伯伯身體好嗎？",
+      "cleaned": "晚輩向伯伯問好！伯伯身體好嗎？",
+      "source": "scenario:ft_day5_fasttrack:d1"
+    },
+    {
+      "raw": "你好！伯伯很好，你在這裡玩得開心嗎？",
+      "cleaned": "你好！伯伯很好，你在這裡玩得開心嗎？",
+      "source": "scenario:ft_day5_fasttrack:d1"
+    },
+    {
+      "raw": "是的，晚輩非常喜歡越南，這裡的人都很友善！",
+      "cleaned": "是的，晚輩非常喜歡越南，這裡的人都很友善！",
+      "source": "scenario:ft_day5_fasttrack:d1"
+    },
+    {
+      "raw": "太好了，有空再來伯伯家坐坐！",
+      "cleaned": "太好了，有空再來伯伯家坐坐！",
+      "source": "scenario:ft_day5_fasttrack:d1"
+    },
+    {
+      "raw": "哥哥好 / 姐姐好 (同輩年輕男女尊稱)。",
+      "cleaned": "哥哥好 、 姐姐好 。",
+      "source": "scenario-vocab:ft_day5_fasttrack"
+    },
+    {
+      "raw": "晚輩向長輩伯伯 / 阿姨問好！",
+      "cleaned": "晚輩向長輩伯伯 、 阿姨問好！",
+      "source": "scenario-vocab:ft_day5_fasttrack"
+    },
+    {
+      "raw": "服務生小弟/小妹，我要點餐！",
+      "cleaned": "服務生小弟、小妹，我要點餐！",
+      "source": "scenario-vocab:ft_day5_fasttrack"
+    },
+    {
+      "raw": "請問您的大名叫什麼？",
+      "cleaned": "請問您的大名叫什麼？",
+      "source": "scenario-vocab:ft_day5_fasttrack"
+    },
+    {
+      "raw": "我是台灣人。",
+      "cleaned": "我是台灣人。",
+      "source": "scenario-vocab:ft_day5_fasttrack"
+    },
+    {
+      "raw": "店員，我要買這瓶礦泉水和這包餅乾。",
+      "cleaned": "店員，我要買這瓶礦泉水和這包餅乾。",
+      "source": "scenario:ft_day6_fasttrack:d1"
+    },
+    {
+      "raw": "好的，一共是三萬越盾。",
+      "cleaned": "好的，一共是三萬越盾。",
+      "source": "scenario:ft_day6_fasttrack:d1"
+    },
+    {
+      "raw": "我掃 VietQR 條碼付款喔。",
+      "cleaned": "我掃 VietQR 條碼付款喔。",
+      "source": "scenario:ft_day6_fasttrack:d1"
+    },
+    {
+      "raw": "好的，條碼在這裡。發票收據給您！",
+      "cleaned": "好的，條碼在這裡。發票收據給您！",
+      "source": "scenario:ft_day6_fasttrack:d1"
+    },
+    {
+      "raw": "有礦泉水嗎？",
+      "cleaned": "有礦泉水嗎？",
+      "source": "scenario-vocab:ft_day6_fasttrack"
+    },
+    {
+      "raw": "可以用信用卡付款嗎？",
+      "cleaned": "可以用信用卡付款嗎？",
+      "source": "scenario-vocab:ft_day6_fasttrack"
+    },
+    {
+      "raw": "請給我一個提袋 / 發票收據。",
+      "cleaned": "請給我一個提袋 、 發票收據。",
+      "source": "scenario-vocab:ft_day6_fasttrack"
+    },
+    {
+      "raw": "我可以試穿/試用這個嗎？",
+      "cleaned": "我可以試穿、試用這個嗎？",
+      "source": "scenario-vocab:ft_day6_fasttrack"
+    },
+    {
+      "raw": "錢剛好，謝謝你！",
+      "cleaned": "錢剛好，謝謝你！",
+      "source": "scenario-vocab:ft_day6_fasttrack"
+    },
+    {
+      "raw": "你的家鄉在哪裡呢？你在西貢很久了嗎？",
+      "cleaned": "你的家鄉在哪裡呢？你在西貢很久了嗎？",
+      "source": "scenario:ft_day7_fasttrack:d1"
+    },
+    {
+      "raw": "我家鄉在峴港，我來西貢工作三年了。",
+      "cleaned": "我家鄉在峴港，我來西貢工作三年了。",
+      "source": "scenario:ft_day7_fasttrack:d1"
+    },
+    {
+      "raw": "哇太棒了！有空的時候，我們一起去喝咖啡吧！",
+      "cleaned": "哇太棒了！有空的時候，我們一起去喝咖啡吧！",
+      "source": "scenario:ft_day7_fasttrack:d1"
+    },
+    {
+      "raw": "完全贊同！加我的 Zalo 好友吧！",
+      "cleaned": "完全贊同！加我的 Zalo 好友吧！",
+      "source": "scenario:ft_day7_fasttrack:d1"
+    },
+    {
+      "raw": "你的家鄉在哪裡？",
+      "cleaned": "你的家鄉在哪裡？",
+      "source": "scenario-vocab:ft_day7_fasttrack"
+    },
+    {
+      "raw": "你最喜歡吃哪道越南菜？",
+      "cleaned": "你最喜歡吃哪道越南菜？",
+      "source": "scenario-vocab:ft_day7_fasttrack"
+    },
+    {
+      "raw": "有空的時候，我們一起去喝咖啡吧！",
+      "cleaned": "有空的時候，我們一起去喝咖啡吧！",
+      "source": "scenario-vocab:ft_day7_fasttrack"
+    },
+    {
+      "raw": "加我的 Zalo / Facebook 好友吧！",
+      "cleaned": "加我的 Zalo 、 Facebook 好友吧！",
+      "source": "scenario-vocab:ft_day7_fasttrack"
+    },
+    {
+      "raw": "祝你有愉快美好的一天！",
+      "cleaned": "祝你有愉快美好的一天！",
+      "source": "scenario-vocab:ft_day7_fasttrack"
+    },
+    {
       "raw": "南總經理您好！非常榮幸能拜會您。",
       "cleaned": "南總經理您好！非常榮幸能拜會您。",
       "source": "topic:business_greeting:dialogue_biz_1"
@@ -2858,206 +3358,6 @@
       "source": "topic:numbers_scale:dialogue_num_2"
     },
     {
-      "raw": "您好哥哥！我的名字叫阿明。",
-      "cleaned": "您好哥哥！我的名字叫阿明。",
-      "source": "fasttrack:day1"
-    },
-    {
-      "raw": "你好！很高興在越南見到你。",
-      "cleaned": "你好！很高興在越南見到你。",
-      "source": "fasttrack:day1"
-    },
-    {
-      "raw": "好的，非常感謝哥！我剛開始學越南語。",
-      "cleaned": "好的，非常感謝哥！我剛開始學越南語。",
-      "source": "fasttrack:day1"
-    },
-    {
-      "raw": "你越南語說得很棒喔，加油！",
-      "cleaned": "你越南語說得很棒喔，加油！",
-      "source": "fasttrack:day1"
-    },
-    {
-      "raw": "服務生！給我一杯冰煉乳咖啡，少糖。",
-      "cleaned": "服務生！給我一杯冰煉乳咖啡，少糖。",
-      "source": "fasttrack:day2"
-    },
-    {
-      "raw": "馬上來！哥哥要加點法國麵包嗎？",
-      "cleaned": "馬上來！哥哥要加點法國麵包嗎？",
-      "source": "fasttrack:day2"
-    },
-    {
-      "raw": "再給我一份火腿法國麵包喔。",
-      "cleaned": "再給我一份火腿法國麵包喔。",
-      "source": "fasttrack:day2"
-    },
-    {
-      "raw": "好的，一共是四萬五千越盾。",
-      "cleaned": "好的，一共是四萬五千越盾。",
-      "source": "fasttrack:day2"
-    },
-    {
-      "raw": "姐姐，這件衣服多少錢？",
-      "cleaned": "姐姐，這件衣服多少錢？",
-      "source": "fasttrack:day3"
-    },
-    {
-      "raw": "十五萬盾喔弟弟。",
-      "cleaned": "十五萬盾喔弟弟。",
-      "source": "fasttrack:day3"
-    },
-    {
-      "raw": "太貴了！可以算便宜點嗎？十萬盾好嗎！",
-      "cleaned": "太貴了！可以算便宜點嗎？十萬盾好嗎！",
-      "source": "fasttrack:day3"
-    },
-    {
-      "raw": "好吧，算你開市價 100k 賣給你！",
-      "cleaned": "好吧，算你開市價 100k 賣給你！",
-      "source": "fasttrack:day3"
-    },
-    {
-      "raw": "你好先生，您要去哪裡呢？",
-      "cleaned": "你好先生，您要去哪裡呢？",
-      "source": "fasttrack:day4"
-    },
-    {
-      "raw": "請帶我到濱城市場，沿這條路直走喔。",
-      "cleaned": "請帶我到濱城市場，沿這條路直走喔。",
-      "source": "fasttrack:day4"
-    },
-    {
-      "raw": "到這個十字路口要左轉還是右轉呢？",
-      "cleaned": "到這個十字路口要左轉還是右轉呢？",
-      "source": "fasttrack:day4"
-    },
-    {
-      "raw": "右轉，然後幫我停在市場大門前！",
-      "cleaned": "右轉，然後幫我停在市場大門前！",
-      "source": "fasttrack:day4"
-    },
-    {
-      "raw": "晚輩向伯伯問好！伯伯身體好嗎？",
-      "cleaned": "晚輩向伯伯問好！伯伯身體好嗎？",
-      "source": "fasttrack:day5"
-    },
-    {
-      "raw": "你好！伯伯很好，你在這裡玩得開心嗎？",
-      "cleaned": "你好！伯伯很好，你在這裡玩得開心嗎？",
-      "source": "fasttrack:day5"
-    },
-    {
-      "raw": "是的，晚輩非常喜歡越南，這裡的人都很友善！",
-      "cleaned": "是的，晚輩非常喜歡越南，這裡的人都很友善！",
-      "source": "fasttrack:day5"
-    },
-    {
-      "raw": "太好了，有空再來伯伯家坐坐！",
-      "cleaned": "太好了，有空再來伯伯家坐坐！",
-      "source": "fasttrack:day5"
-    },
-    {
-      "raw": "店員，我要買這瓶礦泉水和這包餅乾。",
-      "cleaned": "店員，我要買這瓶礦泉水和這包餅乾。",
-      "source": "fasttrack:day6"
-    },
-    {
-      "raw": "好的，一共是三萬越盾。",
-      "cleaned": "好的，一共是三萬越盾。",
-      "source": "fasttrack:day6"
-    },
-    {
-      "raw": "我掃 VietQR 條碼付款喔。",
-      "cleaned": "我掃 VietQR 條碼付款喔。",
-      "source": "fasttrack:day6"
-    },
-    {
-      "raw": "好的，條碼在這裡。發票收據給您！",
-      "cleaned": "好的，條碼在這裡。發票收據給您！",
-      "source": "fasttrack:day6"
-    },
-    {
-      "raw": "你的家鄉在哪裡呢？你在西貢很久了嗎？",
-      "cleaned": "你的家鄉在哪裡呢？你在西貢很久了嗎？",
-      "source": "fasttrack:day7"
-    },
-    {
-      "raw": "我家鄉在峴港，我來西貢工作三年了。",
-      "cleaned": "我家鄉在峴港，我來西貢工作三年了。",
-      "source": "fasttrack:day7"
-    },
-    {
-      "raw": "哇太棒了！有空的時候，我們一起去喝咖啡吧！",
-      "cleaned": "哇太棒了！有空的時候，我們一起去喝咖啡吧！",
-      "source": "fasttrack:day7"
-    },
-    {
-      "raw": "完全贊同！加我的 Zalo 好友吧！",
-      "cleaned": "完全贊同！加我的 Zalo 好友吧！",
-      "source": "fasttrack:day7"
-    },
-    {
-      "raw": "我要辦理一個個人銀行帳戶。",
-      "cleaned": "我要辦理一個個人銀行帳戶。",
-      "source": "banking:0"
-    },
-    {
-      "raw": "請出示您的護照與有效簽證。",
-      "cleaned": "請出示您的護照與有效簽證。",
-      "source": "banking:0"
-    },
-    {
-      "raw": "這是我的護照與工作合約。",
-      "cleaned": "這是我的護照與工作合約。",
-      "source": "banking:0"
-    },
-    {
-      "raw": "請填寫這張申請表並在此簽名。",
-      "cleaned": "請填寫這張申請表並在此簽名。",
-      "source": "banking:0"
-    },
-    {
-      "raw": "我想轉帳二十億越南盾 (2,000,000,000 VND) 給合作公司。",
-      "cleaned": "我想轉帳二十億越南盾 給合作公司。",
-      "source": "banking:1"
-    },
-    {
-      "raw": "好的，請填寫收款帳號與轉帳備註內容。",
-      "cleaned": "好的，請填寫收款帳號與轉帳備註內容。",
-      "source": "banking:1"
-    },
-    {
-      "raw": "轉帳手續費是多少？",
-      "cleaned": "轉帳手續費是多少？",
-      "source": "banking:1"
-    },
-    {
-      "raw": "手續費包含加值稅共 11,000 越南盾。",
-      "cleaned": "手續費包含加值稅共 11,000 越南盾。",
-      "source": "banking:1"
-    },
-    {
-      "raw": "十二個月期的定期存款年利率是多少？",
-      "cleaned": "十二個月期的定期存款年利率是多少？",
-      "source": "banking:2"
-    },
-    {
-      "raw": "目前年利率是 5.5%。",
-      "cleaned": "目前年利率是 5.5%。",
-      "source": "banking:2"
-    },
-    {
-      "raw": "我想辦理五十億盾 (5,000,000,000 VND) 的一年期定存。",
-      "cleaned": "我想辦理五十億盾 的一年期定存。",
-      "source": "banking:2"
-    },
-    {
-      "raw": "好的，我馬上為您辦理定存存摺。",
-      "cleaned": "好的，我馬上為您辦理定存存摺。",
-      "source": "banking:2"
-    },
-    {
       "raw": "這個一個多少錢？",
       "cleaned": "這個一個多少錢？",
       "source": "shopping-phrases"
@@ -3080,11 +3380,6 @@
     {
       "raw": "幫我當今天開市第一單，算個吉利價吧！",
       "cleaned": "幫我當今天開市第一單，算個吉利價吧！",
-      "source": "shopping-phrases"
-    },
-    {
-      "raw": "十萬盾可以嗎？(100.000đ được không?)",
-      "cleaned": "十萬盾可以嗎？",
       "source": "shopping-phrases"
     },
     {
@@ -3243,61 +3538,5 @@
       "source": "shopping-phrases"
     }
   ],
-  "viMissing": [
-    {
-      "raw": "Anh vui lòng cho tôi xem hộ chiếu và visa còn hạn ạ.",
-      "cleaned": "Anh vui lòng cho tôi xem hộ chiếu và visa còn hạn ạ.",
-      "source": "banking:0"
-    },
-    {
-      "raw": "Gửi cô hộ chiếu và hợp đồng lao động của tôi.",
-      "cleaned": "Gửi cô hộ chiếu và hợp đồng lao động của tôi.",
-      "source": "banking:0"
-    },
-    {
-      "raw": "Anh điền vào tờ khai này và ký tên ở đây nhé.",
-      "cleaned": "Anh điền vào tờ khai này và ký tên ở đây nhé.",
-      "source": "banking:0"
-    },
-    {
-      "raw": "Tôi muốn chuyển khoản hai tỷ đồng cho công ty đối tác.",
-      "cleaned": "Tôi muốn chuyển khoản hai tỷ đồng cho công ty đối tác.",
-      "source": "banking:1"
-    },
-    {
-      "raw": "Dạ, anh vui lòng điền số tài khoản thụ hưởng và nội dung chuyển tiền.",
-      "cleaned": "Dạ, anh vui lòng điền số tài khoản thụ hưởng và nội dung chuyển tiền.",
-      "source": "banking:1"
-    },
-    {
-      "raw": "Phí chuyển khoản là bao nhiêu?",
-      "cleaned": "Phí chuyển khoản là bao nhiêu?",
-      "source": "banking:1"
-    },
-    {
-      "raw": "Phí là mười một nghìn đồng đã bao gồm thuế VAT ạ.",
-      "cleaned": "Phí là mười một nghìn đồng đã bao gồm thuế VAT ạ.",
-      "source": "banking:1"
-    },
-    {
-      "raw": "Lãi suất gửi tiết kiệm kỳ hạn mười hai tháng là bao nhiêu?",
-      "cleaned": "Lãi suất gửi tiết kiệm kỳ hạn mười hai tháng là bao nhiêu?",
-      "source": "banking:2"
-    },
-    {
-      "raw": "Hiện tại lãi suất là năm phẩy năm phần trăm một năm ạ.",
-      "cleaned": "Hiện tại lãi suất là năm phẩy năm phần trăm một năm ạ.",
-      "source": "banking:2"
-    },
-    {
-      "raw": "Tôi muốn gửi năm tỷ đồng kỳ hạn một năm.",
-      "cleaned": "Tôi muốn gửi năm tỷ đồng kỳ hạn một năm.",
-      "source": "banking:2"
-    },
-    {
-      "raw": "Dạ, tôi sẽ làm sổ tiết kiệm ngay cho anh.",
-      "cleaned": "Dạ, tôi sẽ làm sổ tiết kiệm ngay cho anh.",
-      "source": "banking:2"
-    }
-  ]
+  "viMissing": []
 }

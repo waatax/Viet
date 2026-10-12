@@ -3,7 +3,7 @@ import {
   Sparkles, Volume2, Play, Pause, RotateCw, CheckCircle2,
   XCircle, Award, BookOpen, Layers, MessageSquare, ChevronRight,
   ChevronLeft, HelpCircle, ShieldCheck, Zap, Globe, ArrowRight,
-  ThumbsUp, ThumbsDown, Star, Check, MapPin
+  ThumbsUp, ThumbsDown, Star, Check, MapPin, Headphones
 } from 'lucide-react';
 import { SITUATIONAL_TOPICS } from '../data/situationalTopicsData';
 import { audioEngine } from '../services/audioEngine';
@@ -915,9 +915,20 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
                               <Play size={15} />
                             </button>
                             <button
+                              className={`audio-icon-btn ${isSequenceLine && dialoguePlayer.mode === 'vi-zh' ? 'playing' : ''}`}
+                              onClick={() => {
+                                audioEngine.playHaptic('tap');
+                                dialoguePlayer.playSingleLine(lIdx, 'vi-zh');
+                              }}
+                              title={learningMode === 'zh' ? '精聽此句 (一句越文 一句中文)' : 'Play this line (Viet + English)'}
+                              style={{ color: 'var(--brand-gold, #ca8a04)' }}
+                            >
+                              <Headphones size={15} />
+                            </button>
+                            <button
                               className={`audio-icon-btn ${isPlaying && !isSequenceLine ? 'playing' : ''}`}
                               onClick={() => handleSpeak(line.viet, key)}
-                              title={learningMode === 'zh' ? '播放單句朗讀' : 'Play line'}
+                              title={learningMode === 'zh' ? '單句朗讀 (越文原音)' : 'Play Viet line'}
                             >
                               <Volume2 size={16} />
                             </button>

@@ -18,7 +18,7 @@ const entrySource = `
 export { audioEngine } from './src/services/audioEngine.js';
 export { situationalScenarios } from './src/data/situationalScenarios.js';
 export { SITUATIONAL_TOPICS } from './src/data/situationalTopicsData.js';
-export { numbersAndCurrency } from './src/data/vietnameseData.js';
+export { numbersAndCurrency, multiScenarios } from './src/data/vietnameseData.js';
 export { FAST_TRACK_DAYS } from './src/components/FastTrackModule.jsx';
 `;
 
@@ -40,7 +40,7 @@ await build({
 });
 
 const mod = await import(pathToFileURL(bundlePath).href);
-const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, FAST_TRACK_DAYS } = mod;
+const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, multiScenarios, FAST_TRACK_DAYS } = mod;
 
 const groups = [];
 for (const sc of situationalScenarios) {
@@ -49,6 +49,11 @@ for (const sc of situationalScenarios) {
     : [{ id: 'd1', lines: sc.dialogues || sc.dialogue || [] }];
   sections.forEach(sec => groups.push({ source: `scenario:${sc.id}:${sec.id}`, lines: sec.lines || [] }));
   groups.push({ source: `scenario-vocab:${sc.id}`, lines: sc.vocab || sc.vocabulary || [] });
+}
+for (const ms of (multiScenarios || [])) {
+  for (const d of (ms.dialogues || [])) {
+    groups.push({ source: `multi:${ms.category}:${d.id}`, lines: d.lines || [] });
+  }
 }
 for (const topic of SITUATIONAL_TOPICS) {
   (topic.dialogues || []).forEach(d => groups.push({ source: `topic:${topic.id}:${d.id}`, lines: d.lines || [] }));

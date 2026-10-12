@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { Volume2, PlayCircle, Eye, EyeOff, Sparkles, Star, Copy, Check } from 'lucide-react';
+import { Volume2, PlayCircle, Eye, EyeOff, Sparkles, Star, Copy, Check, Headphones } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { bookmarkService } from '../services/bookmarkService';
@@ -406,16 +406,33 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, auto
                     title={t.jump(idx + 1)}
                   >
                     <PlayCircle size={15} />
-                    <span>{learningMode === 'zh' ? '從此句' : 'From here'}</span>
+                    <span>{learningMode === 'zh' ? '從此句連播' : 'From here'}</span>
+                  </button>
+
+                  <button
+                    className={`line-audio-trigger dpb-line-both-btn ${isSequenceLine && player.mode === 'vi-zh' ? 'playing' : ''}`}
+                    onClick={() => {
+                      audioEngine.playHaptic('tap');
+                      player.playSingleLine(idx, 'vi-zh');
+                    }}
+                    title={learningMode === 'zh' ? '精聽此句 (一句越文 一句中文)' : 'Play this line (Viet + English)'}
+                    style={{
+                      background: 'color-mix(in srgb, var(--brand-gold, #eab308) 12%, transparent)',
+                      borderColor: 'color-mix(in srgb, var(--brand-gold, #eab308) 40%, var(--border-color))',
+                      color: 'var(--brand-gold, #ca8a04)'
+                    }}
+                  >
+                    <Headphones size={15} />
+                    <span>{learningMode === 'zh' ? '越+中' : 'Vi+En'}</span>
                   </button>
 
                   <button
                     className={`line-audio-trigger ${engineKey === `line_${activeSectionId}_${idx}` ? 'playing' : ''}`}
                     onClick={() => handlePlayLine(vietText, idx)}
-                    title={learningMode === 'zh' ? '單句朗讀 (越文)' : 'Play line'}
+                    title={learningMode === 'zh' ? '單句朗讀 (越文原音)' : 'Play Viet'}
                   >
                     <Volume2 size={15} />
-                    <span>{player.prefs.speed < 0.85 ? (learningMode === 'zh' ? '慢速朗讀' : 'Slow') : (learningMode === 'zh' ? '朗讀' : 'Play')}</span>
+                    <span>{player.prefs.speed < 0.85 ? (learningMode === 'zh' ? '慢速越文' : 'Slow') : (learningMode === 'zh' ? '純越文' : 'Viet')}</span>
                   </button>
 
                   <button

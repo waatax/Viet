@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   ShoppingBag, DollarSign, Calculator, Volume2, ArrowRight, Landmark,
   Tag, ShieldCheck, Sparkles, Coins, Search, CheckCircle2, Gift,
-  Shirt, Apple, CreditCard, Flame, HelpCircle, Play, Pause, AlertTriangle
+  Shirt, Apple, CreditCard, Flame, HelpCircle, Play, Pause, AlertTriangle, Headphones
 } from 'lucide-react';
 import { numbersAndCurrency } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
@@ -214,13 +214,36 @@ const BankingDialogueCard = ({ diag, dIdx, selectedAccent, learningMode, activeK
                 </div>
                 {isSequenceLine && <div style={{ marginTop: '0.3rem' }}><PlaybackPartChip player={player} learningMode={learningMode} /></div>}
               </div>
-              <button
-                className={`speaker-btn mini-btn ${activeKey === `bank_${dIdx}_${lIdx}` ? 'playing' : ''}`}
-                onClick={() => onSpeakLine(line.viet, `bank_${dIdx}_${lIdx}`)}
-                title="朗讀對話句"
-              >
-                <Volume2 size={14} />
-              </button>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', flexShrink: 0 }}>
+                <button
+                  className={`speaker-btn mini-btn ${isSequenceLine ? 'playing' : ''}`}
+                  onClick={() => {
+                    audioEngine.playHaptic('tap');
+                    player.playFrom(lIdx);
+                  }}
+                  title={learningMode === 'zh' ? '從此句開始連播' : 'Play from here'}
+                >
+                  <Play size={13} />
+                </button>
+                <button
+                  className={`speaker-btn mini-btn ${isSequenceLine && player.mode === 'vi-zh' ? 'playing' : ''}`}
+                  onClick={() => {
+                    audioEngine.playHaptic('tap');
+                    player.playSingleLine(lIdx, 'vi-zh');
+                  }}
+                  title={learningMode === 'zh' ? '精聽此句 (一句越文 一句中文)' : 'Play Viet + Translation'}
+                  style={{ color: 'var(--brand-gold, #ca8a04)' }}
+                >
+                  <Headphones size={13} />
+                </button>
+                <button
+                  className={`speaker-btn mini-btn ${activeKey === `bank_${dIdx}_${lIdx}` ? 'playing' : ''}`}
+                  onClick={() => onSpeakLine(line.viet, `bank_${dIdx}_${lIdx}`)}
+                  title={learningMode === 'zh' ? '單句朗讀 (越文原音)' : 'Play Viet'}
+                >
+                  <Volume2 size={13} />
+                </button>
+              </div>
             </div>
           );
         })}
