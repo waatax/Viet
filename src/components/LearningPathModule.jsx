@@ -13,6 +13,7 @@ import { srsEngine } from '../services/srsEngine';
 import { audioEngine } from '../services/audioEngine';
 import { bookmarkService } from '../services/bookmarkService';
 import { useLanguage } from '../context/LanguageContext';
+import { HomeConversationStudio } from './HomeConversationStudio';
 import './LearningPathModule.css';
 
 export const VIETNAM_LANDSCAPES = [
@@ -449,7 +450,13 @@ export const PEDAGOGICAL_STEPS = [
   }
 ];
 
-export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
+export const LearningPathModule = ({
+  setActiveTab,
+  onOpenChapterFinder,
+  selectedAccent = 'north',
+  setSelectedAccent,
+  updateUserStats
+}) => {
   const { learningMode, loc, t } = useLanguage();
 
   // Which stages the learner has marked complete (persisted locally)
@@ -688,6 +695,14 @@ export const LearningPathModule = ({ setActiveTab, onOpenChapterFinder }) => {
 
   return (
     <div className="module-container">
+      {/* 🇻🇳 首頁頂部實質會話速播工作台 (Practical Situational Conversation Studio) */}
+      <HomeConversationStudio
+        selectedAccent={selectedAccent}
+        onSelectAccent={setSelectedAccent}
+        setActiveTab={setActiveTab}
+        updateUserStats={updateUserStats}
+      />
+
       {/* Hero Section with Live Progress Ring */}
       <section className="home-hero" aria-labelledby="home-title">
         <div className="hero-copy">

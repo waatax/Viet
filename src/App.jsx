@@ -282,6 +282,9 @@ export function App() {
             {activeTab === 'path' && (
               <LearningPathModule
                 setActiveTab={setActiveTab}
+                selectedAccent={selectedAccent}
+                setSelectedAccent={setSelectedAccent}
+                updateUserStats={updateUserStats}
                 onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
               />
             )}

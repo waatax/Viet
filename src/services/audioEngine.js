@@ -60,6 +60,11 @@ class AudioEngine {
       }
       this.setupUserGestureUnlock();
     }
+    this.offlineService = null;
+  }
+
+  setOfflineService(service) {
+    this.offlineService = service;
   }
 
   setSpeechRate(rate) {
@@ -604,14 +609,20 @@ class AudioEngine {
    * Plays a pre-bundled local MP3 audio file with session safety and memory protection
    */
   playLocalFile(audioUrl, rate = 1.0, options = {}, session = null) {
+    // If auto-cache is enabled, cache in background for future offline use
+    if (this.offlineService && this.offlineService.isAutoCacheEnabled()) {
+      this.offlineService.cacheAudioUrl(audioUrl).catch(() => {});
+    }
+
     return new Promise((resolve, reject) => {
       if (session !== null && this.sessionId !== session) {
         return resolve();
       }
 
-      try {
-        const audio = this.loadIntoMediaElement(audioUrl, rate);
-        this.currentAudio = audio;
+      const attemptPlay = (targetUrl) => {
+        try {
+          const audio = this.loadIntoMediaElement(targetUrl, rate);
+          this.currentAudio = audio;
 
         let finished = false;
         const cleanup = () => {
@@ -653,6 +664,18 @@ class AudioEngine {
           }
         };
 
+        const tryOfflineFallback = async (originalErr) => {
+          if (this.offlineService && targetUrl === audioUrl) {
+            try {
+              const cachedBlobUrl = await this.offlineService.getCachedBlobUrl(audioUrl);
+              if (cachedBlobUrl && cachedBlobUrl !== audioUrl) {
+                return attemptPlay(cachedBlobUrl);
+              }
+            } catch (err) {}
+          }
+          reject(originalErr);
+        };
+
         const handleError = (e) => {
           cleanup();
           if (this.currentAudio === audio) {
@@ -661,7 +684,7 @@ class AudioEngine {
           if (session !== null && this.sessionId !== session) {
             return resolve();
           }
-          reject(e);
+          tryOfflineFallback(e);
         };
 
         audio.addEventListener('ended', handleEnded);
@@ -678,14 +701,24 @@ class AudioEngine {
             if (e?.name === 'AbortError' || (session !== null && this.sessionId !== session)) {
               return resolve();
             }
-            reject(e);
+            tryOfflineFallback(e);
           });
         }
       } catch (err) {
-        reject(err);
+        if (this.offlineService && targetUrl === audioUrl) {
+          this.offlineService.getCachedBlobUrl(audioUrl).then(blobUrl => {
+            if (blobUrl) attemptPlay(blobUrl);
+            else reject(err);
+          }).catch(() => reject(err));
+        } else {
+          reject(err);
+        }
       }
-    });
-  }
+    };
+
+    attemptPlay(audioUrl);
+  });
+}
 
   /**
    * Fallback to Web Speech API first, then online audio stream
