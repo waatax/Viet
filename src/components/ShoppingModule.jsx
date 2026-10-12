@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   ShoppingBag, DollarSign, Calculator, Volume2, ArrowRight, Landmark,
   Tag, ShieldCheck, Sparkles, Coins, Search, CheckCircle2, Gift,
@@ -9,6 +9,8 @@ import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { numberToVietnamese } from '../utils/numberConverter';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
+import { useDialoguePlayback, useFollowActiveLine } from '../hooks/useDialoguePlayback';
+import { DialoguePlaybackBar, PlaybackPartChip } from './DialoguePlaybackBar';
 import './ShoppingModule.css';
 
 const getAssetUrl = (path) => {
@@ -160,6 +162,73 @@ export const VND_BANKNOTE_DENOMINATIONS = [
   }
 ];
 
+// One banking counter dialogue with its own 越→中 / 純越文 player
+const BankingDialogueCard = ({ diag, dIdx, selectedAccent, learningMode, activeKey, onSpeakLine }) => {
+  const feedRef = useRef(null);
+  const player = useDialoguePlayback({
+    lines: diag.lines,
+    accent: selectedAccent,
+    nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+    title: learningMode === 'zh' ? diag.titleZh : diag.titleEn
+  });
+  useFollowActiveLine(feedRef, player.isActive ? player.index : -1, player.isPlaying);
+
+  return (
+    <div className="learning-card" style={{ background: 'var(--bg-main)', padding: '1.25rem' }}>
+      <h4 style={{ fontSize: '1.05em', fontWeight: 800, color: 'var(--brand-gold)', marginBottom: '0.75rem' }}>
+        {learningMode === 'zh' ? diag.titleZh : diag.titleEn}
+      </h4>
+      <DialoguePlaybackBar
+        player={player}
+        lines={diag.lines}
+        learningMode={learningMode}
+        title={learningMode === 'zh' ? diag.titleZh : diag.titleEn}
+        variant="compact"
+      />
+      <div ref={feedRef} style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+        {diag.lines.map((line, lIdx) => {
+          const isSequenceLine = player.isActive && player.index === lIdx;
+          return (
+            <div
+              key={lIdx}
+              data-line-index={lIdx}
+              className={isSequenceLine ? `dpb-active-line part-${player.part}` : ''}
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '0.75rem',
+                padding: '0.4rem 0.6rem',
+                borderRadius: 'var(--radius-sm)',
+                background: 'var(--bg-card)',
+                border: `1.5px solid ${isSequenceLine ? 'var(--brand-primary)' : 'transparent'}`
+              }}
+            >
+              <div>
+                <div style={{ fontSize: '0.95em', fontWeight: 700, color: 'var(--text-primary)' }}>
+                  <span style={{ color: 'var(--brand-primary)', marginRight: '0.4rem' }}>{line.speaker}:</span>
+                  <span className="dpb-viet-text">{line.viet}</span>
+                </div>
+                <div className="dpb-native-text" style={{ fontSize: '0.85em', color: 'var(--text-secondary)', marginTop: '0.15rem' }}>
+                  {learningMode === 'zh' ? line.zh : line.en}
+                </div>
+                {isSequenceLine && <div style={{ marginTop: '0.3rem' }}><PlaybackPartChip player={player} learningMode={learningMode} /></div>}
+              </div>
+              <button
+                className={`speaker-btn mini-btn ${activeKey === `bank_${dIdx}_${lIdx}` ? 'playing' : ''}`}
+                onClick={() => onSpeakLine(line.viet, `bank_${dIdx}_${lIdx}`)}
+                title="朗讀對話句"
+              >
+                <Volume2 size={14} />
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
   const [inputAmount, setInputAmount] = useState('2500000000'); // Default 2.5 Billion VND
@@ -181,82 +250,9 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
     return numberToVietnamese(numStr, selectedAccent);
   };
 
+  // Single phrase (interrupts any running phrase/dialogue sequence)
   const handleSpeakText = (text, key) => {
-    if (isPlayingFull) {
-      setIsPlayingFull(false);
-      isPlayingFullRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
-    }
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
-  };
-
-  const [isPlayingFull, setIsPlayingFull] = useState(false);
-  const [playMode, setPlayMode] = useState('bilingual');
-  const isPlayingFullRef = React.useRef(false);
-  const timerRef = React.useRef(null);
-  
-  // Cleanup on unmount
-  useEffect(() => {
-    return () => {
-      isPlayingFullRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
-  }, []);
-
-  const playInSequence = (index, part = 'bilingual-first', currentPlayMode = playMode) => {
-    const listToPlay = filteredShoppingItems; // Only play phrases list for now
-    
-    if (!isPlayingFullRef.current || index >= listToPlay.length) {
-      setIsPlayingFull(false);
-      isPlayingFullRef.current = false;
-      return;
-    }
-
-    const item = listToPlay[index];
-    const isBilingual = currentPlayMode === 'bilingual';
-
-    if (isBilingual && part === 'bilingual-first') {
-      const nativeText = learningMode === 'zh' ? item.zh : item.en;
-      const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
-
-      audioEngine.speak(nativeText, {
-        lang: nativeLang,
-        key: `seq_shop_native_${index}`,
-        onEnd: () => {
-          if (!isPlayingFullRef.current) return;
-          timerRef.current = setTimeout(() => {
-            if (isPlayingFullRef.current) playInSequence(index, 'viet', currentPlayMode);
-          }, 400);
-        }
-      });
-    } else {
-      audioEngine.speak(item.viet, {
-        accent: selectedAccent,
-        lang: 'vi',
-        key: `seq_shop_viet_${index}`,
-        onEnd: () => {
-          if (!isPlayingFullRef.current) return;
-          timerRef.current = setTimeout(() => {
-            if (isPlayingFullRef.current) playInSequence(index + 1, 'bilingual-first', currentPlayMode);
-          }, 1200); 
-        }
-      });
-    }
-  };
-
-  const handlePlayFull = (mode = 'bilingual') => {
-    if (isPlayingFull) {
-      setIsPlayingFull(false);
-      isPlayingFullRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
-      audioEngine.stop();
-      return;
-    }
-    
-    setPlayMode(mode);
-    setIsPlayingFull(true);
-    isPlayingFullRef.current = true;
-    playInSequence(0, 'bilingual-first', mode);
   };
 
   const twdEquivalent = (parseInt(inputAmount, 10) / exchangeRateTwd || 0).toFixed(0);
@@ -293,6 +289,16 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
       (item.tag && item.tag.toLowerCase().includes(q))
     );
   });
+
+  // Continuous phrase playback: 越→中 / 純越文 (follows the current filter)
+  const phraseGridRef = useRef(null);
+  const phrasePlayer = useDialoguePlayback({
+    lines: filteredShoppingItems,
+    accent: selectedAccent,
+    nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+    title: learningMode === 'zh' ? '購物情境短句' : 'Shopping phrases'
+  });
+  useFollowActiveLine(phraseGridRef, phrasePlayer.isActive ? phrasePlayer.index : -1, phrasePlayer.isPlaying);
 
   return (
     <div className="module-container">
@@ -597,65 +603,30 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
                 </div>
               </div>
               
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                <button 
-                  className={`control-btn play-full-btn ${isPlayingFull && playMode === 'bilingual' ? 'playing' : ''}`}
-                  onClick={() => handlePlayFull('bilingual')}
-                  style={{ 
-                    background: isPlayingFull && playMode === 'bilingual' ? 'var(--brand-primary)' : 'var(--brand-green)', 
-                    color: '#fff',
-                    opacity: isPlayingFull && playMode !== 'bilingual' ? 0.6 : 1,
-                    padding: '0.4rem 0.8rem',
-                    fontSize: '0.85em',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    borderRadius: '6px',
-                    border: 'none',
-                    cursor: 'pointer'
-                  }}
-                >
-                  {isPlayingFull && playMode === 'bilingual' ? <Pause size={14} /> : <Play size={14} />}
-                  <span>
-                    {isPlayingFull && playMode === 'bilingual'
-                      ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
-                      : (learningMode === 'zh' ? <>播放: 中+越</> : <>Play: Bilingual</>)}
-                  </span>
-                </button>
-
-                <button 
-                  className={`control-btn play-full-btn ${isPlayingFull && playMode === 'viet-only' ? 'playing' : ''}`}
-                  onClick={() => handlePlayFull('viet-only')}
-                  style={{ 
-                    background: isPlayingFull && playMode === 'viet-only' ? 'var(--brand-primary)' : 'var(--brand-accent, #8b5cf6)', 
-                    color: '#fff',
-                    opacity: isPlayingFull && playMode !== 'viet-only' ? 0.6 : 1,
-                    padding: '0.4rem 0.8rem',
-                    fontSize: '0.85em',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '0.4rem',
-                    borderRadius: '6px',
-                    border: 'none',
-                    cursor: 'pointer'
-                  }}
-                >
-                  {isPlayingFull && playMode === 'viet-only' ? <Pause size={14} /> : <Play size={14} />}
-                  <span>
-                    {isPlayingFull && playMode === 'viet-only'
-                      ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
-                      : (learningMode === 'zh' ? <>播放: 純越文</> : <>Play: Viet</>)}
-                  </span>
-                </button>
-              </div>
             </div>
 
-            <div className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))' }}>
+            {filteredShoppingItems.length > 0 && (
+              <DialoguePlaybackBar
+                player={phrasePlayer}
+                lines={filteredShoppingItems}
+                learningMode={learningMode}
+                title={learningMode === 'zh' ? '購物情境短句' : 'Shopping phrases'}
+                variant="compact"
+              />
+            )}
+
+            <div ref={phraseGridRef} className="grid-cards" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))' }}>
               {filteredShoppingItems.map((item, idx) => {
                 const itemKey = `shop_item_${idx}_${item.id || item.viet}`;
-                const isPlaying = activeKey === itemKey || activeKey === item.viet;
+                const isSequenceItem = phrasePlayer.isActive && phrasePlayer.index === idx;
+                const isPlaying = isSequenceItem || activeKey === itemKey || activeKey === item.viet;
                 return (
-                  <div key={idx} className={`learning-card ${isPlaying ? 'playing-card' : ''}`} style={{ background: 'var(--bg-main)' }}>
+                  <div
+                    key={idx}
+                    data-line-index={idx}
+                    className={`learning-card ${isPlaying ? 'playing-card' : ''} ${isSequenceItem ? `dpb-active-line part-${phrasePlayer.part}` : ''}`}
+                    style={{ background: 'var(--bg-main)' }}
+                  >
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.4rem' }}>
                       <span className="tone-symbol" style={{ fontSize: '0.78em', background: 'var(--bg-accent)', color: 'var(--brand-gold)' }}>
                         {item.tag || '購物必備'}
@@ -668,12 +639,13 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
                         <Volume2 size={15} />
                       </button>
                     </div>
-                    <div style={{ fontSize: '1.1em', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.35rem', lineHeight: '1.4' }}>
+                    <div className="dpb-viet-text" style={{ fontSize: '1.1em', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.35rem', lineHeight: '1.4' }}>
                       {item.viet}
                     </div>
-                    <div style={{ fontSize: '0.92em', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.4rem' }}>
+                    <div className="dpb-native-text" style={{ fontSize: '0.92em', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '0.4rem' }}>
                       {learningMode === 'zh' ? item.zh : item.en}
                     </div>
+                    {isSequenceItem && <PlaybackPartChip player={phrasePlayer} learningMode={learningMode} />}
                     {item.tipZh && (
                       <div style={{ fontSize: '0.78em', color: 'var(--text-muted)', marginTop: 'auto', borderTop: '1px dashed var(--border-color)', paddingTop: '0.4rem' }}>
                         💡 {learningMode === 'zh' ? item.tipZh : item.tag}
@@ -957,33 +929,15 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
               </h3>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
                 {numbersAndCurrency.bankingDialogues.map((diag, dIdx) => (
-                  <div key={dIdx} className="learning-card" style={{ background: 'var(--bg-main)', padding: '1.25rem' }}>
-                    <h4 style={{ fontSize: '1.05em', fontWeight: 800, color: 'var(--brand-gold)', marginBottom: '0.75rem' }}>
-                      {learningMode === 'zh' ? diag.titleZh : diag.titleEn}
-                    </h4>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                      {diag.lines.map((line, lIdx) => (
-                        <div key={lIdx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.75rem', padding: '0.4rem 0.6rem', borderRadius: 'var(--radius-sm)', background: 'var(--bg-card)' }}>
-                          <div>
-                            <div style={{ fontSize: '0.95em', fontWeight: 700, color: 'var(--text-primary)' }}>
-                              <span style={{ color: 'var(--brand-primary)', marginRight: '0.4rem' }}>{line.speaker}:</span>
-                              {line.viet}
-                            </div>
-                            <div style={{ fontSize: '0.85em', color: 'var(--text-secondary)', marginTop: '0.15rem' }}>
-                              {learningMode === 'zh' ? line.zh : line.en}
-                            </div>
-                          </div>
-                          <button
-                            className={`speaker-btn mini-btn ${activeKey === `bank_${dIdx}_${lIdx}` ? 'playing' : ''}`}
-                            onClick={() => handleSpeakText(line.viet, `bank_${dIdx}_${lIdx}`)}
-                            title="朗讀對話句"
-                          >
-                            <Volume2 size={14} />
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <BankingDialogueCard
+                    key={dIdx}
+                    diag={diag}
+                    dIdx={dIdx}
+                    selectedAccent={selectedAccent}
+                    learningMode={learningMode}
+                    activeKey={activeKey}
+                    onSpeakLine={handleSpeakText}
+                  />
                 ))}
               </div>
             </div>

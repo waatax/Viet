@@ -1,0 +1,3303 @@
+{
+  "generatedAt": "2026-10-11T23:56:16.767Z",
+  "totalLines": 652,
+  "zh": [
+    {
+      "raw": "我想去越南旅遊，你能介紹幾個城市給我嗎？",
+      "cleaned": "我想去越南旅遊，你能介紹幾個城市給我嗎？",
+      "source": "scenario:vietnam_geography:d1"
+    },
+    {
+      "raw": "當然！如果你喜歡涼爽的天氣和傳統文化，就去北部的河內。",
+      "cleaned": "當然！如果你喜歡涼爽的天氣和傳統文化，就去北部的河內。",
+      "source": "scenario:vietnam_geography:d1"
+    },
+    {
+      "raw": "聽起來很棒！那中部和南部呢？",
+      "cleaned": "聽起來很棒！那中部和南部呢？",
+      "source": "scenario:vietnam_geography:d1"
+    },
+    {
+      "raw": "中部有峴港和會安非常美。南部的話你一定要去熱鬧的胡志明市。",
+      "cleaned": "中部有峴港和會安非常美。南部的話你一定要去熱鬧的胡志明市。",
+      "source": "scenario:vietnam_geography:d1"
+    },
+    {
+      "raw": "我非常喜歡吃辣。那我應該去哪裡？",
+      "cleaned": "我非常喜歡吃辣。那我應該去哪裡？",
+      "source": "scenario:vietnam_geography:d1"
+    },
+    {
+      "raw": "你應該去中部！順化和峴港的食物非常辣且重口味。",
+      "cleaned": "你應該去中部！順化和峴港的食物非常辣且重口味。",
+      "source": "scenario:vietnam_geography:d1"
+    },
+    {
+      "raw": "北部",
+      "cleaned": "北部",
+      "source": "scenario-vocab:vietnam_geography"
+    },
+    {
+      "raw": "中部",
+      "cleaned": "中部",
+      "source": "scenario-vocab:vietnam_geography"
+    },
+    {
+      "raw": "南部",
+      "cleaned": "南部",
+      "source": "scenario-vocab:vietnam_geography"
+    },
+    {
+      "raw": "首都",
+      "cleaned": "首都",
+      "source": "scenario-vocab:vietnam_geography"
+    },
+    {
+      "raw": "熱鬧",
+      "cleaned": "熱鬧",
+      "source": "scenario-vocab:vietnam_geography"
+    },
+    {
+      "raw": "重口味/味道濃",
+      "cleaned": "重口味、味道濃",
+      "source": "scenario-vocab:vietnam_geography"
+    },
+    {
+      "raw": "您好，很高興能在我們公司辦公室接待您。",
+      "cleaned": "您好，很高興能在我們公司辦公室接待您。",
+      "source": "scenario:business_negotiation:d1"
+    },
+    {
+      "raw": "您好，謝謝您撥冗。我們可以開始討論新合約了嗎？",
+      "cleaned": "您好，謝謝您撥冗。我們可以開始討論新合約了嗎？",
+      "source": "scenario:business_negotiation:d1"
+    },
+    {
+      "raw": "當然。關於價格，我們希望您能再降5%。",
+      "cleaned": "當然。關於價格，我們希望您能再降5%。",
+      "source": "scenario:business_negotiation:d1"
+    },
+    {
+      "raw": "這個價格已經是最好的了。不過，如果貴公司下更大數量的訂單，我們會考慮。",
+      "cleaned": "這個價格已經是最好的了。不過，如果貴公司下更大數量的訂單，我們會考慮。",
+      "source": "scenario:business_negotiation:d1"
+    },
+    {
+      "raw": "太棒了，那我們明天簽約吧。合作愉快！",
+      "cleaned": "太棒了，那我們明天簽約吧。合作愉快！",
+      "source": "scenario:business_negotiation:d1"
+    },
+    {
+      "raw": "合約",
+      "cleaned": "合約",
+      "source": "scenario-vocab:business_negotiation"
+    },
+    {
+      "raw": "協商 / 談判",
+      "cleaned": "協商 、 談判",
+      "source": "scenario-vocab:business_negotiation"
+    },
+    {
+      "raw": "合作夥伴",
+      "cleaned": "合作夥伴",
+      "source": "scenario-vocab:business_negotiation"
+    },
+    {
+      "raw": "降價 / 折扣",
+      "cleaned": "降價 、 折扣",
+      "source": "scenario-vocab:business_negotiation"
+    },
+    {
+      "raw": "數量",
+      "cleaned": "數量",
+      "source": "scenario-vocab:business_negotiation"
+    },
+    {
+      "raw": "簽名 / 簽署",
+      "cleaned": "簽名 、 簽署",
+      "source": "scenario-vocab:business_negotiation"
+    },
+    {
+      "raw": "你好，這批貨的生產進度到哪裡了？",
+      "cleaned": "你好，這批貨的生產進度到哪裡了？",
+      "source": "scenario:factory_tour:d1"
+    },
+    {
+      "raw": "報告，目前我們已經完成80%了。",
+      "cleaned": "報告，目前我們已經完成80%了。",
+      "source": "scenario:factory_tour:d1"
+    },
+    {
+      "raw": "很好。記得注意品質檢驗環節，不能出錯。",
+      "cleaned": "很好。記得注意品質檢驗環節，不能出錯。",
+      "source": "scenario:factory_tour:d1"
+    },
+    {
+      "raw": "是的，我們在包裝前都會進行非常仔細的品檢。",
+      "cleaned": "是的，我們在包裝前都會進行非常仔細的品檢。",
+      "source": "scenario:factory_tour:d1"
+    },
+    {
+      "raw": "那什麼時候可以出貨？客戶催得很急。",
+      "cleaned": "那什麼時候可以出貨？客戶催得很急。",
+      "source": "scenario:factory_tour:d1"
+    },
+    {
+      "raw": "預計本週五下午會交給貨運方。",
+      "cleaned": "預計本週五下午會交給貨運方。",
+      "source": "scenario:factory_tour:d1"
+    },
+    {
+      "raw": "工廠 / 廠房",
+      "cleaned": "工廠 、 廠房",
+      "source": "scenario-vocab:factory_tour"
+    },
+    {
+      "raw": "進度",
+      "cleaned": "進度",
+      "source": "scenario-vocab:factory_tour"
+    },
+    {
+      "raw": "生產",
+      "cleaned": "生產",
+      "source": "scenario-vocab:factory_tour"
+    },
+    {
+      "raw": "品質",
+      "cleaned": "品質",
+      "source": "scenario-vocab:factory_tour"
+    },
+    {
+      "raw": "批貨",
+      "cleaned": "批貨",
+      "source": "scenario-vocab:factory_tour"
+    },
+    {
+      "raw": "出貨",
+      "cleaned": "出貨",
+      "source": "scenario-vocab:factory_tour"
+    },
+    {
+      "raw": "您好，兩位要用點什麼呢？需要看菜單嗎？",
+      "cleaned": "您好，兩位要用點什麼呢？需要看菜單嗎？",
+      "source": "scenario:family_restaurant:d1"
+    },
+    {
+      "raw": "請給我一份瓦煲控肉、一碗雷魚酸湯，還有一盤蒜炒空心菜。",
+      "cleaned": "請給我一份瓦煲控肉、一碗雷魚酸湯，還有一盤蒜炒空心菜。",
+      "source": "scenario:family_restaurant:d1"
+    },
+    {
+      "raw": "好的，哥姐吃白飯還是炒飯？要喝點什麼水嗎？",
+      "cleaned": "好的，哥姐吃白飯還是炒飯？要喝點什麼水嗎？",
+      "source": "scenario:family_restaurant:d1"
+    },
+    {
+      "raw": "給我一鍋白飯。飲料的話拿兩杯甘蔗汁和兩杯冰茶。",
+      "cleaned": "給我一鍋白飯。飲料的話拿兩杯甘蔗汁和兩杯冰茶。",
+      "source": "scenario:family_restaurant:d1"
+    },
+    {
+      "raw": "好的，哥姐請稍等一下，菜馬上上來。",
+      "cleaned": "好的，哥姐請稍等一下，菜馬上上來。",
+      "source": "scenario:family_restaurant:d1"
+    },
+    {
+      "raw": "餐廳",
+      "cleaned": "餐廳",
+      "source": "scenario-vocab:family_restaurant"
+    },
+    {
+      "raw": "菜單",
+      "cleaned": "菜單",
+      "source": "scenario-vocab:family_restaurant"
+    },
+    {
+      "raw": "瓦煲控肉",
+      "cleaned": "瓦煲控肉",
+      "source": "scenario-vocab:family_restaurant"
+    },
+    {
+      "raw": "酸湯",
+      "cleaned": "酸湯",
+      "source": "scenario-vocab:family_restaurant"
+    },
+    {
+      "raw": "甘蔗汁",
+      "cleaned": "甘蔗汁",
+      "source": "scenario-vocab:family_restaurant"
+    },
+    {
+      "raw": "生啤酒",
+      "cleaned": "生啤酒",
+      "source": "scenario-vocab:family_restaurant"
+    },
+    {
+      "raw": "白飯",
+      "cleaned": "白飯",
+      "source": "scenario-vocab:family_restaurant"
+    },
+    {
+      "raw": "結帳 / 買單",
+      "cleaned": "結帳 、 買單",
+      "source": "scenario-vocab:family_restaurant"
+    },
+    {
+      "raw": "您好！請問哥想喝點什麼呢？",
+      "cleaned": "您好！請問哥想喝點什麼呢？",
+      "source": "scenario:cafe:d1"
+    },
+    {
+      "raw": "給我一杯冰牛奶咖啡和一杯白咖啡（多奶）。",
+      "cleaned": "給我一杯冰牛奶咖啡和一杯白咖啡 。",
+      "source": "scenario:cafe:d1"
+    },
+    {
+      "raw": "哥是在這裡喝還是外帶？需要減糖嗎？",
+      "cleaned": "哥是在這裡喝還是外帶？需要減糖嗎？",
+      "source": "scenario:cafe:d1"
+    },
+    {
+      "raw": "我在這裡喝。幫我微糖（少糖），冰塊多放一點喔。",
+      "cleaned": "我在這裡喝。幫我微糖 ，冰塊多放一點喔。",
+      "source": "scenario:cafe:d1"
+    },
+    {
+      "raw": "好的。您的總共是五萬五千越南盾 (55,000 VND)。",
+      "cleaned": "好的。您的總共是五萬五千越南盾 。",
+      "source": "scenario:cafe:d1"
+    },
+    {
+      "raw": "冰牛奶咖啡（加煉乳）",
+      "cleaned": "冰牛奶咖啡",
+      "source": "scenario-vocab:cafe"
+    },
+    {
+      "raw": "冰黑咖啡",
+      "cleaned": "冰黑咖啡",
+      "source": "scenario-vocab:cafe"
+    },
+    {
+      "raw": "白咖啡（多奶少咖啡）",
+      "cleaned": "白咖啡",
+      "source": "scenario-vocab:cafe"
+    },
+    {
+      "raw": "蛋咖啡",
+      "cleaned": "蛋咖啡",
+      "source": "scenario-vocab:cafe"
+    },
+    {
+      "raw": "少糖 / 微糖",
+      "cleaned": "少糖 、 微糖",
+      "source": "scenario-vocab:cafe"
+    },
+    {
+      "raw": "多冰",
+      "cleaned": "多冰",
+      "source": "scenario-vocab:cafe"
+    },
+    {
+      "raw": "去冰 / 不加冰",
+      "cleaned": "去冰 、 不加冰",
+      "source": "scenario-vocab:cafe"
+    },
+    {
+      "raw": "外帶",
+      "cleaned": "外帶",
+      "source": "scenario-vocab:cafe"
+    },
+    {
+      "raw": "內用 / 在此飲用",
+      "cleaned": "內用 、 在此飲用",
+      "source": "scenario-vocab:cafe"
+    },
+    {
+      "raw": "你好，今天想吃什麼河粉呀？",
+      "cleaned": "你好，今天想吃什麼河粉呀？",
+      "source": "scenario:pho:d1"
+    },
+    {
+      "raw": "給我一碗半熟生牛肉加熟牛腩河粉，還有一盤油條喔。",
+      "cleaned": "給我一碗半熟生牛肉加熟牛腩河粉，還有一盤油條喔。",
+      "source": "scenario:pho:d1"
+    },
+    {
+      "raw": "吃蔥花和刺芫荽（香菜）嗎？要加一顆半熟溫泉蛋嗎？",
+      "cleaned": "吃蔥花和刺芫荽 嗎？要加一顆半熟溫泉蛋嗎？",
+      "source": "scenario:pho:d1"
+    },
+    {
+      "raw": "好的要加，請多放蔥花，並多給我一小碗半熟蛋。",
+      "cleaned": "好的要加，請多放蔥花，並多給我一小碗半熟蛋。",
+      "source": "scenario:pho:d1"
+    },
+    {
+      "raw": "大姐，請再給我檸檬和新鮮辣椒片好嗎？",
+      "cleaned": "大姐，請再給我檸檬和新鮮辣椒片好嗎？",
+      "source": "scenario:pho:d1"
+    },
+    {
+      "raw": "生牛肉河粉（半熟嫩肉）",
+      "cleaned": "生牛肉河粉",
+      "source": "scenario-vocab:pho"
+    },
+    {
+      "raw": "牛腩 / 全熟熟牛肉",
+      "cleaned": "牛腩 、 全熟熟牛肉",
+      "source": "scenario-vocab:pho"
+    },
+    {
+      "raw": "雞肉河粉",
+      "cleaned": "雞肉河粉",
+      "source": "scenario-vocab:pho"
+    },
+    {
+      "raw": "油條（河粉必配）",
+      "cleaned": "油條",
+      "source": "scenario-vocab:pho"
+    },
+    {
+      "raw": "半熟溫泉蛋（牛骨湯浸泡）",
+      "cleaned": "半熟溫泉蛋",
+      "source": "scenario-vocab:pho"
+    },
+    {
+      "raw": "刺芫荽（越南香草）",
+      "cleaned": "刺芫荽",
+      "source": "scenario-vocab:pho"
+    },
+    {
+      "raw": "蔥花 / 綠青蔥",
+      "cleaned": "蔥花 、 綠青蔥",
+      "source": "scenario-vocab:pho"
+    },
+    {
+      "raw": "豆芽菜",
+      "cleaned": "豆芽菜",
+      "source": "scenario-vocab:pho"
+    },
+    {
+      "raw": "辣椒醬 / 海鮮甜麵醬",
+      "cleaned": "辣椒醬 、 海鮮甜麵醬",
+      "source": "scenario-vocab:pho"
+    },
+    {
+      "raw": "小朋友/帥哥，吃什麼麵包呀？吃肝醬和奶油嗎？",
+      "cleaned": "小朋友、帥哥，吃什麼麵包呀？吃肝醬和奶油嗎？",
+      "source": "scenario:banhmi:d1"
+    },
+    {
+      "raw": "給我一份特製綜合豬肉法國麵包，肝醬多抹一點喔。",
+      "cleaned": "給我一份特製綜合豬肉法國麵包，肝醬多抹一點喔。",
+      "source": "scenario:banhmi:d1"
+    },
+    {
+      "raw": "吃辣和香菜嗎？",
+      "cleaned": "吃辣和香菜嗎？",
+      "source": "scenario:banhmi:d1"
+    },
+    {
+      "raw": "不要辣，不放辣椒，香菜幫我多放一點喔。",
+      "cleaned": "不要辣，不放辣椒，香菜幫我多放一點喔。",
+      "source": "scenario:banhmi:d1"
+    },
+    {
+      "raw": "好囉！你的兩份總共是五萬越南盾 (50,000 VND)。",
+      "cleaned": "好囉！你的兩份總共是五萬越南盾 。",
+      "source": "scenario:banhmi:d1"
+    },
+    {
+      "raw": "豬肉綜合法國麵包",
+      "cleaned": "豬肉綜合法國麵包",
+      "source": "scenario-vocab:banhmi"
+    },
+    {
+      "raw": "雙煎蛋法國麵包",
+      "cleaned": "雙煎蛋法國麵包",
+      "source": "scenario-vocab:banhmi"
+    },
+    {
+      "raw": "越式白扎肉法國麵包",
+      "cleaned": "越式白扎肉法國麵包",
+      "source": "scenario-vocab:banhmi"
+    },
+    {
+      "raw": "脆皮烤乳豬法國麵包",
+      "cleaned": "脆皮烤乳豬法國麵包",
+      "source": "scenario-vocab:banhmi"
+    },
+    {
+      "raw": "豬肝醬（靈魂抹醬）",
+      "cleaned": "豬肝醬",
+      "source": "scenario-vocab:banhmi"
+    },
+    {
+      "raw": "越式黃油美乃滋",
+      "cleaned": "越式黃油美乃滋",
+      "source": "scenario-vocab:banhmi"
+    },
+    {
+      "raw": "酸甜醃紅白蘿蔔絲",
+      "cleaned": "酸甜醃紅白蘿蔔絲",
+      "source": "scenario-vocab:banhmi"
+    },
+    {
+      "raw": "香菜 / 芫荽",
+      "cleaned": "香菜 、 芫荽",
+      "source": "scenario-vocab:banhmi"
+    },
+    {
+      "raw": "不要辣椒 / 不加辣",
+      "cleaned": "不要辣椒 、 不加辣",
+      "source": "scenario-vocab:banhmi"
+    },
+    {
+      "raw": "您好！今天有剛到的大蒜奶油炒香螺和鹽烤辣椒大蝦，非常新鮮喔！",
+      "cleaned": "您好！今天有剛到的大蒜奶油炒香螺和鹽烤辣椒大蝦，非常新鮮喔！",
+      "source": "scenario:seafood:d1"
+    },
+    {
+      "raw": "給我一份大蒜奶油炒香螺，和半公斤鹽烤草蝦。",
+      "cleaned": "給我一份大蒜奶油炒香螺，和半公斤鹽烤草蝦。",
+      "source": "scenario:seafood:d1"
+    },
+    {
+      "raw": "哥喝什麼啤酒呢？我們有特級西貢啤酒和虎牌晶融啤酒。",
+      "cleaned": "哥喝什麼啤酒呢？我們有特級西貢啤酒和虎牌晶融啤酒。",
+      "source": "scenario:seafood:d1"
+    },
+    {
+      "raw": "給我四罐西貢啤酒和一壺冰塊。一、二、三，乾杯！",
+      "cleaned": "給我四罐西貢啤酒和一壺冰塊。一、二、三，乾杯！",
+      "source": "scenario:seafood:d1"
+    },
+    {
+      "raw": "大蒜奶油炒香螺",
+      "cleaned": "大蒜奶油炒香螺",
+      "source": "scenario-vocab:seafood"
+    },
+    {
+      "raw": "鹽烤辣椒鮮蝦",
+      "cleaned": "鹽烤辣椒鮮蝦",
+      "source": "scenario-vocab:seafood"
+    },
+    {
+      "raw": "沙茶烤魷魚",
+      "cleaned": "沙茶烤魷魚",
+      "source": "scenario-vocab:seafood"
+    },
+    {
+      "raw": "香茅清蒸蛤蜊",
+      "cleaned": "香茅清蒸蛤蜊",
+      "source": "scenario-vocab:seafood"
+    },
+    {
+      "raw": "鹽焗花蟹鉗",
+      "cleaned": "鹽焗花蟹鉗",
+      "source": "scenario-vocab:seafood"
+    },
+    {
+      "raw": "一、二、三，乾杯！",
+      "cleaned": "一、二、三，乾杯！",
+      "source": "scenario-vocab:seafood"
+    },
+    {
+      "raw": "你好哥！請問要點手搖奶茶還是傳統甜湯呢？",
+      "cleaned": "你好哥！請問要點手搖奶茶還是傳統甜湯呢？",
+      "source": "scenario:boba_che:d1"
+    },
+    {
+      "raw": "給我一杯黑糖珍珠鮮奶茶，和一碗柚子皮甜湯。",
+      "cleaned": "給我一杯黑糖珍珠鮮奶茶，和一碗柚子皮甜湯。",
+      "source": "scenario:boba_che:d1"
+    },
+    {
+      "raw": "奶茶您要幾分糖和幾分冰呢？",
+      "cleaned": "奶茶您要幾分糖和幾分冰呢？",
+      "source": "scenario:boba_che:d1"
+    },
+    {
+      "raw": "幫我做三分糖（30%）、半冰（50% 冰）喔。",
+      "cleaned": "幫我做三分糖 、半冰 喔。",
+      "source": "scenario:boba_che:d1"
+    },
+    {
+      "raw": "珍珠奶茶",
+      "cleaned": "珍珠奶茶",
+      "source": "scenario-vocab:boba_che"
+    },
+    {
+      "raw": "黑糖珍珠",
+      "cleaned": "黑糖珍珠",
+      "source": "scenario-vocab:boba_che"
+    },
+    {
+      "raw": "柚皮綠豆甜湯",
+      "cleaned": "柚皮綠豆甜湯",
+      "source": "scenario-vocab:boba_che"
+    },
+    {
+      "raw": "三色冰（紅豆/綠豆/粉粿/椰奶）",
+      "cleaned": "三色冰",
+      "source": "scenario-vocab:boba_che"
+    },
+    {
+      "raw": "百分比",
+      "cleaned": "百分比",
+      "source": "scenario-vocab:boba_che"
+    },
+    {
+      "raw": "您好貴賓，請出示您的護照和機票。",
+      "cleaned": "您好貴賓，請出示您的護照和機票。",
+      "source": "scenario:airport:d1"
+    },
+    {
+      "raw": "好的，這是我的護照和機票。我搭乘飛往台北的航班。",
+      "cleaned": "好的，這是我的護照和機票。我搭乘飛往台北的航班。",
+      "source": "scenario:airport:d1"
+    },
+    {
+      "raw": "請問您有幾件托運行李？隨身有攜帶行動電源（充電寶）嗎？",
+      "cleaned": "請問您有幾件托運行李？隨身有攜帶行動電源 嗎？",
+      "source": "scenario:airport:d1"
+    },
+    {
+      "raw": "我有一件二十公斤的托運行李。請幫我安排靠窗座位喔。",
+      "cleaned": "我有一件二十公斤的托運行李。請幫我安排靠窗座位喔。",
+      "source": "scenario:airport:d1"
+    },
+    {
+      "raw": "這是您的登機證。在 12 號登機門，十四點三十分開始登機喔。",
+      "cleaned": "這是您的登機證。在 12 號登機門，十四點三十分開始登機喔。",
+      "source": "scenario:airport:d1"
+    },
+    {
+      "raw": "護照",
+      "cleaned": "護照",
+      "source": "scenario-vocab:airport"
+    },
+    {
+      "raw": "登機證 / 登機牌",
+      "cleaned": "登機證 、 登機牌",
+      "source": "scenario-vocab:airport"
+    },
+    {
+      "raw": "托運行李",
+      "cleaned": "托運行李",
+      "source": "scenario-vocab:airport"
+    },
+    {
+      "raw": "隨身手提行李",
+      "cleaned": "隨身手提行李",
+      "source": "scenario-vocab:airport"
+    },
+    {
+      "raw": "靠窗座位",
+      "cleaned": "靠窗座位",
+      "source": "scenario-vocab:airport"
+    },
+    {
+      "raw": "靠走道座位",
+      "cleaned": "靠走道座位",
+      "source": "scenario-vocab:airport"
+    },
+    {
+      "raw": "登機門 / 登機口",
+      "cleaned": "登機門 、 登機口",
+      "source": "scenario-vocab:airport"
+    },
+    {
+      "raw": "您好貴賓！請問您之前有預訂房間了嗎？",
+      "cleaned": "您好貴賓！請問您之前有預訂房間了嗎？",
+      "source": "scenario:hotel:d1"
+    },
+    {
+      "raw": "我透過 Agoda 預訂了房間，名字是 Chen，海景雙人房。",
+      "cleaned": "我透過 Agoda 預訂了房間，名字是 Chen，海景雙人房。",
+      "source": "scenario:hotel:d1"
+    },
+    {
+      "raw": "查到您的預訂了。請借我護照登記，並支付押金五十萬越南盾。",
+      "cleaned": "查到您的預訂了。請借我護照登記，並支付押金五十萬越南盾。",
+      "source": "scenario:hotel:d1"
+    },
+    {
+      "raw": "給你護照和押金。請問 Wi-Fi 密碼是多少呢？",
+      "cleaned": "給你護照和押金。請問 Wi-Fi 密碼是多少呢？",
+      "source": "scenario:hotel:d1"
+    },
+    {
+      "raw": "您的房間在 8 樓 802 號房。免費自助早餐在 2 樓，供應時間為 6:00 至 9:30。",
+      "cleaned": "您的房間在 8 樓 802 號房。免費自助早餐在 2 樓，供應時間為 6:00 至 9:30。",
+      "source": "scenario:hotel:d1"
+    },
+    {
+      "raw": "辦理入住",
+      "cleaned": "辦理入住",
+      "source": "scenario-vocab:hotel"
+    },
+    {
+      "raw": "退房結帳",
+      "cleaned": "退房結帳",
+      "source": "scenario-vocab:hotel"
+    },
+    {
+      "raw": "單人房",
+      "cleaned": "單人房",
+      "source": "scenario-vocab:hotel"
+    },
+    {
+      "raw": "雙人房",
+      "cleaned": "雙人房",
+      "source": "scenario-vocab:hotel"
+    },
+    {
+      "raw": "押金 / 保證金",
+      "cleaned": "押金 、 保證金",
+      "source": "scenario-vocab:hotel"
+    },
+    {
+      "raw": "無線網路密碼",
+      "cleaned": "無線網路密碼",
+      "source": "scenario-vocab:hotel"
+    },
+    {
+      "raw": "電梯",
+      "cleaned": "電梯",
+      "source": "scenario-vocab:hotel"
+    },
+    {
+      "raw": "您好哥，您要去濱城市場對嗎？",
+      "cleaned": "您好哥，您要去濱城市場對嗎？",
+      "source": "scenario:taxi:d1"
+    },
+    {
+      "raw": "沒錯大哥。我們這台車車牌是 51F-8888 對吧？",
+      "cleaned": "沒錯大哥。我們這台車車牌是 51F-8888 對吧？",
+      "source": "scenario:taxi:d1"
+    },
+    {
+      "raw": "到前面十字路口請右轉，然後直走五十公尺喔。",
+      "cleaned": "到前面十字路口請右轉，然後直走五十公尺喔。",
+      "source": "scenario:taxi:d1"
+    },
+    {
+      "raw": "到了到了大哥！請讓我在右邊路旁下車喔。",
+      "cleaned": "到了到了大哥！請讓我在右邊路旁下車喔。",
+      "source": "scenario:taxi:d1"
+    },
+    {
+      "raw": "司機大哥 / 司機師傅",
+      "cleaned": "司機大哥 、 司機師傅",
+      "source": "scenario-vocab:taxi"
+    },
+    {
+      "raw": "車牌號碼",
+      "cleaned": "車牌號碼",
+      "source": "scenario-vocab:taxi"
+    },
+    {
+      "raw": "直走",
+      "cleaned": "直走",
+      "source": "scenario-vocab:taxi"
+    },
+    {
+      "raw": "左轉",
+      "cleaned": "左轉",
+      "source": "scenario-vocab:taxi"
+    },
+    {
+      "raw": "右轉",
+      "cleaned": "右轉",
+      "source": "scenario-vocab:taxi"
+    },
+    {
+      "raw": "十字路口 / 三叉路口",
+      "cleaned": "十字路口 、 三叉路口",
+      "source": "scenario-vocab:taxi"
+    },
+    {
+      "raw": "停在這裡 / 靠邊停",
+      "cleaned": "停在這裡 、 靠邊停",
+      "source": "scenario-vocab:taxi"
+    },
+    {
+      "raw": "小妹/阿弟，來買和祿芒果還是火龍果吧，自家果園剛採的鮮甜多汁喔！",
+      "cleaned": "小妹、阿弟，來買和祿芒果還是火龍果吧，自家果園剛採的鮮甜多汁喔！",
+      "source": "scenario:market:d1"
+    },
+    {
+      "raw": "大姐，這芒果一公斤多少錢呀？",
+      "cleaned": "大姐，這芒果一公斤多少錢呀？",
+      "source": "scenario:market:d1"
+    },
+    {
+      "raw": "特級芒果一公斤六萬盾 (60k)。買兩公斤大姐算你十萬盾就好。",
+      "cleaned": "特級芒果一公斤六萬盾 。買兩公斤大姐算你十萬盾就好。",
+      "source": "scenario:market:d1"
+    },
+    {
+      "raw": "一公斤四萬五可以嗎大姐？我可以一次拿三公斤喔。",
+      "cleaned": "一公斤四萬五可以嗎大姐？我可以一次拿三公斤喔。",
+      "source": "scenario:market:d1"
+    },
+    {
+      "raw": "好啦好啦，今天開市算你便宜，三公斤總共十三萬五千盾 (135,000 VND)。",
+      "cleaned": "好啦好啦，今天開市算你便宜，三公斤總共十三萬五千盾 。",
+      "source": "scenario:market:d1"
+    },
+    {
+      "raw": "和祿金芒（頂級香甜芒果）",
+      "cleaned": "和祿金芒",
+      "source": "scenario-vocab:market"
+    },
+    {
+      "raw": "火龍果（紅肉/白肉）",
+      "cleaned": "火龍果",
+      "source": "scenario-vocab:market"
+    },
+    {
+      "raw": "榴槤（金枕頭/Ri6）",
+      "cleaned": "榴槤",
+      "source": "scenario-vocab:market"
+    },
+    {
+      "raw": "山竹（果后）",
+      "cleaned": "山竹",
+      "source": "scenario-vocab:market"
+    },
+    {
+      "raw": "綠暹羅香椰（椰子水）",
+      "cleaned": "綠暹羅香椰",
+      "source": "scenario-vocab:market"
+    },
+    {
+      "raw": "一公斤多少錢？",
+      "cleaned": "一公斤多少錢？",
+      "source": "scenario-vocab:market"
+    },
+    {
+      "raw": "算我便宜一點嘛",
+      "cleaned": "算我便宜一點嘛",
+      "source": "scenario-vocab:market"
+    },
+    {
+      "raw": "您好哥！請問您有會員卡嗎？",
+      "cleaned": "您好哥！請問您有會員卡嗎？",
+      "source": "scenario:convenience:d1"
+    },
+    {
+      "raw": "我沒有會員卡。幫我結帳這幾樣東西喔。",
+      "cleaned": "我沒有會員卡。幫我結帳這幾樣東西喔。",
+      "source": "scenario:convenience:d1"
+    },
+    {
+      "raw": "這顆包子您需要用微波爐加熱嗎？",
+      "cleaned": "這顆包子您需要用微波爐加熱嗎？",
+      "source": "scenario:convenience:d1"
+    },
+    {
+      "raw": "好的，請幫我加熱，並再給我一個塑膠提袋喔。",
+      "cleaned": "好的，請幫我加熱，並再給我一個塑膠提袋喔。",
+      "source": "scenario:convenience:d1"
+    },
+    {
+      "raw": "微波加熱",
+      "cleaned": "微波加熱",
+      "source": "scenario-vocab:convenience"
+    },
+    {
+      "raw": "塑膠袋 / 塑膠提袋",
+      "cleaned": "塑膠袋 、 塑膠提袋",
+      "source": "scenario-vocab:convenience"
+    },
+    {
+      "raw": "熱水（泡泡麵）",
+      "cleaned": "熱水",
+      "source": "scenario-vocab:convenience"
+    },
+    {
+      "raw": "掃描 QR Code 付款",
+      "cleaned": "掃描 QR Code 付款",
+      "source": "scenario-vocab:convenience"
+    },
+    {
+      "raw": "發票 / 收據",
+      "cleaned": "發票 、 收據",
+      "source": "scenario-vocab:convenience"
+    },
+    {
+      "raw": "您好，請問您現在有哪裡不舒服或什麼症狀呢？",
+      "cleaned": "您好，請問您現在有哪裡不舒服或什麼症狀呢？",
+      "source": "scenario:pharmacy:d1"
+    },
+    {
+      "raw": "我從昨天開始發高燒、頭痛而且喉嚨很痛。",
+      "cleaned": "我從昨天開始發高燒、頭痛而且喉嚨很痛。",
+      "source": "scenario:pharmacy:d1"
+    },
+    {
+      "raw": "您對任何藥物過敏嗎？我幫您拿退燒藥和消炎藥。",
+      "cleaned": "您對任何藥物過敏嗎？我幫您拿退燒藥和消炎藥。",
+      "source": "scenario:pharmacy:d1"
+    },
+    {
+      "raw": "我沒有藥物過敏。這藥一天吃幾次？飯前還是飯後吃？",
+      "cleaned": "我沒有藥物過敏。這藥一天吃幾次？飯前還是飯後吃？",
+      "source": "scenario:pharmacy:d1"
+    },
+    {
+      "raw": "每天吃兩次，每次一顆，早晚餐飯後吃喔。",
+      "cleaned": "每天吃兩次，每次一顆，早晚餐飯後吃喔。",
+      "source": "scenario:pharmacy:d1"
+    },
+    {
+      "raw": "退燒藥 (Paracetamol)",
+      "cleaned": "退燒藥",
+      "source": "scenario-vocab:pharmacy"
+    },
+    {
+      "raw": "頭痛",
+      "cleaned": "頭痛",
+      "source": "scenario-vocab:pharmacy"
+    },
+    {
+      "raw": "喉嚨痛",
+      "cleaned": "喉嚨痛",
+      "source": "scenario-vocab:pharmacy"
+    },
+    {
+      "raw": "肚子痛 / 腹瀉拉肚子",
+      "cleaned": "肚子痛 、 腹瀉拉肚子",
+      "source": "scenario-vocab:pharmacy"
+    },
+    {
+      "raw": "過敏藥",
+      "cleaned": "過敏藥",
+      "source": "scenario-vocab:pharmacy"
+    },
+    {
+      "raw": "飯前 / 飯後",
+      "cleaned": "飯前 、 飯後",
+      "source": "scenario-vocab:pharmacy"
+    },
+    {
+      "raw": "您好！請問您要看什麼科別呢？請借我護照辦理掛號登記。",
+      "cleaned": "您好！請問您要看什麼科別呢？請借我護照辦理掛號登記。",
+      "source": "scenario:hospital:d1"
+    },
+    {
+      "raw": "我這兩天一直劇烈咳嗽、呼吸困難而且胸口悶痛。",
+      "cleaned": "我這兩天一直劇烈咳嗽、呼吸困難而且胸口悶痛。",
+      "source": "scenario:hospital:d1"
+    },
+    {
+      "raw": "請您坐這裡，我幫您量血壓並聽診心肺。請深呼吸。",
+      "cleaned": "請您坐這裡，我幫您量血壓並聽診心肺。請深呼吸。",
+      "source": "scenario:hospital:d1"
+    },
+    {
+      "raw": "您的肺部有輕微發炎。我會為您開立抗生素和止咳藥物。",
+      "cleaned": "您的肺部有輕微發炎。我會為您開立抗生素和止咳藥物。",
+      "source": "scenario:hospital:d1"
+    },
+    {
+      "raw": "醫院",
+      "cleaned": "醫院",
+      "source": "scenario-vocab:hospital"
+    },
+    {
+      "raw": "診所 / 門診部",
+      "cleaned": "診所 、 門診部",
+      "source": "scenario-vocab:hospital"
+    },
+    {
+      "raw": "醫生 / 護士",
+      "cleaned": "醫生 、 護士",
+      "source": "scenario-vocab:hospital"
+    },
+    {
+      "raw": "量血壓",
+      "cleaned": "量血壓",
+      "source": "scenario-vocab:hospital"
+    },
+    {
+      "raw": "處方箋 / 藥單",
+      "cleaned": "處方箋 、 藥單",
+      "source": "scenario-vocab:hospital"
+    },
+    {
+      "raw": "您好哥！今天想選 60 分鐘還是 90 分鐘的草本養生洗頭套餐呢？",
+      "cleaned": "您好哥！今天想選 60 分鐘還是 90 分鐘的草本養生洗頭套餐呢？",
+      "source": "scenario:spa:d1"
+    },
+    {
+      "raw": "給我 90 分鐘套餐，有包含掏耳朵和肩頸按摩嗎？",
+      "cleaned": "給我 90 分鐘套餐，有包含掏耳朵和肩頸按摩嗎？",
+      "source": "scenario:spa:d1"
+    },
+    {
+      "raw": "都有全套包含喔。水溫這樣剛剛好嗎？按摩力道會痛嗎？",
+      "cleaned": "都有全套包含喔。水溫這樣剛剛好嗎？按摩力道會痛嗎？",
+      "source": "scenario:spa:d1"
+    },
+    {
+      "raw": "溫水非常舒服。後背幫我按重一點點，脖子輕輕按就好喔。",
+      "cleaned": "溫水非常舒服。後背幫我按重一點點，脖子輕輕按就好喔。",
+      "source": "scenario:spa:d1"
+    },
+    {
+      "raw": "太放鬆了！非常感謝你。這是給你的小費喔。",
+      "cleaned": "太放鬆了！非常感謝你。這是給你的小費喔。",
+      "source": "scenario:spa:d1"
+    },
+    {
+      "raw": "越式草本養生洗頭",
+      "cleaned": "越式草本養生洗頭",
+      "source": "scenario-vocab:spa"
+    },
+    {
+      "raw": "掏耳朵 / 採耳",
+      "cleaned": "掏耳朵 、 採耳",
+      "source": "scenario-vocab:spa"
+    },
+    {
+      "raw": "肩頸穴位按摩",
+      "cleaned": "肩頸穴位按摩",
+      "source": "scenario-vocab:spa"
+    },
+    {
+      "raw": "再重一點點 / 力道加強",
+      "cleaned": "再重一點點 、 力道加強",
+      "source": "scenario-vocab:spa"
+    },
+    {
+      "raw": "輕一點 / 溫柔一點",
+      "cleaned": "輕一點 、 溫柔一點",
+      "source": "scenario-vocab:spa"
+    },
+    {
+      "raw": "小費",
+      "cleaned": "小費",
+      "source": "scenario-vocab:spa"
+    },
+    {
+      "raw": "您好哥！請問您有在 30Shine App 上提前預約剪髮嗎？",
+      "cleaned": "您好哥！請問您有在 30Shine App 上提前預約剪髮嗎？",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "你好，我還沒提前預約，現在還有位子嗎？我想做 Shine Combo 套餐。",
+      "cleaned": "你好，我還沒提前預約，現在還有位子嗎？我想做 Shine Combo 套餐。",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "目前還有位子！我們標準的 Shine Combo 套餐是 120.000 越盾，包含完整的 10 個護理步驟。您想加做採耳服務嗎？",
+      "cleaned": "目前還有位子！我們標準的 Shine Combo 套餐是 120.000 越盾，包含完整的 10 個護理步驟。您想加做採耳服務嗎？",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "好啊，幫我加採耳。總共多少錢？",
+      "cleaned": "好啊，幫我加採耳。總共多少錢？",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "加採耳是 50.000 越盾，總共是 170.000 越盾。請到 3 號椅入座，設計師正在等您囉！",
+      "cleaned": "加採耳是 50.000 越盾，總共是 170.000 越盾。請到 3 號椅入座，設計師正在等您囉！",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "哥您好！今天想剪什麼樣的髮型呢？您手機裡有參考照片嗎？",
+      "cleaned": "哥您好！今天想剪什麼樣的髮型呢？您手機裡有參考照片嗎？",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "我想剪乾淨俐落的 Undercut。兩側和後頸剪短推平，頭頂部分稍微修剪並打薄就好，不要剪太短喔。",
+      "cleaned": "我想剪乾淨俐落的 Undercut。兩側和後頸剪短推平，頭頂部分稍微修剪並打薄就好，不要剪太短喔。",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "好的我明白了！我會把兩側推漸層修出線條感，瀏海保留長度以便您抓髮蠟。您需要順便刮鬍子和修髮際線輪廓嗎？",
+      "cleaned": "好的我明白了！我會把兩側推漸層修出線條感，瀏海保留長度以便您抓髮蠟。您需要順便刮鬍子和修髮際線輪廓嗎？",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "順便幫我刮鬍子和修邊緣。謝謝你！",
+      "cleaned": "順便幫我刮鬍子和修邊緣。謝謝你！",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "請您移步到洗頭床平躺。我先為您洗臉和去角質。請問溫水這樣溫度剛好嗎？",
+      "cleaned": "請您移步到洗頭床平躺。我先為您洗臉和去角質。請問溫水這樣溫度剛好嗎？",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "水溫剛剛好。按摩力道很舒服，不過洗頭時請不要用指甲用力抓，用指腹按摩就好。",
+      "cleaned": "水溫剛剛好。按摩力道很舒服，不過洗頭時請不要用指甲用力抓，用指腹按摩就好。",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "好的您放心，我會非常輕柔地洗。現在我使用全新消毒的器具為您採耳，請您全身放鬆喔。",
+      "cleaned": "好的您放心，我會非常輕柔地洗。現在我使用全新消毒的器具為您採耳，請您全身放鬆喔。",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "全都完成囉哥！我已經吹乾了，您照鏡子看看兩側和後頸的長度滿意嗎？",
+      "cleaned": "全都完成囉哥！我已經吹乾了，您照鏡子看看兩側和後頸的長度滿意嗎？",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "非常合意，剪得很棒！麻煩幫我吹蓬鬆並抓一點自然髮蠟，不要噴太硬的定型霧。",
+      "cleaned": "非常合意，剪得很棒！麻煩幫我吹蓬鬆並抓一點自然髮蠟，不要噴太硬的定型霧。",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "弄好囉，看起來非常體面帥氣！請您到前方收銀台結帳領取發票喔。",
+      "cleaned": "弄好囉，看起來非常體面帥氣！請您到前方收銀台結帳領取發票喔。",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "非常謝謝你！這裡可以刷信用卡付款或是掃 MoMo QR Code 嗎？",
+      "cleaned": "非常謝謝你！這裡可以刷信用卡付款或是掃 MoMo QR Code 嗎？",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "有的，您刷 Visa 卡或是掃 VietQR 都可以。祝您有美好愉快的一天！",
+      "cleaned": "有的，您刷 Visa 卡或是掃 VietQR 都可以。祝您有美好愉快的一天！",
+      "source": "scenario:haircut:d1"
+    },
+    {
+      "raw": "理髮 / 剪頭髮",
+      "cleaned": "理髮 、 剪頭髮",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "理髮店 / 美髮沙龍",
+      "cleaned": "理髮店 、 美髮沙龍",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "理髮師 / 美髮設計師 (Stylist)",
+      "cleaned": "理髮師 、 美髮設計師",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "髮型",
+      "cleaned": "髮型",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "Undercut 髮型 (兩側推短油頭)",
+      "cleaned": "Undercut 髮型",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "韓系層次剪 (碎蓋髮型)",
+      "cleaned": "韓系層次剪",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "平頭 / 寸頭 (南越稱 Cắt cua)",
+      "cleaned": "平頭 、 寸頭",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "兩側 / 鬢角旁兩邊",
+      "cleaned": "兩側 、 鬢角旁兩邊",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "後頸 / 後腦勺",
+      "cleaned": "後頸 、 後腦勺",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "頭頂部",
+      "cleaned": "頭頂部",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "瀏海",
+      "cleaned": "瀏海",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "剪短",
+      "cleaned": "剪短",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "別剪太短",
+      "cleaned": "別剪太短",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "打薄 / 修薄",
+      "cleaned": "打薄 、 修薄",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "刮鬍子",
+      "cleaned": "刮鬍子",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "修輪廓線 / 修髮際線",
+      "cleaned": "修輪廓線 、 修髮際線",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "洗臉 / 面部清潔",
+      "cleaned": "洗臉 、 面部清潔",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "採耳 / 掏耳朵",
+      "cleaned": "採耳 、 掏耳朵",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "吹頭髮",
+      "cleaned": "吹頭髮",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "髮蠟 / 髮泥",
+      "cleaned": "髮蠟 、 髮泥",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "定型噴霧",
+      "cleaned": "定型噴霧",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "電剪 / 電動理髮器",
+      "cleaned": "電剪 、 電動理髮器",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "燙頭髮",
+      "cleaned": "燙頭髮",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "染頭髮",
+      "cleaned": "染頭髮",
+      "source": "scenario-vocab:haircut"
+    },
+    {
+      "raw": "你好！請進來看房。這套是一房一廳，家具家電全配喔。",
+      "cleaned": "你好！請進來看房。這套是一房一廳，家具家電全配喔。",
+      "source": "scenario:rent:d1"
+    },
+    {
+      "raw": "房子好漂亮。請問每個月租金是多少呢？",
+      "cleaned": "房子好漂亮。請問每個月租金是多少呢？",
+      "source": "scenario:rent:d1"
+    },
+    {
+      "raw": "租金是一個月一千二百萬越南盾 (12,000,000 VND)。押金兩個月，月初繳房租。",
+      "cleaned": "租金是一個月一千二百萬越南盾 。押金兩個月，月初繳房租。",
+      "source": "scenario:rent:d1"
+    },
+    {
+      "raw": "電費和水費怎麼計算呢？有包含大樓管理費和 Wi-Fi 嗎？",
+      "cleaned": "電費和水費怎麼計算呢？有包含大樓管理費和 Wi-Fi 嗎？",
+      "source": "scenario:rent:d1"
+    },
+    {
+      "raw": "電費一度四千盾，水費一人十萬盾，免費提供 Wi-Fi 和免管理費。",
+      "cleaned": "電費一度四千盾，水費一人十萬盾，免費提供 Wi-Fi 和免管理費。",
+      "source": "scenario:rent:d1"
+    },
+    {
+      "raw": "公寓 / 住宅大樓",
+      "cleaned": "公寓 、 住宅大樓",
+      "source": "scenario-vocab:rent"
+    },
+    {
+      "raw": "每月租金",
+      "cleaned": "每月租金",
+      "source": "scenario-vocab:rent"
+    },
+    {
+      "raw": "租屋合約",
+      "cleaned": "租屋合約",
+      "source": "scenario-vocab:rent"
+    },
+    {
+      "raw": "電費 / 水費",
+      "cleaned": "電費 、 水費",
+      "source": "scenario-vocab:rent"
+    },
+    {
+      "raw": "家具家電齊全",
+      "cleaned": "家具家電齊全",
+      "source": "scenario-vocab:rent"
+    },
+    {
+      "raw": "暫住登記（外國人申報）",
+      "cleaned": "暫住登記",
+      "source": "scenario-vocab:rent"
+    },
+    {
+      "raw": "陳總您好！非常榮幸在我們公司辦公室迎接您的代表團。",
+      "cleaned": "陳總您好！非常榮幸在我們公司辦公室迎接您的代表團。",
+      "source": "scenario:business_meeting:d1"
+    },
+    {
+      "raw": "阮總您好！感謝貴公司的熱情接待。這是我的名片。",
+      "cleaned": "阮總您好！感謝貴公司的熱情接待。這是我的名片。",
+      "source": "scenario:business_meeting:d1"
+    },
+    {
+      "raw": "謝謝您。我們已經審閱過貴公司的實力簡介簡報，非常令人印象深刻。",
+      "cleaned": "謝謝您。我們已經審閱過貴公司的實力簡介簡報，非常令人印象深刻。",
+      "source": "scenario:business_meeting:d1"
+    },
+    {
+      "raw": "我們非常期待能與貴公司建立長期合作，並拓展在越南的市場。",
+      "cleaned": "我們非常期待能與貴公司建立長期合作，並拓展在越南的市場。",
+      "source": "scenario:business_meeting:d1"
+    },
+    {
+      "raw": "名片 / 商業名片",
+      "cleaned": "名片 、 商業名片",
+      "source": "scenario-vocab:business_meeting"
+    },
+    {
+      "raw": "合作夥伴 / 對方客戶",
+      "cleaned": "合作夥伴 、 對方客戶",
+      "source": "scenario-vocab:business_meeting"
+    },
+    {
+      "raw": "商業合約",
+      "cleaned": "商業合約",
+      "source": "scenario-vocab:business_meeting"
+    },
+    {
+      "raw": "商務合作",
+      "cleaned": "商務合作",
+      "source": "scenario-vocab:business_meeting"
+    },
+    {
+      "raw": "交貨進度 / 出貨日程",
+      "cleaned": "交貨進度 、 出貨日程",
+      "source": "scenario-vocab:business_meeting"
+    },
+    {
+      "raw": "付款方式 (LC / TT)",
+      "cleaned": "付款方式",
+      "source": "scenario-vocab:business_meeting"
+    },
+    {
+      "raw": "救我！幫幫我！有人會說英語或中文嗎？",
+      "cleaned": "救我！幫幫我！有人會說英語或中文嗎？",
+      "source": "scenario:emergency:d1"
+    },
+    {
+      "raw": "請冷靜下來！發生了什麼事？你在哪裡遺失物品的？",
+      "cleaned": "請冷靜下來！發生了什麼事？你在哪裡遺失物品的？",
+      "source": "scenario:emergency:d1"
+    },
+    {
+      "raw": "我剛在十字路口被飛車搶了包包，裡面有護照、手機和錢包。",
+      "cleaned": "我剛在十字路口被飛車搶了包包，裡面有護照、手機和錢包。",
+      "source": "scenario:emergency:d1"
+    },
+    {
+      "raw": "我們會為您製作財產遺失報案筆錄，以便您前往代表處補發護照。",
+      "cleaned": "我們會為您製作財產遺失報案筆錄，以便您前往代表處補發護照。",
+      "source": "scenario:emergency:d1"
+    },
+    {
+      "raw": "救我！/ 救命！",
+      "cleaned": "救我！、 救命！",
+      "source": "scenario-vocab:emergency"
+    },
+    {
+      "raw": "幫幫我！",
+      "cleaned": "幫幫我！",
+      "source": "scenario-vocab:emergency"
+    },
+    {
+      "raw": "公安局 / 派出所 / 警察局",
+      "cleaned": "公安局 、 派出所 、 警察局",
+      "source": "scenario-vocab:emergency"
+    },
+    {
+      "raw": "遺失護照",
+      "cleaned": "遺失護照",
+      "source": "scenario-vocab:emergency"
+    },
+    {
+      "raw": "製作報案筆錄 / 官方證明",
+      "cleaned": "製作報案筆錄 、 官方證明",
+      "source": "scenario-vocab:emergency"
+    },
+    {
+      "raw": "報警電話 (113)",
+      "cleaned": "報警電話",
+      "source": "scenario-vocab:emergency"
+    },
+    {
+      "raw": "消防火警 (114)",
+      "cleaned": "消防火警",
+      "source": "scenario-vocab:emergency"
+    },
+    {
+      "raw": "救護車急救 (115)",
+      "cleaned": "救護車急救",
+      "source": "scenario-vocab:emergency"
+    },
+    {
+      "raw": "你好！我是 Minh。很高興認識你。",
+      "cleaned": "你好！我是 Minh。很高興認識你。",
+      "source": "scenario:meeting:d1"
+    },
+    {
+      "raw": "你好 Minh！我是 David，台灣人。我剛調派到越南工作。",
+      "cleaned": "你好 Minh！我是 David，台灣人。我剛調派到越南工作。",
+      "source": "scenario:meeting:d1"
+    },
+    {
+      "raw": "哇，你的越語說得真好！你學多久了？你目前住在幾郡？",
+      "cleaned": "哇，你的越語說得真好！你學多久了？你目前住在幾郡？",
+      "source": "scenario:meeting:d1"
+    },
+    {
+      "raw": "我學了大約 6 個月了。我住在第一郡。你有用 Zalo 嗎？請留個電話號碼方便加好友吧！",
+      "cleaned": "我學了大約 6 個月了。我住在第一郡。你有用 Zalo 嗎？請留個電話號碼方便加好友吧！",
+      "source": "scenario:meeting:d1"
+    },
+    {
+      "raw": "有的！我的 Zalo 號碼是 0901234567。有空傳訊息一起喝咖啡喔！",
+      "cleaned": "有的！我的 Zalo 號碼是 0901234567。有空傳訊息一起喝咖啡喔！",
+      "source": "scenario:meeting:d1"
+    },
+    {
+      "raw": "結識 / 做朋友",
+      "cleaned": "結識 、 做朋友",
+      "source": "scenario-vocab:meeting"
+    },
+    {
+      "raw": "很高興遇見你",
+      "cleaned": "很高興遇見你",
+      "source": "scenario-vocab:meeting"
+    },
+    {
+      "raw": "加 Zalo 好友",
+      "cleaned": "加 Zalo 好友",
+      "source": "scenario-vocab:meeting"
+    },
+    {
+      "raw": "電話號碼",
+      "cleaned": "電話號碼",
+      "source": "scenario-vocab:meeting"
+    },
+    {
+      "raw": "剛搬來 / 剛調派過來",
+      "cleaned": "剛搬來 、 剛調派過來",
+      "source": "scenario-vocab:meeting"
+    },
+    {
+      "raw": "這陣子西貢的天氣好熱啊哥！每天下午還都下陣雨。",
+      "cleaned": "這陣子西貢的天氣好熱啊哥！每天下午還都下陣雨。",
+      "source": "scenario:smalltalk:d1"
+    },
+    {
+      "raw": "沒錯！雨季出門去哪都得隨身帶雨衣。這週末妳有什麼計畫了嗎？",
+      "cleaned": "沒錯！雨季出門去哪都得隨身帶雨衣。這週末妳有什麼計畫了嗎？",
+      "source": "scenario:smalltalk:d1"
+    },
+    {
+      "raw": "我打算去阮惠步行街散步，然後跟朋友去吃炒螺。哥吃過西貢的炒螺海鮮了嗎？",
+      "cleaned": "我打算去阮惠步行街散步，然後跟朋友去吃炒螺。哥吃過西貢的炒螺海鮮了嗎？",
+      "source": "scenario:smalltalk:d1"
+    },
+    {
+      "raw": "我吃過一次，太美味了！改天妳帶我去哪家好吃的店吧！",
+      "cleaned": "我吃過一次，太美味了！改天妳帶我去哪家好吃的店吧！",
+      "source": "scenario:smalltalk:d1"
+    },
+    {
+      "raw": "天氣",
+      "cleaned": "天氣",
+      "source": "scenario-vocab:smalltalk"
+    },
+    {
+      "raw": "雨季 / 乾季",
+      "cleaned": "雨季 、 乾季",
+      "source": "scenario-vocab:smalltalk"
+    },
+    {
+      "raw": "週末",
+      "cleaned": "週末",
+      "source": "scenario-vocab:smalltalk"
+    },
+    {
+      "raw": "空閒 / 有空",
+      "cleaned": "空閒 、 有空",
+      "source": "scenario-vocab:smalltalk"
+    },
+    {
+      "raw": "美味極了",
+      "cleaned": "美味極了",
+      "source": "scenario-vocab:smalltalk"
+    },
+    {
+      "raw": "David 哥，你平時有空時有什麼興趣愛好呢？",
+      "cleaned": "David 哥，你平時有空時有什麼興趣愛好呢？",
+      "source": "scenario:leisure_hobbies:d1"
+    },
+    {
+      "raw": "我喜歡聽越南流行音樂 (V-Pop)、街頭攝影以及到處旅行探索美食。",
+      "cleaned": "我喜歡聽越南流行音樂 、街頭攝影以及到處旅行探索美食。",
+      "source": "scenario:leisure_hobbies:d1"
+    },
+    {
+      "raw": "太棒了！今晚我們這幫朋友要去第一郡唱卡拉OK，哥一起來熱鬧一下吧！",
+      "cleaned": "太棒了！今晚我們這幫朋友要去第一郡唱卡拉OK，哥一起來熱鬧一下吧！",
+      "source": "scenario:leisure_hobbies:d1"
+    },
+    {
+      "raw": "太好了！我會練習唱一首越南歌來共襄盛舉。",
+      "cleaned": "太好了！我會練習唱一首越南歌來共襄盛舉。",
+      "source": "scenario:leisure_hobbies:d1"
+    },
+    {
+      "raw": "興趣 / 愛好",
+      "cleaned": "興趣 、 愛好",
+      "source": "scenario-vocab:leisure_hobbies"
+    },
+    {
+      "raw": "唱卡拉OK",
+      "cleaned": "唱卡拉OK",
+      "source": "scenario-vocab:leisure_hobbies"
+    },
+    {
+      "raw": "聽音樂",
+      "cleaned": "聽音樂",
+      "source": "scenario-vocab:leisure_hobbies"
+    },
+    {
+      "raw": "拍照 / 攝影",
+      "cleaned": "拍照 、 攝影",
+      "source": "scenario-vocab:leisure_hobbies"
+    },
+    {
+      "raw": "看電影",
+      "cleaned": "看電影",
+      "source": "scenario-vocab:leisure_hobbies"
+    },
+    {
+      "raw": "David 哥！你想不想跟我們一起踢毽子玩玩熱鬧一下？",
+      "cleaned": "David 哥！你想不想跟我們一起踢毽子玩玩熱鬧一下？",
+      "source": "scenario:sports_fitness:d1"
+    },
+    {
+      "raw": "好啊！但我才剛學著踢，怕踢得不好打亂大家的節奏。",
+      "cleaned": "好啊！但我才剛學著踢，怕踢得不好打亂大家的節奏。",
+      "source": "scenario:sports_fitness:d1"
+    },
+    {
+      "raw": "沒關係的哥，開心最重要！除了踢毽子，你平時常做其他運動嗎？",
+      "cleaned": "沒關係的哥，開心最重要！除了踢毽子，你平時常做其他運動嗎？",
+      "source": "scenario:sports_fitness:d1"
+    },
+    {
+      "raw": "我平時早上常跑步，每週去健身房鍛鍊三次。週末偶爾打羽毛球。",
+      "cleaned": "我平時早上常跑步，每週去健身房鍛鍊三次。週末偶爾打羽毛球。",
+      "source": "scenario:sports_fitness:d1"
+    },
+    {
+      "raw": "踢毽子（越南國技）",
+      "cleaned": "踢毽子",
+      "source": "scenario-vocab:sports_fitness"
+    },
+    {
+      "raw": "羽毛球",
+      "cleaned": "羽毛球",
+      "source": "scenario-vocab:sports_fitness"
+    },
+    {
+      "raw": "足球",
+      "cleaned": "足球",
+      "source": "scenario-vocab:sports_fitness"
+    },
+    {
+      "raw": "跑步 / 慢跑",
+      "cleaned": "跑步 、 慢跑",
+      "source": "scenario-vocab:sports_fitness"
+    },
+    {
+      "raw": "健身 / 健身房重訓",
+      "cleaned": "健身 、 健身房重訓",
+      "source": "scenario-vocab:sports_fitness"
+    },
+    {
+      "raw": "David，本週的專案進度報告完成了嗎？",
+      "cleaned": "David，本週的專案進度報告完成了嗎？",
+      "source": "scenario:workplace_collab:d1"
+    },
+    {
+      "raw": "報告主管，我已經透過 Email 發送報告了。所有項目都在按進度進行中。",
+      "cleaned": "報告主管，我已經透過 Email 發送報告了。所有項目都在按進度進行中。",
+      "source": "scenario:workplace_collab:d1"
+    },
+    {
+      "raw": "非常好。明天下萬 2 點我們要跟客戶開會敲定合約。",
+      "cleaned": "非常好。明天下萬 2 點我們要跟客戶開會敲定合約。",
+      "source": "scenario:workplace_collab:d1"
+    },
+    {
+      "raw": "收到，我會提前準備好完整資料與會議室。",
+      "cleaned": "收到，我會提前準備好完整資料與會議室。",
+      "source": "scenario:workplace_collab:d1"
+    },
+    {
+      "raw": "報告 / 匯報",
+      "cleaned": "報告 、 匯報",
+      "source": "scenario-vocab:workplace_collab"
+    },
+    {
+      "raw": "請假 / 請年假",
+      "cleaned": "請假 、 請年假",
+      "source": "scenario-vocab:workplace_collab"
+    },
+    {
+      "raw": "開會 / 會議",
+      "cleaned": "開會 、 會議",
+      "source": "scenario-vocab:workplace_collab"
+    },
+    {
+      "raw": "文件 / 資料",
+      "cleaned": "文件 、 資料",
+      "source": "scenario-vocab:workplace_collab"
+    },
+    {
+      "raw": "你好，你想租打檔車還是自動變速機車 (Scooter)？租幾天？",
+      "cleaned": "你好，你想租打檔車還是自動變速機車 ？租幾天？",
+      "source": "scenario:travel_tour:d1"
+    },
+    {
+      "raw": "給我租一輛自動變速機車 (Xe ga)，租三天。一天的租金是多少錢呢？",
+      "cleaned": "給我租一輛自動變速機車 ，租三天。一天的租金是多少錢呢？",
+      "source": "scenario:travel_tour:d1"
+    },
+    {
+      "raw": "自動機車一天十五萬盾 (150,000 VND)。我們附送兩頂安全帽和雨衣喔。",
+      "cleaned": "自動機車一天十五萬盾 。我們附送兩頂安全帽和雨衣喔。",
+      "source": "scenario:travel_tour:d1"
+    },
+    {
+      "raw": "太好了！我需要押護照還是付現金押金呢？",
+      "cleaned": "太好了！我需要押護照還是付現金押金呢？",
+      "source": "scenario:travel_tour:d1"
+    },
+    {
+      "raw": "租機車",
+      "cleaned": "租機車",
+      "source": "scenario-vocab:travel_tour"
+    },
+    {
+      "raw": "自動變速速克達 (Scooter)",
+      "cleaned": "自動變速速克達",
+      "source": "scenario-vocab:travel_tour"
+    },
+    {
+      "raw": "打檔機車",
+      "cleaned": "打檔機車",
+      "source": "scenario-vocab:travel_tour"
+    },
+    {
+      "raw": "安全帽",
+      "cleaned": "安全帽",
+      "source": "scenario-vocab:travel_tour"
+    },
+    {
+      "raw": "押金 / 訂金",
+      "cleaned": "押金 、 訂金",
+      "source": "scenario-vocab:travel_tour"
+    },
+    {
+      "raw": "您好！歡迎光臨參觀我們在 SECC 展覽會的攤位。",
+      "cleaned": "您好！歡迎光臨參觀我們在 SECC 展覽會的攤位。",
+      "source": "scenario:biz_trade_show_secc:d1"
+    },
+    {
+      "raw": "你好。我們公司正在尋找高品質的電子零件供應商。你們有型錄嗎？",
+      "cleaned": "你好。我們公司正在尋找高品質的電子零件供應商。你們有型錄嗎？",
+      "source": "scenario:biz_trade_show_secc:d1"
+    },
+    {
+      "raw": "有的！送您我們最新版型錄。我們所有產品均符合 ISO 9001 標準並取得 CE 認證。",
+      "cleaned": "有的！送您我們最新版型錄。我們所有產品均符合 ISO 9001 標準並取得 CE 認證。",
+      "source": "scenario:biz_trade_show_secc:d1"
+    },
+    {
+      "raw": "令人印象深刻！請給我一張名片和 Zalo 號碼，今晚好進一步討論報價。",
+      "cleaned": "令人印象深刻！請給我一張名片和 Zalo 號碼，今晚好進一步討論報價。",
+      "source": "scenario:biz_trade_show_secc:d1"
+    },
+    {
+      "raw": "好的，雙手遞上我的名片。今晚我會立刻發送詳細價格表給您！",
+      "cleaned": "好的，雙手遞上我的名片。今晚我會立刻發送詳細價格表給您！",
+      "source": "scenario:biz_trade_show_secc:d1"
+    },
+    {
+      "raw": "展覽攤位 / 展位",
+      "cleaned": "展覽攤位 、 展位",
+      "source": "scenario-vocab:biz_trade_show_secc"
+    },
+    {
+      "raw": "名片 / 商務名片",
+      "cleaned": "名片 、 商務名片",
+      "source": "scenario-vocab:biz_trade_show_secc"
+    },
+    {
+      "raw": "產品型錄 / 宣傳手冊",
+      "cleaned": "產品型錄 、 宣傳手冊",
+      "source": "scenario-vocab:biz_trade_show_secc"
+    },
+    {
+      "raw": "證書 / 認證",
+      "cleaned": "證書 、 認證",
+      "source": "scenario-vocab:biz_trade_show_secc"
+    },
+    {
+      "raw": "您好，我們已經收到您針對 50,000 件訂單的詢價單 (RFQ)。",
+      "cleaned": "您好，我們已經收到您針對 50,000 件訂單的詢價單 。",
+      "source": "scenario:biz_rfq_pricing:d1"
+    },
+    {
+      "raw": "目前 FOB 蓋萊港 (Cát Lái) 條件下的報價是多少？如果我們把數量增加到 10 萬件，有更好的折扣嗎？",
+      "cleaned": "目前 FOB 蓋萊港 條件下的報價是多少？如果我們把數量增加到 10 萬件，有更好的折扣嗎？",
+      "source": "scenario:biz_rfq_pricing:d1"
+    },
+    {
+      "raw": "目前單價為每件 8.5 美金。如果您訂購 10 萬件，我們可折讓 6%，降至每件 8.0 美金。",
+      "cleaned": "目前單價為每件 8.5 美金。如果您訂購 10 萬件，我們可折讓 6%，降至每件 8.0 美金。",
+      "source": "scenario:biz_rfq_pricing:d1"
+    },
+    {
+      "raw": "8.0 美金非常合理。關於付款條件，我們將電匯 30% 訂金，並在收到提單 (B/L) 副本時支付 70% 尾款。",
+      "cleaned": "8.0 美金非常合理。關於付款條件，我們將電匯 30% 訂金，並在收到提單 副本時支付 70% 尾款。",
+      "source": "scenario:biz_rfq_pricing:d1"
+    },
+    {
+      "raw": "報價單 / 報價",
+      "cleaned": "報價單 、 報價",
+      "source": "scenario-vocab:biz_rfq_pricing"
+    },
+    {
+      "raw": "折扣 / 折讓",
+      "cleaned": "折扣 、 折讓",
+      "source": "scenario-vocab:biz_rfq_pricing"
+    },
+    {
+      "raw": "單價 / 每單位價格",
+      "cleaned": "單價 、 每單位價格",
+      "source": "scenario-vocab:biz_rfq_pricing"
+    },
+    {
+      "raw": "付訂金 / 押金",
+      "cleaned": "付訂金 、 押金",
+      "source": "scenario-vocab:biz_rfq_pricing"
+    },
+    {
+      "raw": "您好，我們已經審查了貴方的 CAD 工程圖。工廠完全具備依照此標準進行 OEM 代工的能力。",
+      "cleaned": "您好，我們已經審查了貴方的 CAD 工程圖。工廠完全具備依照此標準進行 OEM 代工的能力。",
+      "source": "scenario:biz_oem_odm_contract:d1"
+    },
+    {
+      "raw": "太好了。開新模具的費用是多少？樣品打樣試產需要多長時間？",
+      "cleaned": "太好了。開新模具的費用是多少？樣品打樣試產需要多長時間？",
+      "source": "scenario:biz_oem_odm_contract:d1"
+    },
+    {
+      "raw": "模具費用約 5,000 美金，打樣週期 15 天。若後續正式大貨訂單達到 50,000 件，我們將 100% 全額返還模具費。",
+      "cleaned": "模具費用約 5,000 美金，打樣週期 15 天。若後續正式大貨訂單達到 50,000 件，我們將 100% 全額返還模具費。",
+      "source": "scenario:biz_oem_odm_contract:d1"
+    },
+    {
+      "raw": "同意。在傳送詳細規格與 3D 檔案之前，我們先簽署保密協定 (NDA) 吧。",
+      "cleaned": "同意。在傳送詳細規格與 3D 檔案之前，我們先簽署保密協定 吧。",
+      "source": "scenario:biz_oem_odm_contract:d1"
+    },
+    {
+      "raw": "代工 / 加工製造",
+      "cleaned": "代工 、 加工製造",
+      "source": "scenario-vocab:biz_oem_odm_contract"
+    },
+    {
+      "raw": "模具 / 鋼模",
+      "cleaned": "模具 、 鋼模",
+      "source": "scenario-vocab:biz_oem_odm_contract"
+    },
+    {
+      "raw": "保密 / 機密保護",
+      "cleaned": "保密 、 機密保護",
+      "source": "scenario-vocab:biz_oem_odm_contract"
+    },
+    {
+      "raw": "技術參數 / 規格",
+      "cleaned": "技術參數 、 規格",
+      "source": "scenario-vocab:biz_oem_odm_contract"
+    },
+    {
+      "raw": "小姐，我們公司需要為這次的所有住宿與餐飲費用開立加值稅紅發票。",
+      "cleaned": "小姐，我們公司需要為這次的所有住宿與餐飲費用開立加值稅紅發票。",
+      "source": "scenario:biz_vat_invoice_tax:d1"
+    },
+    {
+      "raw": "好的。請您提供公司全稱、統一稅號 (MST)、登記地址與電子信箱，我們立刻開立電子發票。",
+      "cleaned": "好的。請您提供公司全稱、統一稅號 、登記地址與電子信箱，我們立刻開立電子發票。",
+      "source": "scenario:biz_vat_invoice_tax:d1"
+    },
+    {
+      "raw": "這是印有我們公司完整開票資訊的名片。總金額已經包含 10% 增值稅了對吧？",
+      "cleaned": "這是印有我們公司完整開票資訊的名片。總金額已經包含 10% 增值稅了對吧？",
+      "source": "scenario:biz_vat_invoice_tax:d1"
+    },
+    {
+      "raw": "沒錯，價格已含稅。系統將在 15 分鐘內自動將 PDF 與 XML 發票檔案發送到您的信箱。",
+      "cleaned": "沒錯，價格已含稅。系統將在 15 分鐘內自動將 PDF 與 XML 發票檔案發送到您的信箱。",
+      "source": "scenario:biz_vat_invoice_tax:d1"
+    },
+    {
+      "raw": "加值稅紅發票 / 統一發票",
+      "cleaned": "加值稅紅發票 、 統一發票",
+      "source": "scenario-vocab:biz_vat_invoice_tax"
+    },
+    {
+      "raw": "公司統一稅號 (MST / 統編)",
+      "cleaned": "公司統一稅號",
+      "source": "scenario-vocab:biz_vat_invoice_tax"
+    },
+    {
+      "raw": "加值型營業稅 (VAT 10%)",
+      "cleaned": "加值型營業稅",
+      "source": "scenario-vocab:biz_vat_invoice_tax"
+    },
+    {
+      "raw": "核銷報帳 / 扣款憑證",
+      "cleaned": "核銷報帳 、 扣款憑證",
+      "source": "scenario-vocab:biz_vat_invoice_tax"
+    },
+    {
+      "raw": "歡迎專家代表團。在進入生產車間之前，請大家戴上安全帽並穿上防護鞋。",
+      "cleaned": "歡迎專家代表團。在進入生產車間之前，請大家戴上安全帽並穿上防護鞋。",
+      "source": "scenario:biz_factory_audit_qc:d1"
+    },
+    {
+      "raw": "謝謝廠長。我們想檢查 2 號產線的品質管制 (QC) 流程，並查閱上週的不良品率 (NG率) 報告。",
+      "cleaned": "謝謝廠長。我們想檢查 2 號產線的品質管制 流程，並查閱上週的不良品率 報告。",
+      "source": "scenario:biz_factory_audit_qc:d1"
+    },
+    {
+      "raw": "2 號產線目前實現 80% 自動化運轉，不良率穩定保持在 0.3%，遠低於合約規定的 1% 上限標準。",
+      "cleaned": "2 號產線目前實現 80% 自動化運轉，不良率穩定保持在 0.3%，遠低於合約規定的 1% 上限標準。",
+      "source": "scenario:biz_factory_audit_qc:d1"
+    },
+    {
+      "raw": "非常優秀！廠房的 5S 管理與庫存倉儲非常整潔有序。我們將評定為 A 級驗收合格標準。",
+      "cleaned": "非常優秀！廠房的 5S 管理與庫存倉儲非常整潔有序。我們將評定為 A 級驗收合格標準。",
+      "source": "scenario:biz_factory_audit_qc:d1"
+    },
+    {
+      "raw": "驗廠稽核 / 審計",
+      "cleaned": "驗廠稽核 、 審計",
+      "source": "scenario-vocab:biz_factory_audit_qc"
+    },
+    {
+      "raw": "品質檢驗 / 品管 (QC)",
+      "cleaned": "品質檢驗 、 品管",
+      "source": "scenario-vocab:biz_factory_audit_qc"
+    },
+    {
+      "raw": "不良品 / 報廢品 (NG)",
+      "cleaned": "不良品 、 報廢品",
+      "source": "scenario-vocab:biz_factory_audit_qc"
+    },
+    {
+      "raw": "產能 / 生產效率",
+      "cleaned": "產能 、 生產效率",
+      "source": "scenario-vocab:biz_factory_audit_qc"
+    },
+    {
+      "raw": "您好，從台灣運來的 2 個貨櫃零件今早已經抵達胡志明市蓋萊港 (Cát Lái)。",
+      "cleaned": "您好，從台灣運來的 2 個貨櫃零件今早已經抵達胡志明市蓋萊港 。",
+      "source": "scenario:biz_customs_logistics:d1"
+    },
+    {
+      "raw": "太好了。包含商業發票 (Invoice)、裝箱清單 (Packing List) 與產地證明 (C/O) 的報關文件都齊全了嗎？",
+      "cleaned": "太好了。包含商業發票 、裝箱清單 與產地證明 的報關文件都齊全了嗎？",
+      "source": "scenario:biz_customs_logistics:d1"
+    },
+    {
+      "raw": "全部齊全。海關分局目前正在走綠線通關程序，預計明午即可完成清關並把貨櫃拖回工廠。",
+      "cleaned": "全部齊全。海關分局目前正在走綠線通關程序，預計明午即可完成清關並把貨櫃拖回工廠。",
+      "source": "scenario:biz_customs_logistics:d1"
+    },
+    {
+      "raw": "很好。請調度好卡車車隊隨時準備卸貨，避免產生港口貨櫃延滯費 (Demurrage)。",
+      "cleaned": "很好。請調度好卡車車隊隨時準備卸貨，避免產生港口貨櫃延滯費 。",
+      "source": "scenario:biz_customs_logistics:d1"
+    },
+    {
+      "raw": "海關 / 關稅局",
+      "cleaned": "海關 、 關稅局",
+      "source": "scenario-vocab:biz_customs_logistics"
+    },
+    {
+      "raw": "海關清關 / 放行",
+      "cleaned": "海關清關 、 放行",
+      "source": "scenario-vocab:biz_customs_logistics"
+    },
+    {
+      "raw": "提單 (B/L) / 貨運單",
+      "cleaned": "提單 、 貨運單",
+      "source": "scenario-vocab:biz_customs_logistics"
+    },
+    {
+      "raw": "貨櫃 / 集裝箱",
+      "cleaned": "貨櫃 、 集裝箱",
+      "source": "scenario-vocab:biz_customs_logistics"
+    },
+    {
+      "raw": "非常榮幸在胡志明市接待台灣企業考察團！請陳總坐上這個貴賓主座。",
+      "cleaned": "非常榮幸在胡志明市接待台灣企業考察團！請陳總坐上這個貴賓主座。",
+      "source": "scenario:biz_nhau_banquet:d1"
+    },
+    {
+      "raw": "謝謝武董事長無比熱情的款待！我們非常珍惜貴集團的深厚情誼與周到安排。",
+      "cleaned": "謝謝武董事長無比熱情的款待！我們非常珍惜貴集團的深厚情誼與周到安排。",
+      "source": "scenario:biz_nhau_banquet:d1"
+    },
+    {
+      "raw": "來，大家一起舉杯！一、二、三，乾！二、三，乾！百分之百乾杯，慶祝我們合作圓滿成功！",
+      "cleaned": "來，大家一起舉杯！一、二、三，乾！二、三，乾！百分之百乾杯，慶祝我們合作圓滿成功！",
+      "source": "scenario:biz_nhau_banquet:d1"
+    },
+    {
+      "raw": "祝武董事長身體健康、貴集團萬事如意、生意大發財！",
+      "cleaned": "祝武董事長身體健康、貴集團萬事如意、生意大發財！",
+      "source": "scenario:biz_nhau_banquet:d1"
+    },
+    {
+      "raw": "舉杯祝酒 / 碰杯",
+      "cleaned": "舉杯祝酒 、 碰杯",
+      "source": "scenario-vocab:biz_nhau_banquet"
+    },
+    {
+      "raw": "款待 / 設宴招待",
+      "cleaned": "款待 、 設宴招待",
+      "source": "scenario-vocab:biz_nhau_banquet"
+    },
+    {
+      "raw": "百分之百 / 乾杯 (Bottoms up)",
+      "cleaned": "百分之百 、 乾杯",
+      "source": "scenario-vocab:biz_nhau_banquet"
+    },
+    {
+      "raw": "繁榮昌盛 / 興旺發達",
+      "cleaned": "繁榮昌盛 、 興旺發達",
+      "source": "scenario-vocab:biz_nhau_banquet"
+    },
+    {
+      "raw": "您好，請問 Vietcombank 越南外貿銀行能為貴外商直接投資 (FDI) 企業提供什麼協助？",
+      "cleaned": "您好，請問 Vietcombank 越南外貿銀行能為貴外商直接投資 企業提供什麼協助？",
+      "source": "scenario:biz_bank_finance:d1"
+    },
+    {
+      "raw": "我們想為新成立的公司開設 USD 直接投資資本帳戶 (DICA) 以及 VND 活期結算帳戶。",
+      "cleaned": "我們想為新成立的公司開設 USD 直接投資資本帳戶 以及 VND 活期結算帳戶。",
+      "source": "scenario:biz_bank_finance:d1"
+    },
+    {
+      "raw": "好的，請出示投資許可證 (IRC)、企業登記證 (ERC) 以及法定代表人的護照原件。",
+      "cleaned": "好的，請出示投資許可證 、企業登記證 以及法定代表人的護照原件。",
+      "source": "scenario:biz_bank_finance:d1"
+    },
+    {
+      "raw": "我們所有文件均已完成合法公證。另外我們想開立 50 萬美元信用狀 (L/C) 額度以進口生產設備機器。",
+      "cleaned": "我們所有文件均已完成合法公證。另外我們想開立 50 萬美元信用狀 額度以進口生產設備機器。",
+      "source": "scenario:biz_bank_finance:d1"
+    },
+    {
+      "raw": "銀行帳戶 / 帳號",
+      "cleaned": "銀行帳戶 、 帳號",
+      "source": "scenario-vocab:biz_bank_finance"
+    },
+    {
+      "raw": "信用狀 (L/C)",
+      "cleaned": "信用狀",
+      "source": "scenario-vocab:biz_bank_finance"
+    },
+    {
+      "raw": "匯款 / 轉帳",
+      "cleaned": "匯款 、 轉帳",
+      "source": "scenario-vocab:biz_bank_finance"
+    },
+    {
+      "raw": "匯率 / 外匯牌價",
+      "cleaned": "匯率 、 外匯牌價",
+      "source": "scenario-vocab:biz_bank_finance"
+    },
+    {
+      "raw": "報告總經理，為了配合新產線擴產計畫，我們廠需要額外招聘 100 名車縫工與 10 名技術工程師。",
+      "cleaned": "報告總經理，為了配合新產線擴產計畫，我們廠需要額外招聘 100 名車縫工與 10 名技術工程師。",
+      "source": "scenario:biz_hiring_labor:d1"
+    },
+    {
+      "raw": "我們目前規劃的底薪與各項津貼（全勤、住房、油資補貼）比起工業區整體行情如何？",
+      "cleaned": "我們目前規劃的底薪與各項津貼 比起工業區整體行情如何？",
+      "source": "scenario:biz_hiring_labor:d1"
+    },
+    {
+      "raw": "我們的底薪高於地區最低法定工資 15%，加上依法全額投保社會保險 (BHXH)，因此求職者應徵非常踴躍。",
+      "cleaned": "我們的底薪高於地區最低法定工資 15%，加上依法全額投保社會保險 ，因此求職者應徵非常踴躍。",
+      "source": "scenario:biz_hiring_labor:d1"
+    },
+    {
+      "raw": "很好。記得在勞動合約中明確載明加班規範與年終第 13 個月薪資獎金，嚴格遵守勞動法。",
+      "cleaned": "很好。記得在勞動合約中明確載明加班規範與年終第 13 個月薪資獎金，嚴格遵守勞動法。",
+      "source": "scenario:biz_hiring_labor:d1"
+    },
+    {
+      "raw": "招聘 / 招募人員",
+      "cleaned": "招聘 、 招募人員",
+      "source": "scenario-vocab:biz_hiring_labor"
+    },
+    {
+      "raw": "加班 (Overtime)",
+      "cleaned": "加班",
+      "source": "scenario-vocab:biz_hiring_labor"
+    },
+    {
+      "raw": "津貼 / 補貼",
+      "cleaned": "津貼 、 補貼",
+      "source": "scenario-vocab:biz_hiring_labor"
+    },
+    {
+      "raw": "第13個月薪資 (年終獎金)",
+      "cleaned": "第13個月薪資",
+      "source": "scenario-vocab:biz_hiring_labor"
+    },
+    {
+      "raw": "您好，我們在全越南擁有超過 500 家二級經銷商通路，希望能爭取貴品牌在越南的獨家總代理權。",
+      "cleaned": "您好，我們在全越南擁有超過 500 家二級經銷商通路，希望能爭取貴品牌在越南的獨家總代理權。",
+      "source": "scenario:biz_exclusive_agency:d1"
+    },
+    {
+      "raw": "我們非常歡迎。為了取得全越南獨家代理權，您承諾的第一年年度銷售目標 (Target) 是多少？",
+      "cleaned": "我們非常歡迎。為了取得全越南獨家代理權，您承諾的第一年年度銷售目標 是多少？",
+      "source": "scenario:biz_exclusive_agency:d1"
+    },
+    {
+      "raw": "我們承諾第一年最低銷售額為 100 萬美金，平均分攤至 4 個季度。作為交換，希望貴方能補貼 5% 的行銷推廣廣告費。",
+      "cleaned": "我們承諾第一年最低銷售額為 100 萬美金，平均分攤至 4 個季度。作為交換，希望貴方能補貼 5% 的行銷推廣廣告費。",
+      "source": "scenario:biz_exclusive_agency:d1"
+    },
+    {
+      "raw": "這個協議非常公平。我們將擬定框架合約並加入每季定期 KPI 評核條款。祝我們合作成功！",
+      "cleaned": "這個協議非常公平。我們將擬定框架合約並加入每季定期 KPI 評核條款。祝我們合作成功！",
+      "source": "scenario:biz_exclusive_agency:d1"
+    },
+    {
+      "raw": "獨家 / 獨占代理權",
+      "cleaned": "獨家 、 獨占代理權",
+      "source": "scenario-vocab:biz_exclusive_agency"
+    },
+    {
+      "raw": "營業額 / 銷售額",
+      "cleaned": "營業額 、 銷售額",
+      "source": "scenario-vocab:biz_exclusive_agency"
+    },
+    {
+      "raw": "分銷 / 經銷配送",
+      "cleaned": "分銷 、 經銷配送",
+      "source": "scenario-vocab:biz_exclusive_agency"
+    },
+    {
+      "raw": "行銷 / 市場推廣 (Marketing)",
+      "cleaned": "行銷 、 市場推廣",
+      "source": "scenario-vocab:biz_exclusive_agency"
+    },
+    {
+      "raw": "熱烈歡迎台灣企業代表團！我們 VSIP 工業園區向各位介紹剛竣工的 5,000 平方公尺標準廠房 (RBF) 區塊。",
+      "cleaned": "熱烈歡迎台灣企業代表團！我們 VSIP 工業園區向各位介紹剛竣工的 5,000 平方公尺標準廠房 區塊。",
+      "source": "scenario:biz_factory_lease:d1"
+    },
+    {
+      "raw": "目前每平方公尺月租金是多少美金？此價格是否已包含基礎設施管理費與維護費？",
+      "cleaned": "目前每平方公尺月租金是多少美金？此價格是否已包含基礎設施管理費與維護費？",
+      "source": "scenario:biz_factory_lease:d1"
+    },
+    {
+      "raw": "租金單價為每平方公尺每月 4.8 美金。廠房配備獨立 1,000 KVA 變電站，並提供每日 50 立方公尺之廢水納管處理額度。",
+      "cleaned": "租金單價為每平方公尺每月 4.8 美金。廠房配備獨立 1,000 KVA 變電站，並提供每日 50 立方公尺之廢水納管處理額度。",
+      "source": "scenario:biz_factory_lease:d1"
+    },
+    {
+      "raw": "如果我們簽署 5 年長期租賃合約，開發商能否給予前 3 個月裝修免租期，方便我們進駐安裝生產機台？",
+      "cleaned": "如果我們簽署 5 年長期租賃合約，開發商能否給予前 3 個月裝修免租期，方便我們進駐安裝生產機台？",
+      "source": "scenario:biz_factory_lease:d1"
+    },
+    {
+      "raw": "標準廠房 (RBF)",
+      "cleaned": "標準廠房",
+      "source": "scenario-vocab:biz_factory_lease"
+    },
+    {
+      "raw": "變電站 / 變壓站 (KVA)",
+      "cleaned": "變電站 、 變壓站",
+      "source": "scenario-vocab:biz_factory_lease"
+    },
+    {
+      "raw": "管線銜接 / 納管連接",
+      "cleaned": "管線銜接 、 納管連接",
+      "source": "scenario-vocab:biz_factory_lease"
+    },
+    {
+      "raw": "免租期 (裝修裝機免租)",
+      "cleaned": "免租期",
+      "source": "scenario-vocab:biz_factory_lease"
+    },
+    {
+      "raw": "您好！我們銀行已經完成對貴外商直接投資 (FDI) 企業的財務報告徵信與授信審查。",
+      "cleaned": "您好！我們銀行已經完成對貴外商直接投資 企業的財務報告徵信與授信審查。",
+      "source": "scenario:biz_bank_loan:d1"
+    },
+    {
+      "raw": "您好。我們希望申請 200 萬美元中期貸款用於採購自動化產線，並申請 100 萬美元營運週轉金授信額度。",
+      "cleaned": "您好。我們希望申請 200 萬美元中期貸款用於採購自動化產線，並申請 100 萬美元營運週轉金授信額度。",
+      "source": "scenario:biz_bank_loan:d1"
+    },
+    {
+      "raw": "銀行批准核貸，首年美元優惠利率為年息 5.5%，抵押品為土地租賃權與未來購置之全套機械設備。",
+      "cleaned": "銀行批准核貸，首年美元優惠利率為年息 5.5%，抵押品為土地租賃權與未來購置之全套機械設備。",
+      "source": "scenario:biz_bank_loan:d1"
+    },
+    {
+      "raw": "5.5% 利率很有競爭力。按照機台到廠進度分期撥款 (Disbursement) 的放款流程將如何進行？",
+      "cleaned": "5.5% 利率很有競爭力。按照機台到廠進度分期撥款 的放款流程將如何進行？",
+      "source": "scenario:biz_bank_loan:d1"
+    },
+    {
+      "raw": "授信額度 / 信用額度",
+      "cleaned": "授信額度 、 信用額度",
+      "source": "scenario-vocab:biz_bank_loan"
+    },
+    {
+      "raw": "抵押 / 擔保設定",
+      "cleaned": "抵押 、 擔保設定",
+      "source": "scenario-vocab:biz_bank_loan"
+    },
+    {
+      "raw": "銀行撥款 / 放款出款",
+      "cleaned": "銀行撥款 、 放款出款",
+      "source": "scenario-vocab:biz_bank_loan"
+    },
+    {
+      "raw": "貸款利率 (年息/月息)",
+      "cleaned": "貸款利率",
+      "source": "scenario-vocab:biz_bank_loan"
+    },
+    {
+      "raw": "業主您好！我們已經完成基礎工程設計，並順利取得 10,000 平方公尺新廠房的正式施工許可證 (GPXD)。",
+      "cleaned": "業主您好！我們已經完成基礎工程設計，並順利取得 10,000 平方公尺新廠房的正式施工許可證 。",
+      "source": "scenario:biz_epc_construction:d1"
+    },
+    {
+      "raw": "鋼結構主體框架吊裝與廠房地坪混凝土澆置預計在多少天內完工？",
+      "cleaned": "鋼結構主體框架吊裝與廠房地坪混凝土澆置預計在多少天內完工？",
+      "source": "scenario:biz_epc_construction:d1"
+    },
+    {
+      "raw": "我們承諾在 60 天內完成主體結構粗胚工程，並在 120 天後全案完工驗收交屋，正式交付投產運營。",
+      "cleaned": "我們承諾在 60 天內完成主體結構粗胚工程，並在 120 天後全案完工驗收交屋，正式交付投產運營。",
+      "source": "scenario:biz_epc_construction:d1"
+    },
+    {
+      "raw": "很好。工程款將按照 5 個驗收里程碑節點分期支付，並保留 5% 工程保固金，保固期為 24 個月。",
+      "cleaned": "很好。工程款將按照 5 個驗收里程碑節點分期支付，並保留 5% 工程保固金，保固期為 24 個月。",
+      "source": "scenario:biz_epc_construction:d1"
+    },
+    {
+      "raw": "EPC 統包總承包商 (設計+採購+施工)",
+      "cleaned": "EPC 統包總承包商",
+      "source": "scenario-vocab:biz_epc_construction"
+    },
+    {
+      "raw": "建照 / 施工許可證 (GPXD)",
+      "cleaned": "建照 、 施工許可證",
+      "source": "scenario-vocab:biz_epc_construction"
+    },
+    {
+      "raw": "預製鋼結構廠房 (PEB)",
+      "cleaned": "預製鋼結構廠房",
+      "source": "scenario-vocab:biz_epc_construction"
+    },
+    {
+      "raw": "竣工移交 / 驗收交屋",
+      "cleaned": "竣工移交 、 驗收交屋",
+      "source": "scenario-vocab:biz_epc_construction"
+    },
+    {
+      "raw": "各位長官好！依據越南新修訂之《環境保護法》，貴公司的電鍍與紡織印染專案屬於高污染潛在風險類別，依法強制編制環評報告 (ĐTM)。",
+      "cleaned": "各位長官好！依據越南新修訂之《環境保護法》，貴公司的電鍍與紡織印染專案屬於高污染潛在風險類別，依法強制編制環評報告 。",
+      "source": "scenario:biz_environmental_permit:d1"
+    },
+    {
+      "raw": "我們廠內的初級廢水處理系統在排放進入工業區集中污水處理廠之前，達到 QCVN 40 的 B 級標準可以符合納管要求嗎？",
+      "cleaned": "我們廠內的初級廢水處理系統在排放進入工業區集中污水處理廠之前，達到 QCVN 40 的 B 級標準可以符合納管要求嗎？",
+      "source": "scenario:biz_environmental_permit:d1"
+    },
+    {
+      "raw": "完全符合規範！我們將在本月備齊申請《環境許可證 (GPMT)》之全套文件，送交省級資源環境廳 (Sở TN&MT) 組織專家評審審批。",
+      "cleaned": "完全符合規範！我們將在本月備齊申請《環境許可證 》之全套文件，送交省級資源環境廳 組織專家評審審批。",
+      "source": "scenario:biz_environmental_permit:d1"
+    },
+    {
+      "raw": "關於危險廢棄物（廢油、廢化學品溶劑），我們已與取得自然資源環境部核可的專業清運處理單位完成簽約。",
+      "cleaned": "關於危險廢棄物 ，我們已與取得自然資源環境部核可的專業清運處理單位完成簽約。",
+      "source": "scenario:biz_environmental_permit:d1"
+    },
+    {
+      "raw": "環境影響評估報告 (環評 / ĐTM)",
+      "cleaned": "環境影響評估報告",
+      "source": "scenario-vocab:biz_environmental_permit"
+    },
+    {
+      "raw": "環境許可證 (GPMT)",
+      "cleaned": "環境許可證",
+      "source": "scenario-vocab:biz_environmental_permit"
+    },
+    {
+      "raw": "工業廢水處理 / 污水淨化",
+      "cleaned": "工業廢水處理 、 污水淨化",
+      "source": "scenario-vocab:biz_environmental_permit"
+    },
+    {
+      "raw": "危險廢棄物 / 有害廢棄物",
+      "cleaned": "危險廢棄物 、 有害廢棄物",
+      "source": "scenario-vocab:biz_environmental_permit"
+    },
+    {
+      "raw": "總經理好！我們廠房的消防系統設計圖紙已經正式通過公安局消防警察局的圖紙審查與審批 (Thẩm duyệt PCCC)。",
+      "cleaned": "總經理好！我們廠房的消防系統設計圖紙已經正式通過公安局消防警察局的圖紙審查與審批 。",
+      "source": "scenario:biz_fire_safety_pccc:d1"
+    },
+    {
+      "raw": "自動噴淋滅火系統 (Sprinkler)、防火隔牆與鋼結構防火塗料工程是否已 100% 施工完畢？",
+      "cleaned": "自動噴淋滅火系統 、防火隔牆與鋼結構防火塗料工程是否已 100% 施工完畢？",
+      "source": "scenario:biz_fire_safety_pccc:d1"
+    },
+    {
+      "raw": "全部安裝完畢。400 立方公尺的專用消防蓄水池與 2 台備用柴油消防泵已完成加壓試車測試，水壓完全達標。",
+      "cleaned": "全部安裝完畢。400 立方公尺的專用消防蓄水池與 2 台備用柴油消防泵已完成加壓試車測試，水壓完全達標。",
+      "source": "scenario:biz_fire_safety_pccc:d1"
+    },
+    {
+      "raw": "太好了。請儘快與省公安消防局協調，安排在下週進行現場實地驗收檢查，確保廠房如期正式開業投產。",
+      "cleaned": "太好了。請儘快與省公安消防局協調，安排在下週進行現場實地驗收檢查，確保廠房如期正式開業投產。",
+      "source": "scenario:biz_fire_safety_pccc:d1"
+    },
+    {
+      "raw": "消防 / 消防滅火工程 (PCCC)",
+      "cleaned": "消防 、 消防滅火工程",
+      "source": "scenario-vocab:biz_fire_safety_pccc"
+    },
+    {
+      "raw": "消防設計審定與審批",
+      "cleaned": "消防設計審定與審批",
+      "source": "scenario-vocab:biz_fire_safety_pccc"
+    },
+    {
+      "raw": "自動灑水噴淋滅火系統",
+      "cleaned": "自動灑水噴淋滅火系統",
+      "source": "scenario-vocab:biz_fire_safety_pccc"
+    },
+    {
+      "raw": "消防驗收合格認可",
+      "cleaned": "消防驗收合格認可",
+      "source": "scenario-vocab:biz_fire_safety_pccc"
+    },
+    {
+      "raw": "總經理好！勞動榮軍與社會部已經正式核准我們公司 5 位台灣專家引進的「外國勞工用人需求公文批文」。",
+      "cleaned": "總經理好！勞動榮軍與社會部已經正式核准我們公司 5 位台灣專家引進的「外國勞工用人需求公文批文」。",
+      "source": "scenario:biz_work_permit_trc:d1"
+    },
+    {
+      "raw": "工程師們申辦工作證 (Work Permit) 的良民證、大學畢業證書與 3 年工作經驗證明文件，都已經完成台灣外交部與越南代表處的駐外使館認證了嗎？",
+      "cleaned": "工程師們申辦工作證 的良民證、大學畢業證書與 3 年工作經驗證明文件，都已經完成台灣外交部與越南代表處的駐外使館認證了嗎？",
+      "source": "scenario:biz_work_permit_trc:d1"
+    },
+    {
+      "raw": "全部文件均已完成越文公證翻譯。省勞動廳將在 10 個工作天內核發 2 年期正式工作證。",
+      "cleaned": "全部文件均已完成越文公證翻譯。省勞動廳將在 10 個工作天內核發 2 年期正式工作證。",
+      "source": "scenario:biz_work_permit_trc:d1"
+    },
+    {
+      "raw": "取得工作證後，請立即向公安部出入境管理局遞件申請 2 年期暫住卡 (TRC 代號 LĐ2)，讓外派幹部享有免簽證多次往返越南的便利。",
+      "cleaned": "取得工作證後，請立即向公安部出入境管理局遞件申請 2 年期暫住卡 ，讓外派幹部享有免簽證多次往返越南的便利。",
+      "source": "scenario:biz_work_permit_trc:d1"
+    },
+    {
+      "raw": "工作證 (Work Permit)",
+      "cleaned": "工作證",
+      "source": "scenario-vocab:biz_work_permit_trc"
+    },
+    {
+      "raw": "外籍人士暫住卡 (TRC)",
+      "cleaned": "外籍人士暫住卡",
+      "source": "scenario-vocab:biz_work_permit_trc"
+    },
+    {
+      "raw": "領事認證 / 外交使館公證",
+      "cleaned": "領事認證 、 外交使館公證",
+      "source": "scenario-vocab:biz_work_permit_trc"
+    },
+    {
+      "raw": "良民證 / 無犯罪紀錄證明",
+      "cleaned": "良民證 、 無犯罪紀錄證明",
+      "source": "scenario-vocab:biz_work_permit_trc"
+    },
+    {
+      "raw": "各位主管好。依據稅務局稽查決定書，我們將對貴公司過去 3 年的企業所得稅 (CIT) 結算申報與跨國關聯交易展開全面查帳稽查。",
+      "cleaned": "各位主管好。依據稅務局稽查決定書，我們將對貴公司過去 3 年的企業所得稅 結算申報與跨國關聯交易展開全面查帳稽查。",
+      "source": "scenario:biz_tax_audit_transfer_pricing:d1"
+    },
+    {
+      "raw": "我們全力配合。公司已依據越南政府第 132 號法令，備齊本地文檔 (Local File)、主體文檔 (Master File) 以及常規交易利潤率分析報告。",
+      "cleaned": "我們全力配合。公司已依據越南政府第 132 號法令，備齊本地文檔 、主體文檔 以及常規交易利潤率分析報告。",
+      "source": "scenario:biz_tax_audit_transfer_pricing:d1"
+    },
+    {
+      "raw": "我們需要貴方就支付給台灣母公司 3% 的技術權利金 (Royalty Fee) 以及管理技術諮詢服務費提供具體商業實質佐證說明。",
+      "cleaned": "我們需要貴方就支付給台灣母公司 3% 的技術權利金 以及管理技術諮詢服務費提供具體商業實質佐證說明。",
+      "source": "scenario:biz_tax_audit_transfer_pricing:d1"
+    },
+    {
+      "raw": "我們備齊向科技部完成登記之技術移轉合約，並附有台灣專家的出差工時日誌以及代扣代繳之外國承包商稅 (FCT) 完稅證明憑證。",
+      "cleaned": "我們備齊向科技部完成登記之技術移轉合約，並附有台灣專家的出差工時日誌以及代扣代繳之外國承包商稅 完稅證明憑證。",
+      "source": "scenario:biz_tax_audit_transfer_pricing:d1"
+    },
+    {
+      "raw": "稅務稽查 / 稅務查帳",
+      "cleaned": "稅務稽查 、 稅務查帳",
+      "source": "scenario-vocab:biz_tax_audit_transfer_pricing"
+    },
+    {
+      "raw": "關聯交易 / 關係人交易 (Transfer Pricing)",
+      "cleaned": "關聯交易 、 關係人交易",
+      "source": "scenario-vocab:biz_tax_audit_transfer_pricing"
+    },
+    {
+      "raw": "外國承包商稅 (FCT)",
+      "cleaned": "外國承包商稅",
+      "source": "scenario-vocab:biz_tax_audit_transfer_pricing"
+    },
+    {
+      "raw": "年度稅務結算 / 申報清算",
+      "cleaned": "年度稅務結算 、 申報清算",
+      "source": "scenario-vocab:biz_tax_audit_transfer_pricing"
+    },
+    {
+      "raw": "Nam 經理您好，這批一萬件產品的包裝全部完成了嗎？",
+      "cleaned": "Nam 經理您好，這批一萬件產品的包裝全部完成了嗎？",
+      "source": "scenario:factory_quality_qa:d1"
+    },
+    {
+      "raw": "您好。所有產品都已裝箱完畢，並依據出口標準完整貼上副標籤了。",
+      "cleaned": "您好。所有產品都已裝箱完畢，並依據出口標準完整貼上副標籤了。",
+      "source": "scenario:factory_quality_qa:d1"
+    },
+    {
+      "raw": "今早依照 AQL 抽樣檢查的次品不良率是多少個百分比？",
+      "cleaned": "今早依照 AQL 抽樣檢查的次品不良率是多少個百分比？",
+      "source": "scenario:factory_quality_qa:d1"
+    },
+    {
+      "raw": "不良率僅有 0.2%，遠低於合約所規定的 0.5% 上限門檻。",
+      "cleaned": "不良率僅有 0.2%，遠低於合約所規定的 0.5% 上限門檻。",
+      "source": "scenario:factory_quality_qa:d1"
+    },
+    {
+      "raw": "非常好。那麼今天下午兩點貨櫃車抵達月台，請務必準時裝櫃發車喔。",
+      "cleaned": "非常好。那麼今天下午兩點貨櫃車抵達月台，請務必準時裝櫃發車喔。",
+      "source": "scenario:factory_quality_qa:d1"
+    },
+    {
+      "raw": "請您放心，倉庫團隊已經備妥堆高機與海關鉛封 (Seal) 了。",
+      "cleaned": "請您放心，倉庫團隊已經備妥堆高機與海關鉛封 了。",
+      "source": "scenario:factory_quality_qa:d1"
+    },
+    {
+      "raw": "不良率 / 次品率",
+      "cleaned": "不良率 、 次品率",
+      "source": "scenario-vocab:factory_quality_qa"
+    },
+    {
+      "raw": "貨櫃封條 / 鉛封",
+      "cleaned": "貨櫃封條 、 鉛封",
+      "source": "scenario-vocab:factory_quality_qa"
+    },
+    {
+      "raw": "堆高機 / 叉車",
+      "cleaned": "堆高機 、 叉車",
+      "source": "scenario-vocab:factory_quality_qa"
+    },
+    {
+      "raw": "Mai 姐您好，這間公寓的押金是幾個月，合約最短需要簽多久？",
+      "cleaned": "Mai 姐您好，這間公寓的押金是幾個月，合約最短需要簽多久？",
+      "source": "scenario:apartment_rental_contract:d1"
+    },
+    {
+      "raw": "押金是兩個月，每個月5號繳交房租。合約期為一年喔。",
+      "cleaned": "押金是兩個月，每個月5號繳交房租。合約期為一年喔。",
+      "source": "scenario:apartment_rental_contract:d1"
+    },
+    {
+      "raw": "請問租金是否已經包含大樓管理費與網路費了呢？",
+      "cleaned": "請問租金是否已經包含大樓管理費與網路費了呢？",
+      "source": "scenario:apartment_rental_contract:d1"
+    },
+    {
+      "raw": "已經包含管理費和 Wi-Fi 了，水電費你直接按帳單上的國家公定費率繳納。",
+      "cleaned": "已經包含管理費和 Wi-Fi 了，水電費你直接按帳單上的國家公定費率繳納。",
+      "source": "scenario:apartment_rental_contract:d1"
+    },
+    {
+      "raw": "姐記得協助我向坊公安局申報暫住登記 (Tạm trú) 喔。",
+      "cleaned": "姐記得協助我向坊公安局申報暫住登記 喔。",
+      "source": "scenario:apartment_rental_contract:d1"
+    },
+    {
+      "raw": "放心，我已經在線上系統申報手續了，明天就會把確認單傳給你。",
+      "cleaned": "放心，我已經在線上系統申報手續了，明天就會把確認單傳給你。",
+      "source": "scenario:apartment_rental_contract:d1"
+    },
+    {
+      "raw": "押金 / 定金",
+      "cleaned": "押金 、 定金",
+      "source": "scenario-vocab:apartment_rental_contract"
+    },
+    {
+      "raw": "物業管理費",
+      "cleaned": "物業管理費",
+      "source": "scenario-vocab:apartment_rental_contract"
+    },
+    {
+      "raw": "您好，請出示您的護照與電子簽證列印紙。",
+      "cleaned": "您好，請出示您的護照與電子簽證列印紙。",
+      "source": "scenario:airport_customs_visa:d1"
+    },
+    {
+      "raw": "好的，這是我的護照與 30 天單次簽證。",
+      "cleaned": "好的，這是我的護照與 30 天單次簽證。",
+      "source": "scenario:airport_customs_visa:d1"
+    },
+    {
+      "raw": "您這次造訪越南的主要目的是什麼？",
+      "cleaned": "您這次造訪越南的主要目的是什麼？",
+      "source": "scenario:airport_customs_visa:d1"
+    },
+    {
+      "raw": "我是來旅遊，順道拜訪胡志明市的幾家商業合作夥伴。",
+      "cleaned": "我是來旅遊，順道拜訪胡志明市的幾家商業合作夥伴。",
+      "source": "scenario:airport_customs_visa:d1"
+    },
+    {
+      "raw": "您預計在越南境內停留多久？",
+      "cleaned": "您預計在越南境內停留多久？",
+      "source": "scenario:airport_customs_visa:d1"
+    },
+    {
+      "raw": "我預計停留約十天。這是我的回程機票與飯店訂房確認單。",
+      "cleaned": "我預計停留約十天。這是我的回程機票與飯店訂房確認單。",
+      "source": "scenario:airport_customs_visa:d1"
+    },
+    {
+      "raw": "電子簽證 (E-Visa)",
+      "cleaned": "電子簽證",
+      "source": "scenario-vocab:airport_customs_visa"
+    },
+    {
+      "raw": "來回雙程機票",
+      "cleaned": "來回雙程機票",
+      "source": "scenario-vocab:airport_customs_visa"
+    },
+    {
+      "raw": "海關申報",
+      "cleaned": "海關申報",
+      "source": "scenario-vocab:airport_customs_visa"
+    },
+    {
+      "raw": "今天順利簽完合約了，今晚我們兄弟們一起去熱炒攤喝一杯慶祝吧！",
+      "cleaned": "今天順利簽完合約了，今晚我們兄弟們一起去熱炒攤喝一杯慶祝吧！",
+      "source": "scenario:nhau_culture_dinner:d1"
+    },
+    {
+      "raw": "太棒了！我聽說西貢的炒螺 (Quán ốc) 和羊肉爐 (Lẩu dê) 非常有名。",
+      "cleaned": "太棒了！我聽說西貢的炒螺 和羊肉爐 非常有名。",
+      "source": "scenario:nhau_culture_dinner:d1"
+    },
+    {
+      "raw": "沒錯！店員小弟，先來一箱冰啤酒、一份烤魷魚和一份奶油大蒜炒海螺！",
+      "cleaned": "沒錯！店員小弟，先來一箱冰啤酒、一份烤魷魚和一份奶油大蒜炒海螺！",
+      "source": "scenario:nhau_culture_dinner:d1"
+    },
+    {
+      "raw": "Tuấn 哥，在越南大家碰杯時通常喊什麼口號最有氣勢呢？",
+      "cleaned": "Tuấn 哥，在越南大家碰杯時通常喊什麼口號最有氣勢呢？",
+      "source": "scenario:nhau_culture_dinner:d1"
+    },
+    {
+      "raw": "很簡單：一、二、三、進！二、三、進！二、三、喝！",
+      "cleaned": "很簡單：一、二、三、進！二、三、進！二、三、喝！",
+      "source": "scenario:nhau_culture_dinner:d1"
+    },
+    {
+      "raw": "我雙手舉杯敬 Tuấn 哥一杯，感謝這段時間您對我的悉心指導與協助！",
+      "cleaned": "我雙手舉杯敬 Tuấn 哥一杯，感謝這段時間您對我的悉心指導與協助！",
+      "source": "scenario:nhau_culture_dinner:d1"
+    },
+    {
+      "raw": "喝小酒應酬 / 吃熱炒聚會",
+      "cleaned": "喝小酒應酬 、 吃熱炒聚會",
+      "source": "scenario-vocab:nhau_culture_dinner"
+    },
+    {
+      "raw": "乾杯 (喝光全部)",
+      "cleaned": "乾杯",
+      "source": "scenario-vocab:nhau_culture_dinner"
+    },
+    {
+      "raw": "碰杯 / 乾杯",
+      "cleaned": "碰杯 、 乾杯",
+      "source": "scenario-vocab:nhau_culture_dinner"
+    },
+    {
+      "raw": "您好，您哪裡覺得不舒服，具體有些什麼症狀呢？",
+      "cleaned": "您好，您哪裡覺得不舒服，具體有些什麼症狀呢？",
+      "source": "scenario:pharmacy_clinic_visit:d1"
+    },
+    {
+      "raw": "從昨天傍晚開始我發燒到 38.5 度，頭很痛而且拉肚子腹瀉兩次了。",
+      "cleaned": "從昨天傍晚開始我發燒到 38.5 度，頭很痛而且拉肚子腹瀉兩次了。",
+      "source": "scenario:pharmacy_clinic_visit:d1"
+    },
+    {
+      "raw": "您對撲熱息痛 (Paracetamol) 或抗生素等任何藥物成分有過敏史嗎？",
+      "cleaned": "您對撲熱息痛 或抗生素等任何藥物成分有過敏史嗎？",
+      "source": "scenario:pharmacy_clinic_visit:d1"
+    },
+    {
+      "raw": "沒有，我對任何藥物都沒有過敏。",
+      "cleaned": "沒有，我對任何藥物都沒有過敏。",
+      "source": "scenario:pharmacy_clinic_visit:d1"
+    },
+    {
+      "raw": "我為您配了三天的藥包。請務必在三餐飯後服用喔。",
+      "cleaned": "我為您配了三天的藥包。請務必在三餐飯後服用喔。",
+      "source": "scenario:pharmacy_clinic_visit:d1"
+    },
+    {
+      "raw": "感謝藥劑師，全部一共多少錢呢？",
+      "cleaned": "感謝藥劑師，全部一共多少錢呢？",
+      "source": "scenario:pharmacy_clinic_visit:d1"
+    },
+    {
+      "raw": "西藥房 / 藥局",
+      "cleaned": "西藥房 、 藥局",
+      "source": "scenario-vocab:pharmacy_clinic_visit"
+    },
+    {
+      "raw": "劑量 / 份量藥包",
+      "cleaned": "劑量 、 份量藥包",
+      "source": "scenario-vocab:pharmacy_clinic_visit"
+    },
+    {
+      "raw": "過敏反應",
+      "cleaned": "過敏反應",
+      "source": "scenario-vocab:pharmacy_clinic_visit"
+    },
+    {
+      "raw": "南總經理您好！非常榮幸能拜會您。",
+      "cleaned": "南總經理您好！非常榮幸能拜會您。",
+      "source": "topic:business_greeting:dialogue_biz_1"
+    },
+    {
+      "raw": "明先生你好！非常歡迎您前來參觀我們公司。",
+      "cleaned": "明先生你好！非常歡迎您前來參觀我們公司。",
+      "source": "topic:business_greeting:dialogue_biz_1"
+    },
+    {
+      "raw": "請收下我的名片，我是新科技專案的專案經理。",
+      "cleaned": "請收下我的名片，我是新科技專案的專案經理。",
+      "source": "topic:business_greeting:dialogue_biz_1"
+    },
+    {
+      "raw": "謝謝您，這是我的名片。請進會議室喝茶坐坐！",
+      "cleaned": "謝謝您，這是我的名片。請進會議室喝茶坐坐！",
+      "source": "topic:business_greeting:dialogue_biz_1"
+    },
+    {
+      "raw": "好的，非常感謝大哥！",
+      "cleaned": "好的，非常感謝大哥！",
+      "source": "topic:business_greeting:dialogue_biz_1"
+    },
+    {
+      "raw": "今天的會議非常有成效，感謝南總抽空接待。",
+      "cleaned": "今天的會議非常有成效，感謝南總抽空接待。",
+      "source": "topic:business_greeting:dialogue_biz_2"
+    },
+    {
+      "raw": "我也對這個專案充滿期待。下週我會發送詳細報價單。",
+      "cleaned": "我也對這個專案充滿期待。下週我會發送詳細報價單。",
+      "source": "topic:business_greeting:dialogue_biz_2"
+    },
+    {
+      "raw": "太棒了，我可以加您的 Zalo 好友方便後續溝通嗎？",
+      "cleaned": "太棒了，我可以加您的 Zalo 好友方便後續溝通嗎？",
+      "source": "topic:business_greeting:dialogue_biz_2"
+    },
+    {
+      "raw": "當然可以！我的 Zalo 就是名片上的電話號碼喔。",
+      "cleaned": "當然可以！我的 Zalo 就是名片上的電話號碼喔。",
+      "source": "topic:business_greeting:dialogue_biz_2"
+    },
+    {
+      "raw": "店員！你們店有牛肉河粉嗎？",
+      "cleaned": "店員！你們店有牛肉河粉嗎？",
+      "source": "topic:dining_restaurant:dialogue_dine_1"
+    },
+    {
+      "raw": "有的！您想吃生牛肉、熟牛肉還是牛腩牛油邊肉呢？",
+      "cleaned": "有的！您想吃生牛肉、熟牛肉還是牛腩牛油邊肉呢？",
+      "source": "topic:dining_restaurant:dialogue_dine_1"
+    },
+    {
+      "raw": "給我一碗半生半熟特大碗，多蔥少河粉喔。",
+      "cleaned": "給我一碗半生半熟特大碗，多蔥少河粉喔。",
+      "source": "topic:dining_restaurant:dialogue_dine_1"
+    },
+    {
+      "raw": "好的！您需要加點冰茶還是汽水飲料嗎？",
+      "cleaned": "好的！您需要加點冰茶還是汽水飲料嗎？",
+      "source": "topic:dining_restaurant:dialogue_dine_1"
+    },
+    {
+      "raw": "再給我一杯無糖冰茶喔。",
+      "cleaned": "再給我一杯無糖冰茶喔。",
+      "source": "topic:dining_restaurant:dialogue_dine_1"
+    },
+    {
+      "raw": "店員，5號桌幫我買單結帳！",
+      "cleaned": "店員，5號桌幫我買單結帳！",
+      "source": "topic:dining_restaurant:dialogue_dine_2"
+    },
+    {
+      "raw": "好的，您是一碗特製河粉和一杯冰茶，總共7萬5千越盾。",
+      "cleaned": "好的，您是一碗特製河粉和一杯冰茶，總共7萬5千越盾。",
+      "source": "topic:dining_restaurant:dialogue_dine_2"
+    },
+    {
+      "raw": "我可以掃 VietQR 轉帳付款嗎？",
+      "cleaned": "我可以掃 VietQR 轉帳付款嗎？",
+      "source": "topic:dining_restaurant:dialogue_dine_2"
+    },
+    {
+      "raw": "當然可以！QR Code 就在您的桌角上喔。",
+      "cleaned": "當然可以！QR Code 就在您的桌角上喔。",
+      "source": "topic:dining_restaurant:dialogue_dine_2"
+    },
+    {
+      "raw": "我轉帳完成了喔，謝謝你！",
+      "cleaned": "我轉帳完成了喔，謝謝你！",
+      "source": "topic:dining_restaurant:dialogue_dine_2"
+    },
+    {
+      "raw": "阿明哥，你在台灣的家裡有幾口人呀？",
+      "cleaned": "阿明哥，你在台灣的家裡有幾口人呀？",
+      "source": "topic:family_kinship:dialogue_fam_1"
+    },
+    {
+      "raw": "我家有四個人：我爸媽、一個妹妹跟我。",
+      "cleaned": "我家有四個人：我爸媽、一個妹妹跟我。",
+      "source": "topic:family_kinship:dialogue_fam_1"
+    },
+    {
+      "raw": "你妹妹今年幾歲了？開始上班工作了嗎？",
+      "cleaned": "你妹妹今年幾歲了？開始上班工作了嗎？",
+      "source": "topic:family_kinship:dialogue_fam_1"
+    },
+    {
+      "raw": "她今年24歲，正在台北當會計師。",
+      "cleaned": "她今年24歲，正在台北當會計師。",
+      "source": "topic:family_kinship:dialogue_fam_1"
+    },
+    {
+      "raw": "太棒了！有空的時候歡迎邀請你全家來越南旅遊喔！",
+      "cleaned": "太棒了！有空的時候歡迎邀請你全家來越南旅遊喔！",
+      "source": "topic:family_kinship:dialogue_fam_1"
+    },
+    {
+      "raw": "阿明姪子來越南工作很久了嗎？成家結婚了沒呀？",
+      "cleaned": "阿明姪子來越南工作很久了嗎？成家結婚了沒呀？",
+      "source": "topic:family_kinship:dialogue_fam_2"
+    },
+    {
+      "raw": "回伯伯，我來滿一年了。我現在還是單身啦。",
+      "cleaned": "回伯伯，我來滿一年了。我現在還是單身啦。",
+      "source": "topic:family_kinship:dialogue_fam_2"
+    },
+    {
+      "raw": "這樣啊！台灣男生勤奮上進，說不定以後娶個越南姑娘當老婆喔！",
+      "cleaned": "這樣啊！台灣男生勤奮上進，說不定以後娶個越南姑娘當老婆喔！",
+      "source": "topic:family_kinship:dialogue_fam_2"
+    },
+    {
+      "raw": "是的，越南女孩子非常溫柔賢慧而且持家能幹！",
+      "cleaned": "是的，越南女孩子非常溫柔賢慧而且持家能幹！",
+      "source": "topic:family_kinship:dialogue_fam_2"
+    },
+    {
+      "raw": "藥劑師你好，我從昨晚開始有點微燒而且鼻塞。",
+      "cleaned": "藥劑師你好，我從昨晚開始有點微燒而且鼻塞。",
+      "source": "topic:health_medical:dialogue_med_1"
+    },
+    {
+      "raw": "好的，您有咳嗽或喉嚨痛嗎？",
+      "cleaned": "好的，您有咳嗽或喉嚨痛嗎？",
+      "source": "topic:health_medical:dialogue_med_1"
+    },
+    {
+      "raw": "有的，喉嚨有點刺痛。請給我退燒藥跟感冒藥喔。",
+      "cleaned": "有的，喉嚨有點刺痛。請給我退燒藥跟感冒藥喔。",
+      "source": "topic:health_medical:dialogue_med_1"
+    },
+    {
+      "raw": "這是普拿疼退燒藥與感冒藥。一天吃兩次，每次一顆，飯後吃喔。",
+      "cleaned": "這是普拿疼退燒藥與感冒藥。一天吃兩次，每次一顆，飯後吃喔。",
+      "source": "topic:health_medical:dialogue_med_1"
+    },
+    {
+      "raw": "我明白了，非常感謝藥劑師！",
+      "cleaned": "我明白了，非常感謝藥劑師！",
+      "source": "topic:health_medical:dialogue_med_1"
+    },
+    {
+      "raw": "你好明先生，今天你覺得身體哪裡不舒服呢？",
+      "cleaned": "你好明先生，今天你覺得身體哪裡不舒服呢？",
+      "source": "topic:health_medical:dialogue_med_2"
+    },
+    {
+      "raw": "報告醫生，我吃完東西後胃痛而且很想吐。",
+      "cleaned": "報告醫生，我吃完東西後胃痛而且很想吐。",
+      "source": "topic:health_medical:dialogue_med_2"
+    },
+    {
+      "raw": "讓我幫你量血壓並檢查一下腹部。你有對什麼藥物過敏嗎？",
+      "cleaned": "讓我幫你量血壓並檢查一下腹部。你有對什麼藥物過敏嗎？",
+      "source": "topic:health_medical:dialogue_med_2"
+    },
+    {
+      "raw": "沒有，我沒有任何藥物過敏病史。",
+      "cleaned": "沒有，我沒有任何藥物過敏病史。",
+      "source": "topic:health_medical:dialogue_med_2"
+    },
+    {
+      "raw": "很好，我開5天的胃藥處方給你，按時吃就會好囉。",
+      "cleaned": "很好，我開5天的胃藥處方給你，按時吃就會好囉。",
+      "source": "topic:health_medical:dialogue_med_2"
+    },
+    {
+      "raw": "你好先生，你來到越南的目的是什麼？",
+      "cleaned": "你好先生，你來到越南的目的是什麼？",
+      "source": "topic:date_time_stay:dialogue_time_1"
+    },
+    {
+      "raw": "報告長官，我來出差出巡並考察市場。",
+      "cleaned": "報告長官，我來出差出巡並考察市場。",
+      "source": "topic:date_time_stay:dialogue_time_1"
+    },
+    {
+      "raw": "你預計在越南停留多久呢？",
+      "cleaned": "你預計在越南停留多久呢？",
+      "source": "topic:date_time_stay:dialogue_time_1"
+    },
+    {
+      "raw": "我停留兩週，這個月28號我就會搭機回國。",
+      "cleaned": "我停留兩週，這個月28號我就會搭機回國。",
+      "source": "topic:date_time_stay:dialogue_time_1"
+    },
+    {
+      "raw": "好的，祝你出差順利愉快！",
+      "cleaned": "好的，祝你出差順利愉快！",
+      "source": "topic:date_time_stay:dialogue_time_1"
+    },
+    {
+      "raw": "阿明哥，下週星期幾你有空我們開會討論專案？",
+      "cleaned": "阿明哥，下週星期幾你有空我們開會討論專案？",
+      "source": "topic:date_time_stay:dialogue_time_2"
+    },
+    {
+      "raw": "下週二或下週四我都有空。",
+      "cleaned": "下週二或下週四我都有空。",
+      "source": "topic:date_time_stay:dialogue_time_2"
+    },
+    {
+      "raw": "那我們敲定下週二早上10點在我們辦公室見囉！",
+      "cleaned": "那我們敲定下週二早上10點在我們辦公室見囉！",
+      "source": "topic:date_time_stay:dialogue_time_2"
+    },
+    {
+      "raw": "完全同意，下週二早上見囉！",
+      "cleaned": "完全同意，下週二早上見囉！",
+      "source": "topic:date_time_stay:dialogue_time_2"
+    },
+    {
+      "raw": "姐姐，這個榴槤一公斤怎麼賣呀？",
+      "cleaned": "姐姐，這個榴槤一公斤怎麼賣呀？",
+      "source": "topic:pricing_bargaining:dialogue_price_1"
+    },
+    {
+      "raw": "保證甜香好吃的 Ri6 榴槤，一公斤12萬盾喔。",
+      "cleaned": "保證甜香好吃的 Ri6 榴槤，一公斤12萬盾喔。",
+      "source": "topic:pricing_bargaining:dialogue_price_1"
+    },
+    {
+      "raw": "好貴呀姐！我買一整顆大顆的，算我一公斤10萬盾好嗎？",
+      "cleaned": "好貴呀姐！我買一整顆大顆的，算我一公斤10萬盾好嗎？",
+      "source": "topic:pricing_bargaining:dialogue_price_1"
+    },
+    {
+      "raw": "好吧算你開市價，這顆3公斤算整數30萬盾賣你！",
+      "cleaned": "好吧算你開市價，這顆3公斤算整數30萬盾賣你！",
+      "source": "topic:pricing_bargaining:dialogue_price_1"
+    },
+    {
+      "raw": "太棒了，非常感謝姐姐！我付現金喔。",
+      "cleaned": "太棒了，非常感謝姐姐！我付現金喔。",
+      "source": "topic:pricing_bargaining:dialogue_price_1"
+    },
+    {
+      "raw": "店員，這件絲綢襯衫現在有在做特價打折嗎？",
+      "cleaned": "店員，這件絲綢襯衫現在有在做特價打折嗎？",
+      "source": "topic:pricing_bargaining:dialogue_price_2"
+    },
+    {
+      "raw": "有的！店內現在有任選2件享85折（減15%）的活動。",
+      "cleaned": "有的！店內現在有任選2件享85折 的活動。",
+      "source": "topic:pricing_bargaining:dialogue_price_2"
+    },
+    {
+      "raw": "那讓哥再多挑一條領帶湊兩件吧。",
+      "cleaned": "那讓哥再多挑一條領帶湊兩件吧。",
+      "source": "topic:pricing_bargaining:dialogue_price_2"
+    },
+    {
+      "raw": "好的，折價後總共是45萬越盾。您想要如何付款呢？",
+      "cleaned": "好的，折價後總共是45萬越盾。您想要如何付款呢？",
+      "source": "topic:pricing_bargaining:dialogue_price_2"
+    },
+    {
+      "raw": "我直接掃櫃台上的 VietQR 條碼轉帳喔。",
+      "cleaned": "我直接掃櫃台上的 VietQR 條碼轉帳喔。",
+      "source": "topic:pricing_bargaining:dialogue_price_2"
+    },
+    {
+      "raw": "姐姐，今天 100 美元可以換多少越南盾呢？",
+      "cleaned": "姐姐，今天 100 美元可以換多少越南盾呢？",
+      "source": "topic:numbers_scale:dialogue_num_1"
+    },
+    {
+      "raw": "今天匯率是 25,400。100 美元可換 254 萬越盾喔。",
+      "cleaned": "今天匯率是 25,400。100 美元可換 254 萬越盾喔。",
+      "source": "topic:numbers_scale:dialogue_num_1"
+    },
+    {
+      "raw": "匯率真好！我想兌換 500 美元。",
+      "cleaned": "匯率真好！我想兌換 500 美元。",
+      "source": "topic:numbers_scale:dialogue_num_1"
+    },
+    {
+      "raw": "你的 500 美元總共是一千兩百七十萬盾。你重數一下錢喔。",
+      "cleaned": "你的 500 美元總共是一千兩百七十萬盾。你重數一下錢喔。",
+      "source": "topic:numbers_scale:dialogue_num_1"
+    },
+    {
+      "raw": "好的足夠了，謝謝姐姐！",
+      "cleaned": "好的足夠了，謝謝姐姐！",
+      "source": "topic:numbers_scale:dialogue_num_1"
+    },
+    {
+      "raw": "店員，我要點三杯珍珠奶茶和兩瓶現榨柳橙汁。",
+      "cleaned": "店員，我要點三杯珍珠奶茶和兩瓶現榨柳橙汁。",
+      "source": "topic:numbers_scale:dialogue_num_2"
+    },
+    {
+      "raw": "好的，三杯奶茶和兩瓶柳橙汁。總共是一十四萬五千越盾。",
+      "cleaned": "好的，三杯奶茶和兩瓶柳橙汁。總共是一十四萬五千越盾。",
+      "source": "topic:numbers_scale:dialogue_num_2"
+    },
+    {
+      "raw": "給你15萬現金，不用找5千零錢囉！",
+      "cleaned": "給你15萬現金，不用找5千零錢囉！",
+      "source": "topic:numbers_scale:dialogue_num_2"
+    },
+    {
+      "raw": "哇非常感謝大哥，祝您享用愉快！",
+      "cleaned": "哇非常感謝大哥，祝您享用愉快！",
+      "source": "topic:numbers_scale:dialogue_num_2"
+    },
+    {
+      "raw": "您好哥哥！我的名字叫阿明。",
+      "cleaned": "您好哥哥！我的名字叫阿明。",
+      "source": "fasttrack:day1"
+    },
+    {
+      "raw": "你好！很高興在越南見到你。",
+      "cleaned": "你好！很高興在越南見到你。",
+      "source": "fasttrack:day1"
+    },
+    {
+      "raw": "好的，非常感謝哥！我剛開始學越南語。",
+      "cleaned": "好的，非常感謝哥！我剛開始學越南語。",
+      "source": "fasttrack:day1"
+    },
+    {
+      "raw": "你越南語說得很棒喔，加油！",
+      "cleaned": "你越南語說得很棒喔，加油！",
+      "source": "fasttrack:day1"
+    },
+    {
+      "raw": "服務生！給我一杯冰煉乳咖啡，少糖。",
+      "cleaned": "服務生！給我一杯冰煉乳咖啡，少糖。",
+      "source": "fasttrack:day2"
+    },
+    {
+      "raw": "馬上來！哥哥要加點法國麵包嗎？",
+      "cleaned": "馬上來！哥哥要加點法國麵包嗎？",
+      "source": "fasttrack:day2"
+    },
+    {
+      "raw": "再給我一份火腿法國麵包喔。",
+      "cleaned": "再給我一份火腿法國麵包喔。",
+      "source": "fasttrack:day2"
+    },
+    {
+      "raw": "好的，一共是四萬五千越盾。",
+      "cleaned": "好的，一共是四萬五千越盾。",
+      "source": "fasttrack:day2"
+    },
+    {
+      "raw": "姐姐，這件衣服多少錢？",
+      "cleaned": "姐姐，這件衣服多少錢？",
+      "source": "fasttrack:day3"
+    },
+    {
+      "raw": "十五萬盾喔弟弟。",
+      "cleaned": "十五萬盾喔弟弟。",
+      "source": "fasttrack:day3"
+    },
+    {
+      "raw": "太貴了！可以算便宜點嗎？十萬盾好嗎！",
+      "cleaned": "太貴了！可以算便宜點嗎？十萬盾好嗎！",
+      "source": "fasttrack:day3"
+    },
+    {
+      "raw": "好吧，算你開市價 100k 賣給你！",
+      "cleaned": "好吧，算你開市價 100k 賣給你！",
+      "source": "fasttrack:day3"
+    },
+    {
+      "raw": "你好先生，您要去哪裡呢？",
+      "cleaned": "你好先生，您要去哪裡呢？",
+      "source": "fasttrack:day4"
+    },
+    {
+      "raw": "請帶我到濱城市場，沿這條路直走喔。",
+      "cleaned": "請帶我到濱城市場，沿這條路直走喔。",
+      "source": "fasttrack:day4"
+    },
+    {
+      "raw": "到這個十字路口要左轉還是右轉呢？",
+      "cleaned": "到這個十字路口要左轉還是右轉呢？",
+      "source": "fasttrack:day4"
+    },
+    {
+      "raw": "右轉，然後幫我停在市場大門前！",
+      "cleaned": "右轉，然後幫我停在市場大門前！",
+      "source": "fasttrack:day4"
+    },
+    {
+      "raw": "晚輩向伯伯問好！伯伯身體好嗎？",
+      "cleaned": "晚輩向伯伯問好！伯伯身體好嗎？",
+      "source": "fasttrack:day5"
+    },
+    {
+      "raw": "你好！伯伯很好，你在這裡玩得開心嗎？",
+      "cleaned": "你好！伯伯很好，你在這裡玩得開心嗎？",
+      "source": "fasttrack:day5"
+    },
+    {
+      "raw": "是的，晚輩非常喜歡越南，這裡的人都很友善！",
+      "cleaned": "是的，晚輩非常喜歡越南，這裡的人都很友善！",
+      "source": "fasttrack:day5"
+    },
+    {
+      "raw": "太好了，有空再來伯伯家坐坐！",
+      "cleaned": "太好了，有空再來伯伯家坐坐！",
+      "source": "fasttrack:day5"
+    },
+    {
+      "raw": "店員，我要買這瓶礦泉水和這包餅乾。",
+      "cleaned": "店員，我要買這瓶礦泉水和這包餅乾。",
+      "source": "fasttrack:day6"
+    },
+    {
+      "raw": "好的，一共是三萬越盾。",
+      "cleaned": "好的，一共是三萬越盾。",
+      "source": "fasttrack:day6"
+    },
+    {
+      "raw": "我掃 VietQR 條碼付款喔。",
+      "cleaned": "我掃 VietQR 條碼付款喔。",
+      "source": "fasttrack:day6"
+    },
+    {
+      "raw": "好的，條碼在這裡。發票收據給您！",
+      "cleaned": "好的，條碼在這裡。發票收據給您！",
+      "source": "fasttrack:day6"
+    },
+    {
+      "raw": "你的家鄉在哪裡呢？你在西貢很久了嗎？",
+      "cleaned": "你的家鄉在哪裡呢？你在西貢很久了嗎？",
+      "source": "fasttrack:day7"
+    },
+    {
+      "raw": "我家鄉在峴港，我來西貢工作三年了。",
+      "cleaned": "我家鄉在峴港，我來西貢工作三年了。",
+      "source": "fasttrack:day7"
+    },
+    {
+      "raw": "哇太棒了！有空的時候，我們一起去喝咖啡吧！",
+      "cleaned": "哇太棒了！有空的時候，我們一起去喝咖啡吧！",
+      "source": "fasttrack:day7"
+    },
+    {
+      "raw": "完全贊同！加我的 Zalo 好友吧！",
+      "cleaned": "完全贊同！加我的 Zalo 好友吧！",
+      "source": "fasttrack:day7"
+    },
+    {
+      "raw": "我要辦理一個個人銀行帳戶。",
+      "cleaned": "我要辦理一個個人銀行帳戶。",
+      "source": "banking:0"
+    },
+    {
+      "raw": "請出示您的護照與有效簽證。",
+      "cleaned": "請出示您的護照與有效簽證。",
+      "source": "banking:0"
+    },
+    {
+      "raw": "這是我的護照與工作合約。",
+      "cleaned": "這是我的護照與工作合約。",
+      "source": "banking:0"
+    },
+    {
+      "raw": "請填寫這張申請表並在此簽名。",
+      "cleaned": "請填寫這張申請表並在此簽名。",
+      "source": "banking:0"
+    },
+    {
+      "raw": "我想轉帳二十億越南盾 (2,000,000,000 VND) 給合作公司。",
+      "cleaned": "我想轉帳二十億越南盾 給合作公司。",
+      "source": "banking:1"
+    },
+    {
+      "raw": "好的，請填寫收款帳號與轉帳備註內容。",
+      "cleaned": "好的，請填寫收款帳號與轉帳備註內容。",
+      "source": "banking:1"
+    },
+    {
+      "raw": "轉帳手續費是多少？",
+      "cleaned": "轉帳手續費是多少？",
+      "source": "banking:1"
+    },
+    {
+      "raw": "手續費包含加值稅共 11,000 越南盾。",
+      "cleaned": "手續費包含加值稅共 11,000 越南盾。",
+      "source": "banking:1"
+    },
+    {
+      "raw": "十二個月期的定期存款年利率是多少？",
+      "cleaned": "十二個月期的定期存款年利率是多少？",
+      "source": "banking:2"
+    },
+    {
+      "raw": "目前年利率是 5.5%。",
+      "cleaned": "目前年利率是 5.5%。",
+      "source": "banking:2"
+    },
+    {
+      "raw": "我想辦理五十億盾 (5,000,000,000 VND) 的一年期定存。",
+      "cleaned": "我想辦理五十億盾 的一年期定存。",
+      "source": "banking:2"
+    },
+    {
+      "raw": "好的，我馬上為您辦理定存存摺。",
+      "cleaned": "好的，我馬上為您辦理定存存摺。",
+      "source": "banking:2"
+    },
+    {
+      "raw": "這個一個多少錢？",
+      "cleaned": "這個一個多少錢？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "阿姨，可以算便宜一點點嗎？",
+      "cleaned": "阿姨，可以算便宜一點點嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "太貴了啦，給我打個折吧！",
+      "cleaned": "太貴了啦，給我打個折吧！",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "如果我買三個的話算多少錢？",
+      "cleaned": "如果我買三個的話算多少錢？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "幫我當今天開市第一單，算個吉利價吧！",
+      "cleaned": "幫我當今天開市第一單，算個吉利價吧！",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "十萬盾可以嗎？(100.000đ được không?)",
+      "cleaned": "十萬盾可以嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "別家店賣得便宜很多耶。",
+      "cleaned": "別家店賣得便宜很多耶。",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "便宜兩萬盾的話，我馬上買！",
+      "cleaned": "便宜兩萬盾的話，我馬上買！",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "我身上只剩剛好二十萬盾了。",
+      "cleaned": "我身上只剩剛好二十萬盾了。",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這個價錢是底價、不能再降了嗎？",
+      "cleaned": "這個價錢是底價、不能再降了嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這款咖啡是羅布斯塔還是阿拉比卡豆？",
+      "cleaned": "這款咖啡是羅布斯塔還是阿拉比卡豆？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這罐帶皮鹽焗腰果保質期多久？",
+      "cleaned": "這罐帶皮鹽焗腰果保質期多久？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "我想買五盒榴槤皮亞餅當伴手禮。",
+      "cleaned": "我想買五盒榴槤皮亞餅當伴手禮。",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這包檳知椰子糖一袋多少錢？",
+      "cleaned": "這包檳知椰子糖一袋多少錢？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "可以幫我用保麗龍箱封箱方便帶上飛機嗎？",
+      "cleaned": "可以幫我用保麗龍箱封箱方便帶上飛機嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "可以讓我試吃一小口嗎？",
+      "cleaned": "可以讓我試吃一小口嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這個鋁製越式咖啡滴漏壺多少錢？",
+      "cleaned": "這個鋁製越式咖啡滴漏壺多少錢？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "有真空包裝袋包裝嗎？",
+      "cleaned": "有真空包裝袋包裝嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這件衣服有 L 號嗎？",
+      "cleaned": "這件衣服有 L 號嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "請問試衣間在哪裡？",
+      "cleaned": "請問試衣間在哪裡？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "我可以試穿這套越式奧黛 (Áo Dài) 嗎？",
+      "cleaned": "我可以試穿這套越式奧黛 嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這雙鞋有點太緊，有大一號的嗎？",
+      "cleaned": "這雙鞋有點太緊，有大一號的嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "有黑色或白色的嗎？",
+      "cleaned": "有黑色或白色的嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這塊布料是純棉還是純天然蠶絲？",
+      "cleaned": "這塊布料是純棉還是純天然蠶絲？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "頂傳統越式斗笠 (Nón lá) 賣多少錢？",
+      "cleaned": "頂傳統越式斗笠 賣多少錢？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這一公斤和祿芒果賣多少錢？",
+      "cleaned": "這一公斤和祿芒果賣多少錢？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這顆榴槤重幾公斤？",
+      "cleaned": "這顆榴槤重幾公斤？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "請幫我削皮並切塊裝盒喔。",
+      "cleaned": "請幫我削皮並切塊裝盒喔。",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這顆青椰子喝起來甜不甜？",
+      "cleaned": "這顆青椰子喝起來甜不甜？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "請幫我秤兩公斤紅肉火龍果。",
+      "cleaned": "請幫我秤兩公斤紅肉火龍果。",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "這些山竹新鮮嗎？",
+      "cleaned": "這些山竹新鮮嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "可以刷國際信用卡 (Visa/Master) 嗎？",
+      "cleaned": "可以刷國際信用卡 嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "我可以掃 QR Code 銀行轉帳付款嗎？",
+      "cleaned": "我可以掃 QR Code 銀行轉帳付款嗎？",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "請給我一個塑膠提袋裝東西。",
+      "cleaned": "請給我一個塑膠提袋裝東西。",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "請開立統一紅發票給我，我要辦理退稅。",
+      "cleaned": "請開立統一紅發票給我，我要辦理退稅。",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "找給我的這張紙鈔破掉了，請幫我換一張。",
+      "cleaned": "找給我的這張紙鈔破掉了，請幫我換一張。",
+      "source": "shopping-phrases"
+    },
+    {
+      "raw": "請幫我結帳算錢！",
+      "cleaned": "請幫我結帳算錢！",
+      "source": "shopping-phrases"
+    }
+  ],
+  "viMissing": [
+    {
+      "raw": "Anh vui lòng cho tôi xem hộ chiếu và visa còn hạn ạ.",
+      "cleaned": "Anh vui lòng cho tôi xem hộ chiếu và visa còn hạn ạ.",
+      "source": "banking:0"
+    },
+    {
+      "raw": "Gửi cô hộ chiếu và hợp đồng lao động của tôi.",
+      "cleaned": "Gửi cô hộ chiếu và hợp đồng lao động của tôi.",
+      "source": "banking:0"
+    },
+    {
+      "raw": "Anh điền vào tờ khai này và ký tên ở đây nhé.",
+      "cleaned": "Anh điền vào tờ khai này và ký tên ở đây nhé.",
+      "source": "banking:0"
+    },
+    {
+      "raw": "Tôi muốn chuyển khoản hai tỷ đồng cho công ty đối tác.",
+      "cleaned": "Tôi muốn chuyển khoản hai tỷ đồng cho công ty đối tác.",
+      "source": "banking:1"
+    },
+    {
+      "raw": "Dạ, anh vui lòng điền số tài khoản thụ hưởng và nội dung chuyển tiền.",
+      "cleaned": "Dạ, anh vui lòng điền số tài khoản thụ hưởng và nội dung chuyển tiền.",
+      "source": "banking:1"
+    },
+    {
+      "raw": "Phí chuyển khoản là bao nhiêu?",
+      "cleaned": "Phí chuyển khoản là bao nhiêu?",
+      "source": "banking:1"
+    },
+    {
+      "raw": "Phí là mười một nghìn đồng đã bao gồm thuế VAT ạ.",
+      "cleaned": "Phí là mười một nghìn đồng đã bao gồm thuế VAT ạ.",
+      "source": "banking:1"
+    },
+    {
+      "raw": "Lãi suất gửi tiết kiệm kỳ hạn mười hai tháng là bao nhiêu?",
+      "cleaned": "Lãi suất gửi tiết kiệm kỳ hạn mười hai tháng là bao nhiêu?",
+      "source": "banking:2"
+    },
+    {
+      "raw": "Hiện tại lãi suất là năm phẩy năm phần trăm một năm ạ.",
+      "cleaned": "Hiện tại lãi suất là năm phẩy năm phần trăm một năm ạ.",
+      "source": "banking:2"
+    },
+    {
+      "raw": "Tôi muốn gửi năm tỷ đồng kỳ hạn một năm.",
+      "cleaned": "Tôi muốn gửi năm tỷ đồng kỳ hạn một năm.",
+      "source": "banking:2"
+    },
+    {
+      "raw": "Dạ, tôi sẽ làm sổ tiết kiệm ngay cho anh.",
+      "cleaned": "Dạ, tôi sẽ làm sổ tiết kiệm ngay cho anh.",
+      "source": "banking:2"
+    }
+  ]
+}

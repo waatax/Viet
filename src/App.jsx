@@ -446,7 +446,7 @@ export function App() {
             <div style={{ fontWeight: 800, fontSize: '1.05em', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
               <span>🇻🇳 越語學習通 (科學研究團隊旗艦版) · Chào Việt Nam!</span>
               <span style={{ fontSize: '0.72rem', fontWeight: 800, background: 'rgba(234, 179, 8, 0.15)', color: 'var(--brand-gold)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-full)', padding: '0.1rem 0.5rem' }}>
-                v2.7.0 iOS HIG 榮耀旗艦版
+                v2.8.0 iOS HIG 榮耀旗艦版
               </span>
             </div>
             <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', marginTop: '0.2rem' }}>

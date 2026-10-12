@@ -1,8 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Volume2, Play, Pause, FastForward, Eye, EyeOff, Sparkles, MessageCircle, MapPin, Layers, CheckCircle, Star, Copy, Check } from 'lucide-react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { Volume2, PlayCircle, Eye, EyeOff, Sparkles, Star, Copy, Check } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { bookmarkService } from '../services/bookmarkService';
+import { getPlaybackPrefs } from '../services/dialoguePlayback';
+import { useDialoguePlayback, useFollowActiveLine } from '../hooks/useDialoguePlayback';
+import { DialoguePlaybackBar, PlaybackPartChip, getPlaybackCopy } from './DialoguePlaybackBar';
 
 const TypewriterText = ({ text, isActive, speed = 30 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -27,14 +30,16 @@ const TypewriterText = ({ text, isActive, speed = 30 }) => {
 
 export const getSpeakerVisual = (speaker = '', role = '', learningMode = 'zh') => {
   const s = (speaker || '').toLowerCase();
-  const isLearner = role === 'learner' || 
-    s.includes('du khách') || 
+  // An explicit 'npc' role wins over name guesses (e.g. "Bạn địa phương" is the local friend)
+  const isLearner = role === 'learner' || role !== 'npc' && (
+    s.includes('du khách') ||
     s.includes('bạn') || 
     s.includes('người học') || 
     s.includes('tôi') || 
     s.includes('chúng tôi') || 
     s.includes('khách đài loan') ||
-    s.startsWith('a ');
+    s.startsWith('a ')
+  );
   
   if (isLearner) {
     return {
@@ -85,40 +90,95 @@ export const getSpeakerVisual = (speaker = '', role = '', learningMode = 'zh') =
   };
 };
 
-export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) => {
+export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, autoStart, onPlaybackComplete, autoNextLabel }) => {
   const { learningMode } = useLanguage();
-  
+  const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
+
   // Support dialogueSections (dual dialogues) or fallback to scenario.dialogues
-  const sections = scenario.dialogueSections && scenario.dialogueSections.length > 0 
-    ? scenario.dialogueSections 
-    : [
-        {
-          id: 'd1',
-          titleZh: '對話一：標準實況對話',
-          titleVi: 'Hội Thoại 1: Tiêu Chuẩn',
-          titleEn: 'Dialogue 1: Standard Interaction',
-          summaryZh: scenario.summaryZh,
-          summaryEn: scenario.summaryEn,
-          lines: scenario.dialogues || scenario.dialogue || []
-        }
-      ];
+  const sections = useMemo(() => (
+    scenario.dialogueSections && scenario.dialogueSections.length > 0
+      ? scenario.dialogueSections
+      : [
+          {
+            id: 'd1',
+            titleZh: '對話一：標準實況對話',
+            titleVi: 'Hội Thoại 1: Tiêu Chuẩn',
+            titleEn: 'Dialogue 1: Standard Interaction',
+            summaryZh: scenario.summaryZh,
+            summaryEn: scenario.summaryEn,
+            lines: scenario.dialogues || scenario.dialogue || []
+          }
+        ]
+  ), [scenario]);
 
   const [activeSectionId, setActiveSectionId] = useState(sections[0]?.id || 'd1');
-  const [isPlayingFull, setIsPlayingFull] = useState(false);
-  const [activeLineIndex, setActiveLineIndex] = useState(null);
-  const [playbackSpeed, setPlaybackSpeed] = useState(0.9); // 0.9 normal, 0.7 slow
   const [showTranslations, setShowTranslations] = useState(true);
-  const [playMode, setPlayMode] = useState('bilingual'); // 'bilingual' | 'viet-only'
-  const isPlayingFullRef = useRef(false);
-  const currentIdxRef = useRef(0);
-  const timerRef = useRef(null);
-
+  const [engineKey, setEngineKey] = useState(null);
   const [copiedLineIdx, setCopiedLineIdx] = useState(null);
   const [, setBmTick] = useState(0);
+  const feedRef = useRef(null);
+  const awardedRef = useRef(new Set());
+  const pendingAutoPlayRef = useRef(null);
+  const consumedAutoStartRef = useRef(null);
+
+  const activeSection = sections.find(s => s.id === activeSectionId) || sections[0];
+  const dialogues = activeSection?.lines || [];
+  const sectionIndex = Math.max(0, sections.findIndex(s => s.id === activeSection?.id));
+
+  const handlePlaylistComplete = ({ mode }) => {
+    const awardKey = `${scenario.id}:${activeSection?.id}`;
+    if (!awardedRef.current.has(awardKey)) {
+      awardedRef.current.add(awardKey);
+      if (updateUserStats) updateUserStats(20);
+    }
+    if (!getPlaybackPrefs().autoNext) return;
+    // Continue with the next dialogue section first, then hand over to the next scenario
+    if (sectionIndex + 1 < sections.length) {
+      pendingAutoPlayRef.current = mode;
+      setActiveSectionId(sections[sectionIndex + 1].id);
+    } else if (onPlaybackComplete) {
+      onPlaybackComplete({ mode });
+    }
+  };
+
+  const player = useDialoguePlayback({
+    lines: dialogues,
+    accent: selectedAccent,
+    nativeLang,
+    title: learningMode === 'zh' ? scenario.titleZh : scenario.titleEn,
+    onComplete: handlePlaylistComplete
+  });
+
+  useFollowActiveLine(feedRef, player.isActive ? player.index : -1, player.isPlaying);
 
   useEffect(() => {
     return bookmarkService.subscribe(() => setBmTick(t => t + 1));
   }, []);
+
+  useEffect(() => {
+    return audioEngine.subscribe((state) => {
+      setEngineKey(state.isPlaying ? state.activeKey : null);
+    });
+  }, []);
+
+  // Reset section on scenario switch (the playback hook stops itself when the script changes)
+  useEffect(() => {
+    setActiveSectionId(sections[0]?.id || 'd1');
+  }, [scenario.id]);
+
+  // Auto-continue: start the next section, or the next scenario requested by the parent
+  useEffect(() => {
+    if (pendingAutoPlayRef.current) {
+      const mode = pendingAutoPlayRef.current;
+      pendingAutoPlayRef.current = null;
+      player.play(mode, 0);
+      return;
+    }
+    if (autoStart && autoStart.scenarioId === scenario.id && consumedAutoStartRef.current !== autoStart.nonce) {
+      consumedAutoStartRef.current = autoStart.nonce;
+      player.play(autoStart.mode, 0);
+    }
+  }, [activeSectionId, scenario.id, autoStart]);
 
   const handleCopyLine = (vietText, translation, idx) => {
     navigator.clipboard?.writeText(`${vietText}\n${translation || ''}`);
@@ -140,129 +200,22 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
     });
   };
 
-  // Active dialogue section object
-  const activeSection = sections.find(s => s.id === activeSectionId) || sections[0];
-  const dialogues = activeSection?.lines || [];
-
-  useEffect(() => {
-    const unsubscribe = audioEngine.subscribe((state) => {
-      if (!state.isPlaying && !isPlayingFullRef.current) {
-        setActiveLineIndex(null);
-      }
-    });
-    return () => unsubscribe();
-  }, []);
-
-  // Reset section and stop audio on scenario switch
-  useEffect(() => {
-    setActiveSectionId(sections[0]?.id || 'd1');
-    isPlayingFullRef.current = false;
-    if (timerRef.current) clearTimeout(timerRef.current);
-    audioEngine.stop();
-    setActiveLineIndex(null);
-    setIsPlayingFull(false);
-  }, [scenario.id]);
-
-  // Stop audio on tab switch within same scenario
   const handleSwitchSection = (sectionId) => {
     if (sectionId === activeSectionId) return;
-    isPlayingFullRef.current = false;
-    if (timerRef.current) clearTimeout(timerRef.current);
-    audioEngine.stop();
-    setActiveLineIndex(null);
-    setIsPlayingFull(false);
+    player.stop();
     setActiveSectionId(sectionId);
   };
 
-  const handlePlayLine = (text, idx, speed = playbackSpeed) => {
-    if (isPlayingFull) {
-      setIsPlayingFull(false);
-      isPlayingFullRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
-    }
-    setActiveLineIndex(idx);
-    audioEngine.speak(text, { 
-      accent: selectedAccent, 
-      rate: speed,
-      key: `line_${activeSectionId}_${idx}`,
-      onEnd: () => {
-        if (!isPlayingFullRef.current) {
-          setActiveLineIndex(null);
-        }
-      }
+  // Single line, Vietnamese only (interrupts any running sequence)
+  const handlePlayLine = (text, idx) => {
+    audioEngine.speak(text, {
+      accent: selectedAccent,
+      rate: player.prefs.speed,
+      key: `line_${activeSectionId}_${idx}`
     });
   };
 
-  const playLineInSequence = (index, part = 'bilingual-first', currentPlayMode = playMode) => {
-    if (!isPlayingFullRef.current || index >= dialogues.length) {
-      setIsPlayingFull(false);
-      isPlayingFullRef.current = false;
-      setActiveLineIndex(null);
-      if (index >= dialogues.length && updateUserStats) {
-        updateUserStats(20);
-      }
-      return;
-    }
-
-    currentIdxRef.current = index;
-    setActiveLineIndex(index);
-    const line = dialogues[index];
-
-    const isBilingual = currentPlayMode === 'bilingual';
-
-    if (isBilingual && part === 'bilingual-first') {
-      const nativeText = learningMode === 'zh' ? line.zh : line.en;
-      const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
-
-      audioEngine.speak(nativeText, {
-        lang: nativeLang,
-        rate: playbackSpeed,
-        key: `seq_line_native_${activeSectionId}_${index}`,
-        onEnd: () => {
-          if (!isPlayingFullRef.current) return;
-          timerRef.current = setTimeout(() => {
-            if (isPlayingFullRef.current) {
-              playLineInSequence(index, 'viet', currentPlayMode);
-            }
-          }, 300); // short gap between languages
-        }
-      });
-    } else {
-      audioEngine.speak(line.viet || line.vi, {
-        accent: selectedAccent,
-        lang: 'vi',
-        rate: playbackSpeed,
-        key: `seq_line_${activeSectionId}_${index}`,
-        onEnd: () => {
-          if (!isPlayingFullRef.current) return;
-          // Natural conversational gap between turns
-          const gapMs = playbackSpeed < 0.85 ? 900 : 700;
-          timerRef.current = setTimeout(() => {
-            if (isPlayingFullRef.current) {
-              playLineInSequence(index + 1, 'bilingual-first', currentPlayMode);
-            }
-          }, gapMs);
-        }
-      });
-    }
-  };
-
-  const handlePlayFullDialogue = (mode = 'bilingual') => {
-    if (isPlayingFull) {
-      // Pause/Stop
-      setIsPlayingFull(false);
-      isPlayingFullRef.current = false;
-      setActiveLineIndex(null);
-      if (timerRef.current) clearTimeout(timerRef.current);
-      audioEngine.stop();
-      return;
-    }
-
-    setPlayMode(mode);
-    setIsPlayingFull(true);
-    isPlayingFullRef.current = true;
-    playLineInSequence(0, 'bilingual-first', mode);
-  };
+  const t = getPlaybackCopy(learningMode);
 
   return (
     <div className="dialogue-player-wrapper">
@@ -301,7 +254,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
 
       {/* Active Section Goal Summary Card */}
       {activeSection && (
-        <div 
+        <div
           className="dialogue-section-summary-banner"
           style={{
             background: 'var(--bg-card)',
@@ -326,96 +279,56 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
         </div>
       )}
 
-      {/* Control Header Toolbar */}
-      <div className="dialogue-toolbar">
-        <div className="toolbar-left" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-          {/* Play Bilingual */}
-          <button 
-            className={`control-btn play-full-btn ${isPlayingFull && playMode === 'bilingual' ? 'playing' : ''}`}
-            onClick={() => handlePlayFullDialogue('bilingual')}
-            style={{ 
-              background: isPlayingFull && playMode === 'bilingual' ? 'var(--brand-primary)' : 'var(--brand-green)', 
-              color: '#fff',
-              opacity: isPlayingFull && playMode !== 'bilingual' ? 0.6 : 1
-            }}
-          >
-            {isPlayingFull && playMode === 'bilingual' ? <Pause size={16} /> : <Play size={16} />}
-            <span>
-              {isPlayingFull && playMode === 'bilingual'
-                ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
-                : (learningMode === 'zh' ? <>中+越 <span className="hide-mobile">(+20 XP)</span></> : <>Bilingual <span className="hide-mobile">(+20 XP)</span></>)}
-            </span>
-          </button>
+      {/* Two-mode playback: 越→中 逐句對照 / 純越文沉浸 */}
+      <DialoguePlaybackBar
+        player={player}
+        lines={dialogues}
+        learningMode={learningMode}
+        title={learningMode === 'zh' ? scenario.titleZh : scenario.titleEn}
+        autoNextLabel={autoNextLabel}
+        xpHint="+20 XP"
+      />
 
-          {/* Play Viet Only */}
-          <button 
-            className={`control-btn play-full-btn ${isPlayingFull && playMode === 'viet-only' ? 'playing' : ''}`}
-            onClick={() => handlePlayFullDialogue('viet-only')}
-            style={{ 
-              background: isPlayingFull && playMode === 'viet-only' ? 'var(--brand-primary)' : 'var(--brand-accent, #8b5cf6)', 
-              color: '#fff',
-              opacity: isPlayingFull && playMode !== 'viet-only' ? 0.6 : 1
-            }}
-          >
-            {isPlayingFull && playMode === 'viet-only' ? <Pause size={16} /> : <Play size={16} />}
-            <span>
-              {isPlayingFull && playMode === 'viet-only'
-                ? (learningMode === 'zh' ? '暫停播放' : 'Pause') 
-                : (learningMode === 'zh' ? <>純越文 <span className="hide-mobile">(+20 XP)</span></> : <>Viet <span className="hide-mobile">(+20 XP)</span></>)}
-            </span>
-          </button>
-
-          {/* Speed Toggle */}
-          <div className="speed-toggle-group">
-            <button 
-              className={`speed-chip ${playbackSpeed >= 0.85 ? 'active' : ''}`}
-              onClick={() => setPlaybackSpeed(0.9)}
-              title="正常語速"
-            >
-              1.0x
-            </button>
-            <button 
-              className={`speed-chip ${playbackSpeed < 0.85 ? 'active' : ''}`}
-              onClick={() => setPlaybackSpeed(0.7)}
-              title="慢速精讀 (適合初學跟讀)"
-            >
-              0.75x {learningMode === 'zh' ? '慢速' : 'Slow'}
-            </button>
-          </div>
-        </div>
-
-        <div className="toolbar-right">
-          {/* Hide/Show Translation Toggle */}
-          <button 
-            className="control-btn toggle-trans-btn"
-            onClick={() => setShowTranslations(prev => !prev)}
-            title={showTranslations ? '隱藏中文/英文翻譯以考驗聽力' : '顯示翻譯'}
-          >
-            {showTranslations ? <EyeOff size={15} /> : <Eye size={15} />}
-            <span>{showTranslations ? (learningMode === 'zh' ? '隱藏翻譯 (聽力模式)' : 'Hide Translation') : (learningMode === 'zh' ? '顯示翻譯' : 'Show Translation')}</span>
-          </button>
-        </div>
+      <div className="dialogue-toolbar dialogue-toolbar-slim">
+        <span className="dialogue-toolbar-hint">
+          {learningMode === 'zh'
+            ? `共 ${dialogues.length} 句 · 點「▶ 從此句」可從任一句開始連播`
+            : `${dialogues.length} lines · tap "▶ From here" to start at any line`}
+        </span>
+        <button
+          className="control-btn toggle-trans-btn"
+          onClick={() => setShowTranslations(prev => !prev)}
+          title={showTranslations ? '隱藏中文/英文翻譯以考驗聽力' : '顯示翻譯'}
+          aria-pressed={!showTranslations}
+        >
+          {showTranslations ? <EyeOff size={15} /> : <Eye size={15} />}
+          <span>{showTranslations ? (learningMode === 'zh' ? '隱藏翻譯 (聽力模式)' : 'Hide Translation') : (learningMode === 'zh' ? '顯示翻譯' : 'Show Translation')}</span>
+        </button>
       </div>
 
       {/* Dialogue Chat Feed */}
-      <div className="dialogue-chat-feed">
+      <div className="dialogue-chat-feed" ref={feedRef}>
         {dialogues.map((line, idx) => {
           const speakerName = line.speaker || line.speakerVi || line.speakerZh || 'Người đối thoại';
           const isUserRole = line.role === 'learner' || line.isLearner || (line.speakerVi && (line.speakerVi.includes('Khách') || line.speakerVi.includes('thuê') || line.speakerVi.includes('Bạn') || line.speakerVi.includes('nhân')));
-          const isActive = activeLineIndex === idx;
-          const visual = getSpeakerVisual(speakerName, isUserRole ? 'learner' : 'npc', learningMode);
+          const isSequenceLine = player.isActive && player.index === idx;
+          const isActive = isSequenceLine || engineKey === `line_${activeSectionId}_${idx}`;
+          const visual = getSpeakerVisual(speakerName, isUserRole ? 'learner' : line.role, learningMode);
           const vietText = line.viet || line.vi;
+          const translation = learningMode === 'zh' ? line.zh : line.en;
+          const revealTranslation = showTranslations || (isSequenceLine && player.part === 'native');
 
           return (
-            <div 
-              key={`${activeSectionId}_${idx}`} 
-              className={`dialogue-bubble-row ${isUserRole ? 'row-learner' : 'row-npc'} ${isActive ? 'line-highlight' : ''}`}
+            <div
+              key={`${activeSectionId}_${idx}`}
+              data-line-index={idx}
+              className={`dialogue-bubble-row ${isUserRole ? 'row-learner' : 'row-npc'} ${isActive ? 'line-highlight' : ''} ${isSequenceLine ? `dpb-active-line part-${player.part}` : ''}`}
             >
               {/* Speaker Avatar Circle */}
-              <div 
+              <div
                 className="dialogue-avatar"
-                style={{ 
-                  background: visual.bg, 
+                style={{
+                  background: visual.bg,
                   borderColor: visual.border,
                   color: visual.border
                 }}
@@ -427,12 +340,12 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
               <div className="chat-bubble-container">
                 <div className="bubble-meta">
                   <span className="speaker-tag">{speakerName}</span>
-                  <span 
-                    className="role-tag-pill" 
-                    style={{ 
-                      borderColor: visual.border, 
+                  <span
+                    className="role-tag-pill"
+                    style={{
+                      borderColor: visual.border,
                       color: visual.border,
-                      background: visual.bg 
+                      background: visual.bg
                     }}
                   >
                     <span>{visual.icon}</span>
@@ -444,19 +357,20 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
                       <span>{learningMode === 'zh' ? '方言要點' : 'Dialect'}</span>
                     </span>
                   )}
+                  {isSequenceLine && <PlaybackPartChip player={player} learningMode={learningMode} className="dpb-line-part" />}
                 </div>
 
                 <div className="bubble-content-main">
-                  <div className="vietnamese-text">
+                  <div className="vietnamese-text dpb-viet-text">
                     <TypewriterText text={vietText} isActive={isActive} speed={30} />
                   </div>
-                  
-                  {showTranslations && (
-                    <div className="translation-text">
-                      <TypewriterText text={learningMode === 'zh' ? line.zh : line.en} isActive={isActive} speed={30} />
+
+                  {revealTranslation && (
+                    <div className="translation-text dpb-native-text">
+                      <TypewriterText text={translation} isActive={isActive} speed={30} />
                     </div>
                   )}
-                  
+
                   {(line.northTip || line.southTip) && (
                     <details className="dialect-supplement">
                       <summary>
@@ -481,15 +395,27 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
                   )}
                 </div>
 
-                {/* Single line actions: audio, bookmark, copy */}
+                {/* Single line actions: play from here, audio, bookmark, copy */}
                 <div className="bubble-footer-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
-                  <button 
-                    className={`line-audio-trigger ${isActive ? 'playing' : ''}`}
-                    onClick={() => handlePlayLine(vietText, idx, playbackSpeed)}
-                    title={learningMode === 'zh' ? '單句朗讀' : 'Play line'}
+                  <button
+                    className={`line-audio-trigger dpb-line-play-btn ${isSequenceLine ? 'playing' : ''}`}
+                    onClick={() => {
+                      audioEngine.playHaptic('tap');
+                      player.playFrom(idx);
+                    }}
+                    title={t.jump(idx + 1)}
+                  >
+                    <PlayCircle size={15} />
+                    <span>{learningMode === 'zh' ? '從此句' : 'From here'}</span>
+                  </button>
+
+                  <button
+                    className={`line-audio-trigger ${engineKey === `line_${activeSectionId}_${idx}` ? 'playing' : ''}`}
+                    onClick={() => handlePlayLine(vietText, idx)}
+                    title={learningMode === 'zh' ? '單句朗讀 (越文)' : 'Play line'}
                   >
                     <Volume2 size={15} />
-                    <span>{playbackSpeed < 0.85 ? (learningMode === 'zh' ? '慢速朗讀' : 'Slow') : (learningMode === 'zh' ? '朗讀' : 'Play')}</span>
+                    <span>{player.prefs.speed < 0.85 ? (learningMode === 'zh' ? '慢速朗讀' : 'Slow') : (learningMode === 'zh' ? '朗讀' : 'Play')}</span>
                   </button>
 
                   <button
@@ -509,7 +435,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
                   <button
                     className="line-audio-trigger"
                     style={{ background: 'transparent', color: 'var(--text-muted)' }}
-                    onClick={() => handleCopyLine(vietText, learningMode === 'zh' ? line.zh : line.en, idx)}
+                    onClick={() => handleCopyLine(vietText, translation, idx)}
                     title={learningMode === 'zh' ? '複製整句' : 'Copy'}
                   >
                     {copiedLineIdx === idx ? <Check size={14} color="#10b981" /> : <Copy size={14} />}
@@ -524,4 +450,3 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats }) =>
     </div>
   );
 };
-

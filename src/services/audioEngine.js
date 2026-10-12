@@ -12,6 +12,7 @@
  */
 
 import audioManifest from '../data/audioManifest.json';
+import audioManifestZh from '../data/audioManifestZh.json';
 
 class AudioEngine {
   constructor() {
@@ -24,8 +25,13 @@ class AudioEngine {
     this.hasNativeVietVoice = false;
     this.manifest = audioManifest || {};
     this.normalizedManifest = new Map();
+    this.zhManifest = new Map();
     this.sessionId = 0;
     this.currentCleanup = null;
+    // One shared <audio> element for every clip: once a tap has started it, WebKit lets the
+    // same element keep playing later clips from timers, so sequenced dialogues don't get blocked on iOS.
+    this.mediaEl = null;
+    this.stopListeners = new Set();
     
     this.initManifest();
     
@@ -205,6 +211,46 @@ class AudioEngine {
         }
       });
     }
+    Object.entries(audioManifestZh || {}).forEach(([text, file]) => {
+      if (!text || !file) return;
+      const key = String(text).normalize('NFC').trim();
+      this.zhManifest.set(key, file);
+      const stripped = key.replace(/[。！？，、.!?,\s]+$/u, '').trim();
+      if (stripped) this.zhManifest.set(stripped, file);
+    });
+  }
+
+  /**
+   * Notified whenever playback is stopped from outside a speak() call
+   * (user hit stop, module switched, tone synth took over, ...).
+   */
+  onStop(listener) {
+    this.stopListeners.add(listener);
+    return () => this.stopListeners.delete(listener);
+  }
+
+  getMediaElement() {
+    if (!this.mediaEl) {
+      this.mediaEl = new Audio();
+      this.mediaEl.preload = 'auto';
+    }
+    return this.mediaEl;
+  }
+
+  buildAudioUrl(file) {
+    const baseUrl = import.meta.env.BASE_URL || '/';
+    return `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${file}`;
+  }
+
+  /**
+   * Resolves a pre-generated neural narration clip for a Chinese translation (zh-TW bank)
+   */
+  resolveNativeFile(text, lang = 'zh') {
+    if (lang !== 'zh' || !text) return null;
+    const cleaned = this.cleanNativeText(text, 'zh');
+    if (!cleaned) return null;
+    const stripped = cleaned.replace(/[。！？，、.!?,\s]+$/u, '').trim();
+    return this.zhManifest.get(cleaned) || this.zhManifest.get(stripped) || null;
   }
 
   initVoices() {
@@ -433,21 +479,33 @@ class AudioEngine {
   }
 
   /**
-   * Preload an audio file into cache for instant zero-latency playback
+   * Preload an audio file into the HTTP cache so the shared player starts it instantly.
+   * Warm-up elements are capped (oldest evicted) so long listening sessions don't pile up buffers.
    */
   preload(rawText, options = {}) {
     if (!rawText || typeof window === 'undefined') return;
     const accent = options.accent || 'north';
-    const cleanedText = this.cleanText(rawText);
-    const manifestFile = this.resolveManifestFile(cleanedText, accent) || this.resolveManifestFile(rawText, accent);
+    const lang = options.lang || 'vi';
+    let manifestFile = null;
+    if (lang === 'vi') {
+      const cleanedText = this.cleanText(rawText);
+      manifestFile = this.resolveManifestFile(cleanedText, accent) || this.resolveManifestFile(rawText, accent);
+    } else {
+      manifestFile = this.resolveNativeFile(rawText, lang);
+    }
     if (manifestFile) {
-      const baseUrl = import.meta.env.BASE_URL || '/';
-      const audioPath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${manifestFile}`;
+      const audioPath = this.buildAudioUrl(manifestFile);
       if (!this.audioCache.has(audioPath)) {
         try {
           const audio = new Audio(audioPath);
           audio.preload = 'auto';
           this.audioCache.set(audioPath, audio);
+          if (this.audioCache.size > 120) {
+            const [oldPath, oldAudio] = this.audioCache.entries().next().value;
+            this.audioCache.delete(oldPath);
+            oldAudio.removeAttribute('src');
+            oldAudio.load();
+          }
         } catch (e) {}
       }
     }
@@ -462,7 +520,7 @@ class AudioEngine {
     if (!rawText) return;
 
     // Stop previous audio completely & invalidate any previous async session
-    this.stop();
+    this.haltPlayback();
 
     this.sessionId = (this.sessionId || 0) + 1;
     const session = this.sessionId;
@@ -490,21 +548,24 @@ class AudioEngine {
 
     if (options.onStart) options.onStart();
 
-    // 1. Priority 0: Check Pre-Bundled Audio Bank with accent awareness (only for Vietnamese)
-    if (lang === 'vi') {
-      const manifestFile = this.resolveManifestFile(cleanedText, accent) || this.resolveManifestFile(rawText, accent);
+    // 1. Priority 0: Pre-bundled audio bank (Vietnamese with accent awareness, zh-TW narration bank)
+    {
+      const manifestFile = lang === 'vi'
+        ? (this.resolveManifestFile(cleanedText, accent) || this.resolveManifestFile(rawText, accent))
+        : this.resolveNativeFile(rawText, lang);
+      // Native-language clips are recorded at natural speed; never slow the translation down
+      const fileRate = lang === 'vi' ? rate : (options.rate || 1.0);
 
       if (manifestFile) {
-        const baseUrl = import.meta.env.BASE_URL || '/';
-        const audioPath = `${baseUrl.endsWith('/') ? baseUrl : baseUrl + '/'}audio/${manifestFile}`;
-        this.playLocalFile(audioPath, rate, options, session)
+        const audioPath = this.buildAudioUrl(manifestFile);
+        this.playLocalFile(audioPath, fileRate, options, session)
           .catch((err) => {
             if (this.sessionId !== session) return;
             if (err?.name === 'AbortError') return;
             // Secondary relative attempt in case BASE_URL pathing differs on current origin
             const relativeAudioPath = `./audio/${manifestFile}`;
             if (relativeAudioPath !== audioPath) {
-              this.playLocalFile(relativeAudioPath, rate, options, session)
+              this.playLocalFile(relativeAudioPath, fileRate, options, session)
                 .catch((err2) => {
                   if (this.sessionId !== session) return;
                   if (err2?.name === 'AbortError') return;
@@ -523,6 +584,23 @@ class AudioEngine {
   }
 
   /**
+   * Points the shared media element at a new clip. Changing src resets playbackRate to
+   * defaultPlaybackRate, so both are set after the swap.
+   */
+  loadIntoMediaElement(audioUrl, rate = 1.0) {
+    const audio = this.getMediaElement();
+    const clamped = Math.min(Math.max(rate, 0.5), 2.0);
+    if (audio.src !== new URL(audioUrl, window.location.href).href) {
+      audio.src = audioUrl;
+    } else {
+      try { audio.currentTime = 0; } catch (e) {}
+    }
+    audio.defaultPlaybackRate = clamped;
+    audio.playbackRate = clamped;
+    return audio;
+  }
+
+  /**
    * Plays a pre-bundled local MP3 audio file with session safety and memory protection
    */
   playLocalFile(audioUrl, rate = 1.0, options = {}, session = null) {
@@ -532,17 +610,8 @@ class AudioEngine {
       }
 
       try {
-        let audio = this.audioCache.get(audioUrl);
-        if (!audio) {
-          audio = new Audio(audioUrl);
-          audio.preload = 'auto';
-          this.audioCache.set(audioUrl, audio);
-        } else {
-          audio.currentTime = 0;
-        }
-
+        const audio = this.loadIntoMediaElement(audioUrl, rate);
         this.currentAudio = audio;
-        audio.playbackRate = Math.min(Math.max(rate, 0.5), 2.0);
 
         let finished = false;
         const cleanup = () => {
@@ -570,6 +639,11 @@ class AudioEngine {
         };
 
         const handlePause = () => {
+          // A clip that finishes fires `pause` immediately before `ended` (HTML spec);
+          // leave that case to handleEnded so onEnd still runs and sequences can advance.
+          // `pause` is also dispatched asynchronously: when the previous clip was interrupted and
+          // this one has already started on the shared element, the stale event finds it playing.
+          if (audio.ended || !audio.paused) return;
           cleanup();
           if (this.currentAudio === audio) {
             this.currentAudio = null;
@@ -619,7 +693,7 @@ class AudioEngine {
   fallbackSpeech(cleanedText, rate, options = {}, session = null) {
     if (session !== null && this.sessionId !== session) return;
 
-    const isSouth = options.accent === 'south';
+    const isSouth = options.accent === 'south' && (options.lang || 'vi') === 'vi';
     const speechText = isSouth ? this.toSouthernPhonetic(cleanedText) : cleanedText;
 
     this.playWebSpeech(speechText, rate, options, session)
@@ -718,17 +792,8 @@ class AudioEngine {
         const tl = options.lang === 'zh' ? 'zh-TW' : (options.lang === 'en' ? 'en-US' : 'vi');
         const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${tl}&client=tw-ob&q=${encodedText}`;
 
-        let audio = this.audioCache.get(audioUrl);
-        if (!audio) {
-          audio = new Audio(audioUrl);
-          audio.preload = 'auto';
-          this.audioCache.set(audioUrl, audio);
-        } else {
-          audio.currentTime = 0;
-        }
-
+        const audio = this.loadIntoMediaElement(audioUrl, rate);
         this.currentAudio = audio;
-        audio.playbackRate = Math.min(Math.max(rate, 0.5), 2.0);
 
         let finished = false;
         const cleanup = () => {
@@ -753,6 +818,7 @@ class AudioEngine {
         };
 
         const handlePause = () => {
+          if (audio.ended || !audio.paused) return;
           if (this.currentAudio === audio && audio.currentTime === 0) {
             cleanup();
             if (session === null || this.sessionId === session) {
@@ -1395,9 +1461,25 @@ class AudioEngine {
   }
 
   /**
-   * Immediately stops any playing audio, utterance, or oscillator
+   * Immediately stops any playing audio, utterance, or oscillator (public API).
+   * Listeners registered with onStop() are told so running sequences can end cleanly.
    */
   stop() {
+    this.haltPlayback();
+    this.stopListeners.forEach(listener => {
+      try {
+        listener();
+      } catch (err) {
+        console.error('AudioEngine stop listener error:', err);
+      }
+    });
+  }
+
+  /**
+   * Silences everything and invalidates pending callbacks without announcing an external stop
+   * (used internally when one clip replaces another).
+   */
+  haltPlayback() {
     this.sessionId = (this.sessionId || 0) + 1;
 
     // 0. Clean up active audio event listeners

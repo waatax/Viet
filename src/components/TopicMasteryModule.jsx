@@ -11,6 +11,9 @@ import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
 import { bookmarkService } from '../services/bookmarkService';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
+import { getPlaybackPrefs } from '../services/dialoguePlayback';
+import { useDialoguePlayback, useFollowActiveLine } from '../hooks/useDialoguePlayback';
+import { DialoguePlaybackBar, PlaybackPartChip } from './DialoguePlaybackBar';
 import './TopicMasteryModule.css';
 
 const getAssetUrl = (path) => {
@@ -204,9 +207,9 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
 
   // Dialogue state
   const [activeDialogueIndex, setActiveDialogueIndex] = useState(0);
-  const [isPlayingConversation, setIsPlayingConversation] = useState(false);
-  const isPlayingConversationRef = useRef(false);
-  const convTimerRef = useRef(null);
+  const dialogueFeedRef = useRef(null);
+  const awardedDialoguesRef = useRef(new Set());
+  const pendingDialogueAutoPlayRef = useRef(null);
 
   // Quick Study Play All state
   const [isPlayingSurvival, setIsPlayingSurvival] = useState(false);
@@ -261,14 +264,12 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
 
   // Stop any running playback sequences
   const stopAllSequences = () => {
-    isPlayingConversationRef.current = false;
     isPlayingSurvivalRef.current = false;
     isAutoplayingDeckRef.current = false;
-    if (convTimerRef.current) clearTimeout(convTimerRef.current);
     if (survivalTimerRef.current) clearTimeout(survivalTimerRef.current);
     if (deckTimerRef.current) clearTimeout(deckTimerRef.current);
+    // Also ends the dialogue player: it listens for external engine stops
     audioEngine.stop();
-    setIsPlayingConversation(false);
     setIsPlayingSurvival(false);
     setIsAutoplayingDeck(false);
   };
@@ -331,41 +332,38 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
     }
   };
 
-  // --- Dialogue: Play full conversation sequentially ---
+  // --- Dialogue: two-mode playback (越→中 逐句對照 / 純越文) ---
   const currentDialogue = currentTopic.dialogues?.[activeDialogueIndex] || currentTopic.dialogues?.[0];
+  const dialogueCount = currentTopic.dialogues?.length || 0;
 
-  const playDialogueInSequence = (lineIndex) => {
-    const lines = currentDialogue?.lines || [];
-    if (!isPlayingConversationRef.current || lineIndex >= lines.length) {
-      setIsPlayingConversation(false);
-      isPlayingConversationRef.current = false;
-      return;
+  const handleDialogueComplete = ({ mode }) => {
+    const awardKey = `${activeTopicId}:${currentDialogue?.id}`;
+    if (!awardedDialoguesRef.current.has(awardKey)) {
+      awardedDialoguesRef.current.add(awardKey);
+      if (updateUserStats) updateUserStats(15);
     }
-
-    const line = lines[lineIndex];
-    audioEngine.speak(line.viet, {
-      accent,
-      rate: playbackSpeed,
-      key: `dialogue_${currentDialogue.id}_${lineIndex}`,
-      onEnd: () => {
-        if (!isPlayingConversationRef.current) return;
-        convTimerRef.current = setTimeout(() => {
-          if (isPlayingConversationRef.current) playDialogueInSequence(lineIndex + 1);
-        }, 1000);
-      }
-    });
-  };
-
-  const togglePlayConversation = () => {
-    if (isPlayingConversation) {
-      stopAllSequences();
-    } else {
-      stopAllSequences();
-      setIsPlayingConversation(true);
-      isPlayingConversationRef.current = true;
-      playDialogueInSequence(0);
+    if (getPlaybackPrefs().autoNext && activeDialogueIndex + 1 < dialogueCount) {
+      pendingDialogueAutoPlayRef.current = mode;
+      setActiveDialogueIndex(activeDialogueIndex + 1);
     }
   };
+
+  const dialoguePlayer = useDialoguePlayback({
+    lines: currentDialogue?.lines || [],
+    accent,
+    nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+    title: learningMode === 'zh' ? currentDialogue?.titleZh : currentDialogue?.titleEn,
+    onComplete: handleDialogueComplete
+  });
+
+  useFollowActiveLine(dialogueFeedRef, dialoguePlayer.isActive ? dialoguePlayer.index : -1, dialoguePlayer.isPlaying);
+
+  useEffect(() => {
+    if (!pendingDialogueAutoPlayRef.current) return;
+    const mode = pendingDialogueAutoPlayRef.current;
+    pendingDialogueAutoPlayRef.current = null;
+    dialoguePlayer.play(mode, 0);
+  }, [activeDialogueIndex]);
 
   // --- Flashcards: Autoplay Deck ---
   const currentDeck = currentTopic.flashcardDeck || [];
@@ -433,7 +431,7 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
       srsEngine.recordReview(currentCard.id, rating);
     }
     if (updateUserStats) {
-      updateUserStats(prev => ({ ...prev, xp: prev.xp + 5 }));
+      updateUserStats(5);
     }
     setIsCardFlipped(false);
     if (currentCardIndex < currentDeck.length - 1) {
@@ -452,7 +450,7 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
     if (isCorrect) {
       audioEngine.playHaptic('success');
       if (updateUserStats) {
-        updateUserStats(prev => ({ ...prev, xp: prev.xp + 25 }));
+        updateUserStats(25);
       }
     } else {
       audioEngine.playHaptic('warning');
@@ -842,31 +840,34 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
                     {currentDialogue.titleEn}
                   </small>
                 </h3>
-                <button
-                  className="play-all-btn"
-                  onClick={togglePlayConversation}
-                >
-                  {isPlayingConversation ? <Pause size={16} /> : <Play size={16} />}
-                  <span>
-                    {isPlayingConversation
-                      ? (learningMode === 'zh' ? '暫停對話播放' : 'Pause Dialogue')
-                      : (learningMode === 'zh' ? '播放全篇連續對話' : 'Play Full Dialogue')}
-                  </span>
-                </button>
+              </div>
+
+              <div style={{ marginTop: '1rem' }}>
+                <DialoguePlaybackBar
+                  player={dialoguePlayer}
+                  lines={currentDialogue.lines}
+                  learningMode={learningMode}
+                  title={learningMode === 'zh' ? currentDialogue.titleZh : currentDialogue.titleEn}
+                  variant="compact"
+                  autoNextLabel={dialogueCount > 1 ? (learningMode === 'zh' ? '自動連播下一段' : 'Auto-play next dialogue') : undefined}
+                  xpHint="+15 XP"
+                />
               </div>
 
               {/* 雙角色對話氣泡流 */}
-              <div className="dialogue-chat-stream">
+              <div className="dialogue-chat-stream" ref={dialogueFeedRef}>
                 {currentDialogue.lines.map((line, lIdx) => {
                   const key = `dialogue_${currentDialogue.id}_${lIdx}`;
-                  const isPlaying = audioState.isPlaying && audioState.activeKey === key;
+                  const isSequenceLine = dialoguePlayer.isActive && dialoguePlayer.index === lIdx;
+                  const isPlaying = isSequenceLine || (audioState.isPlaying && audioState.activeKey === key);
                   const isSpeakerB = lIdx % 2 === 1;
                   const speakerVisual = getTopicSpeakerVisual(line.speaker, activeTopicId, lIdx, learningMode);
 
                   return (
                     <div
                       key={lIdx}
-                      className={`chat-bubble-row ${isSpeakerB ? 'speaker-b' : 'speaker-a'} ${isPlaying ? 'playing' : ''}`}
+                      data-line-index={lIdx}
+                      className={`chat-bubble-row ${isSpeakerB ? 'speaker-b' : 'speaker-a'} ${isPlaying ? 'playing' : ''} ${isSequenceLine ? `dpb-active-line part-${dialoguePlayer.part}` : ''}`}
                     >
                       <div 
                         className="chat-avatar"
@@ -898,12 +899,23 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
                             <span>{speakerVisual.icon}</span>
                             <span>{speakerVisual.role}</span>
                           </span>
+                          {isSequenceLine && <PlaybackPartChip player={dialoguePlayer} learningMode={learningMode} className="dpb-line-part" />}
                         </div>
                         <div className="chat-viet-text">
-                          <span>{line.viet}</span>
+                          <span className="dpb-viet-text">{line.viet}</span>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                             <button
-                              className={`audio-icon-btn ${isPlaying ? 'playing' : ''}`}
+                              className={`audio-icon-btn ${isSequenceLine ? 'playing' : ''}`}
+                              onClick={() => {
+                                audioEngine.playHaptic('tap');
+                                dialoguePlayer.playFrom(lIdx);
+                              }}
+                              title={learningMode === 'zh' ? '從此句開始連播' : 'Play from this line'}
+                            >
+                              <Play size={15} />
+                            </button>
+                            <button
+                              className={`audio-icon-btn ${isPlaying && !isSequenceLine ? 'playing' : ''}`}
                               onClick={() => handleSpeak(line.viet, key)}
                               title={learningMode === 'zh' ? '播放單句朗讀' : 'Play line'}
                             >
@@ -933,7 +945,7 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
                             </button>
                           </div>
                         </div>
-                        <div className="chat-meaning-text">
+                        <div className="chat-meaning-text dpb-native-text">
                           {learningMode === 'zh' ? line.zh : line.en}
                         </div>
                       </div>

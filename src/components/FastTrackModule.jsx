@@ -40,7 +40,7 @@ export const FAST_TRACK_CULTURE_TIPS = {
   }
 };
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   Eye, EyeOff, Puzzle, ThumbsUp, ThumbsDown,
   Zap, Calendar, CheckCircle2, Circle, Volume2, Sparkles, Trophy,
@@ -50,6 +50,8 @@ import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
+import { useDialoguePlayback, useFollowActiveLine } from '../hooks/useDialoguePlayback';
+import { DialoguePlaybackBar, PlaybackPartChip } from './DialoguePlaybackBar';
 
 const getAssetUrl = (path) => {
   const base = import.meta.env.BASE_URL || '/';
@@ -679,6 +681,22 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
   };
 
+  // Daily dialogue: 越→中 逐句對照 / 純越文 playback
+  const dialogueFeedRef = useRef(null);
+  const awardedDialogueDaysRef = useRef(new Set());
+  const dialoguePlayer = useDialoguePlayback({
+    lines: currentDay.dialogue || [],
+    accent: selectedAccent,
+    nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+    title: learningMode === 'zh' ? currentDay.titleZh : currentDay.titleEn,
+    onComplete: () => {
+      if (awardedDialogueDaysRef.current.has(currentDay.day)) return;
+      awardedDialogueDaysRef.current.add(currentDay.day);
+      if (updateUserStats) updateUserStats({ type: 'ADD_XP', payload: 10 });
+    }
+  });
+  useFollowActiveLine(dialogueFeedRef, dialoguePlayer.isActive ? dialoguePlayer.index : -1, dialoguePlayer.isPlaying);
+
   const handleSelectQuizOption = (idx) => {
     if (quizState.isSubmitted) return;
     setQuizState(prev => ({ ...prev, selectedOption: idx }));
@@ -1021,18 +1039,31 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
               </h3>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+            <DialoguePlaybackBar
+              player={dialoguePlayer}
+              lines={currentDay.dialogue}
+              learningMode={learningMode}
+              title={learningMode === 'zh' ? currentDay.titleZh : currentDay.titleEn}
+              variant="compact"
+              xpHint="+10 XP"
+            />
+
+            <div ref={dialogueFeedRef} style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               {currentDay.dialogue.map((line, lIdx) => {
                 const visual = getFastTrackPartnerVisual(currentDay.day, line.speaker, learningMode);
                 const isSpeakerA = (line.speaker || '').startsWith('A');
+                const isSequenceLine = dialoguePlayer.isActive && dialoguePlayer.index === lIdx;
 
                 return (
                   <div
                     key={lIdx}
+                    data-line-index={lIdx}
+                    className={isSequenceLine ? `dpb-active-line part-${dialoguePlayer.part}` : ''}
                     onClick={() => handlePlayAudio(line.viet)}
                     style={{
                       background: isSpeakerA ? 'linear-gradient(135deg, var(--bg-card) 0%, rgba(59, 130, 246, 0.05) 100%)' : 'var(--bg-card)',
-                      border: `1.5px solid ${isSpeakerA ? 'rgba(59, 130, 246, 0.3)' : 'var(--border-color)'}`,
+                      border: `1.5px solid ${isSequenceLine ? 'var(--brand-primary)' : (isSpeakerA ? 'rgba(59, 130, 246, 0.3)' : 'var(--border-color)')}`,
+                      boxShadow: isSequenceLine ? '0 0 0 3px rgba(var(--brand-primary-rgb), 0.18)' : 'none',
                       borderRadius: 'var(--radius-md)',
                       padding: '0.9rem 1.2rem',
                       display: 'flex',
@@ -1084,11 +1115,12 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
                           <span>{visual.icon}</span>
                           <span>{visual.role}</span>
                         </span>
+                        {isSequenceLine && <PlaybackPartChip player={dialoguePlayer} learningMode={learningMode} className="dpb-line-part" />}
                       </div>
                       <div style={{ fontSize: '1.05rem', fontWeight: 800, color: 'var(--brand-primary)', marginBottom: '0.2rem' }}>
                         {line.viet}
                       </div>
-                      <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
+                      <div className="dpb-native-text" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
                         {learningMode === 'zh' ? line.zh : line.en}
                       </div>
                     </div>

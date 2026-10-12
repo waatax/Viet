@@ -16,7 +16,7 @@ export default defineConfig({
           if (id.includes('node_modules/lucide-react')) {
             return 'vendor-icons';
           }
-          if (id.includes('audioManifest.json')) {
+          if (id.includes('audioManifest.json') || id.includes('audioManifestZh.json')) {
             return 'data-audio-manifest';
           }
           if (id.includes('frequencyVocabularyData.js')) {

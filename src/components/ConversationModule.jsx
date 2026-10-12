@@ -50,6 +50,8 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
     return situationalScenarios[0]?.id || 'cafe';
   });
   const [activeViewTab, setActiveViewTab] = useState('dialogue'); // 'dialogue' | 'roleplay' | 'vocab' | 'culture'
+  // Set when "auto-continue" moves to the next scenario so its dialogue starts by itself
+  const [dialogueAutoStart, setDialogueAutoStart] = useState(null);
 
   useEffect(() => {
     const handleJump = (e) => {
@@ -118,6 +120,16 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
     });
   }, [selectedCategory, debouncedSearchQuery]);
 
+  // Auto-continue (情境連播): when a dialogue finishes, move to the next scenario in the current list
+  const handleDialogueComplete = ({ mode }) => {
+    const list = filteredScenarios.length > 0 ? filteredScenarios : situationalScenarios;
+    const currentIdx = list.findIndex(sc => sc.id === activeScenarioId);
+    const nextScenario = list[currentIdx + 1];
+    if (!nextScenario) return;
+    setActiveScenarioId(nextScenario.id);
+    setDialogueAutoStart({ scenarioId: nextScenario.id, mode, nonce: Date.now() });
+  };
+
   return (
     <div className="module-container">
       {/* Header Banner */}
@@ -151,6 +163,12 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
             {learningMode === 'zh'
               ? '日常詞彙與發音在北越與南越有著顯著差異。請留意對話解析中的「北越提示」與「南越提示」，這能幫助您更接地氣。'
               : 'Daily vocabulary and pronunciation vary significantly between the North and South. Utilize the regional tips in dialogues to sound more local.'}
+          </li>
+          <li>
+            <strong style={{ color: 'var(--text-primary, #1f2937)' }}>{learningMode === 'zh' ? '雙模式聽力：' : 'Two Listening Modes: '}</strong>
+            {learningMode === 'zh'
+              ? '「越→中 逐句對照」每句先播越文、再播中文，幫你建立語意連結；「純越文 沉浸聽力」只播越南語，訓練不靠翻譯的聽解。可調語速、單句重複 1–3 次、跟讀停頓、單篇循環與自動連播下一情境。'
+              : '"Viet → English" plays each Vietnamese line followed by its translation; "Vietnamese Only" plays the original audio alone. Adjust speed, repeat each line 1–3×, add shadowing pauses, loop, or auto-play the next scenario.'}
           </li>
           <li>
             <strong style={{ color: 'var(--text-primary, #1f2937)' }}>{learningMode === 'zh' ? '實戰順序：' : 'Practice Flow: '}</strong>
@@ -312,10 +330,13 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
           {/* Tab Content Display */}
           <div className="scenario-tab-content">
             {activeViewTab === 'dialogue' && (
-              <DialoguePlayer 
-                scenario={currentScenario} 
-                selectedAccent={selectedAccent} 
-                updateUserStats={updateUserStats} 
+              <DialoguePlayer
+                scenario={currentScenario}
+                selectedAccent={selectedAccent}
+                updateUserStats={updateUserStats}
+                autoStart={dialogueAutoStart}
+                onPlaybackComplete={handleDialogueComplete}
+                autoNextLabel={learningMode === 'zh' ? '自動連播下一情境' : 'Auto-play next scenario'}
               />
             )}
 
@@ -510,7 +531,7 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
         updateUserStats={updateUserStats}
         summaryHighlights={[
           '親歷 49 大真實越南情境（咖啡廳、居酒屋、租屋、看診、通關、商務談判等）',
-          '透過分段精聽、慢速回放與情境詞彙閃卡，多維度吸收對話精髓',
+          '以「越→中 逐句對照」與「純越文沉浸」雙模式精聽，搭配慢速、重複與跟讀停頓吸收對話精髓',
           '在角色扮演分支互動中驗證開口反應速度與語用得體度'
         ]}
         relatedModules={[
