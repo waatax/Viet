@@ -6,6 +6,7 @@ import { useLanguage } from './context/LanguageContext';
 import { gamificationEngine } from './utils/gamificationEngine';
 import { audioEngine } from './services/audioEngine';
 import { MODULE_IDS } from './config/navigation';
+import { APP_VERSION, BUILD_REVISION } from './config/release';
 
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
@@ -449,7 +450,7 @@ export function App() {
             <div style={{ fontWeight: 800, fontSize: '1.05em', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
               <span>🇻🇳 越語學習通 (科學研究團隊旗艦版) · Chào Việt Nam!</span>
               <span style={{ fontSize: '0.72rem', fontWeight: 800, background: 'rgba(234, 179, 8, 0.15)', color: 'var(--brand-gold)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-full)', padding: '0.1rem 0.5rem' }}>
-                v2.8.0 iOS HIG 榮耀旗艦版
+                v{APP_VERSION}
               </span>
             </div>
             <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
@@ -457,6 +458,9 @@ export function App() {
                 ? '第二語言習得 (SLA) · 漢越音音韻體系 · SM-2 間隔重複 · 八角行為遊戲化 · Apple HIG 觸覺聲學工藝' 
                 : 'SLA Methodology · Sino-Vietnamese Cognates · SM-2 Retention · Octalysis Gamification · Apple HIG Acoustic Haptics'}
             </div>
+            <a href={`${import.meta.env.BASE_URL}release.json`} style={{ fontSize: '.8rem', color: 'var(--text-secondary)' }}>
+              {learningMode === 'zh' ? '版本紀錄' : 'Release details'} · {BUILD_REVISION.slice(0, 7)}
+            </a>
           </div>
 
           <div className="footer-settings-controls" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>

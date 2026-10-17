@@ -26,7 +26,12 @@ try {
         };` }));
     } }]
   });
-  const { DialogueSequencer, setPlaybackPrefs, situationalScenarios, SITUATIONAL_TOPICS, multiScenarios, numbersAndCurrency, FAST_TRACK_DAYS, audioEngine } = await import(pathToFileURL(outfile));
+  const { DialogueSequencer, setPlaybackPrefs, normalizePlaybackPrefs, DEFAULT_PREFS, situationalScenarios, SITUATIONAL_TOPICS, multiScenarios, numbersAndCurrency, FAST_TRACK_DAYS, audioEngine } = await import(pathToFileURL(outfile));
+  assert.deepEqual(normalizePlaybackPrefs(null), DEFAULT_PREFS);
+  assert.deepEqual(normalizePlaybackPrefs({ speed: 'fast', repeat: Infinity, loop: 'false', shadowPause: 'false' }), DEFAULT_PREFS);
+  assert.deepEqual(normalizePlaybackPrefs({ speed: 0.6, repeat: 3, loop: true, autoNext: true }), { ...DEFAULT_PREFS, speed: 0.6, repeat: 3, loop: true });
+  setPlaybackPrefs({ loop: true });
+  assert.equal(setPlaybackPrefs({ autoNext: true }).loop, false);
   setPlaybackPrefs({ repeat: 1, shadowPause: false, loop: false, autoNext: false });
   const create = () => {
     const seq = new DialogueSequencer();

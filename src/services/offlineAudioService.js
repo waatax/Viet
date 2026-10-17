@@ -41,6 +41,7 @@ class OfflineAudioService {
     this.listeners = new Set();
     this.autoCacheEnabled = this.loadAutoCachePref();
     this.blobUrlCache = new Map();
+    this.pendingDownloads = new Map();
   }
 
   loadAutoCachePref() {
@@ -98,6 +99,14 @@ class OfflineAudioService {
    */
   async cacheAudioUrl(url) {
     if (!this.isSupported || !url) return false;
+    if (this.pendingDownloads.has(url)) return this.pendingDownloads.get(url);
+    const request = this.storeAudioUrl(url);
+    this.pendingDownloads.set(url, request);
+    try { return await request; }
+    finally { this.pendingDownloads.delete(url); }
+  }
+
+  async storeAudioUrl(url) {
     try {
       const cache = await caches.open(CACHE_NAME);
       const existing = await cache.match(url);
@@ -152,24 +161,12 @@ class OfflineAudioService {
     let completed = missingCount;
     let cached = 0;
 
-    const cache = await caches.open(CACHE_NAME);
-
     // Concurrently fetch and cache with limit
     const batchSize = 4;
     for (let i = 0; i < urlList.length; i += batchSize) {
       const chunk = urlList.slice(i, i + batchSize);
       await Promise.all(chunk.map(async (url) => {
-        try {
-          const match = await cache.match(url);
-          if (isAudioResponse(match)) cached++;
-          else {
-            const resp = await fetch(url);
-            if (isAudioResponse(resp)) {
-              await cache.put(url, resp.clone());
-              cached++;
-            }
-          }
-        } catch (e) {}
+        if (await this.cacheAudioUrl(url)) cached++;
         completed++;
         if (onProgress) {
           onProgress({

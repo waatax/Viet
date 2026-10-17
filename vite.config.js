@@ -1,9 +1,24 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+
+const { version } = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'));
+let revision = 'local';
+try { revision = execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(); } catch {}
+const builtAt = new Date().toISOString();
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), {
+    name: 'release-record',
+    generateBundle() {
+      this.emitFile({ type: 'asset', fileName: 'release.json', source: JSON.stringify({ version, revision, builtAt }, null, 2) });
+    }
+  }],
+  define: {
+    'import.meta.env.BUILD_REVISION': JSON.stringify(revision)
+  },
   base: '/Viet/',
   build: {
     chunkSizeWarningLimit: 800,

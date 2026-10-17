@@ -39,22 +39,36 @@ const GAP_MS = {
 let sharedPrefs = null;
 const prefListeners = new Set();
 
+export const normalizePlaybackPrefs = (value) => {
+  const prefs = value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+  const loop = prefs.loop === true;
+  return {
+    speed: SPEED_OPTIONS.includes(prefs.speed) ? prefs.speed : DEFAULT_PREFS.speed,
+    repeat: REPEAT_OPTIONS.includes(prefs.repeat) ? prefs.repeat : DEFAULT_PREFS.repeat,
+    shadowPause: prefs.shadowPause === true,
+    loop,
+    autoNext: !loop && prefs.autoNext === true
+  };
+};
+
 export const getPlaybackPrefs = () => {
   if (!sharedPrefs) {
     sharedPrefs = { ...DEFAULT_PREFS };
     try {
       const raw = localStorage.getItem(PREFS_KEY);
-      if (raw) sharedPrefs = { ...DEFAULT_PREFS, ...JSON.parse(raw) };
+      if (raw) sharedPrefs = normalizePlaybackPrefs(JSON.parse(raw));
     } catch (e) {}
   }
   return sharedPrefs;
 };
 
 export const setPlaybackPrefs = (partial) => {
-  sharedPrefs = { ...getPlaybackPrefs(), ...partial };
+  partial = partial && typeof partial === 'object' ? partial : {};
+  const next = { ...getPlaybackPrefs(), ...partial };
   // Loop one dialogue vs. advance to the next one are mutually exclusive
-  if (partial.loop) sharedPrefs.autoNext = false;
-  if (partial.autoNext) sharedPrefs.loop = false;
+  if (partial.loop === true) next.autoNext = false;
+  if (partial.autoNext === true) next.loop = false;
+  sharedPrefs = normalizePlaybackPrefs(next);
   try {
     localStorage.setItem(PREFS_KEY, JSON.stringify(sharedPrefs));
   } catch (e) {}

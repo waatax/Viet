@@ -1,7 +1,7 @@
 {
   "name": "viet-learning-hub",
   "private": true,
-  "version": "2.8.0",
+  "version": "2.8.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,8 @@
     "test:dialogue": "node scripts/extract_dialogue_texts.mjs && node scripts/test_dialogue_playback.mjs && node scripts/test_audio_reliability.mjs",
     "build:audio": "node scripts/build_audio_bank.js",
     "preview": "vite preview",
-    "predeploy": "npm run build",
+    "verify:pages": "node scripts/verify_pages_release.mjs",
+    "predeploy": "npm run test:dialogue && npm run build",
     "deploy": "node scripts/deploy_gh_pages.mjs"
   },
   "dependencies": {

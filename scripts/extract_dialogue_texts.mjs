@@ -116,14 +116,23 @@ const output = {
   zh: [...zhMap.values()],
   viMissing
 };
-fs.writeFileSync(OUT_PATH, JSON.stringify(output, null, 2), 'utf-8');
+let previousText = '';
+try {
+  previousText = fs.readFileSync(OUT_PATH, 'utf-8');
+  const previous = JSON.parse(previousText);
+  if (JSON.stringify({ ...previous, generatedAt: null }) === JSON.stringify({ ...output, generatedAt: null })) {
+    output.generatedAt = previous.generatedAt;
+  }
+} catch {}
+const outputText = JSON.stringify(output, null, 2);
+if (outputText !== previousText) fs.writeFileSync(OUT_PATH, outputText, 'utf-8');
 fs.rmSync(tmpDir, { recursive: true, force: true });
 
 console.log(`Groups: ${groups.length} | Lines: ${totalLines}`);
 console.log(`Unique Chinese texts: ${output.zh.length}`);
 console.log(`Vietnamese lines missing MP3: ${viMissing.length}`);
 viMissing.slice(0, 15).forEach(m => console.log(`  - [${m.source}] ${m.cleaned}`));
-console.log(`Wrote ${path.relative(ROOT, OUT_PATH)}`);
+console.log(`${outputText === previousText ? 'Unchanged' : 'Wrote'} ${path.relative(ROOT, OUT_PATH)}`);
 console.log(`Vietnamese (both preferences) + Taiwan Mandarin file failures: ${audioFailures.length}`);
 if (audioFailures.length) {
   audioFailures.slice(0, 20).forEach(failure => console.error(JSON.stringify(failure)));

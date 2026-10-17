@@ -60,9 +60,15 @@ npm run build
 編譯產物將生成於 `dist/` 目錄中。
 
 ### 4. 部署至 GitHub Pages
+先將修改提交至 main 或 master，再執行：
 ```bash
 npm run deploy
 ```
+此指令先執行會話檢查與建置，再推送來源碼；GitHub Actions 負責發布，不會強制覆寫 gh-pages 分支。發布後自動比對線上的 release.json 與提交版本。也可手動確認：
+```bash
+npm run verify:pages
+```
+頁首、頁尾版本來自同一個版本設定；頁尾「版本紀錄」提供正式版的提交編號與建置時間。
 
 ### 5. 新增或修改情境對話後重建語音
 對話句子有增修時，先匯出需要配音的句子，再以 edge-tts 生成中文翻譯語音（及缺漏的越文語音）：

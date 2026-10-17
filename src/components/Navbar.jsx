@@ -9,6 +9,7 @@ import { gamificationEngine } from '../utils/gamificationEngine';
 import { audioEngine } from '../services/audioEngine';
 import { bookmarkService } from '../services/bookmarkService';
 import { NAV_GROUPS } from '../config/navigation';
+import { APP_VERSION } from '../config/release';
 
 const FONT_SIZES = ['small', 'normal', 'large', 'xlarge', 'xxlarge'];
 const FONT_SIZE_LABELS = {
@@ -114,7 +115,7 @@ export const Navbar = ({
               <span className="brand-copy">
                 <span className="brand-title-line">
                   <strong>{t('brandName')}</strong>
-                  <span className="brand-ver-badge">v2.6</span>
+                  <span className="brand-ver-badge">v{APP_VERSION}</span>
                 </span>
                 <small className="brand-tagline">{t('brandSub')}</small>
               </span>
