@@ -827,6 +827,7 @@ class AudioEngine {
   async playOnlineStream(text, rate = 1.0, options = {}, session = null) {
     for (const segment of this.splitSpeechText(text)) {
       if (session !== null && this.sessionId !== session) return;
+      this.notifyState({ isPlaying: true, activeText: text, activeKey: options.key || text, error: null });
       await this.playOnlineSegment(segment, rate, { ...options, onEnd: undefined }, session);
     }
     if (session === null || this.sessionId === session) options.onEnd?.();
