@@ -428,16 +428,20 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
 
           {/* Main Input Field */}
           <div style={{ background: 'var(--bg-main)', padding: '1.5rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', marginBottom: '1.5rem' }}>
-            <label style={{ display: 'block', fontSize: '0.9em', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
+            <label htmlFor="shopping-vnd-amount" style={{ display: 'block', fontSize: '0.9em', fontWeight: 700, color: 'var(--text-secondary)', marginBottom: '0.5rem' }}>
               {learningMode === 'zh' ? '輸入越南盾金額 (VND)：' : 'Enter Vietnamese Dong (VND):'}
             </label>
             <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
               <input
+                id="shopping-vnd-amount"
                 type="number"
                 value={inputAmount}
                 onChange={(e) => setInputAmount(e.target.value)}
                 style={{
                   flex: '1 1 240px',
+                  minWidth: 0,
+                  maxWidth: '100%',
+                  boxSizing: 'border-box',
                   fontSize: '1.4em',
                   fontWeight: 800,
                   padding: '0.65rem 1rem',
