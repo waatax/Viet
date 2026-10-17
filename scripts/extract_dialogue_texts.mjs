@@ -20,6 +20,7 @@ export { situationalScenarios } from './src/data/situationalScenarios.js';
 export { SITUATIONAL_TOPICS } from './src/data/situationalTopicsData.js';
 export { numbersAndCurrency, multiScenarios } from './src/data/vietnameseData.js';
 export { FAST_TRACK_DAYS } from './src/components/FastTrackModule.jsx';
+export { SCENARIO_EXEGESIS } from './src/data/scenarioExegesisData.js';
 `;
 
 // Bundle inside the project (scripts/cache is git-ignored) so bare imports like 'react' resolve
@@ -40,7 +41,7 @@ await build({
 });
 
 const mod = await import(pathToFileURL(bundlePath).href);
-const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, multiScenarios, FAST_TRACK_DAYS } = mod;
+const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, multiScenarios, FAST_TRACK_DAYS, SCENARIO_EXEGESIS } = mod;
 
 const groups = [];
 for (const sc of situationalScenarios) {
@@ -63,6 +64,14 @@ for (const day of FAST_TRACK_DAYS) {
 }
 (numbersAndCurrency.bankingDialogues || []).forEach((d, i) => groups.push({ source: `banking:${i}`, lines: d.lines || [] }));
 groups.push({ source: 'shopping-phrases', lines: numbersAndCurrency.highFrequencyShopping?.items || [] });
+// Exegesis cards only ever speak the Vietnamese (formula examples + colloquial extensions)
+for (const [id, ex] of Object.entries(SCENARIO_EXEGESIS || {})) {
+  const viOnly = [
+    ...(ex.coreFormulas || []).map(f => ({ viet: f.exampleVi })),
+    ...(ex.colloquialExtensions || []).map(c => ({ viet: c.vi }))
+  ];
+  groups.push({ source: `exegesis:${id}`, lines: viOnly });
+}
 
 const zhMap = new Map();
 const viMissing = [];
@@ -75,7 +84,9 @@ for (const g of groups) {
     totalLines++;
     const viClean = audioEngine.cleanText(viet);
     if (!audioEngine.resolveManifestFile(viClean, 'north') && !audioEngine.resolveManifestFile(viet, 'north')) {
-      viMissing.push({ raw: viet, cleaned: viClean, source: g.source });
+      // Keyed by the cleaned text the engine looks up, but voiced with a pause between "a / b" alternatives
+      const speech = audioEngine.cleanText(viet.replace(/\s*\/\s*/g, ', '));
+      viMissing.push({ raw: viet, cleaned: viClean, speech, source: g.source });
     }
     if (line.zh) {
       const zhClean = audioEngine.cleanNativeText(line.zh, 'zh');

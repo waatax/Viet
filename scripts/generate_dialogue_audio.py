@@ -84,8 +84,9 @@ async def gen_vi(item):
     raw, cleaned = item["raw"].strip(), item["cleaned"].strip()
     if not cleaned:
         return
+    speech = (item.get("speech") or cleaned).strip()
     filename = f"{get_hash(cleaned)}.mp3"
-    if await synth(cleaned, VI_VOICE, os.path.join(AUDIO_DIR, filename)):
+    if await synth(speech, VI_VOICE, os.path.join(AUDIO_DIR, filename)):
         for key in {raw, cleaned, raw.lower(), cleaned.lower()}:
             vi_manifest[key] = filename
 

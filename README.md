@@ -70,7 +70,9 @@ npm run deploy
 node scripts/extract_dialogue_texts.mjs
 python scripts/generate_dialogue_audio.py
 ```
-中文語音輸出至 `public/audio/zh/`，對照表為 `src/data/audioManifestZh.json`；已存在的檔案會自動略過。
+中文語音輸出至 `public/audio/zh/`，對照表為 `src/data/audioManifestZh.json`；已存在的檔案會自動略過。範圍涵蓋所有情境對話、情境字彙、五階段會話，以及「情境深度研經」卡片會朗讀的越文例句與口語擴展。
+
+> 需要 `edge-tts` 7.3.1 以上（`pip install -U edge-tts`）；舊版會被微軟語音端點以 HTTP 403 拒絕。
 
 ---
 
