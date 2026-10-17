@@ -4473,5 +4473,27 @@ p, li, h1, h2, h3, strong, small, span {
   }
 }
 
+/* Keep the desktop finder from overriding the mobile header's layout. */
+@media (max-width: 900px) {
+  .navbar .nav-chapter-finder-btn { display: none !important; }
+  .nav-brand-and-finder { min-width: 0; flex: 1 1 auto; }
+  .nav-mobile-actions { flex: 0 0 auto; }
+  .mobile-finder-icon-btn { min-width: 44px; min-height: 44px; white-space: nowrap; }
+}
+
+@media (max-width: 560px) {
+  .nav-mobile-actions { gap: .25rem; }
+  .nav-mobile-actions .mobile-xp-btn,
+  .nav-mobile-actions .mobile-bookmark-btn,
+  .nav-mobile-actions .mobile-quick-font-stepper { display: none !important; }
+  .mobile-finder-icon-btn span { display: none; }
+  .mobile-finder-icon-btn { justify-content: center; padding: .5rem; }
+  .brand-title-line strong { font-size: .95rem; }
+}
+
+@media (max-width: 380px) {
+  .nav-mobile-actions > .icon-control:not(.menu-toggle) { display: none; }
+}
+
 
 

@@ -13070,7 +13070,7 @@ export const situationalScenarios = [
         "speaker": "Khách",
         "role": "learner",
         "viet": "Em ơi! Cho anh xem thực đơn.",
-        "zh": "服務員！給我看一下菜單。",
+        "zh": "不好意思，可以給我看一下菜單嗎？",
         "en": "Excuse me! Please show me the menu."
       },
       {
@@ -13115,7 +13115,7 @@ export const situationalScenarios = [
             "speaker": "Khách",
             "role": "learner",
             "viet": "Em ơi! Cho anh xem thực đơn.",
-            "zh": "服務員！給我看一下菜單。",
+            "zh": "不好意思，可以給我看一下菜單嗎？",
             "en": "Excuse me! Please show me the menu."
           },
           {
@@ -13304,14 +13304,14 @@ export const situationalScenarios = [
         "speaker": "Giám đốc",
         "role": "npc",
         "viet": "Chúng tôi cam kết đảm bảo tiêu chuẩn chất lượng và giao hàng đúng hạn.",
-        "zh": "我們承諾保證質量標準並按時交貨。",
+        "zh": "我們保證符合品質標準，並準時交貨。",
         "en": "We commit to ensuring quality standards and on-time delivery."
       },
       {
         "speaker": "Ông Chen",
         "role": "npc",
         "viet": "Tuyệt vời. Chúng ta hãy xem xét các điều khoản thanh toán trong hợp đồng.",
-        "zh": "太好了。讓我們檢視合同中的付款條款。",
+        "zh": "太好了，我們來確認合約中的付款條款。",
         "en": "Excellent. Let us review the payment terms in the contract."
       }
     ],
@@ -13342,14 +13342,14 @@ export const situationalScenarios = [
             "speaker": "Giám đốc",
             "role": "npc",
             "viet": "Chúng tôi cam kết đảm bảo tiêu chuẩn chất lượng và giao hàng đúng hạn.",
-            "zh": "我們承諾保證質量標準並按時交貨。",
+            "zh": "我們保證符合品質標準，並準時交貨。",
             "en": "We commit to ensuring quality standards and on-time delivery."
           },
           {
             "speaker": "Ông Chen",
             "role": "npc",
             "viet": "Tuyệt vời. Chúng ta hãy xem xét các điều khoản thanh toán trong hợp đồng.",
-            "zh": "太好了。讓我們檢視合同中的付款條款。",
+            "zh": "太好了，我們來確認合約中的付款條款。",
             "en": "Excellent. Let us review the payment terms in the contract."
           }
         ]

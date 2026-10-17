@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T01:38:52.303Z",
+  "generatedAt": "2026-10-17T01:44:47.621Z",
   "totalLines": 812,
   "zh": [
     {
@@ -2553,8 +2553,8 @@
       "source": "scenario:stage1_greeting:s1_d1"
     },
     {
-      "raw": "服務員！給我看一下菜單。",
-      "cleaned": "服務員！給我看一下菜單。",
+      "raw": "不好意思，可以給我看一下菜單嗎？",
+      "cleaned": "不好意思，可以給我看一下菜單嗎？",
       "source": "scenario:stage2_dining_transport:s2_d1"
     },
     {
@@ -2628,13 +2628,13 @@
       "source": "scenario:stage4_biz_contract:s4_d1"
     },
     {
-      "raw": "我們承諾保證質量標準並按時交貨。",
-      "cleaned": "我們承諾保證質量標準並按時交貨。",
+      "raw": "我們保證符合品質標準，並準時交貨。",
+      "cleaned": "我們保證符合品質標準，並準時交貨。",
       "source": "scenario:stage4_biz_contract:s4_d1"
     },
     {
-      "raw": "太好了。讓我們檢視合同中的付款條款。",
-      "cleaned": "太好了。讓我們檢視合同中的付款條款。",
+      "raw": "太好了，我們來確認合約中的付款條款。",
+      "cleaned": "太好了，我們來確認合約中的付款條款。",
       "source": "scenario:stage4_biz_contract:s4_d1"
     },
     {

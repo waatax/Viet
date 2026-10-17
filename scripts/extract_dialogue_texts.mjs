@@ -76,6 +76,7 @@ for (const [id, ex] of Object.entries(SCENARIO_EXEGESIS || {})) {
 const zhMap = new Map();
 const viMissing = [];
 const audioFailures = [];
+const audioFiles = new Set();
 let totalLines = 0;
 
 for (const g of groups) {
@@ -86,6 +87,7 @@ for (const g of groups) {
     const viClean = audioEngine.cleanText(viet);
     for (const accent of ['north', 'south']) {
       const file = audioEngine.resolveManifestFile(viClean, accent) || audioEngine.resolveManifestFile(viet, accent);
+      if (file) audioFiles.add(file);
       if (!file || !fs.existsSync(path.join(ROOT, 'public/audio', file)) || fs.statSync(path.join(ROOT, 'public/audio', file)).size < 200) {
         audioFailures.push({ source: g.source, lang: 'vi', accent, text: viet, file });
       }
@@ -98,6 +100,7 @@ for (const g of groups) {
     if (line.zh) {
       const zhClean = audioEngine.cleanNativeText(line.zh, 'zh');
       const file = audioEngine.resolveNativeFile(line.zh, 'zh');
+      if (file) audioFiles.add(file);
       if (!file || !fs.existsSync(path.join(ROOT, 'public/audio', file)) || fs.statSync(path.join(ROOT, 'public/audio', file)).size < 200) {
         audioFailures.push({ source: g.source, lang: 'zh-TW', text: line.zh, file });
       }
@@ -124,4 +127,34 @@ console.log(`Vietnamese (both preferences) + Taiwan Mandarin file failures: ${au
 if (audioFailures.length) {
   audioFailures.slice(0, 20).forEach(failure => console.error(JSON.stringify(failure)));
   process.exitCode = 1;
+}
+
+// Optional production verification: compare the deployed file headers with the local bank.
+if (process.argv.includes('--pages')) {
+  const files = [...audioFiles];
+  const failures = [];
+  let cursor = 0;
+  let checked = 0;
+  await Promise.all(Array.from({ length: 6 }, async () => {
+    while (cursor < files.length) {
+      const file = files[cursor++];
+      const url = new URL(`audio/${file}`, 'https://waatax.github.io/Viet/');
+      try {
+        const response = await fetch(url, { method: 'HEAD', signal: AbortSignal.timeout(15000) });
+        const expected = fs.statSync(path.join(ROOT, 'public/audio', file)).size;
+        if (!response.ok || !/audio|octet-stream/i.test(response.headers.get('content-type') || '') || Number(response.headers.get('content-length')) !== expected) {
+          failures.push({ file, status: response.status, bytes: response.headers.get('content-length'), expected });
+        }
+      } catch (error) {
+        failures.push({ file, error: error.message });
+      }
+      checked++;
+      if (checked % 200 === 0) console.log(`Pages audio: ${checked}/${files.length}`);
+    }
+  }));
+  console.log(`Pages audio headers: ${checked - failures.length}/${checked} passed`);
+  if (failures.length) {
+    failures.slice(0, 20).forEach(failure => console.error(JSON.stringify(failure)));
+    process.exitCode = 1;
+  }
 }

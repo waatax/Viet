@@ -2123,7 +2123,7 @@ export const multiScenarios = [
         nameZh: '點牛肉河粉與冰奶咖 (Gọi Phở & Cà phê)',
         nameEn: 'Ordering Pho & Iced Milk Coffee',
         lines: [
-          { speaker: 'Khách', viet: 'Em ơi! Cho anh xem thực đơn.', zh: '服務員！給我看一下菜單。', en: 'Excuse me! Please show me the menu.' },
+          { speaker: 'Khách', viet: 'Em ơi! Cho anh xem thực đơn.', zh: '不好意思，可以給我看一下菜單嗎？', en: 'Excuse me! Please show me the menu.' },
           { speaker: 'Nhân viên', viet: 'Dạ, thực đơn đây ạ. Anh dùng gì?', zh: '好的，菜單在這裡。哥想點什麼？', en: 'Here is the menu. What would you like to order?' },
           { speaker: 'Khách', viet: 'Cho anh một tô phở bò tái và một ly cà phê sữa đá.', zh: '給我一碗半熟牛肉河粉和一杯冰牛奶咖啡。', en: 'Please give me a bowl of rare beef pho and an iced milk coffee.' },
           { speaker: 'Nhân viên', viet: 'Anh có ăn hành và rau thơm không ạ?', zh: '哥要加蔥和香菜嗎？', en: 'Do you eat scallions and herbs?' },
@@ -2177,8 +2177,8 @@ export const multiScenarios = [
         lines: [
           { speaker: 'Giám đốc', viet: 'Chào ông Chen! Rất hân hạnh được đón tiếp phái đoàn của ông.', zh: '陳總您好！非常榮幸接待您的代表團。', en: 'Welcome Mr. Chen! Great honor to host your delegation.' },
           { speaker: 'Ông Chen', viet: 'Cảm ơn ông Nguyễn. Chúng tôi rất quan tâm đến năng lực sản xuất của quý công ty.', zh: '謝謝阮總。我們非常關注貴公司的生產產能。', en: 'Thank you Mr. Nguyen. We are very interested in your manufacturing capacity.' },
-          { speaker: 'Giám đốc', viet: 'Chúng tôi cam kết đảm bảo tiêu chuẩn chất lượng và giao hàng đúng hạn.', zh: '我們承諾保證質量標準並按時交貨。', en: 'We commit to ensuring quality standards and on-time delivery.' },
-          { speaker: 'Ông Chen', viet: 'Tuyệt vời. Chúng ta hãy xem xét các điều khoản thanh toán trong hợp đồng.', zh: '太好了。讓我們檢視合同中的付款條款。', en: 'Excellent. Let us review the payment terms in the contract.' }
+          { speaker: 'Giám đốc', viet: 'Chúng tôi cam kết đảm bảo tiêu chuẩn chất lượng và giao hàng đúng hạn.', zh: '我們保證符合品質標準，並準時交貨。', en: 'We commit to ensuring quality standards and on-time delivery.' },
+          { speaker: 'Ông Chen', viet: 'Tuyệt vời. Chúng ta hãy xem xét các điều khoản thanh toán trong hợp đồng.', zh: '太好了，我們來確認合約中的付款條款。', en: 'Excellent. Let us review the payment terms in the contract.' }
         ]
       }
     ]
@@ -6289,7 +6289,7 @@ export const practicalPhrases = [
   {
     "category": "熱炒與乾杯 / Nightlife & Cheers",
     "viet": "Em ơi, tính tổng tiền bàn nhậu này giúp anh.",
-    "zh": "服務員，麻煩請幫我們結算這桌熱炒的所有帳單。",
+    "zh": "不好意思，麻煩幫我們這桌結帳。",
     "en": "Server, calculate the total bill for this table.",
     "usageZh": "熱炒店霸氣結帳買單",
     "usageEn": "Bill calculation for party"
