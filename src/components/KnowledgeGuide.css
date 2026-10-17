@@ -1,4 +1,7 @@
 .knowledge-guide { margin: 2rem auto; padding: clamp(1rem, 3vw, 2rem); max-width: 1200px; border: 1px solid var(--border-color); border-radius: 20px; background: var(--bg-card); color: var(--text-primary); line-height: 1.75; min-width: 0; }
+.kg-shortcut { display: flex; justify-content: flex-end; margin: .5rem 0; }
+.kg-shortcut button { min-height: 44px; padding: .5rem .8rem; border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary); background: var(--bg-card); font: inherit; cursor: pointer; }
+.knowledge-guide h2 { scroll-margin-top: 180px; }
 .kg-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .kg-header h2 { margin: .5rem 0; font-size: clamp(1.2rem, 3vw, 1.65rem); }
 .kg-eyebrow, .kg-goal, .kg-trap, .kg-practice h3, .kg-flow figcaption { display: flex; align-items: flex-start; gap: .6rem; }

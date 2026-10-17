@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BookOpen, Target, GitBranch, AlertTriangle, ClipboardCheck, RotateCcw, GraduationCap } from 'lucide-react';
-import { knowledgeGuides, curriculumStages } from '../data/knowledgeGuides';
+import { knowledgeGuides, curriculumStages, knowledgeMaps } from '../data/knowledgeGuides';
 import { SYLLABUS_REGISTRY } from '../config/syllabusRegistry';
 import './KnowledgeGuide.css';
 
@@ -30,8 +30,8 @@ export function KnowledgeGuide({ moduleId, onSelectChapter, setActiveTab }) {
         </div>
       </details>
       <figure className="kg-flow">
-        <figcaption><GitBranch size={18} aria-hidden="true" /> 把本課知識變成可運用的能力</figcaption>
-        <ol>{[['聽與讀', '先抓意思及關鍵資訊'], ['拆解', '用上表找句型與語塊'], ['替換', '更換人物、數字或條件'], ['驗證', '遮住原文，完成新任務']].map(([title, desc], i) => <li key={title}><span className="kg-step">{i + 1}</span><strong>{title}</strong><span>{desc}</span></li>)}</ol>
+        <figcaption><GitBranch size={18} aria-hidden="true" /> {knowledgeMaps[moduleId][0]}</figcaption>
+        <ol>{knowledgeMaps[moduleId][1].map(([title, desc], i) => <li key={title}><span className="kg-step">{i + 1}</span><strong>{title}</strong><span>{desc}</span></li>)}</ol>
       </figure>
       <aside className="kg-trap"><AlertTriangle size={20} aria-hidden="true" /><div><strong>易錯點與使用界線</strong><p>{guide.trap}</p></div></aside>
       {chapters.length > 0 && <div className="kg-chapter">

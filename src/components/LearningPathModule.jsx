@@ -2025,27 +2025,19 @@ export const LearningPathModule = ({
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
           <div>
             <span style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase' }}>
-              CEFR & iVPT 國際認證對標矩陣
+              七階課綱學習目標
             </span>
             <h3 style={{ margin: '0.2rem 0 0', fontSize: '1.15rem', fontWeight: 900, color: 'var(--text-primary)' }}>
               越語能力成長階段里程碑 (Progress Milestones)
             </h3>
           </div>
           <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-            對標歐洲語言共同架構 (CEFR) 與成大 iVPT
+            詞數為課綱規劃目標，非官方檢定門檻
           </span>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.65rem' }}>
-          {[
-            { lvl: 'A1 入門', hours: '30h', vocab: '500詞', focus: '發音·聲調·破冰', color: '#3b82f6' },
-            { lvl: 'A1+ 初階', hours: '60h', vocab: '1,000詞', focus: '飲食·叫車·數字', color: '#10b981' },
-            { lvl: 'A2 基礎', hours: '120h', vocab: '2,000詞', focus: '市場殺價·稱謂', color: '#f59e0b' },
-            { lvl: 'B1 職場', hours: '250h', vocab: '3,500詞', focus: '工廠巡檢·商務', color: '#ef4444' },
-            { lvl: 'B2 流暢', hours: '450h', vocab: '5,000詞', focus: '南北口音·熱炒', color: '#8b5cf6' },
-            { lvl: 'C1 精通', hours: '700h', vocab: '7,500詞', focus: '漢越字根·法律', color: '#06b6d4' },
-            { lvl: 'C2 大師', hours: '1000h+', vocab: '10,000+詞', focus: '同傳口譯·經貿', color: '#ec4899' }
-          ].map((m, mIdx) => (
+          {learningPath.map((stage, i) => ({ lvl: stage.level, vocab: `${stage.vocabTarget.toLocaleString()}詞`, focus: ['發音·聲調·破冰', '稱謂·數字·生存', '語法·漢越字根', '會話·口音·糾錯', '商務·正式書信', '社論·成語·論證', '文學·翻譯·語域'][i], color: ['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#06b6d4','#ec4899'][i] })).map((m, mIdx) => (
             <div
               key={mIdx}
               style={{
@@ -2059,7 +2051,7 @@ export const LearningPathModule = ({
             >
               <div style={{ fontWeight: 900, fontSize: '0.92rem', color: m.color }}>{m.lvl}</div>
               <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-                ⏱ {m.hours} · 📚 {m.vocab}
+                📚 {m.vocab}
               </div>
               <div style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--text-secondary)', marginTop: '0.3rem' }}>
                 {m.focus}
@@ -2074,12 +2066,12 @@ export const LearningPathModule = ({
         <div style={{ gridColumn: '1 / -1', marginBottom: '0.5rem' }}>
           <span className="section-kicker">{learningMode === 'zh' ? '成長藍圖' : 'LEARNING ROADMAP'}</span>
           <h2 style={{ fontSize: '1.6rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.2rem 0' }}>
-            {learningMode === 'zh' ? '🇻🇳 信達雅三位一體：A1 至 C2 七大進階階段' : 'A1 to C2 7-Stage Official Mastery Roadmap'}
+            {learningMode === 'zh' ? '🇻🇳 信達雅三位一體：A1 至 C2 七大進階階段' : 'A1 to C2: Seven-Stage Study Roadmap'}
           </h2>
           <p style={{ color: 'var(--text-secondary)', fontSize: '0.94rem' }}>
             {learningMode === 'zh'
-              ? '對標台灣成大 iVPT 與河內國家大學 VINATEST 認證標準，點擊勾選各項實戰能力指標。'
-              : 'Aligned with iVPT and VINATEST official language framework standards.'}
+              ? '依七階課綱勾選實戰能力指標。級別、詞數與時間是學習規劃；站內完成紀錄不等同官方認證，C1+為本課綱過渡階段。'
+              : 'Track practical curriculum tasks. Levels, word counts and time are study targets, not official certification; C1+ is a curriculum transition stage.'}
           </p>
         </div>
 

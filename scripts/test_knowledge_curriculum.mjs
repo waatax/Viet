@@ -1,18 +1,23 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { knowledgeGuides, curriculumStages } from '../src/data/knowledgeGuides.js';
+import { knowledgeGuides, curriculumStages, knowledgeMaps } from '../src/data/knowledgeGuides.js';
 import { SYLLABUS_REGISTRY, SYLLABUS_CATEGORIES } from '../src/config/syllabusRegistry.js';
 import { situationalScenarios } from '../src/data/situationalScenarios.js';
 import { deepAnalysisDossiers } from '../src/data/macroData.js';
+import { learningPath } from '../src/data/vietnameseData.js';
 
 const navigation = readFileSync(new URL('../src/config/navigation.js', import.meta.url), 'utf8');
 const moduleIds = [...navigation.match(/MODULE_IDS = \[([\s\S]*?)\]/)[1].matchAll(/'([^']+)'/g)].map(m => m[1]);
 assert.deepEqual(Object.keys(knowledgeGuides).sort(), [...moduleIds].sort(), 'Every navigable page needs a guide');
 assert.equal(curriculumStages.length, 7);
+assert.deepEqual(learningPath.map(s => s.vocabTarget), [150, 400, 1200, 2500, 5000, 8000, 12000], 'Seven-stage word targets must match the curriculum');
+assert.deepEqual(learningPath.map(s => s.level), curriculumStages.map(s => s.level), 'Both roadmaps use the same stages');
+assert.ok(learningPath[6].modules.includes('hanviet'), 'Literature stage links to the literature lesson');
 for (const [id, g] of Object.entries(knowledgeGuides)) {
   for (const key of ['title', 'goal', 'trap', 'task', 'question', 'explain']) assert.ok(g[key]?.trim(), `${id}: ${key}`);
   assert.ok(g.stage >= 1 && g.stage <= 7);
   assert.ok(g.rows.length >= 3, `${id}: at least three explained concepts`);
+  assert.ok(knowledgeMaps[id]?.[1]?.length >= 3, `${id}: lesson-specific concept diagram`);
   for (const row of g.rows) assert.ok(row.length === 4 && row.every(c => typeof c === 'string' && c.trim()), `${id}: complete teaching row`);
   assert.equal(g.options.length, new Set(g.options).size, `${id}: distinct quiz options`);
   assert.ok(Number.isInteger(g.answer) && g.answer >= 0 && g.answer < g.options.length, `${id}: quiz answer`);
