@@ -49,8 +49,7 @@ export default function MacroPolModule({ setActiveTab, updateUserStats }) {
       const saved = sessionStorage.getItem('viet_target_chapter');
       if (saved) {
         const item = JSON.parse(saved);
-        if (item.targetParam?.section) {
-          sessionStorage.removeItem('viet_target_chapter');
+        if (item.moduleId === 'macropol' && item.targetParam?.section) {
           return item.targetParam.section;
         }
       }
@@ -92,7 +91,16 @@ export default function MacroPolModule({ setActiveTab, updateUserStats }) {
   const [refCategory, setRefCategory] = useState('all'); // 'all' | 'gov' | 'banking' | 'media'
 
   // ── In-App Modal Reader State ──
-  const [activeModalDossier, setActiveModalDossier] = useState(null);
+  const [activeModalDossier, setActiveModalDossier] = useState(() => {
+    try {
+      const item = JSON.parse(sessionStorage.getItem('viet_target_chapter') || 'null');
+      if (item?.moduleId === 'macropol') {
+        sessionStorage.removeItem('viet_target_chapter');
+        return deepAnalysisDossiers.find(d => d.id === item.targetParam?.dossierId) || null;
+      }
+    } catch {}
+    return null;
+  });
   const [copiedSummaryId, setCopiedSummaryId] = useState(null);
 
   // ── South Vietnam & Taiwan Business Subtab State ──

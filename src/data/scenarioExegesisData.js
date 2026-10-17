@@ -58,7 +58,7 @@ export const SCENARIO_EXEGESIS = {
       {
         formulaVi: 'Tôi đã đặt phòng trước dưới tên là + [Tên]',
         formulaZh: '我已經在網路上預訂了房間，名字是 + [姓名]',
-        explainZh: '「Đặt phòng」即訂房。在櫃檯出示護照時加上這句話，前台人員便能迅速調出 Agoda / Booking 訂單。',
+        explainZh: '「Đặt phòng」即訂房。在櫃檯出示護照時加上這句話，櫃檯人員便能迅速調出 Agoda / Booking 訂單。',
         exampleVi: 'Dạ chào em, tôi đã đặt phòng trước dưới tên David Wang.',
         exampleZh: '你好，我有提前訂房，名字是 David Wang。'
       },
@@ -72,14 +72,14 @@ export const SCENARIO_EXEGESIS = {
     ],
     hanVietRoots: [
       { root: 'Khách sạn (客棧)', origin: '現代越語專指「飯店 / 旅館」，星級為「sao」（Khách sạn 5 sao = 五星級飯店）' },
-      { root: 'Tiếp tân / Lễ tân (禮賓/前台)', origin: 'Quầy tiếp tân（飯店前台服務櫃台）' },
+      { root: 'Tiếp tân / Lễ tân (禮賓/櫃檯)', origin: 'Quầy tiếp tân（飯店接待服務櫃檯）' },
       { root: 'Đặt cọc (訂金/押金)', origin: 'Tiền đặt cọc（入住時預刷或現金押金）' }
     ],
     northSouthContrast: {
       featureZh: '房間設施與叫喚服務生習慣',
-      northVi: 'Khăn tắm (毛巾) · Nước nóng (熱水) · Em ơi (服務員)',
+      northVi: 'Khăn tắm (毛巾) · Nước nóng (熱水) · Em ơi (服務生/店員)',
       southVi: 'Khăn lau (毛巾) · Nước sôi/ấm (熱水) · Bạn ơi / Em ơi',
-      noteZh: '南越飯店人員態度普遍極為熱情隨和，稱呼前台年輕服務員「Em ơi」最親切自然。'
+      noteZh: '南越飯店人員態度普遍極為熱情隨和，稱呼櫃檯年輕服務人員「Em ơi」最親切自然。'
     },
     culturalNotes: [
       '📋 暫住登記義務 (Đăng ký tạm trú)：越南法律嚴格規定外籍旅客入住旅館時，業者必須在24小時內向當地轄區公安民警線上申報暫住，因此櫃台會借護照拍照存檔，屬正常合法程序。',
@@ -101,7 +101,7 @@ export const SCENARIO_EXEGESIS = {
     coreFormulas: [
       {
         formulaVi: 'Cho tôi xem thực đơn / Em ơi, cho gọi món!',
-        formulaZh: '請給我看菜單 / 服務員，我要點餐！',
+        formulaZh: '請給我看菜單 / 店員，我要點餐！',
         explainZh: '「Cho tôi xem + [名詞]」是索取任何物品的萬用語；叫店員最親切地道的方式永遠是揚聲呼喚「Em ơi!」。',
         exampleVi: 'Em ơi, cho anh xem thực đơn và gọi món nhé!',
         exampleZh: '店員弟弟/妹妹，請給我看菜單，我要點菜！'

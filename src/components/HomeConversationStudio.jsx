@@ -12,20 +12,25 @@ import {
   HardDrive,
   Headphones,
   Flame,
-  Lightbulb
+  Lightbulb,
+  Search,
+  ChevronLeft,
+  ChevronRight,
+  Sparkles
 } from 'lucide-react';
-import { DialoguePlaybackBar } from './DialoguePlaybackBar';
+import { DialoguePlaybackBar, PlaybackPartChip } from './DialoguePlaybackBar';
 import { situationalScenarios } from '../data/situationalScenarios';
 import { SCENARIO_EXEGESIS } from '../data/scenarioExegesisData';
 import { audioEngine } from '../services/audioEngine';
 import { offlineAudioService } from '../services/offlineAudioService';
 import { bookmarkService } from '../services/bookmarkService';
+import { getPlaybackPrefs } from '../services/dialoguePlayback';
 import { useDialoguePlayback, useFollowActiveLine } from '../hooks/useDialoguePlayback';
 import { getSpeakerVisual } from './DialoguePlayer';
 import { useLanguage } from '../context/LanguageContext';
 import './HomeConversationStudio.css';
 
-// 10 Highest-Frequency Real-Life Practical Scenarios for Fast Homepage Learning
+// 11 Highest-Frequency Real-Life Practical Scenarios for Fast Homepage Learning
 const TOP_CURATED_SCENARIOS = [
   { id: 'cafe', icon: '☕', labelZh: '咖啡點單', subZh: '滴漏冰奶咖·少糖少冰' },
   { id: 'pho', icon: '🍜', labelZh: '河粉點單', subZh: '生牛肉河粉·油條九層塔' },
@@ -40,6 +45,32 @@ const TOP_CURATED_SCENARIOS = [
   { id: 'vietnam_geography', icon: '🇻🇳', labelZh: '風土民情', subZh: '南北文化·區域習俗' }
 ];
 
+const CURATED_IDS = new Set(TOP_CURATED_SCENARIOS.map(s => s.id));
+
+const HOME_SCENARIO_CATEGORIES = [
+  { id: 'curated', labelZh: '⭐ 首頁精選 (11)', labelEn: '⭐ Top Picks (11)' },
+  { id: 'fasttrack', labelZh: '⚡ 7天速成 (7)', labelEn: '⚡ 7-Day Fast-Track (7)' },
+  { id: 'stage', labelZh: '🎓 5階分級 (5)', labelEn: '🎓 5-Stage Graded (5)' },
+  { id: 'dining', labelZh: '🍜 餐飲美食 (7)', labelEn: '🍜 Dining & Cafe (7)' },
+  { id: 'travel', labelZh: '🚕 交通住宿 (6)', labelEn: '🚕 Travel & Hotel (6)' },
+  { id: 'daily_social', labelZh: '🛍️ 購物社交 (9)', labelEn: '🛍️ Daily & Social (9)' },
+  { id: 'health_bank', labelZh: '🏥 醫療金融急難 (7)', labelEn: '🏥 Health & Banking (7)' },
+  { id: 'business', labelZh: '💼 商務工廠 (23)', labelEn: '💼 Business & Factory (23)' },
+  { id: 'all', labelZh: `📚 全部會話 (${situationalScenarios.length})`, labelEn: `📚 All (${situationalScenarios.length})` }
+];
+
+const matchesCategoryFilter = (scenario, catId) => {
+  if (catId === 'all') return true;
+  if (catId === 'curated') return CURATED_IDS.has(scenario.id);
+  if (catId === 'daily_social') {
+    return ['daily', 'meeting', 'chat', 'leisure', 'sports'].includes(scenario.category);
+  }
+  if (catId === 'health_bank') {
+    return ['health', 'emergency', 'banking'].includes(scenario.category);
+  }
+  return scenario.category === catId;
+};
+
 const loadHomeStudy = () => {
   try {
     const saved = JSON.parse(localStorage.getItem('viet_home_study') || '{}');
@@ -47,10 +78,11 @@ const loadHomeStudy = () => {
     return {
       scenarioId: scenario?.id || 'cafe',
       sectionId: scenario?.dialogueSections?.some(s => s.id === saved.sectionId) ? saved.sectionId : 'all',
-      showTranslation: saved.showTranslation !== false
+      showTranslation: saved.showTranslation !== false,
+      categoryFilter: saved.categoryFilter || 'curated'
     };
   } catch {
-    return { scenarioId: 'cafe', sectionId: 'all', showTranslation: true };
+    return { scenarioId: 'cafe', sectionId: 'all', showTranslation: true, categoryFilter: 'curated' };
   }
 };
 
@@ -65,9 +97,34 @@ export const HomeConversationStudio = ({
   const [activeScenarioId, setActiveScenarioId] = useState(savedStudy.scenarioId);
   const [sectionId, setSectionId] = useState(savedStudy.sectionId);
   const [showTranslation, setShowTranslation] = useState(savedStudy.showTranslation);
+  const [categoryFilter, setCategoryFilter] = useState(savedStudy.categoryFilter || 'curated');
+  const [searchQuery, setSearchQuery] = useState('');
+  const pendingAutoStartRef = useRef(null);
+
   useEffect(() => {
-    try { localStorage.setItem('viet_home_study', JSON.stringify({ scenarioId: activeScenarioId, sectionId, showTranslation })); } catch {}
-  }, [activeScenarioId, sectionId, showTranslation]);
+    try {
+      localStorage.setItem(
+        'viet_home_study',
+        JSON.stringify({ scenarioId: activeScenarioId, sectionId, showTranslation, categoryFilter })
+      );
+    } catch {}
+  }, [activeScenarioId, sectionId, showTranslation, categoryFilter]);
+
+  // Filtered scenarios for quick selector
+  const filteredScenarios = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    return situationalScenarios.filter(s => {
+      if (!q && !matchesCategoryFilter(s, categoryFilter)) return false;
+      if (!q) return true;
+      return (
+        (s.titleZh && s.titleZh.toLowerCase().includes(q)) ||
+        (s.titleVi && s.titleVi.toLowerCase().includes(q)) ||
+        (s.titleEn && s.titleEn.toLowerCase().includes(q)) ||
+        (s.tagZh && s.tagZh.toLowerCase().includes(q)) ||
+        (s.summaryZh && s.summaryZh.toLowerCase().includes(q))
+      );
+    });
+  }, [categoryFilter, searchQuery]);
 
   // Active scenario object
   const activeScenario = useMemo(() => {
@@ -84,17 +141,55 @@ export const HomeConversationStudio = ({
       .flatMap(section => section.lines || []);
   }, [sections, sectionId]);
 
+  // Navigate to previous or next scenario in current list (or all scenarios)
+  const navPool = useMemo(() => {
+    return filteredScenarios.length > 0 ? filteredScenarios : situationalScenarios;
+  }, [filteredScenarios]);
+
+  const currentPoolIdx = useMemo(() => {
+    const idx = navPool.findIndex(s => s.id === activeScenarioId);
+    return idx >= 0 ? idx : 0;
+  }, [navPool, activeScenarioId]);
+
+  const handleStepScenario = (delta, autoPlayMode = null) => {
+    if (!navPool.length) return;
+    const nextIdx = (currentPoolIdx + delta + navPool.length) % navPool.length;
+    const nextSc = navPool[nextIdx];
+    if (nextSc) {
+      if (autoPlayMode) {
+        pendingAutoStartRef.current = { scenarioId: nextSc.id, mode: autoPlayMode };
+      }
+      setActiveScenarioId(nextSc.id);
+      setSectionId('all');
+    }
+  };
+
   // Dialogue sequencer hook
   const player = useDialoguePlayback({
     lines: dialogueLines,
     accent: selectedAccent,
     nativeLang: learningMode === 'zh' ? 'zh' : 'en',
     title: activeScenario?.titleZh || '情境會話',
-    onComplete: () => {
+    onComplete: ({ mode }) => {
       audioEngine.playHaptic('celebrate');
       if (updateUserStats) updateUserStats(25);
+      if (getPlaybackPrefs().autoNext && navPool.length > 1) {
+        handleStepScenario(1, mode);
+      }
     }
   });
+
+  // Auto-start playback when advancing to next scenario via autoNext
+  useEffect(() => {
+    const pending = pendingAutoStartRef.current;
+    if (pending && pending.scenarioId === activeScenarioId && dialogueLines.length > 0) {
+      pendingAutoStartRef.current = null;
+      const timer = setTimeout(() => {
+        player.play(pending.mode || 'vi-zh', 0);
+      }, 280);
+      return () => clearTimeout(timer);
+    }
+  }, [activeScenarioId, dialogueLines, player]);
 
   const containerRef = useRef(null);
   useFollowActiveLine(containerRef, player.index, player.isPlaying);
@@ -167,12 +262,16 @@ export const HomeConversationStudio = ({
     }
   };
 
-  const handlePlayLineVi = (line) => {
-    const viet = line.viet || line.vi;
-    if (!viet) return;
+  const handlePlayLineVi = (line, idx) => {
     audioEngine.playHaptic('tap');
-    audioEngine.speak(viet, { accent: selectedAccent, lang: 'vi' });
+    player.playSingleLine(idx, 'vi-only');
     if (updateUserStats) updateUserStats(2);
+  };
+
+  const handlePlayLineViZh = (line, idx) => {
+    audioEngine.playHaptic('tap');
+    player.playSingleLine(idx, 'vi-zh');
+    if (updateUserStats) updateUserStats(3);
   };
 
   const handlePlayLineZh = (line) => {
@@ -216,30 +315,30 @@ export const HomeConversationStudio = ({
 
   return (
     <section className="home-conv-studio" aria-labelledby="studio-main-heading">
-      {/* 1. Header Area with Quality Badges */}
+      {/* 1. Header Area with Quality Badges & Accent Switcher */}
       <div className="studio-header">
         <div className="studio-title-group">
           <div className="studio-badge-row">
             <span className="studio-pill primary">
-              <Flame size={12} fill="currentColor" /> {learningMode === 'zh' ? '每天開口說越南語' : 'Top Practical Dialogues'}
+              <Flame size={12} fill="currentColor" /> {learningMode === 'zh' ? '首頁第一優先 · 隨點隨聽' : 'Top Priority Play & Learn'}
             </span>
             <span className="studio-pill gold">
-              <Headphones size={12} /> {learningMode === 'zh' ? '越文 / 越文+中文 雙軌語音' : 'Dual-Track Neural Narration'}
+              <Headphones size={12} /> {learningMode === 'zh' ? '純越文 / 越文+中文 雙模式' : 'Pure Viet & Viet+Chinese'}
             </span>
             <span className="studio-pill green">
-              <HardDrive size={12} /> {learningMode === 'zh' ? '支援離線下載播放' : 'Offline Playback Ready'}
+              <HardDrive size={12} /> {learningMode === 'zh' ? '正統越語發音 · 台灣繁體常用語' : 'Authentic Viet & Taiwan Mandarin'}
             </span>
           </div>
 
           <h2 id="studio-main-heading" className="studio-title">
             <span>🇻🇳</span>
-            <span>{learningMode === 'zh' ? '播放學習 · 生活越南語' : 'Practical Vietnamese Situational Conversations'}</span>
+            <span>{learningMode === 'zh' ? '播放學習 · 64 篇全情境越南語會話工作台' : 'Play & Learn · 64 Practical Vietnamese Conversations'}</span>
           </h2>
 
           <p className="studio-subtitle">
             {learningMode === 'zh'
-              ? '選一個情境就能開始聽。先用越文＋中文理解句意，再用純越文練聽力，最後跟著說。'
-              : 'Master everyday Vietnamese conversations right from the top of the homepage with native audio, dual-track listening, and full offline caching.'}
+              ? '一鍵選擇「越文＋中文（台灣繁體導讀）」快速聽懂句意，或切換「純越文」沉浸練聽力。支援單句精聽、跟讀停頓與全自動跨篇連播！'
+              : 'Instant dual-mode audio learning: switch seamlessly between Pure Vietnamese and Vietnamese + Chinese narration with shadowing pause and auto-advance.'}
           </p>
         </div>
 
@@ -268,55 +367,228 @@ export const HomeConversationStudio = ({
         )}
       </div>
 
-      <p className="studio-current-lesson">{learningMode === 'zh' ? '現在學習：' : 'Now learning: '}{learningMode === 'zh' ? activeScenario?.titleZh : (activeScenario?.titleEn || activeScenario?.titleZh)} · {dialogueLines.length} {learningMode === 'zh' ? '句' : 'lines'}</p>
-      <DialoguePlaybackBar player={player} lines={dialogueLines} title={activeScenario?.titleZh} learningMode={learningMode} />
+      {/* 2. Prominent Hero Quick-Play Mode Cards + Lesson Switcher */}
+      <div className="studio-hero-play-strip">
+        <div className="studio-lesson-status-bar">
+          <div className="studio-lesson-info">
+            <span className="studio-lesson-icon">{activeScenario?.icon || '💬'}</span>
+            <div>
+              <div className="studio-current-lesson">
+                {learningMode === 'zh' ? '正在學習：' : 'Current Lesson: '}
+                <strong>{learningMode === 'zh' ? activeScenario?.titleZh : (activeScenario?.titleEn || activeScenario?.titleZh)}</strong>
+                <span className="studio-line-count-badge">{dialogueLines.length} {learningMode === 'zh' ? '句對話' : 'lines'}</span>
+              </div>
+              {activeScenario?.summaryZh && (
+                <div className="studio-lesson-summary">
+                  {learningMode === 'zh' ? activeScenario.summaryZh : (activeScenario.summaryEn || activeScenario.summaryZh)}
+                </div>
+              )}
+            </div>
+          </div>
 
-
-      {/* 2. Top Curated High-Frequency Scenarios Bar */}
-      <div className="scenario-quick-selector" role="group" aria-label="情境切換">
-        {TOP_CURATED_SCENARIOS.map(sc => {
-          const isActive = activeScenarioId === sc.id;
-          return (
+          <div className="studio-lesson-step-btns">
             <button
-              key={sc.id}
-              aria-pressed={isActive}
-              className={`scenario-chip-btn ${isActive ? 'active' : ''}`}
-              onClick={() => {
-                audioEngine.playHaptic('tap');
-                setActiveScenarioId(sc.id);
-                setSectionId('all');
-              }}
-              title={sc.subZh}
+              type="button"
+              className="studio-step-btn"
+              onClick={() => { audioEngine.playHaptic('tap'); handleStepScenario(-1); }}
+              title={learningMode === 'zh' ? '切換至上一篇會話' : 'Previous conversation'}
             >
-              <span style={{ fontSize: '1.15rem' }}>{sc.icon}</span>
-              <span>{sc.labelZh}</span>
+              <ChevronLeft size={16} />
+              <span>{learningMode === 'zh' ? '上一篇' : 'Prev'}</span>
             </button>
-          );
-        })}
+            <span className="studio-pool-counter">
+              {currentPoolIdx + 1} / {navPool.length}
+            </span>
+            <button
+              type="button"
+              className="studio-step-btn"
+              onClick={() => { audioEngine.playHaptic('tap'); handleStepScenario(1); }}
+              title={learningMode === 'zh' ? '切換至下一篇會話' : 'Next conversation'}
+            >
+              <span>{learningMode === 'zh' ? '下一篇' : 'Next'}</span>
+              <ChevronRight size={16} />
+            </button>
+          </div>
+        </div>
 
-        {/* Dropdown for All 64 Scenarios */}
-        <div className="scenario-dropdown-wrap">
-          <select
-            className="scenario-select"
-            value={activeScenarioId}
-            onChange={(e) => {
+        {/* One-Click Dual-Mode Launch Banner */}
+        <div className="studio-dual-launch-grid">
+          <button
+            type="button"
+            className={`studio-launch-card vi-zh ${player.mode === 'vi-zh' ? 'selected-mode' : ''} ${player.isPlaying && player.mode === 'vi-zh' ? 'playing-now' : ''}`}
+            onClick={() => {
               audioEngine.playHaptic('selection');
-              setActiveScenarioId(e.target.value);
-              setSectionId('all');
+              if (player.isPlaying && player.mode === 'vi-zh') {
+                player.pause();
+              } else {
+                player.play('vi-zh', player.isActive ? player.index : 0);
+              }
             }}
-            aria-label="選擇其他情境"
           >
-            <option value="" disabled>探索全部情境</option>
-            {situationalScenarios.map(s => (
-              <option key={s.id} value={s.id}>
-                {s.icon || '💬'} {s.titleZh}
-              </option>
-            ))}
-          </select>
+            <div className="launch-card-icon">🎧</div>
+            <div className="launch-card-text">
+              <strong>
+                {player.isPlaying && player.mode === 'vi-zh'
+                  ? (learningMode === 'zh' ? '⏸ 暫停「越文＋中文」對照播放' : '⏸ Pause Viet + Chinese')
+                  : (learningMode === 'zh' ? '▶ 一鍵播放：越文＋中文（雙語對照）' : '▶ Play Viet + Chinese')}
+              </strong>
+              <span>
+                {learningMode === 'zh'
+                  ? '每句先讀正統越語、再讀台灣繁體中文導讀，通勤免看螢幕也能聽懂'
+                  : 'Listen to authentic Vietnamese followed by native translation'}
+              </span>
+            </div>
+          </button>
+
+          <button
+            type="button"
+            className={`studio-launch-card vi-only ${player.mode === 'vi-only' ? 'selected-mode' : ''} ${player.isPlaying && player.mode === 'vi-only' ? 'playing-now' : ''}`}
+            onClick={() => {
+              audioEngine.playHaptic('selection');
+              if (player.isPlaying && player.mode === 'vi-only') {
+                player.pause();
+              } else {
+                player.play('vi-only', player.isActive ? player.index : 0);
+              }
+            }}
+          >
+            <div className="launch-card-icon">🇻🇳</div>
+            <div className="launch-card-text">
+              <strong>
+                {player.isPlaying && player.mode === 'vi-only'
+                  ? (learningMode === 'zh' ? '⏸ 暫停「純越文」沉浸播放' : '⏸ Pause Pure Vietnamese')
+                  : (learningMode === 'zh' ? '▶ 一鍵播放：純越文（母語沉浸）' : '▶ Play Pure Vietnamese')}
+              </strong>
+              <span>
+                {learningMode === 'zh'
+                  ? '全篇純越南語連續朗讀，訓練真實語感、聽力盲測與開口跟讀'
+                  : 'Continuous pure Vietnamese audio for listening immersion & shadowing'}
+              </span>
+            </div>
+          </button>
         </div>
       </div>
 
-      {/* 3. Master Control Toolbar (Play, Dual-Track Mode, Speed, Offline Cache) */}
+      {/* Master Sequencer Bar with Speed, Repeat, Shadowing Pause, Loop & Auto-Next */}
+      <DialoguePlaybackBar
+        player={player}
+        lines={dialogueLines}
+        title={activeScenario?.titleZh}
+        learningMode={learningMode}
+        autoNextLabel={learningMode === 'zh' ? '自動連播下一篇會話' : 'Auto-play next conversation'}
+        xpHint="+25 XP"
+      />
+
+      {/* 3. Category Filter Tabs & Search Bar for All 64 Scenarios */}
+      <div className="studio-filter-section">
+        <div className="studio-category-tabs" role="tablist" aria-label="情境分類篩選">
+          {HOME_SCENARIO_CATEGORIES.map(cat => {
+            const isCatActive = !searchQuery.trim() && categoryFilter === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                role="tab"
+                aria-selected={isCatActive}
+                className={`studio-cat-tab ${isCatActive ? 'active' : ''}`}
+                onClick={() => {
+                  audioEngine.playHaptic('tap');
+                  setCategoryFilter(cat.id);
+                  setSearchQuery('');
+                  const list = situationalScenarios.filter(s => matchesCategoryFilter(s, cat.id));
+                  if (list.length > 0 && !list.some(s => s.id === activeScenarioId)) {
+                    setActiveScenarioId(list[0].id);
+                    setSectionId('all');
+                  }
+                }}
+              >
+                {learningMode === 'zh' ? cat.labelZh : cat.labelEn}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="studio-search-and-select">
+          <div className="studio-search-wrap">
+            <Search size={15} className="studio-search-icon" />
+            <input
+              type="search"
+              className="studio-search-input"
+              placeholder={learningMode === 'zh' ? '搜尋 64 篇會話（如：咖啡、殺價、銀行、簽證、工廠...）' : 'Search 64 conversations...'}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="搜尋情境會話"
+            />
+          </div>
+
+          <div className="scenario-dropdown-wrap">
+            <select
+              className="scenario-select"
+              value={activeScenarioId}
+              onChange={(e) => {
+                audioEngine.playHaptic('selection');
+                setActiveScenarioId(e.target.value);
+                setSectionId('all');
+              }}
+              aria-label="選擇其他情境"
+            >
+              <option value="" disabled>快速跳轉全部 64 篇會話</option>
+              {situationalScenarios.map((s, idx) => (
+                <option key={s.id} value={s.id}>
+                  {idx + 1}. {s.icon || '💬'} {s.titleZh}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+      </div>
+
+      {/* 4. Scenario Quick-Selector Chips */}
+      <div className="scenario-quick-selector" role="group" aria-label="情境切換">
+        {categoryFilter === 'curated' && !searchQuery.trim()
+          ? TOP_CURATED_SCENARIOS.map(sc => {
+              const isActive = activeScenarioId === sc.id;
+              return (
+                <button
+                  key={sc.id}
+                  type="button"
+                  aria-pressed={isActive}
+                  className={`scenario-chip-btn ${isActive ? 'active' : ''}`}
+                  onClick={() => {
+                    audioEngine.playHaptic('tap');
+                    setActiveScenarioId(sc.id);
+                    setSectionId('all');
+                  }}
+                  title={sc.subZh}
+                >
+                  <span style={{ fontSize: '1.15rem' }}>{sc.icon}</span>
+                  <span>{sc.labelZh}</span>
+                </button>
+              );
+            })
+          : filteredScenarios.map(sc => {
+              const isActive = activeScenarioId === sc.id;
+              return (
+                <button
+                  key={sc.id}
+                  type="button"
+                  aria-pressed={isActive}
+                  className={`scenario-chip-btn ${isActive ? 'active' : ''}`}
+                  onClick={() => {
+                    audioEngine.playHaptic('tap');
+                    setActiveScenarioId(sc.id);
+                    setSectionId('all');
+                  }}
+                  title={sc.titleZh}
+                >
+                  <span style={{ fontSize: '1.1rem' }}>{sc.icon || '💬'}</span>
+                  <span>{sc.tagZh ? `${sc.tagZh} · ` : ''}{sc.titleZh.length > 14 ? `${sc.titleZh.slice(0, 14)}…` : sc.titleZh}</span>
+                </button>
+              );
+            })}
+      </div>
+
+      {/* 5. Practice Options & Offline Cache Toolbar */}
       <div className="studio-practice-options">
         <label>會話段落
           <select value={sectionId} onChange={e => setSectionId(e.target.value)}>
@@ -324,8 +596,8 @@ export const HomeConversationStudio = ({
             {sections.map((section, index) => <option key={section.id} value={section.id}>{section.titleZh || section.title || `第 ${index + 1} 段`}（{section.lines?.length || 0} 句）</option>)}
           </select>
         </label>
-        <label><input type="checkbox" checked={showTranslation} onChange={e => setShowTranslation(e.target.checked)} />顯示中文翻譯</label>
-        <p>先聽懂 → 隱藏翻譯練聽力 → 開啟跟讀停頓，自己說一次。</p>
+        <label><input type="checkbox" checked={showTranslation} onChange={e => setShowTranslation(e.target.checked)} />顯示台灣繁體中文翻譯與發音提示</label>
+        <p>💡 建議三步學習法：① 先播「越文＋中文」聽懂語意 → ② 改播「純越文」並隱藏翻譯練聽力 → ③ 開啟「跟讀停頓」開口說一次。</p>
       </div>
       <div className="studio-toolbar">
         <div className="toolbar-right">
@@ -371,7 +643,7 @@ export const HomeConversationStudio = ({
 
       <p role="status" className="studio-voice-note">{!offlineAudioService.isSupported ? '目前瀏覽器不支援離線儲存，仍可線上播放。' : downloadMessage}</p>
 
-      {/* 4. Sentence-by-Sentence Interactive Card Deck */}
+      {/* 6. Sentence-by-Sentence Interactive Card Deck */}
       <div className="dialogue-card-deck" ref={containerRef}>
         {dialogueLines.map((line, idx) => {
           const isCurrentActive = player.isActive && player.index === idx;
@@ -384,7 +656,7 @@ export const HomeConversationStudio = ({
             <div
               key={idx}
               data-line-index={idx}
-              className={`sentence-card ${isCurrentActive ? 'active-speaking' : ''}`}
+              className={`sentence-card ${isCurrentActive ? `active-speaking dpb-active-line part-${player.part}` : ''}`}
             >
               <div className="sentence-card-top">
                 <div className="speaker-badge-wrap">
@@ -394,9 +666,7 @@ export const HomeConversationStudio = ({
                   <span className="speaker-name-vi">{line.speakerVi || line.speaker || 'Người nói'}</span>
                   <span className="speaker-name-zh">({line.speakerZh || speakerInfo.roleName})</span>
                   {isCurrentActive && (
-                    <span style={{ fontSize: '0.74rem', fontWeight: 800, color: 'var(--brand-primary)', marginLeft: '0.3rem' }}>
-                      ▶ 正在播放
-                    </span>
+                    <PlaybackPartChip player={player} learningMode={learningMode} />
                   )}
                 </div>
 
@@ -421,19 +691,50 @@ export const HomeConversationStudio = ({
               </div>
 
               <div className="sentence-card-body">
-                <div className="sentence-text-vi" lang="vi">{vietText}</div>
-                {showTranslation && <div className="sentence-text-zh" lang="zh-TW">{zhText}</div>}
+                <div className="sentence-text-vi dpb-viet-text" lang="vi">{vietText}</div>
+                {showTranslation && (
+                  <>
+                    <div className="sentence-text-zh dpb-native-text" lang="zh-TW">{zhText}</div>
+                    {(line.northTip || line.southTip || line.grammarNote || line.hanViet) && (
+                      <div className="sentence-pedagogy-notes">
+                        {line.hanViet && (
+                          <span className="sentence-note-chip hanviet">📖 漢越詞：{line.hanViet}</span>
+                        )}
+                        {line.grammarNote && (
+                          <span className="sentence-note-chip grammar">💡 句型：{line.grammarNote}</span>
+                        )}
+                        {line.northTip && (
+                          <span className="sentence-note-chip north">🇻🇳 發音/用法：{line.northTip}</span>
+                        )}
+                        {line.southTip && (
+                          <span className="sentence-note-chip south">🌴 在地提示：{line.southTip}</span>
+                        )}
+                      </div>
+                    )}
+                  </>
+                )}
               </div>
 
-              {/* Individual Audio Triggers: Separate Vietnamese & Chinese Neural Narration */}
+              {/* Individual Audio Triggers: Pure Viet, Viet + Chinese, Chinese Only, Play From Here */}
               <div className="sentence-audio-btns">
                 <button
-                  className="audio-chip-play"
-                  onClick={() => handlePlayLineVi(line)}
-                  title="點擊單獨播放這句越語母語發音"
+                  type="button"
+                  className={`audio-chip-play vizh-btn ${isCurrentActive && player.mode === 'vi-zh' ? 'active' : ''}`}
+                  onClick={() => handlePlayLineViZh(line, idx)}
+                  title="單句播放：先聽正統越語、再聽台灣繁體中文導讀"
+                >
+                  <Headphones size={13} />
+                  <span>越+中雙語</span>
+                </button>
+
+                <button
+                  type="button"
+                  className={`audio-chip-play ${isCurrentActive && player.mode === 'vi-only' ? 'active' : ''}`}
+                  onClick={() => handlePlayLineVi(line, idx)}
+                  title="單獨播放這句純越語母語發音"
                 >
                   <Volume2 size={13} />
-                  <span>越語原音</span>
+                  <span>純越文</span>
                   <span style={{ fontSize: '0.72rem', opacity: 0.75 }}>
                     {selectedAccent === 'north' ? '(北越音)' : '(南越偏好)'}
                   </span>
@@ -441,9 +742,10 @@ export const HomeConversationStudio = ({
 
                 {zhText && (
                   <button
+                    type="button"
                     className="audio-chip-play zh-btn"
                     onClick={() => handlePlayLineZh(line)}
-                    title="點擊單獨播放繁體中文導讀原音"
+                    title="單獨播放台灣繁體中文導讀原音"
                   >
                     <Volume2 size={13} color="#10b981" />
                     <span>中文導讀</span>
@@ -452,12 +754,14 @@ export const HomeConversationStudio = ({
                 )}
 
                 <button
-                  className="audio-chip-play"
-                  style={{ marginLeft: 'auto', border: 'none', background: 'transparent', color: 'var(--text-muted)' }}
+                  type="button"
+                  className="audio-chip-play continue-btn"
+                  style={{ marginLeft: 'auto' }}
                   onClick={() => player.playFrom(idx, player.mode || 'vi-zh')}
-                  title="以此句為起點連續播完"
+                  title="以此句為起點，依目前模式連續播放到結尾"
                 >
-                  <span style={{ fontSize: '0.76rem', fontWeight: 600 }}>從此句接續播放 ➔</span>
+                  <Play size={12} />
+                  <span style={{ fontSize: '0.76rem', fontWeight: 700 }}>從此句接續連播 ➔</span>
                 </button>
               </div>
             </div>
@@ -467,15 +771,15 @@ export const HomeConversationStudio = ({
 
       <details className="studio-voice-note"><summary>語音與離線播放說明</summary>
       <p>音檔快取可供已開啟的頁面離線播放；重新開啟網站仍可能需要網路。瀏覽器可能依儲存空間或隱私設定清除快取。</p>
-      <p className="studio-voice-note">語音優先使用預錄的越南語與台灣華語合成音檔。南越偏好若無專屬音檔，會使用現有標準越語，不以改寫拼字模擬口音。</p>
+      <p className="studio-voice-note">語音優先使用預錄的越南語（HoaiMy / NamMinh 標準發音）與台灣繁體中文（HsiaoChen 台灣華語）合成音檔。南越偏好若無專屬音檔，會使用現有標準越語，不以改寫拼字模擬口音。</p>
       </details>
 
-      {/* 5. In-Depth Teaching Lore & Exegesis Section */}
+      {/* 7. In-Depth Teaching Lore & Exegesis Section */}
       <div className="studio-lore-card">
         <div className="lore-header">
           <h3 className="lore-title">
             <Lightbulb size={18} color="var(--brand-gold)" />
-            <span>{learningMode === 'zh' ? '學會這段對話：句型、用法與文化' : 'Pedagogical Lore & Insider Notes'}</span>
+            <span>{learningMode === 'zh' ? '學會這段對話：句型公式、在地文化與關鍵詞彙點讀' : 'Pedagogical Lore & Insider Notes'}</span>
           </h3>
           <span style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-primary)' }}>
             {activeScenario?.titleVi}
@@ -499,7 +803,7 @@ export const HomeConversationStudio = ({
             ) : (
               <p>
                 {learningMode === 'zh'
-                  ? '先挑一句自己用得到的話，聽完再跟讀，最後替換餐點、地點或數字練習。請求物品可用「Cho tôi + 名詞」；禮貌程度也取決於稱謂、語氣與情境。'
+                  ? '先挑一句自己用得到的話，聽完再跟讀，最後替換餐點、地點或數字練習。請求物品可用「Cho tôi + 名詞」；禮貌程度也取決於稱謂（Anh/Chị/Em）與句尾敬語「ạ」。'
                   : '"Cho tôi + verb/noun" is the standard polite opener in daily requests.'}
               </p>
             )}
@@ -512,11 +816,15 @@ export const HomeConversationStudio = ({
               <span>{learningMode === 'zh' ? '在地互動提醒' : 'Cultural Secrets'}</span>
             </h4>
             {activeScenario?.culturalTip?.contentZh ? (
-              <ul>
-                {activeScenario.culturalTip.contentZh.map((tip, i) => (
-                  <li key={i}>{tip}</li>
-                ))}
-              </ul>
+              Array.isArray(activeScenario.culturalTip.contentZh) ? (
+                <ul>
+                  {activeScenario.culturalTip.contentZh.map((tip, i) => (
+                    <li key={i}>{tip}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p>{activeScenario.culturalTip.contentZh}</p>
+              )
             ) : exegesis?.culturalNotes ? (
               <ul>
                 {exegesis.culturalNotes.slice(0, 3).map((tip, i) => (
@@ -526,7 +834,7 @@ export const HomeConversationStudio = ({
             ) : (
               <p>
                 {learningMode === 'zh'
-                  ? '稱謂會依年齡與關係調整。Anh、chị 常用來稱呼年紀稍長的男性、女性；em 用於較年輕的人。不確定時，可以先詢問對方怎麼稱呼。'
+                  ? '稱謂會依年齡與關係調整。Anh、chị 常用來稱呼年紀稍長的男性、女性；em 用於較年輕的人。不確定時，可以先禮貌詢問對方怎麼稱呼。'
                   : 'Vietnamese address forms strictly follow kinship terms.'}
               </p>
             )}
@@ -536,12 +844,13 @@ export const HomeConversationStudio = ({
           <div className="lore-box">
             <h4>
               <span>📖</span>
-              <span>{learningMode === 'zh' ? '關鍵生詞點讀' : 'Key Vocabulary'}</span>
+              <span>{learningMode === 'zh' ? '關鍵生詞點讀（點擊聽越語發音）' : 'Key Vocabulary'}</span>
             </h4>
             <div className="studio-vocab-list">
               {(activeScenario?.vocab || activeScenario?.vocabulary || []).slice(0, 8).map((word, i) => (
                 <button
                   key={i}
+                  type="button"
                   className="studio-vocab-chip"
                   onClick={() => {
                     const vi = word.viet || word.vi || word.word;
@@ -550,7 +859,7 @@ export const HomeConversationStudio = ({
                       audioEngine.speak(vi, { accent: selectedAccent, lang: 'vi' });
                     }
                   }}
-                  title="點擊聽發音"
+                  title="點擊聽越南語發音"
                 >
                   <span className="studio-vocab-vi">{word.viet || word.vi || word.word}</span>
                   <span className="studio-vocab-zh">{word.zh || word.meaning}</span>
@@ -562,12 +871,13 @@ export const HomeConversationStudio = ({
         </div>
       </div>
 
-      {/* 6. Navigation Portal to Deep Conversation Module */}
+      {/* 8. Navigation Portal to Deep Conversation Module */}
       <div className="studio-portal-banner">
         <div className="portal-text">
-          <span>想練習角色扮演，或深入探索更多情境？</span>
+          <span>想進行互動角色扮演、查看實體菜單，或探索更多深度專題？</span>
         </div>
         <button
+          type="button"
           className="portal-btn"
           onClick={() => {
             audioEngine.playHaptic('selection');
@@ -580,7 +890,7 @@ export const HomeConversationStudio = ({
             }
           }}
         >
-          <span>查看全部情境與角色扮演</span>
+          <span>進入完整情境對話與角色扮演館</span>
           <ArrowRight size={16} />
         </button>
       </div>
@@ -589,3 +899,4 @@ export const HomeConversationStudio = ({
 };
 
 export default HomeConversationStudio;
+

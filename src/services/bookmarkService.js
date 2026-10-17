@@ -15,6 +15,10 @@ class BookmarkService {
   }
 
   loadBookmarks() {
+    if (typeof localStorage === 'undefined') {
+      this.bookmarks = [];
+      return;
+    }
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
@@ -45,6 +49,10 @@ class BookmarkService {
   }
 
   saveBookmarks() {
+    if (typeof localStorage === 'undefined') {
+      this.notify();
+      return;
+    }
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.bookmarks));
       // Also keep legacy key synced as array of vietnamese strings for compatibility

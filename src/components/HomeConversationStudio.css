@@ -116,6 +116,253 @@
   margin: 0;
 }
 
+/* Hero Play Strip & Dual-Mode Launch Cards */
+.studio-hero-play-strip {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
+  margin-bottom: 0.9rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(16, 185, 129, 0.07) 55%, rgba(234, 179, 8, 0.08) 100%);
+  border: 1.5px solid rgba(59, 130, 246, 0.28);
+}
+
+.studio-lesson-status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.studio-lesson-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  min-width: 0;
+  flex: 1;
+}
+
+.studio-lesson-icon {
+  font-size: 1.75rem;
+  line-height: 1.1;
+  flex-shrink: 0;
+}
+
+.studio-current-lesson {
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.studio-line-count-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0.12rem 0.55rem;
+  border-radius: var(--radius-full);
+  background: rgba(37, 99, 235, 0.14);
+  color: var(--brand-primary);
+}
+
+.studio-lesson-summary {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+  line-height: 1.45;
+}
+
+.studio-lesson-step-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.studio-step-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.38rem 0.72rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+
+.studio-step-btn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+  transform: translateY(-1px);
+}
+
+.studio-pool-counter {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  padding: 0 0.2rem;
+}
+
+.studio-dual-launch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+.studio-launch-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-color);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.studio-launch-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.studio-launch-card.vi-zh.selected-mode {
+  border-color: rgba(234, 179, 8, 0.65);
+  background: linear-gradient(135deg, rgba(234, 179, 8, 0.14) 0%, var(--bg-card) 100%);
+}
+
+.studio-launch-card.vi-only.selected-mode {
+  border-color: rgba(37, 99, 235, 0.65);
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.14) 0%, var(--bg-card) 100%);
+}
+
+.studio-launch-card.playing-now {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25), 0 6px 20px rgba(16, 185, 129, 0.18);
+}
+
+.launch-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--bg-input);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.launch-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+}
+
+.launch-card-text strong {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.launch-card-text span {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.38;
+}
+
+/* Filter Tabs & Search Section */
+.studio-filter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0.85rem 0 0.5rem;
+}
+
+.studio-category-tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
+}
+
+.studio-cat-tab {
+  padding: 0.38rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.18s ease;
+}
+
+.studio-cat-tab:hover {
+  border-color: var(--brand-primary);
+  color: var(--text-primary);
+}
+
+.studio-cat-tab.active {
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
+}
+
+.studio-search-and-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.studio-search-wrap {
+  position: relative;
+  flex: 1 1 240px;
+  min-width: 200px;
+}
+
+.studio-search-icon {
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.studio-search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.45rem 0.75rem 0.45rem 2.1rem;
+  font-size: 0.84rem;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  outline: none;
+}
+
+.studio-search-input:focus {
+  border-color: var(--brand-primary);
+}
+
 /* Quick Scenarios Bar */
 .scenario-quick-selector {
   display: flex;
@@ -476,6 +723,40 @@
   line-height: 1.45;
 }
 
+.sentence-pedagogy-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.25rem;
+}
+
+.sentence-note-chip {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  line-height: 1.4;
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.sentence-note-chip.hanviet {
+  background: rgba(234, 179, 8, 0.1);
+  border-color: rgba(234, 179, 8, 0.35);
+  color: #ca8a04;
+}
+
+[data-theme="dark"] .sentence-note-chip.hanviet {
+  color: #facc15;
+}
+
+.sentence-note-chip.grammar {
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.35);
+  color: #8b5cf6;
+}
+
 /* Individual audio play buttons row */
 .sentence-audio-btns {
   display: flex;
@@ -501,17 +782,43 @@
   transition: all 0.18s ease;
 }
 
-.audio-chip-play:hover {
+.audio-chip-play:hover,
+.audio-chip-play.active {
   background: var(--brand-primary);
   border-color: var(--brand-primary);
   color: #ffffff;
   transform: translateY(-1px);
 }
 
+.audio-chip-play.vizh-btn {
+  border-color: rgba(234, 179, 8, 0.55);
+  background: rgba(234, 179, 8, 0.12);
+  color: var(--text-primary);
+}
+
+.audio-chip-play.vizh-btn:hover,
+.audio-chip-play.vizh-btn.active {
+  background: #ca8a04;
+  border-color: #ca8a04;
+  color: #ffffff;
+}
+
 .audio-chip-play.zh-btn:hover {
   background: #10b981;
   border-color: #10b981;
   color: #ffffff;
+}
+
+.audio-chip-play.continue-btn {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-muted);
+}
+
+.audio-chip-play.continue-btn:hover {
+  background: rgba(37, 99, 235, 0.1);
+  border-color: rgba(37, 99, 235, 0.35);
+  color: var(--brand-primary);
 }
 
 /* Teaching Lore Exegesis Card */

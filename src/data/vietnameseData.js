@@ -2044,7 +2044,7 @@ export const corporatePronounHierarchy = [
   },
   {
     roleVi: 'Quản đốc / Giám đốc Nhà máy',
-    roleZh: '廠長 / 車間總管',
+    roleZh: '廠長 / 產線主管',
     addressingVi: 'Anh/Chị Quản đốc / Giám đốc xưởng',
     selfVi: 'Em',
     descZh: '廠房巡檢時向廠長打招呼，展現對現場管理最高領導者的尊重。',
@@ -6950,14 +6950,14 @@ export const practicalPhrases = [
   {
     "category": "商務與職場 / Business",
     "viet": "Xưởng sản xuất đang vận hành hết công suất để kịp đơn hàng.",
-    "zh": "工廠車間正在全力開動產能以趕上出貨訂單。",
+    "zh": "工廠產線正在全力開動產能以趕上出貨訂單。",
     "en": "The factory workshop is operating at full capacity to meet orders.",
     "usageZh": "工廠產能管理。"
   },
   {
     "category": "商務與職場 / Business",
     "viet": "Tất cả công nhân trong xưởng phải tuân thủ nghiêm ngặt quy định an toàn lao động.",
-    "zh": "車間內所有作業員必須嚴格遵守職業安全衛生規定。",
+    "zh": "廠房內所有作業員必須嚴格遵守職業安全衛生規定。",
     "en": "All workers must strictly adhere to labor safety regulations.",
     "usageZh": "工業安全督導。"
   },
@@ -7624,7 +7624,7 @@ export const practicalPhrases = [
     "viet": "An toàn lao động là trên hết!",
     "zh": "工安第一 / 安全生產至上！",
     "en": "Workplace safety comes first!",
-    "usageZh": "工廠車間早會必備標語",
+    "usageZh": "工廠產線早會必備標語",
     "usageEn": "Safety slogan"
   },
   {
@@ -7632,7 +7632,7 @@ export const practicalPhrases = [
     "viet": "Tất cả công nhân phải đeo khẩu trang và đồ bảo hộ.",
     "zh": "全體作業員必須佩戴口罩與防護裝備。",
     "en": "All workers must wear masks and PPE gear.",
-    "usageZh": "車間規範檢查",
+    "usageZh": "廠房規範檢查",
     "usageEn": "Mandatory PPE requirement"
   },
   {
@@ -7982,9 +7982,9 @@ export const practicalPhrases = [
   {
     "category": "銀行金融與換匯轉帳",
     "viet": "Tôi muốn chuyển tiền vào tài khoản này bằng mã VietQR.",
-    "zh": "我想透過 VietQR 二維碼掃描轉帳到這個帳戶。",
+    "zh": "我想透過 VietQR 掃描 QR Code 轉帳到這個帳戶。",
     "en": "I want to transfer funds to this account via VietQR.",
-    "usageZh": "越南最盛行的即時跨行二維碼轉帳",
+    "usageZh": "越南最盛行的即時跨行 QR Code 轉帳",
     "usageEn": "VietQR bank transfer"
   },
   {
@@ -8206,7 +8206,7 @@ export const practicalPhrases = [
   {
     "category": "交通出行與租車導航",
     "viet": "Tuyến tàu điện Metro số 1 Bến Thành - Suối Tiên rất tiện lợi.",
-    "zh": "檳城至仙泉的西貢地鐵一號線非常便捷。",
+    "zh": "濱城至仙泉的胡志明市捷運一號線非常便捷。",
     "en": "Metro Line 1 (Ben Thanh - Suoi Tien) is very convenient.",
     "usageZh": "搭乘胡志明市首條現代化捷運",
     "usageEn": "Metro Line 1 transit comment"
@@ -8358,9 +8358,9 @@ export const practicalPhrases = [
   {
     "category": "供應鏈採購與工廠排程",
     "viet": "Quy trình 5S giúp xưởng sản xuất luôn sạch đẹp và an toàn.",
-    "zh": "5S 管理流程有助於車間維持整潔與作業安全。",
+    "zh": "5S 管理流程有助於廠房維持整潔與作業安全。",
     "en": "5S methodology keeps the workshop clean and safe.",
-    "usageZh": "車間現場 5S 標語",
+    "usageZh": "廠房現場 5S 標語",
     "usageEn": "5S workshop standard"
   },
   {
@@ -8576,7 +8576,7 @@ export const flashcardsDeck = [
   { id: 39, viet: 'Có tiền thối không?', zh: '有找零錢嗎？', en: 'Do you have change?', hanViet: '', category: '購物殺價', example: 'Tôi chỉ có tờ 500 nghìn, có tiền thối không?' },
   { id: 40, viet: 'Mua hai tặng một', zh: '買二送一', en: 'Buy 2 get 1 free', hanViet: 'Tặng (贈 · 漢越詞)', category: '購物殺價', example: 'Chương trình khuyến mãi mua hai tặng một.' },
   { id: 41, viet: 'Cho tôi xem cái này', zh: '請給我看看這個', en: 'Show me this one', hanViet: '', category: '購物殺價', example: 'Cho tôi xem cái nón lá truyền thống kia.' },
-  { id: 42, viet: 'Hàng chất lượng cao', zh: '高品質商品', en: 'High quality goods', hanViet: 'Chất lượng (質量/品質 · 漢越詞)', category: '購物殺價', example: 'Cà phê này là hàng chất lượng cao xuất khẩu.' },
+  { id: 42, viet: 'Hàng chất lượng cao', zh: '高品質商品', en: 'High quality goods', hanViet: 'Chất lượng (品質 · 漢越詞)', category: '購物殺價', example: 'Cà phê này là hàng chất lượng cao xuất khẩu.' },
   { id: 43, viet: 'Xuất xứ ở đâu?', zh: '產地來源在哪裡？', en: 'Where is it made?', hanViet: 'Xuất xứ (出處 · 漢越詞)', category: '購物殺價', example: 'Sản phẩm này có xuất xứ từ Đà Lạt.' },
   { id: 44, viet: 'Gọi xe Grab', zh: '叫 Grab 計程車/機車', en: 'Call a Grab ride', hanViet: '', category: '交通出行', example: 'Để tôi gọi xe Grab chở chúng ta đi chợ Bến Thành.' },
   { id: 45, viet: 'Đi thẳng', zh: '直走', en: 'Go straight', hanViet: '', category: '交通出行', example: 'Đi thẳng khoảng 200 mét là tới ngã tư.' },

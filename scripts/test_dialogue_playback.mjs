@@ -9,7 +9,7 @@ const temporary = fs.mkdtempSync(path.resolve('scripts/cache/playback-test-'));
 try {
   const outfile = path.join(temporary, 'test.mjs');
   await build({
-    stdin: { contents: `export * from './src/services/dialoguePlayback.js'; export { situationalScenarios } from './src/data/situationalScenarios.js'; export { SITUATIONAL_TOPICS } from './src/data/situationalTopicsData.js'; export { multiScenarios, numbersAndCurrency } from './src/data/vietnameseData.js'; export { FAST_TRACK_DAYS } from './src/components/FastTrackModule.jsx'; export { audioEngine } from './src/services/audioEngine.js';`, resolveDir: process.cwd() },
+    stdin: { contents: `export * from './src/services/dialoguePlayback.js'; export { situationalScenarios } from './src/data/situationalScenarios.js'; export { SITUATIONAL_TOPICS } from './src/data/situationalTopicsData.js'; export { multiScenarios, numbersAndCurrency } from './src/data/vietnameseData.js'; export { FAST_TRACK_DAYS } from './src/components/FastTrackModule.jsx'; export { SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS } from './src/components/EmergencyKitModule.jsx'; export { audioEngine } from './src/services/audioEngine.js';`, resolveDir: process.cwd() },
     bundle: true, platform: 'node', format: 'esm', outfile,
     loader: { '.css': 'empty', '.jsx': 'jsx' },
     external: ['react', 'react-dom', 'lucide-react'],
@@ -26,7 +26,7 @@ try {
         };` }));
     } }]
   });
-  const { DialogueSequencer, setPlaybackPrefs, normalizePlaybackPrefs, DEFAULT_PREFS, situationalScenarios, SITUATIONAL_TOPICS, multiScenarios, numbersAndCurrency, FAST_TRACK_DAYS, audioEngine } = await import(pathToFileURL(outfile));
+  const { DialogueSequencer, setPlaybackPrefs, normalizePlaybackPrefs, DEFAULT_PREFS, situationalScenarios, SITUATIONAL_TOPICS, multiScenarios, numbersAndCurrency, FAST_TRACK_DAYS, SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS, audioEngine } = await import(pathToFileURL(outfile));
   assert.deepEqual(normalizePlaybackPrefs(null), DEFAULT_PREFS);
   assert.deepEqual(normalizePlaybackPrefs({ speed: 'fast', repeat: Infinity, loop: 'false', shadowPause: 'false' }), DEFAULT_PREFS);
   assert.deepEqual(normalizePlaybackPrefs({ speed: 0.6, repeat: 3, loop: true, autoNext: true }), { ...DEFAULT_PREFS, speed: 0.6, repeat: 3, loop: true });
@@ -63,9 +63,13 @@ try {
     ...situationalScenarios,
     ...multiScenarios.flatMap(s => (s.dialogues || []).map(d => ({ id: `multi:${d.id}`, dialogue: d.lines }))),
     ...SITUATIONAL_TOPICS.flatMap(s => (s.dialogues || []).map(d => ({ id: `topic:${d.id}`, dialogue: d.lines }))),
+    ...SITUATIONAL_TOPICS.map(s => ({ id: `topic-survival:${s.id}`, dialogue: s.quickGuide?.survivalTable || [] })),
     ...FAST_TRACK_DAYS.map(d => ({ id: `day:${d.day}`, dialogue: d.dialogue })),
+    ...FAST_TRACK_DAYS.map(d => ({ id: `day-phrases:${d.day}`, dialogue: d.phrases || [] })),
     ...(numbersAndCurrency.bankingDialogues || []).map((d, i) => ({ id: `bank:${i}`, dialogue: d.lines })),
-    { id: 'shopping', dialogue: numbersAndCurrency.highFrequencyShopping?.items || [] }
+    { id: 'shopping', dialogue: numbersAndCurrency.highFrequencyShopping?.items || [] },
+    { id: 'emergency-symptoms', dialogue: SYMPTOM_POINT_SPEAK_LIST || [] },
+    { id: 'emergency-cards', dialogue: EMERGENCY_CARDS || [] }
   ];
   for (const scenario of allConversations) {
     const sections = scenario.dialogueSections?.length ? scenario.dialogueSections : [{ lines: scenario.dialogues || scenario.dialogue || [] }];

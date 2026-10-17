@@ -96,12 +96,38 @@ export const PhrasesModule = ({ selectedAccent, updateUserStats, setActiveTab })
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
   };
 
+  const handleSpeakBilingual = (phrase, key) => {
+    if (isPlayingFull) {
+      setIsPlayingFull(false);
+      isPlayingFullRef.current = false;
+      if (timerRef.current) clearTimeout(timerRef.current);
+    }
+    const nativeText = learningMode === 'zh' ? phrase.zh : phrase.en;
+    const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
+    audioEngine.speak(phrase.viet, {
+      accent: selectedAccent,
+      lang: 'vi',
+      rate: playbackSpeed,
+      key: key || phrase.viet,
+      onEnd: () => {
+        if (!nativeText) return;
+        timerRef.current = setTimeout(() => {
+          audioEngine.speak(nativeText, {
+            lang: nativeLang,
+            rate: Math.min(1.05, playbackSpeed * 1.05),
+            key: `${key || phrase.viet}_native`
+          });
+        }, 380);
+      }
+    });
+  };
+
   const loadMore = () => {
     setVisibleCount(prev => prev + 48);
   };
 
   const [isPlayingFull, setIsPlayingFull] = useState(false);
-  const [playMode, setPlayMode] = useState('zh-vi'); // 'zh-vi' | 'vi-zh' | 'vi-only'
+  const [playMode, setPlayMode] = useState('vi-zh'); // 'zh-vi' | 'vi-zh' | 'vi-only'
   const [playbackSpeed, setPlaybackSpeed] = useState(0.9);
   const [activePhraseIndex, setActivePhraseIndex] = useState(null);
   const isPlayingFullRef = React.useRef(false);
@@ -543,10 +569,18 @@ export const PhrasesModule = ({ selectedAccent, updateUserStats, setActiveTab })
 
               <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '0.5rem', borderTop: '1px solid var(--border-color)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <button
+                    className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
+                    onClick={() => handleSpeakBilingual(phrase, phraseKey)}
+                    title={learningMode === 'zh' ? '播放越文＋中文雙語朗讀' : 'Play Viet + Translation'}
+                    style={{ width: 'auto', padding: '0.22rem 0.52rem', borderRadius: '999px', fontSize: '0.73rem', fontWeight: 800, gap: '0.2rem' }}
+                  >
+                    🎧 {learningMode === 'zh' ? '越+中' : 'VI+EN'}
+                  </button>
                   <button 
                     className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
                     onClick={() => handleSpeak(phrase.viet, phraseKey)}
-                    title={t('common.listen')}
+                    title={learningMode === 'zh' ? '播放純越文原音' : t('common.listen')}
                   >
                     <Volume2 size={15} />
                   </button>
@@ -606,18 +640,18 @@ export const PhrasesModule = ({ selectedAccent, updateUserStats, setActiveTab })
         moduleTitleZh="日常生活常用實用短句大全"
         moduleTitleEn="Practical Daily Expressions Library"
         nextModuleId="conversation"
-        nextModuleTitleZh="49 大情境生活對話實戰"
-        nextModuleTitleEn="49 Situational Scenarios"
+        nextModuleTitleZh="64 大情境生活對話實戰"
+        nextModuleTitleEn="64 Situational Scenarios"
         bonusXp={30}
         setActiveTab={setActiveTab}
         updateUserStats={updateUserStats}
         summaryHighlights={[
           '全面涵蓋 20 大高頻生活場景短句（咖啡、餐飲、交通、住宿、租屋、休閒等）',
-          '利用一鍵複製與語音朗讀功能，在出國前或街頭即時調用',
+          '利用一鍵複製與雙語（越+中 / 純越文）朗讀功能，在出國前或街頭即時調用',
           '善用星號收藏書籤，建立專屬個人高頻愛用句庫'
         ]}
         relatedModules={[
-          { id: 'conversation', icon: '💬', titleZh: '49大情境對話', descZh: '深入雙向情境角色扮演' },
+          { id: 'conversation', icon: '💬', titleZh: '64大情境對話', descZh: '深入雙向情境角色扮演' },
           { id: 'flashcards', icon: '🧠', titleZh: '智能間隔閃卡', descZh: '10,000 高頻單字固化' },
           { id: 'shadowing', icon: '🎙️', titleZh: '影子跟讀內化', descZh: '麥克風跟讀練習' }
         ]}

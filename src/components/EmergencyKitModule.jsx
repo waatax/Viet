@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {
   LifeBuoy, Volume2, Search, Sparkles, Filter, ChevronRight, ShieldAlert,
-  Utensils, Car, ShoppingBag, HeartPulse, Hotel, Users, Maximize2, X, PhoneCall, AlertCircle, Star
+  Utensils, Car, ShoppingBag, HeartPulse, Hotel, Users, Maximize2, X, PhoneCall, AlertCircle, Star, Headphones
 } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { bookmarkService } from '../services/bookmarkService';
+import { useDialoguePlayback } from '../hooks/useDialoguePlayback';
+import { DialoguePlaybackBar, PlaybackPartChip } from './DialoguePlaybackBar';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './EmergencyKitModule.css';
 
@@ -394,6 +396,20 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
     });
   };
 
+  const symptomPlayer = useDialoguePlayback({
+    lines: SYMPTOM_POINT_SPEAK_LIST,
+    accent: selectedAccent,
+    nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+    title: learningMode === 'zh' ? '10大常見不適症狀指認點讀' : '10 Core Medical Symptoms'
+  });
+
+  const emergencyPlayer = useDialoguePlayback({
+    lines: filteredCards,
+    accent: selectedAccent,
+    nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+    title: learningMode === 'zh' ? '生活溝通急救錦囊' : 'Survival Emergency Cards'
+  });
+
   return (
     <div className="module-container emergency-kit-module">
       {/* Hero Banner with Pharmacy & Clinic Scenario Illustration */}
@@ -498,9 +514,19 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
         </div>
         <p style={{ margin: '0 0 1rem 0', fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
           {learningMode === 'zh'
-            ? '突發身體不適時，若無法用越語流暢表達，點擊發音朗讀，或點選右側「出示」按鈕放大給越南藥師或醫生看：'
+            ? '突發身體不適時，若無法用越語流暢表達，可點擊「越→中 逐句對照」或「純越文」連播，或點選右側「出示」按鈕放大給越南藥師或醫生看：'
             : 'Point-and-speak table for medical clinics and pharmacies with instant pronunciation and full-screen display.'}
         </p>
+
+        <div style={{ marginBottom: '1rem' }}>
+          <DialoguePlaybackBar
+            player={symptomPlayer}
+            lines={SYMPTOM_POINT_SPEAK_LIST}
+            learningMode={learningMode}
+            title={learningMode === 'zh' ? '10大常見不適症狀指認點讀' : '10 Core Medical Symptoms'}
+            variant="compact"
+          />
+        </div>
 
         <div className="symptoms-table-wrapper">
           <table className="symptoms-table">
@@ -514,69 +540,83 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
               </tr>
             </thead>
             <tbody>
-              {SYMPTOM_POINT_SPEAK_LIST.map((symp, sIdx) => (
-                <tr key={sIdx}>
-                  <td>
-                    <span className="symptom-tag">
-                      {symp.icon} {symp.bodyPartZh}
-                    </span>
-                  </td>
-                  <td>
-                    <strong style={{ fontSize: '1.02rem', color: 'var(--brand-primary)' }}>
-                      {symp.viet}
-                    </strong>
-                  </td>
-                  <td>
-                    <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: '0.92rem' }}>
-                      {symp.zh}
-                    </div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                      {symp.en}
-                    </div>
-                  </td>
-                  <td style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
-                    💡 {symp.tipZh}
-                  </td>
-                  <td>
-                    <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
-                      <button
-                        className="speaker-btn mini-btn"
-                        onClick={() => handleSpeak(symp.viet, false)}
-                        title={`播放: ${symp.viet}`}
-                      >
-                        <Volume2 size={14} />
-                      </button>
-                      <button
-                        className="speaker-btn mini-btn"
-                        onClick={() => {
-                          audioEngine.playHaptic('tap');
-                          bookmarkService.toggle({
-                            id: `emg_symp_${symp.viet}`,
-                            viet: symp.viet,
-                            zh: symp.zh,
-                            en: symp.en,
-                            category: '生活急救 · 就醫症狀',
-                            module: 'emergency',
-                            tag: '醫療急救'
-                          });
-                        }}
-                        title={bookmarkService.isBookmarked(symp.viet) ? '取消收藏' : '加入個人生詞本'}
-                        style={{ color: bookmarkService.isBookmarked(symp.viet) ? '#eab308' : 'var(--text-muted)' }}
-                      >
-                        <Star size={13} fill={bookmarkService.isBookmarked(symp.viet) ? '#eab308' : 'none'} />
-                      </button>
-                      <button
-                        className="secondary-action"
-                        onClick={() => setFullscreenCard(symp)}
-                        title="放大螢幕出示給藥師看"
-                        style={{ padding: '0.35rem 0.55rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
-                      >
-                        <Maximize2 size={12} /> {learningMode === 'zh' ? '出示' : 'Show'}
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
+              {SYMPTOM_POINT_SPEAK_LIST.map((symp, sIdx) => {
+                const isSympActive = symptomPlayer.isActive && symptomPlayer.index === sIdx;
+                return (
+                  <tr key={sIdx} style={isSympActive ? { background: 'rgba(var(--brand-primary-rgb), 0.08)' } : undefined}>
+                    <td>
+                      <span className="symptom-tag">
+                        {symp.icon} {symp.bodyPartZh}
+                      </span>
+                    </td>
+                    <td>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap' }}>
+                        <strong style={{ fontSize: '1.02rem', color: 'var(--brand-primary)' }}>
+                          {symp.viet}
+                        </strong>
+                        {isSympActive && <PlaybackPartChip player={symptomPlayer} learningMode={learningMode} />}
+                      </div>
+                    </td>
+                    <td>
+                      <div style={{ fontWeight: 700, color: 'var(--text-primary)', fontSize: '0.92rem' }}>
+                        {symp.zh}
+                      </div>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                        {symp.en}
+                      </div>
+                    </td>
+                    <td style={{ fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
+                      💡 {symp.tipZh}
+                    </td>
+                    <td>
+                      <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center', flexWrap: 'wrap' }}>
+                        <button
+                          className={`speaker-btn mini-btn ${isSympActive && symptomPlayer.mode === 'vi-zh' ? 'playing' : ''}`}
+                          onClick={() => symptomPlayer.playSingleLine(sIdx, 'vi-zh')}
+                          title={learningMode === 'zh' ? `播放越文＋中文: ${symp.viet}` : 'Play Viet + Translation'}
+                          style={{ width: 'auto', padding: '0.25rem 0.5rem', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 800, gap: '0.2rem' }}
+                        >
+                          <Headphones size={12} /> {learningMode === 'zh' ? '越+中' : 'VI+EN'}
+                        </button>
+                        <button
+                          className={`speaker-btn mini-btn ${isSympActive && symptomPlayer.mode === 'vi-only' ? 'playing' : ''}`}
+                          onClick={() => symptomPlayer.playSingleLine(sIdx, 'vi-only')}
+                          title={`播放純越文: ${symp.viet}`}
+                        >
+                          <Volume2 size={14} />
+                        </button>
+                        <button
+                          className="speaker-btn mini-btn"
+                          onClick={() => {
+                            audioEngine.playHaptic('tap');
+                            bookmarkService.toggle({
+                              id: `emg_symp_${symp.viet}`,
+                              viet: symp.viet,
+                              zh: symp.zh,
+                              en: symp.en,
+                              category: '生活急救 · 就醫症狀',
+                              module: 'emergency',
+                              tag: '醫療急救'
+                            });
+                          }}
+                          title={bookmarkService.isBookmarked(symp.viet) ? '取消收藏' : '加入個人生詞本'}
+                          style={{ color: bookmarkService.isBookmarked(symp.viet) ? '#eab308' : 'var(--text-muted)' }}
+                        >
+                          <Star size={13} fill={bookmarkService.isBookmarked(symp.viet) ? '#eab308' : 'none'} />
+                        </button>
+                        <button
+                          className="secondary-action"
+                          onClick={() => setFullscreenCard(symp)}
+                          title="放大螢幕出示給藥師看"
+                          style={{ padding: '0.35rem 0.55rem', fontSize: '0.78rem', display: 'flex', alignItems: 'center', gap: '0.2rem' }}
+                        >
+                          <Maximize2 size={12} /> {learningMode === 'zh' ? '出示' : 'Show'}
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
@@ -598,7 +638,7 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
         </h1>
         <p style={{ color: 'var(--text-secondary)', maxWidth: '680px', lineHeight: 1.5, margin: 0, fontSize: '0.98rem' }}>
           {learningMode === 'zh'
-            ? '遇到緊急狀況、點餐、搭車、看診或殺價時，直接點擊播放標準越南語，或放大螢幕直接出示給當地人看！'
+            ? '遇到緊急狀況、點餐、搭車、看診或殺價時，直接點擊播放標準越南語，或開啟「越→中 逐句對照」連續播放學習！'
             : 'One-tap audio playback with instant North/South accent toggle. Use fullscreen display mode to show directly to locals.'}
         </p>
       </section>
@@ -619,7 +659,7 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
       </div>
 
       {/* Category Filter Pills */}
-      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
+      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
         {EMERGENCY_CATEGORIES.map(cat => (
           <button
             key={cat.id}
@@ -641,89 +681,115 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
         ))}
       </div>
 
+      {/* Dual-Mode Continuous Playback Bar for Emergency Cards */}
+      <div style={{ marginBottom: '1.5rem' }}>
+        <DialoguePlaybackBar
+          player={emergencyPlayer}
+          lines={filteredCards}
+          learningMode={learningMode}
+          title={learningMode === 'zh' ? '生活溝通急救錦囊' : 'Survival Emergency Cards'}
+          variant="compact"
+        />
+      </div>
+
       {/* Emergency Cards Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
-        {filteredCards.map((card, idx) => (
-          <div
-            key={idx}
-            style={{
-              background: 'var(--bg-card)',
-              border: '1px solid var(--border-color)',
-              borderRadius: 'var(--radius-md)',
-              padding: '1.5rem',
-              boxShadow: '0 4px 12px rgba(0,0,0,0.03)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              gap: '1rem',
-              transition: 'transform 0.15s ease'
-            }}
-          >
-            <div>
-              <div style={{ fontSize: '1.35rem', fontWeight: 900, color: 'var(--brand-primary)', marginBottom: '0.4rem', lineHeight: 1.3 }}>
-                {card.viet}
-              </div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.4rem' }}>
-                {learningMode === 'zh' ? card.zh : card.en}
-              </div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
-                📍 {learningMode === 'zh' ? card.situationZh : card.situationEn}
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '0.85rem', marginTop: '0.2rem' }}>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
-                <button
-                  className="primary-action"
-                  onClick={() => handleSpeak(card.viet, false)}
-                  style={{ padding: '0.45rem 0.9rem', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
-                >
-                  <Volume2 size={16} /> {learningMode === 'zh' ? '發音' : 'Audio'}
-                </button>
-                <button
-                  className="secondary-action"
-                  onClick={() => handleSpeak(card.viet, true)}
-                  style={{ padding: '0.45rem 0.75rem', fontSize: '0.82rem' }}
-                >
-                  {learningMode === 'zh' ? '慢速' : 'Slow'}
-                </button>
+        {filteredCards.map((card, idx) => {
+          const isCardActive = emergencyPlayer.isActive && emergencyPlayer.index === idx;
+          return (
+            <div
+              key={idx}
+              style={{
+                background: 'var(--bg-card)',
+                border: isCardActive ? '1.5px solid var(--brand-primary)' : '1px solid var(--border-color)',
+                boxShadow: isCardActive ? '0 0 0 3px rgba(var(--brand-primary-rgb), 0.16)' : '0 4px 12px rgba(0,0,0,0.03)',
+                borderRadius: 'var(--radius-md)',
+                padding: '1.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between',
+                gap: '1rem',
+                transition: 'transform 0.15s ease'
+              }}
+            >
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
+                  <div style={{ fontSize: '1.35rem', fontWeight: 900, color: 'var(--brand-primary)', lineHeight: 1.3 }}>
+                    {card.viet}
+                  </div>
+                  {isCardActive && <PlaybackPartChip player={emergencyPlayer} learningMode={learningMode} />}
+                </div>
+                <div style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.4rem' }}>
+                  {learningMode === 'zh' ? card.zh : card.en}
+                </div>
+                <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                  📍 {learningMode === 'zh' ? card.situationZh : card.situationEn}
+                </div>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <button
-                  className="secondary-action"
-                  onClick={() => {
-                    audioEngine.playHaptic('tap');
-                    bookmarkService.toggle({
-                      id: `emg_card_${card.viet}`,
-                      viet: card.viet,
-                      zh: card.zh,
-                      en: card.en,
-                      category: `生活急救 · ${card.category}`,
-                      module: 'emergency',
-                      tag: '生存急救字卡'
-                    });
-                  }}
-                  title={bookmarkService.isBookmarked(card.viet) ? '取消收藏' : '加入個人生詞本'}
-                  style={{
-                    padding: '0.45rem 0.65rem',
-                    color: bookmarkService.isBookmarked(card.viet) ? '#eab308' : 'var(--text-secondary)'
-                  }}
-                >
-                  <Star size={16} fill={bookmarkService.isBookmarked(card.viet) ? '#eab308' : 'none'} />
-                </button>
-                <button
-                  className="secondary-action"
-                  onClick={() => setFullscreenCard(card)}
-                  title="放大螢幕出示給當地人看"
-                  style={{ padding: '0.45rem 0.65rem', color: 'var(--text-secondary)' }}
-                >
-                  <Maximize2 size={16} />
-                </button>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid var(--border-color)', paddingTop: '0.85rem', marginTop: '0.2rem', flexWrap: 'wrap', gap: '0.4rem' }}>
+                <div style={{ display: 'flex', gap: '0.4rem', flexWrap: 'wrap' }}>
+                  <button
+                    className="primary-action"
+                    onClick={() => emergencyPlayer.playSingleLine(idx, 'vi-zh')}
+                    style={{ padding: '0.42rem 0.78rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
+                    title={learningMode === 'zh' ? '播放越文＋中文雙語朗讀' : 'Play Viet + Translation'}
+                  >
+                    <Headphones size={15} /> {learningMode === 'zh' ? '越+中' : 'VI+EN'}
+                  </button>
+                  <button
+                    className="secondary-action"
+                    onClick={() => emergencyPlayer.playSingleLine(idx, 'vi-only')}
+                    style={{ padding: '0.42rem 0.78rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
+                    title={learningMode === 'zh' ? '播放純越文原音' : 'Play Pure Vietnamese'}
+                  >
+                    <Volume2 size={15} /> {learningMode === 'zh' ? '純越文' : 'Viet'}
+                  </button>
+                  <button
+                    className="secondary-action"
+                    onClick={() => handleSpeak(card.viet, true)}
+                    style={{ padding: '0.42rem 0.68rem', fontSize: '0.8rem' }}
+                  >
+                    {learningMode === 'zh' ? '慢速' : 'Slow'}
+                  </button>
+                </div>
+
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+                  <button
+                    className="secondary-action"
+                    onClick={() => {
+                      audioEngine.playHaptic('tap');
+                      bookmarkService.toggle({
+                        id: `emg_card_${card.viet}`,
+                        viet: card.viet,
+                        zh: card.zh,
+                        en: card.en,
+                        category: `生活急救 · ${card.category}`,
+                        module: 'emergency',
+                        tag: '生存急救字卡'
+                      });
+                    }}
+                    title={bookmarkService.isBookmarked(card.viet) ? '取消收藏' : '加入個人生詞本'}
+                    style={{
+                      padding: '0.45rem 0.65rem',
+                      color: bookmarkService.isBookmarked(card.viet) ? '#eab308' : 'var(--text-secondary)'
+                    }}
+                  >
+                    <Star size={16} fill={bookmarkService.isBookmarked(card.viet) ? '#eab308' : 'none'} />
+                  </button>
+                  <button
+                    className="secondary-action"
+                    onClick={() => setFullscreenCard(card)}
+                    title="放大螢幕出示給當地人看"
+                    style={{ padding: '0.45rem 0.65rem', color: 'var(--text-secondary)' }}
+                  >
+                    <Maximize2 size={16} />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Fullscreen Display Modal */}

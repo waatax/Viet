@@ -165,7 +165,7 @@ const getTopicSpeakerVisual = (speaker = '', topicId = '', lineIndex = 0, learni
       return { icon: '👨‍⚕️', role: learningMode === 'zh' ? '主治醫師 / 藥師' : 'Doctor / Pharmacist', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
     }
     if (topicId.includes('date') || topicId.includes('time') || s.includes('lễ tân')) {
-      return { icon: '🏨', role: learningMode === 'zh' ? '飯店前台櫃檯' : 'Hotel Front Desk', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
+      return { icon: '🏨', role: learningMode === 'zh' ? '飯店接待櫃檯' : 'Hotel Front Desk', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
     }
     if (topicId.includes('price') || topicId.includes('bargain') || s.includes('chủ quán') || s.includes('bán')) {
       return { icon: '🛒', role: learningMode === 'zh' ? '市場熱情攤主' : 'Market Vendor', color: '#10b981', bg: 'rgba(16, 185, 129, 0.15)' };
@@ -298,39 +298,15 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
     });
   };
 
-  // --- Quick Study: Play all survival phrases sequentially ---
-  const playSurvivalInSequence = (index) => {
-    const list = currentTopic.quickGuide?.survivalTable || [];
-    if (!isPlayingSurvivalRef.current || index >= list.length) {
-      setIsPlayingSurvival(false);
-      isPlayingSurvivalRef.current = false;
-      return;
-    }
-
-    const item = list[index];
-    audioEngine.speak(item.viet, {
-      accent,
-      rate: playbackSpeed,
-      key: `survival_${activeTopicId}_${index}`,
-      onEnd: () => {
-        if (!isPlayingSurvivalRef.current) return;
-        survivalTimerRef.current = setTimeout(() => {
-          if (isPlayingSurvivalRef.current) playSurvivalInSequence(index + 1);
-        }, 1200);
-      }
-    });
-  };
-
-  const togglePlaySurvival = () => {
-    if (isPlayingSurvival) {
-      stopAllSequences();
-    } else {
-      stopAllSequences();
-      setIsPlayingSurvival(true);
-      isPlayingSurvivalRef.current = true;
-      playSurvivalInSequence(0);
-    }
-  };
+  // --- Quick Study: Dual-mode (越→中 逐句對照 / 純越文) playback for survival phrases ---
+  const survivalPlayer = useDialoguePlayback({
+    lines: currentTopic.quickGuide?.survivalTable || [],
+    accent,
+    nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+    title: learningMode === 'zh'
+      ? `${currentTopic.titleZh} · 實戰生存金句`
+      : `${currentTopic.titleEn} · Survival Phrases`
+  });
 
   // --- Dialogue: two-mode playback (越→中 逐句對照 / 純越文) ---
   const currentDialogue = currentTopic.dialogues?.[activeDialogueIndex] || currentTopic.dialogues?.[0];
@@ -638,24 +614,26 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
                 <Sparkles size={18} />
                 <span>{currentTopic.quickGuide?.taglineZh}</span>
               </div>
-              <button
-                className="play-all-btn"
-                onClick={togglePlaySurvival}
-              >
-                {isPlayingSurvival ? <Pause size={16} /> : <Play size={16} />}
-                <span>
-                  {isPlayingSurvival
-                    ? (learningMode === 'zh' ? '暫停連續朗讀' : 'Pause Autoplay')
-                    : (learningMode === 'zh' ? '全篇金句依序朗讀' : 'Play All Phrases')}
-                </span>
-              </button>
+            </div>
+
+            <div style={{ marginBottom: '1rem' }}>
+              <DialoguePlaybackBar
+                player={survivalPlayer}
+                lines={currentTopic.quickGuide?.survivalTable || []}
+                learningMode={learningMode}
+                title={learningMode === 'zh'
+                  ? `${currentTopic.titleZh} · 實戰生存金句`
+                  : `${currentTopic.titleEn} · Survival Phrases`}
+                variant="compact"
+              />
             </div>
 
             {/* 三秒救急生存字卡列表 */}
             <div className="survival-grid">
               {currentTopic.quickGuide?.survivalTable.map((item, idx) => {
                 const key = `survival_${activeTopicId}_${idx}`;
-                const isPlaying = audioState.isPlaying && audioState.activeKey === key;
+                const isActiveRow = survivalPlayer.isActive && survivalPlayer.index === idx;
+                const isPlaying = isActiveRow || (audioState.isPlaying && audioState.activeKey === key);
                 return (
                   <div key={idx} className={`survival-card ${isPlaying ? 'playing' : ''}`}>
                     <div className="survival-card-top">
@@ -663,11 +641,32 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
                         <span>{getCategoryIcon(item.category)}</span>
                         <span>{item.category}</span>
                       </span>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', flexWrap: 'wrap' }}>
+                        {isActiveRow && (
+                          <PlaybackPartChip
+                            player={survivalPlayer}
+                            learningMode={learningMode}
+                          />
+                        )}
+                        <button
+                          className="audio-icon-btn"
+                          onClick={() => survivalPlayer.playSingleLine(idx, 'vi-zh')}
+                          title={learningMode === 'zh' ? '播放越文＋中文雙語朗讀' : 'Play Viet + Translation'}
+                          style={{
+                            padding: '0.2rem 0.5rem',
+                            width: 'auto',
+                            borderRadius: '999px',
+                            fontSize: '0.73rem',
+                            fontWeight: 800,
+                            gap: '0.22rem'
+                          }}
+                        >
+                          🎧 {learningMode === 'zh' ? '越+中' : 'VI+EN'}
+                        </button>
                         <button
                           className={`audio-icon-btn ${isPlaying ? 'playing' : ''}`}
-                          onClick={() => handleSpeak(item.viet, key)}
-                          title={learningMode === 'zh' ? '聆聽道地發音' : 'Listen pronunciation'}
+                          onClick={() => survivalPlayer.playSingleLine(idx, 'vi-only')}
+                          title={learningMode === 'zh' ? '播放純越文道地發音' : 'Play Pure Vietnamese'}
                         >
                           <Volume2 size={18} />
                         </button>

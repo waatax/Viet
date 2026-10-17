@@ -3050,7 +3050,7 @@ export const situationalScenarios = [
       "titleEn": "Saigon Nhậu Seafood Culture",
       "contentZh": [
         "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
-        "喝啤酒時服務員會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
+        "喝啤酒時服務生會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
         "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
       ],
       "contentEn": [
@@ -3060,7 +3060,7 @@ export const situationalScenarios = [
       ],
       "tipsZh": [
         "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
-        "喝啤酒時服務員會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
+        "喝啤酒時服務生會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
         "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
       ],
       "tipsEn": [
@@ -3141,7 +3141,7 @@ export const situationalScenarios = [
       "titleEn": "Saigon Nhậu Seafood Culture",
       "contentZh": [
         "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
-        "喝啤酒時服務員會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
+        "喝啤酒時服務生會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
         "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
       ],
       "contentEn": [
@@ -3151,7 +3151,7 @@ export const situationalScenarios = [
       ],
       "tipsZh": [
         "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
-        "喝啤酒時服務員會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
+        "喝啤酒時服務生會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
         "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
       ],
       "tipsEn": [
@@ -3500,10 +3500,10 @@ export const situationalScenarios = [
         "speaker": "Nhân viên sân bay (地勤)",
         "role": "npc",
         "viet": "Anh có bao nhiêu kiện hành lý ký gửi ạ? Có mang theo pin sạc dự phòng không?",
-        "zh": "請問您有幾件托運行李？隨身有攜帶行動電源（充電寶）嗎？",
+        "zh": "請問您有幾件託運行李？隨身有攜帶行動電源嗎？",
         "en": "How many pieces of checked luggage? Do you have power banks with you?",
-        "northTip": "行動電源必須隨身攜帶，不能托運！",
-        "southTip": "托運行李叫「Hành lý ký gửi」，隨身行李叫「Hành lý xách tay」。"
+        "northTip": "行動電源必須隨身攜帶，不能託運！",
+        "southTip": "託運行李叫「Hành lý ký gửi」，隨身行李叫「Hành lý xách tay」。"
       },
       {
         "speaker": "Hành khách (旅客)",
@@ -4061,7 +4061,7 @@ export const situationalScenarios = [
       "titleZh": "越南飯店住宿實用技巧",
       "titleEn": "Vietnam Hotel Stay Guide",
       "contentZh": [
-        "辦理入住時飯店櫃台會要求暫時保留護照登記，或複印後立即歸還原件（部分星級飯店可要求當場複印後退回）。",
+        "辦理入住時飯店櫃檯會要求暫時保留護照登記，或影印後立即歸還正本（部分星級飯店可要求當場影印後退回）。",
         "冰箱內的 Mini Bar 飲料零食大多額外收費，免費的瓶裝水通常放置在書桌或洗手台上，瓶身標有「Complimentary / Miễn phí」。",
         "退房時間普遍為中午 12:00，需要延遲退房可提前致電櫃台詢問「Trả phòng muộn」。"
       ],
@@ -4071,7 +4071,7 @@ export const situationalScenarios = [
         "Standard check-out is 12:00 PM. Ask front desk for \"Trả phòng muộn\" (late check-out) if needed."
       ],
       "tipsZh": [
-        "辦理入住時飯店櫃台會要求暫時保留護照登記，或複印後立即歸還原件（部分星級飯店可要求當場複印後退回）。",
+        "辦理入住時飯店櫃檯會要求暫時保留護照登記，或影印後立即歸還正本（部分星級飯店可要求當場影印後退回）。",
         "冰箱內的 Mini Bar 飲料零食大多額外收費，免費的瓶裝水通常放置在書桌或洗手台上，瓶身標有「Complimentary / Miễn phí」。",
         "退房時間普遍為中午 12:00，需要延遲退房可提前致電櫃台詢問「Trả phòng muộn」。"
       ],
@@ -4152,7 +4152,7 @@ export const situationalScenarios = [
       "titleZh": "越南飯店住宿實用技巧",
       "titleEn": "Vietnam Hotel Stay Guide",
       "contentZh": [
-        "辦理入住時飯店櫃台會要求暫時保留護照登記，或複印後立即歸還原件（部分星級飯店可要求當場複印後退回）。",
+        "辦理入住時飯店櫃檯會要求暫時保留護照登記，或影印後立即歸還正本（部分星級飯店可要求當場影印後退回）。",
         "冰箱內的 Mini Bar 飲料零食大多額外收費，免費的瓶裝水通常放置在書桌或洗手台上，瓶身標有「Complimentary / Miễn phí」。",
         "退房時間普遍為中午 12:00，需要延遲退房可提前致電櫃台詢問「Trả phòng muộn」。"
       ],
@@ -4162,7 +4162,7 @@ export const situationalScenarios = [
         "Standard check-out is 12:00 PM. Ask front desk for \"Trả phòng muộn\" (late check-out) if needed."
       ],
       "tipsZh": [
-        "辦理入住時飯店櫃台會要求暫時保留護照登記，或複印後立即歸還原件（部分星級飯店可要求當場複印後退回）。",
+        "辦理入住時飯店櫃檯會要求暫時保留護照登記，或影印後立即歸還正本（部分星級飯店可要求當場影印後退回）。",
         "冰箱內的 Mini Bar 飲料零食大多額外收費，免費的瓶裝水通常放置在書桌或洗手台上，瓶身標有「Complimentary / Miễn phí」。",
         "退房時間普遍為中午 12:00，需要延遲退房可提前致電櫃台詢問「Trả phòng muộn」。"
       ],
@@ -6058,7 +6058,7 @@ export const situationalScenarios = [
       "titleEn": "The Magic of Vietnamese Herbal Hair Spa",
       "contentZh": [
         "越式洗頭使用皂角 (Bồ kết)、香茅 (Sả)、葡萄柚皮 (Vỏ bưởi) 等天然草藥熬煮成溫熱香湯，能深層清潔頭皮、安神助眠。",
-        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環循環瀑布沖水。",
+        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環瀑布沖水。",
         "建議提前 1 天電話或粉絲專頁預約，避免熱門時段現場久候。"
       ],
       "contentEn": [
@@ -6068,7 +6068,7 @@ export const situationalScenarios = [
       ],
       "tipsZh": [
         "越式洗頭使用皂角 (Bồ kết)、香茅 (Sả)、葡萄柚皮 (Vỏ bưởi) 等天然草藥熬煮成溫熱香湯，能深層清潔頭皮、安神助眠。",
-        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環循環瀑布沖水。",
+        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環瀑布沖水。",
         "建議提前 1 天電話或粉絲專頁預約，避免熱門時段現場久候。"
       ],
       "tipsEn": [
@@ -6140,7 +6140,7 @@ export const situationalScenarios = [
       "titleEn": "The Magic of Vietnamese Herbal Hair Spa",
       "contentZh": [
         "越式洗頭使用皂角 (Bồ kết)、香茅 (Sả)、葡萄柚皮 (Vỏ bưởi) 等天然草藥熬煮成溫熱香湯，能深層清潔頭皮、安神助眠。",
-        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環循環瀑布沖水。",
+        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環瀑布沖水。",
         "建議提前 1 天電話或粉絲專頁預約，避免熱門時段現場久候。"
       ],
       "contentEn": [
@@ -6150,7 +6150,7 @@ export const situationalScenarios = [
       ],
       "tipsZh": [
         "越式洗頭使用皂角 (Bồ kết)、香茅 (Sả)、葡萄柚皮 (Vỏ bưởi) 等天然草藥熬煮成溫熱香湯，能深層清潔頭皮、安神助眠。",
-        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環循環瀑布沖水。",
+        "標準流程通常涵蓋洗臉、去角質、面部刮痧撥筋、敷小黃瓜、掏耳、肩頸熱敷與頭皮水療循環瀑布沖水。",
         "建議提前 1 天電話或粉絲專頁預約，避免熱門時段現場久候。"
       ],
       "tipsEn": [
@@ -9067,7 +9067,7 @@ export const situationalScenarios = [
     "titleZh": "辦公室工作交接、請病假報備與會議進度匯報",
     "titleEn": "Workplace Handovers, Sick Leave Requests & Meeting Progress",
     "titleVi": "Công Việc, Xin Nghỉ Phép & Báo Cáo Tiến Độ",
-    "summaryZh": "學會辦公室與工廠車間實務溝通：請假（Nghỉ phép）、確認交期進度、協同跨部門合作。",
+    "summaryZh": "學會辦公室與工廠產線現場實務溝通：請假（Nghỉ phép）、確認交期進度、協同跨部門合作。",
     "summaryEn": "Communicate effectively in office and factory settings: taking leave, progress updates, and team coordination.",
     "dialogues": [
       {
@@ -10019,14 +10019,14 @@ export const situationalScenarios = [
     "titleZh": "工廠產線驗廠、品管抽檢與不良品處置",
     "titleEn": "Factory Audit Walkthrough, QC Sampling & Defect Management",
     "titleVi": "Kiểm Toán Nhà Xưởng, Lấy Mẫu Kiểm Tra KCS & Xử Lý Phế Phẩm NG",
-    "summaryZh": "廠房實務稽核：穿戴工安護具、巡視車間產能 (Năng suất chuyền)、抽檢不良率 (Tỷ lệ lỗi) 與擬定預防改善對策。",
+    "summaryZh": "廠房實務稽核：穿戴工安護具、巡視產線產能 (Năng suất chuyền)、抽檢不良率 (Tỷ lệ lỗi) 與擬定預防改善對策。",
     "summaryEn": "On-site factory audit: inspect PPE safety, evaluate line productivity, test defect rate (NG), and formulate corrective actions.",
     "dialogues": [
       {
         "speaker": "Giám đốc Nhà máy (廠長)",
         "role": "npc",
         "viet": "Chào đoàn chuyên gia. Trước khi vào khu vực xưởng sản xuất, xin mời tất cả mọi người đội mũ bảo hộ và mang giày bảo hộ.",
-        "zh": "歡迎專家代表團。在進入生產車間之前，請大家戴上安全帽並穿上防護鞋。",
+        "zh": "歡迎專家代表團。在進入生產廠房之前，請大家戴上安全帽並穿上防護鞋。",
         "en": "Welcome audit delegation. Before entering the production floor, please put on safety helmets and shoes.",
         "northTip": "「Mũ bảo hộ」(安全帽)；「Giày bảo hộ」(勞保防護鞋)。",
         "southTip": "遵守工安規範 (An toàn lao động) 是進入外資廠房第一鐵律。"
@@ -10127,7 +10127,7 @@ export const situationalScenarios = [
       "titleEn": "Factory Inspection & Manufacturing Culture in Vietnam",
       "contentZh": "越南是全球重要製造代工基地，台商在外派管理工廠時，需嚴格遵守 5S、工安衛生與消防規範。在與越南基層班長 (Trưởng chuyền) 和工人溝通時，切忌在眾人面前大聲斥責（避免傷及自尊失去面子），應採「恩威並濟、私下指導」的管理策略。",
       "contentEn": "When managing factory operations in Vietnam, maintain strict 5S and safety rules. Avoid public scolding to preserve worker self-esteem; adopt a respectful, private guidance approach.",
-      "proTipZh": "✨ 秘笈：在車間設立「優秀員工之星」獎勵榜與激勵獎金，能顯著提升產線出勤率與穩定度！",
+      "proTipZh": "✨ 秘笈：在產線現場設立「優秀員工之星」獎勵榜與激勵獎金，能顯著提升產線出勤率與穩定度！",
       "proTipEn": "✨ Pro Tip: Establish an Employee of the Month bonus board to dramatically improve line attendance and retention."
     }
   },
@@ -10507,7 +10507,7 @@ export const situationalScenarios = [
     "titleZh": "工廠招募招工、勞動合約與加班排班",
     "titleEn": "Factory Recruitment, Labor Contracts & Overtime Shift Planning",
     "titleVi": "Tuyển Dụng Lao Động Nhà Máy, Ký Hợp Đồng & Bố Trí Tăng Ca",
-    "summaryZh": "廠房人資管理：招聘車間技術工、核定底薪與全勤津貼 (Phụ cấp chuyên cần)、簽署勞動合約與安排合法加班 (Tăng ca)。",
+    "summaryZh": "廠房人資管理：招募產線技術員、核定底薪與全勤津貼 (Phụ cấp chuyên cần)、簽署勞動合約與安排合法加班 (Tăng ca)。",
     "summaryEn": "HR factory operations: hire line technicians, structure basic wages and attendance allowances, execute labor contracts, and schedule legal OT shifts.",
     "dialogues": [
       {

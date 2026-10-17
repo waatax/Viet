@@ -20,6 +20,7 @@ export { situationalScenarios } from './src/data/situationalScenarios.js';
 export { SITUATIONAL_TOPICS } from './src/data/situationalTopicsData.js';
 export { numbersAndCurrency, multiScenarios } from './src/data/vietnameseData.js';
 export { FAST_TRACK_DAYS } from './src/components/FastTrackModule.jsx';
+export { SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS } from './src/components/EmergencyKitModule.jsx';
 export { SCENARIO_EXEGESIS } from './src/data/scenarioExegesisData.js';
 `;
 
@@ -42,7 +43,7 @@ await build({
 });
 
 const mod = await import(pathToFileURL(bundlePath).href);
-const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, multiScenarios, FAST_TRACK_DAYS, SCENARIO_EXEGESIS } = mod;
+const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, multiScenarios, FAST_TRACK_DAYS, SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS, SCENARIO_EXEGESIS } = mod;
 
 const groups = [];
 for (const sc of situationalScenarios) {
@@ -59,12 +60,20 @@ for (const ms of (multiScenarios || [])) {
 }
 for (const topic of SITUATIONAL_TOPICS) {
   (topic.dialogues || []).forEach(d => groups.push({ source: `topic:${topic.id}:${d.id}`, lines: d.lines || [] }));
+  if (topic.quickGuide?.survivalTable?.length) {
+    groups.push({ source: `topic-survival:${topic.id}`, lines: topic.quickGuide.survivalTable });
+  }
 }
 for (const day of FAST_TRACK_DAYS) {
   groups.push({ source: `fasttrack:day${day.day}`, lines: day.dialogue || [] });
+  if (day.phrases?.length) {
+    groups.push({ source: `fasttrack-phrases:day${day.day}`, lines: day.phrases });
+  }
 }
 (numbersAndCurrency.bankingDialogues || []).forEach((d, i) => groups.push({ source: `banking:${i}`, lines: d.lines || [] }));
 groups.push({ source: 'shopping-phrases', lines: numbersAndCurrency.highFrequencyShopping?.items || [] });
+groups.push({ source: 'emergency-symptoms', lines: SYMPTOM_POINT_SPEAK_LIST || [] });
+groups.push({ source: 'emergency-cards', lines: EMERGENCY_CARDS || [] });
 // Exegesis cards only ever speak the Vietnamese (formula examples + colloquial extensions)
 for (const [id, ex] of Object.entries(SCENARIO_EXEGESIS || {})) {
   const viOnly = [

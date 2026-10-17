@@ -6,10 +6,11 @@
  */
 
 export const SYLLABUS_CATEGORIES = [
+  { id: 'practice', labelZh: '🎯 學習方法與綜合練習', labelVi: 'Luyện tập', labelEn: 'Practice & Learning', icon: 'Target' },
   { id: 'all', labelZh: '全部章節', labelVi: 'Tất cả bài học', labelEn: 'All Chapters', icon: 'Layers' },
   { id: 'vocab', labelZh: '🌟 萬詞核心 (1k-10k字)', labelVi: '🌟 10.000 từ vựng cốt lõi', labelEn: '🌟 10K Frequency Vocab', icon: 'Brain', color: '#10b981' },
   { id: 'topics', labelZh: '✨ 7大深造 (7大專題)', labelVi: '✨ Chuyên đề chuyên sâu', labelEn: '✨ 7 Situations', icon: 'Sparkles', color: '#eab308' },
-  { id: 'scenario', labelZh: '🗣️ 生活情境 (49篇)', labelVi: '🗣️ Tình huống đời sống', labelEn: '🗣️ Life Scenarios', icon: 'MessagesSquare', color: '#10b981' },
+  { id: 'scenario', labelZh: '🗣️ 生活情境 (64篇)', labelVi: '🗣️ Tình huống đời sống', labelEn: '🗣️ Life Scenarios (64)', icon: 'MessagesSquare', color: '#10b981' },
   { id: 'business', labelZh: '💼 職場商務 (11單元)', labelVi: '💼 Thương mại & FDI', labelEn: '💼 Business Hub', icon: 'Briefcase', color: '#f59e0b' },
   { id: 'macropol', labelZh: '🏛️ 越南政經智庫 (18專案)', labelVi: '🏛️ Chính trị - Kinh tế', labelEn: '🏛️ Macro & Politics Hub', icon: 'Landmark', color: '#3b82f6' },
   { id: 'basics', labelZh: '🔤 發音聲調 (10課)', labelVi: '🔤 Phát âm & Thanh điệu', labelEn: '🔤 Sounds & Tones', icon: 'Languages', color: '#8b5cf6' },
@@ -18,7 +19,7 @@ export const SYLLABUS_CATEGORIES = [
   { id: 'grammar', labelZh: '📚 語法字根 (30專題)', labelVi: '📚 Ngữ pháp & Hán Việt', labelEn: '📚 Grammar & Roots', icon: 'BookOpenText', color: '#06b6d4' }
 ];
 
-export const SYLLABUS_REGISTRY = [
+const CORE_SYLLABUS = [
   // ─── 0. FREQUENCY VOCABULARY TIERS (1k / 3k / 5k / 10k 字庫) ───
   {
     id: 'vocab_1k',
@@ -29,10 +30,10 @@ export const SYLLABUS_REGISTRY = [
     titleZh: '🌟 Top 1,000 (A1-A2 基礎生存高頻詞)',
     titleVi: 'Top 1.000 từ vựng căn bản đời sống',
     titleEn: 'Top 1,000 Everyday Foundation Words',
-    descZh: '覆蓋約 85% 日常口語。核心人稱、高頻動詞、方位量詞、餐飲購物與出行。',
-    descVi: 'Bao phủ 85% hội thoại đời thường: đại từ, động từ căn bản, lượng từ và ăn uống.',
+    descZh: '以日常口語基礎詞為選材目標。核心人稱、高頻動詞、方位量詞、餐飲購物與出行。',
+    descVi: 'Từ vựng đời thường: đại từ, động từ căn bản, lượng từ và ăn uống.',
     icon: 'Brain',
-    badge: '85% 口語覆蓋',
+    badge: '基礎詞彙',
     level: 'A1-A2',
     readTime: '15 分鐘',
     targetParam: { tier: 'top1k' }
@@ -46,10 +47,10 @@ export const SYLLABUS_REGISTRY = [
     titleZh: '🚀 Top 3,000 (B1 生活社交流利高頻詞)',
     titleVi: 'Top 3.000 từ vựng giao tiếp lưu loát',
     titleEn: 'Top 3,000 Intermediate Fluency Words',
-    descZh: '覆蓋約 95% 生活與工作交流。租屋交通、辦公室協作、情感意見判斷與實用漢越詞。',
-    descVi: 'Bao phủ 95% giao tiếp: thuê nhà, công sở, cảm xúc và từ Hán Việt thông dụng.',
+    descZh: '擴充生活與工作交流詞彙。租屋交通、辦公室協作、情感意見判斷與實用漢越詞。',
+    descVi: 'Từ vựng giao tiếp: thuê nhà, công sở, cảm xúc và từ Hán Việt thông dụng.',
     icon: 'Brain',
-    badge: '95% 交流覆蓋',
+    badge: '生活交流',
     level: 'B1',
     readTime: '20 分鐘',
     targetParam: { tier: 'top3k' }
@@ -63,10 +64,10 @@ export const SYLLABUS_REGISTRY = [
     titleZh: '💼 Top 5,000 (B2 報章商務專業詞彙)',
     titleVi: 'Top 5.000 từ vựng báo chí & thương mại',
     titleEn: 'Top 5,000 Business & News Lexicon',
-    descZh: '覆蓋約 98% 報章文獻與跨國商務。總體經濟、FDI合約、法規遵循與供應鏈。',
-    descVi: 'Bao phủ 98% báo chí: kinh tế vĩ mô, hợp đồng FDI, pháp lý và chuỗi cung ứng.',
+    descZh: '進階閱讀與商務詞彙練習。總體經濟、FDI合約、法規遵循與供應鏈。',
+    descVi: 'Từ vựng báo chí: kinh tế vĩ mô, hợp đồng FDI, pháp lý và chuỗi cung ứng.',
     icon: 'Brain',
-    badge: '98% 專業覆蓋',
+    badge: '專業閱讀',
     level: 'B2',
     readTime: '25 分鐘',
     targetParam: { tier: 'top5k' }
@@ -80,10 +81,10 @@ export const SYLLABUS_REGISTRY = [
     titleZh: '👑 Top 10,000 (C1-C2 頂級精通與母語辭庫)',
     titleVi: 'Top 10.000 từ vựng tinh thông & thành ngữ',
     titleEn: 'Top 10,000 Native Mastery & Idioms',
-    descZh: '達到 99.5%+ 全域母語級掌握。四字格成語俗諺、哲理思辨、同義辨析與跨國法務。',
-    descVi: 'Đạt 99.5% tinh thông: thành ngữ tục ngữ, triết lý, tu từ và pháp chế chuyên sâu.',
+    descZh: '高階詞彙與語域辨析練習。四字格成語俗諺、哲理思辨、同義辨析與跨國法務。',
+    descVi: 'Từ vựng nâng cao: thành ngữ tục ngữ, triết lý, tu từ và pháp chế chuyên sâu.',
     icon: 'Brain',
-    badge: '99.5% 母語精通',
+    badge: '高階詞彙',
     level: 'C1-C2',
     readTime: '30 分鐘',
     targetParam: { tier: 'top10k' }
@@ -147,7 +148,7 @@ export const SYLLABUS_REGISTRY = [
     categoryLabelVi: '⚡ Cặp từ dễ nhầm lẫn',
     titleZh: '⚡ 漢越同形異義「陷阱假朋友」(bác sĩ, lịch sự, kỳ cục)',
     titleEn: 'Han-Viet False Friends & Semantic Traps',
-    descZh: '字面是博士實際是醫生！字面是歷史實際是禮貌！杜絕中文「望文生義」的社交流血事故。',
+    descZh: '字面是博士實際是醫生！lịch sự 是禮貌，lịch sử 才是歷史！杜絕中文「望文生義」的社交流血事故。',
     descVi: 'Tránh cạm bẫy từ Hán Việt đồng hình dị nghĩa cho người học tiếng Trung.',
     icon: 'AlertTriangle',
     badge: '防踩雷必修',
@@ -566,7 +567,7 @@ export const SYLLABUS_REGISTRY = [
     badge: '智庫專題',
     level: 'B2',
     readTime: '12 分鐘',
-    targetParam: { section: 'dossiers', dossierId: 'dossier-1' }
+    targetParam: { section: 'dossiers', dossierId: 'DOSSIER-2026-01' }
   },
   {
     id: 'macro_dossier_2',
@@ -583,7 +584,7 @@ export const SYLLABUS_REGISTRY = [
     badge: '智庫專題',
     level: 'B2',
     readTime: '12 分鐘',
-    targetParam: { section: 'dossiers', dossierId: 'dossier-2' }
+    targetParam: { section: 'dossiers', dossierId: 'DOSSIER-2026-02' }
   },
   {
     id: 'macro_dossier_4',
@@ -600,7 +601,7 @@ export const SYLLABUS_REGISTRY = [
     badge: '智庫專題',
     level: 'B2',
     readTime: '14 分鐘',
-    targetParam: { section: 'dossiers', dossierId: 'dossier-4' }
+    targetParam: { section: 'dossiers', dossierId: 'DOSSIER-2026-04' }
   },
   {
     id: 'macro_dossier_7',
@@ -617,7 +618,7 @@ export const SYLLABUS_REGISTRY = [
     badge: '智庫專題',
     level: 'B2',
     readTime: '12 分鐘',
-    targetParam: { section: 'dossiers', dossierId: 'dossier-7' }
+    targetParam: { section: 'dossiers', dossierId: 'DOSSIER-2026-07' }
   },
   {
     id: 'macro_dossier_10',
@@ -634,7 +635,7 @@ export const SYLLABUS_REGISTRY = [
     badge: '智庫專題',
     level: 'B2',
     readTime: '13 分鐘',
-    targetParam: { section: 'dossiers', dossierId: 'dossier-10' }
+    targetParam: { section: 'dossiers', dossierId: 'DOSSIER-2026-10' }
   },
   {
     id: 'macro_dossier_12',
@@ -651,7 +652,7 @@ export const SYLLABUS_REGISTRY = [
     badge: '智庫專題',
     level: 'B2',
     readTime: '14 分鐘',
-    targetParam: { section: 'dossiers', dossierId: 'dossier-12' }
+    targetParam: { section: 'dossiers', dossierId: 'DOSSIER-2026-12' }
   },
 
   // ─── 3. SITUATIONAL CONVERSATIONS (Top Life Scenarios) ───
@@ -729,7 +730,7 @@ export const SYLLABUS_REGISTRY = [
     category: 'scenario',
     categoryLabelZh: '🗣️ 生活情境',
     categoryLabelVi: '🗣️ Tình huống đời sống',
-    titleZh: '傳統傳統菜市場與夜市殺價購物',
+    titleZh: '傳統菜市場與夜市殺價購物',
     titleVi: 'Mua sắm & Trả giá tại chợ truyền thống',
     titleEn: 'Market Shopping & Friendly Bargaining',
     descZh: '「Bao nhiêu một ký?」(一公斤多少錢)、挑選熱帶水果、禮貌殺價「Bớt một chút nhé」。',
@@ -789,7 +790,7 @@ export const SYLLABUS_REGISTRY = [
     badge: '金融日常',
     level: 'B1',
     readTime: '9 分鐘',
-    targetParam: { scenarioId: 'bank' }
+    targetParam: { scenarioId: 'bank_open_account' }
   },
 
   // ─── 4. SOUNDS & TONES BASICS (10 Lessons) ───
@@ -1142,3 +1143,1245 @@ export const SYLLABUS_REGISTRY = [
     targetParam: { scenarioId: 'pharmacy_clinic_visit' }
   }
 ];
+
+// Supplementary entries are kept explicit so search never loads large data modules.
+const SUPPLEMENTARY_SYLLABUS = [
+  {
+    "id": "scenario_vietnam_geography",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "越南風土民情與三大區域",
+    "titleVi": "Văn Hóa Và Các Vùng Miền Việt Nam",
+    "titleEn": "Vietnamese Culture & Regions",
+    "descZh": "深入了解越南北、中、南部的風土民情，並探索各大著名城市的必訪景點。",
+    "descVi": "Văn Hóa Và Các Vùng Miền Việt Nam",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "vietnam_geography"
+    }
+  },
+  {
+    "id": "scenario_business_negotiation",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "辦公室會議與合約交涉",
+    "titleVi": "Thương Lượng Kinh Doanh Tại Văn Phòng",
+    "titleEn": "Office Meetings & Contract Negotiation",
+    "descZh": "學習如何在越南辦公室進行專業的商業交涉，包含討論價格、合約條款與表達合作意願。",
+    "descVi": "Thương Lượng Kinh Doanh Tại Văn Phòng",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "business_negotiation"
+    }
+  },
+  {
+    "id": "scenario_factory_tour",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "越南工廠視察與生產進度討論",
+    "titleVi": "Tham Quan Nhà Máy Và Tiến Độ Sản Xuất",
+    "titleEn": "Vietnam Factory Tour & Production Progress",
+    "descZh": "掌握在越南工廠視察時的實用對話，包含詢問生產進度、品質控管與出貨時間。",
+    "descVi": "Tham Quan Nhà Máy Và Tiến Độ Sản Xuất",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "factory_tour"
+    }
+  },
+  {
+    "id": "scenario_pho",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "傳統河粉店點牛肉河粉、油條與熟度",
+    "titleVi": "Gọi Món Tại Quán Phở Truyền Thống",
+    "titleEn": "Ordering Pho Beef Noodle Soup & Toppings",
+    "descZh": "學會區分半熟生牛肉 (Phở tái)、全熟牛腩 (Phở chín/nạm)、加點油條 (Quẩy) 與特製半熟蛋 (Trứng chần)。",
+    "descVi": "Gọi Món Tại Quán Phở Truyền Thống",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "pho"
+    }
+  },
+  {
+    "id": "scenario_banhmi",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "越式法國麵包攤客製化內餡與辣度",
+    "titleVi": "Mua Bánh Mì Tại Xe Bánh Mì Vỉa Hè",
+    "titleEn": "Ordering Banh Mi at a Street Food Cart",
+    "descZh": "掌握點 Bánh mì thịt (肉餡麵包)、Bánh mì trứng (煎蛋麵包)、客製加滿肝醬 (Pa-tê)、醃蘿蔔與調整辣度。",
+    "descVi": "Mua Bánh Mì Tại Xe Bánh Mì Vỉa Hè",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "banhmi"
+    }
+  },
+  {
+    "id": "scenario_seafood",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "海鮮大排檔炒螺肉、敬酒乾杯與結帳",
+    "titleVi": "Ăn Hải Sản & Nhậu Tại Quán Ốc Vỉa Hè",
+    "titleEn": "Seafood Street Stall (Quán Ốc) Dining & Toasting",
+    "descZh": "體驗西貢最熱鬧的「Nhậu」(飲酒宵夜) 文化，點蒜香奶油炒香螺、鹽烤斑節蝦、大喊「Mot Hai Ba Dzo」乾杯。",
+    "descVi": "Ăn Hải Sản & Nhậu Tại Quán Ốc Vỉa Hè",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "seafood"
+    }
+  },
+  {
+    "id": "scenario_boba_che",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "手搖奶茶與傳統越式甜湯 (Chè) 點餐",
+    "titleVi": "Gọi Trà Sữa & Chè Truyền Thống",
+    "titleEn": "Ordering Boba Milk Tea & Traditional Sweet Soup (Chè)",
+    "descZh": "學會手搖飲料客製化糖度 (Đường)、冰量 (Đá)、加黑糖珍珠 (Trân châu) 與品嚐傳統柚皮甜湯 (Chè bưởi)、三色冰 (Chè ba màu)。",
+    "descVi": "Gọi Trà Sữa & Chè Truyền Thống",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "boba_che"
+    }
+  },
+  {
+    "id": "scenario_airport",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "國際機場辦理登機、過海關與托運行李",
+    "titleVi": "Làm Thủ Tục Tại Sân Bay & Hải Quan",
+    "titleEn": "Airport Check-In, Baggage Drop & Customs Clearance",
+    "descZh": "機場櫃台出示護照 (Hộ chiếu)、登機證 (Thẻ lên máy bay)、行李托運 (Hành lý ký gửi) 與挑選靠窗靠走道座位。",
+    "descVi": "Làm Thủ Tục Tại Sân Bay & Hải Quan",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "airport"
+    }
+  },
+  {
+    "id": "scenario_convenience",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "便利商店買零食泡麵、微波加熱與要塑膠袋",
+    "titleVi": "Mua Sắm Tại Cửa Hàng Tiện Lợi (Circle K / WinMart)",
+    "titleEn": "Convenience Store Shopping, Microwave & Bag Request",
+    "descZh": "在 Circle K、GS25、FamilyMart、WinMart 購買泡麵、飲料、要求微波加熱 (Hâm nóng)、要塑膠袋 (Túi nilon) 與發票。",
+    "descVi": "Mua Sắm Tại Cửa Hàng Tiện Lợi (Circle K / WinMart)",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "convenience"
+    }
+  },
+  {
+    "id": "scenario_pharmacy",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "藥局買藥、描述感冒發燒、拉肚子與用藥頻率",
+    "titleVi": "Mua Thuốc & Miêu Tả Triệu Chứng Tại Hiệu Thuốc",
+    "titleEn": "Buying Medicine at a Pharmacy & Describing Symptoms",
+    "descZh": "描述症狀：發燒 (Sốt)、頭痛 (Đau đầu)、喉嚨痛 (Đau họng)、拉肚子 (Đau bụng/Tiêu chảy)、詢問飯前飯後吃法。",
+    "descVi": "Mua Thuốc & Miêu Tả Triệu Chứng Tại Hiệu Thuốc",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "pharmacy"
+    }
+  },
+  {
+    "id": "scenario_spa",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "越式洗頭 (Gội đầu dưỡng sinh)、肩頸按摩與力道調整",
+    "titleVi": "Gội Đầu Dưỡng Sinh & Mát-Xa Thư Giãn",
+    "titleEn": "Vietnamese Herbal Hair Spa & Massage Relaxation",
+    "descZh": "體驗正統草本養生洗頭套餐 (Gội đầu dưỡng sinh)、肩頸掏耳按摩、調整水溫與力道「Mạnh hơn」(重一點) /「Nhẹ thôi」(輕一點)。",
+    "descVi": "Gội Đầu Dưỡng Sinh & Mát-Xa Thư Giãn",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "spa"
+    }
+  },
+  {
+    "id": "scenario_haircut",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "男士理髮沙龍 (30Shine 剪髮、洗臉修鬍與造型全體驗)",
+    "titleVi": "Cắt Tóc Nam & Chăm Sóc Tại Salon 30Shine",
+    "titleEn": "Men's Barber & Grooming (30Shine Haircut, Facial, Wash & Style)",
+    "descZh": "深入走訪越南最大現代男士連鎖理髮沙龍 30Shine！掌握經典 10 步驟「Shine Combo」套餐預約、與理髮師溝通髮型長度細節（推兩側、打薄頂部、修鬍輪廓）、躺式洗臉洗頭力道水溫反饋，以及吹整抓蠟與結帳付款的全方位實用對話。",
+    "descVi": "Cắt Tóc Nam & Chăm Sóc Tại Salon 30Shine",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "haircut"
+    }
+  },
+  {
+    "id": "scenario_business_meeting",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "職場商務拜訪、交換名片、洽談專案與預約下次會議",
+    "titleVi": "Gặp Gỡ Đối Tác, Trao Danh Thiếp & Đàm Phán Dự Án",
+    "titleEn": "Business Meeting, Exchanging Namecards & Project Discussion",
+    "descZh": "商務禮儀：雙手遞接名片 (Trao danh thiếp)、稱呼職稱 (Giám đốc)、洽談合作 (Hợp tác) 與敲定合約進度。",
+    "descVi": "Gặp Gỡ Đối Tác, Trao Danh Thiếp & Đàm Phán Dự Án",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "business_meeting"
+    }
+  },
+  {
+    "id": "scenario_emergency",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "緊急求助、遺失護照錢包、報警報案與急難電話",
+    "titleVi": "Trợ Giúp Khẩn Cấp, Mất Hộ Chiếu & Báo Công An",
+    "titleEn": "Emergency Assistance, Lost Passport, Police Report & Hotlines",
+    "descZh": "大喊救命「Cứu tôi với!」(救我)、遺失護照 (Mất hộ chiếu)、報警 (Báo công an)、報案筆錄 (Lập biên bản) 與 113/114/115 急難電話。",
+    "descVi": "Trợ Giúp Khẩn Cấp, Mất Hộ Chiếu & Báo Công An",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "emergency"
+    }
+  },
+  {
+    "id": "scenario_meeting",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "初次見面自我介紹、詢問背景與加 Zalo 好友",
+    "titleVi": "Gặp Gỡ, Làm Quen & Kết Bạn Zalo",
+    "titleEn": "Self-Introduction, Background & Adding Zalo Contact",
+    "descZh": "學習向越南朋友自我介紹姓名、國籍、工作、學越文時間，並禮貌交換 Zalo/Facebook 聯繫方式。",
+    "descVi": "Gặp Gỡ, Làm Quen & Kết Bạn Zalo",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "meeting"
+    }
+  },
+  {
+    "id": "scenario_smalltalk",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "天氣閒聊、週末休假安排與日常生活關心",
+    "titleVi": "Trò Chuyện, Thời Tiết & Cuộc Sống Thường Ngày",
+    "titleEn": "Weather, Weekend Plans & Everyday Chit-Chat",
+    "descZh": "學習越南人最常聊的天氣變化、週末放假去處、美食推薦與生活問候技巧。",
+    "descVi": "Trò Chuyện, Thời Tiết & Cuộc Sống Thường Ngày",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "smalltalk"
+    }
+  },
+  {
+    "id": "scenario_leisure_hobbies",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "交流個人興趣、卡拉OK (Karaoke) 與看電影休閒",
+    "titleVi": "Sở Thích, Hát Karaoke & Giải Trí Cuối Tuần",
+    "titleEn": "Talking About Hobbies, Karaoke & Movies",
+    "descZh": "掌握如何表達自己的興趣愛好（唱歌、拍照、烹飪、聽音樂），並參與越南超受歡迎的 Karaoke 聚會。",
+    "descVi": "Sở Thích, Hát Karaoke & Giải Trí Cuối Tuần",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "leisure_hobbies"
+    }
+  },
+  {
+    "id": "scenario_sports_fitness",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "公園踢毽子 (Đá cầu)、打羽球與健身房運動交流",
+    "titleVi": "Thể Thao, Đá Cầu, Cầu Lông & Tập Gym",
+    "titleEn": "Shuttlecock Kicking (Đá cầu), Badminton & Gym Fitness",
+    "descZh": "認識越南國技「踢毽子」(Đá cầu)、晨間公園運動、羽毛球約打與健身房重量訓練表達。",
+    "descVi": "Thể Thao, Đá Cầu, Cầu Lông & Tập Gym",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "sports_fitness"
+    }
+  },
+  {
+    "id": "scenario_workplace_collab",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "辦公室工作交接、請病假報備與會議進度匯報",
+    "titleVi": "Công Việc, Xin Nghỉ Phép & Báo Cáo Tiến Độ",
+    "titleEn": "Workplace Handovers, Sick Leave Requests & Meeting Progress",
+    "descZh": "學會辦公室與工廠產線現場實務溝通：請假（Nghỉ phép）、確認交期進度、協同跨部門合作。",
+    "descVi": "Công Việc, Xin Nghỉ Phép & Báo Cáo Tiến Độ",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "workplace_collab"
+    }
+  },
+  {
+    "id": "scenario_travel_tour",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "景點門票購買、租借機車 (Thuê xe máy) 與一日遊諮詢",
+    "titleVi": "Đặt Tour Du Lịch, Mua Vé & Thuê Xe Máy",
+    "titleEn": "Attraction Tickets, Motorbike Rental & Day Tour Booking",
+    "descZh": "掌握在峴港、河內、胡志明或大叻租機車、確認油箱、押金、頭盔與購買觀光景點門票實戰對話。",
+    "descVi": "Đặt Tour Du Lịch, Mua Vé & Thuê Xe Máy",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "travel_tour"
+    }
+  },
+  {
+    "id": "scenario_biz_trade_show_secc",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "國際商展攤位接待、產品介紹與名片交換",
+    "titleVi": "Đón Tiếp Gian Hàng Triển Lãm, Giới Thiệu Sản Phẩm & Trao Danh Thiếp",
+    "titleEn": "SECC Trade Show Booth Greeting, Product Pitch & Card Exchange",
+    "descZh": "在胡志明市 SECC 展覽館接待國際買家：迎賓問候、遞送型錄 (Catalogue)、解說技術認證與交換名片及 Zalo。",
+    "descVi": "Đón Tiếp Gian Hàng Triển Lãm, Giới Thiệu Sản Phẩm & Trao Danh Thiếp",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_trade_show_secc"
+    }
+  },
+  {
+    "id": "scenario_biz_rfq_pricing",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "詢價報價 (RFQ)、大宗採購折扣與 MOQ 議價",
+    "titleVi": "Yêu Cầu Báo Giá (RFQ), Chiết Khấu Số Lượng & Thương Lượng MOQ",
+    "titleEn": "RFQ Quotation, Bulk Volume Discount & MOQ Negotiation",
+    "descZh": "商務採購核心：核對 FOB Cát Lái 港口交貨價格、協商大宗採購折讓比率與首批試產起訂量 (MOQ)。",
+    "descVi": "Yêu Cầu Báo Giá (RFQ), Chiết Khấu Số Lượng & Thương Lượng MOQ",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_rfq_pricing"
+    }
+  },
+  {
+    "id": "scenario_biz_oem_odm_contract",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "OEM 代工與 ODM 客製化規格洽談",
+    "titleVi": "Đàm Phán Gia Công OEM, Thiết Kế ODM & Ký Thỏa Thuận Bảo Mật NDA",
+    "titleEn": "OEM Manufacturing, ODM Custom Specs & NDA Signing",
+    "descZh": "工程代工交涉：確認模具費 (Chi phí khuôn mẫu)、工程公差 (Dung sai kỹ thuật)、試產打樣與簽署保密協定 (NDA)。",
+    "descVi": "Đàm Phán Gia Công OEM, Thiết Kế ODM & Ký Thỏa Thuận Bảo Mật NDA",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_oem_odm_contract"
+    }
+  },
+  {
+    "id": "scenario_biz_vat_invoice_tax",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "開立電子加值稅紅發票 (Hóa đơn đỏ) 與公司稅號報帳",
+    "titleVi": "Xuất Hóa Đơn Điện Tử GTGT (Hóa Đơn Đỏ) & Kê Khai Mã Số Thuế",
+    "titleEn": "Requesting Official VAT Red Invoices & Corporate Tax Reimbursement",
+    "descZh": "越南報帳法規：索取 10% 加值稅電子紅發票 (Hóa đơn điện tử)、提供公司統一稅號 (MST)、核對發票內容與 Email 接收。",
+    "descVi": "Xuất Hóa Đơn Điện Tử GTGT (Hóa Đơn Đỏ) & Kê Khai Mã Số Thuế",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_vat_invoice_tax"
+    }
+  },
+  {
+    "id": "scenario_biz_factory_audit_qc",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "工廠產線驗廠、品管抽檢與不良品處置",
+    "titleVi": "Kiểm Toán Nhà Xưởng, Lấy Mẫu Kiểm Tra KCS & Xử Lý Phế Phẩm NG",
+    "titleEn": "Factory Audit Walkthrough, QC Sampling & Defect Management",
+    "descZh": "廠房實務稽核：穿戴工安護具、巡視產線產能 (Năng suất chuyền)、抽檢不良率 (Tỷ lệ lỗi) 與擬定預防改善對策。",
+    "descVi": "Kiểm Toán Nhà Xưởng, Lấy Mẫu Kiểm Tra KCS & Xử Lý Phế Phẩm NG",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_factory_audit_qc"
+    }
+  },
+  {
+    "id": "scenario_biz_customs_logistics",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "進出口海關報關、貨櫃裝箱與提單交期",
+    "titleVi": "Kê Khai Hải Quan Xuất Nhập Khẩu, Đóng Container & Vận Đơn B/L",
+    "titleEn": "Customs Clearance, Container Logistics & Bill of Lading (B/L)",
+    "descZh": "跨國貿易物流：掌握蓋萊港 (Cát Lái) / 海防港 (Hải Phòng) 報關程序、裝箱單 (Packing List) 與避免延滯費 (Demurrage)。",
+    "descVi": "Kê Khai Hải Quan Xuất Nhập Khẩu, Đóng Container & Vận Đơn B/L",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_customs_logistics"
+    }
+  },
+  {
+    "id": "scenario_biz_nhau_banquet",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "商務宴請、酒桌應酬祝酒與座位禮儀",
+    "titleVi": "Tiệc Chiêu Đãi Đối Tác, Nghi Thức Chúc Rượu & Văn Hóa Nhậu",
+    "titleEn": "Business Banquet, 'Nhậu' Toasting Rituals & Dining Etiquette",
+    "descZh": "商務人脈沉澱：學會正式晚宴座位安排、雙手敬酒致意、齊喊「1, 2, 3, Dô!」與優雅表達酒量防線。",
+    "descVi": "Tiệc Chiêu Đãi Đối Tác, Nghi Thức Chúc Rượu & Văn Hóa Nhậu",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_nhau_banquet"
+    }
+  },
+  {
+    "id": "scenario_biz_bank_finance",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "越南銀行開戶、跨國匯款與企業信用狀",
+    "titleVi": "Mở Tài Khoản Ngân Hàng Doanh Nghiệp, Chuyển Tiền & Mở Thư Tín Dụng L/C",
+    "titleEn": "Corporate Banking Setup, Cross-Border Remittance & LC Issuance",
+    "descZh": "外派財務運作：辦理企業外幣與越盾帳戶開戶、開立不可撤銷信用狀 (L/C) 與向銀行申辦跨國結匯手續。",
+    "descVi": "Mở Tài Khoản Ngân Hàng Doanh Nghiệp, Chuyển Tiền & Mở Thư Tín Dụng L/C",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_bank_finance"
+    }
+  },
+  {
+    "id": "scenario_biz_hiring_labor",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "工廠招募招工、勞動合約與加班排班",
+    "titleVi": "Tuyển Dụng Lao Động Nhà Máy, Ký Hợp Đồng & Bố Trí Tăng Ca",
+    "titleEn": "Factory Recruitment, Labor Contracts & Overtime Shift Planning",
+    "descZh": "廠房人資管理：招募產線技術員、核定底薪與全勤津貼 (Phụ cấp chuyên cần)、簽署勞動合約與安排合法加班 (Tăng ca)。",
+    "descVi": "Tuyển Dụng Lao Động Nhà Máy, Ký Hợp Đồng & Bố Trí Tăng Ca",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_hiring_labor"
+    }
+  },
+  {
+    "id": "scenario_biz_exclusive_agency",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "獨家經銷代理權、年度業績目標與市場拓展",
+    "titleVi": "Ký Hợp Đồng Đại Lý Độc Quyền, Chỉ Tiêu Doanh Số & Mở Rộng Thị Trường",
+    "titleEn": "Exclusive Distributorship, Annual Sales Quotas & Channel Strategy",
+    "descZh": "通路拓展戰略：簽署分區獨家總代理合約 (Đại lý độc quyền)、設定季度 KPI 採購承諾與行銷補貼分攤。",
+    "descVi": "Ký Hợp Đồng Đại Lý Độc Quyền, Chỉ Tiêu Doanh Số & Mở Rộng Thị Trường",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_exclusive_agency"
+    }
+  },
+  {
+    "id": "scenario_biz_factory_lease",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "工業區土地租賃、標準廠房挑選與基礎設施談判",
+    "titleVi": "Thuê Đất Công Nghiệp, Chọn Nhà Xưởng Xây Sẵn & Đàm Phán Hạ Tầng",
+    "titleEn": "Industrial Land & Ready-Built Factory (RBF) Lease Negotiation",
+    "descZh": "外資設廠選址：挑選平陽/北寧標準廠房 (RBF)、洽談每平米月租金 ($/m2/tháng)、變壓站容量 (KVA) 與廢水排放指標。",
+    "descVi": "Thuê Đất Công Nghiệp, Chọn Nhà Xưởng Xây Sẵn & Đàm Phán Hạ Tầng",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_factory_lease"
+    }
+  },
+  {
+    "id": "scenario_biz_bank_loan",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "企業銀行融資貸款、抵押授信與利率協商",
+    "titleVi": "Vay Vốn Ngân Hàng Doanh Nghiệp, Hạn Mức Tín Dụng & Lãi Suất Thế Chấp",
+    "titleEn": "Corporate Bank Loans, Collateral Credit Lines & Interest Rate Negotiation",
+    "descZh": "企業融資操盤：向銀行申辦中期設備貸款 (Vay trung hạn) 與營運週轉金額度 (Hạn mức vốn lưu động)、抵押土地廠房並敲定浮動/固定利率。",
+    "descVi": "Vay Vốn Ngân Hàng Doanh Nghiệp, Hạn Mức Tín Dụng & Lãi Suất Thế Chấp",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_bank_loan"
+    }
+  },
+  {
+    "id": "scenario_biz_epc_construction",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "營造建設總承包 (EPC) 與廠房鋼構施工進度",
+    "titleVi": "Tổng Thầu Xây Dựng EPC, Thi Công Nhà Thép Tiền Chế & Nghiệm Thu Công Trình",
+    "titleEn": "EPC General Contractor, Steel Structure Construction & Handover",
+    "descZh": "工程建廠全流程：簽署統包合約 (Hợp đồng EPC)、鋼結構安裝 (Nhà thép tiền chế)、工期里程碑 (Tiến độ) 與工程保固期 (Bảo hành 24 tháng)。",
+    "descVi": "Tổng Thầu Xây Dựng EPC, Thi Công Nhà Thép Tiền Chế & Nghiệm Thu Công Trình",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_epc_construction"
+    }
+  },
+  {
+    "id": "scenario_biz_environmental_permit",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "環評報告評估 (ĐTM)、廢水排放與環保合規審查",
+    "titleVi": "Lập Báo Cáo Đánh Giá Tác Động Môi Trường (ĐTM) & Giấy Phép Môi Trường",
+    "titleEn": "Environmental Impact Assessment (EIA/ĐTM) & Wastewater Compliance",
+    "descZh": "廠房環保法規：申辦環評報告 (ĐTM) 與環境許可證 (GPMT)、工業廢水標準納管 (QCVN 40) 與危險廢棄物申報處置。",
+    "descVi": "Lập Báo Cáo Đánh Giá Tác Động Môi Trường (ĐTM) & Giấy Phép Môi Trường",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_environmental_permit"
+    }
+  },
+  {
+    "id": "scenario_biz_fire_safety_pccc",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "消防工程審批 (PCCC)、噴淋系統與消防驗收",
+    "titleVi": "Thẩm Duyệt Thiết Kế Phòng Cháy Chữa Cháy (PCCC) & Nghiệm Thu Công An",
+    "titleEn": "Fire Safety Design Appraisal (PCCC), Sprinklers & Police Inspection",
+    "descZh": "廠房投產前置：申請消防設計審批 (Thẩm duyệt PCCC)、安裝自動噴淋系統 (Sprinkler)、防火塗料與通過公安局消防實地驗收。",
+    "descVi": "Thẩm Duyệt Thiết Kế Phòng Cháy Chữa Cháy (PCCC) & Nghiệm Thu Công An",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_fire_safety_pccc"
+    }
+  },
+  {
+    "id": "scenario_biz_work_permit_trc",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "外籍幹部工作證 (Work Permit) 與三年暫住卡申辦",
+    "titleVi": "Xin Giấy Phép Lao Động (Work Permit) & Thẻ Tạm Trú (TRC) Cho Chuyên Gia",
+    "titleEn": "Expatriate Work Permit & 3-Year Temporary Residence Card (TRC)",
+    "descZh": "台商幹部外派合法合規：申報外籍專家用人需求批文 (Giải trình nhu cầu lao động)、辦理 2 年工作證與領取 3 年暫住卡 (TRC)。",
+    "descVi": "Xin Giấy Phép Lao Động (Work Permit) & Thẻ Tạm Trú (TRC) Cho Chuyên Gia",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_work_permit_trc"
+    }
+  },
+  {
+    "id": "scenario_biz_tax_audit_transfer_pricing",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "國稅局稅務稽查、移轉訂價與反避稅抗辯",
+    "titleVi": "Thanh Tra Thuế Doanh Nghiệp FDI, Chống Chuyển Giá & Giải Trình Quyết Toán",
+    "titleEn": "Tax Audit Defense, Transfer Pricing Documentation & FDI Compliance",
+    "descZh": "外資稅務實戰：迎戰越南稅務總局年度稽查 (Thanh tra thuế)、編制移轉訂價三層文檔 (Transfer Pricing Local File) 與捍衛關聯交易合理性。",
+    "descVi": "Thanh Tra Thuế Doanh Nghiệp FDI, Chống Chuyển Giá & Giải Trình Quyết Toán",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "biz_tax_audit_transfer_pricing"
+    }
+  },
+  {
+    "id": "scenario_stage1_greeting",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "日常打招呼與自我介紹 (Chào hỏi & Giới thiệu)",
+    "titleVi": "階段 1：零基礎破冰 (A1 / 越語初發)",
+    "titleEn": "Greetings & Self Introduction",
+    "descZh": "【階段 1：零基礎破冰 (A1 / 越語初發)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "descVi": "階段 1：零基礎破冰 (A1 / 越語初發)",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "stage1_greeting"
+    }
+  },
+  {
+    "id": "scenario_stage2_dining_transport",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "餐廳點餐與交通搭車 (Nhà hàng & Giao thông)",
+    "titleVi": "階段 2：生存餐飲與問路 (A2 / 初級流利)",
+    "titleEn": "Restaurant Ordering & Transportation",
+    "descZh": "【階段 2：生存餐飲與問路 (A2 / 初級流利)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "descVi": "階段 2：生存餐飲與問路 (A2 / 初級流利)",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "stage2_dining_transport"
+    }
+  },
+  {
+    "id": "scenario_stage3_clinic_housing",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "看病買藥與租屋合約 (Khám bệnh & Thuê nhà)",
+    "titleVi": "階段 3：融入生活與醫療 (B1 / 中級實用)",
+    "titleEn": "Doctor Visit & Apartment Rental",
+    "descZh": "【階段 3：融入生活與醫療 (B1 / 中級實用)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "descVi": "階段 3：融入生活與醫療 (B1 / 中級實用)",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "stage3_clinic_housing"
+    }
+  },
+  {
+    "id": "scenario_stage4_biz_contract",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "商業會議與簽署合約 (Họp thương mại & Ký hợp đồng)",
+    "titleVi": "階段 4：商務談判與職場 (B2 / 中高級商務)",
+    "titleEn": "Business Meeting & Contract Signing",
+    "descZh": "【階段 4：商務談判與職場 (B2 / 中高級商務)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "descVi": "階段 4：商務談判與職場 (B2 / 中高級商務)",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "stage4_biz_contract"
+    }
+  },
+  {
+    "id": "scenario_stage5_fdi_economy",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "台越投資與經貿發展論壇 (Đầu tư & Kinh tế)",
+    "titleVi": "階段 5：高階專業與檢定 (C1-C2 / 高級專業)",
+    "titleEn": "Investment & Macroeconomics Forum",
+    "descZh": "【階段 5：高階專業與檢定 (C1-C2 / 高級專業)】實戰系統對話，循序漸進掌握各語境對應能力。",
+    "descVi": "階段 5：高階專業與檢定 (C1-C2 / 高級專業)",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "stage5_fdi_economy"
+    }
+  },
+  {
+    "id": "scenario_bank_wire_transfer",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+    "titleVi": "2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+    "titleEn": "2. Large Wire Transfer (Chuyển khoản số tiền lớn)",
+    "descZh": "越南商業銀行實戰情境：2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)，標準對話練習與金融業務。",
+    "descVi": "2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "bank_wire_transfer"
+    }
+  },
+  {
+    "id": "scenario_bank_deposit_interest",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+    "titleVi": "3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+    "titleEn": "3. Term Deposit & Interest Rates (Gửi tiết kiệm & Lãi suất)",
+    "descZh": "越南商業銀行實戰情境：3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)，標準對話練習與金融業務。",
+    "descVi": "3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "bank_deposit_interest"
+    }
+  },
+  {
+    "id": "scenario_ft_day1_fasttrack",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "Day 1: 3秒禮貌社交破冰",
+    "titleVi": "Ngày 1: Thực Chiến",
+    "titleEn": "Day 1: 3-Second Polite Icebreaker",
+    "descZh": "掌握最核心的問候、道謝、道歉與應答，踏出開口第一步！",
+    "descVi": "Ngày 1: Thực Chiến",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "ft_day1_fasttrack"
+    }
+  },
+  {
+    "id": "scenario_ft_day2_fasttrack",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "Day 2: 點餐與越南咖啡魔術密碼",
+    "titleVi": "Ngày 2: Thực Chiến",
+    "titleEn": "Day 2: Ordering Food & Coffee Magic Codes",
+    "descZh": "解鎖越南最著名的咖啡、法棍麵包與河粉點餐秘訣！",
+    "descVi": "Ngày 2: Thực Chiến",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "ft_day2_fasttrack"
+    }
+  },
+  {
+    "id": "scenario_ft_day3_fasttrack",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "Day 3: 市場殺價與數字貨幣秒算",
+    "titleVi": "Ngày 3: Thực Chiến",
+    "titleEn": "Day 3: Market Bargaining & VND Numbers",
+    "descZh": "攻克百萬越南盾換算，享受夜市與傳統市場自在購物的樂趣！",
+    "descVi": "Ngày 3: Thực Chiến",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "ft_day3_fasttrack"
+    }
+  },
+  {
+    "id": "scenario_ft_day4_fasttrack",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "Day 4: 計程車、Grab 與問路導航",
+    "titleVi": "Ngày 4: Thực Chiến",
+    "titleEn": "Day 4: Taxi, Grab & Directions",
+    "descZh": "出門搭車不迷路！精準指揮司機直走、轉彎與停車。",
+    "descVi": "Ngày 4: Thực Chiến",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "ft_day4_fasttrack"
+    }
+  },
+  {
+    "id": "scenario_ft_day5_fasttrack",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "Day 5: 稱謂神算與人際搞定術",
+    "titleVi": "Ngày 5: Thực Chiến",
+    "titleEn": "Day 5: Kinship Pronouns & Social Magic",
+    "descZh": "徹底攻克越南人際稱謂系統，叫對稱呼好感度瞬間爆表！",
+    "descVi": "Ngày 5: Thực Chiến",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "ft_day5_fasttrack"
+    }
+  },
+  {
+    "id": "scenario_ft_day6_fasttrack",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "Day 6: 便利超商與逛街結帳",
+    "titleVi": "Ngày 6: Thực Chiến",
+    "titleEn": "Day 6: Convenience Store & Shopping Checkout",
+    "descZh": "超商買水、買生活用品、刷卡與發票生活實戰。",
+    "descVi": "Ngày 6: Thực Chiến",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "ft_day6_fasttrack"
+    }
+  },
+  {
+    "id": "scenario_ft_day7_fasttrack",
+    "moduleId": "conversation",
+    "category": "scenario",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "Day 7: 社交閒聊與結交越南好友",
+    "titleVi": "Ngày 7: Thực Chiến",
+    "titleEn": "Day 7: Small Talk & Making Local Friends",
+    "descZh": "聊家鄉、交換 Zalo、相約喝咖啡，建立深厚跨國友誼！",
+    "descVi": "Ngày 7: Thực Chiến",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "scenarioId": "ft_day7_fasttrack"
+    }
+  },
+  {
+    "id": "macro_dossier-2026-03",
+    "moduleId": "macropol",
+    "category": "macropol",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "越南四大國有銀行與股份制商業銀行利差趨勢分析：信貸額度（Room Tín Dụng）鬆綁與房貸壞帳清理",
+    "titleVi": "Phân tích biên lãi thuần (NIM) hệ thống ngân hàng: Cởi trói room tín dụng và tiến trình xử lý nợ xấu bất động sản",
+    "titleEn": "越南四大國有銀行與股份制商業銀行利差趨勢分析：信貸額度（Room Tín Dụng）鬆綁與房貸壞帳清理",
+    "descZh": "公股行庫定存利率堅守 4.8% 護城河，民營股份銀行搶奪高利優質客戶，淨利差 (NIM) 兩極化分水嶺",
+    "descVi": "Phân tích biên lãi thuần (NIM) hệ thống ngân hàng: Cởi trói room tín dụng và tiến trình xử lý nợ xấu bất động sản",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "C1+",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "section": "dossiers",
+      "dossierId": "DOSSIER-2026-03"
+    }
+  },
+  {
+    "id": "macro_dossier-2026-05",
+    "moduleId": "macropol",
+    "category": "macropol",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "第二波全球供應鏈大遷徙：半導體封測（Amkor/Hana Micron）與 AI 伺服器供應鏈落戶越南之電力 PDP8 與綠電承諾挑戰",
+    "titleVi": "Làn sóng FDI thế hệ mới: Chuỗi bán dẫn OSAT, máy chủ AI và bài toán hạ tầng điện lực Quy hoạch VIII",
+    "titleEn": "第二波全球供應鏈大遷徙：半導體封測（Amkor/Hana Micron）與 AI 伺服器供應鏈落戶越南之電力 PDP8 與綠電承諾挑戰",
+    "descZh": "晶片製造不容一秒斷電：第八版電力規劃（PDP8）核准直接購電協議（DPPA），解密科技大廠在越擴產藍圖",
+    "descVi": "Làn sóng FDI thế hệ mới: Chuỗi bán dẫn OSAT, máy chủ AI và bài toán hạ tầng điện lực Quy hoạch VIII",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "C1+",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "section": "dossiers",
+      "dossierId": "DOSSIER-2026-05"
+    }
+  },
+  {
+    "id": "macro_dossier-2026-06",
+    "moduleId": "macropol",
+    "category": "macropol",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "670 億美元越南南北高速鐵路與全越行政省份大合併：重塑國土地理經濟學的世紀大戰略",
+    "titleVi": "Đường sắt tốc độ cao Bắc - Nam 67 tỷ USD và đề án sắp xếp lại đơn vị hành chính: Tái cấu trúc không gian kinh tế",
+    "titleEn": "670 億美元越南南北高速鐵路與全越行政省份大合併：重塑國土地理經濟學的世紀大戰略",
+    "descZh": "時速 350 公里客運專線貫通河內至胡志明市，從 30 小時壓縮至 5.5 小時，打造泛東協最強物流走廊",
+    "descVi": "Đường sắt tốc độ cao Bắc - Nam 67 tỷ USD và đề án sắp xếp lại đơn vị hành chính: Tái cấu trúc không gian kinh tế",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "C1+",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "section": "dossiers",
+      "dossierId": "DOSSIER-2026-06"
+    }
+  },
+  {
+    "id": "macro_dossier-2026-08",
+    "moduleId": "macropol",
+    "category": "macropol",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "台商赴越投資最新稅務與海關合規避坑指南：移轉訂價（TP）、薪資社保勞檢與外匯管制穿透式審計",
+    "titleVi": "Cẩm nang tuân thủ pháp lý & thuế cho nhà đầu tư FDI: Giao dịch liên kết, bảo hiểm xã hội và tài khoản vốn DICA",
+    "titleEn": "台商赴越投資最新稅務與海關合規避坑指南：移轉訂價（TP）、薪資社保勞檢與外匯管制穿透式審計",
+    "descZh": "查廠風暴常態化：從借名登記（Nominee）法律風險到跨境關係人交易合規底線深度盤點",
+    "descVi": "Cẩm nang tuân thủ pháp lý & thuế cho nhà đầu tư FDI: Giao dịch liên kết, bảo hiểm xã hội và tài khoản vốn DICA",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "C1+",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "section": "dossiers",
+      "dossierId": "DOSSIER-2026-08"
+    }
+  },
+  {
+    "id": "macro_dossier-2026-09",
+    "moduleId": "macropol",
+    "category": "macropol",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "越共十四大（Đại hội XIV）新政與體制改革全景：蘇林總書記主導下「行政精簡、容錯免責與10% GDP增長雄心」對外商投資之深遠變革",
+    "titleVi": "Đại hội XIV và cải cách thể chế: Tinh gọn bộ máy, cơ chế bảo vệ cán bộ và mục tiêu tăng trưởng GDP hai con số",
+    "titleEn": "越共十四大（Đại hội XIV）新政與體制改革全景：蘇林總書記主導下「行政精簡、容錯免責與10% GDP增長雄心」對外商投資之深遠變革",
+    "descZh": "中央確立「反腐法治化與審批加速並行」，以體制突破解決基層官僚怠政，開啟2026-2030經濟起飛新階段",
+    "descVi": "Đại hội XIV và cải cách thể chế: Tinh gọn bộ máy, cơ chế bảo vệ cán bộ và mục tiêu tăng trưởng GDP hai con số",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "C1+",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "section": "dossiers",
+      "dossierId": "DOSSIER-2026-09"
+    }
+  },
+  {
+    "id": "macro_dossier-2026-11",
+    "moduleId": "macropol",
+    "category": "macropol",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "南越大胡志明「雙核驅動」戰略：守添國際金融中心（IFC）、49億美元芹苴國際轉運港與隆城機場2026年啟航全解析",
+    "titleVi": "Chiến lược động lực kép Vùng TP.HCM: Trung tâm Tài chính Quốc tế Thủ Thiêm, Siêu cảng trung chuyển Cần Giờ 4,9 tỷ USD và Sân bay Long Thành",
+    "titleEn": "南越大胡志明「雙核驅動」戰略：守添國際金融中心（IFC）、49億美元芹苴國際轉運港與隆城機場2026年啟航全解析",
+    "descZh": "第323/2025/NĐ-CP號議定釋放金融沙盒紅利，三環路與一號地鐵貫通，東南部工業走廊迎來世紀大升級",
+    "descVi": "Chiến lược động lực kép Vùng TP.HCM: Trung tâm Tài chính Quốc tế Thủ Thiêm, Siêu cảng trung chuyển Cần Giờ 4,9 tỷ USD và Sân bay Long Thành",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "C1+",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "section": "dossiers",
+      "dossierId": "DOSSIER-2026-11"
+    }
+  },
+  {
+    "id": "module_path",
+    "moduleId": "path",
+    "category": "practice",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "七階學習路線：從解碼到翻譯",
+    "titleVi": "七階學習路線：從解碼到翻譯",
+    "titleEn": "七階學習路線：從解碼到翻譯",
+    "descZh": "先找出最弱的能力，再選擇可完成的輸出任務。",
+    "descVi": "七階學習路線：從解碼到翻譯",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘"
+  },
+  {
+    "id": "module_shopping",
+    "moduleId": "shopping",
+    "category": "practice",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "數字、單位與付款確認",
+    "titleVi": "數字、單位與付款確認",
+    "titleEn": "數字、單位與付款確認",
+    "descZh": "先辨識數量與單價，再核對總額和找零。",
+    "descVi": "數字、單位與付款確認",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘"
+  },
+  {
+    "id": "module_phrases",
+    "moduleId": "phrases",
+    "category": "practice",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "短句變成可替換的溝通工具",
+    "titleVi": "短句變成可替換的溝通工具",
+    "titleEn": "短句變成可替換的溝通工具",
+    "descZh": "辨認請求、詢問與修復句，替換內容而保留句型。",
+    "descVi": "短句變成可替換的溝通工具",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘"
+  },
+  {
+    "id": "module_sentence",
+    "moduleId": "sentence",
+    "category": "practice",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "由語塊組句，再用理由連接",
+    "titleVi": "由語塊組句，再用理由連接",
+    "titleEn": "由語塊組句，再用理由連接",
+    "descZh": "用完整語塊排列句子，避免逐字照搬中文。",
+    "descVi": "由語塊組句，再用理由連接",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘"
+  },
+  {
+    "id": "module_accent",
+    "moduleId": "accent",
+    "category": "practice",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "南北口音：增加聽辨範圍",
+    "titleVi": "南北口音：增加聽辨範圍",
+    "titleEn": "南北口音：增加聽辨範圍",
+    "descZh": "區分拼字、地區發音及地區用詞，維持一套穩定的主動發音。",
+    "descVi": "南北口音：增加聽辨範圍",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘"
+  },
+  {
+    "id": "module_shadowing",
+    "moduleId": "shadowing",
+    "category": "practice",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "跟讀：意群、節奏與自我糾錯",
+    "titleVi": "跟讀：意群、節奏與自我糾錯",
+    "titleEn": "跟讀：意群、節奏與自我糾錯",
+    "descZh": "由理解到延遲模仿，再脫稿重述，分開修正節奏與發音。",
+    "descVi": "跟讀：意群、節奏與自我糾錯",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘"
+  },
+  {
+    "id": "module_quiz",
+    "moduleId": "quiz",
+    "category": "practice",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "測驗後的錯誤診斷",
+    "titleVi": "測驗後的錯誤診斷",
+    "titleEn": "測驗後的錯誤診斷",
+    "descZh": "把錯題轉成可修正的能力問題，使用新題確認遷移。",
+    "descVi": "測驗後的錯誤診斷",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘"
+  },
+  {
+    "id": "module_science",
+    "moduleId": "science",
+    "category": "practice",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "學習實驗：提取、間隔與回饋",
+    "titleVi": "學習實驗：提取、間隔與回饋",
+    "titleEn": "學習實驗：提取、間隔與回饋",
+    "descZh": "用實際表現決定下一次練習，而不是只計算投入時間。",
+    "descVi": "學習實驗：提取、間隔與回饋",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘"
+  },
+  {
+    "id": "biz_hanviet",
+    "moduleId": "business",
+    "category": "business",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "商務漢越詞與正式用語",
+    "titleVi": "商務漢越詞與正式用語",
+    "titleEn": "商務漢越詞與正式用語",
+    "descZh": "辨認經貿字根、合約詞彙與正式書面語搭配。",
+    "descVi": "商務漢越詞與正式用語",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "A1-C2",
+    "readTime": "10 分鐘",
+    "targetParam": {
+      "tab": "hanviet"
+    }
+  }
+];
+
+export const SYLLABUS_REGISTRY = [...CORE_SYLLABUS, ...SUPPLEMENTARY_SYLLABUS];

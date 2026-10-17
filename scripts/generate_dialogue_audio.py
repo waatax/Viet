@@ -49,12 +49,30 @@ def get_hash(text: str) -> str:
     return hashlib.md5(text.encode("utf-8")).hexdigest()[:12]
 
 
+import urllib.request
+import urllib.parse
+
+
+def fetch_google_tts(text: str, lang: str, filepath: str) -> bool:
+    q = urllib.parse.quote(text)
+    url = f"https://translate.googleapis.com/translate_tts?ie=UTF-8&client=tw-ob&tl={lang}&q={q}"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        data = resp.read()
+    if data and len(data) > 200:
+        with open(filepath, "wb") as f:
+            f.write(data)
+        return True
+    return False
+
+
 async def synth(text: str, voice: str, filepath: str, rate: str = "+0%") -> bool:
     if os.path.exists(filepath) and os.path.getsize(filepath) > 200:
         stats["skipped"] += 1
         return True
+    fallback_lang = "zh-TW" if voice.startswith("zh") else "vi"
     async with sem:
-        for attempt in range(3):
+        for attempt in range(2):
             try:
                 await edge_tts.Communicate(text, voice, rate=rate).save(filepath)
                 if os.path.exists(filepath) and os.path.getsize(filepath) > 200:
@@ -63,10 +81,20 @@ async def synth(text: str, voice: str, filepath: str, rate: str = "+0%") -> bool
                     if done % 50 == 0:
                         print(f"  [{done}] {text[:30]}")
                     return True
-            except Exception as e:  # network hiccups: retry with backoff
-                if attempt == 2:
+            except Exception:
+                pass
+            try:
+                ok = await asyncio.to_thread(fetch_google_tts, text, fallback_lang, filepath)
+                if ok and os.path.exists(filepath) and os.path.getsize(filepath) > 200:
+                    stats["generated"] += 1
+                    done = stats["generated"] + stats["skipped"]
+                    if done % 50 == 0:
+                        print(f"  [{done}] {text[:30]} (fallback)")
+                    return True
+            except Exception as e:
+                if attempt == 1:
                     print(f"[FAIL] {text[:40]}: {e}")
-            await asyncio.sleep(1.0 + attempt)
+            await asyncio.sleep(0.5 + attempt)
     stats["failed"] += 1
     return False
 

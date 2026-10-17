@@ -7,6 +7,7 @@ import { gamificationEngine } from './utils/gamificationEngine';
 import { audioEngine } from './services/audioEngine';
 import { MODULE_IDS } from './config/navigation';
 import { APP_VERSION, BUILD_REVISION } from './config/release';
+import { KnowledgeGuide } from './components/KnowledgeGuide';
 
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
@@ -308,6 +309,7 @@ export function App() {
             {activeTab === 'shadowing' && <ShadowingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'sentence' && <SentenceBuilderModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'tonegame' && <ToneGameModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            <KnowledgeGuide key={activeTab} moduleId={activeTab} onSelectChapter={handleSelectChapter} setActiveTab={setActiveTab} />
           </Suspense>
         </ErrorBoundary>
       </main>

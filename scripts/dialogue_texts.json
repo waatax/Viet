@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-17T01:44:47.621Z",
-  "totalLines": 812,
+  "generatedAt": "2026-10-17T15:43:18.092Z",
+  "totalLines": 934,
   "zh": [
     {
       "raw": "我想去越南旅遊，你能介紹幾個城市給我嗎？",
@@ -558,8 +558,8 @@
       "source": "scenario:airport:d1"
     },
     {
-      "raw": "請問您有幾件托運行李？隨身有攜帶行動電源（充電寶）嗎？",
-      "cleaned": "請問您有幾件托運行李？隨身有攜帶行動電源 嗎？",
+      "raw": "請問您有幾件託運行李？隨身有攜帶行動電源嗎？",
+      "cleaned": "請問您有幾件託運行李？隨身有攜帶行動電源嗎？",
       "source": "scenario:airport:d1"
     },
     {
@@ -1788,8 +1788,8 @@
       "source": "scenario-vocab:biz_vat_invoice_tax"
     },
     {
-      "raw": "歡迎專家代表團。在進入生產車間之前，請大家戴上安全帽並穿上防護鞋。",
-      "cleaned": "歡迎專家代表團。在進入生產車間之前，請大家戴上安全帽並穿上防護鞋。",
+      "raw": "歡迎專家代表團。在進入生產廠房之前，請大家戴上安全帽並穿上防護鞋。",
+      "cleaned": "歡迎專家代表團。在進入生產廠房之前，請大家戴上安全帽並穿上防護鞋。",
       "source": "scenario:biz_factory_audit_qc:d1"
     },
     {
@@ -3073,6 +3073,46 @@
       "source": "topic:business_greeting:dialogue_biz_2"
     },
     {
+      "raw": "總經理您好！(晚輩自稱 em，句首 Dạ，句尾 ạ)",
+      "cleaned": "總經理您好！",
+      "source": "topic-survival:business_greeting"
+    },
+    {
+      "raw": "非常榮幸見到您 (商務初次見面最高禮節)。",
+      "cleaned": "非常榮幸見到您 。",
+      "source": "topic-survival:business_greeting"
+    },
+    {
+      "raw": "請收下我的名片 (雙手奉上名片時說)。",
+      "cleaned": "請收下我的名片 。",
+      "source": "topic-survival:business_greeting"
+    },
+    {
+      "raw": "我是台灣公司的代表。",
+      "cleaned": "我是台灣公司的代表。",
+      "source": "topic-survival:business_greeting"
+    },
+    {
+      "raw": "祝貴公司蒸蒸日上、業務發展順利！",
+      "cleaned": "祝貴公司蒸蒸日上、業務發展順利！",
+      "source": "topic-survival:business_greeting"
+    },
+    {
+      "raw": "非常期盼能有機會與您合作。",
+      "cleaned": "非常期盼能有機會與您合作。",
+      "source": "topic-survival:business_greeting"
+    },
+    {
+      "raw": "初次來到越南，請您多多指教與關照。",
+      "cleaned": "初次來到越南，請您多多指教與關照。",
+      "source": "topic-survival:business_greeting"
+    },
+    {
+      "raw": "不好意思，我可以加您的 Zalo 聯絡方式嗎？",
+      "cleaned": "不好意思，我可以加您的 Zalo 聯絡方式嗎？",
+      "source": "topic-survival:business_greeting"
+    },
+    {
       "raw": "店員！你們店有牛肉河粉嗎？",
       "cleaned": "店員！你們店有牛肉河粉嗎？",
       "source": "topic:dining_restaurant:dialogue_dine_1"
@@ -3123,6 +3163,46 @@
       "source": "topic:dining_restaurant:dialogue_dine_2"
     },
     {
+      "raw": "服務生小弟/小妹，請給我看一下菜單！",
+      "cleaned": "服務生小弟、小妹，請給我看一下菜單！",
+      "source": "topic-survival:dining_restaurant"
+    },
+    {
+      "raw": "請給我一碗半生半熟牛肉河粉。",
+      "cleaned": "請給我一碗半生半熟牛肉河粉。",
+      "source": "topic-survival:dining_restaurant"
+    },
+    {
+      "raw": "一杯冰煉乳咖啡，少糖少冰。",
+      "cleaned": "一杯冰煉乳咖啡，少糖少冰。",
+      "source": "topic-survival:dining_restaurant"
+    },
+    {
+      "raw": "請不要放香菜 / 青蔥喔！(不吃香菜者救命句)",
+      "cleaned": "請不要放香菜 、 青蔥喔！",
+      "source": "topic-survival:dining_restaurant"
+    },
+    {
+      "raw": "請給我一雙筷子和一隻湯匙。",
+      "cleaned": "請給我一雙筷子和一隻湯匙。",
+      "source": "topic-survival:dining_restaurant"
+    },
+    {
+      "raw": "這道菜會辣嗎？",
+      "cleaned": "這道菜會辣嗎？",
+      "source": "topic-survival:dining_restaurant"
+    },
+    {
+      "raw": "太好吃了！謝謝店家。",
+      "cleaned": "太好吃了！謝謝店家。",
+      "source": "topic-survival:dining_restaurant"
+    },
+    {
+      "raw": "服務生，幫我買單結帳！",
+      "cleaned": "服務生，幫我買單結帳！",
+      "source": "topic-survival:dining_restaurant"
+    },
+    {
       "raw": "阿明哥，你在台灣的家裡有幾口人呀？",
       "cleaned": "阿明哥，你在台灣的家裡有幾口人呀？",
       "source": "topic:family_kinship:dialogue_fam_1"
@@ -3166,6 +3246,46 @@
       "raw": "是的，越南女孩子非常溫柔賢慧而且持家能幹！",
       "cleaned": "是的，越南女孩子非常溫柔賢慧而且持家能幹！",
       "source": "topic:family_kinship:dialogue_fam_2"
+    },
+    {
+      "raw": "你家裡有幾口人？",
+      "cleaned": "你家裡有幾口人？",
+      "source": "topic-survival:family_kinship"
+    },
+    {
+      "raw": "我家有四口人：爸爸、媽媽、我和妹妹。",
+      "cleaned": "我家有四口人：爸爸、媽媽、我和妹妹。",
+      "source": "topic-survival:family_kinship"
+    },
+    {
+      "raw": "你結婚了嗎？/ 有家庭了嗎？",
+      "cleaned": "你結婚了嗎？、 有家庭了嗎？",
+      "source": "topic-survival:family_kinship"
+    },
+    {
+      "raw": "我已經成家了，並且有兩個小孩。",
+      "cleaned": "我已經成家了，並且有兩個小孩。",
+      "source": "topic-survival:family_kinship"
+    },
+    {
+      "raw": "我目前依然是單身。",
+      "cleaned": "我目前依然是單身。",
+      "source": "topic-survival:family_kinship"
+    },
+    {
+      "raw": "你的爺爺奶奶、外公外婆身體還硬朗吧？",
+      "cleaned": "你的爺爺奶奶、外公外婆身體還硬朗吧？",
+      "source": "topic-survival:family_kinship"
+    },
+    {
+      "raw": "你的哥哥從事什麼職業工作？",
+      "cleaned": "你的哥哥從事什麼職業工作？",
+      "source": "topic-survival:family_kinship"
+    },
+    {
+      "raw": "今年農曆春節你會回鄉探望家人嗎？",
+      "cleaned": "今年農曆春節你會回鄉探望家人嗎？",
+      "source": "topic-survival:family_kinship"
     },
     {
       "raw": "藥劑師你好，我從昨晚開始有點微燒而且鼻塞。",
@@ -3218,6 +3338,46 @@
       "source": "topic:health_medical:dialogue_med_2"
     },
     {
+      "raw": "我頭痛而且發高燒。",
+      "cleaned": "我頭痛而且發高燒。",
+      "source": "topic-survival:health_medical"
+    },
+    {
+      "raw": "我肚子痛而且拉肚子 / 腹瀉。",
+      "cleaned": "我肚子痛而且拉肚子 、 腹瀉。",
+      "source": "topic-survival:health_medical"
+    },
+    {
+      "raw": "我想買感冒藥 / 止痛藥。",
+      "cleaned": "我想買感冒藥 、 止痛藥。",
+      "source": "topic-survival:health_medical"
+    },
+    {
+      "raw": "這個藥一天要服用幾次？",
+      "cleaned": "這個藥一天要服用幾次？",
+      "source": "topic-survival:health_medical"
+    },
+    {
+      "raw": "飯後吃還是飯前吃？",
+      "cleaned": "飯後吃還是飯前吃？",
+      "source": "topic-survival:health_medical"
+    },
+    {
+      "raw": "我對海鮮 / 抗生素過敏。",
+      "cleaned": "我對海鮮 、 抗生素過敏。",
+      "source": "topic-survival:health_medical"
+    },
+    {
+      "raw": "請問國際醫院在哪裡？",
+      "cleaned": "請問國際醫院在哪裡？",
+      "source": "topic-survival:health_medical"
+    },
+    {
+      "raw": "我需要打 115 叫救護車！",
+      "cleaned": "我需要打 115 叫救護車！",
+      "source": "topic-survival:health_medical"
+    },
+    {
       "raw": "你好先生，你來到越南的目的是什麼？",
       "cleaned": "你好先生，你來到越南的目的是什麼？",
       "source": "topic:date_time_stay:dialogue_time_1"
@@ -3261,6 +3421,46 @@
       "raw": "完全同意，下週二早上見囉！",
       "cleaned": "完全同意，下週二早上見囉！",
       "source": "topic:date_time_stay:dialogue_time_2"
+    },
+    {
+      "raw": "今天星期幾？",
+      "cleaned": "今天星期幾？",
+      "source": "topic-survival:date_time_stay"
+    },
+    {
+      "raw": "星期一、星期二、星期三、星期四、星期五、星期六、星期日。",
+      "cleaned": "星期一、星期二、星期三、星期四、星期五、星期六、星期日。",
+      "source": "topic-survival:date_time_stay"
+    },
+    {
+      "raw": "這個月是幾月？一月到十二月。",
+      "cleaned": "這個月是幾月？一月到十二月。",
+      "source": "topic-survival:date_time_stay"
+    },
+    {
+      "raw": "昨天、今天、明天、後天。",
+      "cleaned": "昨天、今天、明天、後天。",
+      "source": "topic-survival:date_time_stay"
+    },
+    {
+      "raw": "你打算在越南停留多久？(海關入境必問)",
+      "cleaned": "你打算在越南停留多久？",
+      "source": "topic-survival:date_time_stay"
+    },
+    {
+      "raw": "我大約停留兩週 / 三個月。",
+      "cleaned": "我大約停留兩週 、 三個月。",
+      "source": "topic-survival:date_time_stay"
+    },
+    {
+      "raw": "我的簽證效期是一年。",
+      "cleaned": "我的簽證效期是一年。",
+      "source": "topic-survival:date_time_stay"
+    },
+    {
+      "raw": "約定明天早上9點與您見面喔！",
+      "cleaned": "約定明天早上9點與您見面喔！",
+      "source": "topic-survival:date_time_stay"
     },
     {
       "raw": "姐姐，這個榴槤一公斤怎麼賣呀？",
@@ -3313,6 +3513,41 @@
       "source": "topic:pricing_bargaining:dialogue_price_2"
     },
     {
+      "raw": "姐姐，這個多少錢呢？(萬能問價句)",
+      "cleaned": "姐姐，這個多少錢呢？",
+      "source": "topic-survival:pricing_bargaining"
+    },
+    {
+      "raw": "大哥，這個怎麼賣？(水果攤/菜市場道地問法)",
+      "cleaned": "大哥，這個怎麼賣？",
+      "source": "topic-survival:pricing_bargaining"
+    },
+    {
+      "raw": "有打折 / 優惠折扣嗎？",
+      "cleaned": "有打折 、 優惠折扣嗎？",
+      "source": "topic-survival:pricing_bargaining"
+    },
+    {
+      "raw": "我買兩個，湊整數算我十萬盾喔！",
+      "cleaned": "我買兩個，湊整數算我十萬盾喔！",
+      "source": "topic-survival:pricing_bargaining"
+    },
+    {
+      "raw": "我可以用信用卡付款嗎？",
+      "cleaned": "我可以用信用卡付款嗎？",
+      "source": "topic-survival:pricing_bargaining"
+    },
+    {
+      "raw": "讓我掃 VietQR 轉帳付款喔。",
+      "cleaned": "讓我掃 VietQR 轉帳付款喔。",
+      "source": "topic-survival:pricing_bargaining"
+    },
+    {
+      "raw": "請給我加值稅紅發票 / 收據。",
+      "cleaned": "請給我加值稅紅發票 、 收據。",
+      "source": "topic-survival:pricing_bargaining"
+    },
+    {
       "raw": "姐姐，今天 100 美元可以換多少越南盾呢？",
       "cleaned": "姐姐，今天 100 美元可以換多少越南盾呢？",
       "source": "topic:numbers_scale:dialogue_num_1"
@@ -3356,6 +3591,46 @@
       "raw": "哇非常感謝大哥，祝您享用愉快！",
       "cleaned": "哇非常感謝大哥，祝您享用愉快！",
       "source": "topic:numbers_scale:dialogue_num_2"
+    },
+    {
+      "raw": "0、1、2、3、4、5、6、7、8、9、10。",
+      "cleaned": "0、1、2、3、4、5、6、7、8、9、10。",
+      "source": "topic-survival:numbers_scale"
+    },
+    {
+      "raw": "11、12、...、15 (注意變音 lăm)、...、19。",
+      "cleaned": "11、12、...、15 、...、19。",
+      "source": "topic-survival:numbers_scale"
+    },
+    {
+      "raw": "21 (注意變音 mốt)、34 (注意變音 tư)、55 (注意變音 lăm)。",
+      "cleaned": "21 、34 、55 。",
+      "source": "topic-survival:numbers_scale"
+    },
+    {
+      "raw": "一百 (100)、一千 (1.000，北越 nghìn / 南越 ngàn)。",
+      "cleaned": "一百 、一千 。",
+      "source": "topic-survival:numbers_scale"
+    },
+    {
+      "raw": "一百萬 (1.000.000 盾，約 1,300 台幣)、一千萬 (10.000.000)。",
+      "cleaned": "一百萬 、一千萬 。",
+      "source": "topic-survival:numbers_scale"
+    },
+    {
+      "raw": "十億 (1.000.000.000 盾，約 130 萬台幣)。",
+      "cleaned": "十億 。",
+      "source": "topic-survival:numbers_scale"
+    },
+    {
+      "raw": "常用量詞：cái (個/東西), con (隻/動物), chai (瓶), ly (杯), bát/chén (碗)。",
+      "cleaned": "常用量詞：cái , con , chai , ly , bát、chén 。",
+      "source": "topic-survival:numbers_scale"
+    },
+    {
+      "raw": "在哪裡換錢匯率最好？",
+      "cleaned": "在哪裡換錢匯率最好？",
+      "source": "topic-survival:numbers_scale"
     },
     {
       "raw": "這個一個多少錢？",
@@ -3536,6 +3811,161 @@
       "raw": "請幫我結帳算錢！",
       "cleaned": "請幫我結帳算錢！",
       "source": "shopping-phrases"
+    },
+    {
+      "raw": "我發高燒。",
+      "cleaned": "我發高燒。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "我頭痛非常劇烈。",
+      "cleaned": "我頭痛非常劇烈。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "我肚子痛而且拉肚子。",
+      "cleaned": "我肚子痛而且拉肚子。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "我感到噁心想吐而且頭暈。",
+      "cleaned": "我感到噁心想吐而且頭暈。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "我胃痛。",
+      "cleaned": "我胃痛。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "我過敏起紅疹發癢。",
+      "cleaned": "我過敏起紅疹發癢。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "我咳嗽而且喉嚨痛。",
+      "cleaned": "我咳嗽而且喉嚨痛。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "我呼吸困難而且胸悶。",
+      "cleaned": "我呼吸困難而且胸悶。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "我中暑而且脫水。",
+      "cleaned": "我中暑而且脫水。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "請給我止痛藥和退燒藥。",
+      "cleaned": "請給我止痛藥和退燒藥。",
+      "source": "emergency-symptoms"
+    },
+    {
+      "raw": "救命！(請幫幫我！)",
+      "cleaned": "救命！",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "請幫我叫警察 / 叫救護車！",
+      "cleaned": "請幫我叫警察 、 叫救護車！",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "我的護照 / 錢包遺失了。",
+      "cleaned": "我的護照 、 錢包遺失了。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "請給我一杯冰奶咖啡，少糖少冰。",
+      "cleaned": "請給我一杯冰奶咖啡，少糖少冰。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "店員！請給我看一下菜單！",
+      "cleaned": "店員！請給我看一下菜單！",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "這道菜可以做不辣的嗎？",
+      "cleaned": "這道菜可以做不辣的嗎？",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "服務生，結帳喔！",
+      "cleaned": "服務生，結帳喔！",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "請帶我到這個地址 (出示手機畫面)。",
+      "cleaned": "請帶我到這個地址 。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "直走，到十字路口左轉 / 右轉。",
+      "cleaned": "直走，到十字路口左轉 、 右轉。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "請停在這裡，我要下車。",
+      "cleaned": "請停在這裡，我要下車。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "這個多少錢？可以算便宜一點嗎？",
+      "cleaned": "這個多少錢？可以算便宜一點嗎？",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "可以刷信用卡或轉帳嗎？",
+      "cleaned": "可以刷信用卡或轉帳嗎？",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "我要買這個，請給我一個提袋。",
+      "cleaned": "我要買這個，請給我一個提袋。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "我對花生 / 海鮮 / 味精嚴重過敏。",
+      "cleaned": "我對花生 、 海鮮 、 味精嚴重過敏。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "我頭痛 / 肚子痛 / 發燒。",
+      "cleaned": "我頭痛 、 肚子痛 、 發燒。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "請給我止痛藥 / 感冒藥。",
+      "cleaned": "請給我止痛藥 、 感冒藥。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "我要辦理入住 (Check-in) / 退房 (Check-out)。",
+      "cleaned": "我要辦理入住 、 退房 。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "請問飯店的 Wi-Fi 密碼是什麼呢？",
+      "cleaned": "請問飯店的 Wi-Fi 密碼是什麼呢？",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "房間裡的冷氣 / 熱水壞掉了。",
+      "cleaned": "房間裡的冷氣 、 熱水壞掉了。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "我越語說得不太好，請問你能說英語嗎？",
+      "cleaned": "我越語說得不太好，請問你能說英語嗎？",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "你能幫我一下嗎？非常感謝你！",
+      "cleaned": "你能幫我一下嗎？非常感謝你！",
+      "source": "emergency-cards"
     }
   ],
   "viMissing": []

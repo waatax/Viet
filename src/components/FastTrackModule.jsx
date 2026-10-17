@@ -51,6 +51,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import { useDialoguePlayback, useFollowActiveLine } from '../hooks/useDialoguePlayback';
+import { getPlaybackPrefs } from '../services/dialoguePlayback';
 import { DialoguePlaybackBar, PlaybackPartChip } from './DialoguePlaybackBar';
 
 const getAssetUrl = (path) => {
@@ -580,7 +581,7 @@ const getFastTrackPartnerVisual = (day, speaker = '', learningMode = 'zh') => {
     case 5:
       return { icon: '💼', role: learningMode === 'zh' ? '新朋友 / 同事' : 'Peer / Colleague', color: '#8b5cf6', bg: 'rgba(139, 92, 246, 0.12)' };
     case 6:
-      return { icon: '🏨', role: learningMode === 'zh' ? '飯店接待前台' : 'Hotel Receptionist', color: '#06b6d4', bg: 'rgba(6, 182, 212, 0.12)' };
+      return { icon: '🏨', role: learningMode === 'zh' ? '飯店接待櫃檯' : 'Hotel Receptionist', color: '#06b6d4', bg: 'rgba(6, 182, 212, 0.12)' };
     case 7:
       return { icon: '🍻', role: learningMode === 'zh' ? '熱情飯友' : 'Dining Partner', color: '#f97316', bg: 'rgba(249, 115, 22, 0.12)' };
     default:
@@ -681,21 +682,42 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
   };
 
+  // Daily core phrases: 越→中 逐句對照 / 純越文 playback
+  const phrasePlayer = useDialoguePlayback({
+    lines: currentDay.phrases || [],
+    accent: selectedAccent,
+    nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+    title: learningMode === 'zh' ? `${currentDay.titleZh} · 核心金句` : `${currentDay.titleEn} · Core Phrases`
+  });
+
   // Daily dialogue: 越→中 逐句對照 / 純越文 playback
   const dialogueFeedRef = useRef(null);
   const awardedDialogueDaysRef = useRef(new Set());
+  const pendingDayAutoPlayRef = useRef(null);
   const dialoguePlayer = useDialoguePlayback({
     lines: currentDay.dialogue || [],
     accent: selectedAccent,
     nativeLang: learningMode === 'zh' ? 'zh' : 'en',
     title: learningMode === 'zh' ? currentDay.titleZh : currentDay.titleEn,
-    onComplete: () => {
-      if (awardedDialogueDaysRef.current.has(currentDay.day)) return;
-      awardedDialogueDaysRef.current.add(currentDay.day);
-      if (updateUserStats) updateUserStats({ type: 'ADD_XP', payload: 10 });
+    onComplete: ({ mode }) => {
+      if (!awardedDialogueDaysRef.current.has(currentDay.day)) {
+        awardedDialogueDaysRef.current.add(currentDay.day);
+        if (updateUserStats) updateUserStats({ type: 'ADD_XP', payload: 10 });
+      }
+      if (getPlaybackPrefs().autoNext && activeDayIdx + 1 < FAST_TRACK_DAYS.length) {
+        pendingDayAutoPlayRef.current = mode;
+        setActiveDayIdx(activeDayIdx + 1);
+      }
     }
   });
   useFollowActiveLine(dialogueFeedRef, dialoguePlayer.isActive ? dialoguePlayer.index : -1, dialoguePlayer.isPlaying);
+
+  useEffect(() => {
+    if (!pendingDayAutoPlayRef.current) return;
+    const mode = pendingDayAutoPlayRef.current;
+    pendingDayAutoPlayRef.current = null;
+    dialoguePlayer.play(mode, 0);
+  }, [activeDayIdx]);
 
   const handleSelectQuizOption = (idx) => {
     if (quizState.isSubmitted) return;
@@ -966,60 +988,103 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
             </button>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
-            {currentDay.phrases.map((phrase, pIdx) => (
-              <div
-                key={pIdx}
-                style={{
-                  background: 'var(--bg-accent)',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: 'var(--radius-md)',
-                  padding: '1.25rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  gap: '0.75rem',
-                  transition: 'transform 0.15s ease, box-shadow 0.15s ease'
-                }}
-              >
-                <div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem' }}>
-                    <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--brand-primary)' }}>
-                      {phrase.viet}
-                    </span>
-                    <button
-                      className="speaker-btn"
-                      onClick={() => handlePlayAudio(phrase.viet)}
-                      title="播放越南語發音"
-                      style={{ padding: '0.4rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-color)' }}
-                    >
-                      <Volume2 size={18} />
-                    </button>
-                  </div>
-                  <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.35rem' }}>
-                    {learningMode === 'zh' ? phrase.zh : phrase.en}
-                  </div>
-                  <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
-                    💡 {learningMode === 'zh' ? phrase.hintZh : phrase.hintEn}
-                  </div>
-                </div>
+          <div style={{ marginBottom: '1rem' }}>
+            <DialoguePlaybackBar
+              player={phrasePlayer}
+              lines={currentDay.phrases || []}
+              learningMode={learningMode}
+              title={learningMode === 'zh' ? `${currentDay.titleZh} · 核心金句` : `${currentDay.titleEn} · Core Phrases`}
+              variant="compact"
+            />
+          </div>
 
-                {phrase.hanViet && (
-                  <div style={{
-                    fontSize: '0.8rem',
-                    color: 'var(--brand-gold)',
-                    fontWeight: 700,
-                    background: 'rgba(234, 179, 8, 0.08)',
-                    padding: '0.25rem 0.6rem',
-                    borderRadius: 'var(--radius-sm)',
-                    display: 'inline-block',
-                    alignSelf: 'flex-start'
-                  }}>
-                    🔍 漢越字根對照：{phrase.hanViet}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem' }}>
+            {currentDay.phrases.map((phrase, pIdx) => {
+              const isPhraseActive = phrasePlayer.isActive && phrasePlayer.index === pIdx;
+              return (
+                <div
+                  key={pIdx}
+                  style={{
+                    background: 'var(--bg-accent)',
+                    border: isPhraseActive ? '1.5px solid var(--brand-primary)' : '1px solid var(--border-color)',
+                    boxShadow: isPhraseActive ? '0 0 0 3px rgba(var(--brand-primary-rgb), 0.16)' : 'none',
+                    borderRadius: 'var(--radius-md)',
+                    padding: '1.25rem',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    gap: '0.75rem',
+                    transition: 'transform 0.15s ease, box-shadow 0.15s ease'
+                  }}
+                >
+                  <div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.35rem', gap: '0.5rem', flexWrap: 'wrap' }}>
+                      <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--brand-primary)' }}>
+                        {phrase.viet}
+                      </span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
+                        {isPhraseActive && <PlaybackPartChip player={phrasePlayer} learningMode={learningMode} />}
+                        <button
+                          className={`speaker-btn ${isPhraseActive && phrasePlayer.mode === 'vi-zh' ? 'playing' : ''}`}
+                          onClick={() => phrasePlayer.playSingleLine(pIdx, 'vi-zh')}
+                          title={learningMode === 'zh' ? '播放越文＋中文雙語朗讀' : 'Play Viet + Translation'}
+                          style={{
+                            padding: '0.28rem 0.58rem',
+                            background: 'var(--bg-card)',
+                            borderRadius: 'var(--radius-full)',
+                            border: '1px solid var(--border-color)',
+                            fontSize: '0.76rem',
+                            fontWeight: 800,
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '0.25rem'
+                          }}
+                        >
+                          <Headphones size={14} />
+                          <span>{learningMode === 'zh' ? '越+中' : 'VI+EN'}</span>
+                        </button>
+                        <button
+                          className={`speaker-btn ${isPhraseActive && phrasePlayer.mode === 'vi-only' ? 'playing' : ''}`}
+                          onClick={() => phrasePlayer.playSingleLine(pIdx, 'vi-only')}
+                          title={learningMode === 'zh' ? '播放純越文發音' : 'Play Pure Vietnamese'}
+                          style={{ padding: '0.4rem', background: 'var(--bg-card)', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-color)' }}
+                        >
+                          <Volume2 size={18} />
+                        </button>
+                      </div>
+                    </div>
+                    <div style={{
+                      fontSize: '1rem',
+                      fontWeight: 700,
+                      color: 'var(--text-primary)',
+                      marginBottom: '0.35rem',
+                      filter: blurMode ? 'blur(5px)' : 'none',
+                      transition: 'filter 0.2s ease'
+                    }}>
+                      {learningMode === 'zh' ? phrase.zh : phrase.en}
+                    </div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                      💡 {learningMode === 'zh' ? phrase.hintZh : phrase.hintEn}
+                    </div>
                   </div>
-                )}
-              </div>
-            ))}
+
+                  {phrase.hanViet && (
+                    <div style={{
+                      fontSize: '0.8rem',
+                      color: 'var(--brand-gold)',
+                      fontWeight: 700,
+                      background: 'rgba(234, 179, 8, 0.08)',
+                      padding: '0.25rem 0.6rem',
+                      borderRadius: 'var(--radius-sm)',
+                      display: 'inline-block',
+                      alignSelf: 'flex-start'
+                    }}>
+                      🔍 漢越字根對照：{phrase.hanViet}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
@@ -1045,6 +1110,7 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
               learningMode={learningMode}
               title={learningMode === 'zh' ? currentDay.titleZh : currentDay.titleEn}
               variant="compact"
+              autoNextLabel={activeDayIdx + 1 < FAST_TRACK_DAYS.length ? (learningMode === 'zh' ? '自動連播下一天對話' : 'Auto-next day') : undefined}
               xpHint="+10 XP"
             />
 
