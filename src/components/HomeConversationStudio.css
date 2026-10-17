@@ -1,4 +1,15 @@
 /* HomeConversationStudio.css - Premier Top-of-Home Situational Conversation Studio */
+.studio-practice-options { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin: 1rem 0; }
+.studio-practice-options label { display: flex; align-items: center; gap: .5rem; color: var(--text-primary); }
+.studio-practice-options select { max-width: 100%; min-height: 44px; padding: .5rem; background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: .5rem; }
+.studio-practice-options p, .studio-voice-note { color: var(--text-secondary); font-size: .85rem; line-height: 1.65; }
+.home-conv-studio button:focus-visible, .home-conv-studio select:focus-visible { outline: 3px solid var(--brand-primary); outline-offset: 3px; }
+.home-conv-studio .sentence-tool-btn { min-width: 44px; min-height: 44px; }
+@media (max-width: 600px) {
+  .studio-practice-options label { flex-wrap: wrap; width: 100%; }
+  .studio-practice-options select { width: 100%; }
+  .home-conv-studio .studio-title-group { min-width: 0; }
+}
 
 .home-conv-studio {
   background: var(--bg-card);

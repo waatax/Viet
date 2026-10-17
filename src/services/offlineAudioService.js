@@ -151,6 +151,7 @@ class OfflineAudioService {
     const urlList = Array.from(urlsToCache);
     const total = urlList.length;
     let completed = 0;
+    let cached = 0;
 
     const cache = await caches.open(CACHE_NAME);
 
@@ -161,10 +162,12 @@ class OfflineAudioService {
       await Promise.all(chunk.map(async (url) => {
         try {
           const match = await cache.match(url);
-          if (!match) {
+          if (match) cached++;
+          else {
             const resp = await fetch(url);
             if (resp && resp.ok) {
               await cache.put(url, resp.clone());
+              cached++;
             }
           }
         } catch (e) {}
@@ -181,7 +184,7 @@ class OfflineAudioService {
     }
 
     this.notify();
-    return { total, cached: completed };
+    return { total, cached, failed: total - cached };
   }
 
   /**
@@ -210,7 +213,7 @@ class OfflineAudioService {
 
     const urlList = Array.from(urls);
     if (urlList.length === 0) {
-      return { total: 0, cachedCount: 0, isFullyCached: true, percent: 100 };
+      return { total: 0, cachedCount: 0, isFullyCached: false, percent: 0 };
     }
 
     let cachedCount = 0;

@@ -50,8 +50,8 @@ export function useDialoguePlayback({ lines = [], accent = 'north', nativeLang =
 
   // A different script (scenario / section / filter switch) ends whatever was playing
   const signature = useMemo(
-    () => `${nativeLang}::${lines.map(l => l.viet || l.vi || '').join('|')}`,
-    [lines, nativeLang]
+    () => JSON.stringify([accent, nativeLang, lines.map(l => [l.viet || l.vi || '', nativeLang === 'zh' ? l.zh : (l.en || l.zh)])]),
+    [lines, nativeLang, accent]
   );
   useEffect(() => {
     const seq = seqRef.current;

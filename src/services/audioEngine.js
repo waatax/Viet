@@ -437,16 +437,8 @@ class AudioEngine {
     const strippedLower = stripped.toLowerCase();
 
     if (isSouth) {
-      const southPhonetic = this.toSouthernPhonetic(rawClean);
-      const southStripped = southPhonetic.replace(/[.,?!;:…]+$/g, '').trim();
       const candidates = [
         `${rawClean}_south`,
-        southPhonetic,
-        southStripped,
-        this.normalizedManifest.get(southPhonetic),
-        this.normalizedManifest.get(southPhonetic.toLowerCase()),
-        this.normalizedManifest.get(southStripped),
-        this.normalizedManifest.get(southStripped.toLowerCase()),
         rawClean,
         stripped,
         this.normalizedManifest.get(rawClean),
@@ -726,8 +718,8 @@ class AudioEngine {
   fallbackSpeech(cleanedText, rate, options = {}, session = null) {
     if (session !== null && this.sessionId !== session) return;
 
-    const isSouth = options.accent === 'south' && (options.lang || 'vi') === 'vi';
-    const speechText = isSouth ? this.toSouthernPhonetic(cleanedText) : cleanedText;
+    // Preserve spelling and meaning. Dialect requires a recorded voice, not altered words.
+    const speechText = cleanedText;
 
     this.playWebSpeech(speechText, rate, options, session)
       .catch(() => {
@@ -758,7 +750,6 @@ class AudioEngine {
       try {
         this.synth.cancel();
 
-        const isSouth = options.accent === 'south';
         const utterance = new SpeechSynthesisUtterance(text);
         
         let targetLang = 'vi-VN';
@@ -767,7 +758,7 @@ class AudioEngine {
 
         utterance.lang = targetLang;
         utterance.rate = Math.min(Math.max(rate, 0.7), 1.3);
-        utterance.pitch = isSouth && targetLang === 'vi-VN' ? 1.08 : 0.98;
+        utterance.pitch = 1.0;
 
         if (targetLang === 'vi-VN') {
           const vietVoice = this.getVietnameseVoice();
@@ -780,7 +771,10 @@ class AudioEngine {
           }
         } else {
           const voices = this.synth.getVoices() || [];
-          const voice = voices.find(v => v.lang.startsWith(options.lang === 'zh' ? 'zh' : 'en'));
+          const voice = options.lang === 'zh'
+            ? voices.find(v => /^zh[-_]TW$/i.test(v.lang)) || voices.find(v => /^zh[-_]Hant/i.test(v.lang))
+            : voices.find(v => v.lang.startsWith('en'));
+          if (options.lang === 'zh' && !voice) return reject(new Error('No Taiwan Mandarin voice installed'));
           if (voice) {
             utterance.voice = voice;
           }

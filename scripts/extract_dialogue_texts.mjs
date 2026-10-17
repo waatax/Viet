@@ -75,6 +75,7 @@ for (const [id, ex] of Object.entries(SCENARIO_EXEGESIS || {})) {
 
 const zhMap = new Map();
 const viMissing = [];
+const audioFailures = [];
 let totalLines = 0;
 
 for (const g of groups) {
@@ -83,6 +84,12 @@ for (const g of groups) {
     if (!viet) continue;
     totalLines++;
     const viClean = audioEngine.cleanText(viet);
+    for (const accent of ['north', 'south']) {
+      const file = audioEngine.resolveManifestFile(viClean, accent) || audioEngine.resolveManifestFile(viet, accent);
+      if (!file || !fs.existsSync(path.join(ROOT, 'public/audio', file)) || fs.statSync(path.join(ROOT, 'public/audio', file)).size < 200) {
+        audioFailures.push({ source: g.source, lang: 'vi', accent, text: viet, file });
+      }
+    }
     if (!audioEngine.resolveManifestFile(viClean, 'north') && !audioEngine.resolveManifestFile(viet, 'north')) {
       // Keyed by the cleaned text the engine looks up, but voiced with a pause between "a / b" alternatives
       const speech = audioEngine.cleanText(viet.replace(/\s*\/\s*/g, ', '));
@@ -90,6 +97,10 @@ for (const g of groups) {
     }
     if (line.zh) {
       const zhClean = audioEngine.cleanNativeText(line.zh, 'zh');
+      const file = audioEngine.resolveNativeFile(line.zh, 'zh');
+      if (!file || !fs.existsSync(path.join(ROOT, 'public/audio', file)) || fs.statSync(path.join(ROOT, 'public/audio', file)).size < 200) {
+        audioFailures.push({ source: g.source, lang: 'zh-TW', text: line.zh, file });
+      }
       if (zhClean && !zhMap.has(zhClean)) zhMap.set(zhClean, { raw: line.zh, cleaned: zhClean, source: g.source });
     }
   }
@@ -109,3 +120,8 @@ console.log(`Unique Chinese texts: ${output.zh.length}`);
 console.log(`Vietnamese lines missing MP3: ${viMissing.length}`);
 viMissing.slice(0, 15).forEach(m => console.log(`  - [${m.source}] ${m.cleaned}`));
 console.log(`Wrote ${path.relative(ROOT, OUT_PATH)}`);
+console.log(`Vietnamese (both preferences) + Taiwan Mandarin file failures: ${audioFailures.length}`);
+if (audioFailures.length) {
+  audioFailures.slice(0, 20).forEach(failure => console.error(JSON.stringify(failure)));
+  process.exitCode = 1;
+}
