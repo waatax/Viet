@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url';
 import fs from 'node:fs';
 import path from 'node:path';
 
+fs.mkdirSync(path.resolve('scripts/cache'), { recursive: true });
 const temporary = fs.mkdtempSync(path.resolve('scripts/cache/playback-test-'));
 try {
   const outfile = path.join(temporary, 'test.mjs');

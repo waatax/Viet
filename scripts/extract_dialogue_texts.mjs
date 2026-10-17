@@ -24,6 +24,7 @@ export { SCENARIO_EXEGESIS } from './src/data/scenarioExegesisData.js';
 `;
 
 // Bundle inside the project (scripts/cache is git-ignored) so bare imports like 'react' resolve
+fs.mkdirSync(path.join(ROOT, 'scripts', 'cache'), { recursive: true });
 const tmpDir = fs.mkdtempSync(path.join(ROOT, 'scripts', 'cache', 'extract-'));
 const bundlePath = path.join(tmpDir, 'bundle.mjs');
 
