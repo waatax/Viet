@@ -8,7 +8,12 @@
 @media (max-width: 600px) {
   .studio-practice-options label { flex-wrap: wrap; width: 100%; }
   .studio-practice-options select { width: 100%; }
-  .home-conv-studio .studio-title-group { min-width: 0; }
+  .home-conv-studio .studio-header { display: block; }
+  .home-conv-studio .studio-title-group { min-width: 0; width: 100%; }
+  .home-conv-studio .studio-accent-box { flex-wrap: wrap; max-width: 100%; box-sizing: border-box; }
+  .home-conv-studio .studio-pill { white-space: nowrap; }
+  .home-conv-studio .studio-pill.gold,
+  .home-conv-studio .studio-pill.green { display: none; }
 }
 
 .home-conv-studio {
