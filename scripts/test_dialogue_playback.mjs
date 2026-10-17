@@ -22,7 +22,7 @@ try {
           subscribe() { return () => {}; },
           onStop(fn) { this.stops.add(fn); return () => this.stops.delete(fn); },
           stop() { this.stops.forEach(fn => fn()); }, preload() {},
-          speak(text, options) { this.calls.push({ text, lang: options.lang }); this.pending = options.onEnd; }
+          speak(text, options) { this.calls.push({ text, lang: options.lang }); this.pending = options.onEnd; this.pendingError = options.onError; }
         };` }));
     } }]
   });
@@ -99,7 +99,45 @@ try {
   seq.drain();
   assert.equal(seq.state.status, 'idle');
   seq.destroy();
-  console.log(`PASS: ${groups} conversation sections in both modes; pause, stale callbacks, resume, mode switch and single-line playback.`);
+  const failed = create();
+  failed.start({ lines });
+  const failedEnd = audioEngine.pending;
+  audioEngine.pendingError(new Error('offline'));
+  assert.equal(failed.state.status, 'paused');
+  assert.equal(failed.state.index, 0);
+  assert.equal(failed.state.error, 'audio-unavailable');
+  failedEnd();
+  assert.equal(failed.state.runs, 0, 'failed audio must not count as a completed lesson');
+  failed.resume();
+  failed.drain();
+  assert.equal(failed.state.error, null);
+  failed.destroy();
+
+  const stalled = create();
+  stalled.start({ lines });
+  audioEngine.pending = null;
+  stalled.drain();
+  assert.equal(stalled.state.status, 'paused');
+  assert.equal(stalled.state.index, 0, 'a stalled clip must not silently skip a sentence');
+  assert.equal(stalled.state.error, 'audio-unavailable');
+  stalled.destroy();
+
+  setPlaybackPrefs({ repeat: 2, shadowPause: true });
+  const practice = create();
+  audioEngine.calls = [];
+  practice.start({ lines, mode: 'vi-zh' });
+  practice.drain();
+  assert.deepEqual(audioEngine.calls.map(call => call.lang), ['vi', 'vi', 'zh', 'vi', 'vi', 'zh']);
+  practice.destroy();
+  setPlaybackPrefs({ repeat: 1, shadowPause: false, loop: true });
+  const looping = create();
+  looping.updateContext({ onComplete: ({ runs }) => { if (runs === 2) looping.stop(); } });
+  looping.start({ lines, mode: 'vi-only' });
+  looping.drain();
+  assert.equal(looping.state.runs, 2);
+  looping.destroy();
+  setPlaybackPrefs({ loop: false });
+  console.log(`PASS: ${groups} conversation sections in both modes; transport, repeat, shadowing, looping, failed audio recovery and timeout safety.`);
 } finally {
   fs.rmSync(temporary, { recursive: true, force: true });
 }

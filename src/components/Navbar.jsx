@@ -271,9 +271,9 @@ export const Navbar = ({
                   setSelectedAccent(prev => prev === 'north' ? 'south' : 'north');
                 }}
                 title={learningMode === 'zh'
-                  ? (selectedAccent === 'north' ? '當前口音：河內標準音 (北越)。點擊切換為西貢商業音 (南越)' : '當前口音：西貢商業音 (南越)。點擊切換為河內標準音 (北越)')
+                  ? (selectedAccent === 'north' ? '當前口音：河內標準音 (北越)。點擊切換為南越口音偏好 (南越)' : '當前口音：南越口音偏好 (南越)。點擊切換為河內標準音 (北越)')
                   : (selectedAccent === 'north' ? 'Accent: Hanoi (North). Click for Saigon (South)' : 'Accent: Saigon (South). Click for Hanoi (North)')}
-                aria-label={selectedAccent === 'north' ? '口音：河內標準音' : '口音：西貢商業音'}
+                aria-label={selectedAccent === 'north' ? '口音：河內標準音' : '口音：南越口音偏好'}
               >
                 <span className="accent-icon">{selectedAccent === 'north' ? '🏛️' : '🌴'}</span>
                 <span className="accent-label-full">{selectedAccent === 'north' ? '河內音' : '西貢音'}</span>

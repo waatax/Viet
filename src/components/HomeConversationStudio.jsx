@@ -40,6 +40,20 @@ const TOP_CURATED_SCENARIOS = [
   { id: 'vietnam_geography', icon: '🇻🇳', labelZh: '風土民情', subZh: '南北文化·區域習俗' }
 ];
 
+const loadHomeStudy = () => {
+  try {
+    const saved = JSON.parse(localStorage.getItem('viet_home_study') || '{}');
+    const scenario = situationalScenarios.find(s => s.id === saved.scenarioId);
+    return {
+      scenarioId: scenario?.id || 'cafe',
+      sectionId: scenario?.dialogueSections?.some(s => s.id === saved.sectionId) ? saved.sectionId : 'all',
+      showTranslation: saved.showTranslation !== false
+    };
+  } catch {
+    return { scenarioId: 'cafe', sectionId: 'all', showTranslation: true };
+  }
+};
+
 export const HomeConversationStudio = ({
   selectedAccent = 'north',
   onSelectAccent,
@@ -47,9 +61,13 @@ export const HomeConversationStudio = ({
   updateUserStats
 }) => {
   const { learningMode } = useLanguage();
-  const [activeScenarioId, setActiveScenarioId] = useState('cafe');
-  const [sectionId, setSectionId] = useState('all');
-  const [showTranslation, setShowTranslation] = useState(true);
+  const [savedStudy] = useState(loadHomeStudy);
+  const [activeScenarioId, setActiveScenarioId] = useState(savedStudy.scenarioId);
+  const [sectionId, setSectionId] = useState(savedStudy.sectionId);
+  const [showTranslation, setShowTranslation] = useState(savedStudy.showTranslation);
+  useEffect(() => {
+    try { localStorage.setItem('viet_home_study', JSON.stringify({ scenarioId: activeScenarioId, sectionId, showTranslation })); } catch {}
+  }, [activeScenarioId, sectionId, showTranslation]);
 
   // Active scenario object
   const activeScenario = useMemo(() => {
@@ -87,18 +105,23 @@ export const HomeConversationStudio = ({
   const [isDownloading, setIsDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
   const [downloadMessage, setDownloadMessage] = useState('');
+  const downloadRequestRef = useRef(0);
   const [copiedIndex, setCopiedIndex] = useState(null);
   const [bookmarkedSet, setBookmarkedSet] = useState(new Set());
 
   // Check scenario cache status when active scenario or accent changes
   useEffect(() => {
     let isMounted = true;
+    downloadRequestRef.current++;
+    setIsDownloading(false);
+    setDownloadMessage('');
+    setCacheStatus({ total: 0, cachedCount: 0, isFullyCached: false, percent: 0 });
     const refresh = () => offlineAudioService.checkScenarioCacheStatus(dialogueLines, selectedAccent).then(status => {
       if (isMounted) setCacheStatus(status);
     });
     refresh();
     const unsubscribe = offlineAudioService.subscribe(refresh);
-    return () => { isMounted = false; unsubscribe(); };
+    return () => { isMounted = false; downloadRequestRef.current++; unsubscribe(); };
   }, [dialogueLines, selectedAccent]);
 
   // Refresh bookmarks status
@@ -121,6 +144,8 @@ export const HomeConversationStudio = ({
   };
 
   const handleDownloadScenarioAudio = async () => {
+    const request = ++downloadRequestRef.current;
+    const isCurrent = () => request === downloadRequestRef.current;
     audioEngine.playHaptic('selection');
     setIsDownloading(true);
     setDownloadProgress(0);
@@ -128,16 +153,17 @@ export const HomeConversationStudio = ({
 
     try {
       await offlineAudioService.cacheScenarioAudio(dialogueLines, selectedAccent, ({ percent }) => {
-        setDownloadProgress(percent);
+        if (isCurrent()) setDownloadProgress(percent);
       });
       const updated = await offlineAudioService.checkScenarioCacheStatus(dialogueLines, selectedAccent);
+      if (!isCurrent()) return;
       setCacheStatus(updated);
       setDownloadMessage(updated.isFullyCached ? '本情境已可離線播放。' : '部分音檔尚未儲存，請確認網路後再試一次。');
-      audioEngine.playHaptic('success');
+      if (updated.isFullyCached) audioEngine.playHaptic('success');
     } catch (e) {
-      setDownloadMessage('無法儲存音檔，請確認網路與瀏覽器儲存空間後再試一次。');
+      if (isCurrent()) setDownloadMessage('無法儲存音檔，請確認網路與瀏覽器儲存空間後再試一次。');
     } finally {
-      setIsDownloading(false);
+      if (isCurrent()) setIsDownloading(false);
     }
   };
 
@@ -242,6 +268,7 @@ export const HomeConversationStudio = ({
         )}
       </div>
 
+      <p className="studio-current-lesson">{learningMode === 'zh' ? '現在學習：' : 'Now learning: '}{learningMode === 'zh' ? activeScenario?.titleZh : (activeScenario?.titleEn || activeScenario?.titleZh)} · {dialogueLines.length} {learningMode === 'zh' ? '句' : 'lines'}</p>
       <DialoguePlaybackBar player={player} lines={dialogueLines} title={activeScenario?.titleZh} learningMode={learningMode} />
 
 
@@ -439,6 +466,7 @@ export const HomeConversationStudio = ({
       </div>
 
       <details className="studio-voice-note"><summary>語音與離線播放說明</summary>
+      <p>音檔快取可供已開啟的頁面離線播放；重新開啟網站仍可能需要網路。瀏覽器可能依儲存空間或隱私設定清除快取。</p>
       <p className="studio-voice-note">語音優先使用預錄的越南語與台灣華語合成音檔。南越偏好若無專屬音檔，會使用現有標準越語，不以改寫拼字模擬口音。</p>
       </details>
 

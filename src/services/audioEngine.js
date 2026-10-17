@@ -728,8 +728,11 @@ class AudioEngine {
           .catch((err) => {
             if (session !== null && this.sessionId !== session) return;
             console.warn('Audio fallback stream failed:', err);
-            this.notifyState({ isPlaying: false, activeText: null, activeKey: null });
-            if (options.onEnd) options.onEnd();
+            this.notifyState({ isPlaying: false, activeText: null, activeKey: null, error: 'audio-unavailable' });
+            if (options.onError) options.onError(err);
+            // Older single-clip callers use onEnd to release their busy indicator.
+            // Dialogue sequencers supply onError and never advance on this path.
+            else options.onEnd?.();
           });
       });
   }
@@ -757,7 +760,7 @@ class AudioEngine {
         else if (options.lang === 'en') targetLang = 'en-US';
 
         utterance.lang = targetLang;
-        utterance.rate = Math.min(Math.max(rate, 0.7), 1.3);
+        utterance.rate = Math.min(Math.max(rate, 0.5), 2.0);
         utterance.pitch = 1.0;
 
         if (targetLang === 'vi-VN') {
@@ -808,14 +811,35 @@ class AudioEngine {
   /**
    * Tier 2: Online audio stream fallback (Google Neural Stream)
    */
-  playOnlineStream(text, rate = 1.0, options = {}, session = null) {
+  splitSpeechText(text, maxChars = 180) {
+    const segments = [];
+    let rest = String(text).trim();
+    while (rest.length > maxChars) {
+      const space = rest.lastIndexOf(' ', maxChars);
+      const end = space > maxChars / 2 ? space : maxChars;
+      segments.push(rest.slice(0, end));
+      rest = rest.slice(end).trimStart();
+    }
+    if (rest) segments.push(rest);
+    return segments;
+  }
+
+  async playOnlineStream(text, rate = 1.0, options = {}, session = null) {
+    for (const segment of this.splitSpeechText(text)) {
+      if (session !== null && this.sessionId !== session) return;
+      await this.playOnlineSegment(segment, rate, { ...options, onEnd: undefined }, session);
+    }
+    if (session === null || this.sessionId === session) options.onEnd?.();
+  }
+
+  playOnlineSegment(text, rate = 1.0, options = {}, session = null) {
     return new Promise((resolve, reject) => {
       if (session !== null && this.sessionId !== session) {
         return resolve();
       }
 
       try {
-        const encodedText = encodeURIComponent(text.slice(0, 200));
+        const encodedText = encodeURIComponent(text);
         const tl = options.lang === 'zh' ? 'zh-TW' : (options.lang === 'en' ? 'en-US' : 'vi');
         const audioUrl = `https://translate.google.com/translate_tts?ie=UTF-8&tl=${tl}&client=tw-ob&q=${encodedText}`;
 

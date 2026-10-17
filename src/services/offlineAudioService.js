@@ -14,6 +14,26 @@ import { audioEngine } from './audioEngine';
 
 const CACHE_NAME = 'viet-audio-offline-v1';
 const PREF_KEY = 'viet_offline_cache_enabled';
+const isAudioResponse = response => Boolean(response?.ok && /^(audio\/|application\/octet-stream)/i.test(response.headers.get('content-type') || ''));
+
+export function resolveScenarioAudio(lines = [], accent = 'north') {
+  const urls = new Set();
+  const missing = new Set();
+  for (const line of lines) {
+    const viet = line.viet || line.vi;
+    if (viet) {
+      const file = audioEngine.resolveManifestFile(audioEngine.cleanText(viet), accent) || audioEngine.resolveManifestFile(viet, accent);
+      if (file) urls.add(audioEngine.buildAudioUrl(file));
+      else missing.add(`vi:${viet}`);
+    }
+    if (line.zh) {
+      const file = audioEngine.resolveNativeFile(line.zh, 'zh');
+      if (file) urls.add(audioEngine.buildAudioUrl(file));
+      else missing.add(`zh:${line.zh}`);
+    }
+  }
+  return { urls: [...urls], missingCount: missing.size };
+}
 
 class OfflineAudioService {
   constructor() {
@@ -66,7 +86,7 @@ class OfflineAudioService {
     try {
       const cache = await caches.open(CACHE_NAME);
       const match = await cache.match(url);
-      return Boolean(match);
+      return isAudioResponse(match);
     } catch {
       return false;
     }
@@ -81,10 +101,10 @@ class OfflineAudioService {
     try {
       const cache = await caches.open(CACHE_NAME);
       const existing = await cache.match(url);
-      if (existing) return true;
+      if (isAudioResponse(existing)) return true;
 
       const response = await fetch(url, { cache: 'no-cache' });
-      if (response && response.ok) {
+      if (isAudioResponse(response)) {
         await cache.put(url, response.clone());
         this.notify();
         return true;
@@ -107,7 +127,7 @@ class OfflineAudioService {
       }
       const cache = await caches.open(CACHE_NAME);
       const response = await cache.match(url);
-      if (response) {
+      if (isAudioResponse(response)) {
         const blob = await response.blob();
         const blobUrl = URL.createObjectURL(blob);
         this.blobUrlCache.set(url, blobUrl);
@@ -127,30 +147,9 @@ class OfflineAudioService {
       return { total: 0, cached: 0 };
     }
 
-    const urlsToCache = new Set();
-
-    lines.forEach(line => {
-      const viet = line.viet || line.vi;
-      if (viet) {
-        const cleanedVi = audioEngine.cleanText(viet);
-        const manifestFile = audioEngine.resolveManifestFile(cleanedVi, accent) || 
-                             audioEngine.resolveManifestFile(viet, accent);
-        if (manifestFile) {
-          urlsToCache.add(audioEngine.buildAudioUrl(manifestFile));
-        }
-      }
-      const zh = line.zh;
-      if (zh) {
-        const zhFile = audioEngine.resolveNativeFile(zh, 'zh');
-        if (zhFile) {
-          urlsToCache.add(audioEngine.buildAudioUrl(zhFile));
-        }
-      }
-    });
-
-    const urlList = Array.from(urlsToCache);
-    const total = urlList.length;
-    let completed = 0;
+    const { urls: urlList, missingCount } = resolveScenarioAudio(lines, accent);
+    const total = urlList.length + missingCount;
+    let completed = missingCount;
     let cached = 0;
 
     const cache = await caches.open(CACHE_NAME);
@@ -162,10 +161,10 @@ class OfflineAudioService {
       await Promise.all(chunk.map(async (url) => {
         try {
           const match = await cache.match(url);
-          if (match) cached++;
+          if (isAudioResponse(match)) cached++;
           else {
             const resp = await fetch(url);
-            if (resp && resp.ok) {
+            if (isAudioResponse(resp)) {
               await cache.put(url, resp.clone());
               cached++;
             }
@@ -183,6 +182,8 @@ class OfflineAudioService {
       }));
     }
 
+    onProgress?.({ current: total, total, percent: 100, isDone: true });
+
     this.notify();
     return { total, cached, failed: total - cached };
   }
@@ -195,24 +196,8 @@ class OfflineAudioService {
       return { total: 0, cachedCount: 0, isFullyCached: false, percent: 0 };
     }
 
-    const urls = new Set();
-    lines.forEach(line => {
-      const viet = line.viet || line.vi;
-      if (viet) {
-        const cleanedVi = audioEngine.cleanText(viet);
-        const manifestFile = audioEngine.resolveManifestFile(cleanedVi, accent) || 
-                             audioEngine.resolveManifestFile(viet, accent);
-        if (manifestFile) urls.add(audioEngine.buildAudioUrl(manifestFile));
-      }
-      const zh = line.zh;
-      if (zh) {
-        const zhFile = audioEngine.resolveNativeFile(zh, 'zh');
-        if (zhFile) urls.add(audioEngine.buildAudioUrl(zhFile));
-      }
-    });
-
-    const urlList = Array.from(urls);
-    if (urlList.length === 0) {
+    const { urls: urlList, missingCount } = resolveScenarioAudio(lines, accent);
+    if (urlList.length + missingCount === 0) {
       return { total: 0, cachedCount: 0, isFullyCached: false, percent: 0 };
     }
 
@@ -221,12 +206,12 @@ class OfflineAudioService {
       const cache = await caches.open(CACHE_NAME);
       for (const u of urlList) {
         const m = await cache.match(u);
-        if (m) cachedCount++;
+        if (isAudioResponse(m)) cachedCount++;
       }
     } catch {}
 
-    const total = urlList.length;
-    const isFullyCached = cachedCount === total && total > 0;
+    const total = urlList.length + missingCount;
+    const isFullyCached = missingCount === 0 && cachedCount === total && total > 0;
     const percent = Math.round((cachedCount / total) * 100);
 
     return { total, cachedCount, isFullyCached, percent };

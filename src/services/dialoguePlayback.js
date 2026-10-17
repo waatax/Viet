@@ -82,7 +82,7 @@ export class DialogueSequencer {
     this.onChange = onChange;
     this.lines = [];
     this.ctx = { accent: 'north', nativeLang: 'zh', title: '', onComplete: null };
-    this.state = { status: 'idle', mode: 'vi-zh', index: -1, part: null, rep: 0, total: 0, runs: 0 };
+    this.state = { status: 'idle', mode: 'vi-zh', index: -1, part: null, rep: 0, total: 0, runs: 0, error: null };
     this.token = 0;
     this.timers = new Set();
     this.selfStopping = false;
@@ -241,7 +241,7 @@ export class DialogueSequencer {
 
   release() {
     if (this.state.status !== 'idle' || this.state.index !== -1) {
-      this.setState({ status: 'idle', index: -1, part: null, rep: 0 });
+      this.setState({ status: 'idle', index: -1, part: null, rep: 0, error: null });
     }
     if (activeSequencer === this) {
       activeSequencer = null;
@@ -314,7 +314,7 @@ export class DialogueSequencer {
     const line = this.lines[index];
     const isVi = part === 'vi';
     const text = isVi ? line.viet : line.native;
-    this.setState({ index, part, rep });
+    this.setState({ index, part, rep, error: null });
     this.updateMediaMetadata();
 
     if (!text) {
@@ -332,13 +332,21 @@ export class DialogueSequencer {
       this.afterPart(index, part, rep, Date.now() - startedAt);
     };
 
-    this.later(handleEnd, watchdogMs(text, lang, rate), { evenWhenHidden: true });
+    const handleError = () => {
+      if (ended || token !== this.token || this.state.status !== 'playing') return;
+      ended = true;
+      this.pause();
+      this.setState({ error: 'audio-unavailable' });
+    };
+    // A timeout is not proof the learner heard the line. Keep it available for retry.
+    this.later(handleError, watchdogMs(text, lang, rate), { evenWhenHidden: true });
     audioEngine.speak(text, {
       lang,
       accent: isVi ? this.ctx.accent : undefined,
       rate,
       key: `${this.id}:${index}:${part}:${rep}`,
-      onEnd: handleEnd
+      onEnd: handleEnd,
+      onError: handleError
     });
   }
 
@@ -411,7 +419,7 @@ export class DialogueSequencer {
     const { accent, nativeLang } = this.ctx;
     const current = this.lines[index];
     const upcoming = this.lines[index + 1];
-    if (current?.native) audioEngine.preload(current.native, { lang: nativeLang });
+    if (current?.native && this.state.mode === 'vi-zh') audioEngine.preload(current.native, { lang: nativeLang });
     if (upcoming) {
       audioEngine.preload(upcoming.viet, { accent });
       if (upcoming.native && this.state.mode === 'vi-zh') audioEngine.preload(upcoming.native, { lang: nativeLang });

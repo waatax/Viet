@@ -22,7 +22,7 @@ export const VIETNAM_LANDSCAPES = [
     nameZh: '胡志明市金融特區',
     nameVi: 'Thành phố Hồ Chí Minh',
     nameEn: 'Ho Chi Minh City (Saigon)',
-    accent: '🌴 西貢商業音',
+    accent: '🌴 南越口音偏好',
     accentType: 'south',
     image: 'hcmc_skyline_illustration.jpg',
     badgeZh: '南越經濟火車頭',
@@ -336,7 +336,7 @@ export const MODULE_KNOWLEDGE_MAP = [
     modules: [
       { id: 'alphabet', icon: '🔤', titleZh: '字母發音打底', titleEn: 'Alphabet & IPA', level: 'A1', hours: '5h', descZh: '29字母、單複母音與特殊輔音開口要領' },
       { id: 'tonegame', icon: '🎵', titleZh: '聲調聽力競技場', titleEn: '6-Tone Arena', level: 'A1', hours: '4h', descZh: '6大聲調調值高低、沙盤對照與闖關聽辨' },
-      { id: 'accent', icon: '🇻🇳', titleZh: '南北口音對照', titleEn: 'North vs South', level: 'A1-B1', hours: '3h', descZh: '河內標準音 vs 西貢商業音對比與切換' }
+      { id: 'accent', icon: '🇻🇳', titleZh: '南北口音對照', titleEn: 'North vs South', level: 'A1-B1', hours: '3h', descZh: '河內標準音 vs 南越口音偏好對比與切換' }
     ]
   },
   {
@@ -361,7 +361,7 @@ export const MODULE_KNOWLEDGE_MAP = [
     tierDescEn: 'Branching role-plays and voice shadowing across authentic scenarios.',
     color: '#10b981',
     modules: [
-      { id: 'conversation', icon: '💬', titleZh: '49大情境對話', titleEn: '49 Scenarios', level: 'A1-B2', hours: '18h', descZh: '涵蓋食衣住行、租屋看診與分段雙語精聽' },
+      { id: 'conversation', icon: '💬', titleZh: '64大情境對話', titleEn: '64 Scenarios', level: 'A1-B2', hours: '18h', descZh: '涵蓋食衣住行、租屋看診與分段雙語精聽' },
       { id: 'topics', icon: '✨', titleZh: '7大情境專題', titleEn: '7 Deep Topics', level: 'A2-B1', hours: '10h', descZh: '商務拜訪、家庭稱謂、健康醫療與數字量詞' },
       { id: 'shadowing', icon: '🎙️', titleZh: '影子跟讀特訓', titleEn: 'Voice Shadowing', level: 'A1-B2', hours: '6h', descZh: '麥克風語音辨識、逐字音高聲調診斷' }
     ]
@@ -403,7 +403,7 @@ export const PEDAGOGICAL_STEPS = [
     icon: '🎧',
     titleZh: '精聽輸入 (Comprehensible Input)',
     titleEn: 'Comprehensible Input',
-    descZh: '真人母語錄音 · 雙語對照 · 1.0x / 0.75x 慢速精讀',
+    descZh: '越南語神經合成語音 · 雙語對照 · 1.0x / 0.75x 慢速精讀',
     descEn: 'Native audio, bilingual transcripts, slow playback',
     targetModule: 'conversation',
     color: '#3b82f6'
@@ -612,7 +612,7 @@ export const LearningPathModule = ({
     { id: 'science', icon: Brain, titleZh: '科學方法研究', titleEn: 'Science & SLA', descZh: '5 大跨學科學習體系', descEn: '5-Discipline SLA Hub', tone: 'purple' },
     { id: 'emergency', icon: LifeBuoy, titleZh: '生活急救錦囊', titleEn: 'Survival Audio Kit', descZh: '街頭出差一鍵出聲', descEn: 'Instant Tap-to-Speak', tone: 'red' },
     { id: 'alphabet', icon: AudioLines, titleZh: '發音聲調打底', titleEn: 'Sounds & Tones', descZh: '29 字母與 6 聲調', descEn: '29 letters & 6 tones', tone: 'blue' },
-    { id: 'conversation', icon: MessagesSquare, titleZh: '49大情境對話', titleEn: '49 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
+    { id: 'conversation', icon: MessagesSquare, titleZh: '64大情境對話', titleEn: '64 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
     { id: 'hanviet', icon: BookOpen, titleZh: '漢越同源字根', titleEn: 'Han-Viet Roots', descZh: '百大字根倍速記詞', descEn: '100 Core cognate roots', tone: 'purple' }
   ];
 
@@ -848,7 +848,7 @@ export const LearningPathModule = ({
               {learningMode === 'zh' ? '🎯 今日個人化學習微目標' : '🎯 Daily Micro-Learning Target'}
             </strong>
             <p style={{ margin: '0.2rem 0 0', fontSize: '0.86rem', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh' ? '科學證實：每天持續 5~10 分鐘，學習保存率提升 300%' : 'Consistency beats intensity: 5-10 mins daily yields 300% higher retention'}
+              {learningMode === 'zh' ? '每天練習 5–10 分鐘，聽懂一句，再試著自己說一次。' : 'Practise for 5–10 minutes: understand one sentence, then say it yourself.'}
             </p>
           </div>
         </div>

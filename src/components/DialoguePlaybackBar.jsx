@@ -34,6 +34,7 @@ const copy = {
     partShadow: '換你跟讀',
     partLoop: '即將重播',
     paused: '已暫停',
+    failed: '音訊未完成，請重試',
     prev: '上一句',
     next: '下一句',
     replay: '重聽本句',
@@ -45,6 +46,7 @@ const copy = {
     settings: '播放設定',
     tip: '學習建議：先用「越→中」理解句意 → 再切「純越文」盲聽 → 開「跟讀停頓」開口練習。',
     region: '對話播放控制',
+    audioError: '這句音訊尚未播放完成。請確認網路或音檔快取，再重聽本句；也可以自行切到下一句。',
     jump: (i) => `從第 ${i} 句開始播放`
   },
   en: {
@@ -61,6 +63,7 @@ const copy = {
     partShadow: 'Your turn',
     partLoop: 'Looping',
     paused: 'Paused',
+    failed: 'Audio incomplete — retry',
     prev: 'Previous line',
     next: 'Next line',
     replay: 'Replay line',
@@ -72,6 +75,7 @@ const copy = {
     settings: 'Playback settings',
     tip: 'Tip: listen in "Viet → English" first, then switch to "Vietnamese Only", then turn on shadow pauses and speak along.',
     region: 'Dialogue playback controls',
+    audioError: 'This line could not finish playing. Check your connection or cached audio, then replay it. You can also choose the next line.',
     jump: (i) => `Play from line ${i}`
   }
 };
@@ -85,7 +89,11 @@ export const PlaybackPartChip = ({ player, learningMode, className = '' }) => {
   let icon = '🇻🇳';
   let label = t.partVi;
   let tone = 'vi';
-  if (player.isPaused) {
+  if (player.error) {
+    icon = '⚠';
+    label = t.failed;
+    tone = 'paused';
+  } else if (player.isPaused) {
     icon = '⏸';
     label = t.paused;
     tone = 'paused';
@@ -294,6 +302,7 @@ export const DialoguePlaybackBar = ({
         className={`dpb dpb-${variant} ${player.isActive ? 'is-active' : ''}`}
         aria-label={t.region}
       >
+        {player.error && <p className="dpb-error" role="alert">{t.audioError}</p>}
         <div className="dpb-modes" role="group">
           <ModeButton mode="vi-zh" player={player} learningMode={learningMode} xpHint={xpHint} />
           <ModeButton mode="vi-only" player={player} learningMode={learningMode} xpHint={xpHint} />
