@@ -24,6 +24,7 @@ import { bookmarkService } from '../services/bookmarkService';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
+import { PhraseSetPlayer } from './PhraseSetPlayer';
 import './BusinessHubModule.css';
 
 export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab: setModuleTab }) => {
@@ -566,10 +567,18 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
               </div>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1rem', marginTop: '0.5rem' }}>
+            <PhraseSetPlayer
+              key={tradeShowGuide.stages[activeExpoStageIdx].id}
+              lines={tradeShowGuide.stages[activeExpoStageIdx].phrases}
+              title={tradeShowGuide.stages[activeExpoStageIdx].stageNameZh}
+              accent={selectedAccent}
+              learningMode={learningMode}
+              style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(320px, 100%), 1fr))', gap: '1rem', marginTop: '0.5rem' }}
+            >
               {tradeShowGuide.stages[activeExpoStageIdx].phrases.map((phrase, pIdx) => (
                 <div
                   key={pIdx}
+                  data-line-index={pIdx}
                   style={{
                     background: 'var(--bg-input)',
                     padding: '1rem 1.25rem',
@@ -580,7 +589,7 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1.05rem', flex: 1 }}>
+                    <span className="dpb-viet-text" lang="vi" style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1.05rem', flex: 1 }}>
                       {phrase.viet}
                     </span>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
@@ -627,7 +636,7 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                       </button>
                     </div>
                   </div>
-                  <span style={{ fontSize: '0.9rem', color: 'var(--brand-primary)', fontWeight: 700 }}>
+                  <span className="dpb-native-text" style={{ fontSize: '0.9rem', color: 'var(--brand-primary)', fontWeight: 700 }}>
                     {learningMode === 'zh' ? phrase.zh : phrase.en}
                   </span>
                   <small style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
@@ -635,7 +644,7 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                   </small>
                 </div>
               ))}
-            </div>
+            </PhraseSetPlayer>
           </div>
         </div>
       )}
@@ -703,11 +712,18 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
 
                 <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '0.75rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
                   <strong style={{ fontSize: '0.9rem', color: 'var(--text-primary)' }}>🗣️ 必備口語金句：</strong>
+                  <PhraseSetPlayer
+                    lines={city.mustKnowPhrases}
+                    title={city.cityNameZh}
+                    accent={selectedAccent}
+                    learningMode={learningMode}
+                    style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
+                  >
                   {city.mustKnowPhrases.map((phrase, idx) => (
-                    <div key={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-input)', padding: '0.5rem 0.75rem', borderRadius: 'var(--radius-xs)' }}>
+                    <div key={idx} data-line-index={idx} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--bg-input)', padding: '0.5rem 0.75rem', borderRadius: 'var(--radius-xs)' }}>
                       <div style={{ flex: 1, marginRight: '0.5rem' }}>
-                        <div style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-primary)' }}>{phrase.viet}</div>
-                        <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{phrase.zh}</div>
+                        <div className="dpb-viet-text" lang="vi" style={{ fontSize: '0.9rem', fontWeight: 800, color: 'var(--text-primary)' }}>{phrase.viet}</div>
+                        <div className="dpb-native-text" style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{learningMode === 'zh' ? phrase.zh : phrase.en}</div>
                       </div>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                         <button
@@ -754,6 +770,7 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                       </div>
                     </div>
                   ))}
+                  </PhraseSetPlayer>
                 </div>
               </div>
             ))}
@@ -1489,10 +1506,17 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                   {learningMode === 'zh' ? item.proTipZh : item.proTipEn}
                 </div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                <PhraseSetPlayer
+                  lines={item.phrases}
+                  title={item.titleZh}
+                  accent={selectedAccent}
+                  learningMode={learningMode}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}
+                >
                   {item.phrases.map((phrase, pIdx) => (
                     <div
                       key={pIdx}
+                      data-line-index={pIdx}
                       style={{
                         background: 'var(--bg-input)',
                         padding: '0.75rem 1rem',
@@ -1503,7 +1527,7 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                       }}
                     >
                       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '0.5rem' }}>
-                        <span style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '0.95rem' }}>
+                        <span className="dpb-viet-text" lang="vi" style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '0.95rem' }}>
                           {phrase.viet}
                         </span>
                         <button
@@ -1515,12 +1539,12 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                           <Volume2 size={16} />
                         </button>
                       </div>
-                      <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                      <span className="dpb-native-text" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
                         {learningMode === 'zh' ? phrase.zh : phrase.en}
                       </span>
                     </div>
                   ))}
-                </div>
+                </PhraseSetPlayer>
               </div>
             ))}
           </div>

@@ -1220,7 +1220,7 @@ export const situationalScenarios = [
             {
               "id": "res1_opt2",
               "textVi": "Anh muốn mua một chiếc xe máy.",
-              "textZh": "我想買一台摩托車。",
+              "textZh": "我想買一台機車。",
               "textEn": "I want to buy a motorbike.",
               "isCorrect": false,
               "feedbackZh": "這裡是餐廳喔，買車要去車行！",
@@ -3049,7 +3049,7 @@ export const situationalScenarios = [
       "titleZh": "深入西貢「Nhậu」(熱炒喝酒) 夜市排檔文化",
       "titleEn": "Saigon Nhậu Seafood Culture",
       "contentZh": [
-        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
+        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑膠桌椅 (Bàn ghế nhựa)。",
         "喝啤酒時服務生會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
         "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
       ],
@@ -3059,7 +3059,7 @@ export const situationalScenarios = [
         "Join the infectious cheer: \"Một, hai, ba, dô!\" before taking sips with friends."
       ],
       "tipsZh": [
-        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
+        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑膠桌椅 (Bàn ghế nhựa)。",
         "喝啤酒時服務生會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
         "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
       ],
@@ -3140,7 +3140,7 @@ export const situationalScenarios = [
       "titleZh": "深入西貢「Nhậu」(熱炒喝酒) 夜市排檔文化",
       "titleEn": "Saigon Nhậu Seafood Culture",
       "contentZh": [
-        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
+        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑膠桌椅 (Bàn ghế nhựa)。",
         "喝啤酒時服務生會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
         "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
       ],
@@ -3150,7 +3150,7 @@ export const situationalScenarios = [
         "Join the infectious cheer: \"Một, hai, ba, dô!\" before taking sips with friends."
       ],
       "tipsZh": [
-        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑料桌椅 (Bàn ghế nhựa)。",
+        "在越南，海鮮螺肉大排檔是下班社交放鬆的聖地。桌椅通常是矮塑膠桌椅 (Bàn ghế nhựa)。",
         "喝啤酒時服務生會主動往杯子裡塞一大塊圓柱形冰塊 (Đá cây)，酒溫隨時保持冰涼透心。",
         "敬酒時每個人都要大喊「Một, hai, ba, dô! Hai, ba, dô! Hai, ba, uống!」氣氛極為歡樂熱鬧。"
       ],
@@ -3472,10 +3472,10 @@ export const situationalScenarios = [
     "tagEn": "Airport & Customs",
     "icon": "✈️",
     "image": "airport.jpg",
-    "titleZh": "國際機場辦理登機、過海關與托運行李",
+    "titleZh": "國際機場辦理登機、過海關與託運行李",
     "titleEn": "Airport Check-In, Baggage Drop & Customs Clearance",
     "titleVi": "Làm Thủ Tục Tại Sân Bay & Hải Quan",
-    "summaryZh": "機場櫃台出示護照 (Hộ chiếu)、登機證 (Thẻ lên máy bay)、行李托運 (Hành lý ký gửi) 與挑選靠窗靠走道座位。",
+    "summaryZh": "機場櫃台出示護照 (Hộ chiếu)、登機證 (Thẻ lên máy bay)、行李託運 (Hành lý ký gửi) 與挑選靠窗靠走道座位。",
     "summaryEn": "Navigate check-in counter, baggage drop, window/aisle seat selection, and customs declaration.",
     "dialogues": [
       {
@@ -3509,7 +3509,7 @@ export const situationalScenarios = [
         "speaker": "Hành khách (旅客)",
         "role": "learner",
         "viet": "Tôi có một kiện ký gửi hai mươi ký. Cho tôi chọn ghế cạnh cửa sổ nhé.",
-        "zh": "我有一件二十公斤的托運行李。請幫我安排靠窗座位喔。",
+        "zh": "我有一件二十公斤的託運行李。請幫我安排靠窗座位喔。",
         "en": "I have one checked bag weighing 20kg. Please give me a window seat.",
         "northTip": "靠窗座位叫「ghế cạnh cửa sổ」，走道座位叫「ghế gần lối đi」。",
         "southTip": "兩個人同行想坐一起可說「cho hai người ngồi cạnh nhau」。"
@@ -3568,13 +3568,13 @@ export const situationalScenarios = [
         {
           "stepIndex": 2,
           "partnerPromptVi": "Anh có bao nhiêu kiện hành lý ký gửi ạ? Anh muốn ngồi ghế gần cửa sổ hay lối đi?",
-          "partnerPromptZh": "您有幾件托運行李？想要靠窗還是走道座位？",
+          "partnerPromptZh": "您有幾件託運行李？想要靠窗還是走道座位？",
           "partnerPromptEn": "How many checked bags do you have? Window or aisle seat?",
           "userOptions": [
             {
               "id": "ap2_opt1",
               "textVi": "Tôi có một vali ký gửi hai mươi cân, cho tôi ghế cạnh cửa sổ nhé.",
-              "textZh": "我有一件20公斤行李箱要托運，請給我靠窗座位。",
+              "textZh": "我有一件20公斤行李箱要託運，請給我靠窗座位。",
               "textEn": "I have one 20kg suitcase to check, window seat please.",
               "isCorrect": true,
               "feedbackZh": "極佳！精確交代了行李件數與偏好的座位類型。",
@@ -3652,7 +3652,7 @@ export const situationalScenarios = [
         "vi": "Thẻ lên máy bay",
         "phonetic": "[tʰɛ len maːj baːj]",
         "ipa": "[tʰɛ len maːj baːj]",
-        "zh": "登機證 / 登機牌",
+        "zh": "登機證",
         "en": "Boarding pass",
         "hanViet": ""
       },
@@ -3661,7 +3661,7 @@ export const situationalScenarios = [
         "vi": "Hành lý ký gửi",
         "phonetic": "[haɲ li ki ɣɯj]",
         "ipa": "[haɲ li ki ɣɯj]",
-        "zh": "托運行李",
+        "zh": "託運行李",
         "en": "Checked luggage",
         "hanViet": ""
       },
@@ -3743,7 +3743,7 @@ export const situationalScenarios = [
         "vi": "Thẻ lên máy bay",
         "phonetic": "[tʰɛ len maːj baːj]",
         "ipa": "[tʰɛ len maːj baːj]",
-        "zh": "登機證 / 登機牌",
+        "zh": "登機證",
         "en": "Boarding pass",
         "hanViet": ""
       },
@@ -3752,7 +3752,7 @@ export const situationalScenarios = [
         "vi": "Hành lý ký gửi",
         "phonetic": "[haɲ li ki ɣɯj]",
         "ipa": "[haɲ li ki ɣɯj]",
-        "zh": "托運行李",
+        "zh": "託運行李",
         "en": "Checked luggage",
         "hanViet": ""
       },
@@ -4408,7 +4408,7 @@ export const situationalScenarios = [
       "titleEn": "Grab & Taxi Tips in Vietnam",
       "contentZh": [
         "在越南出行強烈推薦使用 **Grab** 應用程式叫車（汽車 GrabCar 或摩托計程車 GrabBike），價格透明固定，不必擔心被繞路或跳表動手腳。",
-        "搭乘 GrabBike（摩托車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
+        "搭乘 GrabBike（機車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
         "如果路邊攔計程車，請認準兩大正規車隊：白色綠底的 **Mai Linh**（美靈計程車）或綠紅線條的 **Vinasun**。"
       ],
       "contentEn": [
@@ -4418,7 +4418,7 @@ export const situationalScenarios = [
       ],
       "tipsZh": [
         "在越南出行強烈推薦使用 **Grab** 應用程式叫車（汽車 GrabCar 或摩托計程車 GrabBike），價格透明固定，不必擔心被繞路或跳表動手腳。",
-        "搭乘 GrabBike（摩托車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
+        "搭乘 GrabBike（機車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
         "如果路邊攔計程車，請認準兩大正規車隊：白色綠底的 **Mai Linh**（美靈計程車）或綠紅線條的 **Vinasun**。"
       ],
       "tipsEn": [
@@ -4499,7 +4499,7 @@ export const situationalScenarios = [
       "titleEn": "Grab & Taxi Tips in Vietnam",
       "contentZh": [
         "在越南出行強烈推薦使用 **Grab** 應用程式叫車（汽車 GrabCar 或摩托計程車 GrabBike），價格透明固定，不必擔心被繞路或跳表動手腳。",
-        "搭乘 GrabBike（摩托車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
+        "搭乘 GrabBike（機車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
         "如果路邊攔計程車，請認準兩大正規車隊：白色綠底的 **Mai Linh**（美靈計程車）或綠紅線條的 **Vinasun**。"
       ],
       "contentEn": [
@@ -4509,7 +4509,7 @@ export const situationalScenarios = [
       ],
       "tipsZh": [
         "在越南出行強烈推薦使用 **Grab** 應用程式叫車（汽車 GrabCar 或摩托計程車 GrabBike），價格透明固定，不必擔心被繞路或跳表動手腳。",
-        "搭乘 GrabBike（摩托車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
+        "搭乘 GrabBike（機車）時，司機會提供安全帽 (Mũ bảo hiểm)，依越南法規必須全程佩戴。",
         "如果路邊攔計程車，請認準兩大正規車隊：白色綠底的 **Mai Linh**（美靈計程車）或綠紅線條的 **Vinasun**。"
       ],
       "tipsEn": [
@@ -7858,7 +7858,7 @@ export const situationalScenarios = [
             {
               "id": "em2_opt1",
               "textVi": "Dạ khoảng mười lăm phút trước, hai người đi xe máy màu đỏ, tôi không nhìn rõ biển số.",
-              "textZh": "大約十五分鐘前，兩人騎紅色摩托車，我沒看清車牌。",
+              "textZh": "大約十五分鐘前，兩人騎紅色機車，我沒看清車牌。",
               "textEn": "About 15 minutes ago, two people on a red scooter, could not see plate.",
               "isCorrect": true,
               "feedbackZh": "提供了發生時間、嫌犯人數與車輛特徵！",
@@ -9894,10 +9894,10 @@ export const situationalScenarios = [
     "tagEn": "VAT Red Invoice",
     "icon": "🧾",
     "image": "business.jpg",
-    "titleZh": "開立電子加值稅紅發票 (Hóa đơn đỏ) 與公司稅號報帳",
+    "titleZh": "開立電子加值稅紅發票 (Hóa đơn đỏ) 與公司統編報帳",
     "titleEn": "Requesting Official VAT Red Invoices & Corporate Tax Reimbursement",
     "titleVi": "Xuất Hóa Đơn Điện Tử GTGT (Hóa Đơn Đỏ) & Kê Khai Mã Số Thuế",
-    "summaryZh": "越南報帳法規：索取 10% 加值稅電子紅發票 (Hóa đơn điện tử)、提供公司統一稅號 (MST)、核對發票內容與 Email 接收。",
+    "summaryZh": "越南報帳法規：索取 10% 加值稅電子紅發票 (Hóa đơn điện tử)、提供公司統一編號 (MST)、核對發票內容與 Email 接收。",
     "summaryEn": "Vietnam tax compliance: obtain 10% VAT electronic red invoices, supply Tax ID (MST), and verify e-invoice email delivery.",
     "dialogues": [
       {
@@ -9913,7 +9913,7 @@ export const situationalScenarios = [
         "speaker": "Thu ngân khách sạn (櫃檯會計)",
         "role": "npc",
         "viet": "Dạ được ạ. Anh vui lòng cung cấp Tên công ty, Mã số thuế (MST), Địa chỉ và Email để bên em xuất hóa đơn điện tử.",
-        "zh": "好的。請您提供公司全稱、統一稅號 (MST)、登記地址與電子信箱，我們立刻開立電子發票。",
+        "zh": "好的。請您提供公司全稱、統一編號 (MST)、登記地址與電子信箱，我們立刻開立電子發票。",
         "en": "Certainly. Please provide your full Company Name, Tax Code (MST), Address, and Email for e-invoicing.",
         "northTip": "「Mã số thuế」(MST) 相當於台灣的公司統一編號（統編）。",
         "southTip": "越南現已全面實施電子發票（Hóa đơn điện tử）。"
@@ -9922,7 +9922,7 @@ export const situationalScenarios = [
         "speaker": "Khách công tác (出差商務客)",
         "role": "learner",
         "viet": "Đây là danh thiếp có đầy đủ thông tin xuất hóa đơn của công ty anh. Tổng số tiền đã gồm thuế VAT 10% rồi đúng không?",
-        "zh": "這是印有我們公司完整開票資訊的名片。總金額已經包含 10% 增值稅了對吧？",
+        "zh": "這是印有我們公司完整開票資訊的名片。總金額已經包含 10% 加值稅了對吧？",
         "en": "Here is our card with complete billing details. The total amount is inclusive of 10% VAT, correct?",
         "northTip": "「Đã gồm thuế VAT」(已含稅) 需反覆確認。",
         "southTip": "出差報帳如果拿到未含稅單據將無法抵扣企業所得稅。"
@@ -9934,7 +9934,7 @@ export const situationalScenarios = [
         "zh": "沒錯，價格已含稅。系統將在 15 分鐘內自動將 PDF 與 XML 發票檔案發送到您的信箱。",
         "en": "Yes, price includes VAT. Our system will email the PDF and XML invoice files within 15 minutes.",
         "northTip": "「File PDF và XML」是越南稅務局認可的標準發票格式。",
-        "southTip": "收到發票後務必核對稅號與統編是否完全一致。"
+        "southTip": "收到發票後務必核對統編是否完全一致。"
       }
     ],
     "rolePlay": {
@@ -9952,10 +9952,10 @@ export const situationalScenarios = [
             {
               "id": "vat_opt1",
               "textVi": "Dạ có, công ty tôi cần xuất hóa đơn đỏ. Đây là thông tin mã số thuế (MST) của bên tôi.",
-              "textZh": "是的，我們公司需要開紅發票。這是我們的統一稅號 (MST) 資訊。",
+              "textZh": "是的，我們公司需要開紅發票。這是我們的統一編號 (MST) 資訊。",
               "textEn": "Yes, we need a red invoice. Here is our Tax ID (MST) information.",
               "isCorrect": true,
-              "feedbackZh": "正確！清楚表達開立紅發票需求並主動提供 MST 稅號。",
+              "feedbackZh": "正確！清楚表達開立紅發票需求並主動提供 MST 統編。",
               "feedbackEn": "Correct! Clearly requested VAT invoice and provided company Tax ID."
             }
           ]
@@ -9977,7 +9977,7 @@ export const situationalScenarios = [
         "vi": "Mã số thuế",
         "phonetic": "[maː˦˧˥ so˦˧˥ tʰwe˦˧˥]",
         "ipa": "[maː˦˧˥ so˦˧˥ tʰwe˦˧˥]",
-        "zh": "公司統一稅號 (MST / 統編)",
+        "zh": "公司統一編號 (MST / 統編)",
         "en": "Tax Identification Number (MST)",
         "hanViet": "Mã (碼) + Số (數) + Thuế (稅)"
       },
@@ -10003,9 +10003,9 @@ export const situationalScenarios = [
     "culturalTip": {
       "titleZh": "🧾 越南加值稅紅發票 (Hóa đơn đỏ) 報帳法則",
       "titleEn": "Essential Red Invoice Accounting Rules in Vietnam",
-      "contentZh": "在越南，一般收據 (Phiếu thu / Hóa đơn bán lẻ) 在法律上「不能」作為企業所得稅扣抵憑證。唯有具備稅務總局認證碼之電子發票 (Hóa đơn điện tử có mã của cơ quan thuế) 才能合法核銷報帳。開票時必須確認公司名稱與營業執照一字不差，並核對 10 位或 13 位之 MST 稅號。",
+      "contentZh": "在越南，一般收據 (Phiếu thu / Hóa đơn bán lẻ) 在法律上「不能」作為企業所得稅扣抵憑證。唯有具備稅務總局認證碼之電子發票 (Hóa đơn điện tử có mã của cơ quan thuế) 才能合法核銷報帳。開票時必須確認公司名稱與營業執照一字不差，並核對 10 位或 13 位之 MST 統編。",
       "contentEn": "Retail receipts cannot be used for corporate tax deduction in Vietnam. Only official e-invoices with General Department of Taxation verification codes are valid for deductible expenses.",
-      "proTipZh": "✨ 秘笈：將公司的開票四要素（名稱、稅號、地址、信箱）存成手機記事本圖片，結帳時直接出示給店員拍照即可！",
+      "proTipZh": "✨ 秘笈：將公司的開票四要素（名稱、統編、地址、信箱）存成手機記事本圖片，結帳時直接出示給店員拍照即可！",
       "proTipEn": "✨ Pro Tip: Save your company billing 4-elements as a smartphone image to show cashiers instantly."
     }
   },

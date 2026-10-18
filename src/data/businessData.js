@@ -372,7 +372,7 @@ export const interactiveNegotiations = [
       {
         step: 1,
         partnerSpeech: 'Bên em có hệ thống phân phối phủ khắp 63 tỉnh thành. Em muốn công ty anh giao quyền đại lý độc quyền tại Việt Nam cho bên em, với cam kết doanh số năm đầu là 500.000 USD.',
-        partnerSpeechZh: '我們擁有覆蓋全越南 63 省市的經銷網絡。我希望貴公司把全越南的獨家代理權交給我們，首年年度銷售承諾為 50 萬美金。',
+        partnerSpeechZh: '我們擁有覆蓋全越南 63 省市的經銷網路。我希望貴公司把全越南的獨家代理權交給我們，首年年度銷售承諾為 50 萬美金。',
         partnerSpeechEn: 'We cover all 63 provinces. We want exclusive nationwide distribution with a first-year sales commitment of $500,000.',
         options: [
           {
@@ -573,7 +573,7 @@ export const executiveSurvivalGuide = [
     icon: '🧾',
     descZh: '在越南商務出差或採購，唯有索取正式的電子加值稅發票（Hóa đơn điện tử GTGT）才能供公司合法核銷報帳與退稅。',
     descEn: 'Official VAT Red Invoices (Hóa đơn đỏ) are mandatory for corporate tax deductions and expense reimbursement in Vietnam.',
-    proTipZh: '💡 必備開票四要素：1. Tên công ty (公司名稱全稱) 2. Mã số thuế (MST 統一稅號) 3. Địa chỉ (公司登記地址) 4. Email nhận hóa đơn (接收電子發票的信箱)。',
+    proTipZh: '💡 必備開票四要素：1. Tên công ty (公司名稱全稱) 2. Mã số thuế (MST 統一編號) 3. Địa chỉ (公司登記地址) 4. Email nhận hóa đơn (接收電子發票的信箱)。',
     proTipEn: '💡 4 Essential Invoice Elements: Full Company Name, Tax Code (MST), Registered Address, and Electronic Delivery Email.',
     phrases: [
       {
@@ -584,7 +584,7 @@ export const executiveSurvivalGuide = [
       },
       {
         viet: 'Đây là thông tin xuất hóa đơn và mã số thuế (MST) của công ty tôi.',
-        zh: '這是我們公司的開票資訊與統一稅號 (MST)。',
+        zh: '這是我們公司的開票資訊與統一編號 (MST)。',
         en: 'Here is our company billing info and Tax ID (MST).',
         hintZh: '出示公司名片或開票紙條時說。'
       },
@@ -596,7 +596,7 @@ export const executiveSurvivalGuide = [
       },
       {
         viet: 'Giá này đã bao gồm thuế GTGT (VAT 10%) chưa ạ?',
-        zh: '請問這個價格已經包含增值稅 (VAT 10%) 了嗎？',
+        zh: '請問這個價格已經包含加值稅 (VAT 10%) 了嗎？',
         en: 'Is this price inclusive of 10% VAT?',
         hintZh: '結帳或報價確認時必問，避免後續爭議。'
       }
@@ -649,7 +649,7 @@ export const executiveSurvivalGuide = [
     icon: '🚗',
     descZh: '在越南各大城市與工業區使用 GrabCar 出行，精準與司機溝通上下車點與開立電子乘車憑證。',
     descEn: 'Navigate Grab rides smoothly, direct drivers in Vietnamese, and retrieve corporate receipts.',
-    proTipZh: '💡 Grab 叫車小撇步：在 Grab App 綁定公司信用卡，並勾選「Send e-receipt (Gửi hóa đơn điện tử)」，即可自動收到包含統編稅號的報帳單據。',
+    proTipZh: '💡 Grab 叫車小撇步：在 Grab App 綁定公司信用卡，並勾選「Send e-receipt (Gửi hóa đơn điện tử)」，即可自動收到包含統編的報帳單據。',
     proTipEn: '💡 Link corporate cards in Grab app for automatic e-receipt delivery for expense filing.',
     phrases: [
       {
@@ -885,7 +885,7 @@ export const executiveHanVietRoots = [
     meaningZh: '稅務、稅率、關稅',
     meaningEn: 'Tax, Tariff, Duty',
     examples: [
-      { vi: 'Mã số thuế (MST)', zh: '統一稅號 (Mã 碼 + Số 數 + Thuế 稅)' },
+      { vi: 'Mã số thuế (MST)', zh: '統一編號 (Mã 碼 + Số 數 + Thuế 稅)' },
       { vi: 'Thuế giá trị gia tăng (GTGT/VAT)', zh: '加值型營業稅 (VAT)' },
       { vi: 'Thuế quan', zh: '關稅 (Thuế 稅 + Quan 關)' },
       { vi: 'Nộp thuế', zh: '繳稅 (Nộp 納 + Thuế 稅)' }
@@ -937,9 +937,9 @@ export const realWorldCommercialDocuments = [
       {
         clauseNo: 'Ô số 1',
         titleVi: 'Người nhập khẩu (Consignee / Importer)',
-        titleZh: '欄位 1：進口人資訊 (公司全稱 / MST 統一稅號)',
+        titleZh: '欄位 1：進口人資訊 (公司全稱 / MST 統一編號)',
         contentVi: 'CÔNG TY TNHH PRECISION INNOVATION VIỆT NAM - MST: 3702891234 - Địa chỉ: KCN VSIP 1, Bình Dương.',
-        contentZh: '進口人：台灣創新精密越南責任有限公司，統一稅號：3702891234，登記地址：平陽省 VSIP 1 工業園區。'
+        contentZh: '進口人：台灣創新精密越南責任有限公司，統一編號：3702891234，登記地址：平陽省 VSIP 1 工業園區。'
       },
       {
         clauseNo: 'Ô số 2',
@@ -951,9 +951,9 @@ export const realWorldCommercialDocuments = [
       {
         clauseNo: 'Ô số 3',
         titleVi: 'Mã số HS & Trị giá tính thuế',
-        titleZh: '欄位 3：海關 HS Code 稅號與完稅價格',
+        titleZh: '欄位 3：海關 HS Code 稅則號列與完稅價格',
         contentVi: 'Mã HS: 8479.89.90 - Mô tả: Linh kiện máy móc tự động hóa - Trị giá tính thuế: 120.000 USD - Thuế nhập khẩu: 0% (Form E/Form VJ).',
-        contentZh: 'HS 稅號：8479.89.90，品名：自動化設備零件，完稅價格：120,000 美元，適用關稅：0%。'
+        contentZh: 'HS 稅則號列：8479.89.90，品名：自動化設備零件，完稅價格：120,000 美元，適用關稅：0%。'
       }
     ]
   }

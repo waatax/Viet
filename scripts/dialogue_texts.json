@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-17T15:43:18.092Z",
-  "totalLines": 934,
+  "generatedAt": "2026-10-18T17:42:49.508Z",
+  "totalLines": 1839,
   "zh": [
     {
       "raw": "我想去越南旅遊，你能介紹幾個城市給我嗎？",
@@ -563,8 +563,8 @@
       "source": "scenario:airport:d1"
     },
     {
-      "raw": "我有一件二十公斤的托運行李。請幫我安排靠窗座位喔。",
-      "cleaned": "我有一件二十公斤的托運行李。請幫我安排靠窗座位喔。",
+      "raw": "我有一件二十公斤的託運行李。請幫我安排靠窗座位喔。",
+      "cleaned": "我有一件二十公斤的託運行李。請幫我安排靠窗座位喔。",
       "source": "scenario:airport:d1"
     },
     {
@@ -578,13 +578,13 @@
       "source": "scenario-vocab:airport"
     },
     {
-      "raw": "登機證 / 登機牌",
-      "cleaned": "登機證 、 登機牌",
+      "raw": "登機證",
+      "cleaned": "登機證",
       "source": "scenario-vocab:airport"
     },
     {
-      "raw": "托運行李",
-      "cleaned": "托運行李",
+      "raw": "託運行李",
+      "cleaned": "託運行李",
       "source": "scenario-vocab:airport"
     },
     {
@@ -1753,13 +1753,13 @@
       "source": "scenario:biz_vat_invoice_tax:d1"
     },
     {
-      "raw": "好的。請您提供公司全稱、統一稅號 (MST)、登記地址與電子信箱，我們立刻開立電子發票。",
-      "cleaned": "好的。請您提供公司全稱、統一稅號 、登記地址與電子信箱，我們立刻開立電子發票。",
+      "raw": "好的。請您提供公司全稱、統一編號 (MST)、登記地址與電子信箱，我們立刻開立電子發票。",
+      "cleaned": "好的。請您提供公司全稱、統一編號 、登記地址與電子信箱，我們立刻開立電子發票。",
       "source": "scenario:biz_vat_invoice_tax:d1"
     },
     {
-      "raw": "這是印有我們公司完整開票資訊的名片。總金額已經包含 10% 增值稅了對吧？",
-      "cleaned": "這是印有我們公司完整開票資訊的名片。總金額已經包含 10% 增值稅了對吧？",
+      "raw": "這是印有我們公司完整開票資訊的名片。總金額已經包含 10% 加值稅了對吧？",
+      "cleaned": "這是印有我們公司完整開票資訊的名片。總金額已經包含 10% 加值稅了對吧？",
       "source": "scenario:biz_vat_invoice_tax:d1"
     },
     {
@@ -1773,8 +1773,8 @@
       "source": "scenario-vocab:biz_vat_invoice_tax"
     },
     {
-      "raw": "公司統一稅號 (MST / 統編)",
-      "cleaned": "公司統一稅號",
+      "raw": "公司統一編號 (MST / 統編)",
+      "cleaned": "公司統一編號",
       "source": "scenario-vocab:biz_vat_invoice_tax"
     },
     {
@@ -3633,29 +3633,4199 @@
       "source": "topic-survival:numbers_scale"
     },
     {
+      "raw": "請問展覽主辦方：我們 A12 號攤位在展館的哪一個區域？",
+      "cleaned": "請問展覽主辦方：我們 A12 號攤位在展館的哪一個區域？",
+      "source": "lesson:biz_trade_show:booth_setup"
+    },
+    {
+      "raw": "我們攤位需要額外加租 2 個 220V 電源插座和 1 張洽談接待桌。",
+      "cleaned": "我們攤位需要額外加租 2 個 220V 電源插座和 1 張洽談接待桌。",
+      "source": "lesson:biz_trade_show:booth_setup"
+    },
+    {
+      "raw": "從台灣寄過來的樣品展箱已經運送到攤位上了嗎？",
+      "cleaned": "從台灣寄過來的樣品展箱已經運送到攤位上了嗎？",
+      "source": "lesson:biz_trade_show:booth_setup"
+    },
+    {
+      "raw": "請給我 4 張參展商專用工作證（胸卡）。",
+      "cleaned": "請給我 4 張參展商專用工作證 。",
+      "source": "lesson:biz_trade_show:booth_setup"
+    },
+    {
+      "raw": "您好！歡迎光臨參觀我們公司的展位！",
+      "cleaned": "您好！歡迎光臨參觀我們公司的展位！",
+      "source": "lesson:biz_trade_show:greeting_leads"
+    },
+    {
+      "raw": "送您一本我們公司最新產品系列的型錄介紹喔。",
+      "cleaned": "送您一本我們公司最新產品系列的型錄介紹喔。",
+      "source": "lesson:biz_trade_show:greeting_leads"
+    },
+    {
+      "raw": "請問可以和您交換一張名片嗎？",
+      "cleaned": "請問可以和您交換一張名片嗎？",
+      "source": "lesson:biz_trade_show:greeting_leads"
+    },
+    {
+      "raw": "不知道貴公司目前正在尋找或感興趣我們哪一項產品/解決方案呢？",
+      "cleaned": "不知道貴公司目前正在尋找或感興趣我們哪一項產品、解決方案呢？",
+      "source": "lesson:biz_trade_show:greeting_leads"
+    },
+    {
+      "raw": "這項產品是按照 ISO 9001 品質標準生產，並取得 CE/RoHS 國際認證。",
+      "cleaned": "這項產品是按照 ISO 9001 品質標準生產，並取得 CE、RoHS 國際認證。",
+      "source": "lesson:biz_trade_show:demo_pitch"
+    },
+    {
+      "raw": "我們公司擁有自有工廠，可依照客戶要求承接 OEM 代工與 ODM 客製化設計。",
+      "cleaned": "我們公司擁有自有工廠，可依照客戶要求承接 OEM 代工與 ODM 客製化設計。",
+      "source": "lesson:biz_trade_show:demo_pitch"
+    },
+    {
+      "raw": "設備保固期為 2 年，我們在越南當地設有技術團隊提供即時售後支援。",
+      "cleaned": "設備保固期為 2 年，我們在越南當地設有技術團隊提供即時售後支援。",
+      "source": "lesson:biz_trade_show:demo_pitch"
+    },
+    {
+      "raw": "首批試產訂單的最低起訂量 (MOQ) 是多少呢？",
+      "cleaned": "首批試產訂單的最低起訂量 是多少呢？",
+      "source": "lesson:biz_trade_show:demo_pitch"
+    },
+    {
+      "raw": "請給我您的 Zalo 號碼，今晚我立刻把詳細報價單和產品操作影片傳給您！",
+      "cleaned": "請給我您的 Zalo 號碼，今晚我立刻把詳細報價單和產品操作影片傳給您！",
+      "source": "lesson:biz_trade_show:follow_up"
+    },
+    {
+      "raw": "週五展覽結束後，非常期待能邀請您到我們辦公室/工廠參觀指導。",
+      "cleaned": "週五展覽結束後，非常期待能邀請您到我們辦公室、工廠參觀指導。",
+      "source": "lesson:biz_trade_show:follow_up"
+    },
+    {
+      "raw": "非常感謝您撥冗蒞臨我們攤位，祝貴公司業務蒸蒸日上！",
+      "cleaned": "非常感謝您撥冗蒞臨我們攤位，祝貴公司業務蒸蒸日上！",
+      "source": "lesson:biz_trade_show:follow_up"
+    },
+    {
+      "raw": "您好總經理！今天河內天氣非常好。",
+      "cleaned": "您好總經理！今天河內天氣非常好。",
+      "source": "lesson:biz_dual_city:hanoi"
+    },
+    {
+      "raw": "請您喝杯熱茶。",
+      "cleaned": "請您喝杯熱茶。",
+      "source": "lesson:biz_dual_city:hanoi"
+    },
+    {
+      "raw": "我們非常期待能長期合作，並向貴集團多多學習寶貴經驗。",
+      "cleaned": "我們非常期待能長期合作，並向貴集團多多學習寶貴經驗。",
+      "source": "lesson:biz_dual_city:hanoi"
+    },
+    {
+      "raw": "你好哥！我們約在第一郡的咖啡館談事情比較方便喔。",
+      "cleaned": "你好哥！我們約在第一郡的咖啡館談事情比較方便喔。",
+      "source": "lesson:biz_dual_city:hcmc"
+    },
+    {
+      "raw": "貴方能敲定的最優惠價格是多少？交期大約需要幾天？",
+      "cleaned": "貴方能敲定的最優惠價格是多少？交期大約需要幾天？",
+      "source": "lesson:biz_dual_city:hcmc"
+    },
+    {
+      "raw": "今晚忙完我請哥去喝幾杯西貢啤酒放鬆聊聊喔！",
+      "cleaned": "今晚忙完我請哥去喝幾杯西貢啤酒放鬆聊聊喔！",
+      "source": "lesson:biz_dual_city:hcmc"
+    },
+    {
+      "raw": "我們公司需要開立加值稅紅發票。",
+      "cleaned": "我們公司需要開立加值稅紅發票。",
+      "source": "lesson:biz_travel_survival:vat_red_invoice"
+    },
+    {
+      "raw": "這是我們公司的開票資訊與統一編號 (MST)。",
+      "cleaned": "這是我們公司的開票資訊與統一編號 。",
+      "source": "lesson:biz_travel_survival:vat_red_invoice"
+    },
+    {
+      "raw": "請幫我把電子發票發送到這個電子信箱。",
+      "cleaned": "請幫我把電子發票發送到這個電子信箱。",
+      "source": "lesson:biz_travel_survival:vat_red_invoice"
+    },
+    {
+      "raw": "請問這個價格已經包含加值稅 (VAT 10%) 了嗎？",
+      "cleaned": "請問這個價格已經包含加值稅 了嗎？",
+      "source": "lesson:biz_travel_survival:vat_red_invoice"
+    },
+    {
+      "raw": "我來越南出差並參加國際商業展覽會。",
+      "cleaned": "我來越南出差並參加國際商業展覽會。",
+      "source": "lesson:biz_travel_survival:airport_and_visa"
+    },
+    {
+      "raw": "這是入境批文與合作公司的正式邀請函。",
+      "cleaned": "這是入境批文與合作公司的正式邀請函。",
+      "source": "lesson:biz_travel_survival:airport_and_visa"
+    },
+    {
+      "raw": "請問我們公司的司機在內排 / 新山一機場到站大廳外的第幾號柱子接我？",
+      "cleaned": "請問我們公司的司機在內排 、 新山一機場到站大廳外的第幾號柱子接我？",
+      "source": "lesson:biz_travel_survival:airport_and_visa"
+    },
+    {
+      "raw": "我站在飯店大廳門口前面，穿著白色襯衫。",
+      "cleaned": "我站在飯店大廳門口前面，穿著白色襯衫。",
+      "source": "lesson:biz_travel_survival:grab_and_navigation"
+    },
+    {
+      "raw": "司機大哥，到下一個十字路口請幫我右轉上高速公路。",
+      "cleaned": "司機大哥，到下一個十字路口請幫我右轉上高速公路。",
+      "source": "lesson:biz_travel_survival:grab_and_navigation"
+    },
+    {
+      "raw": "請讓我在第 7 郡 SECC 展覽中心的正門口下車喔。",
+      "cleaned": "請讓我在第 7 郡 SECC 展覽中心的正門口下車喔。",
+      "source": "lesson:biz_travel_survival:grab_and_navigation"
+    },
+    {
+      "raw": "請給我您綁定 Zalo 的手機號碼或掃描 QR Code，我馬上把資料傳給您！",
+      "cleaned": "請給我您綁定 Zalo 的手機號碼或掃描 QR Code，我馬上把資料傳給您！",
+      "source": "lesson:biz_zalo:zalo"
+    },
+    {
+      "raw": "您好 [對方姓名] 哥！我是來自 [您公司名稱] 的 [您的名字]。今天非常高興且榮幸能在 [展覽/會議地點] 與您交流。按照約定，我附上型錄與初步報價單檔案給您參考。您看過後有任何需要進一步了解的地方，隨時傳訊息給我喔！",
+      "cleaned": "您好 哥！我是來自 的 。今天非常高興且榮幸能在 與您交流。按照約定，我附上型錄與初步報價單檔案給您參考。您看過後有任何需要進一步了解的地方，隨時傳訊息給我喔！",
+      "source": "lesson:biz_zalo:zalo"
+    },
+    {
+      "raw": "尊敬的 [對方姓名] 哥：下週我們台灣總部的技術專家團隊將進駐 [工業區名稱, 省份] 廠區。誠摯邀請您於 [日期] [時間] 蒞臨廠房參觀，共同深入商討合作代工生產計畫。非常期待您的到訪！",
+      "cleaned": "尊敬的 哥：下週我們台灣總部的技術專家團隊將進駐 廠區。誠摯邀請您於 蒞臨廠房參觀，共同深入商討合作代工生產計畫。非常期待您的到訪！",
+      "source": "lesson:biz_zalo:zalo"
+    },
+    {
+      "raw": "早安！",
+      "cleaned": "早安！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "午安！",
+      "cleaned": "午安！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "晚上好！",
+      "cleaned": "晚上好！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "祝你晚安好夢！",
+      "cleaned": "祝你晚安好夢！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "最近過得如何？",
+      "cleaned": "最近過得如何？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "一切都還順利嗎？",
+      "cleaned": "一切都還順利嗎？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "好久不見！",
+      "cleaned": "好久不見！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "很高興能認識你。",
+      "cleaned": "很高興能認識你。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "請問你來自哪裡呢？",
+      "cleaned": "請問你來自哪裡呢？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "我來自台灣。",
+      "cleaned": "我來自台灣。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "抱歉打擾你了。",
+      "cleaned": "抱歉打擾你了。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "一點也不客氣！",
+      "cleaned": "一點也不客氣！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "麻煩請讓我問一下。",
+      "cleaned": "麻煩請讓我問一下。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "祝你有美好的一天！",
+      "cleaned": "祝你有美好的一天！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "祝週末愉快！",
+      "cleaned": "祝週末愉快！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "你會說英文嗎？",
+      "cleaned": "你會說英文嗎？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "我只會一點點越南語。",
+      "cleaned": "我只會一點點越南語。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "請說得慢一點。",
+      "cleaned": "請說得慢一點。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "你可以再重複一次嗎？",
+      "cleaned": "你可以再重複一次嗎？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "我明白了，謝謝你。",
+      "cleaned": "我明白了，謝謝你。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "我不太明白。",
+      "cleaned": "我不太明白。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "期待很快再見到你！",
+      "cleaned": "期待很快再見到你！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "路上小心喔！慢走！",
+      "cleaned": "路上小心喔！慢走！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "祝旅途一路平安！",
+      "cleaned": "祝旅途一路平安！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "請代我向你的家人問好。",
+      "cleaned": "請代我向你的家人問好。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "你吃飽飯了嗎？",
+      "cleaned": "你吃飽飯了嗎？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "我吃過了，謝謝你。",
+      "cleaned": "我吃過了，謝謝你。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "還沒，我正準備去吃飯。",
+      "cleaned": "還沒，我正準備去吃飯。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "請放輕鬆，當作自己家一樣！",
+      "cleaned": "請放輕鬆，當作自己家一樣！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "非常榮幸能接待你。",
+      "cleaned": "非常榮幸能接待你。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "我可以拍一張合照嗎？",
+      "cleaned": "我可以拍一張合照嗎？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "可以給我你的電話號碼嗎？",
+      "cleaned": "可以給我你的電話號碼嗎？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "你有用 Zalo 嗎？",
+      "cleaned": "你有用 Zalo 嗎？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "加我的 Zalo 好友喔！",
+      "cleaned": "加我的 Zalo 好友喔！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "有空時傳訊息給我喔。",
+      "cleaned": "有空時傳訊息給我喔。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "今天天氣真好呢！",
+      "cleaned": "今天天氣真好呢！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "今天你忙不忙呢？",
+      "cleaned": "今天你忙不忙呢？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "我今天一整天都有空。",
+      "cleaned": "我今天一整天都有空。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "能和你聊天真愉快。",
+      "cleaned": "能和你聊天真愉快。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "請多保重身體喔！",
+      "cleaned": "請多保重身體喔！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "你好！非常榮幸能認識你。",
+      "cleaned": "你好！非常榮幸能認識你。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "請允許我自我介紹，我叫 David。",
+      "cleaned": "請允許我自我介紹，我叫 David。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "我來自台灣，目前正在學越南語。",
+      "cleaned": "我來自台灣，目前正在學越南語。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "我今年 26 歲，那你呢？",
+      "cleaned": "我今年 26 歲，那你呢？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "請問哥是哪一年出生的，方便我稱呼您？",
+      "cleaned": "請問哥是哪一年出生的，方便我稱呼您？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "叫我 Minh 哥就可以了喔。",
+      "cleaned": "叫我 Minh 哥就可以了喔。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "你在越南常用哪個社群軟體呢？",
+      "cleaned": "你在越南常用哪個社群軟體呢？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "請給我你的 Zalo 帳號方便傳訊息喔！",
+      "cleaned": "請給我你的 Zalo 帳號方便傳訊息喔！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "今天非常高興有機會能和你交流聊天。",
+      "cleaned": "今天非常高興有機會能和你交流聊天。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "期待近期內再次與你見面！",
+      "cleaned": "期待近期內再次與你見面！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "給我一杯外帶冰奶咖啡。",
+      "cleaned": "給我一杯外帶冰奶咖啡。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯無糖冰黑咖啡。",
+      "cleaned": "給我一杯無糖冰黑咖啡。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯白咖啡（多奶少咖啡）。",
+      "cleaned": "給我一杯白咖啡 。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯熱蛋黃咖啡。",
+      "cleaned": "給我一杯熱蛋黃咖啡。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯順化鹽味奶蓋咖啡。",
+      "cleaned": "給我一杯順化鹽味奶蓋咖啡。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯椰奶冰沙咖啡。",
+      "cleaned": "給我一杯椰奶冰沙咖啡。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "請給我一杯冰茶。",
+      "cleaned": "請給我一杯冰茶。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "這壺茶可以加熱水回沖嗎？",
+      "cleaned": "這壺茶可以加熱水回沖嗎？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯酪梨冰沙，少煉乳。",
+      "cleaned": "給我一杯酪梨冰沙，少煉乳。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯芒果加白毛丹冰沙。",
+      "cleaned": "給我一杯芒果加白毛丹冰沙。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一顆切好的冰鎮新鮮椰子。",
+      "cleaned": "給我一顆切好的冰鎮新鮮椰子。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯加金桔的現榨甘蔗汁。",
+      "cleaned": "給我一杯加金桔的現榨甘蔗汁。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯蜜桃柳橙香茅茶。",
+      "cleaned": "給我一杯蜜桃柳橙香茅茶。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯黃金蓮子烏龍茶。",
+      "cleaned": "給我一杯黃金蓮子烏龍茶。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "幫我做微冰/少冰喔。",
+      "cleaned": "幫我做微冰、少冰喔。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "不要冰塊，幫我把冰塊另外裝。",
+      "cleaned": "不要冰塊，幫我把冰塊另外裝。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "做三分微糖就好。",
+      "cleaned": "做三分微糖就好。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "有燕麥奶或堅果奶嗎？",
+      "cleaned": "有燕麥奶或堅果奶嗎？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "再加一份白玉寒天珍珠。",
+      "cleaned": "再加一份白玉寒天珍珠。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "店裡有插座可以充筆電嗎？",
+      "cleaned": "店裡有插座可以充筆電嗎？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "請問店裡的 Wi-Fi 密碼是多少？",
+      "cleaned": "請問店裡的 Wi-Fi 密碼是多少？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "請讓我坐靠窗的位子。",
+      "cleaned": "請讓我坐靠窗的位子。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "這款咖啡是滴漏還是義式機壓的？",
+      "cleaned": "這款咖啡是滴漏還是義式機壓的？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "這是羅布斯塔還是阿拉比卡咖啡豆？",
+      "cleaned": "這是羅布斯塔還是阿拉比卡咖啡豆？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "賣我一包 500 克的現磨咖啡粉。",
+      "cleaned": "賣我一包 500 克的現磨咖啡粉。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "有賣不銹鋼咖啡滴漏壺嗎？",
+      "cleaned": "有賣不銹鋼咖啡滴漏壺嗎？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "內用還是外帶呢？",
+      "cleaned": "內用還是外帶呢？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "我要在店內享用。",
+      "cleaned": "我要在店內享用。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "我要外帶，請幫我裝在 T 字外帶袋。",
+      "cleaned": "我要外帶，請幫我裝在 T 字外帶袋。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "請多給我一根吸管和紙巾。",
+      "cleaned": "請多給我一根吸管和紙巾。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "這杯咖啡又香又好喝！",
+      "cleaned": "這杯咖啡又香又好喝！",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一盤嗑葵花籽。",
+      "cleaned": "給我一盤嗑葵花籽。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "現榨西瓜汁不加糖。",
+      "cleaned": "現榨西瓜汁不加糖。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯可可冰磚優格。",
+      "cleaned": "給我一杯可可冰磚優格。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "給我一杯紫米黑糯米優格。",
+      "cleaned": "給我一杯紫米黑糯米優格。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "可以用 MoMo 電子錢包付款嗎？",
+      "cleaned": "可以用 MoMo 電子錢包付款嗎？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "我掃 QR Code 轉帳付款喔。",
+      "cleaned": "我掃 QR Code 轉帳付款喔。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "這裡的咖啡非常濃郁道地。",
+      "cleaned": "這裡的咖啡非常濃郁道地。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "營業時間從幾點到幾點呢？",
+      "cleaned": "營業時間從幾點到幾點呢？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "本店 24 小時全天候營業。",
+      "cleaned": "本店 24 小時全天候營業。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "請給我們看菜單。",
+      "cleaned": "請給我們看菜單。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "店裡有什麼最好吃、最招牌的菜？",
+      "cleaned": "店裡有什麼最好吃、最招牌的菜？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一碗豪華全熟生牛肉全套大碗河粉。",
+      "cleaned": "給我一碗豪華全熟生牛肉全套大碗河粉。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "再加一份生牛肉切片。",
+      "cleaned": "再加一份生牛肉切片。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請多給一碗牛骨油湯精華。",
+      "cleaned": "請多給一碗牛骨油湯精華。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我兩份酥脆油條。",
+      "cleaned": "給我兩份酥脆油條。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一份烤肉米線加炸春捲。",
+      "cleaned": "給我一份烤肉米線加炸春捲。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一份豆腐炸春捲蝦醬米線。",
+      "cleaned": "給我一份豆腐炸春捲蝦醬米線。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "我不敢吃蝦醬，請幫我換成魚露。",
+      "cleaned": "我不敢吃蝦醬，請幫我換成魚露。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一碗順化豬腳蟹肉丸牛肉米線。",
+      "cleaned": "給我一碗順化豬腳蟹肉丸牛肉米線。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一份碎米飯排骨肉絲蒸蛋煎蛋全餐。",
+      "cleaned": "給我一份碎米飯排骨肉絲蒸蛋煎蛋全餐。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一份酥脆的西南部越式黃金煎餅。",
+      "cleaned": "給我一份酥脆的西南部越式黃金煎餅。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這個煎餅包生菜葉再沾魚露吃。",
+      "cleaned": "這個煎餅包生菜葉再沾魚露吃。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "再多給一盤新鮮生菜盤。",
+      "cleaned": "再多給一盤新鮮生菜盤。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我四條鮮蝦豬肉生春捲。",
+      "cleaned": "給我四條鮮蝦豬肉生春捲。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "沾花生黑醬還是蒜辣魚露呢？",
+      "cleaned": "沾花生黑醬還是蒜辣魚露呢？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一份香氣四溢的河內老牌薑黃烤魚。",
+      "cleaned": "給我一份香氣四溢的河內老牌薑黃烤魚。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一個脆皮烤豬肉法國麵包。",
+      "cleaned": "給我一個脆皮烤豬肉法國麵包。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "幫我多放芫荽香菜和醃酸蘿蔔絲。",
+      "cleaned": "幫我多放芫荽香菜和醃酸蘿蔔絲。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "不要放生辣椒和辣椒醬。",
+      "cleaned": "不要放生辣椒和辣椒醬。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一碗熱騰騰的豬雜豬血粥。",
+      "cleaned": "給我一碗熱騰騰的豬雜豬血粥。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一份泰式酸辣海鮮火鍋。",
+      "cleaned": "給我一份泰式酸辣海鮮火鍋。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "火鍋幫我們再加泡麵和綜合菇。",
+      "cleaned": "火鍋幫我們再加泡麵和綜合菇。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這道菜吃起來會很辣嗎？",
+      "cleaned": "這道菜吃起來會很辣嗎？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "幫我做微辣或者完全不辣喔。",
+      "cleaned": "幫我做微辣或者完全不辣喔。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "我對花生嚴重過敏。",
+      "cleaned": "我對花生嚴重過敏。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "我對蝦蟹貝類甲殼海鮮過敏。",
+      "cleaned": "我對蝦蟹貝類甲殼海鮮過敏。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這道菜請完全不要加味精。",
+      "cleaned": "這道菜請完全不要加味精。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請多給兩個小碗和兩雙筷子。",
+      "cleaned": "請多給兩個小碗和兩雙筷子。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這包濕紙巾有額外收費嗎？",
+      "cleaned": "這包濕紙巾有額外收費嗎？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "麻煩請幫我們出菜快一點喔。",
+      "cleaned": "麻煩請幫我們出菜快一點喔。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "我們這桌還少上了一盤炒菜。",
+      "cleaned": "我們這桌還少上了一盤炒菜。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請幫我把吃不完的菜打包帶走。",
+      "cleaned": "請幫我把吃不完的菜打包帶走。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "服務生，幫三號桌結帳買單。",
+      "cleaned": "服務生，幫三號桌結帳買單。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請開立公司統編紅發票 (VAT)。",
+      "cleaned": "請開立公司統編紅發票 。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "可以接受信用卡刷卡付款嗎？",
+      "cleaned": "可以接受信用卡刷卡付款嗎？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這家店的料理真的太美味了！",
+      "cleaned": "這家店的料理真的太美味了！",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "下次我一定會再來光顧。",
+      "cleaned": "下次我一定會再來光顧。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "店家有支援 GrabFood 外送嗎？",
+      "cleaned": "店家有支援 GrabFood 外送嗎？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "我想預訂今晚六個人的餐桌。",
+      "cleaned": "我想預訂今晚六個人的餐桌。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "店裡有隔音的 VIP 獨立包廂嗎？",
+      "cleaned": "店裡有隔音的 VIP 獨立包廂嗎？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這個價格已經含 10% 稅金了嗎？",
+      "cleaned": "這個價格已經含 10% 稅金了嗎？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "找零的小錢就留給你當小費吧。",
+      "cleaned": "找零的小錢就留給你當小費吧。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "祝各位用餐愉快、胃口大開！",
+      "cleaned": "祝各位用餐愉快、胃口大開！",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "感謝光臨，歡迎下次再來！",
+      "cleaned": "感謝光臨，歡迎下次再來！",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "給我一份現蒸的木耳豬肉餡熱粉捲 (Bánh cuốn)。",
+      "cleaned": "給我一份現蒸的木耳豬肉餡熱粉捲 。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這份豆腐米線沾蝦醬搭配扁糯米炸肉餅超讚。",
+      "cleaned": "這份豆腐米線沾蝦醬搭配扁糯米炸肉餅超讚。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這個蝦醬請幫我擠金桔加辣椒打出綿密泡沫喔。",
+      "cleaned": "這個蝦醬請幫我擠金桔加辣椒打出綿密泡沫喔。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請給我多加一盤蒜炒空心菜。",
+      "cleaned": "請給我多加一盤蒜炒空心菜。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這道陶鍋砂鍋燉魚非常入味而且超級下飯！",
+      "cleaned": "這道陶鍋砂鍋燉魚非常入味而且超級下飯！",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "我想嚐嚐酸甜爽脆的鮮蝦豬肉藕藤涼拌沙拉。",
+      "cleaned": "我想嚐嚐酸甜爽脆的鮮蝦豬肉藕藤涼拌沙拉。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這個柚子甜湯 (Chè bưởi) 柚皮軟糯椰奶香濃。",
+      "cleaned": "這個柚子甜湯 柚皮軟糯椰奶香濃。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請給我一杯超乾淨現榨加金桔的冰涼甘蔗汁。",
+      "cleaned": "請給我一杯超乾淨現榨加金桔的冰涼甘蔗汁。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這家店有配合 GrabFood 或 ShopeeFood 外送嗎？",
+      "cleaned": "這家店有配合 GrabFood 或 ShopeeFood 外送嗎？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請幫我送到門口 / 放在一樓櫃檯桌上喔。",
+      "cleaned": "請幫我送到門口 、 放在一樓櫃檯桌上喔。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
       "raw": "這個一個多少錢？",
       "cleaned": "這個一個多少錢？",
-      "source": "shopping-phrases"
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這一公斤芒果賣多少錢？",
+      "cleaned": "這一公斤芒果賣多少錢？",
+      "source": "phrases:購物與殺價 / Shopping"
     },
     {
       "raw": "阿姨，可以算便宜一點點嗎？",
       "cleaned": "阿姨，可以算便宜一點點嗎？",
-      "source": "shopping-phrases"
+      "source": "phrases:購物與殺價 / Shopping"
     },
     {
       "raw": "太貴了啦，給我打個折吧！",
       "cleaned": "太貴了啦，給我打個折吧！",
-      "source": "shopping-phrases"
+      "source": "phrases:購物與殺價 / Shopping"
     },
     {
       "raw": "如果我買三個的話算多少錢？",
       "cleaned": "如果我買三個的話算多少錢？",
-      "source": "shopping-phrases"
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我買很多，請幫我算批發價喔。",
+      "cleaned": "我買很多，請幫我算批發價喔。",
+      "source": "phrases:購物與殺價 / Shopping"
     },
     {
       "raw": "幫我當今天開市第一單，算個吉利價吧！",
       "cleaned": "幫我當今天開市第一單，算個吉利價吧！",
-      "source": "shopping-phrases"
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "可以給我看看其他顏色款式的嗎？",
+      "cleaned": "可以給我看看其他顏色款式的嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這個有大一點或小一點的尺碼嗎？",
+      "cleaned": "這個有大一點或小一點的尺碼嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我可以試穿這件衣服嗎？",
+      "cleaned": "我可以試穿這件衣服嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "請問試衣間在哪個位置呢？",
+      "cleaned": "請問試衣間在哪個位置呢？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "有全新未拆封包裝的新品嗎？",
+      "cleaned": "有全新未拆封包裝的新品嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這是正品還是仿冒品呢？",
+      "cleaned": "這是正品還是仿冒品呢？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這項產品是在哪裡製造生產的？",
+      "cleaned": "這項產品是在哪裡製造生產的？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這個商品有國際原廠保固嗎？",
+      "cleaned": "這個商品有國際原廠保固嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "保固期限是多長時間呢？",
+      "cleaned": "保固期限是多長時間呢？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "可以在幾天之內退換貨？",
+      "cleaned": "可以在幾天之內退換貨？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我要買這個，麻煩幫我包裝起來。",
+      "cleaned": "我要買這個，麻煩幫我包裝起來。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "請幫我包裝成生日禮物的樣式喔。",
+      "cleaned": "請幫我包裝成生日禮物的樣式喔。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "請給我一個手提塑膠袋。",
+      "cleaned": "請給我一個手提塑膠袋。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這個提袋需要額外加錢付費嗎？",
+      "cleaned": "這個提袋需要額外加錢付費嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我可以直接付美金現金嗎？",
+      "cleaned": "我可以直接付美金現金嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這裡接受 Visa 或 Mastercard 刷卡嗎？",
+      "cleaned": "這裡接受 Visa 或 Mastercard 刷卡嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "刷卡機連線發生異常錯誤。",
+      "cleaned": "刷卡機連線發生異常錯誤。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "那我用銀行 App 轉帳比較快。",
+      "cleaned": "那我用銀行 App 轉帳比較快。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我給一百萬，請找我七十萬盾。",
+      "cleaned": "我給一百萬，請找我七十萬盾。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這張鈔票破損缺角了，請換一張給我。",
+      "cleaned": "這張鈔票破損缺角了，請換一張給我。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "夜市裡有賣紀念品伴手禮嗎？",
+      "cleaned": "夜市裡有賣紀念品伴手禮嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這包麝香貓咖啡有正品檢驗認證嗎？",
+      "cleaned": "這包麝香貓咖啡有正品檢驗認證嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "平福省特產帶皮帶殼鹽烤腰果。",
+      "cleaned": "平福省特產帶皮帶殼鹽烤腰果。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "買十盒有幫忙封箱打包託運搭機嗎？",
+      "cleaned": "買十盒有幫忙封箱打包託運搭機嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "請給我列出每樣商品明細的收據。",
+      "cleaned": "請給我列出每樣商品明細的收據。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我想在機場辦理外籍旅客退稅 (VAT Refund)。",
+      "cleaned": "我想在機場辦理外籍旅客退稅 。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "麻煩幫我填寫觀光客退稅申請單喔。",
+      "cleaned": "麻煩幫我填寫觀光客退稅申請單喔。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這個傳統市場營業到幾點結束？",
+      "cleaned": "這個傳統市場營業到幾點結束？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "阿姨不要把價格開太高騙觀光客啦！",
+      "cleaned": "阿姨不要把價格開太高騙觀光客啦！",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "二十萬盾可以的話我立刻拿。",
+      "cleaned": "二十萬盾可以的話我立刻拿。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "如果不行的話我就去別攤看看囉。",
+      "cleaned": "如果不行的話我就去別攤看看囉。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "好啦好啦，算你交朋友的友情價！",
+      "cleaned": "好啦好啦，算你交朋友的友情價！",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "謝謝阿姨，祝妳生意興隆大發財！",
+      "cleaned": "謝謝阿姨，祝妳生意興隆大發財！",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "傳統越式旗袍奧黛加急量身訂做。",
+      "cleaned": "傳統越式旗袍奧黛加急量身訂做。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "訂做這套奧黛需要幾天可以完成？",
+      "cleaned": "訂做這套奧黛需要幾天可以完成？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "做好了有幫忙外送到飯店櫃台嗎？",
+      "cleaned": "做好了有幫忙外送到飯店櫃台嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這件陶瓷品託運搭飛機會容易碎嗎？",
+      "cleaned": "這件陶瓷品託運搭飛機會容易碎嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "請幫我用氣泡防撞膜多包幾層保護。",
+      "cleaned": "請幫我用氣泡防撞膜多包幾層保護。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "現在有促銷折扣打折活動嗎？",
+      "cleaned": "現在有促銷折扣打折活動嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這是外銷出口品還是越南內銷品？",
+      "cleaned": "這是外銷出口品還是越南內銷品？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這款蠶絲真絲面料觸感柔軟涼爽。",
+      "cleaned": "這款蠶絲真絲面料觸感柔軟涼爽。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "請給我現金收據發票憑證。",
+      "cleaned": "請給我現金收據發票憑證。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "可以使用 MoMo 電子錢包付款嗎？",
+      "cleaned": "可以使用 MoMo 電子錢包付款嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這是傳統手工藝村出產的手工藝品。",
+      "cleaned": "這是傳統手工藝村出產的手工藝品。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我想買貂咖啡 (麝香貓咖啡) 當高級伴手禮。",
+      "cleaned": "我想買貂咖啡 當高級伴手禮。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "姐，有現成精美包裝的禮盒嗎？",
+      "cleaned": "姐，有現成精美包裝的禮盒嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "請算我半公斤品質最好的那種。",
+      "cleaned": "請算我半公斤品質最好的那種。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "謝謝熱情又風趣的老闆娘！",
+      "cleaned": "謝謝熱情又風趣的老闆娘！",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "請掃這個 VietQR 或 MoMo 條碼付款喔！",
+      "cleaned": "請掃這個 VietQR 或 MoMo 條碼付款喔！",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "新客戶有促銷活動或折扣優惠嗎？",
+      "cleaned": "新客戶有促銷活動或折扣優惠嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我想叫一輛四人座 Grab 汽車。",
+      "cleaned": "我想叫一輛四人座 Grab 汽車。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我想叫 Grab 機車避開塞車比較快。",
+      "cleaned": "我想叫 Grab 機車避開塞車比較快。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請問司機大哥現在人在哪個位置？",
+      "cleaned": "請問司機大哥現在人在哪個位置？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我正站在飯店大門大廳前等待。",
+      "cleaned": "我正站在飯店大門大廳前等待。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請問你的車牌號碼是多少呢？",
+      "cleaned": "請問你的車牌號碼是多少呢？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "麻煩請打開後車廂讓我放行李。",
+      "cleaned": "麻煩請打開後車廂讓我放行李。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請帶我去地圖上標註的這個地址。",
+      "cleaned": "請帶我去地圖上標註的這個地址。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "去新山一國際機場大約需要多少分鐘？",
+      "cleaned": "去新山一國際機場大約需要多少分鐘？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "這個路段現在這個時間會大塞車嗎？",
+      "cleaned": "這個路段現在這個時間會大塞車嗎？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "司機大哥請開慢一點，安全第一。",
+      "cleaned": "司機大哥請開慢一點，安全第一。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "麻煩請務必按下跳表計費器。",
+      "cleaned": "麻煩請務必按下跳表計費器。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我不想用喊價包車，請按表收費。",
+      "cleaned": "我不想用喊價包車，請按表收費。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "到了下一個十字路口時請向右轉。",
+      "cleaned": "到了下一個十字路口時請向右轉。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "開過那座高架橋之後請向左轉。",
+      "cleaned": "開過那座高架橋之後請向左轉。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "沿著這條路一直往前直走到底就到了。",
+      "cleaned": "沿著這條路一直往前直走到底就到了。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請在對面街道的轉角處靠邊停下。",
+      "cleaned": "請在對面街道的轉角處靠邊停下。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "讓我在這個位置下車就可以了。",
+      "cleaned": "讓我在這個位置下車就可以了。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "麻煩請把車內冷氣開涼爽一點。",
+      "cleaned": "麻煩請把車內冷氣開涼爽一點。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "車內有點悶，請把車窗搖下來通風。",
+      "cleaned": "車內有點悶，請把車窗搖下來通風。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "這趟車資總共是多少錢呢？",
+      "cleaned": "這趟車資總共是多少錢呢？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "過路費和過橋費已經包含在內了嗎？",
+      "cleaned": "過路費和過橋費已經包含在內了嗎？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我已經在 Grab App 綁定信用卡扣款了。",
+      "cleaned": "我已經在 Grab App 綁定信用卡扣款了。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "找零的小錢當作小費送給司機大哥。",
+      "cleaned": "找零的小錢當作小費送給司機大哥。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我會在 App 上為您留下五星好評！",
+      "cleaned": "我會在 App 上為您留下五星好評！",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我想買去頭頓市的客運巴士車票。",
+      "cleaned": "我想買去頭頓市的客運巴士車票。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "豪華頂級商務艙座椅 Limousine 專車。",
+      "cleaned": "豪華頂級商務艙座椅 Limousine 專車。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "客運巴士預計幾點開始發車？",
+      "cleaned": "客運巴士預計幾點開始發車？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "從西貢坐車到潘切需要多久時間？",
+      "cleaned": "從西貢坐車到潘切需要多久時間？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "中途會在國道休息站停靠休息嗎？",
+      "cleaned": "中途會在國道休息站停靠休息嗎？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請讓我在休息站下車上洗手間。",
+      "cleaned": "請讓我在休息站下車上洗手間。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我想租一輛配備專屬司機的商務車。",
+      "cleaned": "我想租一輛配備專屬司機的商務車。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "包車一天八個小時的費用是多少？",
+      "cleaned": "包車一天八個小時的費用是多少？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "費用有包含汽油油錢與過路費嗎？",
+      "cleaned": "費用有包含汽油油錢與過路費嗎？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "司機先生會講中文或華語嗎？",
+      "cleaned": "司機先生會講中文或華語嗎？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請在早上八點準時到飯店大廳接我們。",
+      "cleaned": "請在早上八點準時到飯店大廳接我們。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "搭乘觀光臥鋪火車從河內南下到峴港。",
+      "cleaned": "搭乘觀光臥鋪火車從河內南下到峴港。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我想買四人包廂的高級軟臥火車票。",
+      "cleaned": "我想買四人包廂的高級軟臥火車票。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "夜行火車行駛平穩且沿途海景絕美。",
+      "cleaned": "夜行火車行駛平穩且沿途海景絕美。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我想租一台本田 Honda Lead 淑女速克達。",
+      "cleaned": "我想租一台本田 Honda Lead 淑女速克達。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "租機車需要押多少押金或證件？",
+      "cleaned": "租機車需要押多少押金或證件？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我可以用護照影本當作租車抵押嗎？",
+      "cleaned": "我可以用護照影本當作租車抵押嗎？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "這輛機車要加 95 汽油還是 E5 乙醇汽油？",
+      "cleaned": "這輛機車要加 95 汽油還是 E5 乙醇汽油？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請幫我把油箱加滿 95 汽油喔！",
+      "cleaned": "請幫我把油箱加滿 95 汽油喔！",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請務必戴好安全帽以免被交通警察開罰。",
+      "cleaned": "請務必戴好安全帽以免被交通警察開罰。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "這裡的交通機車車流量非常龐大。",
+      "cleaned": "這裡的交通機車車流量非常龐大。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請載我到這張紙上寫的地址。",
+      "cleaned": "請載我到這張紙上寫的地址。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請小心安全駕駛，不用著急趕時間。",
+      "cleaned": "請小心安全駕駛，不用著急趕時間。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "到了地方麻煩按聲喇叭提醒我。",
+      "cleaned": "到了地方麻煩按聲喇叭提醒我。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "這裡可以允許臨時停車嗎？",
+      "cleaned": "這裡可以允許臨時停車嗎？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "最近的公車站牌在朝哪個方向？",
+      "cleaned": "最近的公車站牌在朝哪個方向？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "幾號公車有經過檳城市場？",
+      "cleaned": "幾號公車有經過檳城市場？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請問在哪裡買公車票？",
+      "cleaned": "請問在哪裡買公車票？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "上車請記得繫好安全帶。",
+      "cleaned": "上車請記得繫好安全帶。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我容易暈車，請讓我坐前面的位子。",
+      "cleaned": "我容易暈車，請讓我坐前面的位子。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "這條路是汽車單行道管制禁止通行。",
+      "cleaned": "這條路是汽車單行道管制禁止通行。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "司機正在前來，大約 5 分鐘後會到達。",
+      "cleaned": "司機正在前來，大約 5 分鐘後會到達。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "司機大哥，請問可以把冷氣開強一點點嗎？",
+      "cleaned": "司機大哥，請問可以把冷氣開強一點點嗎？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "我想辦理入住登記手續。",
+      "cleaned": "我想辦理入住登記手續。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我之前已經在 Agoda 網站預訂房間了。",
+      "cleaned": "我之前已經在 Agoda 網站預訂房間了。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "訂房登記的大名是 Chen Wei-Ting。",
+      "cleaned": "訂房登記的大名是 Chen Wei-Ting。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "這是我的護照與訂房確認代碼憑證。",
+      "cleaned": "這是我的護照與訂房確認代碼憑證。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "請問幾點可以拿到房間鑰匙進房？",
+      "cleaned": "請問幾點可以拿到房間鑰匙進房？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "有提早於中午 12 點前入住的空房嗎？",
+      "cleaned": "有提早於中午 12 點前入住的空房嗎？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "如果提早入住需要額外加收費用嗎？",
+      "cleaned": "如果提早入住需要額外加收費用嗎？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我想要高樓層且有對外景觀窗的房間。",
+      "cleaned": "我想要高樓層且有對外景觀窗的房間。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "請給我看得到河景或海景的景觀房。",
+      "cleaned": "請給我看得到河景或海景的景觀房。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我想更換成一張大雙人床的房型。",
+      "cleaned": "我想更換成一張大雙人床的房型。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "兩張獨立單人床的雙人雙床房。",
+      "cleaned": "兩張獨立單人床的雙人雙床房。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "請問飯店的無線網路 Wi-Fi 密碼是多少？",
+      "cleaned": "請問飯店的無線網路 Wi-Fi 密碼是多少？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "自助式早餐供應時間從幾點到幾點？",
+      "cleaned": "自助式早餐供應時間從幾點到幾點？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "吃早餐的餐廳位於幾樓呢？",
+      "cleaned": "吃早餐的餐廳位於幾樓呢？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "無邊際高空泳池和健身房在哪一樓？",
+      "cleaned": "無邊際高空泳池和健身房在哪一樓？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "飯店有提供送洗衣物熨燙的服務嗎？",
+      "cleaned": "飯店有提供送洗衣物熨燙的服務嗎？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "送洗的衣服大約需要多長時間能洗好？",
+      "cleaned": "送洗的衣服大約需要多長時間能洗好？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "房間的浴室完全沒有熱水可以洗澡。",
+      "cleaned": "房間的浴室完全沒有熱水可以洗澡。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "房間冷氣不冷，而且一直在滴水。",
+      "cleaned": "房間冷氣不冷，而且一直在滴水。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "麻煩請幫我更換到另一間房間。",
+      "cleaned": "麻煩請幫我更換到另一間房間。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "請再多送兩個枕頭和一條被子到房間。",
+      "cleaned": "請再多送兩個枕頭和一條被子到房間。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "請再多給兩瓶免費的客房礦泉水。",
+      "cleaned": "請再多給兩瓶免費的客房礦泉水。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "小冰箱內的飲料和零食是要額外收費的。",
+      "cleaned": "小冰箱內的飲料和零食是要額外收費的。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "今天麻煩請幫我徹底打掃整理房間。",
+      "cleaned": "今天麻煩請幫我徹底打掃整理房間。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "請勿打擾，我正在房內休息。",
+      "cleaned": "請勿打擾，我正在房內休息。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我想辦理退房手續並結清費用。",
+      "cleaned": "我想辦理退房手續並結清費用。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "最晚退房時間規定為中午十二點整。",
+      "cleaned": "最晚退房時間規定為中午十二點整。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我可以延後到下午兩點再退房嗎？",
+      "cleaned": "我可以延後到下午兩點再退房嗎？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "延遲退房加收的額外費用是多少？",
+      "cleaned": "延遲退房加收的額外費用是多少？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我可以把行李寄放在飯店櫃台大廳嗎？",
+      "cleaned": "我可以把行李寄放在飯店櫃台大廳嗎？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "行李寄放到傍晚六點我會回來領取。",
+      "cleaned": "行李寄放到傍晚六點我會回來領取。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "這是您寄存行李的專屬號碼牌憑證。",
+      "cleaned": "這是您寄存行李的專屬號碼牌憑證。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "飯店有提供前往機場的接駁專車嗎？",
+      "cleaned": "飯店有提供前往機場的接駁專車嗎？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "單趟機場專車接送的收費是多少？",
+      "cleaned": "單趟機場專車接送的收費是多少？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "麻煩請幫我叫一輛大計程車去機場。",
+      "cleaned": "麻煩請幫我叫一輛大計程車去機場。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "飯店員工的服務態度非常親切熱情。",
+      "cleaned": "飯店員工的服務態度非常親切熱情。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "在這家飯店度過的假期真的太美妙了！",
+      "cleaned": "在這家飯店度過的假期真的太美妙了！",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我一定會推薦我的朋友們來這裡住宿。",
+      "cleaned": "我一定會推薦我的朋友們來這裡住宿。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "感謝飯店全體員工無微不至的熱情款待！",
+      "cleaned": "感謝飯店全體員工無微不至的熱情款待！",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "祝飯店生意興隆、客源源源不絕！",
+      "cleaned": "祝飯店生意興隆、客源源源不絕！",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我想辦理登機報到與行李託運手續。",
+      "cleaned": "我想辦理登機報到與行李託運手續。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "這是我的電子機票與有效護照。",
+      "cleaned": "這是我的電子機票與有效護照。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我想挑選靠窗邊的機上座位。",
+      "cleaned": "我想挑選靠窗邊的機上座位。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我想挑選靠走道的機上座位。",
+      "cleaned": "我想挑選靠走道的機上座位。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我有兩件大行李需要辦理託運。",
+      "cleaned": "我有兩件大行李需要辦理託運。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我的託運行李重量有超重嗎？",
+      "cleaned": "我的託運行李重量有超重嗎？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "行李超重的加收罰款費用怎麼計算？",
+      "cleaned": "行李超重的加收罰款費用怎麼計算？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "這件行李裡面有易碎玻璃陶瓷製品。",
+      "cleaned": "這件行李裡面有易碎玻璃陶瓷製品。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "麻煩請幫我貼上易碎品 (Fragile) 標籤。",
+      "cleaned": "麻煩請幫我貼上易碎品 標籤。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "手提隨身登機行李最多可以帶幾公斤？",
+      "cleaned": "手提隨身登機行李最多可以帶幾公斤？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "請問這班飛機的登機門是幾號呢？",
+      "cleaned": "請問這班飛機的登機門是幾號呢？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "請問幾點開始開放旅客登機？",
+      "cleaned": "請問幾點開始開放旅客登機？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "這班航班有任何延誤起飛的情形嗎？",
+      "cleaned": "這班航班有任何延誤起飛的情形嗎？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "班機因為天候不佳延誤起飛兩小時。",
+      "cleaned": "班機因為天候不佳延誤起飛兩小時。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我需要申請入境越南的電子簽證 (E-visa)。",
+      "cleaned": "我需要申請入境越南的電子簽證 。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "這是我的越南入境核准函正式公文。",
+      "cleaned": "這是我的越南入境核准函正式公文。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "落地簽證辦理櫃台位於哪個區域？",
+      "cleaned": "落地簽證辦理櫃台位於哪個區域？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "落地簽證蓋印印花費為 25 元美金現金。",
+      "cleaned": "落地簽證蓋印印花費為 25 元美金現金。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "您本次入境越南的主要目的是什麼？",
+      "cleaned": "您本次入境越南的主要目的是什麼？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我來越南是為了觀光旅遊與度假放鬆。",
+      "cleaned": "我來越南是為了觀光旅遊與度假放鬆。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我來越南是為了商務差旅與考察市場。",
+      "cleaned": "我來越南是為了商務差旅與考察市場。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "您預計在越南境內停留多長的時間？",
+      "cleaned": "您預計在越南境內停留多長的時間？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我預計在這裡停留大約兩週的時間。",
+      "cleaned": "我預計在這裡停留大約兩週的時間。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "您在越南期間將會入住哪一家飯店？",
+      "cleaned": "您在越南期間將會入住哪一家飯店？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我已經購買好返回台灣的來回機票。",
+      "cleaned": "我已經購買好返回台灣的來回機票。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "您有任何需要向海關申報的隨身物品嗎？",
+      "cleaned": "您有任何需要向海關申報的隨身物品嗎？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我沒有需申報物品，走綠色免申報通道。",
+      "cleaned": "我沒有需申報物品，走綠色免申報通道。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "領取這班航班行李的行李轉盤在哪裡？",
+      "cleaned": "領取這班航班行李的行李轉盤在哪裡？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我的託運行李遺失了，轉盤上找不到。",
+      "cleaned": "我的託運行李遺失了，轉盤上找不到。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "麻煩請幫我開立行李遺失申報證明單。",
+      "cleaned": "麻煩請幫我開立行李遺失申報證明單。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "機場販售 4G 上網旅遊 SIM 卡的攤位在哪？",
+      "cleaned": "機場販售 4G 上網旅遊 SIM 卡的攤位在哪？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "這張網卡包含無限流量高速上網嗎？",
+      "cleaned": "這張網卡包含無限流量高速上網嗎？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "麻煩請幫我把 SIM 卡裝入手機並開通。",
+      "cleaned": "麻煩請幫我把 SIM 卡裝入手機並開通。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "機場哪一家外幣兌換櫃台的匯率最好？",
+      "cleaned": "機場哪一家外幣兌換櫃台的匯率最好？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "祝您在越南度過一段精彩難忘的旅程！",
+      "cleaned": "祝您在越南度過一段精彩難忘的旅程！",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我想體驗越式草本養生洗頭服務。",
+      "cleaned": "我想體驗越式草本養生洗頭服務。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "養生洗頭全套套餐裡面包含哪些項目？",
+      "cleaned": "養生洗頭全套套餐裡面包含哪些項目？",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "包含洗臉、敷天然小黃瓜面膜與肩頸指壓。",
+      "cleaned": "包含洗臉、敷天然小黃瓜面膜與肩頸指壓。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "我想選 90 分鐘的全方位深層放鬆套餐。",
+      "cleaned": "我想選 90 分鐘的全方位深層放鬆套餐。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "麻煩也順便幫我刮鬍修面和越式採耳。",
+      "cleaned": "麻煩也順便幫我刮鬍修面和越式採耳。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "洗頭的水溫太燙了，請調溫和一點。",
+      "cleaned": "洗頭的水溫太燙了，請調溫和一點。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "使用天然皂角 (Bồ kết) 和香茅草本熬汁洗頭。",
+      "cleaned": "使用天然皂角 和香茅草本熬汁洗頭。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "頭部放鬆指壓與按壓太陽穴非常舒服。",
+      "cleaned": "頭部放鬆指壓與按壓太陽穴非常舒服。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "請輕柔抓洗頭皮，不要用指甲大力抓。",
+      "cleaned": "請輕柔抓洗頭皮，不要用指甲大力抓。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "洗完後請幫我吹乾頭髮並做簡單造型。",
+      "cleaned": "洗完後請幫我吹乾頭髮並做簡單造型。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "我想做草本芳香精油全身指壓按摩。",
+      "cleaned": "我想做草本芳香精油全身指壓按摩。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "採用火山玄武熱石按摩舒緩全身肌肉痠痛。",
+      "cleaned": "採用火山玄武熱石按摩舒緩全身肌肉痠痛。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "按摩的手勁力道請幫我再按重一點喔。",
+      "cleaned": "按摩的手勁力道請幫我再按重一點喔。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "這個穴位有點痛，麻煩輕一點溫柔按。",
+      "cleaned": "這個穴位有點痛，麻煩輕一點溫柔按。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "請幫我重點加強肩膀、頸椎和後下腰部。",
+      "cleaned": "請幫我重點加強肩膀、頸椎和後下腰部。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "按摩技師的手法技術非常道地專業。",
+      "cleaned": "按摩技師的手法技術非常道地專業。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "我覺得整個人身心無比舒暢，疲勞全消。",
+      "cleaned": "我覺得整個人身心無比舒暢，疲勞全消。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "這個標價已經包含技師的服務小費了嗎？",
+      "cleaned": "這個標價已經包含技師的服務小費了嗎？",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "店裡規定給予技師的小費行情是多少？",
+      "cleaned": "店裡規定給予技師的小費行情是多少？",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "這十萬盾小費送給妳，因為妳服務得太棒了。",
+      "cleaned": "這十萬盾小費送給妳，因為妳服務得太棒了。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "按摩結束後有附贈熱薑茶與養生薑糖片。",
+      "cleaned": "按摩結束後有附贈熱薑茶與養生薑糖片。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "我想做手部和足部指甲光療美甲護理。",
+      "cleaned": "我想做手部和足部指甲光療美甲護理。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "幫我塗自然裸粉色的光療凝膠指甲油。",
+      "cleaned": "幫我塗自然裸粉色的光療凝膠指甲油。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "修剪指緣死皮並做腳後跟去角質磨皮。",
+      "cleaned": "修剪指緣死皮並做腳後跟去角質磨皮。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "按摩前我想先去喜馬拉雅粉紅鹽房蒸氣浴。",
+      "cleaned": "按摩前我想先去喜馬拉雅粉紅鹽房蒸氣浴。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "提供芬蘭乾式桑拿房與草本精油濕式蒸氣房。",
+      "cleaned": "提供芬蘭乾式桑拿房與草本精油濕式蒸氣房。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "請換上這套寬鬆舒適的專用按摩棉服。",
+      "cleaned": "請換上這套寬鬆舒適的專用按摩棉服。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "請將手錶首飾與貴重錢包鎖進專屬保險櫃。",
+      "cleaned": "請將手錶首飾與貴重錢包鎖進專屬保險櫃。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "店內可以刷信用卡或使用 Momo 支付嗎？",
+      "cleaned": "店內可以刷信用卡或使用 Momo 支付嗎？",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "請給我一張名片，方便我下次提前預約。",
+      "cleaned": "請給我一張名片，方便我下次提前預約。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "我想預約今晚七點兩位雙人 Spa 療程。",
+      "cleaned": "我想預約今晚七點兩位雙人 Spa 療程。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "店裡有專供情侶夫妻的雙人專屬包廂嗎？",
+      "cleaned": "店裡有專供情侶夫妻的雙人專屬包廂嗎？",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "謝謝妳，今天按得非常到位舒服！",
+      "cleaned": "謝謝妳，今天按得非常到位舒服！",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "下次我再來一定會指名找妳為我服務。",
+      "cleaned": "下次我再來一定會指名找妳為我服務。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "祝貴 Spa 店天天高朋滿座、客源不斷！",
+      "cleaned": "祝貴 Spa 店天天高朋滿座、客源不斷！",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "熱烈歡迎貴代表團蒞臨本公司參觀指導。",
+      "cleaned": "熱烈歡迎貴代表團蒞臨本公司參觀指導。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我是負責亞太地區業務拓展的總監。",
+      "cleaned": "我是負責亞太地區業務拓展的總監。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "這是我的名片，非常榮幸能與貴公司合作。",
+      "cleaned": "這是我的名片，非常榮幸能與貴公司合作。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "請各位移步至大會議室，開始今天的會議。",
+      "cleaned": "請各位移步至大會議室，開始今天的會議。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "請各位貴賓享用茶水、現煮咖啡與精緻茶點。",
+      "cleaned": "請各位貴賓享用茶水、現煮咖啡與精緻茶點。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "今天我們主要開會研討新廠房投資設廠專案。",
+      "cleaned": "今天我們主要開會研討新廠房投資設廠專案。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "請容許我向各位簡報本公司的生產製造實力。",
+      "cleaned": "請容許我向各位簡報本公司的生產製造實力。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我們在當地的現代化廠房佔地廣達十公頃。",
+      "cleaned": "我們在當地的現代化廠房佔地廣達十公頃。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "每月產能滿載可高達一百萬件優質產品。",
+      "cleaned": "每月產能滿載可高達一百萬件優質產品。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "全套生產製程皆通過 ISO 9001 國際品質認證。",
+      "cleaned": "全套生產製程皆通過 ISO 9001 國際品質認證。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我們擁有一支技術精湛的資深工程師與技術工團隊。",
+      "cleaned": "我們擁有一支技術精湛的資深工程師與技術工團隊。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "貴公司能否提供一份各品項明細的正式報價單？",
+      "cleaned": "貴公司能否提供一份各品項明細的正式報價單？",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "在胡志明市卡萊港交貨的 FOB 美金價格是多少？",
+      "cleaned": "在胡志明市卡萊港交貨的 FOB 美金價格是多少？",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "下單後的預計交貨生產期（Lead time）是幾天？",
+      "cleaned": "下單後的預計交貨生產期 是幾天？",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我們鄭重承諾必定依照合約約定期限準時交貨。",
+      "cleaned": "我們鄭重承諾必定依照合約約定期限準時交貨。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "這款客製化產品的最低起訂量 (MOQ) 是多少？",
+      "cleaned": "這款客製化產品的最低起訂量 是多少？",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "如果大批量採購下單，我們能享有折扣折讓嗎？",
+      "cleaned": "如果大批量採購下單，我們能享有折扣折讓嗎？",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "付款方式為簽約預付 30% 訂金，餘款信用狀。",
+      "cleaned": "付款方式為簽約預付 30% 訂金，餘款信用狀。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "餘款採用國際不可撤銷即期信用狀 (L/C) 結算。",
+      "cleaned": "餘款採用國際不可撤銷即期信用狀 結算。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "簽約前我們希望能先收到量產打樣樣品檢驗。",
+      "cleaned": "簽約前我們希望能先收到量產打樣樣品檢驗。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "送驗的實物樣品完全符合我們的技術品質規範。",
+      "cleaned": "送驗的實物樣品完全符合我們的技術品質規範。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "雙方已對合約中的所有權利義務條款達成共識。",
+      "cleaned": "雙方已對合約中的所有權利義務條款達成共識。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "進行正式的雙邊商業經貿合作合約簽約儀式。",
+      "cleaned": "進行正式的雙邊商業經貿合作合約簽約儀式。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "由雙方法定代表人共同親自簽名並加蓋公章。",
+      "cleaned": "由雙方法定代表人共同親自簽名並加蓋公章。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "雙方各執正本合約兩份，具備同等法律約束力。",
+      "cleaned": "雙方各執正本合約兩份，具備同等法律約束力。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "熱烈祝賀我們本次經貿合作圓滿成功、共創雙贏！",
+      "cleaned": "熱烈祝賀我們本次經貿合作圓滿成功、共創雙贏！",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "讓我們共同舉杯，為彼此長遠深厚的夥伴關係乾杯！",
+      "cleaned": "讓我們共同舉杯，為彼此長遠深厚的夥伴關係乾杯！",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我們規劃在越南申請設立外商獨資 FDI 企業。",
+      "cleaned": "我們規劃在越南申請設立外商獨資 FDI 企業。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "辦理申請外商投資登記許可證 (IRC) 的法定流程。",
+      "cleaned": "辦理申請外商投資登記許可證 的法定流程。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "向計畫投資廳取得的企業商業登記證 (ERC)。",
+      "cleaned": "向計畫投資廳取得的企業商業登記證 。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "在國家級重點工業園區內租賃 50 年土地使用權。",
+      "cleaned": "在國家級重點工業園區內租賃 50 年土地使用權。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "越南政府給予高科技製造業投資者的所得稅減免優惠。",
+      "cleaned": "越南政府給予高科技製造業投資者的所得稅減免優惠。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "前四年完全免稅，隨後九年享有減半 50% 稅率優惠。",
+      "cleaned": "前四年完全免稅，隨後九年享有減半 50% 稅率優惠。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "積極招募精通越中雙語的在地中高階管理人才。",
+      "cleaned": "積極招募精通越中雙語的在地中高階管理人才。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "基本薪資待遇與法定社保福利嚴格遵循越南勞動法。",
+      "cleaned": "基本薪資待遇與法定社保福利嚴格遵循越南勞動法。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "為全體同仁依法投保社會保險、醫保與失業保險。",
+      "cleaned": "為全體同仁依法投保社會保險、醫保與失業保險。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "營造安全衛生、和諧友善且高效專業的職場環境。",
+      "cleaned": "營造安全衛生、和諧友善且高效專業的職場環境。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "每年定期為全體基層員工與幹部安排全身健康檢查。",
+      "cleaned": "每年定期為全體基層員工與幹部安排全身健康檢查。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "持續提升產線生產效率，並將不良品率降至最低。",
+      "cleaned": "持續提升產線生產效率，並將不良品率降至最低。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "全年度財務報表已通過四強獨立會計師事務所查核。",
+      "cleaned": "全年度財務報表已通過四強獨立會計師事務所查核。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "在指定外資銀行開設專用之外商直接投資資本帳戶。",
+      "cleaned": "在指定外資銀行開設專用之外商直接投資資本帳戶。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "依法將完稅後的合法營運利潤匯回母國母公司。",
+      "cleaned": "依法將完稅後的合法營運利潤匯回母國母公司。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "與當地省政府各部會主管機關維持良好順暢的溝通。",
+      "cleaned": "與當地省政府各部會主管機關維持良好順暢的溝通。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "積極參與地方公益慈善活動，踐行企業社會責任 (CSR)。",
+      "cleaned": "積極參與地方公益慈善活動，踐行企業社會責任 。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "誠摯祝福尊貴的合作夥伴萬事如意、大展鴻圖！",
+      "cleaned": "誠摯祝福尊貴的合作夥伴萬事如意、大展鴻圖！",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "工廠產線正在全力開動產能以趕上出貨訂單。",
+      "cleaned": "工廠產線正在全力開動產能以趕上出貨訂單。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "廠房內所有作業員必須嚴格遵守職業安全衛生規定。",
+      "cleaned": "廠房內所有作業員必須嚴格遵守職業安全衛生規定。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "請在設備點交移交紀錄清單上簽字確認。",
+      "cleaned": "請在設備點交移交紀錄清單上簽字確認。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我們企業享有企業所得稅之租稅優惠減免政策。",
+      "cleaned": "我們企業享有企業所得稅之租稅優惠減免政策。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我們高度重視環境保護與 ESG 永續發展規範。",
+      "cleaned": "我們高度重視環境保護與 ESG 永續發展規範。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "今天人資部門將組織面試應徵者。",
+      "cleaned": "今天人資部門將組織面試應徵者。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "恭喜你這個月極其出色地達成了 KPI 績效指標！",
+      "cleaned": "恭喜你這個月極其出色地達成了 KPI 績效指標！",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "今天我們開會討論外商投資 (FDI) 專案的落實進度吧。",
+      "cleaned": "今天我們開會討論外商投資 專案的落實進度吧。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "呈送貴公司已完成修訂之商務契約草案。",
+      "cleaned": "呈送貴公司已完成修訂之商務契約草案。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我覺得全身非常疲憊乏力，而且發高燒。",
+      "cleaned": "我覺得全身非常疲憊乏力，而且發高燒。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "給我買一盒 Panadol Extra 普拿疼退燒止痛藥。",
+      "cleaned": "給我買一盒 Panadol Extra 普拿疼退燒止痛藥。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我喉嚨非常疼痛發炎、喉嚨乾癢而且一直咳嗽。",
+      "cleaned": "我喉嚨非常疼痛發炎、喉嚨乾癢而且一直咳嗽。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "給我買一盒 Eugica 綠色草本薄荷潤喉喉糖。",
+      "cleaned": "給我買一盒 Eugica 綠色草本薄荷潤喉喉糖。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我一直肚子痛拉肚子，而且不停想吐噁心。",
+      "cleaned": "我一直肚子痛拉肚子，而且不停想吐噁心。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "請給我止瀉藥與腸道益生菌消化酵素。",
+      "cleaned": "請給我止瀉藥與腸道益生菌消化酵素。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "將 Oresol 口服電解質補水粉包溶於溫水服用。",
+      "cleaned": "將 Oresol 口服電解質補水粉包溶於溫水服用。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "藥師，請問這款藥要在飯前還是飯後吃？",
+      "cleaned": "藥師，請問這款藥要在飯前還是飯後吃？",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "每次要服用幾顆？每天總共需要吃幾次？",
+      "cleaned": "每次要服用幾顆？每天總共需要吃幾次？",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "吃了這款藥之後會不會產生嗜睡昏睡感？",
+      "cleaned": "吃了這款藥之後會不會產生嗜睡昏睡感？",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我對青黴素盤尼西林（Penicillin）抗生素過敏。",
+      "cleaned": "我對青黴素盤尼西林 抗生素過敏。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我有高血壓和心血管心臟病史。",
+      "cleaned": "我有高血壓和心血管心臟病史。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "請給我一盒 Urgo 防水透氣 OK 繃創口貼。",
+      "cleaned": "請給我一盒 Urgo 防水透氣 OK 繃創口貼。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "醫療用消毒殺菌酒精與生理食鹽水洗劑。",
+      "cleaned": "醫療用消毒殺菌酒精與生理食鹽水洗劑。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "日本撒隆巴斯 (Salonpas) 肌肉痠痛消炎貼布。",
+      "cleaned": "日本撒隆巴斯 肌肉痠痛消炎貼布。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "天草牌雙天鵝正莊綠油精（越式刮痧神油）。",
+      "cleaned": "天草牌雙天鵝正莊綠油精 。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我被蚊子叮咬腫得很大，請給我消腫止癢藥膏。",
+      "cleaned": "我被蚊子叮咬腫得很大，請給我消腫止癢藥膏。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "Soffell 水果花香味長效防蚊驅蚊噴霧。",
+      "cleaned": "Soffell 水果花香味長效防蚊驅蚊噴霧。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "哪裡有配備英語醫護人員的國際綜合醫院？",
+      "cleaned": "哪裡有配備英語醫護人員的國際綜合醫院？",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "位於胡志明市七郡的法越國際醫院 (FV Hospital)。",
+      "cleaned": "位於胡志明市七郡的法越國際醫院 。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "快點立刻撥打 115 叫緊急救護車！",
+      "cleaned": "快點立刻撥打 115 叫緊急救護車！",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "有人突然休克昏倒不省人事，需要緊急急救！",
+      "cleaned": "有人突然休克昏倒不省人事，需要緊急急救！",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我騎機車摔車擦傷，手腳一直在大量流血。",
+      "cleaned": "我騎機車摔車擦傷，手腳一直在大量流血。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "麻煩請幫我清洗傷口、消毒並包紮止血。",
+      "cleaned": "麻煩請幫我清洗傷口、消毒並包紮止血。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我投保了可全額理賠海外醫療費的國際旅遊險。",
+      "cleaned": "我投保了可全額理賠海外醫療費的國際旅遊險。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "麻煩請開立正式就診醫療證明書與醫療收據。",
+      "cleaned": "麻煩請開立正式就診醫療證明書與醫療收據。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我的錢包和所有隨身身分證件都被扒竊偷走了。",
+      "cleaned": "我的錢包和所有隨身身分證件都被扒竊偷走了。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "離這裡最近的轄區坊級公安派出所在哪條路？",
+      "cleaned": "離這裡最近的轄區坊級公安派出所在哪條路？",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我想製作報案筆錄，申請財物失竊證明公文。",
+      "cleaned": "我想製作報案筆錄，申請財物失竊證明公文。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "請幫我緊急聯繫駐越南台北經濟文化辦事處。",
+      "cleaned": "請幫我緊急聯繫駐越南台北經濟文化辦事處。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "急難救助與國人急難救難 24 小時專線電話。",
+      "cleaned": "急難救助與國人急難救難 24 小時專線電話。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我需要緊急補發入境證明書或臨時護照證件。",
+      "cleaned": "我需要緊急補發入境證明書或臨時護照證件。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "由衷感謝大家在我最危難困難時伸出溫暖援手！",
+      "cleaned": "由衷感謝大家在我最危難困難時伸出溫暖援手！",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我目前人已經非常安全，情緒也已經平復了。",
+      "cleaned": "我目前人已經非常安全，情緒也已經平復了。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "祝您身體永遠健康健朗、出入平安順遂！",
+      "cleaned": "祝您身體永遠健康健朗、出入平安順遂！",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我這幾天喉嚨乾刺痛而且一直乾咳。",
+      "cleaned": "我這幾天喉嚨乾刺痛而且一直乾咳。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "醫生請給我開緩解鼻塞的噴鼻劑。",
+      "cleaned": "醫生請給我開緩解鼻塞的噴鼻劑。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "需要塗抹防蚊液以預防登革熱疫情。",
+      "cleaned": "需要塗抹防蚊液以預防登革熱疫情。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我想買醫療用無菌棉花紗布和生理食鹽水。",
+      "cleaned": "我想買醫療用無菌棉花紗布和生理食鹽水。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "喝溫熱薑茶能溫胃暖身並幫助消化。",
+      "cleaned": "喝溫熱薑茶能溫胃暖身並幫助消化。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "建議每六個月進行一次定期口腔牙齒檢查。",
+      "cleaned": "建議每六個月進行一次定期口腔牙齒檢查。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我對海鮮 / 花生過敏，這道菜裡面有包含嗎？",
+      "cleaned": "我對海鮮 、 花生過敏，這道菜裡面有包含嗎？",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我需要立刻看急診科醫生，請幫幫我！",
+      "cleaned": "我需要立刻看急診科醫生，請幫幫我！",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我想尋找租賃一間高樓層的高級公寓套房。",
+      "cleaned": "我想尋找租賃一間高樓層的高級公寓套房。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "這間格局是兩房兩衛浴、採光通風良好。",
+      "cleaned": "這間格局是兩房兩衛浴、採光通風良好。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "每個月的純房屋租金為一千五百萬越南盾。",
+      "cleaned": "每個月的純房屋租金為一千五百萬越南盾。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "租金裡面已經包含大樓物業管理費了嗎？",
+      "cleaned": "租金裡面已經包含大樓物業管理費了嗎？",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "簽訂租賃合約需要押付兩個月的押金。",
+      "cleaned": "簽訂租賃合約需要押付兩個月的押金。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "房屋租賃合約規定的最短起租期為一年。",
+      "cleaned": "房屋租賃合約規定的最短起租期為一年。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "公寓內附全套高級家具家電（拎包即住全配）。",
+      "cleaned": "公寓內附全套高級家具家電 。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "包含沙發、液晶電視、洗衣機、冰箱與雙人床墊。",
+      "cleaned": "包含沙發、液晶電視、洗衣機、冰箱與雙人床墊。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "每個月水電費依照政府公用事業標準費率計算。",
+      "cleaned": "每個月水電費依照政府公用事業標準費率計算。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "大樓地下室設有寬敞明亮的汽機車專屬停車場。",
+      "cleaned": "大樓地下室設有寬敞明亮的汽機車專屬停車場。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "機車每月的固定停車管理費為十五萬盾。",
+      "cleaned": "機車每月的固定停車管理費為十五萬盾。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "社區住戶享有免費使用無邊際泳池與健身房。",
+      "cleaned": "社區住戶享有免費使用無邊際泳池與健身房。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "該豪宅社區配備 24 小時全天候安保警衛巡邏。",
+      "cleaned": "該豪宅社區配備 24 小時全天候安保警衛巡邏。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "大門門鎖採用感應指紋與防盜密碼電子智慧鎖。",
+      "cleaned": "大門門鎖採用感應指紋與防盜密碼電子智慧鎖。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "今天下午三點我想親自實地到現場看房。",
+      "cleaned": "今天下午三點我想親自實地到現場看房。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "這裡的居住環境非常通風涼爽、乾淨且清幽安靜。",
+      "cleaned": "這裡的居住環境非常通風涼爽、乾淨且清幽安靜。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "我決定承租這間公寓，請房仲幫我準備租約。",
+      "cleaned": "我決定承租這間公寓，請房仲幫我準備租約。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "由房東至當地派出所為外籍房客辦理合法暫住登記。",
+      "cleaned": "由房東至當地派出所為外籍房客辦理合法暫住登記。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "廚房流理台下方的排水管有漏水滲水問題。",
+      "cleaned": "廚房流理台下方的排水管有漏水滲水問題。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "客廳的主照明燈泡燒壞了，需要更換全新燈泡。",
+      "cleaned": "客廳的主照明燈泡燒壞了，需要更換全新燈泡。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "麻煩請幫我聯絡合格的水電師傅前來檢修。",
+      "cleaned": "麻煩請幫我聯絡合格的水電師傅前來檢修。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "冷氣室外主機運轉噪音很大，需要清洗補充冷媒。",
+      "cleaned": "冷氣室外主機運轉噪音很大，需要清洗補充冷媒。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "Wi-Fi 網路突然斷線無訊號，需要重啟路由器。",
+      "cleaned": "Wi-Fi 網路突然斷線無訊號，需要重啟路由器。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "各樓層皆設有專用的密封垃圾集中收集室。",
+      "cleaned": "各樓層皆設有專用的密封垃圾集中收集室。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "每月一日定期透過銀行轉帳支付當月份房租。",
+      "cleaned": "每月一日定期透過銀行轉帳支付當月份房租。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "隔壁鄰居們都非常和善親切且彬彬有禮。",
+      "cleaned": "隔壁鄰居們都非常和善親切且彬彬有禮。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "社區樓下附近就有 24 小時全天營業的 WinMart 超商。",
+      "cleaned": "社區樓下附近就有 24 小時全天營業的 WinMart 超商。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "販售新鮮產地蔬果的傳統菜市場距離僅五百公尺。",
+      "cleaned": "販售新鮮產地蔬果的傳統菜市場距離僅五百公尺。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "合約即將期滿，我想繼續續簽續租一年的租約。",
+      "cleaned": "合約即將期滿，我想繼續續簽續租一年的租約。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "房東為人非常善良和藹，有問題總是第一時間協助。",
+      "cleaned": "房東為人非常善良和藹，有問題總是第一時間協助。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "我想去大型購物中心採買一些日常廚房家居用品。",
+      "cleaned": "我想去大型購物中心採買一些日常廚房家居用品。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "浴室儲水式電熱水器配備安全防漏電斷路開關。",
+      "cleaned": "浴室儲水式電熱水器配備安全防漏電斷路開關。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "全體住戶嚴格遵守公寓室內全面禁菸的衛生規定。",
+      "cleaned": "全體住戶嚴格遵守公寓室內全面禁菸的衛生規定。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "我覺得在越南的生活過得非常舒心自在且溫暖愜意。",
+      "cleaned": "我覺得在越南的生活過得非常舒心自在且溫暖愜意。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "祝願您全家在此安居樂業、平安幸福美滿！",
+      "cleaned": "祝願您全家在此安居樂業、平安幸福美滿！",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "這間公寓配備了從冰箱到洗衣機的全套家具家電。",
+      "cleaned": "這間公寓配備了從冰箱到洗衣機的全套家具家電。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "每個月的水電費和大樓管理費是如何計費的？",
+      "cleaned": "每個月的水電費和大樓管理費是如何計費的？",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "浴室的熱水器壞掉漏水了，麻煩房東盡快派人維修。",
+      "cleaned": "浴室的熱水器壞掉漏水了，麻煩房東盡快派人維修。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "大樓保全 24 小時全天候值班，因此門禁治安很有保障。",
+      "cleaned": "大樓保全 24 小時全天候值班，因此門禁治安很有保障。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "巷口就有傳統早市菜市場，買新鮮蔬果非常便利。",
+      "cleaned": "巷口就有傳統早市菜市場，買新鮮蔬果非常便利。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "越南擁有非常多風景秀麗、舉世聞名的名勝古蹟。",
+      "cleaned": "越南擁有非常多風景秀麗、舉世聞名的名勝古蹟。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "我想去下龍灣搭遊船欣賞壯觀的喀斯特石灰岩奇景。",
+      "cleaned": "我想去下龍灣搭遊船欣賞壯觀的喀斯特石灰岩奇景。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "預訂五星級豪華頂級過夜遊船，在下龍灣海上巡航。",
+      "cleaned": "預訂五星級豪華頂級過夜遊船，在下龍灣海上巡航。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "親自划獨木舟 Kayak 穿梭探索神祕鐘乳石岩洞。",
+      "cleaned": "親自划獨木舟 Kayak 穿梭探索神祕鐘乳石岩洞。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "漫步在會安古鎮，欣賞滿街萬家燈火的夢幻五彩燈籠。",
+      "cleaned": "漫步在會安古鎮，欣賞滿街萬家燈火的夢幻五彩燈籠。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "在秋盆河（懷河）畔親手施放水燈祈求平安幸運。",
+      "cleaned": "在秋盆河 畔親手施放水燈祈求平安幸運。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "峴港海濱城市擁有獲評全球最美的美溪白沙灘。",
+      "cleaned": "峴港海濱城市擁有獲評全球最美的美溪白沙灘。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "在巴拿山朝聖拍照打卡舉世聞名的巨人神之手黃金橋。",
+      "cleaned": "在巴拿山朝聖拍照打卡舉世聞名的巨人神之手黃金橋。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "搭乘榮獲多項金氏世界紀錄的超長高空登山纜車。",
+      "cleaned": "搭乘榮獲多項金氏世界紀錄的超長高空登山纜車。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "浪漫夢幻的山城大叻，氣候四季如春、百花齊放。",
+      "cleaned": "浪漫夢幻的山城大叻，氣候四季如春、百花齊放。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "在寒涼的大叻夜市品嚐熱豆漿與現烤越式披薩煎餅。",
+      "cleaned": "在寒涼的大叻夜市品嚐熱豆漿與現烤越式披薩煎餅。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "在美奈紅白巨大流動沙丘欣賞絕美日出與體驗滑沙。",
+      "cleaned": "在美奈紅白巨大流動沙丘欣賞絕美日出與體驗滑沙。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "親自駕駛四輪驅動越野車 (ATV) 在白沙丘極速狂飆。",
+      "cleaned": "親自駕駛四輪驅動越野車 在白沙丘極速狂飆。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "富國島珍珠海島擁有翡翠般清澈見底的碧海藍天。",
+      "cleaned": "富國島珍珠海島擁有翡翠般清澈見底的碧海藍天。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "潛入深海浮潛欣賞五彩繽紛的天然熱帶活珊瑚礁。",
+      "cleaned": "潛入深海浮潛欣賞五彩繽紛的天然熱帶活珊瑚礁。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "搭乘跨越汪洋大海、全球最長的香島跨海全景纜車。",
+      "cleaned": "搭乘跨越汪洋大海、全球最長的香島跨海全景纜車。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "走訪富國島觀光夜市，痛快大啖現撈生猛海鮮。",
+      "cleaned": "走訪富國島觀光夜市，痛快大啖現撈生猛海鮮。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "探訪古樸的涵寧漁村，品嚐最肥美現蒸的花蟹。",
+      "cleaned": "探訪古樸的涵寧漁村，品嚐最肥美現蒸的花蟹。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "採購古法釀造頂級富國島魚露與天然珍珠伴手禮。",
+      "cleaned": "採購古法釀造頂級富國島魚露與天然珍珠伴手禮。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "暢遊西南部九龍江平原水鄉芹苴與熱鬧的丐冷水上市場。",
+      "cleaned": "暢遊西南部九龍江平原水鄉芹苴與熱鬧的丐冷水上市場。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "乘坐傳統手搖三板木船穿梭在水椰子林綠色水道間。",
+      "cleaned": "乘坐傳統手搖三板木船穿梭在水椰子林綠色水道間。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "現場聆聽名列世界非物質文化遺產的南部才子彈唱。",
+      "cleaned": "現場聆聽名列世界非物質文化遺產的南部才子彈唱。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "走進結實纍纍的生態果園，親手現採現吃熱帶水果。",
+      "cleaned": "走進結實纍纍的生態果園，親手現採現吃熱帶水果。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "探訪歷史名城順化古都與氣勢恢宏的順化皇城宮殿。",
+      "cleaned": "探訪歷史名城順化古都與氣勢恢宏的順化皇城宮殿。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "乘坐在地彩繪仿古龍船，在浪漫香江上沈醉於夕陽餘暉。",
+      "cleaned": "乘坐在地彩繪仿古龍船，在浪漫香江上沈醉於夕陽餘暉。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "夜間泛舟香江，在水波盪漾中細細聆聽典雅順化民歌。",
+      "cleaned": "夜間泛舟香江，在水波盪漾中細細聆聽典雅順化民歌。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "木江界梯田在秋季金黃稻穗成熟時宛如天梯仙境。",
+      "cleaned": "木江界梯田在秋季金黃稻穗成熟時宛如天梯仙境。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "登頂海拔 3143 公尺、被譽為「印度支那屋脊」的番西邦峰。",
+      "cleaned": "登頂海拔 3143 公尺、被譽為「印度支那屋脊」的番西邦峰。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "在長年雲霧繚繞的避暑勝地沙壩小鎮漫步追尋雲海。",
+      "cleaned": "在長年雲霧繚繞的避暑勝地沙壩小鎮漫步追尋雲海。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "深入少數民族村落，親身體驗黑苗族 (H’Mông) 傳統服飾文化。",
+      "cleaned": "深入少數民族村落，親身體驗黑苗族 傳統服飾文化。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "我想報名參加三天兩夜的全包式精緻觀光旅行團。",
+      "cleaned": "我想報名參加三天兩夜的全包式精緻觀光旅行團。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "這個旅行團有配備全程講華語的專業隨團導遊嗎？",
+      "cleaned": "這個旅行團有配備全程講華語的專業隨團導遊嗎？",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "團費已經包含所有景點門票與早午晚餐費了嗎？",
+      "cleaned": "團費已經包含所有景點門票與早午晚餐費了嗎？",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "我想包雇一位熟知在地隱藏秘境的私人專屬導遊。",
+      "cleaned": "我想包雇一位熟知在地隱藏秘境的私人專屬導遊。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "請帶我去品嚐只有在地老饕才知道的隱藏版街頭小吃。",
+      "cleaned": "請帶我去品嚐只有在地老饕才知道的隱藏版街頭小吃。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "越南人民發自內心的友善與熱情好客令人印象深刻。",
+      "cleaned": "越南人民發自內心的友善與熱情好客令人印象深刻。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "這裡壯麗的自然山水景致宛如一幅幅生動的水墨畫。",
+      "cleaned": "這裡壯麗的自然山水景致宛如一幅幅生動的水墨畫。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "我在這趟旅程中拍下了超多珍貴且絕美無比的紀念照。",
+      "cleaned": "我在這趟旅程中拍下了超多珍貴且絕美無比的紀念照。",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "越南絕對是世界上最值得親自走訪探索的旅遊勝地！",
+      "cleaned": "越南絕對是世界上最值得親自走訪探索的旅遊勝地！",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "未來我一定會再度重返越南，探索更多未知的秘境！",
+      "cleaned": "未來我一定會再度重返越南，探索更多未知的秘境！",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "週末到了，快約好兄弟們一起去路邊喝鮮啤酒！",
+      "cleaned": "週末到了，快約好兄弟們一起去路邊喝鮮啤酒！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "在熱鬧非凡的河內謝現啤酒街痛快暢飲生啤酒。",
+      "cleaned": "在熱鬧非凡的河內謝現啤酒街痛快暢飲生啤酒。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "西貢范五老街碧文步行街 (Bùi Viện) 越夜越美麗。",
+      "cleaned": "西貢范五老街碧文步行街 越夜越美麗。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "先給我們上十杯冰涼解渴、泡沫綿密的鮮生啤酒。",
+      "cleaned": "先給我們上十杯冰涼解渴、泡沫綿密的鮮生啤酒。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "給我來兩座帶水龍頭的 Tiger 或海尼根冰生啤酒柱。",
+      "cleaned": "給我來兩座帶水龍頭的 Tiger 或海尼根冰生啤酒柱。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "再給我們一個裝滿冰塊的鐵桶用來冰鎮易開罐啤酒。",
+      "cleaned": "再給我們一個裝滿冰塊的鐵桶用來冰鎮易開罐啤酒。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "越南人喝啤酒非常習慣在玻璃杯中加入大塊冰磚。",
+      "cleaned": "越南人喝啤酒非常習慣在玻璃杯中加入大塊冰磚。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "給我們來一盤熱騰騰、外酥內嫩的現炸酸肉捲。",
+      "cleaned": "給我們來一盤熱騰騰、外酥內嫩的現炸酸肉捲。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "來一隻炭烤香氣撲鼻的手撕乾魷魚沾是拉差辣椒醬。",
+      "cleaned": "來一隻炭烤香氣撲鼻的手撕乾魷魚沾是拉差辣椒醬。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "來一盤香脆金黃、佐香茅與生辣椒的炸豆腐。",
+      "cleaned": "來一盤香脆金黃、佐香茅與生辣椒的炸豆腐。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "來一盤大火快炒、蒜香四溢的脆嫩空心菜。",
+      "cleaned": "來一盤大火快炒、蒜香四溢的脆嫩空心菜。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "來一份原汁原味、鮮甜多汁的香茅蒸白蛤蜊。",
+      "cleaned": "來一份原汁原味、鮮甜多汁的香茅蒸白蛤蜊。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "來一盤濃郁奶油大蒜熱炒的頂級香螺海鮮。",
+      "cleaned": "來一盤濃郁奶油大蒜熱炒的頂級香螺海鮮。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "拿酥脆的法國麵包沾滿熱炒濃郁的奶油蒜香醬汁。",
+      "cleaned": "拿酥脆的法國麵包沾滿熱炒濃郁的奶油蒜香醬汁。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "來一份酸甜開胃、滋味濃郁的羅望子炒血蚶。",
+      "cleaned": "來一份酸甜開胃、滋味濃郁的羅望子炒血蚶。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "來一盤酸辣爽口、香脆開胃的香茅金桔醃無骨雞爪。",
+      "cleaned": "來一盤酸辣爽口、香脆開胃的香茅金桔醃無骨雞爪。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "來一份美式黑胡椒骰子牛排佐酥炸黃金薯條。",
+      "cleaned": "來一份美式黑胡椒骰子牛排佐酥炸黃金薯條。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "來一盤香氣撲鼻、鹹甜酥脆的魚露現炸雞軟骨。",
+      "cleaned": "來一盤香氣撲鼻、鹹甜酥脆的魚露現炸雞軟骨。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "在座各位好兄弟好姊妹們，大家準備舉起酒杯囉！",
+      "cleaned": "在座各位好兄弟好姊妹們，大家準備舉起酒杯囉！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "一、二、三，乾！二、三，乾！二、三，喝啦！",
+      "cleaned": "一、二、三，乾！二、三，乾！二、三，喝啦！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "大家有義氣，這杯一定要百分之百全部乾杯喝光！",
+      "cleaned": "大家有義氣，這杯一定要百分之百全部乾杯喝光！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "今晚大家不醉不歸，沒喝痛快誰都不準先走！",
+      "cleaned": "今晚大家不醉不歸，沒喝痛快誰都不準先走！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "你的酒量真的太深不可測、太厲害了！",
+      "cleaned": "你的酒量真的太深不可測、太厲害了！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "我真的快喝不下了，請通融讓我改喝礦泉水。",
+      "cleaned": "我真的快喝不下了，請通融讓我改喝礦泉水。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "喝酒要適可而止量力而為，安全最重要。",
+      "cleaned": "喝酒要適可而止量力而為，安全最重要。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "「酒後絕不開車」，喝酒一律搭車叫代駕。",
+      "cleaned": "「酒後絕不開車」，喝酒一律搭車叫代駕。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "讓我用手機叫 Grab 大車，護送大家平安回家。",
+      "cleaned": "讓我用手機叫 Grab 大車，護送大家平安回家。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "今晚這場聚會我們聊得太投緣、玩得太盡興了！",
+      "cleaned": "今晚這場聚會我們聊得太投緣、玩得太盡興了！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "願我們跨越國界的兄弟情誼歷久彌新、永不褪色！",
+      "cleaned": "願我們跨越國界的兄弟情誼歷久彌新、永不褪色！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "約定好下次再碰面時，我們一定要再痛快喝一回！",
+      "cleaned": "約定好下次再碰面時，我們一定要再痛快喝一回！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "不好意思，麻煩幫我們這桌結帳。",
+      "cleaned": "不好意思，麻煩幫我們這桌結帳。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "今天這頓全場由我作東買單請客，誰都別跟我搶！",
+      "cleaned": "今天這頓全場由我作東買單請客，誰都別跟我搶！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "這餐我們大家採荷蘭式 AA 制（越稱 Campuchia）平攤。",
+      "cleaned": "這餐我們大家採荷蘭式 AA 制 平攤。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "今晚大家嗨到最高點，滿滿都是真摯的友情溫暖！",
+      "cleaned": "今晚大家嗨到最高點，滿滿都是真摯的友情溫暖！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "敬祝全體好兄弟姊妹們身體健康壯如牛、事業大發達！",
+      "cleaned": "敬祝全體好兄弟姊妹們身體健康壯如牛、事業大發達！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "太棒了！無懈可擊！（越南流行俚語）",
+      "cleaned": "太棒了！無懈可擊！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "美味到連沾醬都喝光／無可挑剔！（潮流俚語）",
+      "cleaned": "美味到連沾醬都喝光、無可挑剔！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "準確無誤！完美到不需要做任何修正！",
+      "cleaned": "準確無誤！完美到不需要做任何修正！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "太爽快、太過癮、太享受了！",
+      "cleaned": "太爽快、太過癮、太享受了！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "歡樂嗨到破表、開心到了極點！",
+      "cleaned": "歡樂嗨到破表、開心到了極點！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "可愛到讓人瞬間融化／萌翻天了！",
+      "cleaned": "可愛到讓人瞬間融化、萌翻天了！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "我的天啊，這簡直美得太出眾驚艷了！",
+      "cleaned": "我的天啊，這簡直美得太出眾驚艷了！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "你為人真的是太善良、太體貼細心了。",
+      "cleaned": "你為人真的是太善良、太體貼細心了。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "對於你給予我的熱心協助，我內心充滿無限感激。",
+      "cleaned": "對於你給予我的熱心協助，我內心充滿無限感激。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "能有你作為人生旅途的同行夥伴，是我莫大的幸運。",
+      "cleaned": "能有你作為人生旅途的同行夥伴，是我莫大的幸運。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "我深深地熱愛著越南這片美麗土地與純樸的人民。",
+      "cleaned": "我深深地熱愛著越南這片美麗土地與純樸的人民。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "越南就像是我的第二個溫暖故鄉一樣親切。",
+      "cleaned": "越南就像是我的第二個溫暖故鄉一樣親切。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "一帆風順（萬事順風順水、前程似錦）。",
+      "cleaned": "一帆風順 。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "馬到成功（旗開得勝、事業迅速獲致成就）。",
+      "cleaned": "馬到成功 。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "萬事如意，千千萬萬桩美夢都能成真。",
+      "cleaned": "萬事如意，千千萬萬桩美夢都能成真。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "闔家安康昌盛、財源廣進、大吉大利發大財。",
+      "cleaned": "闔家安康昌盛、財源廣進、大吉大利發大財。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "生意興隆通四海、買賣順利、門庭若市客滿盈。",
+      "cleaned": "生意興隆通四海、買賣順利、門庭若市客滿盈。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "獨木難成林，三木聚合成巍峨高山（團結就是力量）。",
+      "cleaned": "獨木難成林，三木聚合成巍峨高山 。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "吃水果時要感念辛苦種樹的人（飲水思源、知恩圖報）。",
+      "cleaned": "吃水果時要感念辛苦種樹的人 。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "喝水時要常思念水源由來（不忘本、常懷感恩之心）。",
+      "cleaned": "喝水時要常思念水源由來 。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "行萬里路勝讀萬卷書，出門一天增長一籮筐智慧。",
+      "cleaned": "行萬里路勝讀萬卷書，出門一天增長一籮筐智慧。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "只要肯下苦功磨鐵杵，總有一天能磨成繡花針。",
+      "cleaned": "只要肯下苦功磨鐵杵，總有一天能磨成繡花針。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "萬事起頭雖然艱難，但遭遇困難千萬不可輕易氣餒。",
+      "cleaned": "萬事起頭雖然艱難，但遭遇困難千萬不可輕易氣餒。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "說話無須花費金錢購買，應當慎選善言以溫暖人心。",
+      "cleaned": "說話無須花費金錢購買，應當慎選善言以溫暖人心。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "百聞不如一見（親眼目睹勝過千言萬語傳聞）。",
+      "cleaned": "百聞不如一見 。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "夫妻同心協力，連浩瀚的東海海水也能掏乾。",
+      "cleaned": "夫妻同心協力，連浩瀚的東海海水也能掏乾。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "相親相愛時連菱角都看作圓的，心生厭惡時連苦果也是歪的。",
+      "cleaned": "相親相愛時連菱角都看作圓的，心生厭惡時連苦果也是歪的。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "入境問俗，到了一條江河就隨其河道彎折（隨遇而安）。",
+      "cleaned": "入境問俗，到了一條江河就隨其河道彎折 。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "近朱者赤，近墨者黑（環境與朋友對人的深遠影響）。",
+      "cleaned": "近朱者赤，近墨者黑 。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "完好無損的葉子包裹破損殘葉（互助互愛、濟弱扶傾）。",
+      "cleaned": "完好無損的葉子包裹破損殘葉 。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "我祝福你天天眉開眼笑、生活中充滿無盡幸福與喜悅。",
+      "cleaned": "我祝福你天天眉開眼笑、生活中充滿無盡幸福與喜悅。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "預祝你在未來的歲月裡，能收穫更輝煌燦爛的成就！",
+      "cleaned": "預祝你在未來的歲月裡，能收穫更輝煌燦爛的成就！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "願我們之間的珍貴友誼，經得起歲月洗禮，地久天長！",
+      "cleaned": "願我們之間的珍貴友誼，經得起歲月洗禮，地久天長！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "殷切期盼不久的將來，能在台灣與你再度熱情相聚！",
+      "cleaned": "殷切期盼不久的將來，能在台灣與你再度熱情相聚！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "由衷感謝你帶給我的所有難忘而美好的珍貴回憶！",
+      "cleaned": "由衷感謝你帶給我的所有難忘而美好的珍貴回憶！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "我們一輩子都要當彼此最知心、最要好的好朋友喔！",
+      "cleaned": "我們一輩子都要當彼此最知心、最要好的好朋友喔！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "祝福你在未來的人生旅程上，一路平安、萬里順遂！",
+      "cleaned": "祝福你在未來的人生旅程上，一路平安、萬里順遂！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "我會永遠珍藏這段時光，並深深想念你與這裡的美好。",
+      "cleaned": "我會永遠珍藏這段時光，並深深想念你與這裡的美好。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "依依不捨道別，期待我們能以最快的速度再次相逢！",
+      "cleaned": "依依不捨道別，期待我們能以最快的速度再次相逢！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "深深地珍惜並感謝有你出現在我的生命中！",
+      "cleaned": "深深地珍惜並感謝有你出現在我的生命中！",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "最近你身邊的事一切都還順利吧？",
+      "cleaned": "最近你身邊的事一切都還順利吧？",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "今天多雲，看起來快要下雷陣雨了。",
+      "cleaned": "今天多雲，看起來快要下雷陣雨了。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "西貢這個季節是典型的濕熱氣候。",
+      "cleaned": "西貢這個季節是典型的濕熱氣候。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "河內秋天的夜晚微風吹拂涼爽怡人。",
+      "cleaned": "河內秋天的夜晚微風吹拂涼爽怡人。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "這個週末你有打算去哪裡玩嗎？",
+      "cleaned": "這個週末你有打算去哪裡玩嗎？",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "我打算待在家裡休息並做幾道美味料理。",
+      "cleaned": "我打算待在家裡休息並做幾道美味料理。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "你喜歡傍晚時去西湖散步吹風嗎？",
+      "cleaned": "你喜歡傍晚時去西湖散步吹風嗎？",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "感謝你一直以來的關心與大力協助。",
+      "cleaned": "感謝你一直以來的關心與大力協助。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "當然囉！",
+      "cleaned": "當然囉！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "肯定是那樣沒錯。",
+      "cleaned": "肯定是那樣沒錯。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "我完全贊同你的寶貴意見。",
+      "cleaned": "我完全贊同你的寶貴意見。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "我倒不這麼認為。",
+      "cleaned": "我倒不這麼認為。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "由你決定囉 / 看你意思！",
+      "cleaned": "由你決定囉 、 看你意思！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "怎樣都行 / 都好。",
+      "cleaned": "怎樣都行 、 都好。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "沒什麼啦，千萬別見外客氣！",
+      "cleaned": "沒什麼啦，千萬別見外客氣！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "你真是太貼心周到了！",
+      "cleaned": "你真是太貼心周到了！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "太麻煩打擾你了！",
+      "cleaned": "太麻煩打擾你了！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "沒事的，小事一樁！",
+      "cleaned": "沒事的，小事一樁！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "加油喔，你一定辦得到的！",
+      "cleaned": "加油喔，你一定辦得到的！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "千萬不要半途而廢放棄喔！",
+      "cleaned": "千萬不要半途而廢放棄喔！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "祝你好運，諸事順利亨通！",
+      "cleaned": "祝你好運，諸事順利亨通！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "我深深信任你的專業能力。",
+      "cleaned": "我深深信任你的專業能力。",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "親愛的朋友，請務必好好保重身體！",
+      "cleaned": "親愛的朋友，請務必好好保重身體！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "路邊攤咖啡與冰茶是越南極具代表性的道地文化！",
+      "cleaned": "路邊攤咖啡與冰茶是越南極具代表性的道地文化！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "請問去機場最近的路線怎麼走？",
+      "cleaned": "請問去機場最近的路線怎麼走？",
+      "source": "phrases:旅遊與出行 / Travel & Transit"
+    },
+    {
+      "raw": "從這裡步行走到海灘需要幾分鐘？",
+      "cleaned": "從這裡步行走到海灘需要幾分鐘？",
+      "source": "phrases:旅遊與出行 / Travel & Transit"
+    },
+    {
+      "raw": "搭纜車上巴拿山山頂的票價是多少？",
+      "cleaned": "搭纜車上巴拿山山頂的票價是多少？",
+      "source": "phrases:旅遊與出行 / Travel & Transit"
+    },
+    {
+      "raw": "我想買去沙壩 (Sa Pa) 的火車臥鋪票。",
+      "cleaned": "我想買去沙壩 的火車臥鋪票。",
+      "source": "phrases:旅遊與出行 / Travel & Transit"
+    },
+    {
+      "raw": "司機先生，這班客運有停靠在美奈嗎？",
+      "cleaned": "司機先生，這班客運有停靠在美奈嗎？",
+      "source": "phrases:旅遊與出行 / Travel & Transit"
+    },
+    {
+      "raw": "這裡有提供包船遊覽海灣的服務嗎？",
+      "cleaned": "這裡有提供包船遊覽海灣的服務嗎？",
+      "source": "phrases:旅遊與出行 / Travel & Transit"
+    },
+    {
+      "raw": "我想換一間帶陽台且面海的海景房。",
+      "cleaned": "我想換一間帶陽台且面海的海景房。",
+      "source": "phrases:旅遊與出行 / Travel & Transit"
+    },
+    {
+      "raw": "博物館的開放參觀時間是幾點到幾點？",
+      "cleaned": "博物館的開放參觀時間是幾點到幾點？",
+      "source": "phrases:旅遊與出行 / Travel & Transit"
+    },
+    {
+      "raw": "去海灘玩水時別忘了隨身帶防曬乳喔。",
+      "cleaned": "去海灘玩水時別忘了隨身帶防曬乳喔。",
+      "source": "phrases:旅遊與出行 / Travel & Transit"
+    },
+    {
+      "raw": "我對攝影和越南民俗文化充滿熱忱。",
+      "cleaned": "我對攝影和越南民俗文化充滿熱忱。",
+      "source": "phrases:休閒娛樂與運動 / Leisure & Sports"
+    },
+    {
+      "raw": "你知道黃垂玲演唱的熱門神曲《See Tình》嗎？",
+      "cleaned": "你知道黃垂玲演唱的熱門神曲《See Tình》嗎？",
+      "source": "phrases:休閒娛樂與運動 / Leisure & Sports"
+    },
+    {
+      "raw": "週末去郊外露營呼吸新鮮空氣吧！",
+      "cleaned": "週末去郊外露營呼吸新鮮空氣吧！",
+      "source": "phrases:休閒娛樂與運動 / Leisure & Sports"
+    },
+    {
+      "raw": "做運動能讓身材結實並且精神飽滿神清氣爽。",
+      "cleaned": "做運動能讓身材結實並且精神飽滿神清氣爽。",
+      "source": "phrases:休閒娛樂與運動 / Leisure & Sports"
+    },
+    {
+      "raw": "我每天清晨都在練習瑜珈。",
+      "cleaned": "我每天清晨都在練習瑜珈。",
+      "source": "phrases:休閒娛樂與運動 / Leisure & Sports"
+    },
+    {
+      "raw": "這支足球隊的進攻打法非常精彩漂亮。",
+      "cleaned": "這支足球隊的進攻打法非常精彩漂亮。",
+      "source": "phrases:休閒娛樂與運動 / Leisure & Sports"
+    },
+    {
+      "raw": "下班後去唱卡拉OK是釋放工作壓力的最佳方式。",
+      "cleaned": "下班後去唱卡拉OK是釋放工作壓力的最佳方式。",
+      "source": "phrases:休閒娛樂與運動 / Leisure & Sports"
+    },
+    {
+      "raw": "現在幾點了呢？",
+      "cleaned": "現在幾點了呢？",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "約好明天下午 3 點見面喔！",
+      "cleaned": "約好明天下午 3 點見面喔！",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "別遲到喔，我們都在等你。",
+      "cleaned": "別遲到喔，我們都在等你。",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "我正在路上，大概再過 5 分鐘就到。",
+      "cleaned": "我正在路上，大概再過 5 分鐘就到。",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "今天是幾月幾號？",
+      "cleaned": "今天是幾月幾號？",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "下個月是越南的重要國定假日。",
+      "cleaned": "下個月是越南的重要國定假日。",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "農曆春節是全家團圓最神聖重要的節日。",
+      "cleaned": "農曆春節是全家團圓最神聖重要的節日。",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "新年快樂，祝您安康興旺、萬事如意！",
+      "cleaned": "新年快樂，祝您安康興旺、萬事如意！",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "祝你生日快樂，永遠青春美麗幸福滿溢！",
+      "cleaned": "祝你生日快樂，永遠青春美麗幸福滿溢！",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "祝賀你們百年好合、永浴愛河！",
+      "cleaned": "祝賀你們百年好合、永浴愛河！",
+      "source": "phrases:時間與約定 / Time & Dates"
+    },
+    {
+      "raw": "請幫我加點冰塊。",
+      "cleaned": "請幫我加點冰塊。",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "這碗不要放辣椒喔。",
+      "cleaned": "這碗不要放辣椒喔。",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "我要點餐外帶。",
+      "cleaned": "我要點餐外帶。",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "這道菜是哪個地區的特產？",
+      "cleaned": "這道菜是哪個地區的特產？",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "這裡的食物新鮮又乾淨衛生。",
+      "cleaned": "這裡的食物新鮮又乾淨衛生。",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "這個沾醬調得非常合胃口。",
+      "cleaned": "這個沾醬調得非常合胃口。",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "請給我多一副乾淨筷子和湯匙。",
+      "cleaned": "請給我多一副乾淨筷子和湯匙。",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "幫我們一起算一張帳單結帳。",
+      "cleaned": "幫我們一起算一張帳單結帳。",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "我們各自自分開付帳 (AA制)。",
+      "cleaned": "我們各自自分開付帳 。",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "感謝這頓美味豐盛的餐點！",
+      "cleaned": "感謝這頓美味豐盛的餐點！",
+      "source": "phrases:餐飲與美食 / Dining & Food"
+    },
+    {
+      "raw": "我們非常重視這次的合作關係。",
+      "cleaned": "我們非常重視這次的合作關係。",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "會議結束後請發送會議紀錄。",
+      "cleaned": "會議結束後請發送會議紀錄。",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "我們可以先簽署合作備忘錄 (MOU) 嗎？",
+      "cleaned": "我們可以先簽署合作備忘錄 嗎？",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "這項條款需要由法務部門重新審核。",
+      "cleaned": "這項條款需要由法務部門重新審核。",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "這個報價是否已包含加值稅 (VAT)？",
+      "cleaned": "這個報價是否已包含加值稅 ？",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "付款方式是電匯還是開立信用狀 (L/C)？",
+      "cleaned": "付款方式是電匯還是開立信用狀 ？",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "收到定金後預計交貨期是多久？",
+      "cleaned": "收到定金後預計交貨期是多久？",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "我們這筆費用需要開立紅發票 (統一發票)。",
+      "cleaned": "我們這筆費用需要開立紅發票 。",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "雙方共同致力於互利共贏 (Win-Win) 的目標。",
+      "cleaned": "雙方共同致力於互利共贏 的目標。",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "我保留這點的意見，待向主管請示後回覆。",
+      "cleaned": "我保留這點的意見，待向主管請示後回覆。",
+      "source": "phrases:商務談判與會議協作"
+    },
+    {
+      "raw": "工安第一 / 安全生產至上！",
+      "cleaned": "工安第一 、 安全生產至上！",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "全體作業員必須佩戴口罩與防護裝備。",
+      "cleaned": "全體作業員必須佩戴口罩與防護裝備。",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "今天的產能運轉達成計畫的 95%。",
+      "cleaned": "今天的產能運轉達成計畫的 95%。",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "發現表面刮傷，要求立即停線檢驗。",
+      "cleaned": "發現表面刮傷，要求立即停線檢驗。",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "這批貨在入庫前必須重新分揀。",
+      "cleaned": "這批貨在入庫前必須重新分揀。",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "每個週末進行設備機台的定期保養。",
+      "cleaned": "每個週末進行設備機台的定期保養。",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "大夜班作業員享有伙食與全勤加給津貼。",
+      "cleaned": "大夜班作業員享有伙食與全勤加給津貼。",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "黏貼前請仔細核對條碼標籤。",
+      "cleaned": "黏貼前請仔細核對條碼標籤。",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "確保準時出貨以避免被扣延遲交貨違約金。",
+      "cleaned": "確保準時出貨以避免被扣延遲交貨違約金。",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "維修隊立刻抵達現場排除輸送帶卡帶故障。",
+      "cleaned": "維修隊立刻抵達現場排除輸送帶卡帶故障。",
+      "source": "phrases:產線製造與品質控制"
+    },
+    {
+      "raw": "貨船預計本週五靠泊吉萊港 (Cát Lái)。",
+      "cleaned": "貨船預計本週五靠泊吉萊港 。",
+      "source": "phrases:物流倉儲與海關進出口"
+    },
+    {
+      "raw": "請提供海運提單 (B/L)。",
+      "cleaned": "請提供海運提單 。",
+      "source": "phrases:物流倉儲與海關進出口"
+    },
+    {
+      "raw": "此批貨物被海關分到黃色通道，需要詳細查核單證。",
+      "cleaned": "此批貨物被海關分到黃色通道，需要詳細查核單證。",
+      "source": "phrases:物流倉儲與海關進出口"
+    },
+    {
+      "raw": "紅色通道貨物必須開箱進行實體驗貨。",
+      "cleaned": "紅色通道貨物必須開箱進行實體驗貨。",
+      "source": "phrases:物流倉儲與海關進出口"
+    },
+    {
+      "raw": "原產地證明 Form E 有助於減免進口關稅。",
+      "cleaned": "原產地證明 Form E 有助於減免進口關稅。",
+      "source": "phrases:物流倉儲與海關進出口"
+    },
+    {
+      "raw": "不及早提貨將會產生延滯費與倉儲費 (DEM/DET)。",
+      "cleaned": "不及早提貨將會產生延滯費與倉儲費 。",
+      "source": "phrases:物流倉儲與海關進出口"
+    },
+    {
+      "raw": "易碎品，請輕拿輕放且堆疊不超過四層。",
+      "cleaned": "易碎品，請輕拿輕放且堆疊不超過四層。",
+      "source": "phrases:物流倉儲與海關進出口"
+    },
+    {
+      "raw": "已完成 VNACCS 電子報關通關手續。",
+      "cleaned": "已完成 VNACCS 電子報關通關手續。",
+      "source": "phrases:物流倉儲與海關進出口"
+    },
+    {
+      "raw": "勞工享有依法完整繳納社會保險 (BHXH)。",
+      "cleaned": "勞工享有依法完整繳納社會保險 。",
+      "source": "phrases:人力資源與勞動法規"
+    },
+    {
+      "raw": "專業技術與管理職位試用期最長為 60 天。",
+      "cleaned": "專業技術與管理職位試用期最長為 60 天。",
+      "source": "phrases:人力資源與勞動法規"
+    },
+    {
+      "raw": "第13個月年終獎金通常在農曆春節前夕發放。",
+      "cleaned": "第13個月年終獎金通常在農曆春節前夕發放。",
+      "source": "phrases:人力資源與勞動法規"
+    },
+    {
+      "raw": "國定假日加班 (OT) 按本薪 300% 計算加班費。",
+      "cleaned": "國定假日加班 按本薪 300% 計算加班費。",
+      "source": "phrases:人力資源與勞動法規"
+    },
+    {
+      "raw": "外籍專家必須具備工作許可證 (Work Permit)。",
+      "cleaned": "外籍專家必須具備工作許可證 。",
+      "source": "phrases:人力資源與勞動法規"
+    },
+    {
+      "raw": "提供外籍投資者與工作者兩年效期暫住證 (TRC)。",
+      "cleaned": "提供外籍投資者與工作者兩年效期暫住證 。",
+      "source": "phrases:人力資源與勞動法規"
+    },
+    {
+      "raw": "這座大樓社區附設游泳池、健身房與便利超市。",
+      "cleaned": "這座大樓社區附設游泳池、健身房與便利超市。",
+      "source": "phrases:租屋生活與社區水電"
+    },
+    {
+      "raw": "電梯磁扣只能感應抵達自己住戶所在的樓層。",
+      "cleaned": "電梯磁扣只能感應抵達自己住戶所在的樓層。",
+      "source": "phrases:租屋生活與社區水電"
+    },
+    {
+      "raw": "麻煩保全管理員幫我代收包裹快遞喔。",
+      "cleaned": "麻煩保全管理員幫我代收包裹快遞喔。",
+      "source": "phrases:租屋生活與社區水電"
+    },
+    {
+      "raw": "浴室熱水器沒有反應，麻煩派人檢查一下。",
+      "cleaned": "浴室熱水器沒有反應，麻煩派人檢查一下。",
+      "source": "phrases:租屋生活與社區水電"
+    },
+    {
+      "raw": "機車停放在地下室，登記月租票卡比較划算方便。",
+      "cleaned": "機車停放在地下室，登記月租票卡比較划算方便。",
+      "source": "phrases:租屋生活與社區水電"
+    },
+    {
+      "raw": "給我來一碗生牛肉加牛腩河粉，多放蔥花！",
+      "cleaned": "給我來一碗生牛肉加牛腩河粉，多放蔥花！",
+      "source": "phrases:餐飲市井與道地招呼"
+    },
+    {
+      "raw": "冰黑咖啡不加糖，要西貢人道地的濃烈風味。",
+      "cleaned": "冰黑咖啡不加糖，要西貢人道地的濃烈風味。",
+      "source": "phrases:餐飲市井與道地招呼"
+    },
+    {
+      "raw": "法國麵包夾肝醬與越南火腿，少加點辣椒，外皮酥脆！",
+      "cleaned": "法國麵包夾肝醬與越南火腿，少加點辣椒，外皮酥脆！",
+      "source": "phrases:餐飲市井與道地招呼"
+    },
+    {
+      "raw": "請多加一份生菜香草盤和一碟大蒜辣椒沾醬。",
+      "cleaned": "請多加一份生菜香草盤和一碟大蒜辣椒沾醬。",
+      "source": "phrases:餐飲市井與道地招呼"
+    },
+    {
+      "raw": "天氣太熱了，喝一杯冰甘蔗汁消暑暢快！",
+      "cleaned": "天氣太熱了，喝一杯冰甘蔗汁消暑暢快！",
+      "source": "phrases:餐飲市井與道地招呼"
+    },
+    {
+      "raw": "司機先生，請在下一個十字路口右轉！",
+      "cleaned": "司機先生，請在下一個十字路口右轉！",
+      "source": "phrases:交通叫車與街道辨路"
+    },
+    {
+      "raw": "這條路在尖峰時段塞車非常嚴重。",
+      "cleaned": "這條路在尖峰時段塞車非常嚴重。",
+      "source": "phrases:交通叫車與街道辨路"
+    },
+    {
+      "raw": "請在飯店大廳等我五分鐘，我馬上就下來。",
+      "cleaned": "請在飯店大廳等我五分鐘，我馬上就下來。",
+      "source": "phrases:交通叫車與街道辨路"
+    },
+    {
+      "raw": "開過這座橋就到工業區了。",
+      "cleaned": "開過這座橋就到工業區了。",
+      "source": "phrases:交通叫車與街道辨路"
+    },
+    {
+      "raw": "機車叫車資費是由 App 軟體自動計算透明顯示。",
+      "cleaned": "機車叫車資費是由 App 軟體自動計算透明顯示。",
+      "source": "phrases:交通叫車與街道辨路"
+    },
+    {
+      "raw": "萬事如意。",
+      "cleaned": "萬事如意。",
+      "source": "phrases:文化成語與生活俗諺"
+    },
+    {
+      "raw": "吃得扎實、穿得耐用 (勤儉持家之美德)。",
+      "cleaned": "吃得扎實、穿得耐用 。",
+      "source": "phrases:文化成語與生活俗諺"
+    },
+    {
+      "raw": "我想以外國人身分開立銀行帳戶。",
+      "cleaned": "我想以外國人身分開立銀行帳戶。",
+      "source": "phrases:銀行金融與換匯轉帳"
+    },
+    {
+      "raw": "每日網銀線上轉帳額度上限是多少？",
+      "cleaned": "每日網銀線上轉帳額度上限是多少？",
+      "source": "phrases:銀行金融與換匯轉帳"
+    },
+    {
+      "raw": "今天美元對越盾的匯率是多少？",
+      "cleaned": "今天美元對越盾的匯率是多少？",
+      "source": "phrases:銀行金融與換匯轉帳"
+    },
+    {
+      "raw": "請幫我開通手機網銀 (Mobile Banking) 服務。",
+      "cleaned": "請幫我開通手機網銀 服務。",
+      "source": "phrases:銀行金融與換匯轉帳"
+    },
+    {
+      "raw": "我想透過 VietQR 掃描 QR Code 轉帳到這個帳戶。",
+      "cleaned": "我想透過 VietQR 掃描 QR Code 轉帳到這個帳戶。",
+      "source": "phrases:銀行金融與換匯轉帳"
+    },
+    {
+      "raw": "這台 ATM 支援用國際 Visa 卡提款嗎？",
+      "cleaned": "這台 ATM 支援用國際 Visa 卡提款嗎？",
+      "source": "phrases:銀行金融與換匯轉帳"
+    },
+    {
+      "raw": "我需要最近三個月的銀行對帳單 (流水帳明細)。",
+      "cleaned": "我需要最近三個月的銀行對帳單 。",
+      "source": "phrases:銀行金融與換匯轉帳"
+    },
+    {
+      "raw": "我的金融卡因連續輸錯三次 PIN 碼被鎖定了。",
+      "cleaned": "我的金融卡因連續輸錯三次 PIN 碼被鎖定了。",
+      "source": "phrases:銀行金融與換匯轉帳"
+    },
+    {
+      "raw": "尊敬的合作夥伴，隨函附上報價單，請查收。",
+      "cleaned": "尊敬的合作夥伴，隨函附上報價單，請查收。",
+      "source": "phrases:辦公行政與商務書信"
+    },
+    {
+      "raw": "期盼儘早收到貴公司的回覆。",
+      "cleaned": "期盼儘早收到貴公司的回覆。",
+      "source": "phrases:辦公行政與商務書信"
+    },
+    {
+      "raw": "謹致謝忱並祝身體健康！",
+      "cleaned": "謹致謝忱並祝身體健康！",
+      "source": "phrases:辦公行政與商務書信"
+    },
+    {
+      "raw": "我們確認已經收到貴方支付的合約定金。",
+      "cleaned": "我們確認已經收到貴方支付的合約定金。",
+      "source": "phrases:辦公行政與商務書信"
+    },
+    {
+      "raw": "會議時間已改期至下週一上午9點。",
+      "cleaned": "會議時間已改期至下週一上午9點。",
+      "source": "phrases:辦公行政與商務書信"
+    },
+    {
+      "raw": "請審閱並簽核此份合約草案。",
+      "cleaned": "請審閱並簽核此份合約草案。",
+      "source": "phrases:辦公行政與商務書信"
+    },
+    {
+      "raw": "會計部門需要原始憑證以辦理核銷沖帳手續。",
+      "cleaned": "會計部門需要原始憑證以辦理核銷沖帳手續。",
+      "source": "phrases:辦公行政與商務書信"
+    },
+    {
+      "raw": "我們承諾對所有商業資訊嚴格保密。",
+      "cleaned": "我們承諾對所有商業資訊嚴格保密。",
+      "source": "phrases:辦公行政與商務書信"
+    },
+    {
+      "raw": "有買一送一的促銷活動嗎？",
+      "cleaned": "有買一送一的促銷活動嗎？",
+      "source": "phrases:購物商場與討價還價"
+    },
+    {
+      "raw": "如果我大量採購可以拿到多少折扣？",
+      "cleaned": "如果我大量採購可以拿到多少折扣？",
+      "source": "phrases:購物商場與討價還價"
+    },
+    {
+      "raw": "這是正品且附有原廠保固貼紙嗎？",
+      "cleaned": "這是正品且附有原廠保固貼紙嗎？",
+      "source": "phrases:購物商場與討價還價"
+    },
+    {
+      "raw": "我可以在七天之內更換其他尺寸嗎？",
+      "cleaned": "我可以在七天之內更換其他尺寸嗎？",
+      "source": "phrases:購物商場與討價還價"
+    },
+    {
+      "raw": "給點優惠算開市價，圖個好彩頭吧！",
+      "cleaned": "給點優惠算開市價，圖個好彩頭吧！",
+      "source": "phrases:購物商場與討價還價"
+    },
+    {
+      "raw": "請給我零售發票並附上保固單。",
+      "cleaned": "請給我零售發票並附上保固單。",
+      "source": "phrases:購物商場與討價還價"
+    },
+    {
+      "raw": "我想預訂海景房 (Sea view)。",
+      "cleaned": "我想預訂海景房 。",
+      "source": "phrases:觀光旅遊與飯店度假"
+    },
+    {
+      "raw": "入住時間為下午2點，退房時間為中午12點。",
+      "cleaned": "入住時間為下午2點，退房時間為中午12點。",
+      "source": "phrases:觀光旅遊與飯店度假"
+    },
+    {
+      "raw": "飯店有提供免費機場接送服務嗎？",
+      "cleaned": "飯店有提供免費機場接送服務嗎？",
+      "source": "phrases:觀光旅遊與飯店度假"
+    },
+    {
+      "raw": "我們想在大廳櫃檯寄放幾小時行李。",
+      "cleaned": "我們想在大廳櫃檯寄放幾小時行李。",
+      "source": "phrases:觀光旅遊與飯店度假"
+    },
+    {
+      "raw": "自助早餐供應時間為上午 6:30 至 10:00。",
+      "cleaned": "自助早餐供應時間為上午 6:30 至 10:00。",
+      "source": "phrases:觀光旅遊與飯店度假"
+    },
+    {
+      "raw": "這附近有什麼值得一遊的著名文化景點？",
+      "cleaned": "這附近有什麼值得一遊的著名文化景點？",
+      "source": "phrases:觀光旅遊與飯店度假"
+    },
+    {
+      "raw": "我想租一輛自排速克達機車兩天。",
+      "cleaned": "我想租一輛自排速克達機車兩天。",
+      "source": "phrases:交通出行與租車導航"
+    },
+    {
+      "raw": "切記要戴上安全帽並扣好安全扣帶！",
+      "cleaned": "切記要戴上安全帽並扣好安全扣帶！",
+      "source": "phrases:交通出行與租車導航"
+    },
+    {
+      "raw": "這是單行道，絕對不可逆向行駛！",
+      "cleaned": "這是單行道，絕對不可逆向行駛！",
+      "source": "phrases:交通出行與租車導航"
+    },
+    {
+      "raw": "請幫我加滿 95 汽油！",
+      "cleaned": "請幫我加滿 95 汽油！",
+      "source": "phrases:交通出行與租車導航"
+    },
+    {
+      "raw": "濱城至仙泉的胡志明市捷運一號線非常便捷。",
+      "cleaned": "濱城至仙泉的胡志明市捷運一號線非常便捷。",
+      "source": "phrases:交通出行與租車導航"
+    },
+    {
+      "raw": "我想買一盒醫用口罩和一瓶消毒酒精。",
+      "cleaned": "我想買一盒醫用口罩和一瓶消毒酒精。",
+      "source": "phrases:醫療保健與藥局常識"
+    },
+    {
+      "raw": "這款藥每天服用兩次，每次一顆，飯後吃。",
+      "cleaned": "這款藥每天服用兩次，每次一顆，飯後吃。",
+      "source": "phrases:醫療保健與藥局常識"
+    },
+    {
+      "raw": "我感到有些頭暈而且想吐。",
+      "cleaned": "我感到有些頭暈而且想吐。",
+      "source": "phrases:醫療保健與藥局常識"
+    },
+    {
+      "raw": "請為我開立雙語健康證明書。",
+      "cleaned": "請為我開立雙語健康證明書。",
+      "source": "phrases:醫療保健與藥局常識"
+    },
+    {
+      "raw": "醫院是否有 24 小時急診服務？",
+      "cleaned": "醫院是否有 24 小時急診服務？",
+      "source": "phrases:醫療保健與藥局常識"
+    },
+    {
+      "raw": "遠親不如近鄰。",
+      "cleaned": "遠親不如近鄰。",
+      "source": "phrases:社交禮儀與在地人情"
+    },
+    {
+      "raw": "雪中送炭勝過錦上添花。",
+      "cleaned": "雪中送炭勝過錦上添花。",
+      "source": "phrases:社交禮儀與在地人情"
+    },
+    {
+      "raw": "祝你與全家人新年安康興旺！",
+      "cleaned": "祝你與全家人新年安康興旺！",
+      "source": "phrases:社交禮儀與在地人情"
+    },
+    {
+      "raw": "感謝各位大哥大姐的熱情熱烈款待！",
+      "cleaned": "感謝各位大哥大姐的熱情熱烈款待！",
+      "source": "phrases:社交禮儀與在地人情"
+    },
+    {
+      "raw": "該零組件的交期 (Lead time) 為四週。",
+      "cleaned": "該零組件的交期 為四週。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "安全庫存量 (Safety stock) 最低為 500 個。",
+      "cleaned": "安全庫存量 最低為 500 個。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "這張急單需要透過空運 (Air freight) 發貨。",
+      "cleaned": "這張急單需要透過空運 發貨。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "請發送成本細分分析表 (Cost breakdown)。",
+      "cleaned": "請發送成本細分分析表 。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "供應商已同意為設備提供 24 個月保固。",
+      "cleaned": "供應商已同意為設備提供 24 個月保固。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "本月份準時交貨率 (OTD) 達到了 98%。",
+      "cleaned": "本月份準時交貨率 達到了 98%。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "需要簽核首件檢驗樣品 (FAI)。",
+      "cleaned": "需要簽核首件檢驗樣品 。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "模具瑕疵問題已由技術工程團隊徹底排除。",
+      "cleaned": "模具瑕疵問題已由技術工程團隊徹底排除。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "我們全面導入並推行 ISO 9001:2015 品質管理體系。",
+      "cleaned": "我們全面導入並推行 ISO 9001:2015 品質管理體系。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "5S 管理流程有助於廠房維持整潔與作業安全。",
+      "cleaned": "5S 管理流程有助於廠房維持整潔與作業安全。",
+      "source": "phrases:供應鏈採購與工廠排程"
+    },
+    {
+      "raw": "伺服器系統正在半夜進行定期例行維護。",
+      "cleaned": "伺服器系統正在半夜進行定期例行維護。",
+      "source": "phrases:科技軟體與資訊IT"
+    },
+    {
+      "raw": "請每 90 天定期更換密碼以維護網路資訊安全。",
+      "cleaned": "請每 90 天定期更換密碼以維護網路資訊安全。",
+      "source": "phrases:科技軟體與資訊IT"
+    },
+    {
+      "raw": "企業 ERP 資源管理軟體已順利完成升級。",
+      "cleaned": "企業 ERP 資源管理軟體已順利完成升級。",
+      "source": "phrases:科技軟體與資訊IT"
+    },
+    {
+      "raw": "每天夜間 23 點自動將資料備份至雲端。",
+      "cleaned": "每天夜間 23 點自動將資料備份至雲端。",
+      "source": "phrases:科技軟體與資訊IT"
+    },
+    {
+      "raw": "此 App 同時支援 iOS 與 Android 兩大作業系統。",
+      "cleaned": "此 App 同時支援 iOS 與 Android 兩大作業系統。",
+      "source": "phrases:科技軟體與資訊IT"
+    },
+    {
+      "raw": "三樓的 Wi-Fi 連線出現異常中斷，麻煩 IT 人員檢測。",
+      "cleaned": "三樓的 Wi-Fi 連線出現異常中斷，麻煩 IT 人員檢測。",
+      "source": "phrases:科技軟體與資訊IT"
+    },
+    {
+      "raw": "外商投資企業 (FDI) 每年必須接受法定獨立審計。",
+      "cleaned": "外商投資企業 每年必須接受法定獨立審計。",
+      "source": "phrases:法律稅務與官方申報"
+    },
+    {
+      "raw": "企業所得稅年度決算申報截止日為 3 月 31 日。",
+      "cleaned": "企業所得稅年度決算申報截止日為 3 月 31 日。",
+      "source": "phrases:法律稅務與官方申報"
+    },
+    {
+      "raw": "投資許可證 (IRC) 需要辦理增資變更登記手續。",
+      "cleaned": "投資許可證 需要辦理增資變更登記手續。",
+      "source": "phrases:法律稅務與官方申報"
+    },
+    {
+      "raw": "向越南智慧財產權局申請商標保護註冊。",
+      "cleaned": "向越南智慧財產權局申請商標保護註冊。",
+      "source": "phrases:法律稅務與官方申報"
+    },
+    {
+      "raw": "切實落實企業社會責任 (CSR) 與在地公益。",
+      "cleaned": "切實落實企業社會責任 與在地公益。",
+      "source": "phrases:法律稅務與官方申報"
+    },
+    {
+      "raw": "河內炭烤豬肉米線香氣撲鼻，沾酸甜魚露醬汁最對味。",
+      "cleaned": "河內炭烤豬肉米線香氣撲鼻，沾酸甜魚露醬汁最對味。",
+      "source": "phrases:烹飪美食與在地市井"
+    },
+    {
+      "raw": "排骨皮絲蒸蛋碎米飯是南部人最具代表性的早餐。",
+      "cleaned": "排骨皮絲蒸蛋碎米飯是南部人最具代表性的早餐。",
+      "source": "phrases:烹飪美食與在地市井"
+    },
+    {
+      "raw": "鮮蝦豬肉生春捲沾濃郁花生黑豆醬，清爽開胃。",
+      "cleaned": "鮮蝦豬肉生春捲沾濃郁花生黑豆醬，清爽開胃。",
+      "source": "phrases:烹飪美食與在地市井"
+    },
+    {
+      "raw": "西南部脆皮越式煎餅裹米紙與野菜生菜捲著吃。",
+      "cleaned": "西南部脆皮越式煎餅裹米紙與野菜生菜捲著吃。",
+      "source": "phrases:烹飪美食與在地市井"
+    },
+    {
+      "raw": "椰奶芭芭甜湯散發濃郁椰漿香氣與軟糯木薯。",
+      "cleaned": "椰奶芭芭甜湯散發濃郁椰漿香氣與軟糯木薯。",
+      "source": "phrases:烹飪美食與在地市井"
+    },
+    {
+      "raw": "越南人在商業往來中極為看重人情味與信譽。",
+      "cleaned": "越南人在商業往來中極為看重人情味與信譽。",
+      "source": "phrases:跨文化交際與友誼"
+    },
+    {
+      "raw": "笑一笑，十年少 (笑顏勝過十帖補藥)。",
+      "cleaned": "笑一笑，十年少 。",
+      "source": "phrases:跨文化交際與友誼"
+    },
+    {
+      "raw": "扁豆愛冬瓜，同攀一棚架 (比喻團結互助情誼)。",
+      "cleaned": "扁豆愛冬瓜，同攀一棚架 。",
+      "source": "phrases:跨文化交際與友誼"
+    },
+    {
+      "raw": "祝願代表團此行出差考察圓滿順利成功！",
+      "cleaned": "祝願代表團此行出差考察圓滿順利成功！",
+      "source": "phrases:跨文化交際與友誼"
+    },
+    {
+      "raw": "期待很快在胡志明市與您再次相逢！",
+      "cleaned": "期待很快在胡志明市與您再次相逢！",
+      "source": "phrases:跨文化交際與友誼"
     },
     {
       "raw": "別家店賣得便宜很多耶。",

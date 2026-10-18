@@ -320,7 +320,7 @@ export const fiveYearWeeklyUsdVndData = [
   { date: '2025-08-22', close: 25390, central: 24245, blackMarket: 25550, change: -0.16, note: '出口動能持續擴張，經常帳順差穩健支撐', noteVi: 'Động lực xuất khẩu mở rộng, thặng dư tài khoản vãng lai hỗ trợ tỷ giá' },
   { date: '2025-11-21', close: 25460, central: 24270, blackMarket: 25640, change: 0.28, note: 'FDI 實際到位金額刷新歷史紀錄，外資擴廠不歇', noteVi: 'Vốn FDI giải ngân lập kỷ lục mới, các tập đoàn đa quốc gia mở rộng sản xuất' },
 
-  // 2026 年（當前週期）：十四大前哨籌備，經濟高質量成長，USD/VND 維持在 25,400~25,500
+  // 2026 年（當前週期）：十四大前哨籌備，經濟高品質成長，USD/VND 維持在 25,400~25,500
   { date: '2026-02-20', close: 25410, central: 24250, blackMarket: 25590, change: -0.20, note: '2026 第一季外貿順差破 60 億美元，海關查核產地新規', noteVi: 'Xuất siêu quý I/2026 vượt 6 tỷ USD, Hải quan siết chặt kiểm tra C/O' },
   { date: '2026-05-15', close: 25450, central: 24262, blackMarket: 25630, change: 0.16, note: '越共十四大籌備文件草案發布，強調體制鬆綁與綠色轉型', noteVi: 'Công bố dự thảo văn kiện Đại hội XIV, trọng tâm gỡ nút thắt thể chế & chuyển đổi xanh' },
   { date: '2026-07-24', close: 25470, central: 24265, blackMarket: 25660, change: 0.08, note: '四大公股行庫小幅調升中長天期定存利率吸納資金', noteVi: 'Big 4 điều chỉnh nhẹ lãi suất huy động trung dài hạn hút tiền gửi' },
@@ -932,7 +932,7 @@ export const deepAnalysisDossiers = [
       {
         heading: '三、十四大經濟綱領：擺脫中等收入陷阱的五大支柱',
         headingVi: '3. 5 trụ cột phát triển kinh tế giai đoạn 2026-2030',
-        content: '越共十四大文件草案明確提出了 2026-2030 年發展階段的五大支柱：\n1. 高質量外資（FDI）篩選機制：不再盲目追求勞力密集代工，全面鎖定半導體封裝測試、AI 資料中心、新能源汽車、先進材料。\n2. 制度現代化：廢止重疊冗贅的行政許可證，全面實行數位化「單一窗口」（One-Stop Portal）。\n3. 綠色低碳轉型：兌現 COP26 承諾，全面落實第八版電力發展規劃（PDP8）及公正能源轉型夥伴關係（JETP）。\n4. 民營經濟作為核心增長動能：培育如 Vingroup、FPT、Thaco 等本國工業巨頭，提升本國供應鏈自製率至 40% 以上。\n5. 區域整併戰略：推動行政區劃精簡，合併小規模縣省，強化紅河三角洲與東南部經濟重鎮的跨省協同。',
+        content: '越共十四大文件草案明確提出了 2026-2030 年發展階段的五大支柱：\n1. 高品質外資（FDI）篩選機制：不再盲目追求勞力密集代工，全面鎖定半導體封裝測試、AI 資料中心、新能源汽車、先進材料。\n2. 制度現代化：廢止重疊冗贅的行政許可證，全面實行數位化「單一窗口」（One-Stop Portal）。\n3. 綠色低碳轉型：兌現 COP26 承諾，全面落實第八版電力發展規劃（PDP8）及公正能源轉型夥伴關係（JETP）。\n4. 民營經濟作為核心增長動能：培育如 Vingroup、FPT、Thaco 等本國工業巨頭，提升本國供應鏈自製率至 40% 以上。\n5. 區域整併戰略：推動行政區劃精簡，合併小規模縣省，強化紅河三角洲與東南部經濟重鎮的跨省協同。',
         contentVi: 'Dự thảo văn kiện Đại hội XIV xác lập 5 trụ cột then chốt: (1) Chọn lọc FDI thế hệ mới ưu tiên bán dẫn, AI, năng lượng xanh; (2) Cắt giảm triệt để thủ tục hành chính qua chuyển đổi số; (3) Thực hiện cam kết phát thải ròng bằng 0 (Net Zero 2050) và Quy hoạch điện VIII; (4) Phát triển kinh tế tư nhân thực sự trở thành động lực quan trọng nhất; (5) Tinh gọn tổ chức bộ máy và sắp xếp hợp lý các đơn vị hành chính.'
       }
     ],
@@ -1070,7 +1070,7 @@ export const deepAnalysisDossiers = [
       {
         heading: '一、數據透視：出口狂飆背後的「中間品」進口暴增',
         headingVi: '1. Đặc điểm cơ cấu: Nhập siêu nguyên liệu và xuất siêu thành phẩm',
-        content: '越南海關最新通關統計呈現一個鮮明的結構特徵：\n• 出口端：電腦電子零組件（685億美元）、智慧型手機（562億美元）、成衣鞋類合計破 650 億美元，美國市場佔據全越出口總額的近 30%。\n• 進口端：越南自中國進口金額高達 1,388 億美元，其中超過 80% 均為原物料、電子半成品晶片、被動元件、面料紗線、鋼捲塑料。\n這意味著越南在很大程度上扮演了「將亞洲原物料加工組裝成終端產品並外銷歐美」的關鍵離岸樞紐。這種「大進大出」模式一旦遭遇產地認定質疑，整個供應鏈將面臨致命衝擊。',
+        content: '越南海關最新通關統計呈現一個鮮明的結構特徵：\n• 出口端：電腦電子零組件（685億美元）、智慧型手機（562億美元）、成衣鞋類合計破 650 億美元，美國市場佔據全越出口總額的近 30%。\n• 進口端：越南自中國進口金額高達 1,388 億美元，其中超過 80% 均為原物料、電子半成品晶片、被動元件、面料紗線、鋼捲塑膠。\n這意味著越南在很大程度上扮演了「將亞洲原物料加工組裝成終端產品並外銷歐美」的關鍵離岸樞紐。這種「大進大出」模式一旦遭遇產地認定質疑，整個供應鏈將面臨致命衝擊。',
         contentVi: 'Việt Nam nhập khẩu gần 140 tỷ USD linh kiện, vải sợi, kim loại từ Trung Quốc để gia công lắp ráp và xuất khẩu sang Mỹ gần 120 tỷ USD thành phẩm. Cơ cấu này tiềm ẩn rủi ro rất lớn nếu không chứng minh được tỷ lệ giá trị gia tăng tại Việt Nam.'
       },
       {
@@ -1403,7 +1403,7 @@ export const deepAnalysisDossiers = [
     readTimeVi: '14 phút đọc',
     title: '南越大胡志明「雙核驅動」戰略：守添國際金融中心（IFC）、49億美元芹苴國際轉運港與隆城機場2026年啟航全解析',
     titleVi: 'Chiến lược động lực kép Vùng TP.HCM: Trung tâm Tài chính Quốc tế Thủ Thiêm, Siêu cảng trung chuyển Cần Giờ 4,9 tỷ USD và Sân bay Long Thành',
-    subtitle: '第323/2025/NĐ-CP號議定釋放金融沙盒紅利，三環路與一號地鐵貫通，東南部工業走廊迎來世紀大升級',
+    subtitle: '第323/2025/NĐ-CP號議定釋放金融沙盒紅利，三環路與一號捷運貫通，東南部工業走廊迎來世紀大升級',
     subtitleVi: 'Nghị định 323 về trung tâm tài chính, siêu cảng đón tàu mẹ 24.000 TEU và đại bàng logistics hội tụ tại cửa ngõ Đông Nam Bộ',
     author: '南越都市與金融地理研究中心 · 首席經濟學家',
     authorVi: 'Trung tâm Nghiên cứu Kinh tế Vùng TP.HCM · Chuyên gia Địa kinh tế',
@@ -1414,7 +1414,7 @@ export const deepAnalysisDossiers = [
       { label: '隆城國際機場首期啟用', labelVi: 'Khai thác thương mại', val: '2026 年 12 月', type: 'green' },
       { label: '守添IFC地標大樓規劃', labelVi: 'Tháp tài chính IFC', val: '99 樓旗艦地標', type: 'blue' }
     ],
-    summary: '胡志明市正藉由國會第 98/2023/QH15 號特別機制決議與中央第 323/2025/NĐ-CP 號議定，重塑其作為東南亞經濟與金融樞紐的核心地位。在戰略佈局上，南越正形成「守添國際金融中心（金融大腦）＋芹苴國際轉運深水港與隆城國際機場（物流雙翼）＋平陽同奈工業廊帶（製造實體）」的超級集群。守添新城區第一功能區已劃定 11 塊戰略金融土地，規劃 99 層旗艦金融塔並實行外匯與離岸金融沙盒。總投資 49 億美元的芹苴國際轉運港引入全球第二大船商 MSC/TIL 聯手興建，將具備停靠 24,000 TEU 超級母船能力。與此同時，胡志明地鐵一號線穩定營運，隆城國際機場一期定於 2026 年 12 月商業啟航，南越經貿進入歷史黃金爆發期。',
+    summary: '胡志明市正藉由國會第 98/2023/QH15 號特別機制決議與中央第 323/2025/NĐ-CP 號議定，重塑其作為東南亞經濟與金融樞紐的核心地位。在戰略佈局上，南越正形成「守添國際金融中心（金融大腦）＋芹苴國際轉運深水港與隆城國際機場（物流雙翼）＋平陽同奈工業廊帶（製造實體）」的超級集群。守添新城區第一功能區已劃定 11 塊戰略金融土地，規劃 99 層旗艦金融塔並實行外匯與離岸金融沙盒。總投資 49 億美元的芹苴國際轉運港引入全球第二大船商 MSC/TIL 聯手興建，將具備停靠 24,000 TEU 超級母船能力。與此同時，胡志明捷運一號線穩定營運，隆城國際機場一期定於 2026 年 12 月商業啟航，南越經貿進入歷史黃金爆發期。',
     summaryVi: 'TP. Hồ Chí Minh đang bứt phá mạnh mẽ nhờ Nghị quyết 98 và Nghị định 323 của Chính phủ về đề án Trung tâm Tài chính Quốc tế (IFC). Không gian phát triển hình thành mô hình tam giác vàng: Thủ Thiêm (đầu não tài chính tiền tệ), Siêu cảng trung chuyển quốc tế Cần Giờ 4,9 tỷ USD và Sân bay Long Thành (đôi cánh logistics biển - không), kết nối hữu cơ với vùng công nghiệp Bình Dương - Đồng Nai - Long An. Tuyến Metro số 1 vận hành cùng tiến độ khánh thành Sân bay Long Thành vào tháng 12/2026 đưa vị thế kinh tế miền Nam lên tầm cao mới.',
     sections: [
       {
@@ -1464,7 +1464,7 @@ export const deepAnalysisDossiers = [
       { label: '全球最低稅負標準率', labelVi: 'Thuế bổ sung tối thiểu', val: '15.0% QDMTT', type: 'gold' },
       { label: '新社保法僱主繳納總費率', labelVi: 'Tỷ lệ đóng BHXH người SDLD', val: '20.5%', type: 'blue' }
     ],
-    summary: '面對全球經濟格局變化與越南法治環境的深刻轉型，2026年台商在越運營進入「高度專業化與法規合規化」的分水嶺。針對經濟合作暨發展組織（OECD）全球最低稅負制（Pillar Two，15% QDMTT）對跨國台資大型集團優惠稅率的衝擊，越南政府正式實施第 182/2024/NĐ-CP 號議定，設立「國家投資支持基金（Quỹ hỗ trợ đầu tư）」，提供高達 50% 的研發中心、晶片製造與高科技專案固定資產投資直接財政補貼，為合規大廠提供充分對沖補償。同時，2025年7月生效的新《社會保險法》嚴格落實外籍員工強制納保與養老提撥；美國海關（CBP）與越南海關總局聯合啟動原料穿透式追溯查驗防堵「洗產地」。在金流端，玉山銀行、兆豐銀行、中國信託等台資行庫為台商架構了 DICA 專戶、跨境無本金遠期（NDF）匯率避險與台幣直兌渠道。本報告為台商負責人與財務主管提供最全面的合規操作手冊。',
+    summary: '面對全球經濟格局變化與越南法治環境的深刻轉型，2026年台商在越運營進入「高度專業化與法規合規化」的分水嶺。針對經濟合作暨發展組織（OECD）全球最低稅負制（Pillar Two，15% QDMTT）對跨國台資大型集團優惠稅率的衝擊，越南政府正式實施第 182/2024/NĐ-CP 號議定，設立「國家投資支持基金（Quỹ hỗ trợ đầu tư）」，提供高達 50% 的研發中心、晶片製造與高科技專案固定資產投資直接財政補貼，為合規大廠提供充分對沖補償。同時，2025年7月生效的新《社會保險法》嚴格落實外籍員工強制納保與養老提撥；美國海關（CBP）與越南海關總局聯合啟動原料穿透式追溯查驗防堵「洗產地」。在金流端，玉山銀行、兆豐銀行、中國信託等台資行庫為台商架構了 DICA 專戶、跨境無本金遠期（NDF）匯率避險與台幣直兌管道。本報告為台商負責人與財務主管提供最全面的合規操作手冊。',
     summaryVi: 'Năm 2026 đánh dấu bước chuyển trọng yếu trong quản trị tuân thủ của cộng đồng doanh nghiệp FDI Đài Loan tại Việt Nam. Để bù đắp tác động từ Thuế tối thiểu toàn cầu (Pillar Two 15%), Chính phủ đã ban hành Nghị định số 182/2024/NĐ-CP thành lập Quỹ hỗ trợ đầu tư, tài trợ trực tiếp bằng tiền mặt lên tới 50% chi phí đầu tư cơ sở hạ tầng, R&D và đào tạo nhân lực bán dẫn - AI. Bên cạnh đó, Luật BHXH mới có hiệu lực từ 01/7/2025 cùng các quy định hậu kiểm C/O chống lẩn tránh xuất xứ đòi hỏi doanh nghiệp phải chuyên nghiệp hóa hệ thống kế toán - hải quan. Mạng lưới các chi nhánh ngân hàng Đài Loan như E.SUN, Mega, CTBC, Cathay đóng vai trò cầu nối tài chính đắc lực hỗ trợ quản trị rủi ro tỷ giá.',
     sections: [
       {
@@ -1528,7 +1528,7 @@ export const southVietnamBusinessData = {
     },
     {
       id: 'metro_line_1',
-      name: '胡志明市地鐵一號線 (Metro Line 1)',
+      name: '胡志明市捷運一號線 (Metro Line 1)',
       nameVi: 'Tuyến Metro số 1 Bến Thành - Suối Tiên',
       location: '第1郡濱城市場至守德市仙泉仙湖公園 / 高科技園區',
       locationVi: 'Bến Thành (Quận 1) - Suối Tiên (TP. Thủ Đức)',
@@ -1779,7 +1779,7 @@ export const southVietnamBusinessData = {
       citIncentive: '同奈省重點工業區 10% 稅率（符合高科技條件）',
       citIncentiveVi: 'Thuế 10% với dự án công nghệ cao tại Đồng Nai',
       importDutyFree: '✅ EPE 廠適用',
-      targetIndustry: '汽車整車與零件、食品飲料、橡膠塑料、精密鑄造',
+      targetIndustry: '汽車整車與零件、食品飲料、橡膠塑膠、精密鑄造',
       targetIndustryVi: 'Ôtô và phụ tùng, thực phẩm đồ uống, cao su nhựa, đúc chính xác',
       tenants: 'Yamaha、Honda、Panasonic、Ajinomoto、Hoya',
       powerReliability: '⚡⚡⚡⚡（雙路供電+廢水統一處理）',
@@ -2105,7 +2105,7 @@ export const hcmcTourismData = {
       ticket: '外籍遊客 90,000 ~ 125,000 VND（依入口點不同）',
       ticketVi: 'Vé người nước ngoài: 90.000 - 125.000 VND',
       hours: '07:00 ~ 17:00（全年開放）',
-      highlights: '越戰時期越共游擊隊挖掘的長達250公里的地下地道網絡，遊客可親身體驗在狹窄黑暗地道中匍匐爬行，感受越共游擊戰的奧秘與艱苦。戰車殘骸、炸彈陷阱展示、叢林環境體驗。',
+      highlights: '越戰時期越共游擊隊挖掘的長達250公里的地下地道網路，遊客可親身體驗在狹窄黑暗地道中匍匐爬行，感受越共游擊戰的奧秘與艱苦。戰車殘骸、炸彈陷阱展示、叢林環境體驗。',
       highlightsVi: 'Hệ thống địa đạo dài 250km được quân và dân Củ Chi đào trong kháng chiến, có thể trải nghiệm chui vào đường hầm, tham quan bẫy chông và xem phim tư liệu lịch sử.',
       tips: '建議參加半日遊（約4~5小時）包含來回交通。穿舒適運動服，地道內非常悶熱。Ben Dinh入口更寬，Bến Dược入口更原始。',
       tipsVi: 'Nên tham gia tour nửa ngày bao gồm đưa đón. Mặc quần áo thoải mái, bên trong hầm nóng và chật hẹp.',
@@ -2268,8 +2268,8 @@ export const hcmcTourismData = {
   // ── 住宿指南
   accommodation: {
     luxury: [
-      { name: 'Park Hyatt Saigon', stars: 5, location: '第1郡 Lam Sơn廣場', price: 'USD 200~500/晚', highlights: '殖民建築精品，Lam Sơn廣場面對正對，被《Condé Nast Traveler》選為越南最佳酒店' },
-      { name: 'The Reverie Saigon', stars: 5, location: '第1郡Times Square大廈', price: 'USD 250~600/晚', highlights: '越南最頂級義大利設計風格奢華酒店，頂樓游泳池眺望城市全景' },
+      { name: 'Park Hyatt Saigon', stars: 5, location: '第1郡 Lam Sơn廣場', price: 'USD 200~500/晚', highlights: '殖民建築精品，Lam Sơn廣場面對正對，被《Condé Nast Traveler》選為越南最佳飯店' },
+      { name: 'The Reverie Saigon', stars: 5, location: '第1郡Times Square大廈', price: 'USD 250~600/晚', highlights: '越南最頂級義大利設計風格奢華飯店，頂樓游泳池眺望城市全景' },
       { name: 'Sofitel Saigon Plaza', stars: 5, location: '第3郡', price: 'USD 150~350/晚', highlights: '法式奢華品牌，地理位置絕佳，設施完善' }
     ],
     midRange: [
@@ -2295,9 +2295,9 @@ export const hcmcTourismData = {
         tip: '📱 必裝App，刷信用卡付款或越南錢包結帳。機場至市中心約200,000~300,000 VND。'
       },
       {
-        mode: '胡志明市地鐵一號線（Metro Line 1）',
+        mode: '胡志明市捷運一號線（Metro Line 1）',
         modeVi: 'Tuyến Metro số 1 TP.HCM',
-        desc: '2024年正式全線通車！從Bến Thành（第1郡中心）到 Suối Tiên（第9郡）全長19.7公里，是胡志明市首條地鐵線。對台灣旅客而言，可直達統一宮、濱城市場等景點附近。',
+        desc: '2024年正式全線通車！從Bến Thành（第1郡中心）到 Suối Tiên（第9郡）全長19.7公里，是胡志明市首條捷運線。對台灣旅客而言，可直達統一宮、濱城市場等景點附近。',
         descVi: 'Tuyến Metro số 1 chính thức khai thác năm 2024, dài 19,7 km từ Bến Thành đến Suối Tiên. Vé lượt 15.000 - 20.000 VND.',
         priceRange: '單程票 15,000~20,000 VND（≈NT$ 19~25）',
         tip: '🚇 目前只有一條線，覆蓋範圍有限。未來多條路線規劃至2035年完成。'
@@ -2356,7 +2356,7 @@ export const hcmcTourismData = {
       '💰 換匯建議在銀行或認可珠寶金行（tiệm vàng）進行，機場匯率差，避免非法街頭換匯',
       '🦠 食物衛生：選擇看起來衛生、人多的攤位。街邊小吃冰塊用的是裝袋工廠冰，比餐廳零碎冰安全',
       '☀️ 防曬防中暑：胡志明市全年均溫30~35°C，外出必備防曬品、遮陽帽與補水飲料',
-      '🏨 住宿建議選有接送服務的酒店，深夜返回酒店使用Grab比隨機搭計程車更安全',
+      '🏨 住宿建議選有接送服務的飯店，深夜返回飯店使用Grab比隨機搭計程車更安全',
       '📱 必備App：Grab（交通）、Google Maps（導航）、Google Translate（越南文翻譯）'
     ],
     emergencyNumbers: [
@@ -2392,7 +2392,7 @@ export const northVietnamDevelopmentData = {
       {
         title: 'TOD 軌道交通土地綜合開發',
         titleVi: 'Mô hình TOD dọc các tuyến đường sắt đô thị',
-        desc: '允許河內市政府自主徵收並拍賣地鐵車站周邊土地，土地出讓收益100%全額留存河內市財政，專款專用於加速建設14條地鐵路網。'
+        desc: '允許河內市政府自主徵收並拍賣捷運車站周邊土地，土地出讓收益100%全額留存河內市財政，專款專用於加速建設14條捷運路網。'
       },
       {
         title: '高科技研發戰略人才稅負全免',
@@ -2539,7 +2539,7 @@ export const northVietnamDevelopmentData = {
       dimension: '電力供應與穩定性',
       dimensionVi: 'Nguồn điện & Độ tin cậy',
       north: '500kV三迴線已通電，供電穩定度回升至 99.9%；有直接購電（DPPA）綠電合約支持。',
-      south: '歷史供電極為穩定，水電、火電與天然氣發電網絡充沛，幾乎無停電風險。'
+      south: '歷史供電極為穩定，水電、火電與天然氣發電網路充沛，幾乎無停電風險。'
     },
     {
       dimension: '港口航運條件',
@@ -2667,7 +2667,7 @@ export const officialReferenceSources = [
     category: 'gov',
     categoryLabel: '政府與央行',
     categoryLabelVi: 'Cơ quan Nhà nước & NHTW',
-    name: '越南政府電子信息入口網 (VGP)',
+    name: '越南政府電子資訊入口網 (VGP)',
     nameVi: 'Cổng Thông tin điện tử Chính phủ (VGP)',
     org: 'Vietnam Government Portal',
     url: 'https://baochinhphu.vn',
@@ -3048,9 +3048,9 @@ export const officialReferenceSources = [
 
 // ── 10. 雙語國際化字典 (Macro UI Localization Dictionary - zh / vi) ──
 
-// ── 9B. 官方情報取得渠道與未來高效更新標準指南 (Intelligence Channels & SOP Register) ──
+// ── 9B. 官方情報取得管道與未來高效更新標準指南 (Intelligence Channels & SOP Register) ──
 export const intelligenceChannelsSop = {
-  title: '越南政經情報來源取得渠道與未來高效更新標準指南 (Future Maintenance SOP)',
+  title: '越南政經情報來源取得管道與未來高效更新標準指南 (Future Maintenance SOP)',
   titleVi: 'Quy trình chuẩn hóa tra cứu và cập nhật dữ liệu vĩ mô định kỳ',
   desc: '為確保未來維護本專案數據庫具備最高效率與官方可信度，特梳理本情報取得 SOP 規範，明確各機構資訊釋放節奏、核心抓取路徑與交叉驗證方法。',
   descVi: 'Hướng dẫn quy chuẩn tra cứu, cập nhật dữ liệu vĩ mô chính xác, nhanh chóng từ các nguồn chính thống.',
@@ -3151,7 +3151,7 @@ export const macroI18n = {
     statsChange: '區間累計漲跌',
     statsHigh: '區間最高點',
     statsLow: '區間最低點',
-    hoverTip: '移動鼠標懸停檢視每週收盤價與重大政經事件標記',
+    hoverTip: '移動滑鼠懸停檢視每週收盤價與重大政經事件標記',
     sourcesHeading: '權威參考來源與官方連結',
     sourcesSub: '收錄越南國家銀行、統計總局、海關總局、四大國有公股行庫及國際一流財經媒體即時追蹤管道',
     sourcesFilterAll: '全部來源',

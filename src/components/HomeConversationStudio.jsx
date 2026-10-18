@@ -19,7 +19,7 @@ import {
   Sparkles
 } from 'lucide-react';
 import { DialoguePlaybackBar, PlaybackPartChip } from './DialoguePlaybackBar';
-import { situationalScenarios } from '../data/situationalScenarios';
+import { PLAYBACK_LESSONS, getLessonSections, countLessonLines } from '../data/conversationLibrary';
 import { SCENARIO_EXEGESIS } from '../data/scenarioExegesisData';
 import { audioEngine } from '../services/audioEngine';
 import { offlineAudioService } from '../services/offlineAudioService';
@@ -47,17 +47,6 @@ const TOP_CURATED_SCENARIOS = [
 
 const CURATED_IDS = new Set(TOP_CURATED_SCENARIOS.map(s => s.id));
 
-const HOME_SCENARIO_CATEGORIES = [
-  { id: 'curated', labelZh: '⭐ 首頁精選 (11)', labelEn: '⭐ Top Picks (11)' },
-  { id: 'fasttrack', labelZh: '⚡ 7天速成 (7)', labelEn: '⚡ 7-Day Fast-Track (7)' },
-  { id: 'stage', labelZh: '🎓 5階分級 (5)', labelEn: '🎓 5-Stage Graded (5)' },
-  { id: 'dining', labelZh: '🍜 餐飲美食 (7)', labelEn: '🍜 Dining & Cafe (7)' },
-  { id: 'travel', labelZh: '🚕 交通住宿 (6)', labelEn: '🚕 Travel & Hotel (6)' },
-  { id: 'daily_social', labelZh: '🛍️ 購物社交 (9)', labelEn: '🛍️ Daily & Social (9)' },
-  { id: 'health_bank', labelZh: '🏥 醫療金融急難 (7)', labelEn: '🏥 Health & Banking (7)' },
-  { id: 'business', labelZh: '💼 商務工廠 (23)', labelEn: '💼 Business & Factory (23)' },
-  { id: 'all', labelZh: `📚 全部會話 (${situationalScenarios.length})`, labelEn: `📚 All (${situationalScenarios.length})` }
-];
 
 const matchesCategoryFilter = (scenario, catId) => {
   if (catId === 'all') return true;
@@ -71,13 +60,31 @@ const matchesCategoryFilter = (scenario, catId) => {
   return scenario.category === catId;
 };
 
+// Counts are derived from the data so the tabs never drift from the library
+const HOME_SCENARIO_CATEGORIES = [
+  { id: 'curated', labelZh: '⭐ 首頁精選', labelEn: '⭐ Top Picks' },
+  { id: 'fasttrack', labelZh: '⚡ 7天速成', labelEn: '⚡ 7-Day Fast-Track' },
+  { id: 'stage', labelZh: '🎓 5階分級', labelEn: '🎓 5-Stage Graded' },
+  { id: 'topic', labelZh: '🗣️ 主題對話', labelEn: '🗣️ Topic Dialogues' },
+  { id: 'dining', labelZh: '🍜 餐飲美食', labelEn: '🍜 Dining & Cafe' },
+  { id: 'travel', labelZh: '🚕 交通住宿', labelEn: '🚕 Travel & Hotel' },
+  { id: 'daily_social', labelZh: '🛍️ 購物社交', labelEn: '🛍️ Daily & Social' },
+  { id: 'health_bank', labelZh: '🏥 醫療金融急難', labelEn: '🏥 Health & Banking' },
+  { id: 'business', labelZh: '💼 商務工廠', labelEn: '💼 Business & Factory' },
+  { id: 'business_trip', labelZh: '🧳 出差實用句', labelEn: '🧳 Business Trip Sets' },
+  { id: 'all', labelZh: '📚 全部會話', labelEn: '📚 All' }
+].map(cat => ({ ...cat, count: PLAYBACK_LESSONS.filter(s => matchesCategoryFilter(s, cat.id)).length }));
+
+const TOTAL_LESSONS = PLAYBACK_LESSONS.length;
+const TOTAL_LINES = PLAYBACK_LESSONS.reduce((sum, lesson) => sum + countLessonLines(lesson), 0);
+
 const loadHomeStudy = () => {
   try {
     const saved = JSON.parse(localStorage.getItem('viet_home_study') || '{}');
-    const scenario = situationalScenarios.find(s => s.id === saved.scenarioId);
+    const scenario = PLAYBACK_LESSONS.find(s => s.id === saved.scenarioId);
     return {
       scenarioId: scenario?.id || 'cafe',
-      sectionId: scenario?.dialogueSections?.some(s => s.id === saved.sectionId) ? saved.sectionId : 'all',
+      sectionId: getLessonSections(scenario).some(s => s.id === saved.sectionId) ? saved.sectionId : 'all',
       showTranslation: saved.showTranslation !== false,
       categoryFilter: saved.categoryFilter || 'curated'
     };
@@ -113,7 +120,7 @@ export const HomeConversationStudio = ({
   // Filtered scenarios for quick selector
   const filteredScenarios = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
-    return situationalScenarios.filter(s => {
+    return PLAYBACK_LESSONS.filter(s => {
       if (!q && !matchesCategoryFilter(s, categoryFilter)) return false;
       if (!q) return true;
       return (
@@ -128,12 +135,10 @@ export const HomeConversationStudio = ({
 
   // Active scenario object
   const activeScenario = useMemo(() => {
-    return situationalScenarios.find(s => s.id === activeScenarioId) || situationalScenarios[0];
+    return PLAYBACK_LESSONS.find(s => s.id === activeScenarioId) || PLAYBACK_LESSONS[0];
   }, [activeScenarioId]);
 
-  const sections = useMemo(() => activeScenario?.dialogueSections?.length
-    ? activeScenario.dialogueSections
-    : [{ id: 'dialogue', titleZh: '完整會話', lines: activeScenario?.dialogues || activeScenario?.dialogue || [] }], [activeScenario]);
+  const sections = useMemo(() => getLessonSections(activeScenario), [activeScenario]);
 
   // Include every section by default; a learner can also practise a single section.
   const dialogueLines = useMemo(() => {
@@ -143,7 +148,7 @@ export const HomeConversationStudio = ({
 
   // Navigate to previous or next scenario in current list (or all scenarios)
   const navPool = useMemo(() => {
-    return filteredScenarios.length > 0 ? filteredScenarios : situationalScenarios;
+    return filteredScenarios.length > 0 ? filteredScenarios : PLAYBACK_LESSONS;
   }, [filteredScenarios]);
 
   const currentPoolIdx = useMemo(() => {
@@ -332,7 +337,7 @@ export const HomeConversationStudio = ({
 
           <h2 id="studio-main-heading" className="studio-title">
             <span>🇻🇳</span>
-            <span>{learningMode === 'zh' ? '播放學習 · 64 篇全情境越南語會話工作台' : 'Play & Learn · 64 Practical Vietnamese Conversations'}</span>
+            <span>{learningMode === 'zh' ? `播放學習 · ${TOTAL_LESSONS} 組會話、${TOTAL_LINES} 句雙模式音檔` : `Play & Learn · ${TOTAL_LESSONS} conversation sets, ${TOTAL_LINES} lines`}</span>
           </h2>
 
           <p className="studio-subtitle">
@@ -479,7 +484,7 @@ export const HomeConversationStudio = ({
         xpHint="+25 XP"
       />
 
-      {/* 3. Category Filter Tabs & Search Bar for All 64 Scenarios */}
+      {/* 3. Category Filter Tabs & Search Bar for the whole playback library */}
       <div className="studio-filter-section">
         <div className="studio-category-tabs" role="tablist" aria-label="情境分類篩選">
           {HOME_SCENARIO_CATEGORIES.map(cat => {
@@ -495,14 +500,14 @@ export const HomeConversationStudio = ({
                   audioEngine.playHaptic('tap');
                   setCategoryFilter(cat.id);
                   setSearchQuery('');
-                  const list = situationalScenarios.filter(s => matchesCategoryFilter(s, cat.id));
+                  const list = PLAYBACK_LESSONS.filter(s => matchesCategoryFilter(s, cat.id));
                   if (list.length > 0 && !list.some(s => s.id === activeScenarioId)) {
                     setActiveScenarioId(list[0].id);
                     setSectionId('all');
                   }
                 }}
               >
-                {learningMode === 'zh' ? cat.labelZh : cat.labelEn}
+                {learningMode === 'zh' ? cat.labelZh : cat.labelEn} ({cat.count})
               </button>
             );
           })}
@@ -514,7 +519,7 @@ export const HomeConversationStudio = ({
             <input
               type="search"
               className="studio-search-input"
-              placeholder={learningMode === 'zh' ? '搜尋 64 篇會話（如：咖啡、殺價、銀行、簽證、工廠...）' : 'Search 64 conversations...'}
+              placeholder={learningMode === 'zh' ? `搜尋 ${TOTAL_LESSONS} 組會話（如：咖啡、殺價、銀行、發票、工廠...）` : `Search ${TOTAL_LESSONS} conversations...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               aria-label="搜尋情境會話"
@@ -532,8 +537,8 @@ export const HomeConversationStudio = ({
               }}
               aria-label="選擇其他情境"
             >
-              <option value="" disabled>快速跳轉全部 64 篇會話</option>
-              {situationalScenarios.map((s, idx) => (
+              <option value="" disabled>快速跳轉全部 {TOTAL_LESSONS} 組會話</option>
+              {PLAYBACK_LESSONS.map((s, idx) => (
                 <option key={s.id} value={s.id}>
                   {idx + 1}. {s.icon || '💬'} {s.titleZh}
                 </option>
@@ -663,8 +668,8 @@ export const HomeConversationStudio = ({
                   <div className="speaker-avatar" style={{ background: speakerInfo.bg, border: `1.5px solid ${speakerInfo.border}` }}>
                     {speakerInfo.icon}
                   </div>
-                  <span className="speaker-name-vi">{line.speakerVi || line.speaker || 'Người nói'}</span>
-                  <span className="speaker-name-zh">({line.speakerZh || speakerInfo.roleName})</span>
+                  <span className="speaker-name-vi">{line.speakerVi || line.speaker || `Câu ${idx + 1}`}</span>
+                  <span className="speaker-name-zh">({line.speakerZh || (line.speakerVi || line.speaker ? speakerInfo.roleName : `第 ${idx + 1} 句`)})</span>
                   {isCurrentActive && (
                     <PlaybackPartChip player={player} learningMode={learningMode} />
                   )}
@@ -841,7 +846,7 @@ export const HomeConversationStudio = ({
           </div>
 
           {/* Key Scenario Vocabulary */}
-          <div className="lore-box">
+          {(activeScenario?.vocab || activeScenario?.vocabulary || []).length > 0 && <div className="lore-box">
             <h4>
               <span>📖</span>
               <span>{learningMode === 'zh' ? '關鍵生詞點讀（點擊聽越語發音）' : 'Key Vocabulary'}</span>
@@ -867,7 +872,7 @@ export const HomeConversationStudio = ({
                 </button>
               ))}
             </div>
-          </div>
+          </div>}
         </div>
       </div>
 
@@ -881,7 +886,9 @@ export const HomeConversationStudio = ({
           className="portal-btn"
           onClick={() => {
             audioEngine.playHaptic('selection');
-            if (setActiveTab) {
+            if (setActiveTab && activeScenario?.moduleTab) {
+              setActiveTab(activeScenario.moduleTab);
+            } else if (setActiveTab) {
               sessionStorage.setItem('viet_target_chapter', JSON.stringify({
                 moduleId: 'conversation',
                 targetParam: { scenarioId: activeScenarioId }
@@ -890,7 +897,7 @@ export const HomeConversationStudio = ({
             }
           }}
         >
-          <span>進入完整情境對話與角色扮演館</span>
+          <span>{activeScenario?.moduleTab === 'business' ? '進入商務出差旗艦模組' : activeScenario?.moduleTab === 'topics' ? '進入主題精熟模組深入練習' : '進入完整情境對話與角色扮演館'}</span>
           <ArrowRight size={16} />
         </button>
       </div>

@@ -377,7 +377,7 @@ export const GRAMMAR_DRILLS = [
   {
     id: 'drill_12',
     ruleIndex: 26, // Rule 27
-    questionZh: '在團隊討論中，強調「只有他才是真正做決定的人」，最地道的焦點強調句型是？',
+    questionZh: '在團隊討論中，強調「只有他才是真正做決定的人」，最道地的焦點強調句型是？',
     questionEn: 'Which focus cleft sentence emphasizes "He is the one who decides"?',
     options: [
       { vi: 'Chính anh ấy mới là người quyết định.', zh: 'Chính ... mới là (正是...才是...)', isCorrect: true },

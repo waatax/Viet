@@ -393,7 +393,7 @@ export const CONFUSABLE_PAIRS = [
     pitfallAlertZh: '在小吃攤若想跟老闆說「請再多加一點辣椒 (Cho thêm ớt)」，如果音調發成降調的「Cho thèm ớt」，就變成「讓辣椒嘴饞」，老闆會聽得一頭霧水！',
     hanVietInsightZh: 'thêm 是漢越詞「添」（如增添、添水）的直接音韻轉化，平聲對應中古漢語平聲。',
     masterSentence: 'Tôi đang rất thèm phở bò, nên bảo phục vụ cho thêm quẩy.',
-    masterSentenceZh: '我現在非常嘴饞想吃(thèm)牛肉河粉，所以請服務員再添(thêm)一份油條。',
+    masterSentenceZh: '我現在非常嘴饞想吃(thèm)牛肉河粉，所以請服務生再添(thêm)一份油條。',
     masterSentenceEn: 'I am really craving beef pho, so I asked the waiter to add more fried dough sticks.',
     drill: {
       questionZh: '在餐廳想說「請再多給我一些紙巾」，應該說：',
@@ -982,7 +982,7 @@ export const CONFUSABLE_PAIRS = [
         toneSymbol: '漢越字面：客棧',
         toneNameZh: '字面「客棧」❌',
         pitch: '35-21',
-        zh: '現代飯店 / 旅館酒店 (如 khách sạn 5 sao 五星級飯店)',
+        zh: '現代飯店 / 旅館 (如 khách sạn 5 sao 五星級飯店)',
         en: 'Hotel / Star-rated Hotel',
         hanViet: '客棧 (Khách sạn · 現代專指高級旅館)',
         tag: '現代旅宿'
@@ -1100,10 +1100,10 @@ export const CONFUSABLE_PAIRS = [
     ],
     mnemonicHookZh: '「騎上機車當代步手段(phương tiện)，去趟便利商店真方便(tiện lợi)！」',
     mnemonicHookEn: 'Motorbike is your transport means (phương tiện), 24h store is so convenient (tiện lợi)!',
-    pitfallAlertZh: '如果問越南人「Bây giờ bạn có phương tiện không?」，他會以為你在問「你現在有帶交通工具（摩托車/汽車）嗎？」，而不是「你現在方便說話嗎？（Bây giờ bạn có tiện nói chuyện không?）」！',
+    pitfallAlertZh: '如果問越南人「Bây giờ bạn có phương tiện không?」，他會以為你在問「你現在有帶交通工具（機車/汽車）嗎？」，而不是「你現在方便說話嗎？（Bây giờ bạn có tiện nói chuyện không?）」！',
     hanVietInsightZh: '佛經中「方便法門」的「方便」指引導眾生的媒介與手段，越南語吸納了這個古意，將「phương tiện」現代化轉譯為交通代步手段。',
     masterSentence: 'Xe máy là phương tiện giao thông tiện lợi nhất trên đường phố Việt Nam.',
-    masterSentenceZh: '摩托車是越南街頭最方便便利(tiện lợi)的交通工具(phương tiện giao thông)。',
+    masterSentenceZh: '機車是越南街頭最方便便利(tiện lợi)的交通工具(phương tiện giao thông)。',
     masterSentenceEn: 'The motorbike is the most convenient mode of transportation on Vietnamese streets.',
     drill: {
       questionZh: '在越南想去 7-Eleven 或 Circle K 便利商店，越語標牌寫的是：',
@@ -1244,7 +1244,7 @@ export const CONFUSABLE_PAIRS = [
     masterSentenceZh: '我認為(nghĩ)他非常想要(muốn)回鄉，因為他正在刻骨銘心地想念(nhớ)家人。',
     masterSentenceEn: 'I think that he really wants to return home because he misses his family dearly.',
     drill: {
-      questionZh: '向久別的家人或朋友表達「我很想念你」，最地道的表達是：',
+      questionZh: '向久別的家人或朋友表達「我很想念你」，最道地的表達是：',
       options: ['Tôi nghĩ bạn lắm', 'Tôi nhớ bạn lắm', 'Tôi muốn bạn lắm', 'Tôi xem bạn lắm'],
       correctIndex: 1,
       explanationZh: '思念牽掛用「nhớ」，故「Tôi nhớ bạn lắm」意為「我好想你」。'

@@ -408,7 +408,7 @@ export const FAST_TRACK_DAYS = [
       }
     ],
     quiz: {
-      questionZh: '在越南餐廳想要呼喚年輕的服務生過來點餐或加水，最自然地道的說法是？',
+      questionZh: '在越南餐廳想要呼喚年輕的服務生過來點餐或加水，最自然道地的說法是？',
       questionEn: 'How do you naturally call a server at a Vietnamese restaurant?',
       optionsZh: ['A. Bác ơi!', 'B. Em ơi!', 'C. Tạm biệt!', 'D. Cảm ơn!'],
       optionsEn: ['A. Bác ơi!', 'B. Em ơi!', 'C. Tạm biệt!', 'D. Cảm ơn!'],

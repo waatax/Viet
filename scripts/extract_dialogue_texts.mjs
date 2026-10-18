@@ -22,6 +22,8 @@ export { numbersAndCurrency, multiScenarios } from './src/data/vietnameseData.js
 export { FAST_TRACK_DAYS } from './src/components/FastTrackModule.jsx';
 export { SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS } from './src/components/EmergencyKitModule.jsx';
 export { SCENARIO_EXEGESIS } from './src/data/scenarioExegesisData.js';
+export { EXTRA_PLAYBACK_LESSONS } from './src/data/conversationLibrary.js';
+export { practicalPhrases } from './src/data/vietnameseData.js';
 `;
 
 // Bundle inside the project (scripts/cache is git-ignored) so bare imports like 'react' resolve
@@ -43,7 +45,7 @@ await build({
 });
 
 const mod = await import(pathToFileURL(bundlePath).href);
-const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, multiScenarios, FAST_TRACK_DAYS, SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS, SCENARIO_EXEGESIS } = mod;
+const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, multiScenarios, FAST_TRACK_DAYS, SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS, SCENARIO_EXEGESIS, EXTRA_PLAYBACK_LESSONS, practicalPhrases } = mod;
 
 const groups = [];
 for (const sc of situationalScenarios) {
@@ -71,6 +73,12 @@ for (const day of FAST_TRACK_DAYS) {
   }
 }
 (numbersAndCurrency.bankingDialogues || []).forEach((d, i) => groups.push({ source: `banking:${i}`, lines: d.lines || [] }));
+for (const lesson of EXTRA_PLAYBACK_LESSONS) {
+  lesson.dialogueSections.forEach(sec => groups.push({ source: `lesson:${lesson.id}:${sec.id}`, lines: sec.lines }));
+}
+const phraseCategories = new Map();
+practicalPhrases.forEach(p => phraseCategories.set(p.category, [...(phraseCategories.get(p.category) || []), p]));
+phraseCategories.forEach((lines, category) => groups.push({ source: `phrases:${category}`, lines }));
 groups.push({ source: 'shopping-phrases', lines: numbersAndCurrency.highFrequencyShopping?.items || [] });
 groups.push({ source: 'emergency-symptoms', lines: SYMPTOM_POINT_SPEAK_LIST || [] });
 groups.push({ source: 'emergency-cards', lines: EMERGENCY_CARDS || [] });

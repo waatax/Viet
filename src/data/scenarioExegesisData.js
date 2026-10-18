@@ -102,7 +102,7 @@ export const SCENARIO_EXEGESIS = {
       {
         formulaVi: 'Cho tôi xem thực đơn / Em ơi, cho gọi món!',
         formulaZh: '請給我看菜單 / 店員，我要點餐！',
-        explainZh: '「Cho tôi xem + [名詞]」是索取任何物品的萬用語；叫店員最親切地道的方式永遠是揚聲呼喚「Em ơi!」。',
+        explainZh: '「Cho tôi xem + [名詞]」是索取任何物品的萬用語；叫店員最親切道地的方式永遠是揚聲呼喚「Em ơi!」。',
         exampleVi: 'Em ơi, cho anh xem thực đơn và gọi món nhé!',
         exampleZh: '店員弟弟/妹妹，請給我看菜單，我要點菜！'
       },

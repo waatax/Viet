@@ -1473,7 +1473,7 @@ export const hanVietRoots = [
     meaningEn: 'Vehicle, Car',
     compounds: [
       { viet: 'Xe hơi', zh: '汽車 / 小轎車', en: 'Car' },
-      { viet: 'Xe máy', zh: '機車 / 摩托車', en: 'Motorcycle' },
+      { viet: 'Xe máy', zh: '機車', en: 'Motorcycle' },
       { viet: 'Xe buýt', zh: '公車 / 巴士', en: 'Bus' },
       { viet: 'Hỏa xa', zh: '火車 (舊稱)', en: 'Train' }
     ]
@@ -3449,7 +3449,7 @@ export const practicalPhrases = [
   {
     "category": "購物與殺價 / Shopping",
     "viet": "Mua mười hộp có đóng thùng carton gửi máy bay không?",
-    "zh": "買十盒有幫忙封箱打包托運搭機嗎？",
+    "zh": "買十盒有幫忙封箱打包託運搭機嗎？",
     "en": "If I buy 10 boxes, do you pack in a flight carton?",
     "usageZh": "大量伴手禮打包裝箱",
     "usageEn": "Flight packing carton"
@@ -3553,7 +3553,7 @@ export const practicalPhrases = [
   {
     "category": "購物與殺價 / Shopping",
     "viet": "Đồ gốm sứ này có dễ vỡ khi vận chuyển không?",
-    "zh": "這件陶瓷品托運搭飛機會容易碎嗎？",
+    "zh": "這件陶瓷品託運搭飛機會容易碎嗎？",
     "en": "Is this ceramic fragile during flight shipping?",
     "usageZh": "易碎品包裝確認",
     "usageEn": "Fragile item shipping check"
@@ -4249,7 +4249,7 @@ export const practicalPhrases = [
   {
     "category": "機場與出入境 / Airport & Visa",
     "viet": "Tôi muốn làm thủ tục lên máy bay.",
-    "zh": "我想辦理登機報到與行李托運手續。",
+    "zh": "我想辦理登機報到與行李託運手續。",
     "en": "I would like to check-in for flight.",
     "usageZh": "機場報到櫃台開場",
     "usageEn": "Flight check-in desk"
@@ -4289,7 +4289,7 @@ export const practicalPhrases = [
   {
     "category": "機場與出入境 / Airport & Visa",
     "viet": "Hành lý của tôi có bị quá cước không?",
-    "zh": "我的托運行李重量有超重嗎？",
+    "zh": "我的託運行李重量有超重嗎？",
     "en": "Is my luggage overweight?",
     "usageZh": "確認行李是否超重",
     "usageEn": "Overweight luggage check"
@@ -4473,7 +4473,7 @@ export const practicalPhrases = [
   {
     "category": "機場與出入境 / Airport & Visa",
     "viet": "Hành lý của tôi bị thất lạc, không thấy ra.",
-    "zh": "我的托運行李遺失了，轉盤上找不到。",
+    "zh": "我的託運行李遺失了，轉盤上找不到。",
     "en": "My baggage is lost, it did not appear.",
     "usageZh": "行李遺失服務台報案",
     "usageEn": "Lost luggage report at desk"
@@ -7574,7 +7574,7 @@ export const practicalPhrases = [
   {
     "category": "商務談判與會議協作",
     "viet": "Giá này đã bao gồm thuế giá trị gia tăng (VAT) chưa?",
-    "zh": "這個報價是否已包含增值稅 (VAT)？",
+    "zh": "這個報價是否已包含加值稅 (VAT)？",
     "en": "Does this quote include Value Added Tax (VAT)?",
     "usageZh": "採購報價確認含稅價",
     "usageEn": "Checking VAT inclusion"
@@ -7862,7 +7862,7 @@ export const practicalPhrases = [
   {
     "category": "餐飲市井與道地招呼",
     "viet": "Cà phê đen đá không đường, đậm đà theo gu người Sài Gòn.",
-    "zh": "冰黑咖啡不加糖，要西貢人地道的濃烈風味。",
+    "zh": "冰黑咖啡不加糖，要西貢人道地的濃烈風味。",
     "en": "Iced black coffee without sugar, rich Saigon style.",
     "usageZh": "傳統黑咖啡經典風味點法",
     "usageEn": "Ordering unsweetened black coffee"
@@ -8595,7 +8595,7 @@ export const flashcardsDeck = [
   { id: 58, viet: 'Có bao gồm ăn sáng?', zh: '有包含早餐嗎？', en: 'Is breakfast included?', hanViet: 'Bao gồm (包含 · 漢越詞)', category: '飯店住宿', example: 'Giá phòng này đã bao gồm ăn sáng buffet chưa?' },
   { id: 59, viet: 'Mật khẩu Wi-Fi', zh: '無線網路 WiFi 密碼', en: 'Wi-Fi Password', hanViet: 'Mật khẩu (密碼 · 漢越詞)', category: '飯店住宿', example: 'Cho em xin mật khẩu Wi-Fi của quán cà phê.' },
   { id: 60, viet: 'Đổi tiền ở đâu?', zh: '哪裡可以兌換外幣？', en: 'Where can I exchange money?', hanViet: '', category: '飯店住宿', example: 'Ở gần đây có tiệm vàng nào đổi tiền uy tín không?' },
-  { id: 61, viet: 'Thuê xe máy', zh: '租借摩托車/機車', en: 'Rent a motorcycle', hanViet: '', category: '旅遊休閒', example: 'Thuê xe máy tự lái giá 150 nghìn một ngày.' },
+  { id: 61, viet: 'Thuê xe máy', zh: '租借機車', en: 'Rent a motorcycle', hanViet: '', category: '旅遊休閒', example: 'Thuê xe máy tự lái giá 150 nghìn một ngày.' },
   { id: 62, viet: 'Vé tham quan', zh: '參觀門票', en: 'Admission ticket', hanViet: 'Tham quan (參觀 · 漢越詞)', category: '旅遊休閒', example: 'Mua vé tham quan Dinh Độc Lập ở đâu?' },
   { id: 63, viet: 'Cảnh đẹp tuyệt vời', zh: '風景極美 / 風光壯麗', en: 'Magnificent scenery', hanViet: 'Cảnh (景) · Tuyệt (絕)', category: '旅遊休閒', example: 'Vịnh Hạ Long có cảnh đẹp tuyệt vời như tranh vẽ.' },
   { id: 64, viet: 'Gội đầu dưỡng sinh', zh: '越式草本養生洗頭', en: 'Herbal hair spa wash', hanViet: 'Dưỡng sinh (養生 · 漢越詞)', category: '生活放鬆', example: 'Đi gội đầu dưỡng sinh thư giãn cuối tuần.' },
