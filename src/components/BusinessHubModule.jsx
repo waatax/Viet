@@ -3,7 +3,7 @@ import {
   Briefcase, Plane, FileText, Factory, Beer, Zap, Trophy, Volume2,
   CheckCircle2, AlertCircle, ArrowRight, RefreshCw, Flame, Award,
   Building, ShieldCheck, Heart, Sparkles, Copy, Check, Info, Users, Clock,
-  MapPin, MessageCircle, Send, Presentation, QrCode, Tag, Star
+  MapPin, MessageCircle, Send, Presentation, QrCode, Tag, Star, Headphones
 } from 'lucide-react';
 import {
   businessCategories,
@@ -64,6 +64,25 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
 
   const handleSpeak = (text, key) => {
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
+  };
+
+  const handleSpeakBilingual = (viet, nativeText, key) => {
+    const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
+    audioEngine.speak(viet, {
+      accent: selectedAccent,
+      lang: 'vi',
+      key: key || viet,
+      onEnd: () => {
+        if (!nativeText) return;
+        setTimeout(() => {
+          audioEngine.speak(nativeText, {
+            lang: nativeLang,
+            rate: 1.0,
+            key: `${key || viet}_native`
+          });
+        }, 380);
+      }
+    });
   };
 
   // Global Bookmarks State
@@ -591,9 +610,18 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                         <Star size={15} fill={bookmarkedMap[phrase.viet] ? 'currentColor' : 'none'} />
                       </button>
                       <button
+                        className="speaker-btn mini-btn"
+                        onClick={() => handleSpeakBilingual(phrase.viet, (learningMode === 'zh' ? phrase.zh : phrase.en), `expo-${activeExpoStageIdx}-${pIdx}-bi`)}
+                        title={learningMode === 'zh' ? '播放越文＋中文雙語朗讀' : 'Play Viet + Translation'}
+                        style={{ width: 'auto', padding: '0.2rem 0.5rem', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 800, gap: '0.2rem' }}
+                      >
+                        <Headphones size={12} /> {learningMode === 'zh' ? '越+中' : 'VI+EN'}
+                      </button>
+                      <button
                         className={`speaker-btn ${activeKey === `expo-${activeExpoStageIdx}-${pIdx}` ? 'playing' : ''}`}
                         onClick={() => handleSpeak(phrase.viet, `expo-${activeExpoStageIdx}-${pIdx}`)}
-                        aria-label="播放發音"
+                        aria-label="播放純越文發音"
+                        title={learningMode === 'zh' ? '播放純越文原音' : 'Play Viet'}
                       >
                         <Volume2 size={16} />
                       </button>
@@ -708,10 +736,18 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                           <Star size={14} fill={bookmarkedMap[phrase.viet] ? 'currentColor' : 'none'} />
                         </button>
                         <button
+                          className="speaker-btn mini-btn"
+                          onClick={() => handleSpeakBilingual(phrase.viet, phrase.zh, `city-${city.id}-${idx}-bi`)}
+                          title={learningMode === 'zh' ? '播放越文＋中文雙語朗讀' : 'Play Viet + Translation'}
+                          style={{ width: 'auto', padding: '0.2rem 0.5rem', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 800, gap: '0.2rem' }}
+                        >
+                          <Headphones size={12} /> {learningMode === 'zh' ? '越+中' : 'VI+EN'}
+                        </button>
+                        <button
                           className={`speaker-btn ${activeKey === `city-${city.id}-${idx}` ? 'playing' : ''}`}
                           onClick={() => handleSpeak(phrase.viet, `city-${city.id}-${idx}`)}
-                          aria-label="播放金句發音"
-                          title="朗讀金句"
+                          aria-label="播放純越文發音"
+                          title={learningMode === 'zh' ? '播放純越文原音' : 'Play Viet'}
                         >
                           <Volume2 size={15} />
                         </button>
@@ -778,10 +814,18 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                       <Star size={15} fill={bookmarkedMap[tpl.viet] ? 'currentColor' : 'none'} />
                     </button>
                     <button
+                      className="speaker-btn mini-btn"
+                      onClick={() => handleSpeakBilingual(tpl.viet, (learningMode === 'zh' ? tpl.zh : tpl.en), `zalo-tpl-${idx}-bi`)}
+                      title={learningMode === 'zh' ? '播放越文＋中文雙語朗讀' : 'Play Viet + Translation'}
+                      style={{ width: 'auto', padding: '0.2rem 0.5rem', borderRadius: '999px', fontSize: '0.72rem', fontWeight: 800, gap: '0.2rem' }}
+                    >
+                      <Headphones size={12} /> {learningMode === 'zh' ? '越+中' : 'VI+EN'}
+                    </button>
+                    <button
                       className={`speaker-btn mini-btn ${activeKey === `zalo-tpl-${idx}` ? 'playing' : ''}`}
                       onClick={() => handleSpeak(tpl.viet, `zalo-tpl-${idx}`)}
-                      title="朗讀 Zalo 訊息"
-                      aria-label="朗讀範本發音"
+                      title={learningMode === 'zh' ? '播放純越文原音' : '朗讀 Zalo 訊息'}
+                      aria-label="朗讀範本純越文發音"
                       style={{ width: '30px', height: '30px' }}
                     >
                       <Volume2 size={15} />

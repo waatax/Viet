@@ -278,6 +278,25 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
     audioEngine.speak(text, { accent: selectedAccent, key: key || text });
   };
 
+  const handleSpeakBilingualText = (viet, nativeText, key) => {
+    const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
+    audioEngine.speak(viet, {
+      accent: selectedAccent,
+      lang: 'vi',
+      key: key || viet,
+      onEnd: () => {
+        if (!nativeText) return;
+        setTimeout(() => {
+          audioEngine.speak(nativeText, {
+            lang: nativeLang,
+            rate: 1.0,
+            key: `${key || viet}_native`
+          });
+        }, 380);
+      }
+    });
+  };
+
   const twdEquivalent = (parseInt(inputAmount, 10) / exchangeRateTwd || 0).toFixed(0);
   const usdEquivalent = (parseInt(inputAmount, 10) / exchangeRateUsd || 0).toFixed(2);
   const vietnameseSpokenText = convertNumberToVietnamese(inputAmount);
@@ -564,13 +583,24 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
                   <div key={sIdx} className="flowchart-step-box">
                     <div className="flowchart-step-header">
                       <span className="flowchart-step-badge">{step.badge}</span>
-                      <button
-                        className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
-                        onClick={() => handleSpeakText(step.phraseVi, `flow_step_${sIdx}`)}
-                        title={`朗讀: ${step.phraseVi}`}
-                      >
-                        <Volume2 size={13} />
-                      </button>
+                      <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
+                        <button
+                          className={`speaker-btn mini-btn ${activeKey === `flow_step_${sIdx}_dual` ? 'playing' : ''}`}
+                          onClick={() => handleSpeakBilingualText(step.phraseVi, learningMode === 'zh' ? step.phraseZh : step.tipEn, `flow_step_${sIdx}_dual`)}
+                          title="雙語朗讀 (越文 + 中文導讀)"
+                          style={{ fontSize: '0.72rem', padding: '0.15rem 0.45rem', gap: '0.2rem', width: 'auto' }}
+                        >
+                          <Headphones size={12} />
+                          <span>越+中</span>
+                        </button>
+                        <button
+                          className={`speaker-btn mini-btn ${isPlaying && activeKey !== `flow_step_${sIdx}_dual` ? 'playing' : ''}`}
+                          onClick={() => handleSpeakText(step.phraseVi, `flow_step_${sIdx}`)}
+                          title={`純越文朗讀: ${step.phraseVi}`}
+                        >
+                          <Volume2 size={13} />
+                        </button>
+                      </div>
                     </div>
                     <div>
                       <div className="flowchart-viet-phrase">{step.phraseVi}</div>
@@ -658,13 +688,24 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
                       <span className="tone-symbol" style={{ fontSize: '0.78em', background: 'var(--bg-accent)', color: 'var(--brand-gold)' }}>
                         {item.tag || '購物必備'}
                       </span>
-                      <button
-                        className={`speaker-btn mini-btn ${isPlaying ? 'playing' : ''}`}
-                        onClick={() => handleSpeakText(item.viet, itemKey)}
-                        title="朗讀此句"
-                      >
-                        <Volume2 size={15} />
-                      </button>
+                      <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
+                        <button
+                          className={`speaker-btn mini-btn ${isSequenceItem && phrasePlayer.mode === 'vi-zh' ? 'playing' : ''}`}
+                          onClick={() => phrasePlayer.playSingleLine(idx, 'vi-zh')}
+                          title="雙語朗讀 (越文 + 中文導讀)"
+                          style={{ fontSize: '0.74rem', padding: '0.2rem 0.45rem', gap: '0.2rem', width: 'auto' }}
+                        >
+                          <Headphones size={12} />
+                          <span>越+中</span>
+                        </button>
+                        <button
+                          className={`speaker-btn mini-btn ${isSequenceItem && phrasePlayer.mode === 'vi-only' ? 'playing' : isPlaying ? 'playing' : ''}`}
+                          onClick={() => handleSpeakText(item.viet, itemKey)}
+                          title="純越文朗讀"
+                        >
+                          <Volume2 size={14} />
+                        </button>
+                      </div>
                     </div>
                     <div className="dpb-viet-text" style={{ fontSize: '1.1em', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '0.35rem', lineHeight: '1.4' }}>
                       {item.viet}
@@ -936,13 +977,24 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
                 </div>
                 <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ fontSize: '0.8em', color: 'var(--text-muted)' }}>💡 {phrase.tag}</span>
-                  <button
-                    className={`speaker-btn mini-btn ${activeKey === `shop_ph_${idx}` ? 'playing' : ''}`}
-                    onClick={() => handleSpeakText(phrase.viet, `shop_ph_${idx}`)}
-                    title="朗讀"
-                  >
-                    <Volume2 size={14} />
-                  </button>
+                  <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
+                    <button
+                      className={`speaker-btn mini-btn ${activeKey === `shop_ph_${idx}_dual` ? 'playing' : ''}`}
+                      onClick={() => handleSpeakBilingualText(phrase.viet, learningMode === 'zh' ? phrase.zh : phrase.en, `shop_ph_${idx}_dual`)}
+                      title="雙語朗讀 (越文 + 中文導讀)"
+                      style={{ fontSize: '0.72rem', padding: '0.2rem 0.45rem', gap: '0.2rem', width: 'auto' }}
+                    >
+                      <Headphones size={12} />
+                      <span>越+中</span>
+                    </button>
+                    <button
+                      className={`speaker-btn mini-btn ${activeKey === `shop_ph_${idx}` ? 'playing' : ''}`}
+                      onClick={() => handleSpeakText(phrase.viet, `shop_ph_${idx}`)}
+                      title="純越文朗讀"
+                    >
+                      <Volume2 size={14} />
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -1078,12 +1130,24 @@ export const ShoppingModule = ({ selectedAccent, updateUserStats, setActiveTab }
                   {currentHaggle.vendorOpenZh}
                 </div>
               </div>
-              <button
-                className="speaker-btn"
-                onClick={() => handleSpeakText(currentHaggle.vendorOpenVi)}
-              >
-                <Volume2 size={18} />
-              </button>
+              <div style={{ display: 'flex', gap: '0.4rem', alignItems: 'center' }}>
+                <button
+                  className={`speaker-btn mini-btn ${activeKey === 'vendor_open_dual' ? 'playing' : ''}`}
+                  onClick={() => handleSpeakBilingualText(currentHaggle.vendorOpenVi, currentHaggle.vendorOpenZh, 'vendor_open_dual')}
+                  title="雙語朗讀 (越文 + 中文導讀)"
+                  style={{ fontSize: '0.78rem', padding: '0.25rem 0.55rem', gap: '0.25rem', width: 'auto' }}
+                >
+                  <Headphones size={13} />
+                  <span>越+中</span>
+                </button>
+                <button
+                  className="speaker-btn"
+                  onClick={() => handleSpeakText(currentHaggle.vendorOpenVi)}
+                  title="純越文朗讀"
+                >
+                  <Volume2 size={18} />
+                </button>
+              </div>
             </div>
 
             {/* Tension Meter */}
