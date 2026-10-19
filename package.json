@@ -8,12 +8,13 @@
     "build": "vite build",
     "test:knowledge": "node scripts/test_knowledge_curriculum.mjs",
     "test:audio": "node scripts/spot_check_audio_correctness.mjs && node scripts/deep_audio_audit_v2.mjs",
-    "test:dialogue": "node scripts/extract_dialogue_texts.mjs && node scripts/test_dialogue_playback.mjs && node scripts/test_audio_reliability.mjs",
+    "test:dialogue": "node scripts/extract_dialogue_texts.mjs && node scripts/test_dialogue_playback.mjs && node scripts/test_audio_reliability.mjs && node scripts/test_lockscreen_playback.mjs",
     "build:audio": "node scripts/build_audio_bank.js",
     "preview": "vite preview",
     "verify:pages": "node scripts/verify_pages_release.mjs",
-    "predeploy": "npm run test:dialogue && npm run build",
-    "deploy": "node scripts/deploy_gh_pages.mjs"
+    "predeploy": "npm run test:dialogue && npm run test:quality && npm run build",
+    "deploy": "node scripts/deploy_gh_pages.mjs",
+    "test:quality": "node scripts/extract_dialogue_texts.mjs && node scripts/audit_audio_quality.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",

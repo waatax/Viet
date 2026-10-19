@@ -95,6 +95,7 @@ const zhMap = new Map();
 const viMissing = [];
 const audioFailures = [];
 const audioFiles = new Set();
+const lineAudio = []; // per-line audio map for scripts/audit_audio_quality.mjs
 let totalLines = 0;
 
 for (const g of groups) {
@@ -103,9 +104,12 @@ for (const g of groups) {
     if (!viet) continue;
     totalLines++;
     const viClean = audioEngine.cleanText(viet);
+    const row = { source: g.source, viet: viClean, raw: viet, vi: {}, zh: line.zh ? audioEngine.cleanNativeText(line.zh, 'zh') : null };
+    lineAudio.push(row);
     for (const accent of ['north', 'south']) {
       const file = audioEngine.resolveManifestFile(viClean, accent) || audioEngine.resolveManifestFile(viet, accent);
       if (file) audioFiles.add(file);
+      row.vi[accent] = file || null;
       if (!file || !fs.existsSync(path.join(ROOT, 'public/audio', file)) || fs.statSync(path.join(ROOT, 'public/audio', file)).size < 200) {
         audioFailures.push({ source: g.source, lang: 'vi', accent, text: viet, file });
       }
@@ -119,6 +123,7 @@ for (const g of groups) {
       const zhClean = audioEngine.cleanNativeText(line.zh, 'zh');
       const file = audioEngine.resolveNativeFile(line.zh, 'zh');
       if (file) audioFiles.add(file);
+      row.zhFile = file || null;
       if (!file || !fs.existsSync(path.join(ROOT, 'public/audio', file)) || fs.statSync(path.join(ROOT, 'public/audio', file)).size < 200) {
         audioFailures.push({ source: g.source, lang: 'zh-TW', text: line.zh, file });
       }
@@ -143,6 +148,7 @@ try {
 } catch {}
 const outputText = JSON.stringify(output, null, 2);
 if (outputText !== previousText) fs.writeFileSync(OUT_PATH, outputText, 'utf-8');
+fs.writeFileSync(path.join(ROOT, 'scripts', 'cache', 'dialogue_audio_map.json'), JSON.stringify(lineAudio), 'utf-8');
 fs.rmSync(tmpDir, { recursive: true, force: true });
 
 console.log(`Groups: ${groups.length} | Lines: ${totalLines}`);
