@@ -43,7 +43,7 @@ export const knowledgeExtensions = {
   hanviet: [
     ['字根不能單獨硬套', 'kinh tế / kinh nghiệm', '經濟／經驗', '以整詞確認義項與搭配；同一字根在不同詞中不能只用一個中文義解釋。'],
     ['俗諺的文化意義', 'Ăn quả nhớ kẻ trồng cây.', '吃果子時，記得種樹的人。', '借果實與種樹比喻成果與付出；使用於致謝時要連結具體對象。'],
-    ['六八體的押韻位置', 'Trăm năm trong cõi người ta / Chữ tài chữ mệnh khéo là ghét nhau', '六音節一句，八音節一句。', 'ta 是六言第6音節，là 是八言第6音節；先數音節再看韻，不只看行尾。']
+    ['六八體的押韻位置', 'Trải qua một cuộc bể dâu / Những điều trông thấy mà đau đớn lòng', '經歷一場滄海桑田，所見之事令人痛心。', '《Truyện Kiều》第3–4行：dâu 是六言第6音節，đau 是八言第6音節；先數音節再找韻。']
   ],
   conversation: [
     ['接續追問', 'Còn bữa sáng thì sao?', '那早餐呢？', 'còn…thì sao? 延續同一話題，補問前面沒有交代的條件。'],

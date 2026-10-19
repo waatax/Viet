@@ -27,13 +27,17 @@ try {
   const { knowledgeGuides } = await server.ssrLoadModule('/src/data/knowledgeGuides.js');
   for (const id of Object.keys(knowledgeGuides)) {
     const html = renderToStaticMarkup(React.createElement(KnowledgeGuide, { moduleId: id, onSelectChapter() {}, setActiveTab() {} }));
-    assert.equal((html.match(/class="kg-recall-card"/g) || []).length, 6, `${id}: six recall cards`);
-    assert.equal((html.match(/<fieldset/g) || []).length, 2, `${id}: comprehension and transfer quiz`);
-    assert.equal((html.match(/hidden=""/g) || []).length, 6, `${id}: recall answers initially hidden`);
+    assert.equal((html.match(/class="kg-recall-card"/g) || []).length, 9, `${id}: nine recall cards`);
+    assert.equal((html.match(/aria-label="播放越文：/g) || []).length, 9, `${id}: every example playable`);
+    assert.ok(html.includes('class="dpb '), `${id}: dual-mode player bar`);
+    assert.ok(html.includes('kg-chart kg-chart-'), `${id}: lesson chart`);
+    assert.ok(html.includes('kg-cando'), `${id}: can-do goals`);
+    assert.equal((html.match(/<fieldset/g) || []).length, 3, `${id}: comprehension, transfer and listening checks`);
+    assert.equal((html.match(/hidden=""/g) || []).length, 9, `${id}: recall answers initially hidden`);
     assert.ok(html.includes(`id="kg-error-${id}"`), `${id}: labelled corrective action selector`);
     assert.ok(html.includes('Review · 延後再查'), `${id}: full correction loop`);
     assert.ok(!html.includes('undefined') && !html.includes('NaN'), `${id}: no missing content`);
     if (['grammar', 'sentence', 'shopping', 'pronoun', 'hanviet', 'macropol'].includes(id)) assert.ok(html.includes('kg-extra-diagram'), `${id}: subject-specific diagram`);
   }
-  console.log('PASS: 20 knowledge pages server-render, 120 hidden-answer cards, 40 quiz fieldsets, 6 targeted diagrams; isolated progress, corrupted storage and unavailable storage recovery.');
+  console.log('PASS: 20 knowledge pages server-render, 180 playable hidden-answer cards, 60 quiz fieldsets (incl. listening), 20 lesson charts + 6 targeted diagrams, can-do goals; isolated progress, corrupted storage and unavailable storage recovery.');
 } finally { await server.close(); }

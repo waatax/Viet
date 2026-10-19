@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-18T17:42:49.508Z",
-  "totalLines": 1839,
+  "generatedAt": "2026-10-19T12:00:19.445Z",
+  "totalLines": 2039,
   "zh": [
     {
       "raw": "我想去越南旅遊，你能介紹幾個城市給我嗎？",
@@ -7826,6 +7826,891 @@
       "raw": "期待很快在胡志明市與您再次相逢！",
       "cleaned": "期待很快在胡志明市與您再次相逢！",
       "source": "phrases:跨文化交際與友誼"
+    },
+    {
+      "raw": "我還沒吃。",
+      "cleaned": "我還沒吃。",
+      "source": "knowledge:path"
+    },
+    {
+      "raw": "可以請你說慢一點嗎？",
+      "cleaned": "可以請你說慢一點嗎？",
+      "source": "knowledge:path"
+    },
+    {
+      "raw": "敬啟者／致貴公司：",
+      "cleaned": "敬啟者、致貴公司：",
+      "source": "knowledge:path"
+    },
+    {
+      "raw": "抱歉，我還沒聽懂。",
+      "cleaned": "抱歉，我還沒聽懂。",
+      "source": "knowledge:path"
+    },
+    {
+      "raw": "我能自我介紹。",
+      "cleaned": "我能自我介紹。",
+      "source": "knowledge:path"
+    },
+    {
+      "raw": "飲水思源。",
+      "cleaned": "飲水思源。",
+      "source": "knowledge:path"
+    },
+    {
+      "raw": "首先……，然後……，最後……",
+      "cleaned": "首先……，然後……，最後……",
+      "source": "knowledge:path"
+    },
+    {
+      "raw": "謝啦！／衷心感謝。",
+      "cleaned": "謝啦！、衷心感謝。",
+      "source": "knowledge:path"
+    },
+    {
+      "raw": "我已錄音並修正三個錯誤。",
+      "cleaned": "我已錄音並修正三個錯誤。",
+      "source": "knowledge:path"
+    },
+    {
+      "raw": "不同字母，不能省略附加符號。",
+      "cleaned": "不同字母，不能省略附加符號。",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "bán：賣",
+      "cleaned": "bán：賣",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "學／一／美",
+      "cleaned": "學、一、美",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "修行／第四（序數用法）",
+      "cleaned": "修行、第四",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "家／象牙",
+      "cleaned": "家、象牙",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "基本字母→另一母音→加銳聲",
+      "cleaned": "基本字母→另一母音→加銳聲",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "甘蔗／片、塊",
+      "cleaned": "甘蔗、片、塊",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "魚／冰淇淋／禮物",
+      "cleaned": "魚、冰淇淋、禮物",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "車站／椅子／聽",
+      "cleaned": "車站、椅子、聽",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "鬼／媽媽（部分地區用語）／但是",
+      "cleaned": "鬼、媽媽 、但是",
+      "source": "knowledge:tonegame"
+    },
+    {
+      "raw": "墳墓／代碼",
+      "cleaned": "墳墓、代碼",
+      "source": "knowledge:tonegame"
+    },
+    {
+      "raw": "秧苗",
+      "cleaned": "秧苗",
+      "source": "knowledge:tonegame"
+    },
+    {
+      "raw": "鬼／但是／媽媽／墳墓／代碼／秧苗",
+      "cleaned": "鬼、但是、媽媽、墳墓、代碼、秧苗",
+      "source": "knowledge:tonegame"
+    },
+    {
+      "raw": "涼爽／碎屑",
+      "cleaned": "涼爽、碎屑",
+      "source": "knowledge:tonegame"
+    },
+    {
+      "raw": "媽媽買魚。",
+      "cleaned": "媽媽買魚。",
+      "source": "knowledge:tonegame"
+    },
+    {
+      "raw": "桌子／賣／朋友",
+      "cleaned": "桌子、賣、朋友",
+      "source": "knowledge:tonegame"
+    },
+    {
+      "raw": "你在賣桌子嗎？",
+      "cleaned": "你在賣桌子嗎？",
+      "source": "knowledge:tonegame"
+    },
+    {
+      "raw": "走吧。／要走了嗎？",
+      "cleaned": "走吧。、要走了嗎？",
+      "source": "knowledge:tonegame"
+    },
+    {
+      "raw": "哥哥／姊姊 ↔ 晚輩",
+      "cleaned": "哥哥、姊姊 ↔ 晚輩",
+      "source": "knowledge:pronoun"
+    },
+    {
+      "raw": "祖父母／外祖父母",
+      "cleaned": "祖父母、外祖父母",
+      "source": "knowledge:pronoun"
+    },
+    {
+      "raw": "我們（通常不含你）／我們（含你）",
+      "cleaned": "我們 、我們",
+      "source": "knowledge:pronoun"
+    },
+    {
+      "raw": "好的，我明白了。",
+      "cleaned": "好的，我明白了。",
+      "source": "knowledge:pronoun"
+    },
+    {
+      "raw": "老師好。",
+      "cleaned": "老師好。",
+      "source": "knowledge:pronoun"
+    },
+    {
+      "raw": "他／她／他（長者）",
+      "cleaned": "他、她、他",
+      "source": "knowledge:pronoun"
+    },
+    {
+      "raw": "明哥好。／總經理您好：",
+      "cleaned": "明哥好。、總經理您好：",
+      "source": "knowledge:pronoun"
+    },
+    {
+      "raw": "我可以叫你蘭姊嗎？",
+      "cleaned": "我可以叫你蘭姊嗎？",
+      "source": "knowledge:pronoun"
+    },
+    {
+      "raw": "21／25",
+      "cleaned": "21、25",
+      "source": "knowledge:shopping"
+    },
+    {
+      "raw": "250,000越南盾",
+      "cleaned": "250,000越南盾",
+      "source": "knowledge:shopping"
+    },
+    {
+      "raw": "105",
+      "cleaned": "105",
+      "source": "knowledge:shopping"
+    },
+    {
+      "raw": "兩公斤，每公斤三萬。",
+      "cleaned": "兩公斤，每公斤三萬。",
+      "source": "knowledge:shopping"
+    },
+    {
+      "raw": "一百萬／十億",
+      "cleaned": "一百萬、十億",
+      "source": "knowledge:shopping"
+    },
+    {
+      "raw": "可以算我便宜一點嗎？",
+      "cleaned": "可以算我便宜一點嗎？",
+      "source": "knowledge:shopping"
+    },
+    {
+      "raw": "降價20%（打八折）",
+      "cleaned": "降價20%",
+      "source": "knowledge:shopping"
+    },
+    {
+      "raw": "我可以轉帳嗎？",
+      "cleaned": "我可以轉帳嗎？",
+      "source": "knowledge:shopping"
+    },
+    {
+      "raw": "請給我一杯水。",
+      "cleaned": "請給我一杯水。",
+      "source": "knowledge:phrases"
+    },
+    {
+      "raw": "可以請你幫我嗎？",
+      "cleaned": "可以請你幫我嗎？",
+      "source": "knowledge:phrases"
+    },
+    {
+      "raw": "你的意思是明天，對嗎？",
+      "cleaned": "你的意思是明天，對嗎？",
+      "source": "knowledge:phrases"
+    },
+    {
+      "raw": "我可以坐這裡嗎？",
+      "cleaned": "我可以坐這裡嗎？",
+      "source": "knowledge:phrases"
+    },
+    {
+      "raw": "可以請你幫我寫下來嗎？",
+      "cleaned": "可以請你幫我寫下來嗎？",
+      "source": "knowledge:phrases"
+    },
+    {
+      "raw": "我還不懂最後一個詞。",
+      "cleaned": "我還不懂最後一個詞。",
+      "source": "knowledge:phrases"
+    },
+    {
+      "raw": "謝謝，但我不需要。",
+      "cleaned": "謝謝，但我不需要。",
+      "source": "knowledge:phrases"
+    },
+    {
+      "raw": "不好意思，打擾你一下。",
+      "cleaned": "不好意思，打擾你一下。",
+      "source": "knowledge:phrases"
+    },
+    {
+      "raw": "我比較喜歡這個。",
+      "cleaned": "我比較喜歡這個。",
+      "source": "knowledge:phrases"
+    },
+    {
+      "raw": "我買一本新書。",
+      "cleaned": "我買一本新書。",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "我正在學越南語。",
+      "cleaned": "我正在學越南語。",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "我不喝咖啡。／我還沒喝。",
+      "cleaned": "我不喝咖啡。、我還沒喝。",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "你喝茶嗎？",
+      "cleaned": "你喝茶嗎？",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "我剛到。／明天我會去。",
+      "cleaned": "我剛到。、明天我會去。",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "這間房比那間寬敞。",
+      "cleaned": "這間房比那間寬敞。",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "我被罰了。／我被稱讚了。",
+      "cleaned": "我被罰了。、我被稱讚了。",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "你去哪裡？／誰打給你？",
+      "cleaned": "你去哪裡？、誰打給你？",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "正是我打給你的。",
+      "cleaned": "正是我打給你的。",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "兩本新書",
+      "cleaned": "兩本新書",
+      "source": "knowledge:sentence"
+    },
+    {
+      "raw": "我在家學越南語。",
+      "cleaned": "我在家學越南語。",
+      "source": "knowledge:sentence"
+    },
+    {
+      "raw": "因為下雨，所以我待在家。",
+      "cleaned": "因為下雨，所以我待在家。",
+      "source": "knowledge:sentence"
+    },
+    {
+      "raw": "雖然下雨，我仍然去。",
+      "cleaned": "雖然下雨，我仍然去。",
+      "source": "knowledge:sentence"
+    },
+    {
+      "raw": "如果有時間，我會打電話。",
+      "cleaned": "如果有時間，我會打電話。",
+      "source": "knowledge:sentence"
+    },
+    {
+      "raw": "我的那輛紅色車子",
+      "cleaned": "我的那輛紅色車子",
+      "source": "knowledge:sentence"
+    },
+    {
+      "raw": "我買的那本書很好看。",
+      "cleaned": "我買的那本書很好看。",
+      "source": "knowledge:sentence"
+    },
+    {
+      "raw": "我學越南語是為了工作。",
+      "cleaned": "我學越南語是為了工作。",
+      "source": "knowledge:sentence"
+    },
+    {
+      "raw": "到河內時，我會打給你。",
+      "cleaned": "到河內時，我會打給你。",
+      "source": "knowledge:sentence"
+    },
+    {
+      "raw": "國家／國際／留學",
+      "cleaned": "國家、國際、留學",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "醫師／有禮貌",
+      "cleaned": "醫師、有禮貌",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "百年人世間，才與命似乎相妒。",
+      "cleaned": "百年人世間，才與命似乎相妒。",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "經濟／經驗",
+      "cleaned": "經濟、經驗",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "吃果子時，記得種樹的人。",
+      "cleaned": "吃果子時，記得種樹的人。",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "經歷一場滄海桑田，所見之事令人痛心。",
+      "cleaned": "經歷一場滄海桑田，所見之事令人痛心。",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "婦女／女人",
+      "cleaned": "婦女、女人",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "我們謹此通知……",
+      "cleaned": "我們謹此通知……",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "同心協力",
+      "cleaned": "同心協力",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "我想訂一間房。",
+      "cleaned": "我想訂一間房。",
+      "source": "knowledge:conversation"
+    },
+    {
+      "raw": "可以請你再說一次嗎？",
+      "cleaned": "可以請你再說一次嗎？",
+      "source": "knowledge:conversation"
+    },
+    {
+      "raw": "所以是兩晚，對嗎？",
+      "cleaned": "所以是兩晚，對嗎？",
+      "source": "knowledge:conversation"
+    },
+    {
+      "raw": "那早餐呢？",
+      "cleaned": "那早餐呢？",
+      "source": "knowledge:conversation"
+    },
+    {
+      "raw": "抱歉，我的意思是星期五。",
+      "cleaned": "抱歉，我的意思是星期五。",
+      "source": "knowledge:conversation"
+    },
+    {
+      "raw": "那我們九點見。",
+      "cleaned": "那我們九點見。",
+      "source": "knowledge:conversation"
+    },
+    {
+      "raw": "啊，順便一提……",
+      "cleaned": "啊，順便一提……",
+      "source": "knowledge:conversation"
+    },
+    {
+      "raw": "我明白，不過我的想法有點不同。",
+      "cleaned": "我明白，不過我的想法有點不同。",
+      "source": "knowledge:conversation"
+    },
+    {
+      "raw": "好了，我得走了，再見！",
+      "cleaned": "好了，我得走了，再見！",
+      "source": "knowledge:conversation"
+    },
+    {
+      "raw": "問聲／跌聲",
+      "cleaned": "問聲、跌聲",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "爸爸／玉米",
+      "cleaned": "爸爸、玉米",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "我不懂這個詞。",
+      "cleaned": "我不懂這個詞。",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "哪裡／在哪裡",
+      "cleaned": "哪裡、在哪裡",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "湯匙",
+      "cleaned": "湯匙",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "這個詞是什麼意思？",
+      "cleaned": "這個詞是什麼意思？",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "去哪裡呀？",
+      "cleaned": "去哪裡呀？",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "是，謝謝阿姨。",
+      "cleaned": "是，謝謝阿姨。",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "你是哪個地區的口音？",
+      "cleaned": "你是哪個地區的口音？",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "我想／訂一間房／給兩個人。",
+      "cleaned": "我想、訂一間房、給兩個人。",
+      "source": "knowledge:shadowing"
+    },
+    {
+      "raw": "請說慢一點。",
+      "cleaned": "請說慢一點。",
+      "source": "knowledge:shadowing"
+    },
+    {
+      "raw": "我們需要一間房。",
+      "cleaned": "我們需要一間房。",
+      "source": "knowledge:shadowing"
+    },
+    {
+      "raw": "我想訂房。",
+      "cleaned": "我想訂房。",
+      "source": "knowledge:shadowing"
+    },
+    {
+      "raw": "我想為兩個人訂房。",
+      "cleaned": "我想為兩個人訂房。",
+      "source": "knowledge:shadowing"
+    },
+    {
+      "raw": "我們想訂兩間房。",
+      "cleaned": "我們想訂兩間房。",
+      "source": "knowledge:shadowing"
+    },
+    {
+      "raw": "真的嗎？／真的！",
+      "cleaned": "真的嗎？、真的！",
+      "source": "knowledge:shadowing"
+    },
+    {
+      "raw": "我想去，但是下雨了。",
+      "cleaned": "我想去，但是下雨了。",
+      "source": "knowledge:shadowing"
+    },
+    {
+      "raw": "這次我唸得比較清楚。",
+      "cleaned": "這次我唸得比較清楚。",
+      "source": "knowledge:shadowing"
+    },
+    {
+      "raw": "如果訂500件，價格如何？",
+      "cleaned": "如果訂500件，價格如何？",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "請確認交貨日期與品質標準。",
+      "cleaned": "請確認交貨日期與品質標準。",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "致貴公司：／謹上",
+      "cleaned": "致貴公司：、謹上",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "誰負責這件事？",
+      "cleaned": "誰負責這件事？",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "我們建議調整期限。",
+      "cleaned": "我們建議調整期限。",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "不可抗力條款",
+      "cleaned": "不可抗力條款",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "敬請您儘早回覆。",
+      "cleaned": "敬請您儘早回覆。",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "若預先付款，我們可降價3%。",
+      "cleaned": "若預先付款，我們可降價3%。",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "雙方已就以下內容達成一致：",
+      "cleaned": "雙方已就以下內容達成一致：",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "成長／通膨／匯率",
+      "cleaned": "成長、通膨、匯率",
+      "source": "knowledge:macropol"
+    },
+    {
+      "raw": "這可能影響成本。",
+      "cleaned": "這可能影響成本。",
+      "source": "knowledge:macropol"
+    },
+    {
+      "raw": "然而，仍需考量更多數據。",
+      "cleaned": "然而，仍需考量更多數據。",
+      "source": "knowledge:macropol"
+    },
+    {
+      "raw": "從4%升到5%",
+      "cleaned": "從4%升到5%",
+      "source": "knowledge:macropol"
+    },
+    {
+      "raw": "名目值／實質值",
+      "cleaned": "名目值、實質值",
+      "source": "knowledge:macropol"
+    },
+    {
+      "raw": "根據報告……／我認為……",
+      "cleaned": "根據報告……、我認為……",
+      "source": "knowledge:macropol"
+    },
+    {
+      "raw": "大幅上升／小幅下降／持平",
+      "cleaned": "大幅上升、小幅下降、持平",
+      "source": "knowledge:macropol"
+    },
+    {
+      "raw": "預計將成長約6%。",
+      "cleaned": "預計將成長約6%。",
+      "source": "knowledge:macropol"
+    },
+    {
+      "raw": "決議／議定／通知",
+      "cleaned": "決議、議定、通知",
+      "source": "knowledge:macropol"
+    },
+    {
+      "raw": "買／雨",
+      "cleaned": "買、雨",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "不／還沒",
+      "cleaned": "不、還沒",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "我昨天學過這課。",
+      "cleaned": "我昨天學過這課。",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "這個答案是我猜的。",
+      "cleaned": "這個答案是我猜的。",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "我買衣服。／下雨。",
+      "cleaned": "我買衣服。、下雨。",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "明天我會去上班。",
+      "cleaned": "明天我會去上班。",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "已經／正在／將會",
+      "cleaned": "已經、正在、將會",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "我在十秒內作答。",
+      "cleaned": "我在十秒內作答。",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "我還沒去過峴港。",
+      "cleaned": "我還沒去過峴港。",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "學 → 我學越南語。",
+      "cleaned": "學 → 我學越南語。",
+      "source": "knowledge:flashcards"
+    },
+    {
+      "raw": "訂房／訂票",
+      "cleaned": "訂房、訂票",
+      "source": "knowledge:flashcards"
+    },
+    {
+      "raw": "禮貌／歷史",
+      "cleaned": "禮貌、歷史",
+      "source": "knowledge:flashcards"
+    },
+    {
+      "raw": "讀課業／學越南語",
+      "cleaned": "讀課業、學越南語",
+      "source": "knowledge:flashcards"
+    },
+    {
+      "raw": "看到越文能理解，看到需求能說越文。",
+      "cleaned": "看到越文能理解，看到需求能說越文。",
+      "source": "knowledge:flashcards"
+    },
+    {
+      "raw": "我想訂去河內的票。",
+      "cleaned": "我想訂去河內的票。",
+      "source": "knowledge:flashcards"
+    },
+    {
+      "raw": "做／工作／勞駕",
+      "cleaned": "做、工作、勞駕",
+      "source": "knowledge:flashcards"
+    },
+    {
+      "raw": "我訂四人的桌位。",
+      "cleaned": "我訂四人的桌位。",
+      "source": "knowledge:flashcards"
+    },
+    {
+      "raw": "機車／公車／腳踏車",
+      "cleaned": "機車、公車、腳踏車",
+      "source": "knowledge:flashcards"
+    },
+    {
+      "raw": "請給我一杯少糖咖啡。",
+      "cleaned": "請給我一杯少糖咖啡。",
+      "source": "knowledge:topics"
+    },
+    {
+      "raw": "我在這裡待三天。",
+      "cleaned": "我在這裡待三天。",
+      "source": "knowledge:topics"
+    },
+    {
+      "raw": "我從昨天起頭痛。",
+      "cleaned": "我從昨天起頭痛。",
+      "source": "knowledge:topics"
+    },
+    {
+      "raw": "星期一／三月二日",
+      "cleaned": "星期一、三月二日",
+      "source": "knowledge:topics"
+    },
+    {
+      "raw": "從八點到十點",
+      "cleaned": "從八點到十點",
+      "source": "knowledge:topics"
+    },
+    {
+      "raw": "無糖、少冰。",
+      "cleaned": "無糖、少冰。",
+      "source": "knowledge:topics"
+    },
+    {
+      "raw": "我有點發燒。／我發高燒。",
+      "cleaned": "我有點發燒。、我發高燒。",
+      "source": "knowledge:topics"
+    },
+    {
+      "raw": "這是我妹妹。",
+      "cleaned": "這是我妹妹。",
+      "source": "knowledge:topics"
+    },
+    {
+      "raw": "很高興與你合作。",
+      "cleaned": "很高興與你合作。",
+      "source": "knowledge:topics"
+    },
+    {
+      "raw": "你好。／請給我一杯茶。",
+      "cleaned": "你好。、請給我一杯茶。",
+      "source": "knowledge:fasttrack"
+    },
+    {
+      "raw": "多少錢？／我是台灣人。",
+      "cleaned": "多少錢？、我是台灣人。",
+      "source": "knowledge:fasttrack"
+    },
+    {
+      "raw": "我需要協助。",
+      "cleaned": "我需要協助。",
+      "source": "knowledge:fasttrack"
+    },
+    {
+      "raw": "請帶我到這個地址。",
+      "cleaned": "請帶我到這個地址。",
+      "source": "knowledge:fasttrack"
+    },
+    {
+      "raw": "我可以刷卡嗎？",
+      "cleaned": "我可以刷卡嗎？",
+      "source": "knowledge:fasttrack"
+    },
+    {
+      "raw": "今天好熱喔！",
+      "cleaned": "今天好熱喔！",
+      "source": "knowledge:fasttrack"
+    },
+    {
+      "raw": "直走然後左轉。",
+      "cleaned": "直走然後左轉。",
+      "source": "knowledge:fasttrack"
+    },
+    {
+      "raw": "我的手機被搶了。",
+      "cleaned": "我的手機被搶了。",
+      "source": "knowledge:fasttrack"
+    },
+    {
+      "raw": "我現在在這間飯店。",
+      "cleaned": "我現在在這間飯店。",
+      "source": "knowledge:emergency"
+    },
+    {
+      "raw": "我的護照遺失了。",
+      "cleaned": "我的護照遺失了。",
+      "source": "knowledge:emergency"
+    },
+    {
+      "raw": "請幫我找口譯人員。",
+      "cleaned": "請幫我找口譯人員。",
+      "source": "knowledge:emergency"
+    },
+    {
+      "raw": "請幫我聯絡這個人。",
+      "cleaned": "請幫我聯絡這個人。",
+      "source": "knowledge:emergency"
+    },
+    {
+      "raw": "我需要中文口譯人員。",
+      "cleaned": "我需要中文口譯人員。",
+      "source": "knowledge:emergency"
+    },
+    {
+      "raw": "這件事發生在今天早上。",
+      "cleaned": "這件事發生在今天早上。",
+      "source": "knowledge:emergency"
+    },
+    {
+      "raw": "我對海鮮過敏。",
+      "cleaned": "我對海鮮過敏。",
+      "source": "knowledge:emergency"
+    },
+    {
+      "raw": "我右邊肚子痛。",
+      "cleaned": "我右邊肚子痛。",
+      "source": "knowledge:emergency"
+    },
+    {
+      "raw": "請幫我寫一份證明。",
+      "cleaned": "請幫我寫一份證明。",
+      "source": "knowledge:emergency"
+    },
+    {
+      "raw": "請不看課文再說一次。",
+      "cleaned": "請不看課文再說一次。",
+      "source": "knowledge:science"
+    },
+    {
+      "raw": "今天／明天／下週",
+      "cleaned": "今天、明天、下週",
+      "source": "knowledge:science"
+    },
+    {
+      "raw": "換另一個例子再試。",
+      "cleaned": "換另一個例子再試。",
+      "source": "knowledge:science"
+    },
+    {
+      "raw": "我能想起七個詞。",
+      "cleaned": "我能想起七個詞。",
+      "source": "knowledge:science"
+    },
+    {
+      "raw": "這次我練較少的詞。",
+      "cleaned": "這次我練較少的詞。",
+      "source": "knowledge:science"
+    },
+    {
+      "raw": "我常混淆這兩個詞。",
+      "cleaned": "我常混淆這兩個詞。",
+      "source": "knowledge:science"
+    },
+    {
+      "raw": "買／雨／跳舞",
+      "cleaned": "買、雨、跳舞",
+      "source": "knowledge:science"
+    },
+    {
+      "raw": "我用新詞自己造句。",
+      "cleaned": "我用新詞自己造句。",
+      "source": "knowledge:science"
+    },
+    {
+      "raw": "晚上學，早上複習。",
+      "cleaned": "晚上學，早上複習。",
+      "source": "knowledge:science"
     },
     {
       "raw": "別家店賣得便宜很多耶。",

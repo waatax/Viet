@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { knowledgeGuides, curriculumStages, knowledgeMaps } from '../src/data/knowledgeGuides.js';
+import { knowledgeGuides, curriculumStages, knowledgeMaps, knowledgeVisuals, knowledgeCanDo, listeningChecks, chapterKnowledge } from '../src/data/knowledgeGuides.js';
+import { scenarioCategories } from '../src/data/scenarioCategories.js';
 import { SYLLABUS_REGISTRY, SYLLABUS_CATEGORIES } from '../src/config/syllabusRegistry.js';
 import { situationalScenarios } from '../src/data/situationalScenarios.js';
 import { deepAnalysisDossiers } from '../src/data/macroData.js';
@@ -18,19 +19,29 @@ assert.equal(knowledgeGuides.accent.stage, 1, 'Accent orientation begins in stag
 for (const [id, g] of Object.entries(knowledgeGuides)) {
   for (const key of ['title', 'goal', 'trap', 'task', 'question', 'explain']) assert.ok(g[key]?.trim(), `${id}: ${key}`);
   assert.ok(g.stage >= 1 && g.stage <= 7);
-  assert.ok(g.rows.length >= 6, `${id}: at least six explained concepts`);
+  assert.equal(g.rows.length, 9, `${id}: nine knowledge points (basic, applied, advanced)`);
+  assert.deepEqual(g.tiers, ['basic', 'basic', 'basic', 'applied', 'applied', 'applied', 'advanced', 'advanced', 'advanced'], `${id}: tiers`);
+  assert.ok(knowledgeCanDo[id]?.length >= 3, `${id}: can-do goals`);
+  assert.ok(knowledgeVisuals[id]?.title && knowledgeVisuals[id]?.note, `${id}: lesson chart with caption and note`);
+  const [listenVi, listenOptions, listenAnswer, listenWhy] = listeningChecks[id] || [];
+  assert.ok(listenVi?.trim() && listenWhy?.trim() && listenOptions?.length >= 3 && new Set(listenOptions).size === listenOptions.length && listenAnswer >= 0 && listenAnswer < listenOptions.length, `${id}: listening check`);
+  for (const chapter of SYLLABUS_REGISTRY.filter(c => c.moduleId === id)) {
+    const links = chapterKnowledge(chapter, g);
+    assert.ok(links.length && links.every(concept => g.rows.some(r => r[0] === concept)), `${chapter.id}: linked to existing knowledge points`);
+  }
   assert.equal(knowledgeExtensions[id].length, 3, `${id}: three module-specific application cases`);
   const [question, options, answer, explanation] = transferQuestions[id];
   assert.ok(question.trim() && explanation.trim(), `${id}: explained transfer question`);
   assert.equal(options.length, new Set(options).size, `${id}: unique transfer options`);
   assert.ok(Number.isInteger(answer) && answer >= 0 && answer < options.length, `${id}: transfer answer`);
   assert.equal(new Set(g.rows.map(r => r[0])).size, g.rows.length, `${id}: unique knowledge points`);
-  assert.ok(knowledgeMaps[id]?.[1]?.length >= 3, `${id}: lesson-specific concept diagram`);
+  assert.ok(knowledgeMaps[id]?.[1]?.length >= 4, `${id}: lesson-specific concept diagram`);
   for (const row of g.rows) assert.ok(row.length === 4 && row.every(c => typeof c === 'string' && c.trim()), `${id}: complete teaching row`);
   assert.equal(g.options.length, new Set(g.options).size, `${id}: distinct quiz options`);
   assert.ok(Number.isInteger(g.answer) && g.answer >= 0 && g.answer < g.options.length, `${id}: quiz answer`);
   assert.ok(SYLLABUS_REGISTRY.some(c => c.moduleId === id), `${id}: searchable syllabus entry`);
 }
+assert.deepEqual(scenarioCategories, Object.fromEntries(situationalScenarios.map(s => [s.id, s.category])), 'scenarioCategories.js is in sync with situationalScenarios');
 const ids = new Set();
 assert.deepEqual(Object.keys(transferQuestions).sort(), [...moduleIds].sort());
 assert.equal(correctionSteps.length, 4);

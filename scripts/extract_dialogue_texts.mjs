@@ -24,6 +24,7 @@ export { SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS } from './src/components/Emer
 export { SCENARIO_EXEGESIS } from './src/data/scenarioExegesisData.js';
 export { EXTRA_PLAYBACK_LESSONS } from './src/data/conversationLibrary.js';
 export { practicalPhrases } from './src/data/vietnameseData.js';
+export { knowledgeGuides, speakableVi, listeningChecks } from './src/data/knowledgeGuides.js';
 `;
 
 // Bundle inside the project (scripts/cache is git-ignored) so bare imports like 'react' resolve
@@ -45,7 +46,7 @@ await build({
 });
 
 const mod = await import(pathToFileURL(bundlePath).href);
-const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, multiScenarios, FAST_TRACK_DAYS, SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS, SCENARIO_EXEGESIS, EXTRA_PLAYBACK_LESSONS, practicalPhrases } = mod;
+const { audioEngine, situationalScenarios, SITUATIONAL_TOPICS, numbersAndCurrency, multiScenarios, FAST_TRACK_DAYS, SYMPTOM_POINT_SPEAK_LIST, EMERGENCY_CARDS, SCENARIO_EXEGESIS, EXTRA_PLAYBACK_LESSONS, practicalPhrases, knowledgeGuides, speakableVi, listeningChecks } = mod;
 
 const groups = [];
 for (const sc of situationalScenarios) {
@@ -79,6 +80,12 @@ for (const lesson of EXTRA_PLAYBACK_LESSONS) {
 const phraseCategories = new Map();
 practicalPhrases.forEach(p => phraseCategories.set(p.category, [...(phraseCategories.get(p.category) || []), p]));
 phraseCategories.forEach((lines, category) => groups.push({ source: `phrases:${category}`, lines }));
+// Knowledge-page examples are voiced in both modes (example, then its meaning)
+for (const [id, guide] of Object.entries(knowledgeGuides)) {
+  groups.push({ source: `knowledge:${id}`, lines: guide.rows.map(([, vi, zh]) => ({ viet: speakableVi(vi), zh })) });
+  const listen = listeningChecks?.[id];
+  if (listen) groups.push({ source: `knowledge-listening:${id}`, lines: [{ viet: speakableVi(listen[0]) }] });
+}
 groups.push({ source: 'shopping-phrases', lines: numbersAndCurrency.highFrequencyShopping?.items || [] });
 groups.push({ source: 'emergency-symptoms', lines: SYMPTOM_POINT_SPEAK_LIST || [] });
 groups.push({ source: 'emergency-cards', lines: EMERGENCY_CARDS || [] });

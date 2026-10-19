@@ -1,4 +1,8 @@
 import { knowledgeExtensions } from './knowledgeExtensions.js';
+export { knowledgeVisuals } from './knowledgeVisuals.js';
+import { knowledgeAdvanced, knowledgeCanDo } from './knowledgeAdvanced.js';
+export { knowledgeCanDo };
+export { chapterKnowledge } from './knowledgeSyllabus.js';
 // Teaching objectives follow the local seven-stage curriculum; levels are study
 // targets, not a claim of certification or a guarantee based on word counts.
 // Each row is [concept, Vietnamese example, meaning, explanation].
@@ -99,7 +103,7 @@ export const knowledgeGuides = {
   conversation: {
     title: '從輪流接話到主動修復對話', stage: 4, goal: '聽取關鍵資訊、回應對方，再確認結果，不只背誦台詞。',
     rows: [
-      ['開啟需求', 'Tôi muốn đặt một phòng.', '我想訂一間房。', '先說目的，再補日期、人數與需求。'],
+      ['開啟需求', 'Tôi muốn đặt một phòng.', '我想訂一間房。', '先說目的，再補日期、人數與需求；讓對方一開始就知道你要辦什麼。'],
       ['澄清訊息', 'Anh có thể nhắc lại được không?', '可以請你再說一次嗎？', '請對方重述；也可只針對金額、日期或地點追問。'],
       ['確認與收尾', 'Vậy là hai đêm, đúng không?', '所以是兩晚，對嗎？', '重述已談妥的內容，讓對方能糾正誤解。']
     ], trap: '理解中文翻譯不等於聽懂越文；先純越文抓重點，再對照，最後換角色。',
@@ -179,7 +183,7 @@ export const knowledgeGuides = {
   fasttrack: {
     title: '七天速成：每日一個可完成任務', stage: 2, goal: '每天完成一種生存溝通，下一天先回想前一天內容。',
     rows: [
-      ['第1–2天', 'Xin chào. / Cho tôi một ly trà.', '你好。／請給我一杯茶。', '先練問候與點餐，稱謂依對象調整。'],
+      ['第1–2天', 'Xin chào. / Cho tôi một ly trà.', '你好。／請給我一杯茶。', '先練問候與點餐，稱謂依對象調整；每句換一個物品或對象再說一次。'],
       ['第3–5天', 'Bao nhiêu tiền? / Tôi là người Đài Loan.', '多少錢？／我是台灣人。', '串接問價、交通與自我介紹，務必核對金額和地址。'],
       ['第6–7天', 'Tôi cần giúp đỡ.', '我需要協助。', '練社交與求助：說明地點、問題與希望對方採取的行動。']
     ], trap: '七天是練習安排，不是流利程度保證；遇到聽不懂時先用重述與確認句。',
@@ -208,9 +212,20 @@ export const knowledgeGuides = {
   }
 };
 
+// Spoken form of an example: drop Chinese glosses and read separators (· / → ↔ +) as pauses
+export const speakableVi = (text = '') => text
+  .replace(/[㐀-鿿（）()]+/g, ' ')
+  .replace(/\s*(?:→|↔|·|\/|\+|…)\s*/g, ', ')
+  .replace(/(?:,\s*){2,}/g, ', ')
+  .replace(/([.?!]),/g, '$1')
+  .replace(/^[\s,]+|[\s,]+$/g, '')
+  .trim();
+
 // Keep the core examples first, then extend each module with its own application cases.
 for (const [id, guide] of Object.entries(knowledgeGuides)) {
-  guide.rows = [...guide.rows, ...knowledgeExtensions[id]];
+  guide.rows = [...guide.rows, ...knowledgeExtensions[id], ...knowledgeAdvanced[id]];
+  // basic → applied → advanced, three knowledge points each
+  guide.tiers = guide.rows.map((_, i) => ['basic', 'applied', 'advanced'][Math.min(2, Math.floor(i / 3))]);
 }
 
 export const curriculumStages = [
@@ -225,13 +240,13 @@ export const curriculumStages = [
 
 // Small concept diagrams use actual lesson examples rather than decorative charts.
 export const knowledgeMaps = {
-  path: ['信達雅的三層檢查', [['信', 'chưa：還沒，語意準確'], ['達', '用完整句自然表達'], ['雅', '按對象與場合選語域']]],
+  path: ['信達雅的三層檢查', [['信', 'chưa：還沒，語意準確'], ['達', '用完整句自然表達'], ['雅', '按對象與場合選語域'], ['驗證', '換對象、換情境再說一次']]],
   alphabet: ['音節 bán 的組合圖', [['聲母', 'b'], ['韻部', 'an（保留 n 韻尾）'], ['聲調', 'sắc（銳聲）'], ['合成', 'bán：賣']]],
-  tonegame: ['固定聲母韻母，只換聲調', [['ma', '平聲：鬼'], ['má', '銳聲：媽媽（地區用語）'], ['mà', '玄聲：但是']]],
+  tonegame: ['固定聲母韻母，只換聲調', [['ma', '平聲：鬼'], ['má', '銳聲：媽媽（地區用語）'], ['mà', '玄聲：但是'], ['mạ', '重聲：秧苗（低而短促）']]],
   pronoun: ['選稱謂的判斷順序', [['關係', '陌生人、親屬或同事？'], ['相對年齡', '比自己年長、同輩或晚輩？'], ['場合', '正式稱呼或親近稱謂？'], ['配對', '例如 anh ↔ em；不確定先詢問']]],
   shopping: ['250,000 越南盾的位值圖', [['組數', 'hai trăm năm mươi＝250'], ['乘單位', 'nghìn＝1,000'], ['金額', '250 × 1,000＝250,000'], ['幣別', 'đồng（VND）']]],
   phrases: ['請給我一杯水：語塊圖', [['請求', 'Cho tôi'], ['數量', 'một'], ['量詞', 'ly'], ['物品', 'nước']]],
-  grammar: ['主詞＋動詞＋受詞的句型圖', [['主詞 S', 'Tôi（我）'], ['動詞 V', 'mua（買）'], ['受詞 O', 'một cuốn sách mới（一本新書）']]],
+  grammar: ['主詞＋動詞＋受詞的句型圖', [['主詞 S', 'Tôi（我）'], ['時貌', 'đã／đang／sẽ（可依語境省略）'], ['動詞 V', 'mua（買）'], ['受詞 O', 'một cuốn sách mới（一本新書）']]],
   sentence: ['因果複句的組合圖', [['原因標記', 'Vì（因為）'], ['原因', 'trời mưa（下雨）'], ['結果標記', 'nên（所以）'], ['結果', 'tôi ở nhà（我待在家）']]],
   hanviet: ['從字根到語義驗證', [['字根', 'học：學'], ['組詞', 'du học：留學'], ['核義', '確認是赴外地求學的用法'], ['造句', 'Tôi muốn đi du học.（我想去留學。）']]],
   conversation: ['訂房對話的資訊流', [['需求', '訂一間房'], ['補充', '日期、人數與住宿天數'], ['澄清', '請重述價格或條件'], ['確認', '重述日期、金額及結果']]],
@@ -242,7 +257,32 @@ export const knowledgeMaps = {
   quiz: ['錯題的修正路徑', [['分類', '聽音、詞義、句型或語境？'], ['定位', '指出誤判的詞或規則'], ['修正', '寫一個新例句'], ['重測', '隔日改換語境再回答']]],
   flashcards: ['單詞進入長期使用的循環', [['提示', '看到 học'], ['提取', '翻面前回想意思與搭配'], ['應用', 'Tôi học tiếng Việt.'], ['複習', '按難度排程，隔日再測']]],
   topics: ['點餐與問價的跨專題整合', [['數量', 'một ly：一杯'], ['品名', 'cà phê：咖啡'], ['客製', 'ít đường：少糖'], ['付款', '問價、重述金額與核對找零']]],
-  fasttrack: ['一天內的三次輸出', [['初次', '聽懂並讀出當日三句'], ['換條件', '更換物品、人物或地址'], ['隔日', '不看原文再次回想']]],
+  fasttrack: ['一天內的四次輸出', [['初次', '聽懂並讀出當日三句'], ['換條件', '更換物品、人物或地址'], ['角色互換', '改當店員或司機回應'], ['隔日', '不看原文再次回想']]],
   emergency: ['求助訊息的順序', [['在哪裡', '地址、地標或地圖'], ['發生什麼', '遺失物或需要描述的問題'], ['需要什麼', '協助、口譯或聯絡人'], ['確認', '重述對方指示，確認理解']]],
   science: ['用表現調整練習量', [['初測', '不看答案回想10詞'], ['回饋', '記錄錯詞和錯因'], ['延後', '隔日再次回想'], ['調整', '優先練最難提取的內容']]]
+};
+
+// Listening checks: the learner hears the Vietnamese first (text hidden until answered).
+// [Vietnamese audio, options, answer index, explanation]
+export const listeningChecks = {
+  path: ['Tôi chưa hiểu, anh nói lại được không?', ['我還沒聽懂，可以再說一次嗎？', '我不想聽，請你離開。', '我聽懂了，謝謝你。'], 0, 'chưa hiểu＝還沒懂；nói lại＝再說一次。這是最重要的對話修復句。'],
+  alphabet: ['Nghe và viết: nghỉ.', ['ngỉ', 'nghỉ', 'ghỉ'], 1, '在 i 前要寫 ngh；nghỉ 是「休息」，問聲符號在 i 上。'],
+  tonegame: ['Bạn tôi bán bàn.', ['我朋友賣桌子。', '我的桌子很便宜。', '你在賣朋友嗎？'], 0, 'bạn（朋友）、bán（賣）、bàn（桌子）三個詞只差聲調。'],
+  pronoun: ['Cháu chào bà ạ.', ['晚輩向祖母輩女性問好', '朋友之間打招呼', '老師向學生問好'], 0, 'cháu 自稱、bà 稱呼對方，表示對方是祖母輩；ạ 表恭敬。'],
+  shopping: ['Cái này giá ba trăm năm mươi nghìn.', ['35,000盾', '350,000盾', '3,500,000盾'], 1, 'ba trăm năm mươi＝350，乘 nghìn（千）＝350,000。'],
+  phrases: ['Anh viết ra giúp tôi được không?', ['請對方幫忙寫下來', '詢問自己能否寫字', '請對方給一支筆'], 0, '主詞是 anh，動作由對方執行；giúp tôi＝幫我。'],
+  grammar: ['Tôi vừa ăn xong.', ['我剛吃完。', '我正在吃。', '我等一下要吃。'], 0, 'vừa＝剛剛，xong＝完成；不是進行中的 đang。'],
+  sentence: ['Nếu trời mưa thì tôi ở nhà.', ['如果下雨，我就待在家。', '因為下雨，所以我待在家。', '雖然下雨，我還是出門。'], 0, 'nếu…thì 表條件，不是 vì…nên 的已知原因。'],
+  hanviet: ['Anh ấy là bác sĩ.', ['他是醫師。', '他是博士。', '他很有禮貌。'], 0, 'bác sĩ 是醫師；博士是 tiến sĩ，這是典型漢越假朋友。'],
+  conversation: ['Vậy là thứ sáu, đúng không?', ['所以是星期五，對嗎？', '星期六可以嗎？', '我們六點見。'], 0, 'thứ sáu＝星期五；đúng không 是請對方確認的句尾。'],
+  accent: ['Ba tôi thích ăn bắp.', ['我爸爸喜歡吃玉米。', '我奶奶喜歡吃米飯。', '三個人喜歡吃玉米。'], 0, 'ba（南）＝bố（北）爸爸；bắp（南）＝ngô（北）玉米。'],
+  shadowing: ['Tôi muốn đặt hai phòng cho bốn người.', ['我想為四個人訂兩間房。', '我想為兩個人訂四間房。', '我想取消兩間房。'], 0, '先抓數字語塊：hai phòng（兩間房）、bốn người（四個人）。'],
+  business: ['Chúng tôi sẽ giao hàng trước ngày mười lăm.', ['我們將在15日前交貨。', '我們在15日收款。', '我們延後15天交貨。'], 0, 'giao hàng＝交貨，trước ngày mười lăm＝15日之前。'],
+  macropol: ['Lạm phát tăng nhẹ so với cùng kỳ năm trước.', ['通膨較去年同期小幅上升。', '通膨較上月大幅下降。', '匯率較去年持平。'], 0, 'cùng kỳ năm trước＝去年同期（同比）；tăng nhẹ＝小幅上升。'],
+  quiz: ['Tôi chưa đi Huế.', ['我還沒去過順化。', '我不去順化。', '我已經去過順化。'], 0, 'chưa＝尚未，暗示之後可能會去；không 才是單純否定。'],
+  flashcards: ['Tôi muốn đặt vé đi Đà Lạt.', ['我想訂去大叻的票。', '我想訂大叻的房間。', '我想去大叻吃飯。'], 0, 'đặt vé＝訂票；đặt phòng 才是訂房。'],
+  topics: ['Thứ hai tuần sau tôi về Đài Loan.', ['下週一我回台灣。', '下週二我回台灣。', '兩週後我回台灣。'], 0, 'thứ hai＝星期一（不是星期二）；tuần sau＝下週。'],
+  fasttrack: ['Cho tôi xuống ở đây.', ['讓我在這裡下車。', '請載我到這裡。', '我在這裡等你。'], 0, 'xuống＝下（車）；搭計程車或 Grab 時常用。'],
+  emergency: ['Tôi bị dị ứng với thuốc này.', ['我對這種藥過敏。', '我需要這種藥。', '這種藥很貴。'], 0, 'bị dị ứng với＝對……過敏；用藥前務必告知醫護。'],
+  science: ['Ngày mai tôi sẽ ôn lại những từ này.', ['明天我會複習這些詞。', '今天我學了這些詞。', '我忘了這些詞。'], 0, 'ôn lại＝複習；ngày mai…sẽ 表示明天的計畫。']
 };

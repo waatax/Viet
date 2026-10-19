@@ -7,9 +7,10 @@ import { gamificationEngine } from './utils/gamificationEngine';
 import { audioEngine } from './services/audioEngine';
 import { MODULE_IDS } from './config/navigation';
 import { APP_VERSION, BUILD_REVISION } from './config/release';
-import { KnowledgeGuide } from './components/KnowledgeGuide';
 
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
+// Teaching notes render below each module, so they load after the module itself
+const KnowledgeGuide = lazyNamed(() => import('./components/KnowledgeGuide'), 'KnowledgeGuide');
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
 const TopicMasteryModule = lazyNamed(() => import('./components/TopicMasteryModule'), 'TopicMasteryModule');
 const FastTrackModule = lazyNamed(() => import('./components/FastTrackModule'), 'default');
@@ -312,7 +313,7 @@ export function App() {
             {activeTab === 'shadowing' && <ShadowingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'sentence' && <SentenceBuilderModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'tonegame' && <ToneGameModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
-            <KnowledgeGuide key={activeTab} moduleId={activeTab} onSelectChapter={handleSelectChapter} setActiveTab={setActiveTab} />
+            <KnowledgeGuide key={activeTab} moduleId={activeTab} selectedAccent={selectedAccent} onSelectChapter={handleSelectChapter} setActiveTab={setActiveTab} />
           </Suspense>
         </ErrorBoundary>
       </main>
