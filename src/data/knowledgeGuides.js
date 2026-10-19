@@ -1,3 +1,4 @@
+import { knowledgeExtensions } from './knowledgeExtensions.js';
 // Teaching objectives follow the local seven-stage curriculum; levels are study
 // targets, not a claim of certification or a guarantee based on word counts.
 // Each row is [concept, Vietnamese example, meaning, explanation].
@@ -106,7 +107,7 @@ export const knowledgeGuides = {
     question: '對方報價聽不清時應先？', options: ['請重述並確認數字', '照猜測付款', '只說 cảm ơn'], answer: 0, explain: '報價涉及關鍵資訊，先修復理解再繼續交易。'
   },
   accent: {
-    title: '南北口音：增加聽辨範圍', stage: 4, goal: '區分拼字、地區發音及地區用詞，維持一套穩定的主動發音。',
+    title: '南北口音：增加聽辨範圍', stage: 1, goal: '第1階先確立主要口音；第4階再擴充南北聽辨。區分拼字、地區發音及地區用詞。',
     rows: [
       ['拼字不變', 'hỏi / ngã', '問聲／跌聲', '南部許多說話者合流；北部常有區別。個體與語境仍會影響實現。'],
       ['詞彙對照', 'bố / ba · ngô / bắp', '爸爸／玉米', '常見北／南用詞對照；不是所有地區與家庭都完全相同。'],
@@ -206,6 +207,11 @@ export const knowledgeGuides = {
     question: '哪一項更能反映長期記住？', options: ['連看十次', '隔日不看答案回想', '今天覺得簡單'], answer: 1, explain: '延後提取較能顯示是否保留知識；仍應持續在新語境使用。'
   }
 };
+
+// Keep the core examples first, then extend each module with its own application cases.
+for (const [id, guide] of Object.entries(knowledgeGuides)) {
+  guide.rows = [...guide.rows, ...knowledgeExtensions[id]];
+}
 
 export const curriculumStages = [
   { level: 'A1', title: '發音解碼', modules: ['alphabet', 'tonegame', 'accent'], task: '拼讀5個新音節；不看稿完成問候。' },
