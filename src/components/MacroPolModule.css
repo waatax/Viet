@@ -3022,3 +3022,88 @@
   color: var(--macro-fg-muted);
   line-height: 1.5;
 }
+
+/* ── Term Viet Row & Audio Button in Modal ── */
+.term-viet-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.term-viet-row .term-viet {
+  margin-bottom: 0;
+  flex: 1;
+}
+
+.term-audio-btn {
+  background: var(--macro-accent-glow);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: var(--macro-accent);
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.term-audio-btn:hover {
+  background: var(--macro-accent);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.term-audio-btn.playing {
+  background: var(--macro-green);
+  color: #fff;
+  border-color: var(--macro-green);
+  animation: pulse 1s infinite alternate;
+}
+
+/* ── Latest October 2026 Intelligence Banner ── */
+.macro-october-banner {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.october-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--macro-accent);
+}
+
+.october-banner-badge .live-dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulse 1.5s infinite;
+}
+
+.october-banner-content strong {
+  color: var(--macro-fg);
+}
+
+.october-banner-content span {
+  color: var(--macro-fg-muted);
+}

@@ -117,7 +117,7 @@ export default function MacroPolModule({ setActiveTab, updateUserStats }) {
   // ── Calculators State ──
   // 1. Currency converter
   const [calcUsdAmount, setCalcUsdAmount] = useState(1000);
-  const [calcVndAmount, setCalcVndAmount] = useState(25485000);
+  const [calcVndAmount, setCalcVndAmount] = useState(25020000);
   const [calcMode, setCalcMode] = useState('USD_TO_VND'); // 'USD_TO_VND' | 'VND_TO_USD' | 'TWD_TO_VND'
   const [calcTwdAmount, setCalcTwdAmount] = useState(32000);
 
@@ -1570,6 +1570,7 @@ export default function MacroPolModule({ setActiveTab, updateUserStats }) {
                 { id: 'finance', label: '貨幣金融', labelVi: 'Tiền tệ - Tài chính' },
                 { id: 'banking', label: '銀行利率', labelVi: 'Ngân hàng & Lãi suất' },
                 { id: 'customs', label: '外貿海關', labelVi: 'Thương mại & Hải quan' },
+                { id: 'regulations', label: '政策法規與稅負', labelVi: 'Pháp lý & Thuế khóa' },
                 { id: 'supply_chain', label: '北越與供應鏈', labelVi: 'Bắc Bộ & Chuỗi cung ứng' },
                 { id: 'regional', label: '南越與大專案', labelVi: 'Miền Nam & Đại dự án' },
                 { id: 'fdi_compliance', label: '台商法規實務', labelVi: 'FDI Đài Loan & Pháp lý' }
@@ -1582,6 +1583,22 @@ export default function MacroPolModule({ setActiveTab, updateUserStats }) {
                   {macroLang === 'vi' ? cat.labelVi : cat.label}
                 </button>
               ))}
+            </div>
+          </div>
+
+          {/* Latest October 2026 Intelligence Highlights Banner */}
+          <div className="macro-october-banner">
+            <div className="october-banner-badge">
+              <span className="live-dot" />
+              <span>{macroLang === 'vi' ? 'CẬP NHẬT MỚI NHẤT · THÁNG 10/2026' : '2026 年 10 月最新政經情報專題更新'}</span>
+            </div>
+            <div className="october-banner-content">
+              <strong>{macroLang === 'vi' ? 'Tiêu điểm Kỳ họp thứ 8 Quốc hội khóa XV & Đột phá thể chế:' : '越南國會第八次會議重磅焦點與體制改革：'}</strong>
+              <span>
+                {macroLang === 'vi'
+                  ? ' Thông qua chủ trương đầu tư Đường sắt cao tốc 67,34 tỷ USD (350 km/h), phân cấp triệt để Luật Đầu tư công, vận hành cơ chế DPPA mua bán điện trực tiếp và Nghị định Quỹ Hỗ trợ Đầu tư bù đắp Thuế tối thiểu toàn cầu.'
+                  : ' 拍板 673.4 億美元南北時速 350 km/h 高鐵、修訂《公共投資法》下放地方審批、全面落實 DPPA 綠電直接採購與第 182 號《投資支持基金》議定。'}
+              </span>
             </div>
           </div>
 
@@ -1725,11 +1742,11 @@ export default function MacroPolModule({ setActiveTab, updateUserStats }) {
                     <div className="calc-result-box">
                       <div className="result-label">{macroLang === 'vi' ? 'Giá trị quy đổi VND (Vietcombank):' : '折合越南盾 (VCB 牌價)：'}</div>
                       <div className="result-val text-gold">
-                        {(Math.round(calcUsdAmount * 25485)).toLocaleString()} ₫
+                        {(Math.round(calcUsdAmount * 25020)).toLocaleString()} ₫
                       </div>
                       <div className="result-sub">
-                        {macroLang === 'vi' ? 'Thị trường tự do (Hà Trung ~25.680): ' : '黑市參考價 (25,680)：'}
-                        {(Math.round(calcUsdAmount * 25680)).toLocaleString()} ₫
+                        {macroLang === 'vi' ? 'Thị trường tự do (~25.120): ' : '自由市場參考價 (25,120)：'}
+                        {(Math.round(calcUsdAmount * 25120)).toLocaleString()} ₫
                       </div>
                     </div>
                   </>
@@ -1749,10 +1766,10 @@ export default function MacroPolModule({ setActiveTab, updateUserStats }) {
                     <div className="calc-result-box">
                       <div className="result-label">{macroLang === 'vi' ? 'Quy đổi USD:' : '折合美元 (USD)：'}</div>
                       <div className="result-val text-gold">
-                        ${(calcVndAmount / 25485).toFixed(2)} USD
+                        ${(calcVndAmount / 25020).toFixed(2)} USD
                       </div>
                       <div className="result-sub">
-                        {macroLang === 'vi' ? 'Quy đổi NT$:' : '折合新台幣：'} NT$ {((calcVndAmount / 791.5)).toFixed(0)}
+                        {macroLang === 'vi' ? 'Quy đổi NT$:' : '折合新台幣：'} NT$ {((calcVndAmount / 782)).toFixed(0)}
                       </div>
                     </div>
                   </>
@@ -1772,11 +1789,11 @@ export default function MacroPolModule({ setActiveTab, updateUserStats }) {
                     <div className="calc-result-box">
                       <div className="result-label">{macroLang === 'vi' ? 'Giá trị quy đổi VND:' : '折合越南盾 (VND)：'}</div>
                       <div className="result-val text-gold">
-                        {(Math.round(calcTwdAmount * 791.5)).toLocaleString()} ₫
+                        {(Math.round(calcTwdAmount * 782)).toLocaleString()} ₫
                       </div>
                       <div className="result-sub">
-                        {macroLang === 'vi' ? 'Tỷ giá BOT ~784 VND:' : '台銀牌價 (~784)：'}
-                        {(Math.round(calcTwdAmount * 784)).toLocaleString()} ₫
+                        {macroLang === 'vi' ? 'Tỷ giá BOT (~774.5 VND):' : '台銀買入牌價 (~774.5)：'}
+                        {(Math.round(calcTwdAmount * 774.5)).toLocaleString()} ₫
                       </div>
                     </div>
                   </>
@@ -2205,7 +2222,19 @@ export default function MacroPolModule({ setActiveTab, updateUserStats }) {
                 <div className="modal-terms-grid">
                   {activeModalDossier.terms.map((tItem, tIdx) => (
                     <div key={tIdx} className="modal-term-card">
-                      <div className="term-viet">{tItem.term}</div>
+                      <div className="term-viet-row">
+                        <span className="term-viet">{tItem.term}</span>
+                        <button
+                          className={`term-audio-btn ${playingKey === tItem.term ? 'playing' : ''}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleSpeak(tItem.term, tItem.term);
+                          }}
+                          title={macroLang === 'vi' ? 'Nghe phát âm chuẩn' : '聆聽標準發音'}
+                        >
+                          <Volume2 size={15} />
+                        </button>
+                      </div>
                       <div className="term-hanviet">漢越：【{tItem.hanViet}】</div>
                       <div className="term-meaning">{tItem.meaning}</div>
                     </div>

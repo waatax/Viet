@@ -50,6 +50,9 @@ const EXPLICIT = {
   'macro_dossier-2026-08': ['法規文件層級', '引述與作者立場'],
   'macro_dossier-2026-09': ['法規文件層級', '論證結構'],
   'macro_dossier-2026-11': ['預測語氣', '引述與作者立場'],
+  'macro_dossier-2026-13': ['法規文件層級', '論證結構'],
+  'macro_dossier-2026-14': ['法規文件層級', '名目與實質'],
+  'macro_dossier-2026-15': ['指標口徑', '百分比與百分點', '趨勢動詞'],
 
   base_alphabet: ['字母與組合', '複合聲母', 'k／c／qu 的分工', 'g／gh、ng／ngh'],
   base_tones: ['符號分層', '音節拆解', '塞音韻尾'],

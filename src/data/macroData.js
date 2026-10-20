@@ -11,41 +11,41 @@ export const liveMarketTicker = [
     id: 'usdvnd',
     name: 'USD/VND 現匯',
     nameVi: 'Tỷ giá USD/VND',
-    val: '25,485',
-    delta: '+0.12%',
-    type: 'up',
-    note: '中心匯率 24,265 上限盤整',
-    noteVi: 'Tỷ giá niêm yết neo sát trần biên độ'
+    val: '25,020',
+    delta: '-1.82% (回穩)',
+    type: 'down',
+    note: '中心匯率 24,195，Fed降息後回穩',
+    noteVi: 'Tỷ giá hạ nhiệt ổn định quanh 25.020 VND'
   },
   {
     id: 'twdvnd',
     name: 'TWD/VND (1台幣)',
     nameVi: 'TWD/VND (1 Đài tệ)',
-    val: '792.5 ₫',
-    delta: '+0.08%',
+    val: '782.0 ₫',
+    delta: '+0.15%',
     type: 'up',
-    note: '1萬越盾折合 126.2 NT$',
-    noteVi: '10.000 VND quy đổi 12,62 NT$'
+    note: '1萬越盾折合 12.78 NT$',
+    noteVi: '10.000 VND quy đổi 12,78 NT$'
   },
   {
     id: 'sbv_refinance',
     name: 'SBV 再融資利率',
     nameVi: 'Lãi suất tái cấp vốn SBV',
     val: '4.50%',
-    delta: '持平',
+    delta: '維持寬鬆',
     type: 'neutral',
-    note: '維持寬鬆以挺實體GDP',
-    noteVi: 'Duy trì nới lỏng hỗ trợ GDP'
+    note: '連16個月堅守4.5%力撐實體經濟',
+    noteVi: 'Duy trì nới lỏng hỗ trợ GDP 7%+'
   },
   {
     id: 'vcb_12m',
     name: 'Big4 12M 定存基準',
     nameVi: 'Lãi suất tiết kiệm 12T Big 4',
-    val: '4.80%',
-    delta: '+0.10%',
-    type: 'up',
-    note: '公股行庫資金成本平穩',
-    noteVi: 'Khối quốc doanh giữ ổn định'
+    val: '4.70% ~ 4.85%',
+    delta: '持平',
+    type: 'neutral',
+    note: '公股四大行資金成本平穩充裕',
+    noteVi: 'Lãi suất Big 4 duy trì ổn định'
   },
   {
     id: 'preferential_loan',
@@ -59,23 +59,23 @@ export const liveMarketTicker = [
   },
   {
     id: 'trade_surplus',
-    name: '累計外貿順差',
-    nameVi: 'Xuất siêu lũy kế',
-    val: '$26.85 B',
-    delta: '+14.2% YoY',
+    name: '9個月累計外貿順差',
+    nameVi: 'Xuất siêu lũy kế 9T',
+    val: '$21.50 B',
+    delta: '+16.3% YoY',
     type: 'up',
-    note: '創歷年同期次高水準',
-    noteVi: 'Mức thặng dư cao thứ 2 lịch sử'
+    note: '前9個月進出口累計 5,785 億美元',
+    noteVi: 'Xuất siêu 9 tháng đạt 21,5 tỷ USD'
   },
   {
     id: 'fdi_disbursed',
-    name: '實際到位 FDI',
-    nameVi: 'Vốn FDI thực hiện',
-    val: '$23.80 B',
-    delta: '+8.6% YoY',
+    name: '9個月實際到位 FDI',
+    nameVi: 'Vốn FDI thực hiện 9T',
+    val: '$17.34 B',
+    delta: '+8.9% YoY',
     type: 'up',
-    note: '半導體封測與AI伺服器領軍',
-    noteVi: 'Bán dẫn & chuỗi AI dẫn dắt'
+    note: '創近5年同期新高，AI與晶片引領',
+    noteVi: 'Kỷ lục 5 năm, bán dẫn & AI dẫn dắt'
   },
   {
     id: 'credit_growth',
@@ -84,38 +84,48 @@ export const liveMarketTicker = [
     val: '15.0%',
     delta: '目標區間',
     type: 'neutral',
-    note: '央行引導資金聚焦實體經濟',
-    noteVi: 'SBV hướng dòng vốn vào sản xuất'
+    note: '前9月約9.5%，Q4進入衝刺高峰',
+    noteVi: 'SBV hướng dòng vốn vào sản xuất Q4'
   },
   {
     id: 'taiwan_fdi',
     name: '台商累計投資規模',
     nameVi: 'Lũy kế FDI Đài Loan',
-    val: '$40.2 B',
+    val: '$41.2 B',
     delta: '全越第4大',
     type: 'up',
-    note: '電子資通訊與精密製造重鎮',
-    noteVi: 'Đứng thứ 4 toàn quốc về FDI'
+    note: '累計逾3,250件，AI伺服器與EMS重鎮',
+    noteVi: 'Hơn 3.250 dự án FDI Đài Loan'
   },
   {
-    id: 'north_railway',
-    name: '中越標準軌鐵路',
-    nameVi: 'ĐS khổ 1.435mm Lào Cai - HP',
-    val: '289.34兆₫',
-    delta: '$11.05B USD',
+    id: 'railway_na',
+    name: '國會審議南北高鐵',
+    nameVi: 'ĐS cao tốc Bắc - Nam',
+    val: '$67.34 B',
+    delta: '國會審議拍板',
     type: 'up',
-    note: '363km直通海防瀝縣深水港',
-    noteVi: 'Kết nối đường sắt liên vận QT'
+    note: '時速350km/h，預計2027前動工',
+    noteVi: 'ĐS tốc độ cao 350 km/h trình Quốc hội XV'
   },
   {
-    id: 'long_thanh',
-    name: '隆城國際機場一期',
-    nameVi: 'Sân bay QT Long Thành',
-    val: '2026/12',
-    delta: '商業啟航',
+    id: 'dppa_green',
+    name: 'DPPA 綠電直接採購',
+    nameVi: 'Cơ chế DPPA năng lượng',
+    val: '第 80 號議定',
+    delta: '正式上路',
     type: 'up',
-    note: '4F頂級門戶，年吞吐2500萬人',
-    noteVi: 'Đại dự án cửa ngõ Đông Nam Bộ'
+    note: '外資製造業直接直購綠電達成RE100',
+    noteVi: 'Nghị định 80/2024 về DPPA có hiệu lực'
+  },
+  {
+    id: 'support_fund',
+    name: '投資支持基金議定',
+    nameVi: 'Quỹ hỗ trợ đầu tư',
+    val: '第 182 號議定',
+    delta: '全面落地',
+    type: 'up',
+    note: '專項補助高科技研發與CAPEX抵稅',
+    noteVi: 'Quỹ hỗ trợ đầu tư bù đắp Pillar Two'
   },
   {
     id: 'vnindex',
@@ -128,24 +138,14 @@ export const liveMarketTicker = [
     noteVi: 'Tiến trình nâng hạng thị trường FTSE'
   },
   {
-    id: 'gold_sjc',
-    name: 'SJC 金條買賣',
-    nameVi: 'Vàng miếng SJC',
-    val: '80.5M - 82.5M',
-    delta: '價差收窄',
-    type: 'neutral',
-    note: '四大公股行直售平抑黑市',
-    noteVi: 'Big 4 can thiệp ổn định thị trường'
-  },
-  {
-    id: 'gdp_target',
-    name: '十四大GDP戰略雄心',
-    nameVi: 'Mục tiêu GDP Đại hội XIV',
-    val: '7.5% ~ 8.0%',
-    delta: '衝刺雙位數',
+    id: 'gdp_macro_ticker',
+    name: '前三季實質GDP成長',
+    nameVi: 'Tăng trưởng GDP 9 tháng',
+    val: '6.82% / 7.40%',
+    delta: '優於預期',
     type: 'up',
-    note: '世銀認定晉升中高所得國家',
-    noteVi: 'Mục tiêu tăng trưởng 2026-2030'
+    note: 'Q3單季大增7.4%，全年衝刺7.0%+',
+    noteVi: 'GDP 9T đạt 6,82%, quý 3 tăng 7,40%'
   }
 ];
 
@@ -155,16 +155,16 @@ export const macroKpiMetrics = [
     id: 'fx_spot',
     title: 'USD/VND 現匯賣出價 (VCB)',
     titleVi: 'Tỷ giá USD/VND bán ra (Vietcombank)',
-    value: '25,485',
+    value: '25,020',
     unit: 'VND',
     unitVi: 'VND',
-    badge: '央行區間上緣',
-    badgeVi: 'Cận trên biên độ SBV',
-    badgeColor: 'gold',
-    desc: '央行中心匯率 24,265 VND (±5% 波動區間上限 25,478)',
-    descVi: 'Tỷ giá trung tâm 24.265 VND (biên độ ±5%, trần 25.478 VND)',
-    trend: '高位承壓',
-    trendVi: 'Neo cao chịu áp lực'
+    badge: '區間中樞回穩',
+    badgeVi: 'Hạ nhiệt ổn định',
+    badgeColor: 'green',
+    desc: '央行中心匯率 24,195 VND (±5% 波動區間，高位大幅收斂回穩)',
+    descVi: 'Tỷ giá trung tâm 24.195 VND (biên độ ±5%, hạ nhiệt sau khi Fed giảm lãi suất)',
+    trend: '脫離警戒回穩',
+    trendVi: 'Hạ nhiệt ổn định'
   },
   {
     id: 'sbv_rate',
@@ -176,68 +176,68 @@ export const macroKpiMetrics = [
     badge: '貨幣政策寬鬆',
     badgeVi: 'Chính sách tiền tệ nới lỏng',
     badgeColor: 'blue',
-    desc: '再貼現率 3.00% · 隔夜同業拆款 4.25% · 短期存款上限 4.75%',
-    descVi: 'Tái chiết khấu 3,00% · Qua đêm 4,25% · Trần tiền gửi <6T 4,75%',
-    trend: '維持現狀',
+    desc: '再貼現率 3.00% · 隔夜同業拆款 4.15% · 短期存款上限 4.75%',
+    descVi: 'Tái chiết khấu 3,00% · Qua đêm 4,15% · Trần tiền gửi <6T 4,75%',
+    trend: '寬鬆維穩',
     trendVi: 'Duy trì ổn định'
   },
   {
     id: 'deposit_12m',
     title: '四大國有公股行庫 12M 定存利率',
     titleVi: 'Lãi suất tiết kiệm 12 tháng nhóm Big 4',
-    value: '4.70% ~ 4.90%',
+    value: '4.70% ~ 4.85%',
     unit: '年息',
     unitVi: '/năm',
     badge: '利差穩定',
     badgeVi: 'Biên lãi ổn định',
     badgeColor: 'green',
-    desc: 'Vietcombank 4.7% · BIDV/VietinBank/Agribank 4.8%~4.9%',
-    descVi: 'Vietcombank 4,7% · BIDV / VietinBank / Agribank 4,8%~4,9%',
-    trend: '小幅上揚',
-    trendVi: 'Nhích tăng nhẹ'
+    desc: 'Vietcombank 4.7% · BIDV/VietinBank 4.8% · Agribank 4.85%',
+    descVi: 'Vietcombank 4,7% · BIDV / VietinBank 4,8% · Agribank 4,85%',
+    trend: '利率平穩',
+    trendVi: 'Mặt bằng ổn định'
   },
   {
     id: 'lending_rate',
     title: '短期一般商業貸款／優先放款',
     titleVi: 'Lãi suất cho vay ngắn hạn & ưu tiên',
-    value: '4.0% / 6.5%~7.8%',
+    value: '4.0% / 6.5%~7.5%',
     unit: '年息',
     unitVi: '/năm',
     badge: '信貸空間充裕',
     badgeVi: 'Dư địa tín dụng dồi dào',
     badgeColor: 'blue',
-    desc: '法定優先領域 4.0% 上限 · 中長企貸 8.5%~10.2%',
-    descVi: 'Trần ưu tiên 4,0% · Vay kinh doanh thông thường 6,5%~7,8%',
+    desc: '法定優先領域 4.0% 上限 · 一般商業放款 6.5%~7.5% 成本溫和',
+    descVi: 'Trần ưu tiên 4,0% · Vay kinh doanh thông thường 6,5%~7,5%',
     trend: '實體利息溫和',
     trendVi: 'Chi phí vốn hợp lý'
   },
   {
     id: 'trade_turnover',
-    title: '年度貨物進出口總額 (GSO/海關)',
-    titleVi: 'Tổng kim ngạch xuất nhập khẩu (Tổng cục Hải quan)',
-    value: '$785.4',
+    title: '前9個月進出口總額 (GSO/海關)',
+    titleVi: 'Tổng kim ngạch XNK 9 tháng (Tổng cục Hải quan)',
+    value: '$578.5',
     unit: '十億美元 (B)',
     unitVi: 'Tỷ USD',
-    badge: '全球外貿前二十',
-    badgeVi: 'Top 20 thương mại toàn cầu',
+    badge: '雙位數高擴張',
+    badgeVi: 'Tăng trưởng hai con số',
     badgeColor: 'green',
-    desc: '出口 $406.1B (YoY +14.5%) · 進口 $379.3B (YoY +13.8%)',
-    descVi: 'Xuất khẩu $406,1B (+14,5%) · Nhập khẩu $379,3B (+13,8%)',
+    desc: '前9個月累計 (YoY +16.3%) · 出口 $300.0B · 進口 $278.5B · 全年衝擊 $800B 大關',
+    descVi: 'Xuất khẩu $300,0B (+15,4%) · Nhập khẩu $278,5B (+17,3%) · Hướng tới 800 tỷ USD',
     trend: '強勁擴張',
     trendVi: 'Tăng trưởng mạnh mẽ'
   },
   {
     id: 'trade_surplus',
-    title: '貨物貿易順差 (Xuất siêu)',
-    titleVi: 'Cán cân thương mại hàng hóa (Xuất siêu)',
-    value: '+$26.85',
+    title: '前9個月貨物貿易順差 (Xuất siêu)',
+    titleVi: 'Cán cân thương mại 9 tháng (Xuất siêu)',
+    value: '+$21.50',
     unit: '十億美元 (B)',
     unitVi: 'Tỷ USD',
     badge: '外匯重要防線',
     badgeVi: 'Lá chắn dự trữ ngoại hối',
     badgeColor: 'green',
-    desc: '對美順差突破千億美元 · 對中逆差因零組件進口擴大',
-    descVi: 'Xuất siêu sang Mỹ vượt 100 tỷ USD · Nhập siêu linh kiện từ TQ',
+    desc: '前9個月累計順差 · 對美順差超 $88B · 創歷年同期次高水準',
+    descVi: 'Xuất siêu sang Mỹ vượt 88 tỷ USD · Dự trữ ngoại hối phục hồi vững chắc',
     trend: '高順差支撐',
     trendVi: 'Thặng dư vững chắc'
   },
@@ -245,14 +245,14 @@ export const macroKpiMetrics = [
     id: 'fdi_inflow',
     title: '外人直接投資 (FDI) 實際到位資金',
     titleVi: 'Vốn đầu tư trực tiếp nước ngoài (FDI) giải ngân',
-    value: '$23.8',
+    value: '$17.34',
     unit: '十億美元 (B)',
     unitVi: 'Tỷ USD',
-    badge: '外資重倉製造業',
-    badgeVi: 'Dòng vốn tập trung chế tạo',
+    badge: '5年同期新高',
+    badgeVi: 'Kỷ lục 5 năm',
     badgeColor: 'purple',
-    desc: '新註冊外資 $38.2B · 高科技半導體與消費電子佔 72%',
-    descVi: 'Vốn đăng ký mới $38,2B · Bán dẫn & điện tử chiếm 72%',
+    desc: '前9個月實際到位 (YoY +8.9%) · 註冊資金達 $24.78B · 半導體與AI引領',
+    descVi: 'Vốn giải ngân $17,34B (+8,9%) · Vốn đăng ký mới $24,78B (+11,6%)',
     trend: '穩步吸資',
     trendVi: 'Thu hút vốn ổn định'
   },
@@ -260,14 +260,14 @@ export const macroKpiMetrics = [
     id: 'gdp_macro',
     title: '越南實質 GDP 成長率',
     titleVi: 'Tăng trưởng GDP thực tế của Việt Nam',
-    value: '6.85%',
+    value: '6.82% / 7.40%',
     unit: 'YoY',
     unitVi: 'YoY',
     badge: '東協成長領頭羊',
     badgeVi: 'Dẫn đầu tăng trưởng ASEAN',
     badgeColor: 'green',
-    desc: '製造業與加工出口復甦 · 670億美元南北高鐵公建發力',
-    descVi: 'Chế biến chế tạo phục hồi · Đại dự án đường sắt 67 tỷ USD',
+    desc: '前9個月實質成長 6.82% · Q3 單季衝上 7.40% · 總理范明正定調全年衝刺 7.0%+',
+    descVi: 'GDP 9 tháng tăng 6,82% · Quý 3 bứt phá 7,40% · Mục tiêu cả năm 7,0%~7,5%',
     trend: '樂觀擴張',
     trendVi: 'Mở rộng tích cực'
   }
@@ -325,7 +325,10 @@ export const fiveYearWeeklyUsdVndData = [
   { date: '2026-05-15', close: 25450, central: 24262, blackMarket: 25630, change: 0.16, note: '越共十四大籌備文件草案發布，強調體制鬆綁與綠色轉型', noteVi: 'Công bố dự thảo văn kiện Đại hội XIV, trọng tâm gỡ nút thắt thể chế & chuyển đổi xanh' },
   { date: '2026-07-24', close: 25470, central: 24265, blackMarket: 25660, change: 0.08, note: '四大公股行庫小幅調升中長天期定存利率吸納資金', noteVi: 'Big 4 điều chỉnh nhẹ lãi suất huy động trung dài hạn hút tiền gửi' },
   { date: '2026-08-21', close: 25480, central: 24265, blackMarket: 25670, change: 0.04, note: '海關加強打擊非法轉口，防止美方對越啟動防規避調查', noteVi: 'Hải quan tăng cường chống chuyển tải bất hợp pháp sang thị trường Mỹ' },
-  { date: '2026-09-04', close: 25485, central: 24265, blackMarket: 25680, change: 0.02, note: '【最新報價】現匯報價 25,485，央行波幅區間守住，外匯儲備充實', noteVi: '【Báo giá mới nhất】USD/VND ở mức 25.485, trong biên độ cho phép của SBV' }
+  { date: '2026-09-04', close: 25485, central: 24265, blackMarket: 25680, change: 0.02, note: '現匯報價 25,485 頂部盤整，央行波幅區間守住', noteVi: 'USD/VND ở mức 25.485 neo vùng đỉnh' },
+  { date: '2026-09-18', close: 25180, central: 24220, blackMarket: 25350, change: -1.20, note: 'Fed 降息 50bps 啟動全球寬鬆，美元指數走軟，越盾應聲大幅反彈', noteVi: 'Fed giảm lãi suất 50 bps, chỉ số DXY hạ nhiệt, VND phục hồi mạnh' },
+  { date: '2026-10-09', close: 25060, central: 24205, blackMarket: 25180, change: -0.48, note: '統計總局發布 9 個月 GDP 達 6.82% (Q3 達 7.40%)，外貿順差破 215 億美元', noteVi: 'GSO công bố GDP 9 tháng tăng 6,82% (quý 3 tăng 7,40%), xuất siêu 21,5 tỷ USD' },
+  { date: '2026-10-20', close: 25020, central: 24195, blackMarket: 25120, change: -0.16, note: '【最新現匯報價】國會第八次會議審議 670 億美元高鐵與修法，匯率穩於 25,020', noteVi: '【Báo giá mới nhất】Quốc hội khai mạc kỳ họp thứ 8, tỷ giá USD/VND ổn định 25.020' }
 ];
 
 // ── 3B. 過去 5 年 TWD/VND (新台幣兌越盾) 每週匯率歷史數據集 (2021-2026) ──
@@ -380,7 +383,10 @@ export const fiveYearWeeklyTwdVndData = [
   { date: '2026-05-15', close: 790.4, inverse: 12.65, botRate: 782.8, change: 0.16, note: '十四大籌備文件頒布，行政審批鬆綁預期提升外資意願', noteVi: 'Cải cách thủ tục hành chính trước thềm Đại hội XIV củng cố niềm tin' },
   { date: '2026-07-24', close: 791.0, inverse: 12.64, botRate: 783.4, change: 0.08, note: '越南商業銀行定存利息小幅回升，台商閒置越盾定存收益增', noteVi: 'Lãi suất tiết kiệm nhích lên, lợi suất tiền gửi VND của doanh nghiệp tăng' },
   { date: '2026-08-21', close: 791.3, inverse: 12.64, botRate: 783.8, change: 0.04, note: '海關嚴防轉口洗產地，台商落實實質轉型 35% 門檻', noteVi: 'Tuân thủ tiêu chí chuyển đổi cơ bản RVC 35% để tránh rủi ro gian lận xuất xứ' },
-  { date: '2026-09-04', close: 791.5, inverse: 12.63, botRate: 784.0, change: 0.03, note: '【最新報價】1 台幣兌 791.5 越盾，1 萬越盾折合 12.63 新台幣', noteVi: '【Báo giá mới nhất】1 TWD đổi 791,5 VND; 10.000 VND tương đương 12,63 NT$' }
+  { date: '2026-09-04', close: 791.5, inverse: 12.63, botRate: 784.0, change: 0.03, note: '1 台幣兌 791.5 越盾，雙邊匯率相對均衡', noteVi: '1 TWD đổi 791,5 VND; biên độ ổn định' },
+  { date: '2026-09-18', close: 786.5, inverse: 12.71, botRate: 779.0, change: -0.63, note: 'Fed 降息後台越雙幣同步走強，電子伺服器與AI晶片出貨維持高峰', noteVi: 'Sau khi Fed giảm lãi suất, cả hai đồng tiền hồi phục, dòng vốn công nghệ sôi động' },
+  { date: '2026-10-09', close: 783.2, inverse: 12.77, botRate: 775.8, change: -0.42, note: '越南前 9 月總經數據出爐優於預期，台商資本到位擴大廠房建設', noteVi: 'Dữ liệu vĩ mô 9 tháng của VN tích cực, doanh nghiệp Đài Loan tiếp tục giải ngân' },
+  { date: '2026-10-20', close: 782.0, inverse: 12.78, botRate: 774.5, change: -0.15, note: '【最新報價】1 台幣兌 782.0 越盾，1 萬越盾折合 12.78 新台幣，比價中樞穩健', noteVi: '【Báo giá mới nhất】1 TWD đổi 782,0 VND; 10.000 VND tương đương 12,78 NT$' }
 ];
 
 // ── 3.1 越南國家銀行 (SBV) 政策利率與商業銀行存貸五年歷史時序 (5-Year Interest Rates Timeline) ──
@@ -404,7 +410,8 @@ export const fiveYearSbvPolicyRatesData = [
   { date: '2024-12-31', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.85, shortLoan: 7.00, note: '全越信貸增長達 15%，實體製造業借貸成本平均下調 1.8%', noteVi: 'Tăng trưởng tín dụng đạt 15%, lãi suất cho vay giảm trung bình 1,8%' },
   { date: '2025-06-30', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.80, shortLoan: 6.90, note: '五大優先產業短貸利率嚴格限制在 4.0% 上限以內', noteVi: 'Kiểm soát chặt trần 4.0% cho 5 lĩnh vực ưu tiên phát triển' },
   { date: '2026-03-31', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.80, shortLoan: 6.90, note: '越共十四大確立公建投資破局，各行庫優先放款南北高鐵基建', noteVi: 'Đại hội XIV ưu tiên vốn cho các siêu dự án hạ tầng trọng điểm' },
-  { date: '2026-09-04', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.85, shortLoan: 7.10, note: '【現行最新基準】再融資 4.50% · 再貼現 3.00% · Big 4 定存 4.70%~4.90%', noteVi: '【Hiện hành】Tái cấp vốn 4,50% · Tái chiết khấu 3,00% · Big 4 gửi 4,7%~4,9%' }
+  { date: '2026-09-25', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.80, shortLoan: 6.90, note: '美聯儲降息後外部壓力大幅緩解，SBV 維持基準利率 4.50% 並回補外匯儲備', noteVi: 'Áp lực ngoại tệ giảm sau khi Fed hạ lãi suất, SBV giữ nguyên 4,5% và mua vào USD' },
+  { date: '2026-10-20', refinancing: 4.50, rediscount: 3.00, big4Deposit12m: 4.80, shortLoan: 6.90, note: '【現行最新基準】再融資 4.50% · 再貼現 3.00% · Big 4 定存 4.70%~4.85% · 優先短貸 4.0%', noteVi: '【Hiện hành mới nhất】Tái cấp vốn 4,50% · Tái chiết khấu 3,00% · Big 4 gửi 4,7%~4,85%' }
 ];
 
 // ── 3.2 越南 5 年總體經濟與政經統計歷史時序 (5-Year Macro Economic Stats: GDP, CPI, Trade, FDI, VN-Index) ──
@@ -426,7 +433,8 @@ export const fiveYearMacroEconomicData = [
   { date: '2024-09-30', quarter: '2024-Q3', gdpGrowth: 7.40, cpi: 3.53, tradeSurplus: 20.8, fdiDisbursed: 17.3, vnIndex: 1288, note: '即便遭受 30 年最強摩羯颱風侵襲，製造業與外資投資展現驚人韌性', noteVi: 'Vượt qua bão Yagi, công nghiệp chế biến chế tạo tiếp tục là động lực chính' },
   { date: '2024-12-31', quarter: '2024-Q4', gdpGrowth: 7.09, cpi: 3.48, tradeSurplus: 26.85, fdiDisbursed: 23.8, vnIndex: 1272, note: '全年實質 GDP 成長達 6.82%，進出口突破 7,854 億美元，高居東協第一', noteVi: 'GDP cả năm 6,82%, kim ngạch XNK vượt 785 tỷ USD đứng đầu ASEAN' },
   { date: '2025-06-30', quarter: '2025-Q2', gdpGrowth: 6.85, cpi: 3.62, tradeSurplus: 14.2, fdiDisbursed: 11.5, vnIndex: 1295, note: '南北高鐵與全越 34 省行政整併藍圖確定，FDI 資本快速到位', noteVi: 'Khởi động đường sắt cao tốc Bắc - Nam, dòng vốn FDI tăng tốc' },
-  { date: '2026-09-04', quarter: '2026-Q3', gdpGrowth: 7.05, cpi: 3.50, tradeSurplus: 28.3, fdiDisbursed: 24.2, vnIndex: 1315, note: '【最新預估】越共十四大經改開局，GDP 預期 7.0%~7.2%，順差續破 280 億', noteVi: '【Dự báo mới nhất】Khai màn kinh tế Đại hội XIV, GDP duy trì 7,0%~7,2%' }
+  { date: '2026-09-30', quarter: '2026-Q3', gdpGrowth: 7.40, cpi: 3.88, tradeSurplus: 21.50, fdiDisbursed: 17.34, vnIndex: 1288, note: '【官方最新發布】第三季實質 GDP 飆升 7.40%，前 9 個月達 6.82%，外貿順差突破 215 億美元', noteVi: '【Công bố chính thức】GDP quý 3 bứt phá 7,40%, 9 tháng 6,82%, xuất siêu vượt 21,5 tỷ USD' },
+  { date: '2026-10-20', quarter: '2026-Q4展望', gdpGrowth: 7.20, cpi: 3.82, tradeSurplus: 27.50, fdiDisbursed: 24.50, vnIndex: 1305, note: '【第四季衝刺】國會第八次會議拍板 670 億美元高鐵與修法，總理要求全年 GDP 衝刺 7.0%~7.5%', noteVi: '【Kỳ vọng Q4】Quốc hội thông qua ĐS cao tốc 67 tỷ USD, mục tiêu cả năm GDP đạt 7,0%~7,5%' }
 ];
 
 // ── 4. 越南國家銀行 (SBV) 核心政策利率全景 (Central Bank Rates - Bilingual) ──
@@ -780,12 +788,12 @@ export const commercialBankRates = [
 // ── 6. 越南海關總局外貿與關稅數據庫 (Trade, Customs & Exports - Bilingual) ──
 export const tradeAndCustomsData = {
   summary: {
-    totalTurnover: '$785.4 B',
-    exportValue: '$406.1 B',
-    importValue: '$379.3 B',
-    surplus: '+$26.85 B',
-    yoyExportGrowth: '+14.5%',
-    yoyImportGrowth: '+13.8%'
+    totalTurnover: '$578.5 B (前9月) / 衝刺 $800B 全年',
+    exportValue: '$300.0 B (YoY +15.4%)',
+    importValue: '$278.5 B (YoY +17.3%)',
+    surplus: '+$21.50 B (歷年同期次高)',
+    yoyExportGrowth: '+15.4%',
+    yoyImportGrowth: '+17.3%'
   },
   topExportCommodities: [
     { rank: 1, name: '電腦、電子產品及零組件', nameVi: 'Máy vi tính, sản phẩm điện tử & linh kiện', code: '8471/8542', val: '$68.5 B', yoy: '+28.4%', share: '16.8%', destination: '美、中、歐盟', destinationVi: 'Hoa Kỳ, Trung Quốc, EU' },
@@ -857,6 +865,16 @@ export const tradeAndCustomsData = {
       balanceVi: '+$1,6 B (Đối tác thương mại cân bằng)',
       alert: '高精密機械與車用電子零組件',
       alertVi: 'Giao thương máy móc chính xác và linh kiện phụ tùng ôtô'
+    },
+    {
+      partner: '台灣 (Taiwan - 經貿夥伴)',
+      partnerVi: 'Đài Loan (Taiwan - Đối tác kinh tế quan trọng)',
+      export: '$6.5 B',
+      import: '$23.8 B',
+      balance: '-$17.3 B (半導體材料、電子零組件與精密機械進口重鎮)',
+      balanceVi: '-$17,3 B (Nhập siêu linh kiện điện tử bán dẫn & máy móc chính xác)',
+      alert: '台商在越設立伺服器與EMS產線，大量自台進口高階晶片模組',
+      alertVi: 'Nhập khẩu vi mạch và linh kiện giá trị cao từ Đài Loan phục vụ lắp ráp xuất khẩu đi Âu Mỹ'
     }
   ],
   customsRegulations2026: [
@@ -886,6 +904,15 @@ export const tradeAndCustomsData = {
       focusVi: 'Áp dụng thuế TNDN bổ sung tối thiểu nội địa (QDMTT) với tập đoàn đa quốc gia',
       impact: '三星、富士康、樂金等龍頭適用，越南政府提撥研發與高科技設備現金補貼以留住外資。',
       impactVi: 'Chính phủ ban hành cơ chế trợ cấp tiền mặt cho R&D và thiết bị công nghệ cao để giữ chân FDI.'
+    },
+    {
+      code: 'DPPA_DECREE_80',
+      title: '直接購售電機制第 80/2024/NĐ-CP 號議定正式運作',
+      titleVi: 'Nghị định 80/2024/NĐ-CP về cơ chế mua bán điện trực tiếp (DPPA)',
+      focus: '跨國製造業工廠直購風電、光電綠電，滿足 RE100 與國際品牌客戶綠色供應鏈需求',
+      focusVi: 'Cơ chế cho phép khách hàng lớn mua điện trực tiếp từ nhà máy năng lượng tái tạo',
+      impact: '半導體、AI 伺服器與 Apple 供應鏈工廠可繞過 EVN 壟斷，直簽私人綠電電廠，消除供電碳排疑慮。',
+      impactVi: 'Doanh nghiệp FDI công nghệ cao (Samsung, Foxconn...) đáp ứng cam kết Net Zero và yêu cầu RE100.'
     }
   ]
 };
@@ -1490,6 +1517,156 @@ export const deepAnalysisDossiers = [
       { term: 'Quỹ hỗ trợ đầu tư (Nghị định 182/2024/NĐ-CP)', hanViet: '基金補助投資', meaning: '越南國家投資支持基金 (提供最高50%研發與建廠補貼)' },
       { term: 'Báo cáo quyết toán hải quan', hanViet: '報告決算海關', meaning: '年度進出口保稅料件核銷決算報告' },
       { term: 'Chống lẩn tránh biện pháp phòng vệ thương mại', hanViet: '防隱避辦法防衛商賣', meaning: '打擊轉口洗產地防規避貿易救濟措施' }
+    ]
+  },
+  {
+    id: 'DOSSIER-2026-13',
+    issueNo: 'VN-MACRO-013',
+    date: '2026-10-18',
+    category: 'politics',
+    categoryLabel: '國會重大立法',
+    categoryLabelVi: 'Chính trị - Lập pháp',
+    readTime: '16 分鐘',
+    readTimeVi: '16 phút đọc',
+    title: '2026 年第 15 屆越南國會第八次會議（Kỳ họp thứ 8）重磅決策：670 億美元南北高鐵拍板、修訂版《公共投資法》地方鬆綁與綠電直接交易 (DPPA) 全面落地',
+    titleVi: 'Kỳ họp thứ 8 Quốc hội khóa XV: Thông qua chủ trương Đường sắt tốc độ cao 67 tỷ USD, sửa đổi Luật Đầu tư công và thể chế hóa cơ chế DPPA',
+    subtitle: '總書記蘇林確立「以體制突破引領發展新紀元」，破除「問-給（xin-cho）」行政官僚障礙，公建項目審批權限全面下放各省市人委會',
+    subtitleVi: 'Tổng Bí thư Tô Lâm khẳng định đổi mới tư duy lập pháp, tháo gỡ điểm nghẽn thể chế, xóa bỏ cơ chế xin - cho và phân cấp toàn diện cho địa phương',
+    author: '東協政經研究室 · 特約資深立法與政策分析師',
+    authorVi: 'Trung tâm Nghiên cứu Kinh tế ASEAN · Chuyên gia Phân tích Lập pháp & Thể chế',
+    tags: ['國會第八次會議', '南北高速鐵路', '修訂公共投資法', 'DPPA綠電直購', '蘇林體制改革'],
+    tagsVi: ['Kỳ họp thứ 8', 'Đường sắt tốc độ cao', 'Luật Đầu tư công', 'Cơ chế DPPA', 'Cải cách thể chế'],
+    kpis: [
+      { label: '南北高鐵投資總額', labelVi: 'Tổng mức đầu tư ĐSTĐC', val: '$67.34 B (350 km/h)', type: 'gold' },
+      { label: '公建審批下放比例', labelVi: 'Phân cấp phê duyệt ĐTC', val: '100% 各省市', type: 'green' },
+      { label: 'DPPA綠電直接交易覆蓋', labelVi: 'Phạm vi giao dịch DPPA', val: '全越跨國企業', type: 'blue' }
+    ],
+    summary: '2026 年 10 月召開的越南第 15 屆國會第八次會議（Kỳ họp thứ 8, Quốc hội khóa XV）成為越南邁入「民族崛起新紀元（Kỷ nguyên vươn mình của dân tộc）」的劃時代分水嶺。越共中央總書記蘇林在國會開幕式發表綱領性演講，明確要求國會必須徹底扭轉立法思維——從過去的「管不住就禁、繁瑣審批」轉為「以體制鬆綁為動力、釋放全社會生產力」，堅決廢除根深蒂固的「問-給（xin-cho）」官僚特權機制。本次大會審議並拍板多項攸關國家命脈的超大型議案：包括總預算達 673.4 億美元的南北 350 km/h 高速鐵路投資主張、一攬子修訂《公共投資法》《規劃法》《電網法》等核心經濟法律，將 ODA 與公共建設專案立項審批權直接下放省級人民委員會，並在法律層面正式確立「直接購售電機制（DPPA - 第 80 號議定）」，為外資半導體與高科技工廠取得充足綠電打下百年法律基石。',
+    summaryVi: 'Kỳ họp thứ 8 Quốc hội khóa XV diễn ra vào tháng 10/2026 là dấu mốc lịch sử mở ra "Kỷ nguyên vươn mình của dân tộc". Tổng Bí thư Tô Lâm nhấn mạnh thông điệp đổi mới căn bản tư duy lập pháp: Chuyển mạnh từ tư duy quản lý sang khơi thông nguồn lực, dứt khoát từ bỏ tư duy "không quản được thì cấm", xóa bỏ triệt để cơ chế "xin - cho". Quốc hội xem xét thông qua chủ trương đầu tư dự án Đường sắt tốc độ cao Bắc - Nam 67,34 tỷ USD (tốc độ 350 km/h); đồng thời thông qua dự án 1 luật sửa nhiều luật (Luật Đầu tư công, Luật Điện lực...), đẩy mạnh phân cấp phân quyền triệt để cho chính quyền địa phương và thể chế hóa cơ chế mua bán điện trực tiếp (DPPA Nghị định 80/2024/NĐ-CP) bảo đảm an ninh năng lượng xanh cho chuỗi cung ứng công nghệ cao.',
+    sections: [
+      {
+        heading: '一、蘇林總書記立法新思維：從「管不住就禁」轉向「全面賦能突破」',
+        headingVi: '1. Đổi mới tư duy lập pháp: Từ tư duy quản lý sang khơi thông nguồn lực phát triển',
+        content: '在國會第八次會議開幕致詞中，總書記蘇林直言不諱地指出：「法律必須是發展的助推器，而不能成為生產力的枷鎖。凡是實踐證明行之有效的，就堅決推進；凡是不合時宜、窒息活力的陳舊法規，必須立即修訂或廢止」。\n\n新政的核心是全面破除「問-給（xin-cho）」的尋租溫床，推行「一法修多法（một luật sửa nhiều luật）」之極速修法模式。中央各部會不再壟斷微觀審批權，而是專注於宏觀標準制定與事後穿透式稽查。此一頂層思想轉變，徹底解除了此前各省級官員因擔心法規衝突而「怠政不敢簽字」的心理負擔，為下半年全越數千個公建與外資專案按下重啟快轉鍵。',
+        contentVi: 'Tổng Bí thư Tô Lâm khẳng định thể chế là "điểm nghẽn của điểm nghẽn" nhưng cũng là động lực đột phá lớn nhất. Tư duy lập pháp mới chuyển trọng tâm từ quản lý hành chính sang kiến tạo phát triển, dứt khoát phân cấp mạnh mẽ cho địa phương theo phương châm: "Địa phương quyết, địa phương làm, địa phương chịu trách nhiệm".'
+      },
+      {
+        heading: '二、673.4 億美元南北高速鐵路拍板：國土空間重組與台廠設備供應鏈商機',
+        headingVi: '2. Đại dự án Đường sắt tốc độ cao 67,34 tỷ USD: Định hình lại không gian kinh tế',
+        content: '國會本次會議審議的重頭戲是全長 1,541 公里的南北高速鐵路專案。設計時速高達 350 km/h，全線設 23 座客運站與 5 座貨運樞紐，起點為河內玉洄站（Ngọc Hồi），終點為胡志明市守添站（Thủ Thiêm）。\n\n政府定調：本專案以越南公共財政為骨幹，不依賴附帶苛刻條件之外國主權借貸，並預計於 2027 年前正式動工，2035 年全線貫通。高鐵落成後將河內至胡志明市陸路通勤時間由 30 小時壓縮至 5.5 小時以內。台廠在軌道信號、特殊鋼軌、智慧機電、月台屏蔽門及 TOD 站體智慧聯網系統累積了成熟經驗，將迎來千億級配套訂單商機。',
+        contentVi: 'Chính phủ trình Quốc hội chủ trương đầu tư tuyến đường sắt tốc độ cao 350 km/h với tổng mức đầu tư khoảng 67,34 tỷ USD. Dự án sử dụng nguồn vốn đầu tư công độc lập tự chủ, dự kiến khởi công trước năm 2027 và hoàn thành vào năm 2035, mở ra không gian phát triển kinh tế mới dọc trục Bắc - Nam.'
+      },
+      {
+        heading: '三、《公共投資法》與《電網法》重大修訂：消除怠政癱瘓與解鎖 DPPA 綠電交易',
+        headingVi: '3. Đột phá sửa đổi Luật Đầu tư công và thể chế hóa cơ chế DPPA năng lượng tái tạo',
+        content: '國會審議修訂《公共投資法》，創立兩大歷史性突破：\n1. 分權化：省人民委員會主席有權直接決定 B 類與 C 類公共投資專案，不需層層上報中央各部會請示；\n2. 拆分徵地拆遷（GPMB）為獨立專案：將土地徵收補償作業與工程建設本體脫鉤，大幅縮短施工前置作業 1~2 年。\n與此同時，修訂版《電力法》將政府第 80 號 DPPA 議定正式上升為國家法律，確立大電力用戶（月用電量逾 20 萬 kWh 之製造商）可透過國家電網或專用線路，與風電、光電發電廠直接簽訂購電合約（PPA）。此舉一舉消除了 Apple、台積電相關供應鏈、鴻海、廣達等跨國企業對「越北綠電荒」與「RE100 碳中和承諾」的後顧之憂。',
+        contentVi: 'Quốc hội sửa đổi Luật Đầu tư công nhằm gỡ nút thắt giải ngân vốn ngân sách, cho phép tách công tác bồi thường giải phóng mặt bằng thành dự án độc lập. Đồng thời, sửa đổi Luật Điện lực luật hóa cơ chế DPPA (Nghị định 80/2024/NĐ-CP), bảo đảm nguồn năng lượng xanh ổn định cho các nhà máy công nghệ cao.'
+      }
+    ],
+    terms: [
+      { term: 'Đường sắt tốc độ cao (ĐSTĐC)', hanViet: '鐵路速度高', meaning: '南北時速350公里高速鐵路世紀大專案' },
+      { term: 'Cơ chế xin - cho', hanViet: '機制請 - 給', meaning: '行政審批問給制 (蘇林總書記要求堅決剷除的官僚障礙)' },
+      { term: 'Cơ chế mua bán điện trực tiếp (DPPA)', hanViet: '機制買賣電直接', meaning: '直接購售電機制 (大製造商跳過EVN直接採購綠電)' }
+    ]
+  },
+  {
+    id: 'DOSSIER-2026-14',
+    issueNo: 'VN-MACRO-014',
+    date: '2026-10-12',
+    category: 'regulations',
+    categoryLabel: '全球最低稅負',
+    categoryLabelVi: 'Thuế tối thiểu toàn cầu',
+    readTime: '15 分鐘',
+    readTimeVi: '15 phút đọc',
+    title: '全球最低稅負制《投資支持基金》（Quỹ Hỗ trợ Đầu tư）正式落地實施指南：高科技製造商 15% 補稅之資本支出補貼與研發返還解套實務',
+    titleVi: 'Triển khai Nghị định Quỹ Hỗ trợ Đầu tư: Giải pháp bù đắp chi phí vốn (CAPEX) và R&D cho doanh nghiệp FDI chịu Thuế tối thiểu toàn cầu (Pillar Two)',
+    subtitle: '政府設立專項基金，針對半導體、AI、先進電子等合格巨額投資，依資本投入、綠色低碳設施與本地人才培訓提供直接現金補助',
+    subtitleVi: 'Hỗ trợ tài chính trực tiếp chi phí đầu tư cơ sở hạ tầng, nghiên cứu phát triển và đào tạo nhân lực chất lượng cao cho các tập đoàn công nghệ lớn',
+    author: '跨國外資稅務法規研析組 · 國際租稅主任會計師',
+    authorVi: 'Nhóm Nghiên cứu Thuế Quốc tế · Chuyên gia Kiểm toán Độc lập',
+    tags: ['投資支持基金', '全球最低稅負', 'PillarTwo', 'QDMTT補稅', '高科技CAPEX補助'],
+    tagsVi: ['Quỹ hỗ trợ đầu tư', 'Thuế tối thiểu toàn cầu', 'Pillar Two', 'Bù đắp QDMTT', 'Trợ cấp CAPEX bán dẫn'],
+    kpis: [
+      { label: '基金首期政府預算撥款', labelVi: 'Quy mô phân bổ ban đầu', val: '> 15 兆越盾', type: 'green' },
+      { label: '研發與固定資產補貼上限', labelVi: 'Mức tài trợ R&D & CAPEX', val: '最高 50%', type: 'gold' },
+      { label: '合格大型企業門檻', labelVi: 'Tiêu chí dự án đạt chuẩn', val: '資本 12 兆₫ 或 營收 20 兆₫', type: 'blue' }
+    ],
+    summary: '隨著 OECD 全球最低稅負制（Pillar Two，15% QDMTT）於 2024 年正式起徵，跨國科技巨頭原先享有的「四免九減半（4 năm miễn 9 năm giảm 50%）」超低所得稅優惠實質失效，需在越南或母國補足 15% 稅率差額。為防範外資出走並強化高科技戰略吸引力，越南政府正式公佈落實《投資支持基金》（Quỹ Hỗ trợ Đầu tư）施行細則議定。該基金直接由徵收之 Pillar Two 補充稅款注入，專項用於合資格大型外資專案（特別是半導體封裝製造、AI 伺服器、生技與先端電子產業）。補貼項目涵蓋：固定資產購置最高 50% 現金回饋、高科技研發（R&D）費用報銷、綠能減碳設施改造補助以及本國高素質工程師培訓補助。此一制度創新使得鴻海、廣達、和碩、三星、Intel 等巨擘的綜合淨回報率維持在東協最優競爭水平，開創了「左手徵稅、右手補貼固定投資」的現代產業政策範例。',
+    summaryVi: 'Khi Thuế tối thiểu toàn cầu (Pillar Two 15%) đi vào thực thi, làm xói mòn các ưu đãi thuế thu nhập doanh nghiệp truyền thống, Chính phủ Việt Nam đã chính thức ban hành cơ chế thành lập Quỹ Hỗ trợ Đầu tư nhằm giữ chân và thu hút các đại bàng công nghệ. Quỹ sử dụng nguồn thu bổ sung từ thuế tối thiểu toàn cầu để tài trợ trực tiếp bằng tiền mặt cho các dự án đạt chuẩn (vốn đầu tư từ 12.000 tỷ VND hoặc doanh thu từ 20.000 tỷ VND trong lĩnh vực bán dẫn, vi mạch điện tử, AI). Các khoản chi được bù đắp bao gồm: Tới 50% chi phí xây dựng phòng lab R&D và thiết bị công nghệ cao, tài trợ chi phí xanh hóa nhà máy và trợ cấp đào tạo kỹ sư công nghệ. Đây là chiếc phao cứu sinh bảo đảm lợi thế cạnh tranh của Việt Nam so với các đối thủ trong khu vực.',
+    sections: [
+      {
+        heading: '一、從租稅假期到資本補貼：越南因應全球最低稅負制的制度革命',
+        headingVi: '1. Chuyển dịch từ miễn giảm thuế sang hỗ trợ chi phí đầu tư thực chất',
+        content: '全球最低稅負制規定：任何母公司合併營收超過 7.5 億歐元的跨國集團，在各國的實際有效稅率（ETR）若低於 15%，其母國有權徵收「補徵稅（IIR）」。這意味著越南若維持 5%~10% 的優惠稅率，外商省下的稅款將直接被歐美或母國政府收走。\n\n越南採取的戰略是：首先通過國會決議自 2024 年起徵收「合格境內最低補徵稅（QDMTT）」，將稅款留在越南國庫；緊接著透過設立《投資支持基金》，將徵收得來的千億越盾稅收，精準反饋給有實質研發、建廠投入的大型外商。這種符合 OECD 規則的「非所得稅直接補助」，成功化解了外資對稅負激增的抗拒。',
+        contentVi: 'Cơ chế Thuế tối thiểu toàn cầu làm mất tác dụng của các ưu đãi thuế truyền thống. Việt Nam chủ động áp dụng QDMTT để giữ quyền đánh thuế trong nước, đồng thời thành lập Quỹ Hỗ trợ Đầu tư để hoàn trả hỗ trợ bằng tiền mặt theo chi phí thực tế phù hợp với các chuẩn mực của OECD.'
+      },
+      {
+        heading: '二、《投資支持基金》三大合格門檻與四大直接補助範疇詳解',
+        headingVi: '2. 3 tiêu chuẩn tiếp cận và 4 nhóm chi phí được Quỹ hỗ trợ tài chính',
+        content: '依據最新議定，申請《投資支持基金》補貼之企業需符合下列資格之一：\n1. 高科技半導體晶片製造與封測專案：投資規模達 12 兆越盾（約 4.8 億美元）以上，或年營業額達 20 兆越盾以上；\n2. 設立獨立高科技 R&D 研發中心：研發資本達 3 兆越盾以上，並承諾聘用至少 100 名越南籍工程師；\n3. 綠色低碳製造先鋒企業：取得國際 Net-Zero 認證且年產值具重大貢獻者。\n\n基金提供四大現金補貼管道：\n• 固定資產投資支出補貼：建置無塵室、引進 SMT 先進機台，最高可報銷 50% 購置發票金額；\n• R&D 費用與專利權補貼：每年最高補助 5,000 億越盾；\n• 本地工程師技能提升補貼：委託大學或海外培訓，每人最高補助 5,000 萬越盾；\n• 綠色能源設施（儲能 BESS、屋頂光電）補貼最高 30%。',
+        contentVi: 'Quỹ hỗ trợ tập trung vào 4 nhóm: Chi phí đầu tư cơ sở hạ tầng và thiết bị công nghệ cao (lên tới 50%); chi phí nghiên cứu và phát triển R&D; chi phí đào tạo nâng cao trình độ nhân lực bán dẫn; và chi phí đầu tư các công trình bảo vệ môi trường, giảm phát thải carbon.'
+      },
+      {
+        heading: '三、台資跨國代工集團（Foxconn、Pegatron、Quanta、Compal）的申報與實務防坑策略',
+        headingVi: '3. Khuyến nghị chiến lược tuân thủ cho các tập đoàn EMS hàng đầu Đài Loan',
+        content: '台系代工巨頭如鴻海（北江/廣寧）、廣達（南定）、和碩（海防）、仁寶（永福/太原）、緯創（河南）均屬於年營收遠超 7.5 億歐元的 Pillar Two 納稅義務人。台商在申報時應把握三項關鍵操作：\n1. 會計科目分立：將純代工製造流水線與在越設立之「工程研發部（NPI / Testing Lab）」在財務帳冊上精準分離，確保研發支出發票單據符合財政部 Audit 規範；\n2. 及時申報窗口：各年度 Pillar Two 申報截止日前，向計畫投資部（MPI）基金管理委員會遞交補助申請書；\n3. 善用台商商會（CTCVN）統籌協商：透過台商總會與越南政府總理諮詢對話會（VBF），集體反映外商在補貼審批時效與外匯匯出上的政策訴求。',
+        contentVi: 'Các tập đoàn EMS Đài Loan cần chuẩn hóa hồ sơ kế toán chi phí R&D và CAPEX riêng biệt để đáp ứng chuẩn kiểm toán độc lập; nộp hồ sơ xin hỗ trợ đúng niên độ và phối hợp chặt chẽ với Hiệp hội Thương gia Đài Loan (CTCVN) nhằm tối ưu hóa quyền lợi pháp lý.'
+      }
+    ],
+    terms: [
+      { term: 'Quỹ Hỗ trợ Đầu tư', hanViet: '基金補助投資', meaning: '國家投資支持基金 (政府直接提供現金補貼對沖最低稅負)' },
+      { term: 'Thuế tối thiểu toàn cầu (Pillar Two)', hanViet: '稅最低全球', meaning: 'OECD 全球最低稅負制 (門檻年營收 7.5 億歐元，稅率 15%)' },
+      { term: 'Chi phí đầu tư cơ bản (CAPEX)', hanViet: '費披投資基本', meaning: '廠房無塵室與高科技精密機台固定資產資本支出' }
+    ]
+  },
+  {
+    id: 'DOSSIER-2026-15',
+    issueNo: 'VN-MACRO-015',
+    date: '2026-10-09',
+    category: 'finance',
+    categoryLabel: '總經季度復盤',
+    categoryLabelVi: 'Kinh tế Vĩ mô Q3',
+    readTime: '14 分鐘',
+    readTimeVi: '14 phút đọc',
+    title: '2026 第三季總經數據深度復盤與第四季展望：前三季 GDP 成長 6.82%、雙邊外貿衝刺 8,000 億美元與央行外匯儲備回補週期',
+    titleVi: 'Báo cáo Vĩ mô Quý III/2026: Tăng trưởng GDP 9 tháng đạt 6,82%, xuất nhập khẩu hướng tới mốc 800 tỷ USD và chu kỳ phục hồi dự trữ ngoại hối',
+    subtitle: '加工製造業年增 9.8% 成為增長主引擎，美聯儲降息開啟全球資金寬鬆，越盾貶值壓力出清，全年中樞維持在 7.0% 增長大關',
+    subtitleVi: 'Công nghiệp chế biến chế tạo bứt phá +9,8%, Fed hạ lãi suất giảm sức ép tỷ giá USD/VND, giải phóng dư địa tín dụng phục vụ sản xuất',
+    author: '越南國家宏觀經濟監測智庫 · 首席宏觀經濟學家',
+    authorVi: 'Viện Nghiên cứu Quản lý Kinh tế Trung ương (CIEM) · Chuyên gia Kinh tế trưởng',
+    tags: ['2026第三季總經', '前三季GDP6.82', '外貿順差破215億', '外匯儲備回補', '美聯儲降息效應'],
+    tagsVi: ['Vĩ mô Quý 3/2026', 'GDP 9 tháng 6,82%', 'Xuất siêu 21,5 tỷ USD', 'Dự trữ ngoại hối', 'Tác động cắt giảm lãi suất Fed'],
+    kpis: [
+      { label: '前三季實質GDP累計成長', labelVi: 'Tăng trưởng GDP 9T/2026', val: '+6.82% (Q3 7.40%)', type: 'green' },
+      { label: '前三季累計貨物貿易順差', labelVi: 'Cán cân xuất siêu 9 tháng', val: '+$21.50 B', type: 'gold' },
+      { label: '前三季外資FDI實際到位', labelVi: 'Vốn FDI thực hiện 9 tháng', val: '$17.34 B (+8.9%)', type: 'blue' }
+    ],
+    summary: '根據越南統計總局（GSO）最新發布的 2026 年前三季社會經濟情勢報告，越南經濟在多重外部挑戰與強颱衝擊下，展現出遠超市場預期的超凡韌性。2026 年前 9 個月實質 GDP 年增 6.82%，其中第三季單季更飆升至 7.40%，核心引擎來自工業與建築業（年增 8.34%，特別是加工製造業大漲 9.88%）以及服務業（年增 7.51%）。外貿進出口總額前 9 個月衝破 5,785 億美元，累計順差達 215 億美元；對美順差突破 880 億美元，穩居全球第二大對美順差經濟體。更為關鍵的是，美聯儲（Fed）於 9 月份啟動 50 個基點的大幅降息，使美越利差倒掛壓力驟減，USD/VND 現匯由 25,485 頂部顯著回落至 25,020 水平。越南央行（SBV）抓住窗口期啟動外匯儲備回補，外匯存底重返 950 億美元安全線以上。政府與國會將全年 GDP 目標由 6.5% 上修至 7.0%~7.5%，為越共十四大開局鋪平繁榮道路。',
+    summaryVi: 'Theo công bố chính thức từ Tổng cục Thống kê (GSO), kinh tế Việt Nam 9 tháng đầu năm 2026 duy trì đà phục hồi ngoạn mục với GDP tăng 6,82%, riêng quý 3 đạt mức tăng trưởng ấn tượng 7,40%. Động lực chính đến từ ngành công nghiệp chế biến, chế tạo (+9,88%) và khu vực dịch vụ tiêu dùng nội địa (+7,51%). Tổng kim ngạch xuất nhập khẩu đạt 578,5 tỷ USD với mức xuất siêu 21,5 tỷ USD, tạo nguồn cung ngoại tệ dồi dào. Đặc biệt, việc Cục Dự trữ Liên bang Mỹ (Fed) cắt giảm 50 điểm cơ bản lãi suất đã tháo gỡ nút thắt tỷ giá, giúp Ngân hàng Nhà nước mua vào USD gia tăng dự trữ ngoại hối lên trên 95 tỷ USD mà vẫn duy trì lãi suất tái cấp vốn 4,5% để hỗ trợ doanh nghiệp.',
+    sections: [
+      {
+        heading: '一、前三季各板塊實力復盤：製造業雙位數飆升與服務消費雙輪驅動',
+        headingVi: '1. Phục hồi ngoạn mục: Công nghiệp chế biến chế tạo dẫn dắt tăng trưởng GDP',
+        content: '2026 年前三季經濟數據充分展現了實體製造業的強勁推動力。儘管 9 月遭遇超強颱風摩羯（Yagi）短暫擾動，但越南各工業重鎮在 72 小時內迅速恢復供電通訊並全產能復工。\n• 工業生產指數（IIP）：累計增長 8.6%，其中高科技電腦與光學產品增長 28.5%，成為外貿創匯最大亮點；\n• 內需消費：社會消費品零售總額與消費服務營收年增 8.8%，國際觀光客突破 1,270 萬人次，超越疫情前水準；\n• 通膨控制：前 9 個月平均 CPI 上漲 3.88%，核心通膨 2.69%，完美處於國會 4.0%~4.5% 法定安全線之內。',
+        contentVi: 'Công nghiệp chế biến chế tạo tiếp tục là điểm sáng nhất với mức tăng trưởng 9,88%, đóng góp chính vào mức tăng GDP 6,82% của 9 tháng. Thị trường nội địa phục hồi mạnh mẽ, CPI bình quân được kiểm soát ở mức 3,88% nằm trong giới hạn an toàn.'
+      },
+      {
+        heading: '二、匯率外部阻力出清：Fed 降息 50bps 觸發越盾升值與外儲重築',
+        headingVi: '2. Giải tỏa áp lực ngoại hối: Fed hạ lãi suất và chu kỳ tích lũy dự trữ ngoại hối',
+        content: '此前困擾越南金融體系長達一年半的「美越利差倒掛」與「強勢美元外流」兩大魔咒，隨著 Fed 於 9 月正式降息 50bps 而徹底改寫：\n1. 匯率回落：USD/VND 現匯自 25,485 歷史高點急速回跌至 25,020，黑市炒匯溢價徹底收斂；\n2. 央行購匯：越南國家銀行不再需要靠拋售外匯與抽資票據（T-Bills）防守匯率，轉向在現匯市場逢低買入美元，迅速將外匯儲備補充至 950 億美元以上；\n3. 貨幣自主空間釋放：SBV 有了充足底氣維持基準再融資率 4.5% 寬鬆水平，並督促各商業銀行全面降低一般製造業放款利率至 6.5%~7.5%。',
+        contentVi: 'Việc Fed nới lỏng tiền tệ đã đảo chiều áp lực tỷ giá. Tỷ giá USD/VND hạ nhiệt xuống quanh 25.020, tạo điều kiện cho Ngân hàng Nhà nước mua ngoại tệ tăng đệm dự trữ ngoại hối quốc gia, giữ vững mặt bằng lãi suất cho vay thấp hỗ trợ doanh nghiệp.'
+      },
+      {
+        heading: '三、第四季展望：8,000 億外貿新天花板、公建衝刺與通膨防護網',
+        headingVi: '3. Triển vọng quý IV: Chinh phục kỷ lục 800 tỷ USD và mục tiêu tăng trưởng 7%+',
+        content: '進入第四季傳統歐美感恩節與聖誕出貨超級旺季，越南經濟將迎來三大爆發催化劑：\n• 外貿新紀錄：進出口總額預計突破 8,000 億美元歷史大關，全年累計順差預估落在 270~285 億美元區間；\n• 公共投資大趕工：總理范明正啟動「500 天衝刺消除危舊房與貫通南北高速公路」運動，前三季撥款達 47%，第四季將迎來超 300 兆越盾預算集中核銷；\n• 綜合研判：越南 2026 全年實質 GDP 成長率極大機率落在 7.0%~7.4% 高位區間，再次登頂亞洲主要經濟體增速榜首。',
+        contentVi: 'Quý 4 là cao điểm xuất khẩu phục vụ mùa mua sắm cuối năm, kim ngạch XNK cả năm kỳ vọng vượt mốc 800 tỷ USD. Cùng với việc thúc đẩy giải ngân vốn đầu tư công, tăng trưởng GDP cả năm 2026 hoàn toàn có thể cán đích 7,0% - 7,4%, tạo đà thắng lợi trước thềm Đại hội XIV.'
+      }
+    ],
+    terms: [
+      { term: 'Tổng sản phẩm trong nước (GDP)', hanViet: '總產品在國', meaning: '國內生產毛額 (GDP)' },
+      { term: 'Ngành chế biến, chế tạo', hanViet: '行業製變、製造', meaning: '加工製造業 (越南出口創匯第一大主力)' },
+      { term: 'Dự trữ ngoại hối phục hồi', hanViet: '預儲外匯復回', meaning: '外匯存底回補充實' }
     ]
   }
 ];
@@ -2570,7 +2747,7 @@ export const northVietnamDevelopmentData = {
 
 // ── 8. 越南總體政經必備漢越詞彙對照庫 (Bilingual Lexicon) ──
 export const macroVocabularyGlossary = [
-  { viet: 'Tỷ giá hối đoái', hanViet: '比價匯兌', meaning: '匯率、外匯兌換率', sample: 'Tỷ giá hối đoái USD/VND đang dao động ổn định quanh mức 25,480.' },
+  { viet: 'Tỷ giá hối đoái', hanViet: '比價匯兌', meaning: '匯率、外匯兌換率', sample: 'Tỷ giá hối đoái USD/VND đang dao động ổn định quanh mức 25,020.' },
   { viet: 'Ngân hàng Nhà nước (SBV)', hanViet: '銀行國家', meaning: '越南國家銀行 (中央銀行)', sample: 'Ngân hàng Nhà nước điều hành chính sách tiền tệ linh hoạt để kiểm soát lạm phát.' },
   { viet: 'Lãi suất tái cấp vốn', hanViet: '利率再給資本', meaning: '基準再融資利率', sample: 'Lãi suất tái cấp vốn hiện tại duy trì ở mức 4.5%/năm.' },
   { viet: 'Xuất siêu / Nhập siêu', hanViet: '出超 / 入超', meaning: '貿易順差 / 貿易逆差', sample: 'Việt Nam tiếp tục duy trì xuất siêu kỷ lục sang thị trường Hoa Kỳ.' },
@@ -2578,10 +2755,20 @@ export const macroVocabularyGlossary = [
   { viet: 'Dự trữ ngoại hối', hanViet: '預儲外匯', meaning: '外匯存底、外匯儲備', sample: 'Dự trữ ngoại hối của Việt Nam đã phục hồi lên mức an toàn trên 95 tỷ USD.' },
   { viet: 'Chỉ số giá tiêu dùng (CPI)', hanViet: '指示價消費', meaning: '消費者物價指數 (CPI)', sample: 'Lạm phát CPI được kiểm soát tốt dưới mục tiêu 4.0% của Quốc hội.' },
   { viet: 'Đầu tư trực tiếp nước ngoài (FDI)', hanViet: '投資直接外國', meaning: '外人直接投資 (FDI)', sample: 'Dòng vốn FDI giải ngân vào ngành công nghiệp bán dẫn tăng trưởng mạnh.' },
-  { viet: 'Biên độ dao động', hanViet: '邊度搖動', meaning: '波動幅度區間 (目前匯率為 ±5%)', sample: 'Biên độ dao động tỷ giá của đồng Việt Nam được nới lộng lên ±5% từ năm 2022.' },
+  { viet: 'Biên độ dao động', hanViet: '邊度搖動', meaning: '波動幅度區間 (目前匯率為 ±5%)', sample: 'Biên độ dao động tỷ giá của đồng Việt Nam được nới rộng lên ±5% từ năm 2022.' },
   { viet: 'Trái phiếu chính phủ', hanViet: '債券政府', meaning: '公債、政府國庫券', sample: 'Chính phủ phát hành trái phiếu để huy động vốn cho tuyến đường sắt cao tốc Bắc - Nam.' },
   { viet: 'Nợ xấu (NPL)', hanViet: '負壞', meaning: '不良貸款、壞帳', sample: 'Tỷ lệ nợ xấu của toàn hệ thống ngân hàng được kiểm soát dưới mức 2%.' },
-  { viet: 'Giấy chứng nhận xuất xứ (C/O)', hanViet: '紙證明出身', meaning: '原產地證明書 (C/O)', sample: 'Doanh nghiệp xuất khẩu phải xuất trình chứng nhận C/O hợp lệ để hưởng thuế suất ưu đãi.' }
+  { viet: 'Giấy chứng nhận xuất xứ (C/O)', hanViet: '紙證明出身', meaning: '原產地證明書 (C/O)', sample: 'Doanh nghiệp xuất khẩu phải xuất trình chứng nhận C/O hợp lệ để hưởng thuế suất ưu đãi.' },
+  { viet: 'Đường sắt tốc độ cao', hanViet: '鐵路速度高', meaning: '高速鐵路 (南北時速 350 km/h 世紀基建)', sample: 'Quốc hội đã thông qua chủ trương đầu tư dự án đường sắt tốc độ cao 67 tỷ USD.' },
+  { viet: 'Cơ chế mua bán điện trực tiếp (DPPA)', hanViet: '機制買賣電直接', meaning: '直接購售電機制 (大製造商直購綠電)', sample: 'Nghị định 80 về DPPA giúp doanh nghiệp công nghệ mua trực tiếp năng lượng tái tạo.' },
+  { viet: 'Quỹ Hỗ trợ Đầu tư', hanViet: '基金補助投資', meaning: '國家投資支持基金 (對沖最低稅負)', sample: 'Chính phủ triển khai Quỹ Hỗ trợ Đầu tư để tài trợ chi phí CAPEX và R&D cho FDI.' },
+  { viet: 'Thuế tối thiểu toàn cầu (Pillar Two)', hanViet: '稅最低全球', meaning: '全球最低稅負制 (15% 補稅)', sample: 'Doanh nghiệp có doanh thu hợp nhất trên 750 triệu EUR phải áp dụng thuế tối thiểu 15%.' },
+  { viet: 'Quy hoạch điện VIII (PDP8)', hanViet: '規畫電八', meaning: '第八版電力發展規劃', sample: 'Quy hoạch điện VIII ưu tiên phát triển điện gió ngoài khơi và năng lượng sạch.' },
+  { viet: 'Kiểm tra sau thông quan', hanViet: '檢查後通關', meaning: '通關後稽查 (海關追查原產地與料件核銷)', sample: 'Hải quan đẩy mạnh kiểm tra sau thông quan đối với các lô hàng xuất khẩu sang Mỹ.' },
+  { viet: 'Chống chuyển giá (Transfer Pricing)', hanViet: '防轉價', meaning: '反移轉訂價 (關聯交易審計)', sample: 'Doanh nghiệp có giao dịch liên kết cần lập hồ sơ xác định giá thị trường chặt chẽ.' },
+  { viet: 'Chống lẩn tránh phòng vệ thương mại', hanViet: '防隱避防衛商賣', meaning: '防規避貿易救濟措施 (打擊洗產地)', sample: 'Bộ Công Thương ban hành hướng dẫn nhằm chống lẩn tránh biện pháp phòng vệ thương mại.' },
+  { viet: 'Hệ sinh thái bán dẫn', hanViet: '係生態半導', meaning: '半導體產業生態鏈', sample: 'Việt Nam đang nỗ lực xây dựng hệ sinh thái bán dẫn hoàn chỉnh từ thiết kế đến đóng gói.' },
+  { viet: 'Cơ chế thử nghiệm có kiểm soát (Sandbox)', hanViet: '機制試驗有檢索', meaning: '金融監理沙盒', sample: 'Cơ chế Sandbox tại Thủ Thiêm cho phép thử nghiệm các dịch vụ tài chính công nghệ mới.' }
 ];
 
 // ── 9. 權威參考來源與官方即時連結專區 (Official Reference Sources Directory) ──

@@ -2236,6 +2236,66 @@ const SUPPLEMENTARY_SYLLABUS = [
     }
   },
   {
+    "id": "macro_dossier-2026-13",
+    "moduleId": "macropol",
+    "category": "macropol",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "國會第八次會議重磅決策：670億美元南北高鐵、公共投資法修訂與DPPA綠電落地",
+    "titleVi": "Kỳ họp thứ 8 Quốc hội khóa XV: Thông qua chủ trương Đường sắt tốc độ cao 67 tỷ USD, sửa đổi Luật Đầu tư công và thể chế hóa cơ chế DPPA",
+    "titleEn": "National Assembly Session 8: North-South High Speed Rail, Public Investment Law & DPPA",
+    "descZh": "深度剖析越共蘇林總書記新政、行政體制突破、審批權限下放與百年高鐵投資全案。",
+    "descVi": "Đột phá thể chế, xóa bỏ cơ chế xin - cho, phân cấp toàn diện và siêu dự án hạ tầng thế kỷ.",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "C1+",
+    "readTime": "16 分鐘",
+    "targetParam": {
+      "section": "dossiers",
+      "dossierId": "DOSSIER-2026-13"
+    }
+  },
+  {
+    "id": "macro_dossier-2026-14",
+    "moduleId": "macropol",
+    "category": "macropol",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "全球最低稅負《投資支持基金》實施指南：15%補稅CAPEX補助與研發返還",
+    "titleVi": "Triển khai Nghị định Quỹ Hỗ trợ Đầu tư: Giải pháp bù đắp chi phí vốn (CAPEX) và R&D cho doanh nghiệp FDI",
+    "titleEn": "Investment Support Fund Decree: Offsetting Global Minimum Tax with CAPEX and R&D Subsidies",
+    "descZh": "剖析第 182/2024 號議定專項基金、合格大型外資條件、高科技固定資產補助與台商應對。",
+    "descVi": "Cơ chế tài trợ tiền mặt bù đắp thuế tối thiểu toàn cầu cho bán dẫn, AI và công nghệ cao.",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "C1+",
+    "readTime": "15 分鐘",
+    "targetParam": {
+      "section": "dossiers",
+      "dossierId": "DOSSIER-2026-14"
+    }
+  },
+  {
+    "id": "macro_dossier-2026-15",
+    "moduleId": "macropol",
+    "category": "macropol",
+    "categoryLabelZh": "課綱延伸",
+    "categoryLabelVi": "Bài học",
+    "titleZh": "2026 第三季總經數據深度復盤：前三季GDP 6.82%、外貿順差215億與外匯儲備回補",
+    "titleVi": "Báo cáo Vĩ mô Quý III/2026: Tăng trưởng GDP 9 tháng đạt 6,82%, xuất siêu 21,5 tỷ USD và hồi phục dự trữ ngoại hối",
+    "titleEn": "Q3 Macroeconomic Review: 9M GDP at 6.82%, Trade Surplus Exceeds $21.5B & FX Reserve Accumulation",
+    "descZh": "統計總局前 9 月總經數據權威解讀、加工製造業強勁擴張、美聯儲降息效應與全年7%衝刺。",
+    "descVi": "Động lực bứt phá từ chế biến chế tạo, Fed giảm lãi suất hạ nhiệt tỷ giá và dư địa tăng trưởng quý 4.",
+    "icon": "BookOpenText",
+    "badge": "課綱補全",
+    "level": "C1+",
+    "readTime": "14 分鐘",
+    "targetParam": {
+      "section": "dossiers",
+      "dossierId": "DOSSIER-2026-15"
+    }
+  },
+  {
     "id": "module_path",
     "moduleId": "path",
     "category": "practice",
