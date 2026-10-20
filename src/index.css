@@ -1618,86 +1618,142 @@ button:active:not(:disabled),
   display: flex;
   flex-direction: column;
   min-width: 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .sidebar-header-badge {
-  padding: 0.85rem 1.2rem;
+  padding: 0.85rem 1.15rem;
   background: var(--bg-accent);
   font-weight: 800;
-  font-size: 0.88em;
+  font-size: calc(0.88rem * var(--font-scale));
   color: var(--brand-accent);
   border-bottom: 1px solid var(--border-color);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .scenario-card-list {
   overflow-y: auto;
-  padding: 0.6rem;
+  padding: 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.65rem;
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .scenario-nav-card {
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+  min-height: 72px;
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  padding: 0.85rem;
+  padding: 0.75rem 0.9rem;
+  box-sizing: border-box;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
-  border: 1px solid transparent;
+  text-align: left;
   cursor: pointer;
+  color: inherit;
   transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
 }
 
 .scenario-nav-card:hover {
   background: var(--bg-card-hover);
+  border-color: var(--brand-accent);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-xs);
+}
+
+.scenario-nav-card:active {
+  transform: scale(0.985);
 }
 
 .scenario-nav-card.active-card {
   background: var(--bg-accent);
   border-color: var(--brand-accent);
+  box-shadow: 0 0 0 1.5px var(--brand-accent), var(--shadow-xs);
 }
 
 .card-icon-bubble {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background: var(--bg-card);
+  background: var(--bg-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4em;
+  font-size: 1.35rem;
   box-shadow: var(--shadow-xs);
   flex-shrink: 0;
 }
 
+.scenario-nav-card.active-card .card-icon-bubble {
+  background: var(--bg-card);
+  box-shadow: 0 2px 8px rgba(var(--brand-accent-rgb, 40, 89, 168), 0.18);
+}
+
 .card-info {
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.2rem;
+  text-align: left;
 }
 
 .card-tag {
-  font-size: 0.72em;
+  font-size: calc(0.72rem * var(--font-scale));
   font-weight: 800;
+  line-height: 1.25;
   color: var(--brand-gold);
   text-transform: uppercase;
-}
-
-.card-title {
-  font-size: 0.96em;
-  font-weight: 800;
-  color: var(--text-primary);
+  letter-spacing: 0.03em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.card-title {
+  font-size: calc(0.95rem * var(--font-scale));
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
 .card-sub {
-  font-size: 0.78em;
+  display: block;
+  font-size: calc(0.76rem * var(--font-scale));
+  line-height: 1.3;
   color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-arrow {
+  flex-shrink: 0;
   color: var(--text-muted);
+  margin-left: auto;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.scenario-nav-card:hover .card-arrow,
+.scenario-nav-card.active-card .card-arrow {
+  color: var(--brand-accent);
+  transform: translateX(2px);
 }
 
 /* Detail Panel */
@@ -2986,13 +3042,6 @@ p, li, h1, h2, h3, strong, small, span {
 }
 
 /* Conversation workspace and reusable interaction surfaces */
-.scenario-nav-card {
-  width: 100%;
-  min-height: 64px;
-  color: inherit;
-  text-align: left;
-  background: transparent;
-}
 
 .no-result-box,
 .empty-state-card {

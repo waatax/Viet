@@ -303,22 +303,31 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
           <div className="scenario-card-list">
             {filteredScenarios.map((sc) => {
               const isSelected = sc.id === activeScenarioId;
+              const titleZh = sc.titleZh || '';
+              const titleEn = sc.titleEn || '';
+              const titleVi = sc.titleVi || '';
+              const tagZh = sc.tagZh || '';
+              const tagEn = sc.tagEn || '';
+              const fullTitle = learningMode === 'zh' ? titleZh : titleEn;
+              const fullTag = learningMode === 'zh' ? tagZh : tagEn;
               return (
                 <button
                   key={sc.id}
+                  type="button"
                   className={`scenario-nav-card ${isSelected ? 'active-card' : ''}`}
                   onClick={() => {
                     setActiveScenarioId(sc.id);
                   }}
                   aria-pressed={isSelected}
+                  title={`${fullTitle} · ${fullTag} (${titleVi})`}
                 >
                   <div className="card-icon-bubble">{sc.icon}</div>
                   <div className="card-info">
-                    <div className="card-tag">{learningMode === 'zh' ? sc.tagZh : sc.tagEn}</div>
+                    <div className="card-tag">{fullTag}</div>
                     <h4 className="card-title">
-                      {learningMode === 'zh' ? sc.titleZh : sc.titleEn}
+                      {fullTitle}
                     </h4>
-                    <span className="card-sub">{sc.titleVi}</span>
+                    <span className="card-sub">{titleVi}</span>
                   </div>
                   <ChevronRight size={16} className="card-arrow" />
                 </button>
