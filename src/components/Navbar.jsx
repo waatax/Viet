@@ -12,6 +12,13 @@ import { NAV_GROUPS } from '../config/navigation';
 import { APP_VERSION } from '../config/release';
 
 const FONT_SIZES = ['small', 'normal', 'large', 'xlarge', 'xxlarge'];
+const getFontSizeLabel = (size, mode) => {
+  if (mode === 'zh') {
+    return size === 'small' ? '小' : (size === 'normal' ? '中' : (size === 'large' ? '大' : (size === 'xlarge' ? '特' : '超')));
+  }
+  return size === 'small' ? 'S' : (size === 'normal' ? 'M' : (size === 'large' ? 'L' : (size === 'xlarge' ? 'XL' : 'XXL')));
+};
+
 const FONT_SIZE_LABELS = {
   small: '88%',
   normal: '100%',
@@ -178,7 +185,7 @@ export const Navbar = ({
                 A-
               </button>
               <span className="mobile-quick-font-indicator" title={`字級: ${FONT_SIZE_LABELS[fontSize] || '100%'}`}>
-                {fontSize === 'small' ? '小' : (fontSize === 'normal' ? '中' : (fontSize === 'large' ? '大' : (fontSize === 'xlarge' ? '特' : '超')))}
+                {getFontSizeLabel(fontSize, learningMode)}
               </span>
               <button
                 className="mobile-quick-font-btn"
@@ -346,12 +353,12 @@ export const Navbar = ({
                       aria-pressed={fontSize === size}
                       title={FONT_SIZE_LABELS[size]}
                     >
-                      {size === 'small' ? '小' : (size === 'normal' ? '中' : (size === 'large' ? '大' : (size === 'xlarge' ? '特' : '超')))}
+                      {getFontSizeLabel(size, learningMode)}
                     </button>
                   ))}
                 </div>
                 <span className="font-size-compact-indicator" title={`當前字級: ${FONT_SIZE_LABELS[fontSize] || '100%'}`}>
-                  {fontSize === 'small' ? '小' : (fontSize === 'normal' ? '中' : (fontSize === 'large' ? '大' : (fontSize === 'xlarge' ? '特' : '超')))}
+                  {getFontSizeLabel(fontSize, learningMode)}
                 </span>
                 <button
                   className="size-option-btn stepper-btn"

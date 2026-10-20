@@ -982,3 +982,42 @@
     font-size: 1.05rem;
   }
 }
+
+@media (max-width: 480px) {
+  .home-conv-studio {
+    padding: 0.95rem 0.75rem;
+    border-radius: var(--radius-lg);
+  }
+  .studio-dual-launch-grid {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+  .studio-launch-card {
+    padding: 0.7rem 0.8rem;
+  }
+  .launch-card-text strong {
+    font-size: 0.88rem;
+  }
+  .launch-card-text span {
+    font-size: 0.76rem;
+  }
+  .sentence-card {
+    padding: 0.85rem;
+  }
+  .sentence-text-vi {
+    font-size: 1.05rem;
+    line-height: 1.5;
+  }
+  .sentence-text-zh {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .sentence-audio-btns {
+    gap: 0.35rem;
+  }
+  .audio-chip-play {
+    padding: 0.28rem 0.55rem;
+    font-size: 0.74rem;
+    min-height: 36px;
+  }
+}

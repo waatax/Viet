@@ -271,7 +271,7 @@ export const CONFUSABLE_PAIRS = [
     pitfallAlertZh: '南越口語中「Hỏi (問聲 mả)」與「Ngã (跌聲 mã)」會合流為同一種先降後揚的調型；但在北越河內，「mã」中間有極為明顯的聲門閉鎖喉塞音（類似咳嗽中斷感）。',
     hanVietInsightZh: 'ma (魔)、má (媽)、mã (馬/碼) 全是高同源漢越音，掌握這組聲調就掌握了全越南語的 6 大音高軌跡。',
     masterSentence: 'Má bảo tôi quét mã QR mua mạ, mà trời tối làm tôi sợ ma gần mả.',
-    masterSentenceZh: '媽媽(má)叫我掃描二維碼(mã)買稻秧(mạ)，但是(mà)天黑讓我在墳墓(mả)旁害怕遇到鬼(ma)。',
+    masterSentenceZh: '媽媽(má)叫我掃描 QR Code(mã)買稻秧(mạ)，但是(mà)天黑讓我在墳墓(mả)旁害怕遇到鬼(ma)。',
     masterSentenceEn: 'Mom told me to scan the QR code to buy seedlings, but the dark made me fear ghosts near the tomb.',
     drill: {
       questionZh: '請選出「掃描 QR 碼」的正確越語：',

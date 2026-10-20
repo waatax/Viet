@@ -46,7 +46,7 @@
   --letter-spacing-reading: 0.012em;
 
   /* Apple HIG Typography Hierarchy */
-  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Be Vietnam Pro", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+  --font-family: -apple-system, BlinkMacSystemFont, "Be Vietnam Pro", "SF Pro Text", "SF Pro Display", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
   --font-family-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", "Be Vietnam Pro", "PingFang TC", sans-serif;
   --font-family-mono: "SF Mono", "Outfit", Menlo, Monaco, Consolas, monospace;
 
@@ -86,8 +86,8 @@
   --bg-input: #f1f5f9;
   --bg-accent: #eff6ff;
 
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
   --text-muted: #64748b;
   --text-inverse: #ffffff;
 
@@ -123,18 +123,18 @@
    Theme 2: Dark Mode (Obsidian Deep Slate · Eye-Comfort Night Reading)
    ========================================================================== */
 [data-theme="dark"] {
-  --bg-main: #0c1017;
-  --bg-subtle: #121824;
+  --bg-main: #0b0f17;
+  --bg-subtle: #111722;
   --bg-header: rgba(12, 16, 23, 0.92);
-  --bg-card: #161e2e;
-  --bg-card-subtle: #1b2538;
-  --bg-card-hover: #222f46;
-  --bg-input: #1b2538;
-  --bg-accent: #1e2b42;
+  --bg-card: #151c28;
+  --bg-card-subtle: #1b2434;
+  --bg-card-hover: #212c40;
+  --bg-input: #1a2333;
+  --bg-accent: #1e2a3e;
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #8b9bb4;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
   --text-inverse: #0c1017;
 
   --border-color: rgba(255, 255, 255, 0.09);
@@ -169,28 +169,28 @@
    Theme 3: Warm Sepia & Eye-Care Paper Mode (溫潤羊皮紙護眼閱讀模式)
    ========================================================================== */
 [data-theme="sepia"] {
-  --bg-main: #fbf7ee;
-  --bg-subtle: #f4eedc;
+  --bg-main: #fcf9f2;
+  --bg-subtle: #f5eedf;
   --bg-header: rgba(251, 247, 238, 0.95);
-  --bg-card: #fffdf8;
-  --bg-card-subtle: #f7f1e1;
-  --bg-card-hover: #f1ebd8;
-  --bg-input: #f4ebd7;
-  --bg-accent: #f7eed7;
+  --bg-card: #fffefb;
+  --bg-card-subtle: #f8f2e4;
+  --bg-card-hover: #f3ebda;
+  --bg-input: #f6efe1;
+  --bg-accent: #f5ecd8;
 
   --text-primary: #2d2416;
-  --text-secondary: #5a4b35;
-  --text-muted: #82725c;
+  --text-secondary: #574632;
+  --text-muted: #806e56;
   --text-inverse: #ffffff;
 
-  --border-color: rgba(142, 107, 57, 0.18);
+  --border-color: rgba(142, 107, 57, 0.16);
   --border-subtle: rgba(142, 107, 57, 0.09);
   --border-highlight: rgba(142, 107, 57, 0.32);
   --border-focus: #b45309;
 
   /* Natural Amber & Terracotta Palette */
-  --brand-primary: #c2410c;
-  --brand-primary-rgb: 194, 65, 12;
+  --brand-primary: #b44318;
+  --brand-primary-rgb: 180, 67, 24;
   --brand-gold: #b45309;
   --brand-gold-rgb: 180, 83, 9;
   --brand-accent: #0284c7;
@@ -4485,14 +4485,15 @@ p, li, h1, h2, h3, strong, small, span {
   .nav-mobile-actions { gap: .25rem; }
   .nav-mobile-actions .mobile-xp-btn,
   .nav-mobile-actions .mobile-bookmark-btn,
-  .nav-mobile-actions .mobile-quick-font-stepper { display: none !important; }
+  .nav-mobile-actions .mobile-finder-icon-btn { display: none !important; }
+  .nav-mobile-actions .mobile-quick-font-stepper { display: inline-flex !important; }
   .mobile-finder-icon-btn span { display: none; }
   .mobile-finder-icon-btn { justify-content: center; padding: .5rem; }
   .brand-title-line strong { font-size: .95rem; }
 }
 
 @media (max-width: 380px) {
-  .nav-mobile-actions > .icon-control:not(.menu-toggle) { display: none; }
+  .brand-ver-badge { display: none; }
 }
 
 

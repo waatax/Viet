@@ -311,9 +311,9 @@ export const PronounModule = ({ selectedAccent, updateUserStats, setActiveTab })
       explainZh: '✓ 完全正確！商務初次見面可用禮貌客氣的 Tôi (本人) 或 Em，並尊稱對方為 Anh (長輩先生) 或 Quý công ty (貴公司)。'
     },
     {
-      titleZh: '🏭 情境四：台商工廠車間巡檢 (40歲主管 vs 22歲作業員)',
+      titleZh: '🏭 情境四：台商工廠產線巡檢 (40歲主管 vs 22歲作業員)',
       titleEn: '🏭 Scenario 4: Factory Inspection',
-      descZh: '身為 40 歲的台商車間主管，你在產線上指導 22 歲的越南產線女工（Công nhân）。最符合越南工廠文化且展現親和力的稱謂是？',
+      descZh: '身為 40 歲的台商廠房主管，你在產線上指導 22 歲的越南產線女工（Công nhân）。最符合越南工廠文化且展現親和力的稱謂是？',
       descEn: 'As a 40yo supervisor guiding a 22yo factory worker, how should you address her?',
       optionsZh: [
         'A. 主管自稱「Anh (哥)」，稱呼工人「Em (妹)」',

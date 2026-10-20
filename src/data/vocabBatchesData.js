@@ -1208,7 +1208,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "調",
           "category": "生活日常",
           "example": "điều hai người đến phân xưởng rèn làm việc",
-          "exampleZh": "撥兩個人到鍛工車間工作。"
+          "exampleZh": "調派兩個人到鍛造產線工作。"
         },
         {
           "id": "freq_91",

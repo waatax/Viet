@@ -1319,7 +1319,7 @@ export const FREQUENCY_VOCABULARY = [
     "cefr": "A1-A2",
     "category": "生活日常",
     "example": "điều hai người đến phân xưởng rèn làm việc",
-    "exampleZh": "撥兩個人到鍛工車間工作。"
+    "exampleZh": "調派兩個人到鍛造產線工作。"
   },
   {
     "id": "freq_91",
@@ -56695,7 +56695,7 @@ export const FREQUENCY_VOCABULARY = [
     "id": "freq_4046",
     "rank": 4046,
     "viet": "phần cứng",
-    "zh": "硬盤 / 硬件",
+    "zh": "電腦硬體 / 硬碟",
     "en": "vocabulary",
     "pos": "名詞",
     "hanViet": "",
@@ -113235,7 +113235,7 @@ export const FREQUENCY_VOCABULARY = [
     "cefr": "C1-C2",
     "category": "高階精通",
     "example": "thư kí chi bộ Đảng kiêm nhiệm chủ nhiệm phân xưởng",
-    "exampleZh": "黨支部書記兼任車間主任。"
+    "exampleZh": "專案主管兼任廠務主任。"
   },
   {
     "id": "freq_8085",

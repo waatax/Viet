@@ -225,7 +225,7 @@ const ORG_LEVELS = [
   [{ vi: 'Chủ tịch HĐQT', zh: '董事長', call: 'anh/chị Chủ tịch' }],
   [{ vi: 'Tổng Giám đốc', zh: '總經理／CEO', call: 'anh/chị Tổng' }],
   [{ vi: 'Phó Tổng Giám đốc', zh: '副總經理', call: 'anh/chị Phó Tổng' }, { vi: 'Giám đốc nhà máy', zh: '廠長', call: 'anh/chị Giám đốc' }],
-  [{ vi: 'Trưởng phòng', zh: '部門經理', call: 'anh/chị Trưởng phòng' }, { vi: 'Quản đốc', zh: '車間主任', call: 'anh/chị Quản đốc' }, { vi: 'Kế toán trưởng', zh: '會計主管', call: 'chị Kế toán trưởng' }],
+  [{ vi: 'Trưởng phòng', zh: '部門經理', call: 'anh/chị Trưởng phòng' }, { vi: 'Quản đốc', zh: '廠務主任 / 產線主任', call: 'anh/chị Quản đốc' }, { vi: 'Kế toán trưởng', zh: '會計主管', call: 'chị Kế toán trưởng' }],
   [{ vi: 'Trưởng nhóm / Tổ trưởng', zh: '組長／班長', call: 'anh/chị + 名字' }, { vi: 'Nhân viên', zh: '職員', call: 'anh/chị/em + 名字' }, { vi: 'Công nhân', zh: '作業員', call: 'anh/chị/em + 名字' }]
 ];
 

@@ -304,7 +304,7 @@ const CORE_SYLLABUS = [
     titleZh: '智慧工廠巡檢與產線對話',
     titleVi: 'Tham quan nhà máy & Kiểm tra dây chuyền',
     titleEn: 'Smart Factory & Industrial Line Walkthrough',
-    descZh: 'SMT 自動化車間、良率 (Yield rate)、產線停機排障、工安勞檢與加班調度。',
+    descZh: 'SMT 自動化產線、良率 (Yield rate)、產線停機排障、工安勞檢與加班調度。',
     descVi: 'Xưởng SMT tự động, tỷ lệ thành phẩm, khắc phục sự cố và điều động tăng ca.',
     icon: 'Factory',
     badge: '製造業必備',
