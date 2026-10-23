@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { BookOpen, Target, GitBranch, AlertTriangle, ClipboardCheck, RotateCcw, GraduationCap, Eye, EyeOff, CheckCircle, Search, Wrench, Play, Calendar, Volume2, Headphones } from 'lucide-react';
+import { BookOpen, Target, GitBranch, AlertTriangle, ClipboardCheck, RotateCcw, GraduationCap, Eye, EyeOff, CheckCircle, Search, Wrench, Play, Calendar, Volume2, Headphones, Sparkles, BarChart2, ShieldCheck, Layers } from 'lucide-react';
 import { knowledgeGuides, curriculumStages, knowledgeMaps, speakableVi, knowledgeCanDo, chapterKnowledge, listeningChecks } from '../data/knowledgeGuides';
 import { correctionSteps, transferQuestions, knowledgeReferences } from '../data/knowledgeExtensions';
 import { SYLLABUS_REGISTRY } from '../config/syllabusRegistry';
@@ -14,6 +14,8 @@ import './KnowledgeGuide.css';
 const asAnswer = (text) => String(text).replace(/[。.!?！？]+$/u, '');
 
 const TIER_LABELS = { basic: '基礎理解', applied: '延伸應用', advanced: '進階活用' };
+const TIER_ICONS = { basic: '🌱', applied: '🚀', advanced: '🏆' };
+const TIER_DESCS = { basic: '概念界定與原文字面解碼', applied: '日常情境替換與語意邊界', advanced: '語域切換、假朋友與文體深造' };
 
 export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectChapter, setActiveTab }) {
   const guide = knowledgeGuides[moduleId];
@@ -50,17 +52,32 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
   return (
     <section className="knowledge-guide" aria-labelledby={`knowledge-${moduleId}`}>
       <header className="kg-header">
-        <div><span className="kg-eyebrow"><GraduationCap size={17} aria-hidden="true" /> 課綱知識整理 · 第{guide.stage}階起</span>
-          <h2 id={`knowledge-${moduleId}`}>{guide.title}</h2></div>
+        <div>
+          <span className="kg-eyebrow"><GraduationCap size={17} aria-hidden="true" /> 課綱知識整理 · 第{guide.stage}階起</span>
+          <h2 id={`knowledge-${moduleId}`}>{guide.title}</h2>
+        </div>
         <span className="kg-level">{curriculumStages[guide.stage - 1].level}</span>
       </header>
+
+      {/* Quick Jump Navigation Pill Bar */}
+      <nav className="kg-quick-nav" aria-label="本單元核心導覽">
+        <a href={`#kg-concepts-${moduleId}`} className="kg-nav-pill"><BookOpen size={14} aria-hidden="true" /> 核心對照表</a>
+        <a href={`#kg-flow-${moduleId}`} className="kg-nav-pill"><GitBranch size={14} aria-hidden="true" /> 心智流程</a>
+        <a href={`#kg-infograph-${moduleId}`} className="kg-nav-pill"><BarChart2 size={14} aria-hidden="true" /> 專業資訊圖解</a>
+        <a href={`#recall-${moduleId}`} className="kg-nav-pill"><EyeOff size={14} aria-hidden="true" /> 9大回想卡</a>
+        <a href={`#kg-trap-${moduleId}`} className="kg-nav-pill"><AlertTriangle size={14} aria-hidden="true" /> 易錯警戒</a>
+        <a href={`#kg-practice-${moduleId}`} className="kg-nav-pill"><ClipboardCheck size={14} aria-hidden="true" /> 隨堂檢驗</a>
+        <a href={`#kg-repair-${moduleId}`} className="kg-nav-pill"><Wrench size={14} aria-hidden="true" /> 錯因修復</a>
+      </nav>
+
       <p className="kg-goal"><Target size={19} aria-hidden="true" /><span>{guide.goal}</span></p>
       {knowledgeCanDo[moduleId] && <section className="kg-cando" aria-labelledby={`cando-${moduleId}`}>
         <h3 id={`cando-${moduleId}`}><CheckCircle size={18} aria-hidden="true" /> 學完能做到（Can-do 能力指標）</h3>
         <ul>{knowledgeCanDo[moduleId].map(item => <li key={item}>{item}</li>)}</ul>
       </section>}
       <p className="kg-save-status" role="status">{storageAvailable ? '勾選與錯因類型會保留在此瀏覽器；答題與答案展開狀態每次重新練習。' : '此瀏覽器無法儲存；本次仍可練習，離開頁面後不會保留進度。'}</p>
-      <details open className="kg-details">
+      
+      <details open className="kg-details" id={`kg-concepts-${moduleId}`}>
         <summary><BookOpen size={18} aria-hidden="true" /> 核心知識與例句對照</summary>
         <div className="kg-table-wrap" tabIndex="0" role="region" aria-label="核心知識例句表，可橫向捲動">
           <table><caption>概念 → 越文 → 語意 → 使用規則</caption><thead><tr><th scope="col">知識點</th><th scope="col">越文例句</th><th scope="col">意思</th><th scope="col">理解與應用</th></tr></thead>
@@ -68,32 +85,55 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
           </table>
         </div>
       </details>
-      <figure className="kg-flow">
+
+      <figure className="kg-flow" id={`kg-flow-${moduleId}`}>
         <figcaption><GitBranch size={18} aria-hidden="true" /> {knowledgeMaps[moduleId][0]}</figcaption>
         <ol>{knowledgeMaps[moduleId][1].map(([title, desc], i) => <li key={title}><span className="kg-step">{i + 1}</span><strong>{title}</strong><span>{desc}</span></li>)}</ol>
       </figure>
-      <KnowledgeChart moduleId={moduleId} />
-      <KnowledgeDiagram moduleId={moduleId} />
+
+      <div className="kg-infograph-section" id={`kg-infograph-${moduleId}`}>
+        <KnowledgeChart moduleId={moduleId} />
+        <KnowledgeDiagram moduleId={moduleId} />
+      </div>
+
       <section className="kg-recall" aria-labelledby={`recall-${moduleId}`}>
-        <h3 id={`recall-${moduleId}`}><EyeOff size={20} aria-hidden="true" /> 知識點逐項回想</h3>
+        <h3 id={`recall-${moduleId}`}><EyeOff size={20} aria-hidden="true" /> 知識點逐項回想與深度解構</h3>
         <p>先收起上方「核心知識與例句對照」，播放純越文、說出意思與使用規則，再展開核對；需要時改播「越＋中」對照。能換一個例子說明時，再自行勾選。</p>
-        <PhraseSetPlayer lines={exampleLines} title={guide.title} accent={selectedAccent} className="kg-recall-grid">{guide.rows.map(([concept, vi, meaning, rule], i) => <article className="kg-recall-card" id={`kg-card-${moduleId}-${i}`} data-line-index={i} key={concept}>
-          <span className={`kg-eyebrow kg-tier-${guide.tiers?.[i] || 'basic'}`}>{TIER_LABELS[guide.tiers?.[i] || 'basic']} · {i + 1}/{guide.rows.length}</span>
-          <h4>{concept}</h4><p lang="vi" className="kg-example dpb-viet-text">{vi}</p>
-          <div className="kg-audio-row"><button type="button" onClick={() => speakExample(i, false)} aria-label={`播放越文：${exampleLines[i].viet}`}><Volume2 size={16} aria-hidden="true" /> 越文</button><button type="button" onClick={() => speakExample(i, true)} aria-label={`播放越文與中文：${exampleLines[i].viet}`}><Headphones size={16} aria-hidden="true" /> 越＋中</button></div>
-          <button type="button" aria-expanded={revealed.includes(i)} aria-controls={`recall-answer-${moduleId}-${i}`} onClick={() => setRevealed(prev => prev.includes(i) ? prev.filter(n => n !== i) : [...prev, i])}><Eye size={16} aria-hidden="true" /> {revealed.includes(i) ? '收起答案' : '回想後核對'}</button>
-          <div id={`recall-answer-${moduleId}-${i}`} hidden={!revealed.includes(i)}><p><strong>{meaning}</strong></p><p>{rule}</p></div>
-          <label className="kg-check"><input type="checkbox" checked={recalled.includes(i)} onChange={() => setRecalled(prev => prev.includes(i) ? prev.filter(n => n !== i) : [...prev, i])} />我能解釋並另舉例子</label>
-        </article>)}</PhraseSetPlayer>
+        <PhraseSetPlayer lines={exampleLines} title={guide.title} accent={selectedAccent} className="kg-recall-grid">{guide.rows.map(([concept, vi, meaning, rule], i) => {
+          const tier = guide.tiers?.[i] || 'basic';
+          return (
+            <article className="kg-recall-card" id={`kg-card-${moduleId}-${i}`} data-line-index={i} key={concept}>
+              <div className="kg-card-header-row">
+                <span className={`kg-eyebrow kg-tier-${tier}`}>{TIER_ICONS[tier]} {TIER_LABELS[tier]} · {i + 1}/{guide.rows.length}</span>
+                <span className="kg-card-tier-hint">{TIER_DESCS[tier]}</span>
+              </div>
+              <h4>{concept}</h4>
+              <p lang="vi" className="kg-example dpb-viet-text">{vi}</p>
+              <div className="kg-audio-row">
+                <button type="button" onClick={() => speakExample(i, false)} aria-label={`播放越文：${exampleLines[i].viet}`}><Volume2 size={16} aria-hidden="true" /> 越文</button>
+                <button type="button" onClick={() => speakExample(i, true)} aria-label={`播放越文與中文：${exampleLines[i].viet}`}><Headphones size={16} aria-hidden="true" /> 越＋中</button>
+              </div>
+              <button type="button" aria-expanded={revealed.includes(i)} aria-controls={`recall-answer-${moduleId}-${i}`} onClick={() => setRevealed(prev => prev.includes(i) ? prev.filter(n => n !== i) : [...prev, i])}><Eye size={16} aria-hidden="true" /> {revealed.includes(i) ? '收起答案' : '回想後核對'}</button>
+              <div id={`recall-answer-${moduleId}-${i}`} hidden={!revealed.includes(i)} className="kg-revealed-block">
+                <p className="kg-revealed-meaning"><span className="kg-revealed-tag">精準語意</span><strong>{meaning}</strong></p>
+                <p className="kg-revealed-rule"><span className="kg-revealed-tag">規則與語境</span>{rule}</p>
+              </div>
+              <label className="kg-check"><input type="checkbox" checked={recalled.includes(i)} onChange={() => setRecalled(prev => prev.includes(i) ? prev.filter(n => n !== i) : [...prev, i])} />我能解釋並另舉例子</label>
+            </article>
+          );
+        })}</PhraseSetPlayer>
         <p role="status"><CheckCircle size={16} aria-hidden="true" /> 已自行確認 {recalled.length}/{guide.rows.length} 項；請隔日用新例句再查。</p>
       </section>
-      <aside className="kg-trap"><AlertTriangle size={20} aria-hidden="true" /><div><strong>易錯點與使用界線</strong><p>{guide.trap}</p></div></aside>
+
+      <aside className="kg-trap" id={`kg-trap-${moduleId}`}><AlertTriangle size={20} aria-hidden="true" /><div><strong className="kg-trap-title">易錯點與使用界線（避坑指南）</strong><p>{guide.trap}</p></div></aside>
+
       {chapters.length > 0 && <div className="kg-chapter">
         <label htmlFor={`chapter-${moduleId}`}>對照本模組課綱章節（{chapters.length}項）</label>
         <select id={`chapter-${moduleId}`} value={chapterId} onChange={e => setChapterId(e.target.value)}><option value="">選擇要補強的章節</option>{chapters.map(c => <option key={c.id} value={c.id}>{c.titleZh}</option>)}</select>
         {chapter && <div className="kg-chapter-result"><h3>{chapter.titleZh}</h3><p>{chapter.descZh}</p>{chapterLinks.length > 0 && <div className="kg-chapter-links"><strong>本章對應知識點（點選展開卡片複習）：</strong><ul>{chapterLinks.map(concept => { const i = guide.rows.findIndex(r => r[0] === concept); return <li key={concept}><button type="button" onClick={() => openCard(i)}>{concept}</button></li>; })}</ul></div>}<ol><li>對照本章說明，找出三個需要理解的詞、規則或條件，寫出中文意思。</li><li>本課練習方法：{guide.task}</li><li>將任務套用到「{chapter.titleZh}」，替換一項人物、時間、數量或觀點後重做。</li><li>核對是否涵蓋本章目標：「{chapter.descZh}」；未能解釋的部分列入下方錯因修正。</li></ol><button type="button" onClick={() => onSelectChapter(chapter)}>前往章節練習 →</button></div>}
       </div>}
-      <div className="kg-practice">
+
+      <div className="kg-practice" id={`kg-practice-${moduleId}`}>
         <h3><ClipboardCheck size={20} aria-hidden="true" /> 先檢查，再修正</h3><fieldset><legend>{guide.question}</legend>
           <div className="kg-options">{guide.options.map((opt, i) => <button type="button" key={opt} aria-pressed={answer === i} onClick={() => setAnswer(i)}>{opt}</button>)}</div>
         </fieldset>
@@ -110,11 +150,14 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
         {['我能解釋本課三個知識點，並舉例。', '我能遮住原文，在新情境完成任務。', '我已記錄錯因，並安排隔日再次回想。'].map((label, i) => <label className="kg-check" key={label}><input type="checkbox" checked={checks[i]} onChange={() => setChecks(prev => prev.map((v, n) => n === i ? !v : v))} />{label}</label>)}
         <button type="button" className="kg-reset" onClick={() => { setAnswer(null); setTransferAnswer(null); setListenAnswer(null); setChecks([false, false, false]); setRevealed([]); setRecalled([]); setErrorType('meaning'); }}><RotateCcw size={16} aria-hidden="true" /> 重做檢核與回想</button>
       </div>
+
       <figure className="kg-flow kg-correction"><figcaption><Wrench size={18} aria-hidden="true" /> 錯因 → 修正 → 新情境驗證</figcaption><ol>{correctionSteps.map(([title, description], i) => {
         const Icon = [Search, Target, Play, Calendar][i];
         return <li key={title}><Icon size={22} aria-hidden="true" /><strong>{title}</strong><span>{description}</span></li>;
       })}</ol><p>本課輸出目標：{guide.task}</p></figure>
-      <div className="kg-repair"><label htmlFor={`kg-error-${moduleId}`}><strong>這一輪最需要修正的是？</strong></label><select id={`kg-error-${moduleId}`} value={errorType} onChange={e => setErrorType(e.target.value)}>{Object.entries(errorRepairs).map(([id, [label]]) => <option key={id} value={id}>{label}</option>)}</select><p role="status"><Wrench size={17} aria-hidden="true" /> {errorRepairs[errorType][1]}</p><p>現在：針對「{guide.rows.find((_, i) => !recalled.includes(i))?.[0] || guide.rows[0][0]}」試做一次；隔日：遮住答案，用新例子檢查是否還犯同樣錯誤。</p></div>
+
+      <div className="kg-repair" id={`kg-repair-${moduleId}`}><label htmlFor={`kg-error-${moduleId}`}><strong>這一輪最需要修正的是？</strong></label><select id={`kg-error-${moduleId}`} value={errorType} onChange={e => setErrorType(e.target.value)}>{Object.entries(errorRepairs).map(([id, [label]]) => <option key={id} value={id}>{label}</option>)}</select><p role="status"><Wrench size={17} aria-hidden="true" /> {errorRepairs[errorType][1]}</p><p>現在：針對「{guide.rows.find((_, i) => !recalled.includes(i))?.[0] || guide.rows[0][0]}」試做一次；隔日：遮住答案，用新例子檢查是否還犯同樣錯誤。</p></div>
+
       <details className="kg-details"><summary><GraduationCap size={18} aria-hidden="true" /> 七階能力地圖與延伸任務</summary>
         <p>依課綱安排的學習目標；級別與詞數不作為官方檢定換算。高階任務需逐步累積閱讀、錄音及翻譯作品。</p>
         <ol className="kg-stage-list">{curriculumStages.map((stage, i) => <li key={stage.level}><strong>第{i + 1}階 · {stage.level} · {stage.title}</strong><p>{stage.task}</p><div>{stage.modules.map(id => <button type="button" key={id} onClick={() => setActiveTab(id)}>{knowledgeGuides[id].title.split('：')[0]} →</button>)}</div></li>)}</ol>
