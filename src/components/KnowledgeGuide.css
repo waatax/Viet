@@ -162,3 +162,203 @@
 .kg-chapter-links button { min-height: 36px; padding: .3rem .7rem; border-radius: 999px; }
 .kg-practice .kg-listening { margin-top: 1.5rem; }
 .kg-listen-play { display: inline-flex; align-items: center; gap: .4rem; margin-bottom: .7rem; font-weight: 700; }
+
+/* Enhanced Knowledge Recall Toolbar & Search UX */
+.kg-recall-header-block {
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+}
+
+.kg-recall-title-wrap h3 {
+  margin: 0 0 .35rem 0;
+  font-size: 1.2rem;
+  color: var(--text-primary);
+}
+
+.kg-recall-title-wrap p {
+  margin: 0 0 .85rem 0;
+  font-size: .92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.kg-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  padding-top: .75rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.kg-tier-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+.kg-tab-pill {
+  min-height: 36px;
+  padding: .35rem .75rem;
+  font-size: .84rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.kg-tab-pill:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--brand-primary);
+}
+
+.kg-tab-active {
+  background: var(--brand-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--brand-primary) !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.kg-toolbar-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.kg-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 220px;
+}
+
+.kg-search-icon {
+  position: absolute;
+  left: .75rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+}
+
+.kg-search-input {
+  width: 100%;
+  min-height: 38px;
+  padding: .4rem 2rem .4rem 2.2rem;
+  font-size: .88rem;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: border-color .2s ease;
+}
+
+.kg-search-input:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+}
+
+.kg-search-clear {
+  position: absolute;
+  right: .5rem;
+  padding: .2rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  min-height: auto;
+}
+
+.kg-batch-actions {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+}
+
+.kg-btn-tool {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  min-height: 38px;
+  padding: .35rem .75rem;
+  font-size: .82rem;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.kg-btn-tool:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border-color: var(--brand-primary);
+}
+
+.kg-tool-active {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+  background: rgba(20, 184, 166, 0.08);
+}
+
+/* Card Filtering visibility */
+.kg-card-hidden {
+  display: none !important;
+}
+
+/* Deep Knowledge Details Revealed Block Tags */
+.kg-revealed-syntax,
+.kg-revealed-usage,
+.kg-revealed-trap,
+.kg-revealed-mnemonic {
+  font-size: .88rem;
+  margin: .4rem 0 0 0;
+  line-height: 1.5;
+}
+
+.kg-syntax-code {
+  display: inline-block;
+  padding: .15rem .45rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: .85rem;
+  color: #2563eb;
+  word-break: break-all;
+}
+
+.kg-tag-syntax {
+  background: rgba(37, 99, 235, 0.12);
+  color: #2563eb;
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.kg-tag-usage {
+  background: rgba(5, 150, 105, 0.12);
+  color: #059669;
+  border-color: rgba(5, 150, 105, 0.25);
+}
+
+.kg-tag-trap {
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+  border-color: rgba(220, 38, 38, 0.25);
+}
+
+.kg-tag-mnemonic {
+  background: rgba(124, 58, 237, 0.12);
+  color: #7c3aed;
+  border-color: rgba(124, 58, 237, 0.25);
+}
+

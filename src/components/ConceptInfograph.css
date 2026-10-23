@@ -1,0 +1,421 @@
+/* Concept Micro-Infographics CSS (專屬知識點微圖解樣式) */
+
+.ci-infograph-card {
+  margin: 0.85rem 0 0.5rem 0;
+  padding: 0.75rem 0.85rem;
+  background: var(--surface-secondary, rgba(248, 250, 252, 0.85));
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-left: 3px solid var(--primary, #2563eb);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.ci-infograph-caption {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary, #1e293b);
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px dashed var(--border-subtle, #cbd5e1);
+  flex-wrap: wrap;
+}
+
+.ci-caption-icon {
+  color: var(--primary, #2563eb);
+  flex-shrink: 0;
+}
+
+.ci-caption-type {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--primary, #2563eb);
+  letter-spacing: 0.03em;
+}
+
+.ci-caption-text {
+  color: var(--text-primary, #0f172a);
+}
+
+.ci-infograph-body {
+  width: 100%;
+}
+
+/* 1. Contrast Grid */
+.ci-contrast-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.55rem;
+}
+
+.ci-contrast-col {
+  padding: 0.6rem 0.7rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle, #cbd5e1);
+  background: var(--surface-card, #ffffff);
+}
+
+.ci-col-primary {
+  border-top: 3px solid #059669;
+}
+
+.ci-col-secondary {
+  border-top: 3px solid #d97706;
+}
+
+.ci-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.ci-col-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+}
+
+.ci-col-status {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: var(--surface-tag, #f1f5f9);
+  color: var(--text-muted, #475569);
+  font-weight: 600;
+}
+
+.ci-col-example {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--primary-dark, #1d4ed8);
+  margin: 0.25rem 0;
+  word-break: break-word;
+}
+
+.ci-col-note {
+  font-size: 0.76rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* 2. Slots Flow */
+.ci-slots-container {
+  overflow-x: auto;
+  padding: 0.2rem 0;
+}
+
+.ci-slots-flow {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.ci-slot-card {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 0.65rem;
+  background: var(--surface-card, #ffffff);
+  border: 1px solid var(--border-subtle, #cbd5e1);
+  border-radius: 6px;
+  min-width: 70px;
+}
+
+.ci-slot-label {
+  font-size: 0.68rem;
+  color: var(--text-muted, #64748b);
+  font-weight: 600;
+  margin-bottom: 0.15rem;
+}
+
+.ci-slot-val {
+  font-size: 0.85rem;
+  color: var(--primary, #2563eb);
+}
+
+.ci-slot-arrow {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-muted, #94a3b8);
+  user-select: none;
+}
+
+/* 3. Flow List */
+.ci-flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.ci-flow-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+
+.ci-flow-badge-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 22px;
+  flex-shrink: 0;
+}
+
+.ci-flow-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--primary, #2563eb);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.ci-flow-connector {
+  width: 2px;
+  height: 16px;
+  background: var(--border-subtle, #cbd5e1);
+  margin-top: 2px;
+}
+
+.ci-flow-body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0.1rem;
+}
+
+.ci-flow-title {
+  font-size: 0.82rem;
+  color: var(--text-primary, #0f172a);
+}
+
+.ci-flow-desc {
+  font-size: 0.76rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.35;
+}
+
+/* 4. Steps Grid */
+.ci-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.5rem;
+}
+
+.ci-step-card {
+  padding: 0.5rem 0.65rem;
+  background: var(--surface-card, #ffffff);
+  border: 1px solid var(--border-subtle, #cbd5e1);
+  border-radius: 6px;
+}
+
+.ci-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3rem;
+  margin-bottom: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.ci-step-level {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+}
+
+.ci-step-tag {
+  font-size: 0.68rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+  background: var(--surface-tag, #e2e8f0);
+  color: var(--text-muted, #475569);
+  font-weight: 600;
+}
+
+.ci-step-ex {
+  font-size: 0.8rem;
+  color: var(--primary-dark, #1e40af);
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* 5. Matrix Table */
+.ci-matrix-wrapper {
+  overflow-x: auto;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle, #cbd5e1);
+  background: var(--surface-card, #ffffff);
+}
+
+.ci-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.ci-matrix-table th {
+  background: var(--surface-tag, #f1f5f9);
+  color: var(--text-primary, #1e293b);
+  font-weight: 700;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-subtle, #cbd5e1);
+}
+
+.ci-matrix-table td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid var(--border-subtle, #f1f5f9);
+  color: var(--text-secondary, #334155);
+}
+
+.ci-matrix-lead {
+  font-weight: 700;
+  color: var(--primary, #2563eb);
+}
+
+/* 6. Timeline Axis */
+.ci-timeline-container {
+  padding: 0.2rem 0;
+}
+
+.ci-timeline-axis {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ci-timeline-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+
+.ci-timeline-marker {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.ci-timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary, #2563eb);
+}
+
+.ci-timeline-tag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+}
+
+.ci-timeline-info {
+  font-size: 0.76rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.35;
+}
+
+.ci-timeline-desc {
+  margin: 0;
+}
+
+.ci-timeline-ex {
+  display: inline-block;
+  font-weight: 600;
+  color: var(--primary-dark, #1e40af);
+  margin-top: 0.15rem;
+}
+
+/* 7. Tree Structure */
+.ci-tree-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ci-tree-branch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.55rem;
+  background: var(--surface-card, #ffffff);
+  border: 1px solid var(--border-subtle, #cbd5e1);
+  border-radius: 5px;
+  font-size: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.ci-tree-root {
+  color: var(--text-primary, #0f172a);
+  font-weight: 700;
+}
+
+.ci-tree-arrow {
+  color: var(--text-muted, #94a3b8);
+  font-size: 0.85rem;
+}
+
+.ci-tree-leaf {
+  color: var(--primary, #2563eb);
+  font-weight: 600;
+}
+
+/* 8. Contour SVG */
+.ci-contour-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ci-contour-svg {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  background: var(--surface-card, #ffffff);
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle, #cbd5e1);
+  padding: 0.3rem;
+}
+
+.ci-contour-legend {
+  display: flex;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.ci-contour-badge {
+  font-size: 0.74rem;
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  background: var(--surface-tag, #f1f5f9);
+  color: var(--text-secondary, #334155);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .ci-infograph-card {
+    padding: 0.65rem;
+  }
+  .ci-contrast-grid,
+  .ci-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .ci-timeline-node {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+}

@@ -1,11 +1,37 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { BookOpen, Target, GitBranch, AlertTriangle, ClipboardCheck, RotateCcw, GraduationCap, Eye, EyeOff, CheckCircle, Search, Wrench, Play, Calendar, Volume2, Headphones, Sparkles, BarChart2, ShieldCheck, Layers } from 'lucide-react';
+import {
+  BookOpen,
+  Target,
+  GitBranch,
+  AlertTriangle,
+  ClipboardCheck,
+  RotateCcw,
+  GraduationCap,
+  Eye,
+  EyeOff,
+  CheckCircle,
+  Search,
+  Wrench,
+  Play,
+  Calendar,
+  Volume2,
+  Headphones,
+  Sparkles,
+  BarChart2,
+  ShieldCheck,
+  Layers,
+  Filter,
+  SlidersHorizontal,
+  X
+} from 'lucide-react';
 import { knowledgeGuides, curriculumStages, knowledgeMaps, speakableVi, knowledgeCanDo, chapterKnowledge, listeningChecks } from '../data/knowledgeGuides';
 import { correctionSteps, transferQuestions, knowledgeReferences } from '../data/knowledgeExtensions';
+import { conceptDetails } from '../data/conceptDetails';
 import { SYLLABUS_REGISTRY } from '../config/syllabusRegistry';
 import { loadKnowledgeProgress, saveKnowledgeProgress, errorRepairs } from '../services/knowledgeProgress';
 import { KnowledgeDiagram } from './KnowledgeDiagram';
 import { KnowledgeChart } from './KnowledgeChart';
+import { ConceptInfograph } from './ConceptInfograph';
 import { PhraseSetPlayer } from './PhraseSetPlayer';
 import { audioEngine } from '../services/audioEngine';
 import './KnowledgeGuide.css';
@@ -15,16 +41,23 @@ const asAnswer = (text) => String(text).replace(/[。.!?！？]+$/u, '');
 
 const TIER_LABELS = { basic: '基礎理解', applied: '延伸應用', advanced: '進階活用' };
 const TIER_ICONS = { basic: '🌱', applied: '🚀', advanced: '🏆' };
-const TIER_DESCS = { basic: '概念界定與原文字面解碼', applied: '日常情境替換與語意邊界', advanced: '語域切換、假朋友與文體深造' };
+const TIER_DESCS = {
+  basic: '概念界定與原文字面解碼',
+  applied: '日常情境替換與語意邊界',
+  advanced: '語域切換、假朋友與文體深造'
+};
 
 export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectChapter, setActiveTab }) {
   const guide = knowledgeGuides[moduleId];
+  const moduleConceptDetails = conceptDetails[moduleId] || [];
+
   // Every example is voiced: the Vietnamese, then (in 越＋中 mode) its Taiwan Mandarin meaning
   const exampleLines = useMemo(() => (guide?.rows || []).map(([, vi, zh]) => ({ viet: speakableVi(vi), zh })), [guide]);
   const speakExample = (i, withMeaning) => {
     const line = exampleLines[i];
     audioEngine.speak(line.viet, { lang: 'vi', accent: selectedAccent, onEnd: withMeaning ? () => audioEngine.speak(line.zh, { lang: 'zh' }) : undefined });
   };
+
   const chapters = SYLLABUS_REGISTRY.filter(c => c.moduleId === moduleId);
   const [answer, setAnswer] = useState(null);
   const [saved] = useState(() => loadKnowledgeProgress(moduleId, guide?.rows.length || 0));
@@ -36,19 +69,46 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
   const [listenAnswer, setListenAnswer] = useState(null);
   const [errorType, setErrorType] = useState(saved.errorType);
   const [storageAvailable, setStorageAvailable] = useState(true);
+
+  // UI/UX Enhanced State: Tier filter, search filter, and infographic mode toggle
+  const [tierFilter, setTierFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [showInfographs, setShowInfographs] = useState(true);
+
   useEffect(() => {
     setStorageAvailable(saveKnowledgeProgress(moduleId, { checks, recalled, errorType }));
   }, [moduleId, checks, recalled, errorType]);
+
   const chapter = chapters.find(c => c.id === chapterId);
   const chapterLinks = chapter ? chapterKnowledge(chapter, guide).filter(concept => guide.rows.some(r => r[0] === concept)) : [];
+  
   const openCard = (i) => {
     setRevealed(prev => prev.includes(i) ? prev : [...prev, i]);
     document.getElementById(`kg-card-${moduleId}-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
+
+  const toggleAllRevealed = () => {
+    if (revealed.length === (guide?.rows.length || 0)) {
+      setRevealed([]);
+    } else {
+      setRevealed((guide?.rows || []).map((_, idx) => idx));
+    }
+  };
+
   const count = checks.filter(Boolean).length;
   if (!guide) return null;
+
   const [transferQuestion, transferOptions, transferCorrect, transferExplanation] = transferQuestions[moduleId];
   const listening = listeningChecks[moduleId];
+
+  // Calculate counts per tier for filter badges
+  const tierCounts = {
+    all: guide.rows.length,
+    basic: guide.rows.filter((_, idx) => (guide.tiers?.[idx] || 'basic') === 'basic').length,
+    applied: guide.rows.filter((_, idx) => (guide.tiers?.[idx] || 'basic') === 'applied').length,
+    advanced: guide.rows.filter((_, idx) => (guide.tiers?.[idx] || 'basic') === 'advanced').length
+  };
+
   return (
     <section className="knowledge-guide" aria-labelledby={`knowledge-${moduleId}`}>
       <header className="kg-header">
@@ -97,44 +157,237 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
       </div>
 
       <section className="kg-recall" aria-labelledby={`recall-${moduleId}`}>
-        <h3 id={`recall-${moduleId}`}><EyeOff size={20} aria-hidden="true" /> 知識點逐項回想與深度解構</h3>
-        <p>先收起上方「核心知識與例句對照」，播放純越文、說出意思與使用規則，再展開核對；需要時改播「越＋中」對照。能換一個例子說明時，再自行勾選。</p>
-        <PhraseSetPlayer lines={exampleLines} title={guide.title} accent={selectedAccent} className="kg-recall-grid">{guide.rows.map(([concept, vi, meaning, rule], i) => {
-          const tier = guide.tiers?.[i] || 'basic';
-          return (
-            <article className="kg-recall-card" id={`kg-card-${moduleId}-${i}`} data-line-index={i} key={concept}>
-              <div className="kg-card-header-row">
-                <span className={`kg-eyebrow kg-tier-${tier}`}>{TIER_ICONS[tier]} {TIER_LABELS[tier]} · {i + 1}/{guide.rows.length}</span>
-                <span className="kg-card-tier-hint">{TIER_DESCS[tier]}</span>
+        <div className="kg-recall-header-block">
+          <div className="kg-recall-title-wrap">
+            <h3 id={`recall-${moduleId}`}><EyeOff size={20} aria-hidden="true" /> 知識點逐項回想與深度解構 (9大知識點全量圖解)</h3>
+            <p>先收起上方對照表，播放純越文、說出意思與使用規則，再展開核對；需要時改播「越＋中」對照。每個知識點均配備專屬微型向量圖解 (INFOGRAPH) 與避坑指引。</p>
+          </div>
+
+          {/* Interactive UI/UX Toolbar: Tier Filters, Live Search, & Batch Controls */}
+          <div className="kg-toolbar" role="toolbar" aria-label="知識點檢索與篩選工具列">
+            <div className="kg-tier-tabs" role="tablist" aria-label="知識能力階梯篩選">
+              <button
+                type="button"
+                role="tab"
+                aria-selected={tierFilter === 'all'}
+                className={`kg-tab-pill ${tierFilter === 'all' ? 'kg-tab-active' : ''}`}
+                onClick={() => setTierFilter('all')}
+              >
+                全部 ({tierCounts.all})
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={tierFilter === 'basic'}
+                className={`kg-tab-pill kg-pill-basic ${tierFilter === 'basic' ? 'kg-tab-active' : ''}`}
+                onClick={() => setTierFilter('basic')}
+              >
+                🌱 基礎理解 ({tierCounts.basic})
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={tierFilter === 'applied'}
+                className={`kg-tab-pill kg-pill-applied ${tierFilter === 'applied' ? 'kg-tab-active' : ''}`}
+                onClick={() => setTierFilter('applied')}
+              >
+                🚀 延伸應用 ({tierCounts.applied})
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected={tierFilter === 'advanced'}
+                className={`kg-tab-pill kg-pill-advanced ${tierFilter === 'advanced' ? 'kg-tab-active' : ''}`}
+                onClick={() => setTierFilter('advanced')}
+              >
+                🏆 進階活用 ({tierCounts.advanced})
+              </button>
+            </div>
+
+            <div className="kg-toolbar-controls">
+              <div className="kg-search-box">
+                <Search size={15} className="kg-search-icon" aria-hidden="true" />
+                <input
+                  type="search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="搜尋本課知識點、越文、語法關鍵字..."
+                  aria-label="過濾知識點關鍵字"
+                  className="kg-search-input"
+                />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={() => setSearchQuery('')}
+                    className="kg-search-clear"
+                    aria-label="清除搜尋字詞"
+                  >
+                    <X size={14} aria-hidden="true" />
+                  </button>
+                )}
               </div>
-              <h4>{concept}</h4>
-              <p lang="vi" className="kg-example dpb-viet-text">{vi}</p>
-              <div className="kg-audio-row">
-                <button type="button" onClick={() => speakExample(i, false)} aria-label={`播放越文：${exampleLines[i].viet}`}><Volume2 size={16} aria-hidden="true" /> 越文</button>
-                <button type="button" onClick={() => speakExample(i, true)} aria-label={`播放越文與中文：${exampleLines[i].viet}`}><Headphones size={16} aria-hidden="true" /> 越＋中</button>
+
+              <div className="kg-batch-actions">
+                <button
+                  type="button"
+                  onClick={toggleAllRevealed}
+                  className="kg-btn-tool"
+                  title="批次切換所有卡片展開與收起狀態"
+                >
+                  <Eye size={15} aria-hidden="true" />
+                  <span>{revealed.length === guide.rows.length ? '全部收起' : '全部展開'}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setShowInfographs(prev => !prev)}
+                  className={`kg-btn-tool ${showInfographs ? 'kg-tool-active' : ''}`}
+                  title="切換知識點專屬圖解 (INFOGRAPH) 顯示狀態"
+                >
+                  <Sparkles size={15} aria-hidden="true" />
+                  <span>{showInfographs ? '圖解模式：開' : '圖解模式：簡'}</span>
+                </button>
               </div>
-              <button type="button" aria-expanded={revealed.includes(i)} aria-controls={`recall-answer-${moduleId}-${i}`} onClick={() => setRevealed(prev => prev.includes(i) ? prev.filter(n => n !== i) : [...prev, i])}><Eye size={16} aria-hidden="true" /> {revealed.includes(i) ? '收起答案' : '回想後核對'}</button>
-              <div id={`recall-answer-${moduleId}-${i}`} hidden={!revealed.includes(i)} className="kg-revealed-block">
-                <p className="kg-revealed-meaning"><span className="kg-revealed-tag">精準語意</span><strong>{meaning}</strong></p>
-                <p className="kg-revealed-rule"><span className="kg-revealed-tag">規則與語境</span>{rule}</p>
-              </div>
-              <label className="kg-check"><input type="checkbox" checked={recalled.includes(i)} onChange={() => setRecalled(prev => prev.includes(i) ? prev.filter(n => n !== i) : [...prev, i])} />我能解釋並另舉例子</label>
-            </article>
-          );
-        })}</PhraseSetPlayer>
-        <p role="status"><CheckCircle size={16} aria-hidden="true" /> 已自行確認 {recalled.length}/{guide.rows.length} 項；請隔日用新例句再查。</p>
+            </div>
+          </div>
+        </div>
+
+        <PhraseSetPlayer lines={exampleLines} title={guide.title} accent={selectedAccent} className="kg-recall-grid">
+          {guide.rows.map(([concept, vi, meaning, rule], i) => {
+            const tier = guide.tiers?.[i] || 'basic';
+            const detail = moduleConceptDetails[i];
+
+            // Client-side filtering check
+            const matchesTier = tierFilter === 'all' || tier === tierFilter;
+            const matchesSearch = !searchQuery.trim() || [
+              concept,
+              vi,
+              meaning,
+              rule,
+              detail?.syntax,
+              detail?.usage,
+              detail?.trap
+            ].some(txt => String(txt || '').toLowerCase().includes(searchQuery.toLowerCase().trim()));
+
+            const isCardVisible = matchesTier && matchesSearch;
+
+            return (
+              <article
+                className={!isCardVisible ? 'kg-recall-card kg-card-hidden' : 'kg-recall-card'}
+                id={`kg-card-${moduleId}-${i}`}
+                data-line-index={i}
+                key={concept}
+              >
+                <div className="kg-card-header-row">
+                  <span className={`kg-eyebrow kg-tier-${tier}`}>
+                    {TIER_ICONS[tier]} {TIER_LABELS[tier]} · {i + 1}/{guide.rows.length}
+                  </span>
+                  <span className="kg-card-tier-hint">{TIER_DESCS[tier]}</span>
+                </div>
+
+                <h4>{concept}</h4>
+                <p lang="vi" className="kg-example dpb-viet-text">{vi}</p>
+
+                <div className="kg-audio-row">
+                  <button type="button" onClick={() => speakExample(i, false)} aria-label={`播放越文：${exampleLines[i].viet}`}>
+                    <Volume2 size={16} aria-hidden="true" /> 越文
+                  </button>
+                  <button type="button" onClick={() => speakExample(i, true)} aria-label={`播放越文與中文：${exampleLines[i].viet}`}>
+                    <Headphones size={16} aria-hidden="true" /> 越＋中
+                  </button>
+                </div>
+
+                <button
+                  type="button"
+                  aria-expanded={revealed.includes(i)}
+                  aria-controls={`recall-answer-${moduleId}-${i}`}
+                  onClick={() => setRevealed(prev => prev.includes(i) ? prev.filter(n => n !== i) : [...prev, i])}
+                >
+                  <Eye size={16} aria-hidden="true" /> {revealed.includes(i) ? '收起答案與解構' : '回想後核對'}
+                </button>
+
+                <div id={`recall-answer-${moduleId}-${i}`} hidden={!revealed.includes(i)} className="kg-revealed-block">
+                  <p className="kg-revealed-meaning">
+                    <span className="kg-revealed-tag">精準語意</span>
+                    <strong>{meaning}</strong>
+                  </p>
+                  <p className="kg-revealed-rule">
+                    <span className="kg-revealed-tag">規則與語境</span>
+                    {rule}
+                  </p>
+
+                  {/* Deep Structured Breakdown: Syntax & Practical Context */}
+                  {detail?.syntax && (
+                    <p className="kg-revealed-syntax">
+                      <span className="kg-revealed-tag kg-tag-syntax">語法槽位</span>
+                      <code className="kg-syntax-code">{detail.syntax}</code>
+                    </p>
+                  )}
+                  {detail?.usage && (
+                    <p className="kg-revealed-usage">
+                      <span className="kg-revealed-tag kg-tag-usage">實戰精析</span>
+                      {detail.usage}
+                    </p>
+                  )}
+                  {detail?.trap && (
+                    <p className="kg-revealed-trap">
+                      <span className="kg-revealed-tag kg-tag-trap">避坑警示</span>
+                      {detail.trap}
+                    </p>
+                  )}
+                  {detail?.mnemonic && (
+                    <p className="kg-revealed-mnemonic">
+                      <span className="kg-revealed-tag kg-tag-mnemonic">記憶心法</span>
+                      <em>{detail.mnemonic}</em>
+                    </p>
+                  )}
+                </div>
+
+                {/* Dedicated Micro-Infographic for Every Knowledge Point */}
+                {showInfographs && detail?.infograph && (
+                  <ConceptInfograph infograph={detail.infograph} />
+                )}
+
+                <label className="kg-check">
+                  <input
+                    type="checkbox"
+                    checked={recalled.includes(i)}
+                    onChange={() => setRecalled(prev => prev.includes(i) ? prev.filter(n => n !== i) : [...prev, i])}
+                  />
+                  我能解釋並另舉例子
+                </label>
+              </article>
+            );
+          })}
+        </PhraseSetPlayer>
+
+        <p role="status">
+          <CheckCircle size={16} aria-hidden="true" /> 已自行確認 {recalled.length}/{guide.rows.length} 項；請隔日用新例句再查。
+        </p>
       </section>
 
-      <aside className="kg-trap" id={`kg-trap-${moduleId}`}><AlertTriangle size={20} aria-hidden="true" /><div><strong className="kg-trap-title">易錯點與使用界線（避坑指南）</strong><p>{guide.trap}</p></div></aside>
+      <aside className="kg-trap" id={`kg-trap-${moduleId}`}>
+        <AlertTriangle size={20} aria-hidden="true" />
+        <div>
+          <span className="kg-trap-title">易錯陷阱警戒</span>
+          <p>{guide.trap}</p>
+        </div>
+      </aside>
 
       {chapters.length > 0 && <div className="kg-chapter">
-        <label htmlFor={`chapter-${moduleId}`}>對照本模組課綱章節（{chapters.length}項）</label>
-        <select id={`chapter-${moduleId}`} value={chapterId} onChange={e => setChapterId(e.target.value)}><option value="">選擇要補強的章節</option>{chapters.map(c => <option key={c.id} value={c.id}>{c.titleZh}</option>)}</select>
-        {chapter && <div className="kg-chapter-result"><h3>{chapter.titleZh}</h3><p>{chapter.descZh}</p>{chapterLinks.length > 0 && <div className="kg-chapter-links"><strong>本章對應知識點（點選展開卡片複習）：</strong><ul>{chapterLinks.map(concept => { const i = guide.rows.findIndex(r => r[0] === concept); return <li key={concept}><button type="button" onClick={() => openCard(i)}>{concept}</button></li>; })}</ul></div>}<ol><li>對照本章說明，找出三個需要理解的詞、規則或條件，寫出中文意思。</li><li>本課練習方法：{guide.task}</li><li>將任務套用到「{chapter.titleZh}」，替換一項人物、時間、數量或觀點後重做。</li><li>核對是否涵蓋本章目標：「{chapter.descZh}」；未能解釋的部分列入下方錯因修正。</li></ol><button type="button" onClick={() => onSelectChapter(chapter)}>前往章節練習 →</button></div>}
+        <label htmlFor={`kg-chapter-${moduleId}`}>按本單元課綱章節複習（134章）</label>
+        <select id={`kg-chapter-${moduleId}`} value={chapterId} onChange={e => { const val = e.target.value; setChapterId(val); onSelectChapter?.(val); }}>
+          <option value="">選擇課綱章節以標示對應知識點…</option>
+          {chapters.map(c => <option key={c.id} value={c.id}>{c.stage ? `第${c.stage}階 · ` : ''}{c.order} {c.title}</option>)}
+        </select>
+        {chapter && <div className="kg-chapter-links"><p>本章練習可對照的知識點：</p><ul>{chapterLinks.map(concept => {
+          const idx = guide.rows.findIndex(r => r[0] === concept);
+          return <li key={concept}><button type="button" onClick={() => openCard(idx)}><BookOpen size={14} aria-hidden="true" /> 展開第 {idx + 1} 項「{concept}」</button></li>;
+        })}</ul></div>}
       </div>}
 
       <div className="kg-practice" id={`kg-practice-${moduleId}`}>
-        <h3><ClipboardCheck size={20} aria-hidden="true" /> 先檢查，再修正</h3><fieldset><legend>{guide.question}</legend>
+        <h3><ClipboardCheck size={20} aria-hidden="true" /> 隨堂自我檢驗（核心、遷移與聽力）</h3>
+        <fieldset><legend>核心概念：{guide.question}</legend>
           <div className="kg-options">{guide.options.map((opt, i) => <button type="button" key={opt} aria-pressed={answer === i} onClick={() => setAnswer(i)}>{opt}</button>)}</div>
         </fieldset>
         {answer !== null && <p role="status" className={answer === guide.answer ? 'kg-correct' : 'kg-retry'}>{answer === guide.answer ? '✓ 答對了。' : `再想一想。正確答案：${asAnswer(guide.options[guide.answer])}。`}{guide.explain}</p>}
