@@ -284,7 +284,7 @@ export function App() {
       <main id="main-content" className="main-content" tabIndex="-1">
         <ErrorBoundary>
           <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
-            {activeTab !== 'path' && (
+            {activeTab !== 'path' && activeTab !== 'quest' && (
               <div className="kg-shortcut"><button type="button" onClick={() => document.getElementById(`knowledge-${activeTab}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>本課知識圖解與檢核 ↓</button></div>
             )}
             {activeTab === 'path' && (

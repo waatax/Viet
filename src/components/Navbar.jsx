@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import {
-  Sun, Moon, Type, Flame, Trophy, Globe, Menu, X,
+  Sun, Moon, Type, Flame, Trophy, Globe, Menu, X, Sparkles,
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
   Layers3, BookOpen, BookOpenText, UsersRound, BadgeCheck, BookMarked, Settings2, Star, Mic, Puzzle, Music, Zap, Brain, LifeBuoy, Award, Briefcase, ChevronRight, Search, Landmark
 } from 'lucide-react';
@@ -641,12 +641,12 @@ export const Navbar = ({
         </button>
 
         <button
-          className={`bottom-nav-item ${activeTab === 'macropol' ? 'active' : ''}`}
-          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('macropol'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          className={`bottom-nav-item ${activeTab === 'quest' ? 'active' : ''}`}
+          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('quest'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
-          <Landmark size={20} />
-          <span>越南政經</span>
-          {activeTab === 'macropol' && <span className="bottom-nav-indicator" />}
+          <Sparkles size={20} />
+          <span>越語闖關</span>
+          {activeTab === 'quest' && <span className="bottom-nav-indicator" />}
         </button>
 
         <button

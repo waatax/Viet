@@ -13,6 +13,17 @@ import { QUEST_UNITS } from '../data/questCurriculumData.js';
 export const QUEST_STORAGE_KEY = 'viet_quest_progress_v2';
 export const DAY_MS = 86400000;
 export const MAX_HEARTS = 3;
+export const DAILY_XP_GOAL = 30;
+export const localDateKey = (date = new Date()) => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+export const getDueMistakes = (state, now = Date.now()) => Object.values(state.mistakesBank || {}).filter(record => record.q && (!record.dueAt || record.dueAt <= now));
+const shuffle = (items) => {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
 export const XP_RATES = {
   lesson: 15,
   boss: 30,
@@ -38,10 +49,11 @@ export const createDefaultQuestState = () => ({
   crowns: {},
   gems: 50,
   freezes: 1,
-  streak: 1,
+  streak: 0,
   lastCompletedDate: '',
   mistakesBank: {},
-  totalXp: 0
+  totalXp: 0,
+  dailyXp: {}
 });
 
 export const loadQuestState = () => {
@@ -50,7 +62,13 @@ export const loadQuestState = () => {
     const raw = localStorage.getItem(QUEST_STORAGE_KEY);
     if (!raw) return createDefaultQuestState();
     const parsed = JSON.parse(raw);
-    return { ...createDefaultQuestState(), ...parsed };
+    const defaults = createDefaultQuestState();
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return defaults;
+    const state = { ...defaults, ...parsed };
+    for (const key of ['nodes', 'crowns', 'mistakesBank', 'dailyXp']) {
+      state[key] = parsed[key] && typeof parsed[key] === 'object' && !Array.isArray(parsed[key]) ? parsed[key] : defaults[key];
+    }
+    return state;
   } catch (e) {
     return createDefaultQuestState();
   }
@@ -134,8 +152,11 @@ export const evaluateAnswer = (question, userAnswer) => {
 export const createQuestSession = (node, mode = 'lesson', customQuestions = null) => {
   const rawQuestions = customQuestions || node.questions || [];
   // Shallow copy so we can append mistake retries
-  const queue = [...rawQuestions];
-  const isBoss = node.kind === 'boss';
+  const queue = rawQuestions.map(question => ({ ...question,
+    ...(question.options ? { options: shuffle(question.options) } : {}),
+    ...(question.words ? { words: shuffle(question.words) } : {})
+  }));
+  const isBoss = mode !== 'review' && node.kind === 'boss';
 
   return {
     nodeId: node.id,
@@ -162,8 +183,11 @@ export const createQuestSession = (node, mode = 'lesson', customQuestions = null
  */
 export const submitSessionAnswer = (session, userAnswer) => {
   if (session.isFinished || session.outOfHearts) return null;
+  if (session.answeredIndex === session.currentIndex) return null;
 
   const currentQ = session.queue[session.currentIndex];
+  if (!currentQ) return null;
+  session.answeredIndex = session.currentIndex;
   const isCorrect = evaluateAnswer(currentQ, userAnswer);
 
   const result = {
@@ -207,6 +231,7 @@ export const submitSessionAnswer = (session, userAnswer) => {
  */
 export const advanceSession = (session) => {
   if (session.outOfHearts) return { finished: false, outOfHearts: true };
+  if (session.answeredIndex !== session.currentIndex) return { finished: false };
 
   // Next in queue
   if (session.currentIndex + 1 < session.queue.length) {
@@ -236,12 +261,15 @@ export const advanceSession = (session) => {
  * Finalize session results and update persistent user state
  */
 export const finalizeSession = (state, session) => {
-  const newState = { ...state };
+  if (!session.isFinished || !session.totalInitial || session.outOfHearts || session.finalized) return null;
+  session.finalized = true;
+  const newState = { ...state, nodes: { ...state.nodes }, crowns: { ...state.crowns }, mistakesBank: { ...state.mistakesBank }, dailyXp: { ...state.dailyXp } };
   const isBoss = session.isBoss;
+  const isReview = session.mode === 'review';
   const perfect = session.mistakesCount === 0;
 
   // Calculate XP
-  let xpGained = isBoss ? XP_RATES.boss : XP_RATES.lesson;
+  let xpGained = isReview ? XP_RATES.review : isBoss ? XP_RATES.boss : XP_RATES.lesson;
   if (perfect) xpGained += XP_RATES.perfectBonus;
 
   newState.totalXp = (newState.totalXp || 0) + xpGained;
@@ -249,7 +277,7 @@ export const finalizeSession = (state, session) => {
   // Mark node done
   const existingNode = newState.nodes[session.nodeId] || { crowns: 0, attempts: 0 };
   const attempts = (existingNode.attempts || 0) + 1;
-  const accuracy = Math.round(((session.totalInitial - session.mistakesCount) / session.totalInitial) * 100);
+  const accuracy = Math.round(session.history.slice(0, session.totalInitial).filter(item => item.isCorrect).length / Math.max(1, session.totalInitial) * 100);
 
   let newCrown = false;
   let crownUnitId = null;
@@ -265,7 +293,7 @@ export const finalizeSession = (state, session) => {
     }
   }
 
-  newState.nodes[session.nodeId] = {
+  if (!isReview) newState.nodes[session.nodeId] = {
     done: true,
     crowned: isBoss && !session.outOfHearts,
     attempts,
@@ -289,11 +317,20 @@ export const finalizeSession = (state, session) => {
     if (nextNodeId) break;
   }
 
-  if (nextNodeId && !newState.nodes[nextNodeId]) {
+  if (!isReview && nextNodeId && !newState.nodes[nextNodeId]) {
     newState.nodes[nextNodeId] = { done: false, crowns: 0, attempts: 0, bestAccuracy: 0 };
   }
 
   // Add mistakes to persistent mistakesBank
+  if (isReview) {
+    for (const item of session.history.slice(0, session.totalInitial)) {
+      const record = newState.mistakesBank[item.question.id];
+      if (!record || !item.isCorrect || record.dueAt > Date.now()) continue;
+      const reviews = (record.reviews || 0) + 1;
+      if (reviews >= 3) delete newState.mistakesBank[item.question.id];
+      else newState.mistakesBank[item.question.id] = { ...record, reviews, dueAt: Date.now() + DAY_MS * (reviews === 1 ? 1 : 3) };
+    }
+  }
   if (session.history) {
     const wrongItems = session.history.filter(h => !h.isCorrect);
     for (const item of wrongItems) {
@@ -302,10 +339,23 @@ export const finalizeSession = (state, session) => {
       newState.mistakesBank[q.id] = {
         count: prev.count + 1,
         lastWrong: Date.now(),
+        reviews: 0,
+        dueAt: Date.now(),
         q
       };
     }
   }
+
+  const today = localDateKey();
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  if (newState.lastCompletedDate !== today) {
+    newState.streak = newState.lastCompletedDate === localDateKey(yesterday) ? (newState.streak || 0) + 1 : 1;
+  }
+  newState.lastCompletedDate = today;
+  newState.dailyXp[today] = (newState.dailyXp[today] || 0) + xpGained;
+  const gemsGained = newCrown ? 20 : 5;
+  if (!newCrown) newState.gems = (newState.gems ?? 0) + gemsGained;
 
   // Save to storage
   saveQuestState(newState);
@@ -317,6 +367,6 @@ export const finalizeSession = (state, session) => {
     accuracy,
     newCrown,
     crownUnitId,
-    gemsGained: newCrown ? 20 : 5
+    gemsGained
   };
 };

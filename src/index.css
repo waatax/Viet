@@ -2892,6 +2892,11 @@ p, li, h1, h2, h3, strong, small, span {
 }
 
 @media (max-width: 560px) {
+  .nav-mobile-actions .icon-control[aria-label="開啟音訊健康檢驗儀"] { display: none; }
+  .nav-content { gap: .4rem; }
+  .nav-brand-and-finder .brand-logo { min-width: 0; gap: .4rem; }
+  .nav-brand-and-finder .brand-copy { min-width: 0; overflow: hidden; }
+  .nav-brand-and-finder .brand-title-line strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   :root {
     --base-font-size: calc(15px * var(--font-scale));
   }
@@ -4543,6 +4548,8 @@ p, li, h1, h2, h3, strong, small, span {
 
 @media (max-width: 380px) {
   .brand-ver-badge { display: none; }
+  .nav-mobile-actions .mobile-quick-font-indicator { display: none; }
+  .nav-brand-and-finder .flag-badge { display: none; }
 }
 
 

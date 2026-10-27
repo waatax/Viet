@@ -1,12 +1,12 @@
 {
   "name": "viet-learning-hub",
   "private": true,
-  "version": "2.14.0",
+  "version": "2.15.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test:quest": "node scripts/test_quest_curriculum.mjs && node scripts/test_quest_engine.mjs",
+    "test:quest": "node scripts/test_quest_curriculum.mjs && node scripts/test_quest_engine.mjs && node scripts/test_quest_progress.mjs",
     "test:knowledge": "npm run test:quest && node scripts/test_knowledge_curriculum.mjs && node scripts/test_knowledge_ui.mjs && node scripts/test_concept_infographics.mjs && node scripts/audit_knowledge_pages.mjs",
     "test:audio": "node scripts/spot_check_audio_correctness.mjs && node scripts/deep_audio_audit_v2.mjs",
     "test:dialogue": "node scripts/extract_dialogue_texts.mjs && node scripts/test_dialogue_playback.mjs && node scripts/test_audio_reliability.mjs && node scripts/test_lockscreen_playback.mjs",

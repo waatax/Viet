@@ -106,9 +106,32 @@ const dummyBossNode = {
 const bossSession = createQuestSession(dummyBossNode, 'lesson');
 if (bossSession.hearts !== 3) errors.push(`Boss session should have 3 hearts, got ${bossSession.hearts}`);
 submitSessionAnswer(bossSession, 'B'); // heart 2
+advanceSession(bossSession);
 submitSessionAnswer(bossSession, 'B'); // heart 1
+advanceSession(bossSession);
 const bres3 = submitSessionAnswer(bossSession, 'B'); // heart 0 -> outOfHearts!
 if (!bres3.outOfHearts || !bossSession.outOfHearts) errors.push('Losing 3 hearts should trigger outOfHearts');
+
+// Regression: rewards must match persisted balances and never mutate the input state.
+if (fin.newState.gems !== s0.gems + fin.gemsGained) errors.push('Gem reward differs from saved balance');
+if (s0.nodes['test-node']) errors.push('Finalization mutated original node state');
+if (fin.accuracy !== 50) errors.push('Accuracy must count first attempts only');
+if (finalizeSession(fin.newState, session) !== null) errors.push('Finalization must not pay twice');
+if (finalizeSession(s0, bossSession) !== null) errors.push('Failed boss must not grant XP or unlock nodes');
+
+const guarded = createQuestSession(dummyNode);
+submitSessionAnswer(guarded, 'B');
+if (submitSessionAnswer(guarded, 'B') !== null || guarded.history.length !== 1) errors.push('Duplicate submit was accepted');
+
+const reviewState = { ...fin.newState, mistakesBank: { q1: { q: dummyNode.questions[0], count: 1, reviews: 0 } } };
+const review = createQuestSession({ id: 'review', kind: 'lesson' }, 'review', [dummyNode.questions[0]]);
+submitSessionAnswer(review, 'A');
+advanceSession(review);
+const reviewed = finalizeSession(reviewState, review);
+if (reviewed.newState.nodes.review) errors.push('Review must not create curriculum nodes');
+if (reviewed.newState.mistakesBank.q1.reviews !== 1 || reviewed.newState.mistakesBank.q1.dueAt <= Date.now()) errors.push('Review must schedule the next retrieval');
+if (reviewed.xpGained !== 15) errors.push('Perfect review should grant 10 XP plus 5 bonus');
+if (reviewed.newState.streak !== fin.newState.streak) errors.push('Same day review must not increase streak');
 
 if (errors.length > 0) {
   console.error(`FAIL: ${errors.length} error(s) in questEngine:`);
