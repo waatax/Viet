@@ -12,6 +12,7 @@ const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ 
 // Teaching notes render below each module, so they load after the module itself
 const KnowledgeGuide = lazyNamed(() => import('./components/KnowledgeGuide'), 'KnowledgeGuide');
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
+const QuestModule = lazyNamed(() => import('./components/QuestModule'), 'QuestModule');
 const TopicMasteryModule = lazyNamed(() => import('./components/TopicMasteryModule'), 'TopicMasteryModule');
 const FastTrackModule = lazyNamed(() => import('./components/FastTrackModule'), 'default');
 const BusinessHubModule = lazyNamed(() => import('./components/BusinessHubModule'), 'default');
@@ -39,6 +40,7 @@ const BookmarksModal = lazyNamed(() => import('./components/BookmarksModal'), 'd
 
 const getModuleFromHash = () => {
   const moduleId = window.location.hash.replace(/^#\/?/, '');
+  if (moduleId === 'quest') return 'quest';
   return MODULE_IDS.includes(moduleId) ? moduleId : 'path';
 };
 
@@ -175,7 +177,7 @@ export function App() {
   };
 
   const setActiveTab = (moduleId) => {
-    const nextModule = MODULE_IDS.includes(moduleId) ? moduleId : 'path';
+    const nextModule = (moduleId === 'quest' || MODULE_IDS.includes(moduleId)) ? moduleId : 'path';
     setActiveTabState(nextModule);
     const nextHash = `#/${nextModule}`;
     if (window.location.hash !== nextHash) window.location.hash = nextHash;
@@ -292,6 +294,12 @@ export function App() {
                 setSelectedAccent={setSelectedAccent}
                 updateUserStats={updateUserStats}
                 onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
+              />
+            )}
+            {activeTab === 'quest' && (
+              <QuestModule
+                selectedAccent={selectedAccent}
+                updateUserStats={updateUserStats}
               />
             )}
             {activeTab === 'topics' && <TopicMasteryModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}

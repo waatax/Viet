@@ -30,6 +30,7 @@ export const translations = {
     zoomOut: '縮小字體',
     tabs: {
       path: '學習總覽',
+      quest: '🎮 Duolingo 闖關',
       topics: '7大情境深造',
       fasttrack: '7天生活速成',
       science: '科學方法研究',
@@ -116,6 +117,7 @@ export const translations = {
     zoomOut: 'Decrease Font',
     tabs: {
       path: 'Learning Overview',
+      quest: '🎮 Duolingo Quest',
       topics: '7 Situations',
       fasttrack: '7-Day Fast-Track',
       science: 'Science & SLA',

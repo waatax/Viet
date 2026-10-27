@@ -14,7 +14,8 @@ export const NAV_GROUPS = [
   {
     id: 'dashboard',
     items: [
-      { id: 'path', labelKey: 'tabs.path', icon: Map }
+      { id: 'path', labelKey: 'tabs.path', icon: Map },
+      { id: 'quest', labelKey: 'tabs.quest', icon: Sparkles }
     ]
   },
   {

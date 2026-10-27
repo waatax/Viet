@@ -737,6 +737,80 @@ export const LearningPathModule = ({
         </div>
       </section>
 
+      {/* 🦉 Duolingo 遊戲化學習之路快捷傳送門 */}
+      <section className="duolingo-quest-banner" style={{
+        margin: '1.25rem 0',
+        padding: '1.25rem 1.6rem',
+        background: 'linear-gradient(135deg, rgba(88, 204, 2, 0.18) 0%, rgba(6, 182, 212, 0.15) 100%)',
+        border: '2px solid rgba(88, 204, 2, 0.4)',
+        borderRadius: '20px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '1.25rem',
+        boxShadow: '0 6px 24px rgba(88, 204, 2, 0.12)'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.1rem' }}>
+          <div style={{
+            fontSize: '2.4rem',
+            lineHeight: 1,
+            filter: 'drop-shadow(0 3px 8px rgba(0,0,0,0.2))'
+          }}>
+            🦉
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.25rem' }}>
+              <span style={{
+                fontSize: '0.75rem',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                background: '#58cc02',
+                color: '#fff',
+                padding: '0.2rem 0.6rem',
+                borderRadius: '9999px'
+              }}>
+                全新登場 · DUOLINGO QUEST
+              </span>
+              <span style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 700 }}>
+                👑 8 大單元 · 32 關卡 · 200+ 題
+              </span>
+            </div>
+            <strong style={{ fontSize: '1.2rem', color: 'var(--text-primary, #fff)', display: 'block' }}>
+              越南語 Duolingo 遊戲化階梯學習之路
+            </strong>
+            <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.85rem', color: 'var(--text-muted, #94a3b8)' }}>
+              全語音朗讀 · 烏龜慢速調型 · 提示鷹架支援 · 錯題重複直達徹底學會
+            </p>
+          </div>
+        </div>
+
+        <button
+          onClick={() => {
+            audioEngine.playHaptic('tap');
+            setActiveTab('quest');
+          }}
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.75rem 1.6rem',
+            borderRadius: '9999px',
+            background: '#58cc02',
+            color: '#ffffff',
+            border: 'none',
+            fontSize: '1rem',
+            fontWeight: 800,
+            cursor: 'pointer',
+            boxShadow: '0 4px 0 #46a302',
+            transition: 'all 0.15s ease'
+          }}
+        >
+          <span>立即啟航闖關</span>
+          <ArrowRight size={18} />
+        </button>
+      </section>
+
       {/* ⚡ 接續上次學習橫幅 (Resume Learning Flow) */}
       {lastVisitedModule && (
         <section className="resume-learning-banner" style={{
