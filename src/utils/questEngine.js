@@ -53,7 +53,8 @@ export const createDefaultQuestState = () => ({
   lastCompletedDate: '',
   mistakesBank: {},
   totalXp: 0,
-  dailyXp: {}
+  dailyXp: {},
+  savedSession: null
 });
 
 export const loadQuestState = () => {
@@ -68,6 +69,8 @@ export const loadQuestState = () => {
     for (const key of ['nodes', 'crowns', 'mistakesBank', 'dailyXp']) {
       state[key] = parsed[key] && typeof parsed[key] === 'object' && !Array.isArray(parsed[key]) ? parsed[key] : defaults[key];
     }
+    const session = state.savedSession;
+    if (session && (!Array.isArray(session.queue) || !session.queue.length || !Number.isInteger(session.currentIndex) || !session.queue[session.currentIndex] || !Array.isArray(session.history) || !Array.isArray(session.retryQueue) || session.isFinished || session.outOfHearts)) state.savedSession = null;
     return state;
   } catch (e) {
     return createDefaultQuestState();
@@ -75,10 +78,11 @@ export const loadQuestState = () => {
 };
 
 export const saveQuestState = (state) => {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined') return false;
   try {
     localStorage.setItem(QUEST_STORAGE_KEY, JSON.stringify(state));
-  } catch (e) {}
+    return true;
+  } catch (e) { return false; }
 };
 
 /**
@@ -257,13 +261,29 @@ export const advanceSession = (session) => {
   return { finished: true, session };
 };
 
+// Save answered progress immediately, including mistakes from abandoned or failed lessons.
+// The history cursor prevents a retry, pause or finalization from recording the same answer twice.
+export const checkpointSession = (state, session) => {
+  const next = { ...state, mistakesBank: { ...state.mistakesBank } };
+  for (const item of session.history.slice(session.recordedHistoryCount || 0)) {
+    if (item.isCorrect) continue;
+    const q = item.question;
+    const previous = next.mistakesBank[q.id];
+    next.mistakesBank[q.id] = { count: (previous?.count || 0) + 1, lastWrong: Date.now(), reviews: 0, dueAt: Date.now(), q };
+  }
+  session.recordedHistoryCount = session.history.length;
+  next.savedSession = session.isFinished || session.outOfHearts ? null : JSON.parse(JSON.stringify(session));
+  saveQuestState(next);
+  return next;
+};
+
 /**
  * Finalize session results and update persistent user state
  */
 export const finalizeSession = (state, session) => {
   if (!session.isFinished || !session.totalInitial || session.outOfHearts || session.finalized) return null;
   session.finalized = true;
-  const newState = { ...state, nodes: { ...state.nodes }, crowns: { ...state.crowns }, mistakesBank: { ...state.mistakesBank }, dailyXp: { ...state.dailyXp } };
+  const newState = { ...checkpointSession(state, session), nodes: { ...state.nodes }, crowns: { ...state.crowns }, dailyXp: { ...state.dailyXp }, savedSession: null };
   const isBoss = session.isBoss;
   const isReview = session.mode === 'review';
   const perfect = session.mistakesCount === 0;
@@ -329,20 +349,6 @@ export const finalizeSession = (state, session) => {
       const reviews = (record.reviews || 0) + 1;
       if (reviews >= 3) delete newState.mistakesBank[item.question.id];
       else newState.mistakesBank[item.question.id] = { ...record, reviews, dueAt: Date.now() + DAY_MS * (reviews === 1 ? 1 : 3) };
-    }
-  }
-  if (session.history) {
-    const wrongItems = session.history.filter(h => !h.isCorrect);
-    for (const item of wrongItems) {
-      const q = item.question;
-      const prev = newState.mistakesBank[q.id] || { count: 0, q };
-      newState.mistakesBank[q.id] = {
-        count: prev.count + 1,
-        lastWrong: Date.now(),
-        reviews: 0,
-        dueAt: Date.now(),
-        q
-      };
     }
   }
 

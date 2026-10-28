@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { QUEST_UNITS } from '../src/data/questCurriculumData.js';
-import { createDefaultQuestState, createQuestSession, submitSessionAnswer, advanceSession, finalizeSession, getDueMistakes, localDateKey, DAY_MS } from '../src/utils/questEngine.js';
+import { createDefaultQuestState, createQuestSession, submitSessionAnswer, advanceSession, finalizeSession, checkpointSession, getDueMistakes, localDateKey, loadQuestState, saveQuestState, DAY_MS } from '../src/utils/questEngine.js';
 
 const node = QUEST_UNITS[0].nodes[0];
 function complete(state, target = node, mode = 'lesson', questions = null) {
@@ -61,4 +61,57 @@ try { Math.random = () => 0; shuffled = createQuestSession(node); } finally { Ma
 assert.notEqual(shuffled.queue[0].options.indexOf(q.answer), 0);
 assert.deepEqual([...shuffled.queue[0].options].sort(), [...q.options].sort());
 assert.equal(JSON.stringify(node), original);
-console.log('PASS: calendar streaks, daily XP, reward balances, spaced review, early-review protection, crowns and shuffled options.');
+// Pausing and reloading retain answers/retries without duplicate mistakes or early rewards.
+let interrupted = createQuestSession(node);
+const firstQ = interrupted.queue[0];
+submitSessionAnswer(interrupted, 'incorrect');
+let saved = checkpointSession(createDefaultQuestState(), interrupted);
+assert.equal(saved.mistakesBank[firstQ.id].count, 1);
+assert.equal(saved.totalXp, 0);
+assert.equal(saved.nodes[node.id].done, false);
+interrupted = JSON.parse(JSON.stringify(saved.savedSession));
+assert.equal(submitSessionAnswer(interrupted, firstQ.answer), null);
+assert.equal(interrupted.history.at(-1).isCorrect, false);
+saved = checkpointSession(saved, interrupted);
+assert.equal(saved.mistakesBank[firstQ.id].count, 1);
+advanceSession(interrupted);
+saved = checkpointSession(saved, interrupted);
+interrupted = JSON.parse(JSON.stringify(saved.savedSession));
+while (!interrupted.isFinished) {
+  submitSessionAnswer(interrupted, interrupted.queue[interrupted.currentIndex].answer);
+  saved = checkpointSession(saved, interrupted);
+  advanceSession(interrupted);
+}
+const finished = finalizeSession(saved, interrupted);
+assert.equal(finished.newState.savedSession, null);
+assert.equal(finished.newState.mistakesBank[firstQ.id].count, 1);
+assert.equal(finished.xpGained, 15);
+
+// Failed bosses keep all mistakes but never leave a resumable dead-end or award progress.
+const failed = createQuestSession(boss);
+let failedState = createDefaultQuestState();
+for (let i = 0; i < 3; i++) {
+  submitSessionAnswer(failed, 'incorrect');
+  failedState = checkpointSession(failedState, failed);
+  advanceSession(failed);
+}
+assert.equal(failed.outOfHearts, true);
+assert.equal(failedState.savedSession, null);
+assert.equal(Object.values(failedState.mistakesBank).reduce((sum, record) => sum + record.count, 0), 3);
+assert.equal(failedState.totalXp, 0);
+assert.equal(finalizeSession(failedState, failed), null);
+
+// Real persistence boundary: valid snapshots survive storage; corrupt data recovers safely.
+let stored = JSON.stringify(saved);
+globalThis.window = {};
+globalThis.localStorage = { getItem: () => stored, setItem: (_, value) => { stored = value; } };
+assert.equal(loadQuestState().savedSession.currentIndex, saved.savedSession.currentIndex);
+stored = JSON.stringify({ savedSession: { queue: [], history: [] } });
+assert.equal(loadQuestState().savedSession, null);
+stored = '{broken';
+assert.equal(loadQuestState().totalXp, 0);
+globalThis.localStorage.setItem = () => { throw new Error('Storage denied'); };
+assert.equal(saveQuestState(createDefaultQuestState()), false);
+delete globalThis.window;
+delete globalThis.localStorage;
+console.log('PASS: calendar streaks, daily XP, rewards, spaced review, crowns, shuffled options, pause/reload, immediate mistakes and failed-boss recovery.');

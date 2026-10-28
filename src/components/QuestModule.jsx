@@ -9,7 +9,7 @@ import { QUEST_UNITS, QUEST_STATS } from '../data/questCurriculumData';
 import {
   loadQuestState, saveQuestState, getNodeStatus,
   createQuestSession, submitSessionAnswer, advanceSession,
-  finalizeSession, normalizeText, MAX_HEARTS, DAILY_XP_GOAL, localDateKey, getDueMistakes
+  finalizeSession, checkpointSession, normalizeText, MAX_HEARTS, DAILY_XP_GOAL, localDateKey, getDueMistakes
 } from '../utils/questEngine';
 import { audioEngine } from '../services/audioEngine';
 import './QuestModule.css';
@@ -20,6 +20,7 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
   const [selectedNode, setSelectedNode] = useState(null);
   const [guideUnit, setGuideUnit] = useState(null);
   const [showMistakesReview, setShowMistakesReview] = useState(false);
+  const [storageAvailable, setStorageAvailable] = useState(true);
 
   // In-session answer states
   const [userAnswer, setUserAnswer] = useState('');
@@ -67,7 +68,7 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
 
   // Sync state changes to storage
   useEffect(() => {
-    saveQuestState(questState);
+    setStorageAvailable(saveQuestState(questState));
   }, [questState]);
 
   // Current active question
@@ -122,20 +123,25 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
     setMatchedPairs([]);
     setMatchSelectedVi(null);
     setMatchSelectedZh(null);
-    setFeedback(null);
+    const previousAnswer = activeSession.answeredIndex === activeSession.currentIndex ? activeSession.history.at(-1) : null;
+    setFeedback(previousAnswer);
+    if (previousAnswer && ['choice', 'listen', 'input'].includes(currentQ.type)) setUserAnswer(previousAnswer.userAnswer);
+    if (previousAnswer?.placedWords) setBuildPlacedWords(previousAnswer.placedWords);
+    if (previousAnswer && currentQ.type === 'match') setMatchedPairs(currentQ.pairs);
     setShowHint(false);
     setShowTranscript(false);
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     // Auto-focus input on cloze/input questions
     if (currentQ.type === 'input') {
-      setTimeout(() => answerInputRef.current?.focus(), 100);
+      answerInputRef.current?.focus();
     }
 
     // Auto-play question audio for listening or prompt audio
     if (currentQ.type === 'listen' && currentQ.audioText) {
       handlePlayAudio(currentQ.audioText, false);
     }
+    return () => audioEngine.stop();
   }, [activeSession?.currentIndex, currentQ?.id]);
 
   // Check if answer is ready to submit
@@ -158,19 +164,24 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
 
   // Start a lesson session
   const handleStartNode = (node) => {
+    if (questState.savedSession && !window.confirm('開始新的練習會取代尚未完成的練習。已記錄的錯題仍會保留。確定開始嗎？')) return;
     setSelectedNode(null);
     setCompletionData(null);
     const session = createQuestSession(node, 'lesson');
     setActiveSession(session);
+    setQuestState(checkpointSession(questState, session));
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   const handleStartReview = () => {
     const records = dueMistakes.length ? dueMistakes : Object.values(questState.mistakesBank || {}).filter(record => record.q);
     if (!records.length) return;
+    if (questState.savedSession && !window.confirm('開始錯題練習會取代尚未完成的練習。確定開始嗎？')) return;
     setShowMistakesReview(false);
     setCompletionData(null);
-    setActiveSession(createQuestSession({ id: 'mistakes-review', title: '錯題強化練習', kind: 'lesson' }, 'review', records.slice(0, 10).map(record => record.q)));
+    const session = createQuestSession({ id: 'mistakes-review', title: '錯題強化練習', kind: 'lesson' }, 'review', records.slice(0, 10).map(record => record.q));
+    setActiveSession(session);
+    setQuestState(checkpointSession(questState, session));
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
@@ -187,8 +198,10 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
 
     const res = submitSessionAnswer(activeSession, finalAnswer);
     if (!res) return;
+    if (currentQ.type === 'build') res.placedWords = [...buildPlacedWords];
 
     setFeedback(res);
+    setQuestState(checkpointSession(questState, activeSession));
 
     if (res.isCorrect) {
       if (activeSession.combo >= 3) {
@@ -232,6 +245,7 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
       }
       setActiveSession(null);
     } else {
+      setQuestState(checkpointSession(questState, activeSession));
       setActiveSession({ ...activeSession });
     }
   };
@@ -318,6 +332,7 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
 
   return (
     <div className="quest-container">
+      {!storageAvailable && <p role="status" className="quest-storage-notice">此瀏覽器目前無法儲存。你仍可練習，但關閉頁面後將無法恢復進度。</p>}
       {/* Top Gamification Status Bar */}
       <header className="quest-header-bar">
         <div className="quest-brand">
@@ -369,6 +384,7 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
       {/* Main Learning Map or Active Lesson */}
       {!activeSession && !completionData && (
         <div className="quest-map-view">
+          {questState.savedSession && <section className="quest-saved-session" aria-label="未完成的練習"><div><strong>⏸ 上次的練習還在這裡</strong><p>{questState.savedSession.nodeTitle} · 已作答 {questState.savedSession.history.length} 次 · 進度自動保存</p></div><button className="quest-btn-primary" onClick={() => { setActiveSession(JSON.parse(JSON.stringify(questState.savedSession))); setSelectedNode(null); }}>繼續未完成練習<ArrowRight size={18} /></button></section>}
           <section className="quest-dashboard" aria-label="今日學習計畫">
             <div className="quest-next-card">
               <span className="quest-eyebrow">YOUR NEXT ADVENTURE · 你的下一步</span>
@@ -535,11 +551,12 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
               type="button"
               className="lesson-exit-btn"
               onClick={() => {
-                if (window.confirm('返回地圖將結束本次練習，尚未完成的進度不會保留。確定返回嗎？')) {
-                  setActiveSession(null);
-                }
+                setQuestState(checkpointSession(questState, activeSession));
+                audioEngine.stop();
+                setActiveSession(null);
               }}
-              title="離開"
+              title="暫停並保存"
+              aria-label="暫停並保存"
             >
               <X size={20} />
             </button>

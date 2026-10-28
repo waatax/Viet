@@ -5,6 +5,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 const expected = process.env.GITHUB_SHA || execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
 const { version } = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 let lastError;
+let verified = false;
 for (let attempt = 1; attempt <= 12; attempt++) {
   try {
     const url = new URL('https://waatax.github.io/Viet/release.json');
@@ -17,12 +18,15 @@ for (let attempt = 1; attempt <= 12; attempt++) {
       throw new Error(`Published version does not match ${version} / ${expected}`);
     }
     console.log(`PASS: GitHub Pages serves v${release.version}, commit ${release.revision}, built ${release.builtAt}`);
-    process.exit(0);
+    verified = true;
+    break;
   } catch (error) {
     lastError = error;
     if (attempt === 1) console.log('Waiting for the published release record to reach GitHub Pages.');
     if (attempt < 12) await delay(5000);
   }
 }
-console.error(`FAIL: Could not verify the published release: ${lastError.message}`);
-process.exitCode = 1;
+if (!verified) {
+  console.error(`FAIL: Could not verify the published release: ${lastError.message}`);
+  process.exitCode = 1;
+}
