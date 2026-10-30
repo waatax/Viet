@@ -28,7 +28,7 @@ AUDIO_DIR = os.path.join(ROOT, "public", "audio")
 ZH_DIR = os.path.join(AUDIO_DIR, "zh")
 VI_MANIFEST_PATH = os.path.join(ROOT, "src", "data", "audioManifest.json")
 ZH_MANIFEST_PATH = os.path.join(ROOT, "src", "data", "audioManifestZh.json")
-TEXTS_PATH = os.path.join(ROOT, "scripts", "dialogue_texts.json")
+TEXTS_PATH = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(ROOT, "scripts", "dialogue_texts.json")
 
 os.makedirs(ZH_DIR, exist_ok=True)
 
@@ -129,6 +129,8 @@ async def main():
     with open(VI_MANIFEST_PATH, "w", encoding="utf-8") as f:
         json.dump(vi_manifest, f, ensure_ascii=False, indent=2)
     print(f"Done: {stats} | zh manifest entries: {len(zh_manifest)}")
+    if stats["failed"]:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

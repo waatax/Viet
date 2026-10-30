@@ -4,6 +4,10 @@
  * Theme-aware (dark / light / sepia), responsive, accessible, mobile-first.
  */
 
+.quest-repair-card { padding: 14px 18px; border-left: 4px solid #e4a233; border-radius: 12px; background: var(--bg-card); color: var(--text-primary); margin: 12px 0; line-height: 1.7; }
+.quest-repair-card p { margin: 6px 0; }
+.feedback-audio-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.lesson-question-toolbar { flex-wrap: wrap; }
 .quest-container {
   width: 100%;
   max-width: 980px;
@@ -971,12 +975,14 @@
 }
 
 .lesson-footer-bar.footer-correct {
-  background: rgba(16, 185, 129, 0.2);
+  position: static;
+  background: color-mix(in srgb, #10b981 12%, var(--bg-card, #1e293b));
   border-color: rgba(16, 185, 129, 0.4);
 }
 
 .lesson-footer-bar.footer-wrong {
-  background: rgba(239, 68, 68, 0.2);
+  position: static;
+  background: color-mix(in srgb, #ef4444 12%, var(--bg-card, #1e293b));
   border-color: rgba(239, 68, 68, 0.4);
 }
 

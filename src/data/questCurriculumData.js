@@ -5,6 +5,8 @@
  * pedagogical scaffolding hints, and in-depth why explanations.
  */
 
+import { questEnrichment } from './questEnrichment.js';
+
 const c = (prompt, answer, others, why, hint, audioText) => ({
   type: 'choice',
   prompt,
@@ -824,6 +826,14 @@ export const QUEST_UNITS = [
     ]
   }
 ];
+
+QUEST_UNITS.forEach((unit, unitIndex) => {
+  unit.nodes.forEach((node, nodeIndex) => {
+    const [vi, meaning, others, why] = questEnrichment[unitIndex * 4 + nodeIndex];
+    node.questions.push(l(vi, '實戰加一題：聽完後，選出符合情境的意思。', meaning, others, why, '先抓動作、時間和否定詞；需要時可展開字幕再練。'));
+    node.questions.forEach((question, index) => { question.id = `${node.id}-q${index + 1}`; });
+  });
+});
 
 // Helper: Calculate total stats
 export const QUEST_STATS = {

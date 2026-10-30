@@ -362,3 +362,12 @@
   border-color: rgba(124, 58, 237, 0.25);
 }
 
+
+.kg-practical { padding: clamp(16px, 3vw, 28px); margin: 24px 0; border: 2px solid var(--brand-green, #12835f); border-radius: 22px; background: var(--bg-card); line-height: 1.8; overflow-wrap: anywhere; }
+.kg-practical h3 { margin: 8px 0 16px; }
+.kg-practical-tag { color: var(--brand-green); font-weight: 700; font-size: .85rem; }
+.kg-practical .kg-options { flex-wrap: wrap; }
+.kg-practical button { min-height: 44px; white-space: normal; }
+.kg-practical button[aria-pressed="true"] { border: 2px solid var(--brand-green); }
+.kg-practical small { display: block; }
+

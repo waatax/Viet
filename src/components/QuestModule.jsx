@@ -13,6 +13,7 @@ import {
 } from '../utils/questEngine';
 import { audioEngine } from '../services/audioEngine';
 import './QuestModule.css';
+import { speechLanguage, readableAnswer, repairAdvice } from '../utils/questLearning';
 
 export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
   const [questState, setQuestState] = useState(loadQuestState);
@@ -21,6 +22,9 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
   const [guideUnit, setGuideUnit] = useState(null);
   const [showMistakesReview, setShowMistakesReview] = useState(false);
   const [storageAvailable, setStorageAvailable] = useState(true);
+  const [audioStatus, setAudioStatus] = useState({});
+  const [pairAdvice, setPairAdvice] = useState('');
+  useEffect(() => audioEngine.subscribe(setAudioStatus), []);
 
   // In-session answer states
   const [userAnswer, setUserAnswer] = useState('');
@@ -78,10 +82,10 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
   }, [activeSession]);
 
   // Sound playback helpers
-  const handlePlayAudio = (text, slow = false) => {
+  const handlePlayAudio = (text, slow = false, lang = speechLanguage(text)) => {
     if (!text) return;
     const rate = slow ? 0.65 : 1.0;
-    audioEngine.speak(text, { accent: selectedAccent, rate });
+    audioEngine.speak(text, { accent: selectedAccent, rate, lang });
   };
 
   // Keyboard shortcut support
@@ -130,6 +134,7 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
     if (previousAnswer && currentQ.type === 'match') setMatchedPairs(currentQ.pairs);
     setShowHint(false);
     setShowTranscript(false);
+    setPairAdvice('');
     window.scrollTo({ top: 0, behavior: 'instant' });
 
     // Auto-focus input on cloze/input questions
@@ -183,6 +188,16 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
     setActiveSession(session);
     setQuestState(checkpointSession(questState, session));
     window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const handleTopicPractice = (unit) => {
+    if (questState.savedSession && !window.confirm('開始主題練習會取代未完成的練習；已記錄的錯題仍會保留。確定開始嗎？')) return;
+    const questions = unit.nodes.flatMap(node => node.questions.slice(-1));
+    const session = createQuestSession({ id: `${unit.id}-practice`, title: `${unit.title} · 自由練習`, kind: 'lesson' }, 'review', questions);
+    setCompletionData(null);
+    setSelectedNode(null);
+    setActiveSession(session);
+    setQuestState(checkpointSession(questState, session));
   };
 
   // Submit answer
@@ -287,11 +302,14 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
   const checkMatchPair = (vi, zh) => {
     const pair = currentQ.pairs.find(p => p[0] === vi && p[1] === zh);
     if (pair) {
+      setPairAdvice('配對正確！繼續找下一組。');
       audioEngine.playSuccessChime();
       setMatchedPairs(prev => [...prev, [vi, zh]]);
       setMatchSelectedVi(null);
       setMatchSelectedZh(null);
     } else {
+      const correctPair = currentQ.pairs.find(item => item[0] === vi);
+      setPairAdvice(`「${vi}」是「${correctPair?.[1]}」，不是「${zh}」。${currentQ.why}`);
       audioEngine.playGentleError();
       setTimeout(() => {
         setMatchSelectedVi(null);
@@ -429,6 +447,8 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
                     </h2>
                     <p className="unit-vi-subtitle">{unit.viTitle}</p>
                     <p className="unit-goal">🎯 {unit.goal}</p>
+                    <button type="button" className="quest-btn-primary" onClick={() => handleTopicPractice(unit)}>自由練習 · 4 題實戰</button>
+                    <p className="quest-practice-note">已有基礎？任何單元都能先試。不限愛心、提供解說；自由練習不會跳過主線關卡。</p>
                   </div>
 
                   <button
@@ -617,13 +637,15 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
               <>
                 {/* Question Audio & Scaffolding Toolbar */}
                 <div className="lesson-question-toolbar">
-                  {currentQ.audioText && (
+                  <button type="button" className="audio-pill-btn" onClick={() => handlePlayAudio(currentQ.prompt)}><Volume2 size={18} />朗讀題目</button>
+                  <button type="button" className="audio-pill-btn" onClick={() => audioEngine.stop()}><VolumeX size={18} />停止朗讀</button>
+                  {currentQ.audioText && (currentQ.type === 'listen' || feedback || showHint) && (
                     <div className="audio-control-pills">
                       <button
                         type="button"
                         className="audio-pill-btn"
                         onClick={() => handlePlayAudio(currentQ.audioText, false)}
-                        title="標準真人語速朗讀"
+                        title="越南語示範朗讀"
                       >
                         <Volume2 size={18} />
                         <span>標準語音</span>
@@ -662,6 +684,8 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
                     <span>{showHint ? '收起提示' : '💡 解題提示'}</span>
                   </button>
                 </div>
+                {audioStatus.error && <p role="alert" className="quest-storage-notice">暫時無法播放語音，請確認網路或裝置語音設定後重試。文字題目與答案仍可使用。</p>}
+                {audioStatus.isPlaying && <p role="status" className="quest-audio-status">🔊 朗讀中 · 可按「停止朗讀」中止</p>}
 
                 {/* Show Transcript if toggled */}
                 {showTranscript && currentQ.audioText && (
@@ -760,6 +784,7 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
                       <p className="match-guidance-note">
                         點擊左側越文與右側中文進行配對 ({matchedPairs.length} / {currentQ.pairs.length})
                       </p>
+                      {pairAdvice && <p role="status" className="quest-repair-card">{pairAdvice}</p>}
                       <div className="match-columns-grid">
                         <div className="match-col vi-col">
                           {matchOptions.viList.map((vi, idx) => {
@@ -870,12 +895,15 @@ export function QuestModule({ selectedAccent = 'north', updateUserStats }) {
                       ) : (
                         <>
                           <XCircle size={24} className="feedback-icon wrong" />
-                          <span className="feedback-title wrong">Chưa đúng rồi! 正確答案是：<strong>{feedback.correctAnswer}</strong></span>
+                          <span className="feedback-title wrong">再試一次，你正在學會。正確答案：<strong>{readableAnswer(currentQ)}</strong></span>
                         </>
                       )}
                     </div>
                     <p className="feedback-why">{feedback.why}</p>
+                    {!feedback.isCorrect && <div className="quest-repair-card"><strong>這次怎麼修正</strong><p>{repairAdvice(currentQ, feedback.userAnswer)}</p><small>本題會加入錯題複習；隔一段時間再回想一次。</small></div>}
                     <div className="feedback-audio-actions" style={{ margin: '0.4rem 0' }}>
+                      {currentQ.type !== 'match' && <button type="button" className="audio-pill-btn" onClick={() => handlePlayAudio(currentQ.answer)}><Volume2 size={14} />朗讀正確答案</button>}
+                      <button type="button" className="audio-pill-btn" onClick={() => handlePlayAudio(feedback.why, false, 'zh')}><Volume2 size={14} />朗讀解說</button>
                       <button
                         type="button"
                         className="audio-pill-btn"

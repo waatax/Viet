@@ -32,6 +32,7 @@ try {
     assert.ok(html.includes('class="dpb '), `${id}: dual-mode player bar`);
     assert.ok(html.includes('kg-chart kg-chart-'), `${id}: lesson chart`);
     assert.ok(html.includes('kg-cando'), `${id}: can-do goals`);
+    assert.ok(html.includes('aria-label="實戰延伸任務"') && html.includes('遮住選項回想') && html.includes('換情境挑戰'), `${id}: three-stage practical extension`);
     assert.equal((html.match(/<fieldset/g) || []).length, 3, `${id}: comprehension, transfer and listening checks`);
     assert.equal((html.match(/hidden=""/g) || []).length, 9, `${id}: recall answers initially hidden`);
     assert.ok(html.includes(`id="kg-error-${id}"`), `${id}: labelled corrective action selector`);

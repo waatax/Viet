@@ -69,7 +69,23 @@ export const loadQuestState = () => {
     for (const key of ['nodes', 'crowns', 'mistakesBank', 'dailyXp']) {
       state[key] = parsed[key] && typeof parsed[key] === 'object' && !Array.isArray(parsed[key]) ? parsed[key] : defaults[key];
     }
+    // Older releases saved questions without IDs, causing unrelated mistakes to
+    // overwrite the same "undefined" key. Recover every surviving record by content.
+    const canonical = QUEST_UNITS.flatMap(unit => unit.nodes.flatMap(node => node.questions));
+    const restoreId = question => {
+      if (question && !question.id) question.id = canonical.find(item => item.prompt === question.prompt && item.answer === question.answer)?.id;
+    };
+    const migratedBank = {};
+    for (const [key, record] of Object.entries(state.mistakesBank)) {
+      restoreId(record?.q);
+      if (record?.q) migratedBank[record.q.id || key] = record;
+    }
+    state.mistakesBank = migratedBank;
     const session = state.savedSession;
+    if (session) {
+      for (const list of [session.queue, session.retryQueue]) if (Array.isArray(list)) list.forEach(restoreId);
+      if (Array.isArray(session.history)) session.history.forEach(item => restoreId(item?.question));
+    }
     if (session && (!Array.isArray(session.queue) || !session.queue.length || !Number.isInteger(session.currentIndex) || !session.queue[session.currentIndex] || !Array.isArray(session.history) || !Array.isArray(session.retryQueue) || session.isFinished || session.outOfHearts)) state.savedSession = null;
     return state;
   } catch (e) {

@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import PracticalChallenge from './PracticalChallenge';
 import {
   BookOpen,
   Target,
@@ -404,6 +405,7 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
         <button type="button" className="kg-reset" onClick={() => { setAnswer(null); setTransferAnswer(null); setListenAnswer(null); setChecks([false, false, false]); setRevealed([]); setRecalled([]); setErrorType('meaning'); }}><RotateCcw size={16} aria-hidden="true" /> 重做檢核與回想</button>
       </div>
 
+      <PracticalChallenge key={moduleId} moduleId={moduleId} />
       <figure className="kg-flow kg-correction"><figcaption><Wrench size={18} aria-hidden="true" /> 錯因 → 修正 → 新情境驗證</figcaption><ol>{correctionSteps.map(([title, description], i) => {
         const Icon = [Search, Target, Play, Calendar][i];
         return <li key={title}><Icon size={22} aria-hidden="true" /><strong>{title}</strong><span>{description}</span></li>;
