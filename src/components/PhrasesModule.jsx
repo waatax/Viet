@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Copy, Search, Volume2, Bookmark, Check, Sparkles, Filter, ChevronDown, Play, Pause, Layers } from 'lucide-react';
+import { BookOpen, Copy, Search, Volume2, Bookmark, Check, Sparkles, Filter, ChevronDown, Play, Pause, Layers, Maximize2, X } from 'lucide-react';
 import { practicalPhrases } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
@@ -44,6 +44,7 @@ export const PhrasesModule = ({ selectedAccent, updateUserStats, setActiveTab })
   });
   const [activeKey, setActiveKey] = useState(null);
   const [copiedText, setCopiedText] = useState(null);
+  const [largePhraseModal, setLargePhraseModal] = useState(null);
 
   const handleCopyText = (text) => {
     navigator.clipboard?.writeText(text);
@@ -600,6 +601,13 @@ export const PhrasesModule = ({ selectedAccent, updateUserStats, setActiveTab })
                   >
                     {copiedText === phrase.viet ? <Check size={14} /> : <Copy size={14} />}
                   </button>
+                  <button
+                    className="speaker-btn mini-btn"
+                    onClick={() => setLargePhraseModal(phrase)}
+                    title="📱 在街頭全螢幕大字出示給越南人看"
+                  >
+                    <Maximize2 size={13} />
+                  </button>
                 </div>
                 <span style={{ fontSize: '0.75em', color: 'var(--text-muted)' }}>
                   #{idx + 1}
@@ -656,6 +664,48 @@ export const PhrasesModule = ({ selectedAccent, updateUserStats, setActiveTab })
           { id: 'shadowing', icon: '🎙️', titleZh: '影子跟讀內化', descZh: '麥克風跟讀練習' }
         ]}
       />
+
+      {/* Street Show-to-Local Large Card Modal */}
+      {largePhraseModal && (
+        <div className="show-local-backdrop" onClick={() => setLargePhraseModal(null)} role="dialog" aria-modal="true">
+          <div className="show-local-modal" onClick={e => e.stopPropagation()}>
+            <div className="modal-top">
+              <span className="modal-badge">📱 街頭出示字卡 · SHOW TO VIETNAMESE</span>
+              <button
+                type="button"
+                className="modal-close-btn"
+                onClick={() => setLargePhraseModal(null)}
+                aria-label="關閉"
+              >
+                <X size={22} />
+              </button>
+            </div>
+
+            <div className="modal-large-vi" lang="vi">
+              {largePhraseModal.viet}
+            </div>
+
+            <div className="modal-sub-zh">
+              {learningMode === 'zh' ? largePhraseModal.zh : largePhraseModal.en}
+            </div>
+
+            <div className="modal-audio-actions">
+              <button
+                type="button"
+                className="modal-speak-btn"
+                onClick={() => audioEngine.speak(largePhraseModal.viet, { accent: selectedAccent, lang: 'vi' })}
+              >
+                <Volume2 size={24} />
+                <span>大聲朗讀給對方聽</span>
+              </button>
+            </div>
+
+            <p className="modal-bottom-hint">
+              💡 提示：在路邊攤、夜市或嘈雜街頭，直接把手機螢幕亮給對方看即可順暢溝通！
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

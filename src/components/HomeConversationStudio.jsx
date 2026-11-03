@@ -24,7 +24,7 @@ import { SCENARIO_EXEGESIS } from '../data/scenarioExegesisData';
 import { audioEngine } from '../services/audioEngine';
 import { offlineAudioService } from '../services/offlineAudioService';
 import { bookmarkService } from '../services/bookmarkService';
-import { getPlaybackPrefs } from '../services/dialoguePlayback';
+import { getPlaybackPrefs, setPlaybackPrefs } from '../services/dialoguePlayback';
 import { useDialoguePlayback, useFollowActiveLine } from '../hooks/useDialoguePlayback';
 import { getSpeakerVisual } from './DialoguePlayer';
 import { useLanguage } from '../context/LanguageContext';
@@ -264,6 +264,23 @@ export const HomeConversationStudio = ({
       if (isCurrent()) setDownloadMessage('無法儲存音檔，請確認網路與瀏覽器儲存空間後再試一次。');
     } finally {
       if (isCurrent()) setIsDownloading(false);
+    }
+  };
+
+  const handleApplyThreeStepFlow = (stepNum) => {
+    audioEngine.playHaptic('selection');
+    if (stepNum === 1) {
+      setShowTranslation(true);
+      setPlaybackPrefs({ shadowPause: false });
+      player.play('vi-zh', player.isActive ? player.index : 0);
+    } else if (stepNum === 2) {
+      setShowTranslation(false);
+      setPlaybackPrefs({ shadowPause: false });
+      player.play('vi-only', player.isActive ? player.index : 0);
+    } else if (stepNum === 3) {
+      setShowTranslation(true);
+      setPlaybackPrefs({ shadowPause: true });
+      player.play('vi-only', player.isActive ? player.index : 0);
     }
   };
 
@@ -602,7 +619,18 @@ export const HomeConversationStudio = ({
           </select>
         </label>
         <label><input type="checkbox" checked={showTranslation} onChange={e => setShowTranslation(e.target.checked)} />顯示台灣繁體中文翻譯與發音提示</label>
-        <p>💡 建議三步學習法：① 先播「越文＋中文」聽懂語意 → ② 改播「純越文」並隱藏翻譯練聽力 → ③ 開啟「跟讀停頓」開口說一次。</p>
+        <div className="three-step-flow-pills">
+          <span className="three-step-label">💡 推薦 3 步訓練流（點擊一鍵啟動）：</span>
+          <button type="button" className={`three-step-btn ${player.mode === 'vi-zh' && showTranslation ? 'active' : ''}`} onClick={() => handleApplyThreeStepFlow(1)}>
+            ① 聽懂語意 (越+中)
+          </button>
+          <button type="button" className={`three-step-btn ${player.mode === 'vi-only' && !showTranslation ? 'active' : ''}`} onClick={() => handleApplyThreeStepFlow(2)}>
+            ② 盲聽特訓 (純越·遮字)
+          </button>
+          <button type="button" className={`three-step-btn ${player.mode === 'vi-only' && showTranslation ? 'active' : ''}`} onClick={() => handleApplyThreeStepFlow(3)}>
+            ③ 開口跟讀 (停頓朗讀)
+          </button>
+        </div>
       </div>
       <div className="studio-toolbar">
         <div className="toolbar-right">

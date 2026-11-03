@@ -51,6 +51,8 @@ export const translations = {
       business: '商務出差',
       macropol: '越南政經',
       // Navigation group labels
+      groupDaily: '🗣️ 日常速成',
+      groupTopics: '🌟 情境商務',
       groupMacro: '🏛️ 政經',
       groupFastTrack: '⚡ 速成',
       groupBusiness: '💼 商務',
@@ -138,6 +140,8 @@ export const translations = {
       business: 'Business Hub',
       macropol: 'Vietnam Politics & Economy',
       // Navigation group labels
+      groupDaily: '🗣️ Daily Fluency',
+      groupTopics: '🌟 Scenarios & Biz',
       groupMacro: '🏛️ Macro',
       groupFastTrack: '⚡ Fast-Track',
       groupBusiness: '💼 Business',

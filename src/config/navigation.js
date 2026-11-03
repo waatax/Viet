@@ -19,6 +19,16 @@ export const NAV_GROUPS = [
     ]
   },
   {
+    id: 'daily',
+    labelKey: 'tabs.groupDaily',
+    items: [
+      { id: 'fasttrack', labelKey: 'tabs.fasttrack', icon: Zap },
+      { id: 'phrases', labelKey: 'tabs.phrases', icon: MessageSquareText },
+      { id: 'conversation', labelKey: 'tabs.conversation', icon: MessagesSquare },
+      { id: 'emergency', labelKey: 'tabs.emergency', icon: LifeBuoy }
+    ]
+  },
+  {
     id: 'basics',
     labelKey: 'tabs.groupBasics',
     items: [
@@ -28,32 +38,23 @@ export const NAV_GROUPS = [
     ]
   },
   {
-    id: 'fasttrack',
-    labelKey: 'tabs.groupFastTrack',
-    items: [
-      { id: 'topics', labelKey: 'tabs.topics', icon: Sparkles },
-      { id: 'fasttrack', labelKey: 'tabs.fasttrack', icon: Zap },
-      { id: 'business', labelKey: 'tabs.business', icon: Briefcase },
-      { id: 'emergency', labelKey: 'tabs.emergency', icon: LifeBuoy }
-    ]
-  },
-  {
-    id: 'conversation',
-    labelKey: 'tabs.groupConversation',
-    items: [
-      { id: 'phrases', labelKey: 'tabs.phrases', icon: MessageSquareText },
-      { id: 'conversation', labelKey: 'tabs.conversation', icon: MessagesSquare }
-    ]
-  },
-  {
     id: 'practice',
     labelKey: 'tabs.groupPractice',
     items: [
-      { id: 'flashcards', labelKey: 'tabs.flashcards', icon: Layers3 },
-      { id: 'grammar', labelKey: 'tabs.grammar', icon: BookOpenText },
       { id: 'sentence', labelKey: 'tabs.sentence', icon: Puzzle },
-      { id: 'quiz', labelKey: 'tabs.quiz', icon: BadgeCheck },
-      { id: 'shadowing', labelKey: 'tabs.shadowing', icon: Mic }
+      { id: 'grammar', labelKey: 'tabs.grammar', icon: BookOpenText },
+      { id: 'shadowing', labelKey: 'tabs.shadowing', icon: Mic },
+      { id: 'flashcards', labelKey: 'tabs.flashcards', icon: Layers3 },
+      { id: 'quiz', labelKey: 'tabs.quiz', icon: BadgeCheck }
+    ]
+  },
+  {
+    id: 'topics',
+    labelKey: 'tabs.groupTopics',
+    items: [
+      { id: 'topics', labelKey: 'tabs.topics', icon: Sparkles },
+      { id: 'shopping', labelKey: 'tabs.shopping', icon: ShoppingBag },
+      { id: 'business', labelKey: 'tabs.business', icon: Briefcase }
     ]
   },
   {
@@ -61,21 +62,8 @@ export const NAV_GROUPS = [
     labelKey: 'tabs.groupAdvanced',
     items: [
       { id: 'hanviet', labelKey: 'tabs.hanviet', icon: BookOpenText },
-      { id: 'shopping', labelKey: 'tabs.shopping', icon: ShoppingBag },
-      { id: 'accent', labelKey: 'tabs.accent', icon: BookMarked }
-    ]
-  },
-  {
-    id: 'macropol',
-    labelKey: 'tabs.groupMacro',
-    items: [
-      { id: 'macropol', labelKey: 'tabs.macropol', icon: Landmark }
-    ]
-  },
-  {
-    id: 'science',
-    labelKey: 'tabs.groupScience',
-    items: [
+      { id: 'accent', labelKey: 'tabs.accent', icon: BookMarked },
+      { id: 'macropol', labelKey: 'tabs.macropol', icon: Landmark },
       { id: 'science', labelKey: 'tabs.science', icon: Brain }
     ]
   }

@@ -14,6 +14,7 @@ import { audioEngine } from '../services/audioEngine';
 import { bookmarkService } from '../services/bookmarkService';
 import { useLanguage } from '../context/LanguageContext';
 import { HomeConversationStudio } from './HomeConversationStudio';
+import { DailyPatternMixer } from './DailyPatternMixer';
 import './LearningPathModule.css';
 
 export const VIETNAM_LANDSCAPES = [
@@ -498,6 +499,23 @@ export const LearningPathModule = ({
     }
   });
 
+  // 3-View Home Studio Perspective: 'conversation' | 'fasttrack_quest' | 'all_modules'
+  const [activeHomeView, setActiveHomeView] = useState(() => {
+    try {
+      return localStorage.getItem('viet_home_view_tab') || 'conversation';
+    } catch {
+      return 'conversation';
+    }
+  });
+
+  const handleSelectHomeView = (viewKey) => {
+    audioEngine.playHaptic('selection');
+    setActiveHomeView(viewKey);
+    try {
+      localStorage.setItem('viet_home_view_tab', viewKey);
+    } catch {}
+  };
+
   // Active Adaptive Learning Track Preset: 'all' | 'expatriate' | 'lifestyle' | 'academic'
   const [activeTrack, setActiveTrack] = useState(() => {
     try {
@@ -695,6 +713,51 @@ export const LearningPathModule = ({
 
   return (
     <div className="module-container">
+      {/* 🧭 首頁三大視角切換器 (Home 3-View Segmented Switcher) */}
+      <div className="home-view-switcher" role="tablist" aria-label="首頁學習視角切換">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeHomeView === 'conversation'}
+          className={`home-view-tab-btn ${activeHomeView === 'conversation' ? 'active' : ''}`}
+          onClick={() => handleSelectHomeView('conversation')}
+        >
+          <span className="tab-icon">🎧</span>
+          <div className="tab-copy">
+            <strong>{learningMode === 'zh' ? '實戰會話與開口造句' : 'Situational Studio'}</strong>
+            <small>{learningMode === 'zh' ? '75 組雙語會話 · 萬用句型機' : '75 Dialogues & Mixer'}</small>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeHomeView === 'fasttrack_quest'}
+          className={`home-view-tab-btn ${activeHomeView === 'fasttrack_quest' ? 'active' : ''}`}
+          onClick={() => handleSelectHomeView('fasttrack_quest')}
+        >
+          <span className="tab-icon">⚡</span>
+          <div className="tab-copy">
+            <strong>{learningMode === 'zh' ? '日常速成與闖關' : 'Fast-Track & Quests'}</strong>
+            <small>{learningMode === 'zh' ? '7天生活破冰 · Duolingo 冒險' : '7-Day & Quest Loop'}</small>
+          </div>
+        </button>
+
+        <button
+          type="button"
+          role="tab"
+          aria-selected={activeHomeView === 'all_modules'}
+          className={`home-view-tab-btn ${activeHomeView === 'all_modules' ? 'active' : ''}`}
+          onClick={() => handleSelectHomeView('all_modules')}
+        >
+          <span className="tab-icon">🗺️</span>
+          <div className="tab-copy">
+            <strong>{learningMode === 'zh' ? '全域 20 模組與文化' : 'All 20 Modules & Lore'}</strong>
+            <small>{learningMode === 'zh' ? '完整課綱 · 智庫 · 諺語風景' : 'Full Map & Intelligence'}</small>
+          </div>
+        </button>
+      </div>
+
       {/* 🇻🇳 首頁頂部實質會話速播工作台 (Practical Situational Conversation Studio) */}
       <HomeConversationStudio
         selectedAccent={selectedAccent}

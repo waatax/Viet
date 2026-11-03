@@ -650,12 +650,12 @@ export const Navbar = ({
         </button>
 
         <button
-          className={`bottom-nav-item ${activeTab === 'business' ? 'active' : ''}`}
-          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('business'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          className={`bottom-nav-item ${activeTab === 'fasttrack' ? 'active' : ''}`}
+          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('fasttrack'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
-          <Briefcase size={20} />
-          <span>商務旗艦</span>
-          {activeTab === 'business' && <span className="bottom-nav-indicator" />}
+          <Zap size={20} />
+          <span>日常速成</span>
+          {activeTab === 'fasttrack' && <span className="bottom-nav-indicator" />}
         </button>
 
         <button
