@@ -38,6 +38,14 @@ export const BARGAINING_FLOWCHART_STEPS = [
     tipEn: '"Mở hàng" invokes opening good luck, highly effective in Vietnam.'
   },
   {
+    step: 'Step 2.5',
+    badge: '2.5 假意離開戰術',
+    phraseVi: 'Thôi, đắt quá em không mua đâu, em đi xem hàng khác nha!',
+    phraseZh: '算了，太貴了我先不買了，我去看看別家喔！',
+    tipZh: '越南市場殺手鐧：轉身走三步，老闆高機率叫住你「Thôi lại đây bán cho!」(好啦過來賣你啦！)',
+    tipEn: 'The classic walk-away tactic: take 3 steps away, vendors usually call you back with their real bottom price.'
+  },
+  {
     step: 'Step 3',
     badge: '3. 堅定出價',
     phraseVi: 'Hai trăm nghìn được không, em lấy hai cái luôn!',
@@ -52,6 +60,14 @@ export const BARGAINING_FLOWCHART_STEPS = [
     phraseZh: '好成交，算錢並請給我塑膠袋喔！',
     tipZh: '達成共識後乾脆爽朗結帳，並檢查收到鈔票是否完整無缺。',
     tipEn: 'Confirm deal smoothly and check change banknotes for intactness.'
+  },
+  {
+    step: 'Step 5',
+    badge: '5. 爭取人情小贈品',
+    phraseVi: 'Chị bớt giá rồi thì tặng thêm cho em một món nhỏ này nhé!',
+    phraseZh: '姐姐算便宜了，那就順便送我一個小鑰匙圈或紀念品吧！',
+    tipZh: '當價格已殺到底線無法再降時，微笑索取小贈品往往能收穫驚喜，人情味十足！',
+    tipEn: 'When cash discount hits the floor, smilingly ask for a small accessory gift.'
   }
 ];
 

@@ -761,6 +761,7 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
 
   const handleCardClick = () => {
     stopDeckPlayback();
+    audioEngine.playHaptic('tap');
     const nextFlipped = !isFlipped;
     setIsFlipped(nextFlipped);
     if (!isFlipped && currentCard) {
@@ -1887,6 +1888,13 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
                   <div style={{ fontSize: '2em', fontWeight: 900, color: 'var(--brand-primary)', marginBottom: '0.6rem' }}>
                     {learningMode === 'zh' ? currentCard.zh : currentCard.en}
                   </div>
+
+                  {currentCard.hanViet && (
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(234, 179, 8, 0.12)', border: '1px solid rgba(234, 179, 8, 0.35)', padding: '0.25rem 0.8rem', borderRadius: 'var(--radius-full)', fontSize: '0.86rem', color: 'var(--brand-gold)', fontWeight: 800, marginBottom: '0.85rem' }}>
+                      <BookOpen size={14} />
+                      <span>{learningMode === 'zh' ? `漢越字源：${currentCard.hanViet}` : `Sino-Vietnamese: ${currentCard.hanViet}`}</span>
+                    </div>
+                  )}
 
                   {currentCard.example && (
                     <div 

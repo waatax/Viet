@@ -1345,7 +1345,263 @@ export const CONFUSABLE_PAIRS = [
       questionZh: '房仲問客戶「您是想要買這間公寓，還是要賣？」，空格處應填入：',
       options: ['Anh muốn mua hay muốn bán?', 'Anh muốn bán hay muốn bán?', 'Anh muốn mưa hay muốn bạn?', 'Anh muốn mùa hay muốn ban?'],
       correctIndex: 0,
-      explanationZh: '「買或賣」即為「mua (平聲) hay muốn bán (銳聲)」。'
+      explanationZh: '【正解解析】「mua (平聲)」是買，「bán (銳聲)」是賣。選項 B 誤用了兩次 bán (賣)；選項 C 的 mưa 是下雨、bạn 是朋友；選項 D 的 mùa 是季節、ban 是部門。因此只有選項 A 完全符合「買還是賣」之意！'
+    }
+  },
+  {
+    id: 'conf_synonym_04',
+    type: 'synonym_nuances',
+    categoryLabelZh: '💡 近義詞情境微差',
+    categoryLabelEn: 'Pragmatic Synonyms',
+    titleZh: 'nghe / nghe thấy / hiểu',
+    titleEn: 'nghe / nghe thấy / hiểu',
+    summaryZh: '「聽、聽見、聽懂」三大層次：動作、感官感知與大腦理解的精準邊界！',
+    summaryEn: 'Three cognitive levels: auditory action (nghe), acoustic perception (nghe thấy), and cognitive comprehension (hiểu)!',
+    words: [
+      {
+        viet: 'nghe',
+        ipa: '[ŋɛ]',
+        tone: 'ngang',
+        toneSymbol: '無符號 (平聲)',
+        toneNameZh: '平聲 (Ngang)',
+        pitch: '44',
+        zh: '聽 (動作過程，如聽音樂、聽演講)',
+        en: 'To listen (action)',
+        hanViet: '',
+        tag: '感官動作'
+      },
+      {
+        viet: 'nghe thấy',
+        ipa: '[ŋɛ tʰaɪ˦˥]',
+        tone: 'ngang + sac',
+        toneSymbol: '平聲 + 銳聲',
+        toneNameZh: '複合感知',
+        pitch: '44-35',
+        zh: '聽見 / 聽到了 (聲波進入耳朵的感知結果)',
+        en: 'To hear (perception result)',
+        hanViet: '',
+        tag: '感知結果'
+      },
+      {
+        viet: 'hiểu',
+        ipa: '[hiəw˧˩˧]',
+        tone: 'hoi',
+        toneSymbol: '̉ (問聲)',
+        toneNameZh: '問聲 (Hỏi)',
+        pitch: '313',
+        zh: '理解 / 聽懂 (大腦認知完全明白涵義)',
+        en: 'To understand (comprehension)',
+        hanViet: '曉 (Hiểu · 如知曉、明曉)',
+        tag: '認知理解'
+      }
+    ],
+    mnemonicHookZh: '「nghe 是耳朵在聽，nghe thấy 是聲音進來，hiểu 是大腦知曉明白！」',
+    mnemonicHookEn: 'Nghe is listening, nghe thấy is hearing, hiểu is understanding!',
+    pitfallAlertZh: '初學者常在開會時說「Tôi không nghe」(我不聽)，這在越南語中容易被誤解為「我不願意聽/拒絕聆聽」！如果只是沒聽清楚應說「Tôi nghe không rõ」，若是聽到了但沒理解意思則必須說「Tôi không hiểu」！',
+    hanVietInsightZh: 'hiểu 為漢越詞「曉」(破曉、通曉、明曉)，在古典詩詞如「bất hiểu」(不曉/不解)。',
+    masterSentence: 'Tôi đang nghe bài giảng, nghe thấy rất rõ từng câu nhưng chưa hiểu hết ý nghĩa sâu xa.',
+    masterSentenceZh: '我正在聽(nghe)演講，每一句都聽得很清楚(nghe thấy rõ)，但尚未完全理解(chưa hiểu)深刻涵義。',
+    masterSentenceEn: 'I am listening to the lecture, hearing every word clearly, but not yet understanding its deep meaning.',
+    drill: {
+      questionZh: '在線上會議中，想告訴對方「聲音有點小，我聽不清楚你在說什麼」，最道地專業的說法是：',
+      options: ['Tôi nghe không rõ anh nói gì.', 'Tôi không hiểu anh nói gì.', 'Tôi không nghe anh nói gì.', 'Tôi nhìn không thấy anh nói gì.'],
+      correctIndex: 0,
+      explanationZh: '【正解解析】「聽不清楚」是收音或音量微弱的物理感知問題，應使用「nghe không rõ」(聽不清楚)。選項 B 的「không hiểu」是指智力或語言意思「聽不懂」而非音量問題；選項 C 的「không nghe」帶有主觀「我不聽/拒絕聽」的不禮貌歧義；選項 D 的「nhìn không thấy」是視覺看不見，完全離題！'
+    }
+  },
+  {
+    id: 'conf_synonym_05',
+    type: 'synonym_nuances',
+    categoryLabelZh: '💡 近義詞情境微差',
+    categoryLabelEn: 'Pragmatic Synonyms',
+    titleZh: 'xem / nhìn / thấy',
+    titleEn: 'xem / nhìn / thấy',
+    summaryZh: '「看電影、注視注視、看見結果」：視覺三大維度辨析，避免社交誤用！',
+    summaryEn: 'Watch (xem), look/stare at (nhìn), and see/spot (thấy): three visual dimensions in Vietnamese!',
+    words: [
+      {
+        viet: 'xem',
+        ipa: '[sɛm]',
+        tone: 'ngang',
+        toneSymbol: '無符號 (平聲)',
+        toneNameZh: '平聲 (Ngang)',
+        pitch: '44',
+        zh: '看 / 欣賞 / 觀看 (如看電影、看書、查看資料)',
+        en: 'To watch / inspect',
+        hanViet: '瞻 / 參 (Xem)',
+        tag: '觀賞檢視'
+      },
+      {
+        viet: 'nhìn',
+        ipa: '[ɲin˨˩]',
+        tone: 'huyen',
+        toneSymbol: '` (玄聲)',
+        toneNameZh: '玄聲 (Huyền)',
+        pitch: '31',
+        zh: '瞧 / 注視 / 望向 (眼睛轉向某方向的動作)',
+        en: 'To look at / stare at',
+        hanViet: '',
+        tag: '視線動作'
+      },
+      {
+        viet: 'thấy',
+        ipa: '[tʰaɪ˦˥]',
+        tone: 'sac',
+        toneSymbol: '´ (銳聲)',
+        toneNameZh: '銳聲 (Sắc)',
+        pitch: '35',
+        zh: '看見 / 發現 / 覺得 (視覺映入眼簾之結果，或主觀感受)',
+        en: 'To see / perceive / feel',
+        hanViet: '',
+        tag: '視覺結果'
+      }
+    ],
+    mnemonicHookZh: '「xem phim 看電影，nhìn tôi 看著我，thấy rồi 看到囉！」',
+    mnemonicHookEn: 'Xem phim (watch movie), nhìn tôi (look at me), thấy rồi (spotted it)!',
+    pitfallAlertZh: '若對別人說「Đừng nhìn tôi!」意思是「不要一直盯著我看！」(可能帶有挑釁火藥味)。而如果要說「我看見你了」，必須用「Tôi thấy bạn rồi」，不能說「Tôi xem bạn rồi」！',
+    hanVietInsightZh: 'thấy 常複合為「cảm thấy」(感到/覺得)、「nhìn thấy」(親眼看見)。',
+    masterSentence: 'Hãy nhìn lên bảng, bạn có thấy dòng chữ tôi vừa viết để xem tài liệu không?',
+    masterSentenceZh: '請看向(nhìn)黑板，你有看見(thấy)我剛寫下用來查閱(xem)資料的文字嗎？',
+    masterSentenceEn: 'Look at the board, do you see the words I just wrote to view documents?',
+    drill: {
+      questionZh: '你在街頭尋找朋友，忽然在咖啡廳窗邊發現他，打電話興奮地說「我看見你了！」，越語應為：',
+      options: ['Tôi thấy bạn rồi!', 'Tôi xem bạn rồi!', 'Tôi nhìn bạn rồi!', 'Tôi nghe bạn rồi!'],
+      correctIndex: 0,
+      explanationZh: '【正解解析】「看見」是視覺發現的結果狀態，必須使用「thấy」(如 Tôi thấy bạn rồi!)。選項 B 的「xem」是觀看節目、電影或翻閱書籍；選項 C 的「nhìn」僅是將目光投向某處的動作過程；選項 D 的「nghe」是聽覺聽見，非視覺！'
+    }
+  },
+  {
+    id: 'conf_tone_06',
+    type: 'tone_pairs',
+    categoryLabelZh: '🎵 聲調攣生微差',
+    categoryLabelEn: 'Tone Minimal Pairs',
+    titleZh: 'tiền / tiến / tiện',
+    titleEn: 'tiền / tiến / tiện',
+    summaryZh: '「錢、前進、順便」三調同源字：低降玄聲是金錢，高升銳聲是進步，急墜重聲是方便！',
+    summaryEn: 'Money (tiền), advance (tiến), convenient (tiện): low falling, sharp rising, and heavy drop!',
+    words: [
+      {
+        viet: 'tiền',
+        ipa: '[tiən˨˩]',
+        tone: 'huyen',
+        toneSymbol: '` (玄聲)',
+        toneNameZh: '玄聲 (Huyền)',
+        pitch: '31',
+        zh: '錢 / 金額 / 貨幣 (如 tiền mặt 現金)',
+        en: 'Money / Currency',
+        hanViet: '錢 (Tiền · 漢越同源詞)',
+        tag: '經濟金融'
+      },
+      {
+        viet: 'tiến',
+        ipa: '[tiən˦˥]',
+        tone: 'sac',
+        toneSymbol: '´ (銳聲)',
+        toneNameZh: '銳聲 (Sắc)',
+        pitch: '35',
+        zh: '前進 / 進展 / 晉升 (如 tiến bộ 進步)',
+        en: 'To advance / progress',
+        hanViet: '進 (Tiến · 漢越同源詞)',
+        tag: '動態發展'
+      },
+      {
+        viet: 'tiện',
+        ipa: '[tiən˨˩ʔ]',
+        tone: 'nang',
+        toneSymbol: '. (重聲)',
+        toneNameZh: '重聲 (Nặng)',
+        pitch: '21',
+        zh: '方便 / 順路 / 便宜 (如 thuận tiện 順暢便利)',
+        en: 'Convenient / Handy',
+        hanViet: '便 (Tiện · 漢越同源詞)',
+        tag: '情境狀態'
+      }
+    ],
+    mnemonicHookZh: '「錢(tiền)往低處藏，人往高處進(tiến)，順便(tiện)下點心！」',
+    mnemonicHookEn: 'Low falling tone is money (tiền), rising tone advances (tiến), heavy drop is convenient (tiện)!',
+    pitfallAlertZh: '在問價錢時千萬別把降調的「tiền」唸成了重調的「tiện」，否則「bao nhiêu tiền?」(多少錢) 會聽起來像「bao nhiêu tiện?」，發音不夠標準會讓當地店員感到困惑。',
+    hanVietInsightZh: '三個字皆為中古漢語同韻字根：錢(tiền)、進(tiến)、便(tiện)，聲調對應中古平、去、入/濁去聲調。',
+    masterSentence: 'Nếu tiện đường, anh hãy rút ít tiền mặt để chúng ta tiến hành thanh toán nhé.',
+    masterSentenceZh: '如果順路方便(tiện)，哥請領點現金(tiền)以便我們進行(tiến hành)付款結帳喔。',
+    masterSentenceEn: 'If convenient, please withdraw some cash so we can proceed with payment.',
+    drill: {
+      questionZh: '結帳時服務生遞上帳單，客人想問「請問總共是多少錢？」，正確越語是：',
+      options: ['Tổng cộng bao nhiêu tiền ạ?', 'Tổng cộng bao nhiêu tiến ạ?', 'Tổng cộng bao nhiêu tiện ạ?', 'Tổng cộng bao nhiêu tiên ạ?'],
+      correctIndex: 0,
+      explanationZh: '【正解解析】「金錢」為玄聲/降調「tiền」(如 bao nhiêu tiền)。選項 B 的「tiến」是前進/進步(銳聲)；選項 C 的「tiện」是方便/便當(重聲)；選項 D 的「tiên」是神仙/仙人(平聲)！'
+    }
+  },
+  {
+    id: 'conf_tone_07',
+    type: 'tone_pairs',
+    categoryLabelZh: '🎵 聲調攣生微差',
+    categoryLabelEn: 'Tone Minimal Pairs',
+    titleZh: 'cá / cà / ca / cả',
+    titleEn: 'cá / cà / ca / cả',
+    summaryZh: '「魚、茄/咖啡、歌唱/班次、全部/長輩」：日常市井點餐與文化高頻四調連鎖對比！',
+    summaryEn: 'Fish (cá), eggplant/coffee (cà), singing/shift (ca), all/elder (cả): essential 4-tone chain!',
+    words: [
+      {
+        viet: 'cá',
+        ipa: '[kaː˦˥]',
+        tone: 'sac',
+        toneSymbol: '´ (銳聲)',
+        toneNameZh: '銳聲 (Sắc)',
+        pitch: '35',
+        zh: '魚 (如 cá kho tộ 砂鍋紅燒魚)',
+        en: 'Fish',
+        hanViet: '',
+        tag: '餐飲海鮮'
+      },
+      {
+        viet: 'cà',
+        ipa: '[kaː˨˩]',
+        tone: 'huyen',
+        toneSymbol: '` (玄聲)',
+        toneNameZh: '玄聲 (Huyền)',
+        pitch: '31',
+        zh: '茄子 / 咖啡 (如 cà phê, cà tím 茄子)',
+        en: 'Eggplant / Coffee abbreviation',
+        hanViet: '茄 (Cà)',
+        tag: '蔬果飲食'
+      },
+      {
+        viet: 'ca',
+        ipa: '[kaː]',
+        tone: 'ngang',
+        toneSymbol: '無符號 (平聲)',
+        toneNameZh: '平聲 (Ngang)',
+        pitch: '44',
+        zh: '歌唱 / 工作輪班 / 杯子 (如 ca hát, ca đêm 夜班)',
+        en: 'Song / Work shift / Pitcher mug',
+        hanViet: '歌 / 科 (Ca)',
+        tag: '生活職場'
+      },
+      {
+        viet: 'cả',
+        ipa: '[kaː˧˩˧]',
+        tone: 'hoi',
+        toneSymbol: '̉ (問聲)',
+        toneNameZh: '問聲 (Hỏi)',
+        pitch: '313',
+        zh: '全部 / 以及 / 家中最長者 (如 cả nhà 全家, anh cả 大哥)',
+        en: 'All / Both / Eldest sibling',
+        hanViet: '',
+        tag: '範圍與長幼'
+      }
+    ],
+    mnemonicHookZh: '「銳聲如魚(cá)躍龍門，降調茄子咖啡(cà)芬芳，平聲歌唱輪班(ca)，問聲囊括全家(cả)長！」',
+    mnemonicHookEn: 'Rising fish (cá), falling coffee/eggplant (cà), level song/shift (ca), dipping all/eldest (cả)!',
+    pitfallAlertZh: '去餐廳點「chả cá」(炸魚餅/鱧魚鍋) 時，如果不小心唸成了問聲「chả cả」，店員完全聽不懂你想吃什麼！聲調微差直接決定了美味料理的正確下單。',
+    hanVietInsightZh: 'ca hát (歌唱) 的 ca 源自漢字「歌」；anh cả / chị cả 為越南家族長幼序數特有稱謂。',
+    masterSentence: 'Cả nhà cùng đi ăn món cá kho tộ và uống cà phê sữa đá sau ca làm việc.',
+    masterSentenceZh: '全家(cả nhà)在輪班(ca)工作結束後，一起去吃砂鍋魚(cá)並喝冰奶咖啡(cà phê)。',
+    masterSentenceEn: 'The whole family went to eat claypot fish and drink iced coffee after work shift.',
+    drill: {
+      questionZh: '在河內老城區著名的傳統名店，想品嚐馳名的「鱧魚鍋/炸魚餅」，招牌菜餚名稱是：',
+      options: ['Chả cá Lã Vọng', 'Chả cà Lã Vọng', 'Chả ca Lã Vọng', 'Chả cả Lã Vọng'],
+      correctIndex: 0,
+      explanationZh: '【正解解析】「魚」為銳聲「cá」(Chả cá Lã Vọng 是河內傳承百年的油爆薑黃鱧魚鍋名菜)。選項 B 的 cà 是茄子/咖啡；選項 C 的 ca 是歌唱/輪班；選項 D 的 cả 是全部或家長，均非魚肉！'
     }
   }
 ];

@@ -365,6 +365,60 @@ export const EMERGENCY_CARDS = [
   }
 ];
 
+// 高階緊急避坑與自救指南 (Advanced Critical Survival Insights)
+export const SURVIVAL_CRITICAL_TIPS = [
+  {
+    id: 'crit_1',
+    category: 'emergency',
+    titleZh: '🚨 護照與財物遺失報案 (Police Report)',
+    viet: 'Tôi bị mất hộ chiếu và ví tiền, cần đến đồn công an làm biên bản báo mất.',
+    zh: '我護照與錢包遺失了，急需到公安局派出所做報案證明筆錄。',
+    en: 'I lost my passport and wallet, need an official police loss report.',
+    phonetic: 'Mất hộ chiếu (遺失護照) / Biên bản công an (報案筆錄)',
+    tipZh: '持報案單 (Biên bản) 才能前往辦事處補發緊急旅行文件或向保險公司申請理賠。'
+  },
+  {
+    id: 'crit_2',
+    category: 'health',
+    titleZh: '⚠️ 嚴重食物過敏警示 (Allergy Warning)',
+    viet: 'Tôi bị dị ứng nghiêm trọng với đậu phộng và hải sản tươi sống!',
+    zh: '我對花生與海鮮嚴重過敏！(料理請絕對不要添加)',
+    en: 'I have severe allergies to peanuts and fresh seafood!',
+    phonetic: 'Dị ứng (過敏 · 漢越詞) / Đậu phộng (花生) / Hải sản (海鮮)',
+    tipZh: '越南街頭小吃極常撒碎花生與生魚露，點餐時請直接將此卡展示給廚師看！'
+  },
+  {
+    id: 'crit_3',
+    category: 'transport',
+    titleZh: '🚖 堅持跳表防宰客 (Taxi Meter Rule)',
+    viet: 'Bật đồng hồ tính tiền (bật meter) giúp tôi nhé, không đi giá thỏa thuận!',
+    zh: '請幫我開啟跳表計費 (按 Meter)，不走口頭喊價！',
+    en: 'Please turn on the meter, no fixed negotiated rate!',
+    phonetic: 'Bật đồng hồ (開啟跳表計價器)',
+    tipZh: '在機場或觀光區搭計程車，切勿接受司機漫天要價，堅持「bật meter」。'
+  },
+  {
+    id: 'crit_4',
+    category: 'shopping',
+    titleZh: '📱 行動無現金掃碼支付 (Cashless Pay)',
+    viet: 'Quán có nhận thanh toán bằng VietQR hoặc chuyển khoản Momo không?',
+    zh: '店家可以刷 VietQR 掃碼或 Momo 錢包轉帳嗎？',
+    en: 'Do you accept VietQR code scan or Momo mobile wallet?',
+    phonetic: 'Quét mã QR (掃描 QR 碼) / Chuyển khoản (轉帳)',
+    tipZh: '現代越南各大城市無現金支付極度發達，備好轉帳或掃碼可免除大鈔找零困擾。'
+  },
+  {
+    id: 'crit_5',
+    category: 'dining',
+    titleZh: '💧 飲水衛生安全守則 (Safe Drinking Water)',
+    viet: 'Làm ơn cho tôi nước sôi để nguội hoặc nước suối đóng chai còn nguyên niêm phong.',
+    zh: '請給我放涼的白開水或未開封瓶裝礦泉水。',
+    en: 'Please give me boiled drinking water or sealed bottled water.',
+    phonetic: 'Nước suối đóng chai (瓶裝礦泉水) / Nước sôi (開水)',
+    tipZh: '預防水土不服與急性腸胃炎：外食出差強烈建議飲用瓶裝礦泉水，避免飲用路邊未過濾生水。'
+  }
+];
+
 export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode } = useLanguage();
   const [selectedCat, setSelectedCat] = useState('all');
@@ -790,6 +844,41 @@ export const EmergencyKitModule = ({ selectedAccent = 'north', updateUserStats, 
             </div>
           );
         })}
+      </div>
+
+      {/* Critical Survival Tips Showcase */}
+      <div style={{ marginTop: '2.5rem', marginBottom: '2.5rem' }}>
+        <h3 style={{ fontSize: '1.25rem', fontWeight: 900, color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+          <Sparkles color="var(--brand-gold)" />
+          {learningMode === 'zh' ? '五大高階緊急避坑與自救關鍵指南 (Critical Survival Guidelines)' : 'Critical Survival Guidelines'}
+        </h3>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+          {SURVIVAL_CRITICAL_TIPS.map(tip => (
+            <div key={tip.id} style={{ background: 'var(--bg-card)', border: '1.5px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.5rem', boxShadow: '0 4px 12px rgba(0,0,0,0.03)' }}>
+              <div style={{ fontWeight: 800, color: 'var(--brand-primary)', fontSize: '0.95rem' }}>
+                {tip.titleZh}
+              </div>
+              <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)' }}>
+                {tip.viet}
+              </strong>
+              <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+                {tip.zh}
+              </div>
+              <small style={{ fontSize: '0.8rem', color: 'var(--brand-accent)', background: 'var(--bg-input)', padding: '0.35rem 0.5rem', borderRadius: '4px' }}>
+                💡 {tip.tipZh}
+              </small>
+              <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 'auto', paddingTop: '0.5rem' }}>
+                <button
+                  className="speaker-btn mini-btn"
+                  onClick={() => audioEngine.speak(tip.viet, { accent: selectedAccent })}
+                  title="朗讀此句"
+                >
+                  <Volume2 size={16} />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Fullscreen Display Modal */}

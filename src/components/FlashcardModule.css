@@ -534,3 +534,56 @@
   font-weight: 800;
   letter-spacing: 0.02em;
 }
+
+/* --- High-Aesthetic Tactile Polish for Flashcards --- */
+.flashcard-front, .flashcard-back {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.flashcard-container:hover .flashcard-front {
+  border-color: rgba(225, 29, 72, 0.4);
+  box-shadow: 0 20px 48px -12px rgba(225, 29, 72, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.flashcard-container:hover .flashcard-back {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 20px 48px -12px rgba(139, 92, 246, 0.12), inset 0 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+.flashcard-container:active .flashcard-inner {
+  transform: scale(0.985);
+}
+
+.flashcard-container.flipped:active .flashcard-inner {
+  transform: rotateY(180deg) scale(0.985);
+}
+
+.flashcard-example-box {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+[data-theme='dark'] .flashcard-example-box {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03) !important;
+}
+
+.flashcard-example-box:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  transform: translateY(-1px);
+}
+
+.control-btn {
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.control-btn:active {
+  transform: translateY(0) scale(0.97);
+}

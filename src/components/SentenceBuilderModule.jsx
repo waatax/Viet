@@ -7,6 +7,23 @@ import { gamificationEngine } from '../utils/gamificationEngine';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import './SentenceBuilderModule.css';
 
+const getSyntaxExplanation = (userSentence, targetPhrase) => {
+  const target = targetPhrase.viet.toLowerCase();
+  if (target.includes('cà phê sữa') || target.includes('phở bò') || target.includes('trà đào') || target.includes('bánh mì')) {
+    return '【修飾語後置原則】越南語中中心名詞放前面，材料、特徵或配料放在名詞後面！例如「cà phê sữa đá」(咖啡+奶+冰)、「phở bò」(河粉+牛)，切勿按中文習慣將形容詞放前！';
+  }
+  if (target.includes('đang') || target.includes('đã') || target.includes('sẽ') || target.includes('chưa')) {
+    return '【時態助詞前置原則】越南語表示過去(đã)、現在進行(đang)、未來(sẽ)或尚未(chưa)的助詞，必須直接放在動詞的前方！';
+  }
+  if (target.includes('ở đâu') || target.includes('bao nhiêu') || target.includes('mấy giờ')) {
+    return '【疑問詞位置】地點疑問詞「ở đâu」(在哪裡)、時間疑問詞「mấy giờ」(幾點) 常置於謂語動詞之後或句尾，不可直接置於句首。';
+  }
+  if (target.includes('không') || target.includes('nhé') || target.includes('ạ')) {
+    return '【句尾助詞】是非問句助詞「không」、叮嚀商量「nhé」或謙恭敬語「ạ」嚴格鎖定在整句話的「最末尾」！';
+  }
+  return '【基本語序 S+V+O】越南語遵循「主詞 + 動詞 + 受詞」核心結構，形容詞修飾名詞時務必放在中心名詞之後！';
+};
+
 export const SentenceBuilderModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode, t } = useLanguage();
   const [difficulty, setDifficulty] = useState('all'); // 'all' | 'easy' (3-5 words) | 'medium' (6-8 words) | 'hard' (9+ words)
@@ -249,6 +266,39 @@ export const SentenceBuilderModule = ({ selectedAccent = 'north', updateUserStat
             )}
           </div>
         </div>
+
+        {/* Syntax Diagnostic & Mistake Explanation Banner */}
+        {isCorrect === false && (
+          <div style={{
+            marginTop: '1.25rem',
+            padding: '1.1rem 1.3rem',
+            background: 'rgba(239, 68, 68, 0.08)',
+            border: '1.5px solid rgba(239, 68, 68, 0.3)',
+            borderRadius: 'var(--radius-md)',
+            animation: 'fadeInContent 0.3s ease'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#ef4444', fontWeight: 900, fontSize: '1rem', marginBottom: '0.4rem' }}>
+              <span>❌ 語序排列有誤！讓我們來拆解正確句構：</span>
+            </div>
+            <div style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: '0.6rem' }}>
+              <strong style={{ color: 'var(--brand-accent)' }}>💡 語法糾錯提示：</strong>
+              <span>{getSyntaxExplanation(selectedBlocks.map(b => b.word).join(' '), currentPhrase)}</span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-card)', padding: '0.6rem 0.9rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+              <div>
+                <span style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--brand-green)', display: 'block' }}>標準正確語序 (Standard Vietnamese Syntax)：</span>
+                <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)' }}>{currentPhrase.viet}</strong>
+              </div>
+              <button
+                className="speaker-btn mini-btn"
+                onClick={() => audioEngine.speak(currentPhrase.viet, { accent: selectedAccent })}
+                title="聆聽正確原音"
+              >
+                <Volume2 size={16} />
+              </button>
+            </div>
+          </div>
+        )}
 
         {/* Hint Reveal Box */}
         {showHint && (

@@ -8634,7 +8634,22 @@ export const flashcardsDeck = [
   { id: 97, viet: 'Chúc mừng năm mới', zh: '新年快樂 (過年賀詞)', en: 'Happy New Year', hanViet: 'Chúc (祝 · 漢越詞)', category: '節慶祝福', example: 'Chúc mừng năm mới, an khang thịnh vượng!' },
   { id: 98, viet: 'An khang thịnh vượng', zh: '安康盛旺 (闔家平安、事業興盛)', en: 'Peace and Prosperity', hanViet: 'An khang thịnh vượng (安康盛旺 · 漢越成語)', category: '節慶祝福', example: 'Kính chúc quý công ty năm mới an khang thịnh vượng!' },
   { id: 99, viet: 'Vạn sự như ý', zh: '萬事如意 / 心想事成', en: 'May all your wishes come true', hanViet: 'Vạn sự như ý (萬事如意 · 漢越成語)', category: '節慶祝福', example: 'Năm mới phát tài phát lộc, vạn sự như ý!' },
-  { id: 100, viet: 'Sức khỏe dồi dào', zh: '身體健康 / 活力充沛', en: 'Abundant health and vitality', hanViet: '', category: '節慶祝福', example: 'Kính chúc ông bà năm mới dồi dào sức khỏe và sống lâu trăm tuổi!' }
+  { id: 100, viet: 'Sức khỏe dồi dào', zh: '身體健康 / 活力充沛', en: 'Abundant health and vitality', hanViet: '', category: '節慶祝福', example: 'Kính chúc ông bà năm mới dồi dào sức khỏe và sống lâu trăm tuổi!' },
+  { id: 101, viet: 'Quẹt thẻ', zh: '刷卡 (信用卡 / 金融卡)', en: 'Swipe or tap card', hanViet: '', category: '購物殺價', example: 'Ở đây có nhận quẹt thẻ tín dụng không ạ?', exampleZh: '這裡可以刷信用卡嗎？' },
+  { id: 102, viet: 'Chuyển khoản', zh: '銀行轉帳 (QR Code 掃碼支付)', en: 'Bank transfer', hanViet: 'Chuyển khoản (轉款 · 漢越詞)', category: '購物殺價', example: 'Em quét mã QR chuyển khoản cho anh nhé.', exampleZh: '我掃 QR 碼轉帳給哥喔。' },
+  { id: 103, viet: 'Giao hàng tận nơi', zh: '外送到府 / 宅配到家', en: 'Home delivery', hanViet: 'Giao hàng (交貨 · 漢越詞)', category: '生活日常', example: 'Quán có dịch vụ giao hàng tận nơi không ạ?', exampleZh: '店家有提供外送到府服務嗎？' },
+  { id: 104, viet: 'Đặt xe công nghệ', zh: '線上叫車 (Grab / Be / Xanh SM)', en: 'Book a ride-hailing car', hanViet: 'Công nghệ (科技 · 漢越詞)', category: '交通出行', example: 'Mưa to quá, mình đặt xe công nghệ về khách sạn đi.', exampleZh: '雨太大了，我們叫車回飯店吧。' },
+  { id: 105, viet: 'Hóa đơn đỏ (VAT)', zh: '紅發票 (加值稅統編發票)', en: 'Red VAT invoice', hanViet: 'Hóa đơn (化單/發票 · 漢越詞)', category: '商務職場', example: 'Công ty cần xuất hóa đơn đỏ để thanh toán.', exampleZh: '公司需要開立紅發票報帳核銷。' },
+  { id: 106, viet: 'Sạc pin điện thoại', zh: '手機充電', en: 'Charge phone', hanViet: 'Điện thoại (電話 · 漢越詞)', category: '生活日常', example: 'Cho em mượn cục sạc pin điện thoại một lát được không?', exampleZh: '可以借我一下手機充電器嗎？' },
+  { id: 107, viet: 'Mật khẩu wifi', zh: 'WiFi 密碼', en: 'Wifi password', hanViet: 'Mật khẩu (密碼/密口 · 漢越詞)', category: '餐飲美食', example: 'Em ơi, cho anh xin mật khẩu wifi của quán với!', exampleZh: '小妹，請給我店裡的 WiFi 密碼！' },
+  { id: 108, viet: 'Trà chanh chém gió', zh: '喝檸檬茶吹牛聊天 (越南青年市井文化)', en: 'Drink lemon tea & chat / gossip', hanViet: '', category: '道地口語', example: 'Tối nay ra bờ hồ uống trà chanh chém gió nhé!', exampleZh: '今晚去湖邊喝檸檬茶閒聊吹水吧！' },
+  { id: 109, viet: 'Mang đi hay dùng tại quán?', zh: '外帶還是內用？', en: 'Takeaway or dine in?', hanViet: 'Quán (館 · 漢越詞)', category: '餐飲美食', example: 'Dạ, anh muốn mang đi hay dùng tại quán ạ?', exampleZh: '請問哥想外帶還是內用呢？' },
+  { id: 110, viet: 'Ít đường ít đá', zh: '少糖少冰 (手搖特調必備)', en: 'Less sugar, less ice', hanViet: 'Đường (糖 · 漢越詞)', category: '餐飲美食', example: 'Cho em một ly trà sữa ít đường ít đá nhé.', exampleZh: '請給我一杯少糖少冰的奶茶。' },
+  { id: 111, viet: 'Trả giá / Mặc cả', zh: '討價還價 / 殺價', en: 'Bargain / Negotiate price', hanViet: 'Giá (價 · 漢越詞)', category: '購物殺價', example: 'Mua đồ ở chợ Bến Thành nhớ trả giá một chút.', exampleZh: '在濱城市場買東西記得要殺點價。' },
+  { id: 112, viet: 'Kẹt xe / Tắc đường', zh: '塞車 / 交通堵塞', en: 'Traffic jam', hanViet: 'Đường (堂/途)', category: '交通出行', example: 'Giờ cao điểm ở Sài Gòn thường kẹt xe dữ lắm.', exampleZh: '西貢尖峰時段通常塞車得非常厲害。' },
+  { id: 113, viet: 'Bản đồ chỉ đường', zh: '導航地圖 / 路線圖', en: 'Map / Directions', hanViet: 'Bản đồ (版圖 · 漢越詞)', category: '交通出行', example: 'Mở bản đồ xem đường nào đi nhanh nhất.', exampleZh: '打開地圖看看哪條路走最快。' },
+  { id: 114, viet: 'Bảo hành chính hãng', zh: '原廠正品保固', en: 'Official warranty', hanViet: 'Bảo hành chính hãng (保行正行 · 漢越詞)', category: '商務職場', example: 'Sản phẩm này được bảo hành chính hãng một năm.', exampleZh: '這項產品享有原廠正品保固一年。' },
+  { id: 115, viet: 'Tình hữu nghị', zh: '友好情誼 / 跨國友誼', en: 'Friendship & goodwill', hanViet: 'Tình hữu nghị (情友誼 · 漢越成語)', category: '漢越核心', example: 'Thắt chặt tình hữu nghị và hợp tác bền vững giữa hai bên.', exampleZh: '深化雙方堅定深厚的友誼與永續合作。' }
 ];
 
 // 10. 語法核心體系與互動拼句 (Grammar Core Principles & Sentence Builder)
@@ -8849,6 +8864,90 @@ export const interactivePuzzles = [
     sentenceEn: 'Wishing your company a new year with all wishes fulfilled',
     correctOrder: ['Chúc quý công ty', 'năm mới', 'vạn sự', 'như ý'],
     words: ['năm mới', 'như ý', 'Chúc quý công ty', 'vạn sự']
+  },
+  {
+    id: 'p9',
+    sentenceZh: '請給我少糖少冰的蜜桃烏龍茶',
+    sentenceEn: 'Please give me peach tea with less sugar and less ice',
+    correctOrder: ['Cho tôi', 'trà đào', 'ít đường', 'ít đá'],
+    words: ['ít đá', 'Cho tôi', 'ít đường', 'trà đào']
+  },
+  {
+    id: 'p10',
+    sentenceZh: '我們透過手機軟體預約車輛',
+    sentenceEn: 'We book a car through mobile ride-hailing app',
+    correctOrder: ['Chúng tôi', 'đặt xe', 'qua ứng dụng', 'điện thoại'],
+    words: ['qua ứng dụng', 'đặt xe', 'điện thoại', 'Chúng tôi']
+  },
+  {
+    id: 'p11',
+    sentenceZh: '請問能否將行李寄放在櫃台',
+    sentenceEn: 'May I leave my luggage at the hotel reception desk',
+    correctOrder: ['Có thể', 'gửi hành lý', 'ở quầy', 'lễ tân không'],
+    words: ['lễ tân không', 'ở quầy', 'Có thể', 'gửi hành lý']
+  },
+  {
+    id: 'p12',
+    sentenceZh: '我想將新台幣換成越南盾',
+    sentenceEn: 'I want to exchange Taiwan dollars into Vietnamese dong',
+    correctOrder: ['Tôi muốn', 'đổi tiền', 'Đài tệ sang', 'Việt Nam đồng'],
+    words: ['Việt Nam đồng', 'Tôi muốn', 'Đài tệ sang', 'đổi tiền']
+  },
+  {
+    id: 'p13',
+    sentenceZh: '下星期一早上會晤重要商業夥伴',
+    sentenceEn: 'Meeting key business partners next Monday morning',
+    correctOrder: ['Sáng thứ hai', 'tuần sau', 'gặp gỡ', 'đối tác quan trọng'],
+    words: ['gặp gỡ', 'tuần sau', 'đối tác quan trọng', 'Sáng thứ hai']
+  },
+  {
+    id: 'p14',
+    sentenceZh: '請開立公司統一編號紅發票',
+    sentenceEn: 'Please issue official red VAT invoice for our company',
+    correctOrder: ['Làm ơn', 'xuất hóa đơn đỏ', 'cho công ty', 'chúng tôi'],
+    words: ['cho công ty', 'Làm ơn', 'chúng tôi', 'xuất hóa đơn đỏ']
+  },
+  {
+    id: 'p15',
+    sentenceZh: '非常感謝大家熱情鼎力相助',
+    sentenceEn: 'Thank you very much for your enthusiastic assistance',
+    correctOrder: ['Cảm ơn mọi người', 'đã nhiệt tình', 'giúp đỡ', 'chúng tôi'],
+    words: ['giúp đỡ', 'Cảm ơn mọi người', 'chúng tôi', 'đã nhiệt tình']
+  },
+  {
+    id: 'p16',
+    sentenceZh: '請問貴店每天營業到幾點呢',
+    sentenceEn: 'What time does your store stay open until everyday',
+    correctOrder: ['Cửa hàng', 'mở cửa', 'đến mấy giờ', 'vậy ạ'],
+    words: ['đến mấy giờ', 'mở cửa', 'vậy ạ', 'Cửa hàng']
+  },
+  {
+    id: 'p17',
+    sentenceZh: '這道砂鍋紅燒魚香氣撲鼻極了',
+    sentenceEn: 'This claypot braised fish smells wonderfully fragrant',
+    correctOrder: ['Món cá kho tộ', 'này', 'thơm phức', 'quá'],
+    words: ['thơm phức', 'Món cá kho tộ', 'quá', 'này']
+  },
+  {
+    id: 'p18',
+    sentenceZh: '我們在國際航廈出境大廳接機',
+    sentenceEn: 'We pick up guests at international terminal arrival hall',
+    correctOrder: ['Chúng tôi đón khách', 'ở sảnh đến', 'nhà ga', 'quốc tế'],
+    words: ['nhà ga', 'Chúng tôi đón khách', 'quốc tế', 'ở sảnh đến']
+  },
+  {
+    id: 'p19',
+    sentenceZh: '下班後我們一起去喝杯生啤酒吧',
+    sentenceEn: 'Let us drink draught street beer together after work',
+    correctOrder: ['Tan làm', 'mình cùng đi', 'uống bia hơi', 'nhé'],
+    words: ['uống bia hơi', 'Tan làm', 'nhé', 'mình cùng đi']
+  },
+  {
+    id: 'p20',
+    sentenceZh: '越南文化非常看重家庭團聚與情誼',
+    sentenceEn: 'Vietnamese culture highly values family reunion and bonds',
+    correctOrder: ['Văn hóa Việt Nam', 'rất coi trọng', 'tình cảm', 'gia đình'],
+    words: ['tình cảm', 'Văn hóa Việt Nam', 'gia đình', 'rất coi trọng']
   }
 ];
 
@@ -8951,7 +9050,370 @@ export const quizzes = [
     optionsEn: ['Marital bliss and family ethics', 'Wealth and karmic retribution', 'Pastoral and hermit lifestyle', 'The tragic conflict between talent and destiny (才命相妒)'],
     answer: 3,
     explanationZh: '此句意為「百年茫茫人世間，才與命往往相妒相悖」，深刻奠定了《金雲翹傳》乃至越南古典詩歌六八體（Lục bát）探討才華與宿命衝突的哲學母題。',
-    explanationEn: 'This opening verse contemplates the tragic conflict between exceptional talent and harsh destiny, the fundamental motif of Vietnamese classical literature.'
+    explanationEn: 'This opening verse contemplates the tragic conflict between exceptional talent and harsh destiny, the fundamental motif of Vietnamese classical literature.',
+    distractorExplanationsZh: [
+      '百年好合屬於一般婚禮賀詞，非《金雲翹傳》沈鬱的命運哲學。',
+      '因果報應雖在佛教中有提及，但此句「chữ tài chữ mệnh」(才與命) 專注於才命衝突。',
+      '山水隱逸是陶淵明式風格，非阮攸描繪風塵苦難之主旨。',
+      '【正解】「Tài」(才) 與「Mệnh」(命) 相爭相妒，精準概括了女主角王翠翹一生絕代風華卻受盡顛沛流離之命運悲劇。'
+    ]
+  },
+  {
+    id: 'q10',
+    level: 'A1',
+    questionZh: '在越南語量詞體系中，指稱「這隻貓」與「這張桌子」的正確量詞搭配是？',
+    questionEn: 'In Vietnamese classifiers, what are the correct classifiers for "this cat" and "this table"?',
+    optionsZh: ['Con mèo này / Cái bàn này', 'Cái mèo này / Con bàn này', 'Bức mèo này / Quả bàn này', 'Tờ mèo này / Ngôi bàn này'],
+    optionsEn: ['Con mèo này / Cái bàn này', 'Cái mèo này / Con bàn này', 'Bức mèo này / Quả bàn này', 'Tờ mèo này / Ngôi bàn này'],
+    answer: 0,
+    explanationZh: '越南語量詞原則：動物、具生命動態或蜿蜒長條物（如河川 con sông、道路 con đường）用「Con」；無生命器具、家具器物用「Cái」。因此為「Con mèo」(貓) 與「Cái bàn」(桌子)。',
+    explanationEn: 'Classifiers: "Con" applies to living animals/dynamic entities, while "Cái" applies to inanimate tools and furniture.',
+    distractorExplanationsZh: [
+      '【正解】動物用 Con (Con mèo)，家具器皿用 Cái (Cái bàn)，分類邏輯分明。',
+      '顛倒了！Cái 不能用於活體貓咪，Con 也不能用於死物桌子。',
+      'Bức 用於字畫或牆壁 (bức tranh, bức tường)；Quả 用於球狀水果或山峰。',
+      'Tờ 用於紙張票據 (tờ giấy, tờ vé số)；Ngôi 用於建築廟宇 (ngôi nhà, ngôi chùa)。'
+    ]
+  },
+  {
+    id: 'q11',
+    level: 'A1',
+    questionZh: '日常生活報時中，下午「兩點半」在越南語中最地道流暢的說法是？',
+    questionEn: 'What is the most natural way to say "2:30 PM" in daily Vietnamese?',
+    optionsZh: ['Hai giờ rưỡi chiều', 'Hai giờ nửa chiều', 'Nửa hai giờ chiều', 'Hai giờ ba mươi lăm chiều'],
+    optionsEn: ['Hai giờ rưỡi chiều', 'Hai giờ nửa chiều', 'Nửa hai giờ chiều', 'Hai giờ ba mươi lăm chiều'],
+    answer: 0,
+    explanationZh: '越南語表達「幾點半」固定在時數後接「rưỡi」(如 hai giờ rưỡi = 兩點半、mười giờ rưỡi = 十點半)。「nửa」則放在量詞前表示「半個」(如 nửa tiếng = 半小時)。',
+    explanationEn: 'Use "rưỡi" directly after numbers for half past: "Hai giờ rưỡi chiều" = 2:30 PM.',
+    distractorExplanationsZh: [
+      '【正解】數字 + 單位 + rưỡi 是標準「半」的後置結構 (hai giờ rưỡi)。',
+      '錯項！「nửa」不能放在單位詞後面作補充，「giờ nửa」是不合法的語法搭配。',
+      '「nửa hai giờ」語序顛倒且混亂，越南語絕無此說法。',
+      '「ba mươi lăm」是三十五分 (2:35)，並非兩點半 (2:30)！'
+    ]
+  },
+  {
+    id: 'q12',
+    level: 'A2',
+    questionZh: '在河內小吃攤點牛肉河粉時，想交代老闆「不要香菜，多放點蔥」，正確說法是？',
+    questionEn: 'When ordering pho in Hanoi, how do you say "No coriander, extra green onions"?',
+    optionsZh: ['Không lấy rau mùi, cho nhiều hành', 'Không lấy hành, cho nhiều rau mùi', 'Không lấy ớt, cho nhiều đường', 'Không lấy rau muống, cho nhiều tiêu'],
+    optionsEn: ['Không lấy rau mùi, cho nhiều hành', 'Không lấy hành, cho nhiều rau mùi', 'Không lấy ớt, cho nhiều đường', 'Không lấy rau muống, cho nhiều tiêu'],
+    answer: 0,
+    explanationZh: '在北越（河內），香菜稱為「rau mùi」(南越稱 ngò rí)；「hành」是蔥。「Không lấy rau mùi, cho nhiều hành」即不要香菜、多放蔥。',
+    explanationEn: 'In Northern Vietnam, coriander is "rau mùi" and green onion is "hành". "Không lấy rau mùi, cho nhiều hành" means no coriander, lots of scallions.',
+    distractorExplanationsZh: [
+      '【正解】rau mùi (北部香菜) + hành (蔥花)，完全切中道地北越飲食點餐指令。',
+      '完全顛倒！這句意思變成「不要蔥，多放香菜」，討厭香菜的人會崩潰！',
+      'ớt 是辣椒、đường 是白糖，此句變成「不要辣椒多放糖」，與香菜青蔥無關。',
+      'rau muống 是空心菜、tiêu 是胡椒粉，河粉碗裡本來就不加空心菜。'
+    ]
+  },
+  {
+    id: 'q13',
+    level: 'A2',
+    questionZh: '北越稱呼玉米為「ngô」，請問在南越胡志明市，夜市與路邊攤招牌寫的玉米是什麼詞？',
+    questionEn: 'In the North, corn is "ngô". What is corn called in Southern Vietnam (Saigon)?',
+    optionsZh: ['Bắp', 'Khoai', 'Sắn', 'Đậu'],
+    optionsEn: ['Bắp', 'Khoai', 'Sắn', 'Đậu'],
+    answer: 0,
+    explanationZh: '南北方言高頻蔬果差異：北越稱「Ngô」(如 ngô luộc 水煮玉米)，南越稱「Bắp」(如 bắp xào 奶油炒玉米、bắp nướng 烤玉米)。',
+    explanationEn: 'Saigon/Southern dialect uses "Bắp" for corn, while Hanoi/Northern dialect uses "Ngô".',
+    distractorExplanationsZh: [
+      '【正解】南越稱玉米為 Bắp，如西貢極受歡迎的街頭宵夜「bắp xào」(炒玉米粒)。',
+      'Khoai 指甘薯、地瓜、馬鈴薯類 (如 khoai lang 地瓜, khoai tây 馬鈴薯)。',
+      'Sắn 在南部指涼薯(豆薯)，在北部指樹薯(木薯)。',
+      'Đậu 指各類豆類 (如 đậu phộng 花生, đậu nành 黃豆)。'
+    ]
+  },
+  {
+    id: 'q14',
+    level: 'A2',
+    questionZh: '一位 26 歲的台灣青年拜訪越南合作方 58 歲的男性廠長，初次見面最得體敬重的招呼是？',
+    questionEn: 'How should a 26-year-old Taiwanese representative respectfully address a 58-year-old male factory director?',
+    optionsZh: ['Chào Bác / Chú ạ (自稱 Cháu)', 'Chào Anh (自稱 Em)', 'Chào Em (自稱 Anh)', 'Chào Mày (自稱 Tao)'],
+    optionsEn: ['Chào Bác / Chú ạ (I = Cháu)', 'Chào Anh (I = Em)', 'Chào Em (I = Anh)', 'Chào Mày (I = Tao)'],
+    answer: 0,
+    explanationZh: '年齡差超過 30 歲已等同父母長輩輩分，商業初見或登門拜訪應尊稱「Bác」(比父母年長) 或「Chú」(比父母稍年輕)，自稱「Cháu」(晚輩/姪兒)，末尾帶敬詞「ạ」，展現高度家教與敬意。',
+    explanationEn: 'With a 30+ year age difference, address as Bác or Chú and refer to oneself as Cháu with polite particle "ạ".',
+    distractorExplanationsZh: [
+      '【正解】稱呼長輩 Bác/Chú、自謙 Cháu 並帶 ạ，最合乎越南敬老禮數與儒家教養。',
+      '兩者相差 30 歲以上，若直接稱 Anh-Em 會顯得過於隨便，甚至有裝嫩套近乎之嫌。',
+      '若自稱 Anh 稱對方 Em，等同把長輩叫成晚輩，極度失禮冒犯！',
+      'Mày - Tao 是極親密死黨或吵架侮辱專用語，在商務職場是禁忌死穴！'
+    ]
+  },
+  {
+    id: 'q15',
+    level: 'B1',
+    questionZh: '漢越音假朋友（False Friends）：越南語單字「Bác sĩ」指涉的職業是？',
+    questionEn: 'Sino-Vietnamese false friend: what profession does "Bác sĩ" refer to?',
+    optionsZh: ['醫師 / 醫生 (Doctor)', '大學博士 (Ph.D.)', '護理師 (Nurse)', '工程師 (Engineer)'],
+    optionsEn: ['Medical Doctor', 'Doctor of Philosophy (Ph.D.)', 'Nurse', 'Engineer'],
+    answer: 0,
+    explanationZh: '「Bác sĩ」字根雖為「博士」，但在越南語現代語用中專指「執業醫生/醫師」！真正的大學哲學博士在越語中稱為「Tiến sĩ」(漢越詞：進士)。',
+    explanationEn: '"Bác sĩ" means medical doctor in Vietnamese. A doctoral degree holder (Ph.D.) is called "Tiến sĩ" (literally Jinshi).',
+    distractorExplanationsZh: [
+      '【正解】Bác sĩ 在越南專指穿白袍看診的臨床醫生。',
+      '大陷阱！博士學位在越語中是 Tiến sĩ (進士)，千萬不能混為一談！',
+      '護理師/護士在越語中是 Y tá 或 Điều dưỡng。',
+      '工程師在越語中是 Kỹ sư (漢越詞：技師)。'
+    ]
+  },
+  {
+    id: 'q16',
+    level: 'B1',
+    questionZh: '對方關心問你「Ăn cơm chưa?」(吃飽了沒？)，如果你「還沒吃」，應該回答哪一個字？',
+    questionEn: 'When asked "Ăn cơm chưa?" (Have you eaten?), if you haven’t eaten yet, what should you reply?',
+    optionsZh: ['Chưa (還沒)', 'Không (不 / 沒有)', 'Đừng (別)', 'Rồi (已經)'],
+    optionsEn: ['Chưa (Not yet)', 'Không (No)', 'Đừng (Do not)', 'Rồi (Already)'],
+    answer: 0,
+    explanationZh: '越南語體態時態原則：問句以「...chưa?」(尚未嗎？) 提問時，否定回答必須是「Chưa」(還沒)。若回答「Không」(不)，代表拒絕意志「我不吃」，會讓熱情關心的越南朋友感到受挫尷尬。',
+    explanationEn: 'Always reply "Chưa" to "chưa?" questions. Answering "Không" implies you refuse to eat.',
+    distractorExplanationsZh: [
+      '【正解】Chưa 代表時間上的「尚未/待會要吃」，符合關切問候之常理。',
+      '大忌！回答「Không」等於硬生生說「我不吃」，語氣冷漠突兀。',
+      'Đừng 是祈使命令否定詞「請勿/別...」(如 Đừng đi 別走)，不能用作答句。',
+      'Rồi 是肯定回答「已經吃了」，如果還沒吃卻回答 Rồi 會餓肚子！'
+    ]
+  },
+  {
+    id: 'q17',
+    level: 'B1',
+    questionZh: '漢越詞語義遷移：「Lịch sự」在越南社會語用中最核心的意思是？',
+    questionEn: 'Sino-Vietnamese false friend: what does "Lịch sự" mean in modern Vietnamese?',
+    optionsZh: ['有禮貌的 / 客氣優雅的 (Polite & Courteous)', '歷史事件與歷史學 (History)', '日曆與排班表 (Calendar)', '辦公室人事行政 (HR)'],
+    optionsEn: ['Polite and courteous', 'History', 'Calendar', 'Human resources'],
+    answer: 0,
+    explanationZh: '「Lịch sự」字面看似「歷史」，但在現代越語中完全轉化為「文明禮貌、斯文有教養、舉止大方」(Polite)。真正的「歷史」在越語中是「Lịch sử」(史字為問聲 Hỏi)。',
+    explanationEn: '"Lịch sự" means courteous/polite. The actual word for "history" is "Lịch sử" (with hỏi tone).',
+    distractorExplanationsZh: [
+      '【正解】形容一個人說話客氣、穿著整齊得體均用「rất lịch sự」(非常有教養)。',
+      '易混淆陷阱！「歷史」是問聲的 Lịch sử，聲調不同詞義差之千里。',
+      '日曆是 Lịch，排班表是 Lịch làm việc。',
+      '人事行政在越語中是 Nhân sự (人事)。'
+    ]
+  },
+  {
+    id: 'q18',
+    level: 'B1',
+    questionZh: '搭乘計程車時，想跟司機說「到前面十字路口請向右轉」，最地道且符合交通語法的說法是？',
+    questionEn: 'In a taxi, how do you say "Turn right at the intersection ahead"?',
+    optionsZh: ['Đến ngã tư phía trước rẽ phải / quẹo phải', 'Đến ngã tư phía trước đi thẳng', 'Đến ngã tư phía trước rẽ trái', 'Đến ngã tư phía trước quay đầu'],
+    optionsEn: ['Đến ngã tư phía trước rẽ phải / quẹo phải', 'Đến ngã tư phía trước đi thẳng', 'Đến ngã tư phía trước rẽ trái', 'Đến ngã tư phía trước quay đầu'],
+    answer: 0,
+    explanationZh: '右轉在北越是「rẽ phải」，在南越是「quẹo phải」；「ngã tư」指十字路口。整句意思準確流暢。',
+    explanationEn: '"Rẽ phải" (North) or "quẹo phải" (South) means turn right at an intersection (ngã tư).',
+    distractorExplanationsZh: [
+      '【正解】rẽ phải (北) / quẹo phải (南) 均為右轉，ngã tư 是十字路口。',
+      'đi thẳng 是直走不轉彎，會錯過目的地路口。',
+      'rẽ trái / quẹo trái 是「向左轉」，方向剛好相反！',
+      'quay đầu 是「迴轉/掉頭」，不是右轉。'
+    ]
+  },
+  {
+    id: 'q19',
+    level: 'B1',
+    questionZh: '聲調最小對比組（Minimal Pair）：單字「mả」與「mã」的音調走向與語義差別是？',
+    questionEn: 'Minimal pair: what is the tone contour and meaning difference between "mả" and "mã"?',
+    optionsZh: ['mả 為問聲(降後微升，指墳墓)；mã 為跌聲(短促折斷重升，指號碼/馬)', 'mả 為平聲(中平，指幽靈)；mã 為玄聲(低降，指但是)', 'mả 為銳聲(急升，指臉頰)；mã 為重聲(急墜，指稻苗)', '兩者聲調完全相同，僅拼寫風格不同'],
+    optionsEn: ['mả is dipping tone (tomb); mã is glottalized rising tone (code/horse)', 'mả is level (ghost); mã is falling (but)', 'mả is rising (cheek); mã is heavy drop (seedling)', 'They have identical tones and meanings'],
+    answer: 0,
+    explanationZh: '問聲 Thanh Hỏi (mả) 是降後再揚的曲折調 (313)，義為墳墓；跌聲 Thanh Ngã (mã) 在河內口音中有強烈聲門緊縮、音高急遽折斷再拉高的特徵 (35̃)，指號碼(mã số)或馬匹(mã lực)。',
+    explanationEn: '"mả" (hỏi tone) means grave; "mã" (ngã tone with glottal stop) means code, horse, or appearance.',
+    distractorExplanationsZh: [
+      '【正解】問聲曲折降升(mả=墳墓)；跌聲聲門微阻折斷(mã=號碼/馬匹)。',
+      '平聲是 ma (鬼魂)，玄聲是 mà (但是)，混淆了聲調符號。',
+      '銳聲是 má (臉頰/南越媽媽)，重聲是 mạ (秧苗)，音調與字形完全不同。',
+      '荒謬選項！越南語聲調是辨義核心，六調字義各自獨立嚴謹。'
+    ]
+  },
+  {
+    id: 'q20',
+    level: 'B2',
+    questionZh: '在越南外資銀行開戶時，公司營運日常支票與收付款專用的「活期帳戶」越語名稱為？',
+    questionEn: 'What is the Vietnamese financial term for a checking / current operating account?',
+    optionsZh: ['Tài khoản thanh toán / vãng lai', 'Tài khoản tiết kiệm có kỳ hạn', 'Tài khoản ký quỹ', 'Tài khoản nợ xấu'],
+    optionsEn: ['Tài khoản thanh toán / vãng lai (Current account)', 'Tài khoản tiết kiệm có kỳ hạn (Term deposit)', 'Tài khoản ký quỹ (Escrow account)', 'Tài khoản nợ xấu (Bad debt account)'],
+    answer: 0,
+    explanationZh: '商業活期帳戶稱為「Tài khoản thanh toán」(結算帳戶) 或「Tài khoản vãng lai」(往來帳戶)，支援日常轉帳、出納與工資發放。',
+    explanationEn: 'Current or checking accounts are called "Tài khoản thanh toán" or "Tài khoản vãng lai".',
+    distractorExplanationsZh: [
+      '【正解】thanh toán (結算付款) 或 vãng lai (往來) 均代表一般活期資金往來帳戶。',
+      'tiết kiệm có kỳ hạn 是「有期限的定期儲蓄存款」，資金不能隨意開票支取。',
+      'ký quỹ 是特定工程履約或招標的「押金/保證金託管帳戶」(Escrow)。',
+      'nợ xấu 是不良債權/壞帳，絕非正常開戶類型！'
+    ]
+  },
+  {
+    id: 'q21',
+    level: 'B2',
+    questionZh: '員工向總經理彙報「Em đã hoàn thành báo cáo rồi ạ」，句尾助詞「ạ」的語用功能是？',
+    questionEn: 'In "Em đã hoàn thành báo cáo rồi ạ", what is the pragmatic function of "ạ"?',
+    optionsZh: ['表示晚輩對長輩或下屬對上司的尊敬與謙順敬語', '表示強烈反對與抗議語氣', '表示催促對方立刻回覆的祈使命令', '單純湊足音節無任何社交功能'],
+    optionsEn: ['Expresses utmost respect and politeness from subordinate to senior', 'Expresses vehement protest', 'Expresses urgent command', 'Meaningless filler syllable'],
+    answer: 0,
+    explanationZh: '「ạ」是越南語最重要的終結敬語詞，嚴格用於下對上、幼對長。在職場對主管、客戶或長輩講話結尾加上「ạ」，能瞬間營造極具禮數、受人信賴的溝通氛圍。',
+    explanationEn: '"ạ" is the cornerstone particle of deference and polite respect in Vietnamese social pragmatics.',
+    distractorExplanationsZh: [
+      '【正解】ạ 是下對上必備的謙恭敬語標記，是職場情商不可或缺之語氣。',
+      '反對或抗議通常用「Không đồng ý」或嚴肅措辭，ạ 永遠是敬語溫柔語氣。',
+      '催促命令通常用「đi」、「mau lên」，與 ạ 的謙和本質相反。',
+      '越南語語助詞乘載深厚文化層級，絕非毫無作用之贅字！'
+    ]
+  },
+  {
+    id: 'q22',
+    level: 'B2',
+    questionZh: '漢越同形異義：「Kỳ cục」在現代越南口語日常中，主要用來形容什麼樣的人事物？',
+    questionEn: 'Sino-Vietnamese false friend: what does "Kỳ cục" mean in modern everyday speech?',
+    optionsZh: ['奇怪的 / 荒唐不可理喻的 / 尷尬滑稽的 (Weird / Awkward)', '圍棋棋局與殘局 (Chess game)', '政府公務機關局處 (Government bureau)', '罕見珍貴的古董 (Rare antique)'],
+    optionsEn: ['Weird / Awkward / Bizarre', 'Chess game', 'Government department', 'Rare antique'],
+    answer: 0,
+    explanationZh: '「Kỳ cục」雖然漢字字根為「棋局」，但在現代越南口語中已完全演變成「古怪奇特、令人哭笑不得、不可理喻」(Weird / Ridiculous)。例如「Hành động kỳ cục quá!」(舉動太荒唐奇怪了！)。',
+    explanationEn: '"Kỳ cục" colloquially means strange, eccentric, awkward, or ridiculous.',
+    distractorExplanationsZh: [
+      '【正解】現代越語專指舉止離奇、荒唐怪異或場面尷尬。',
+      '圍棋棋局在越語中是「Ván cờ」，並非 kỳ cục。',
+      '政府機關局處是「Cục」(如 Cục Thuế 稅務局)。',
+      '古董珍寶是「Đồ cổ」或「Cổ vật」。'
+    ]
+  },
+  {
+    id: 'q23',
+    level: 'B2',
+    questionZh: '在傳統市場買芒果時，攤販老闆娘說「Năm mươi ngàn một ký」，請問「một ký」相當於多少公克？',
+    questionEn: 'In a local wet market, the vendor says "50k một ký". How many grams is "một ký"?',
+    optionsZh: ['1000 公克 (即 1 公斤 / 1 kg)', '600 公克 (即台制 1 台斤)', '500 公克 (即市制 1 市斤)', '100 公克 (即 1 兩)'],
+    optionsEn: ['1000 grams (1 Kilogram)', '600 grams (1 Taiwan Catty)', '500 grams (1 Chinese Catty)', '100 grams (1 Tael)'],
+    answer: 0,
+    explanationZh: '越南受法國殖民與現代公制影響，稱呼「公斤」習慣借用法文 kilogramme 簡稱「ký」或固有詞「cân」，均標準等於 1000 公克 (1 kg)。切勿誤以為是台灣的一台斤 (600g)！',
+    explanationEn: '"Một ký" (or một cân) is strictly 1 kilogram (1000g), derived from the metric system.',
+    distractorExplanationsZh: [
+      '【正解】越南口語的 ký / cân 都是國際標準 1 公斤 (1000g)。',
+      '注意陷阱！台斤是 600g，若把越南一公斤當台斤算會誤以為物價比實際貴很多！',
+      '市斤是中國大陸傳統 500g，越南日常交易不使用市斤制。',
+      '100g 在越語中常稱「một lạng」(一兩)。'
+    ]
+  },
+  {
+    id: 'q24',
+    level: 'C1',
+    questionZh: '審閱外商投資商業合約，「Hợp đồng này được lập thành 04 bản có giá trị pháp lý như nhau」之法律意涵為？',
+    questionEn: 'Commercial contract clause: what does "Hợp đồng được lập thành 04 bản có giá trị pháp lý như nhau" mean?',
+    optionsZh: ['本合約一式四份，具有同等法律效力', '本合約須分四期付款，具有法律約束力', '本合約自簽約起生效四年', '合約由四個不同政府部門分別審批'],
+    optionsEn: ['Contract made in 4 originals of equal legal validity', 'Paid in 4 installments', 'Valid for 4 years', 'Reviewed by 4 departments'],
+    answer: 0,
+    explanationZh: '合約標準法律條款：lập thành (訂立為)、04 bản (四份正本)、giá trị pháp lý (法律效力/價值)、như nhau (相同/等同)。整句意即合約一式四份，各方所持正本均具備完全相同的法律約束力。',
+    explanationEn: 'Standard legal boilerplate: the contract is executed in four originals having equal legal force and effect.',
+    distractorExplanationsZh: [
+      '【正解】04 bản 是四份文本，giá trị pháp lý như nhau 是同等法律效力。',
+      '分期付款是「thanh toán thành 4 đợt」，與 bản (文本) 無關。',
+      '四年效期是「thời hạn 04 năm」，合約期限並非 bản 的意思。',
+      '政府審批是「phê duyệt của cơ quan」，離題選項。'
+    ]
+  },
+  {
+    id: 'q25',
+    level: 'C1',
+    questionZh: '在南越胡志明市口語對話中，表達「和 / 跟」(And / With) 時，最常取代書面語「và」的口語詞是？',
+    questionEn: 'In spoken Southern Vietnamese, what colloquial word most frequently replaces "và" (and)?',
+    optionsZh: ['với', 'nhưng', 'bởi vì', 'tại sao'],
+    optionsEn: ['với', 'nhưng', 'bởi vì', 'tại sao'],
+    answer: 0,
+    explanationZh: '日常口語中，「và」顯得較為書面與正式。在南越市井，大家幾乎都用「với」來連接人事物，例如「Cà phê với bánh mì」(咖啡加麵包)、「Anh đi với ai?」(哥跟誰去？)。',
+    explanationEn: 'In everyday spoken Vietnamese (especially Southern), "với" is widely used instead of the more formal "và".',
+    distractorExplanationsZh: [
+      '【正解】với 是越南人日常口中最常用的並列與伴隨連接詞。',
+      'nhưng 是轉折連詞「但是 / 可是」。',
+      'bởi vì 是因果連詞「因為」。',
+      'tại sao 是疑問代詞「為什麼」。'
+    ]
+  },
+  {
+    id: 'q26',
+    level: 'C1',
+    questionZh: '越南家喻戶曉的勵志諺語「Có công mài sắt, có ngày nên kim」所傳遞的處世智慧是？',
+    questionEn: 'What virtue is encapsulated in the Vietnamese proverb "Có công mài sắt, có ngày nên kim"?',
+    optionsZh: ['鐵杵磨成針，只要持之以恆耐得住苦功終能成功', '打鐵趁熱，機不可失', '防微杜漸，斬草除根', '巧婦難為無米之炊'],
+    optionsEn: ['Persistence yields success (Iron pestle into needle)', 'Strike while iron is hot', 'Nip trouble in bud', 'Cannot make bricks without straw'],
+    answer: 0,
+    explanationZh: '「mài sắt」(磨鐵)、「nên kim」(變成針)。這是漢字成語「鐵杵磨成針」在越南民間的通俗化諺語，常用於勉勵求學者堅持不懈、必定能大器晚成。',
+    explanationEn: 'Lit. "With effort grinding iron, one day it becomes a needle." Parallels the proverb of enduring perseverance.',
+    distractorExplanationsZh: [
+      '【正解】有工磨鐵，有日成針，強調百折不撓之毅力。',
+      '打鐵趁熱在越語中是「Rèn sắt khi còn nóng」。',
+      '斬草除根是「Nhổ cỏ phải nhổ tận gốc」。',
+      '巧婦難為無米之炊是「Có bột mới gột nên hồ」。'
+    ]
+  },
+  {
+    id: 'q27',
+    level: 'C1',
+    questionZh: '在越南租賃辦公室或公寓住宅時，房東合約要求「Đặt cọc hai tháng tiền thuê」指涉的交易動作是？',
+    questionEn: 'In Vietnamese real estate leasing, what does "Đặt cọc hai tháng tiền thuê" signify?',
+    optionsZh: ['預先支付兩個月的租房押金 / 定金', '提前預繳前兩個月的租金', '支付給房產仲介的兩個月服務費', '兩個月的裝修水電押保費'],
+    optionsEn: ['Deposit two months’ rent as security deposit', 'Pay two months’ rent in advance', 'Two months’ broker commission', 'Utility deposit'],
+    answer: 0,
+    explanationZh: '「Đặt cọc」(或 tiền cọc) 專指「押金 / 定金」(Security Deposit)，用於擔保履約與房屋設施維護，租約期滿點交無誤後無息退還。',
+    explanationEn: '"Đặt cọc" denotes security deposit, typically two months’ rent in Vietnamese residential/commercial leases.',
+    distractorExplanationsZh: [
+      '【正解】Đặt cọc 是支付押金/押保，tiền thuê 是租金。',
+      '預繳租金是「thanh toán trước tiền nhà」，而非 cọc (押金)。',
+      '仲介服務費是「phí môi giới」，通常由房東負擔或單次支付。',
+      '水電費是「tiền điện nước」，不稱作 tiền thuê cọc。'
+    ]
+  },
+  {
+    id: 'q28',
+    level: 'C2',
+    questionZh: '越南政府宏觀經濟報告中常見政策用語「Đẩy mạnh giải ngân vốn đầu tư công」，其精確政策意涵為？',
+    questionEn: 'Macroeconomic policy: what does "Đẩy mạnh giải ngân vốn đầu tư công" explicitly mean?',
+    optionsZh: ['加速推進公共投資政府財政資金之撥付進度', '加強打擊民間非法高利貸放款行為', '調高商業銀行之法定存款準備率', '向世界銀行申請公共衛生緊急貸款'],
+    optionsEn: ['Accelerate disbursement of public investment capital', 'Crack down on illegal usury', 'Raise reserve requirement ratio', 'Apply for World Bank emergency loan'],
+    answer: 0,
+    explanationZh: '經濟專業詞彙：đẩy mạnh (加大/推進)、giải ngân (漢越詞：解款/撥款/Disbursement)、vốn đầu tư công (公共投資資本)。此政策是越南拉動 GDP 增長、完善交通基建的重要施政手段。',
+    explanationEn: 'Financial jargon: "giải ngân" = disbursement; "đầu tư công" = public investment capital.',
+    distractorExplanationsZh: [
+      '【正解】加大公共投資資金撥付，是推動重大高速公路與港口建設的宏觀抓手。',
+      '打擊高利貸是「trấn áp tín dụng đen」，非投資公款。',
+      '調高存款準備率是「tăng tỷ lệ dự trữ bắt buộc」。',
+      '申請緊急貸款是「vay vốn khẩn cấp」，完全非此句之意。'
+    ]
+  },
+  {
+    id: 'q29',
+    level: 'C2',
+    questionZh: '越南國寶級民族古典詩體「六八體」（Thơ lục bát）中，嚴格的聲韻格律規定為？',
+    questionEn: 'In classical Vietnamese "Lục bát" (6-8) poetry meter, what is the strict rhyming rule?',
+    optionsZh: ['上句第 6 音節與下句第 6 音節押平聲韻，下句第 8 音節與次聯上句第 6 音節換韻續押', '所有偶數位音節均必須押仄聲（銳聲或重聲）', '全詩各句末尾音節無須押韻，僅要求音節總數對齊', '首句與末句倒裝對偶，中間押雙聲母雙音節韻'],
+    optionsEn: ['6th syllable of hexameter rhymes with 6th of octameter; 8th syllable rhymes with 6th of next couplet', 'All even syllables must be oblique tones', 'No rhyme required, only syllable count', 'First and last lines inverted antithesis'],
+    answer: 0,
+    explanationZh: '六八體是越南詩歌皇冠上的明珠：上句 6 字、下句 8 字。格律要求：六字句末字（第 6 字）必與八字句第 6 字押同韻（且皆為平聲），而八字句末字（第 8 字）又與下一聯六字句末字押同韻續聯，形成綿綿不絕之音樂性。',
+    explanationEn: 'The 6-8 Lục bát meter mandates that syllable 6 of the 6-word line rhymes with syllable 6 of the 8-word line, while syllable 8 rhymes forward.',
+    distractorExplanationsZh: [
+      '【正解】6-8 句以第 6 字平聲互押，並由第 8 字向前換韻推進，綿延流轉。',
+      '六八體核心韻腳嚴格使用平聲韻（Thanh Bằng），非仄聲。',
+      '六八體是極度嚴謹的格律押韻體，不押韻即破合格律。',
+      '倒裝對偶屬於唐詩駢體句法，非六八體之核心韻律機制。'
+    ]
+  },
+  {
+    id: 'q30',
+    level: 'C2',
+    questionZh: '跨國商業合約爭端管轄條款：「Tranh chấp phát sinh sẽ được giải quyết bằng Trọng tài thương mại」，所指定的機制是？',
+    questionEn: 'Commercial dispute clause: "Tranh chấp sẽ được giải quyết bằng Trọng tài thương mại" mandates what?',
+    optionsZh: ['由商事仲裁機構（如越南國際仲裁中心 VIAC）進行具約束力之仲裁裁決', '直接提請地方法院提起民事訴訟', '由兩國外交部領事司進行行政調解', '由雙方直屬工會代表自行協商處理'],
+    optionsEn: ['Binding commercial arbitration (e.g. VIAC)', 'Civil lawsuit in local court', 'Diplomatic mediation', 'Internal labor union negotiation'],
+    answer: 0,
+    explanationZh: '「Trọng tài thương mại」為漢越法律術語「商事仲裁」(Commercial Arbitration)。在越南跨國經貿投資中，常約定由 VIAC (Vietnam International Arbitration Centre) 進行仲裁，以確保中立、保密與跨國公約強制執行力。',
+    explanationEn: '"Trọng tài thương mại" specifically designates commercial arbitration (such as VIAC) for binding resolution.',
+    distractorExplanationsZh: [
+      '【正解】Trọng tài thương mại 即商事仲裁，具備終局效力與國際承認執行力。',
+      '法院訴訟在越語中是「Tòa án nhân dân」(人民法院)。',
+      '外交調解是「hòa giải ngoại giao」，非商業合約仲裁條款。',
+      '工會協商是「thương lượng công đoàn」，專指勞資爭議而非商業投資合約。'
+    ]
   }
 ];
 

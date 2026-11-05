@@ -79,8 +79,56 @@ export const SIX_TONE_SANDBOX_SYLLABLES = [
       { id: 'nga', vi: 'bĩ', zh: '否 (否極泰來 bĩ cực thái lai)', pitch: '35̃', note: '微阻高揚' },
       { id: 'nang', vi: 'bị', zh: '被/遭受', pitch: '21', note: '急墜短促' }
     ]
+  },
+  {
+    base: 'ca',
+    name: 'ca 系列 (舌根音 c · 市井生活必備)',
+    tones: [
+      { id: 'ngang', vi: 'ca', zh: '歌唱/大杯子/輪班', pitch: '44', note: '平緩中高' },
+      { id: 'huyen', vi: 'cà', zh: '茄子/咖啡 (cà phê)', pitch: '31', note: '舒緩低降' },
+      { id: 'sac', vi: 'cá', zh: '魚類/鮮魚', pitch: '35', note: '昂揚急升' },
+      { id: 'hoi', vi: 'cả', zh: '全部/家中長子長女', pitch: '313', note: '降後微揚' },
+      { id: 'nga', vi: 'cã', zh: '殘渣/音節練習', pitch: '35̃', note: '微阻高揚' },
+      { id: 'nang', vi: 'cạ', zh: '密友/摩擦碰撞', pitch: '21', note: '急墜短促' }
+    ]
+  },
+  {
+    base: 'to',
+    name: 'to 系列 (圓唇母音 o · 形容詞與態勢)',
+    tones: [
+      { id: 'ngang', vi: 'to', zh: '巨大/大聲', pitch: '44', note: '平緩中高' },
+      { id: 'huyen', vi: 'tò', zh: '好奇 (tò mò)', pitch: '31', note: '舒緩低降' },
+      { id: 'sac', vi: 'tó', zh: '抓獲/逮捕扣押', pitch: '35', note: '昂揚急升' },
+      { id: 'hoi', vi: 'tỏ', zh: '明亮/清晰明瞭 (rõ tỏ)', pitch: '313', note: '降後微揚' },
+      { id: 'nga', vi: 'tõ', zh: '顯露/水落石出', pitch: '35̃', note: '微阻高揚' },
+      { id: 'nang', vi: 'tọ', zh: '落入/沉下 (lọt tọt)', pitch: '21', note: '急墜短促' }
+    ]
   }
 ];
+
+const getToneMistakeExplanation = (guessedToneId, correctToneId) => {
+  if (guessedToneId === 'hoi' && correctToneId === 'nga') {
+    return '【問聲 vs 跌聲辨析】你選擇了問聲 (Hỏi, 313)；正解是跌聲 (Ngã, 35̃)。在北部河內口音中，跌聲具有顯著的「聲門微阻緊縮 (Glottal Stop)」，氣流在喉部會短暫停頓後急遽反彈重升！而問聲則是聲帶放鬆、平滑由中降至低谷再略揚。';
+  }
+  if (guessedToneId === 'nga' && correctToneId === 'hoi') {
+    return '【跌聲 vs 問聲辨析】你選擇了跌聲 (Ngã, 35̃)；正解是問聲 (Hỏi, 313)。跌聲發音中間有「喉嚨緊鎖折斷」的特徵；問聲則是一道優雅的拋物線，由平轉低、沉底後微幅回彈。';
+  }
+  if (guessedToneId === 'sac' && correctToneId === 'nang') {
+    return '【銳聲 vs 重聲辨析】你選擇了銳聲 (Sắc, 35)；正解是重聲 (Nặng, 21)。銳聲是昂揚向上衝刺的尖銳高音；而重聲是極速急墜至低谷、如同落地般的短促沉重下點音！';
+  }
+  if (guessedToneId === 'nang' && correctToneId === 'sac') {
+    return '【重聲 vs 銳聲辨析】你選擇了重聲 (Nặng, 21)；正解是銳聲 (Sắc, 35)。重聲是喉頭瞬間急煞的低頓音；銳聲則是毫無煞車、一口氣向上滑升的高昂音。';
+  }
+  if (guessedToneId === 'ngang' && correctToneId === 'huyen') {
+    return '【平聲 vs 玄聲辨析】你選擇了平聲 (Ngang, 44)；正解是玄聲 (Huyền, 31)。平聲始終維持在穩定中高音的水平線；玄聲則帶有一種放鬆如釋重負的嘆息感，緩緩由中音滑落到低音。';
+  }
+  if (guessedToneId === 'huyen' && correctToneId === 'ngang') {
+    return '【玄聲 vs 平聲辨析】你選擇了玄聲 (Huyền, 31)；正解是平聲 (Ngang, 44)。玄聲會往低音滑落；而平聲必須平直不降，維持在音高 44 的平穩音階。';
+  }
+  const guessObj = TONES.find(t => t.id === guessedToneId);
+  const correctObj = TONES.find(t => t.id === correctToneId);
+  return `你選擇了「${guessObj?.nameZh || guessedToneId}」，而本題正確為「${correctObj?.nameZh || correctToneId}」。請特別注意兩者聲帶張弛度與升降軌跡的微差！`;
+};
 
 // Difficulty 1: Base syllables
 const BASE_SYLLABLES = ['ma', 'ba', 'ca', 'la', 'ta', 'nha', 'kha', 'pha', 'da', 'hoa'];
@@ -239,7 +287,7 @@ export const ToneGameModule = ({ selectedAccent = 'north', updateUserStats, setA
     } else {
       setCombo(0);
       setLives(prev => prev - 1);
-      setFeedback({ type: 'wrong', toneObj: correctToneObj });
+      setFeedback({ type: 'wrong', toneObj: correctToneObj, guessedTone: toneId });
       setMistakesList(prev => [...prev, currentQuestion]);
       audioEngine.playGentleError();
 
@@ -253,7 +301,7 @@ export const ToneGameModule = ({ selectedAccent = 'north', updateUserStats, setA
       } else {
         setTimeout(() => {
           nextQuestion();
-        }, 2200);
+        }, 3600);
       }
     }
   };
@@ -475,13 +523,20 @@ export const ToneGameModule = ({ selectedAccent = 'north', updateUserStats, setA
                   )}
 
                   {feedback && feedback.type === 'wrong' && (
-                    <div className="feedback wrong" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.3rem' }}>
+                    <div className="feedback wrong" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.45rem', padding: '0.75rem', background: 'rgba(239, 68, 68, 0.08)', borderRadius: '12px', border: '1px solid rgba(239, 68, 68, 0.25)', animation: 'fadeInContent 0.25s ease' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '1.15rem', fontWeight: 800 }}>
                         <XCircle size={24} color="#ef4444" />
                         <span>{learningMode === 'zh' ? '答錯了，正確答案是：' : 'It was: '}</span>
                         <strong style={{ color: feedback.toneObj.color, fontSize: '1.3rem' }}>{currentQuestion.word}</strong>
                         <span style={{ color: feedback.toneObj.color }}>({feedback.toneObj.nameVi} · {feedback.toneObj.pitch})</span>
                       </div>
+                      {/* Acoustic Mistake Explanation */}
+                      {feedback.guessedTone && (
+                        <div style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', background: 'var(--bg-card)', padding: '0.5rem 0.85rem', borderRadius: '8px', lineHeight: 1.5, textAlign: 'left', width: '100%', border: '1px solid var(--border-color)' }}>
+                          <strong style={{ color: 'var(--brand-accent)' }}>🎧 音感盲點剖析：</strong>
+                          {getToneMistakeExplanation(feedback.guessedTone, currentQuestion.tone)}
+                        </div>
+                      )}
                       {currentQuestion.hint && (
                         <small style={{ color: 'var(--text-secondary)' }}>{currentQuestion.hint}</small>
                       )}

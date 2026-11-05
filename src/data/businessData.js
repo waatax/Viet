@@ -1007,5 +1007,50 @@ export const businessProficiencyTest = [
     ],
     answerIndex: 1,
     explainZh: '正確！FOB (Free on Board) 條件下，賣方負責將貨物裝上胡志明市蓋萊港指定船舶，起航後的國際海運費與保險由買方承擔。'
+  },
+  {
+    id: 'btest_4',
+    categoryZh: '商務合約與保密協定',
+    questionVi: 'Trong đàm phán hợp đồng, điều khoản "Bảo mật thông tin" (NDA) thường quy định điều gì?',
+    questionZh: '在商務談判簽約時，條款「Bảo mật thông tin」(NDA 保密協定條款) 通常約束什麼法律義務？',
+    questionEn: 'In contract negotiations, what does the "Bảo mật thông tin" (Non-Disclosure Agreement) clause govern?',
+    options: [
+      'Bên mua phải bảo hành sản phẩm trọn đời (買方須終生保固)',
+      'Hai bên cam kết không tiết lộ bí mật công nghệ, giá cả và dữ liệu kinh doanh cho bên thứ ba (雙方嚴守商業機密、專利與報價不外流)',
+      'Bên bán phải chịu thuế VAT thay cho bên mua (賣方承擔全部增值稅)',
+      'Hàng hóa phải được giao trong vòng 24 giờ (必須 24 小時內到貨)'
+    ],
+    answerIndex: 1,
+    explainZh: '正確！「Bảo mật」(保密)、「thông tin」(資訊/情報)。保密條款嚴格規範未經書面許可，不得將任何商業報價、技術圖紙或客戶名冊披露給第三方。'
+  },
+  {
+    id: 'btest_5',
+    categoryZh: '跨國金融與收付款',
+    questionVi: 'Phương thức thanh toán "Chuyển tiền bằng điện T/T (Telegraphic Transfer)" có đặc điểm gì trong ngoại thương Việt Nam?',
+    questionZh: '跨國外貿支付條件「T/T 電匯 (Chuyển tiền bằng điện)」在越南國際採購中最常見的定金與尾款常規比例為？',
+    questionEn: 'What is the standard deposit and balance structure for international T/T payments in Vietnam procurement?',
+    options: [
+      '100% trả sau 1 năm không cần cọc (1年後全額後付)',
+      'Đặt cọc 30% khi ký hợp đồng, 70% còn lại thanh toán khi có vận đơn B/L (簽約付30%定金，見提單副本付70%尾款)',
+      'Trả bằng tiền mặt tại xưởng bằng tiền xu (用硬幣在工廠付現)',
+      'Thanh toán qua đổi hàng hóa nông sản (以農產品以物易物)'
+    ],
+    answerIndex: 1,
+    explainZh: '正確！30% 訂金 (Đặt cọc) + 70% 見提單 (B/L) 副本電匯付清，是中越、台越跨國製造代工最標準穩健的國際外貿付款條件。'
+  },
+  {
+    id: 'btest_6',
+    categoryZh: '智慧工廠與品質管制',
+    questionVi: 'Khi đi kiểm xưởng (Audit nhà máy), nếu "Tỷ lệ phế phẩm (NG rate)" vượt quá 2% thì bên mua có quyền làm gì?',
+    questionZh: '在工廠驗廠驗貨時，若產線檢驗報告顯示「Tỷ lệ phế phẩm」(不良品/NG 率) 超過合約容許上限，買方依法有權主張？',
+    questionEn: 'During factory audit, if the defect rate exceeds the agreed threshold, what right does the buyer possess?',
+    options: [
+      'Phải chấp nhận nhận toàn bộ lô hàng mà không được khiếu nại (必須全盤吞下不得投訴)',
+      'Có quyền từ chối nghiệm thu, yêu cầu tái chế (Rework) hoặc bồi thường theo điều khoản hợp đồng (有權拒收、要求返工重製或依約索賠)',
+      'Tặng thưởng thêm tiền mặt cho quản đốc xưởng (獎勵廠長現金)',
+      'Hủy bỏ toàn bộ tư cách pháp nhân của nhà cung cấp ngay lập tức (撤銷廠商法人資格)'
+    ],
+    answerIndex: 1,
+    explainZh: '正確！「Phế phẩm」(廢品/不良品)。合約明訂良品率標準，若不良率超標，採購方有權要求「Từ chối nghiệm thu」(拒絕驗收) 並責令供應商返工整改。'
   }
 ];

@@ -429,6 +429,46 @@ export const PronounModule = ({ selectedAccent, updateUserStats, setActiveTab })
       ],
       answer: 0,
       explainZh: '✓ 完全正確！公家機關與窗口承辦員以 Anh / Chị 相稱最自然，口語自稱 Em 顯得謙遜合作；若需更加正式可尊稱 Cán bộ (幹部/承辦官員)。'
+    },
+    {
+      titleZh: '💻 情境 10：科技新創面對年輕主管 (Tech Startup)',
+      titleEn: '💻 Scenario 10: Tech Startup & Young Tech Lead',
+      descZh: '32 歲的資深工程師加入新創團隊，直接主管是 27 歲的越南本地技術長 (CTO)。在正式專案會議上，最專業且合乎越南職場文化的稱謂是？',
+      descEn: 'A 32yo senior engineer working under a 27yo Vietnamese CTO in a formal sprint meeting.',
+      optionsZh: [
+        'A. 尊重職級稱「Sếp」(老闆) 或「Anh」(會議中尊稱)；私下或一對一時依年齡親切互動',
+        'B. 因為自己年紀大，直接直呼其名並叫他「Thằng này」',
+        'C. 稱呼對方為「Ông nội」(爺爺) 進行反諷',
+        'D. 嚴肅稱對方為「Bạn」，自己稱「Tôi」以示界限'
+      ],
+      optionsEn: [
+        'A. Address as "Sếp" or respect leadership in meetings',
+        'B. Call him "Thằng này" because you are older',
+        'C. Call him "Ông nội" sarcastically',
+        'D. Strictly "Tôi - Bạn" to draw rigid boundary'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！現代越南新創雖然年齡輩分重要，但在正式會議中尊重領導權威（稱 Sếp 或尊重其職銜）是高度專業的素養；一對一私下交流時再以年長者自居稱 Anh-Em 即可。'
+    },
+    {
+      titleZh: '🏥 情境 11：醫院看診與醫病溝通 (Hospital & Clinic)',
+      titleEn: '🏥 Scenario 11: Doctor Consultation',
+      descZh: '在胡志明市大型綜合醫院看診，面對 48 歲的主治內科醫師，病患最合適且得體的稱謂方式是？',
+      descEn: 'Consulting a 48yo chief physician at a general hospital in Ho Chi Minh City.',
+      optionsZh: [
+        'A. 尊稱醫生為「Bác sĩ」或「Bác sĩ ơi」，病患自稱「Em」或「Tôi」',
+        'B. 稱醫生為「Y tá」並自稱「Bố」',
+        'C. 稱醫生為「Ông chủ」(老闆) 並自稱「Người làm」',
+        'D. 直呼醫生姓名，不加任何職業稱謂'
+      ],
+      optionsEn: [
+        'A. Address as "Bác sĩ", self as "Em / Tôi"',
+        'B. Address as "Y tá", self as "Bố"',
+        'C. Address as "Ông chủ", self as "Người làm"',
+        'D. Call by name without title'
+      ],
+      answer: 0,
+      explainZh: '✓ 完全正確！越南文化中對醫護人員極為敬重，統一尊稱「Bác sĩ」(醫師)；自稱 Em (謙和) 或 Tôi (客觀表述病情) 最為得體。'
     }
   ];
 
@@ -437,7 +477,10 @@ export const PronounModule = ({ selectedAccent, updateUserStats, setActiveTab })
     setSelectedAnswer(idx);
     if (idx === PRONOUN_SCENARIOS[scenarioIdx].answer) {
       setScenarioScore(s => s + 1);
+      audioEngine.playSuccessChime();
       if (updateUserStats) updateUserStats(20);
+    } else {
+      audioEngine.playGentleError();
     }
   };
 
@@ -680,17 +723,22 @@ export const PronounModule = ({ selectedAccent, updateUserStats, setActiveTab })
         </div>
 
         {selectedAnswer !== null && (
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', background: 'var(--bg-main)', padding: '0.85rem 1.25rem', borderRadius: 'var(--radius-md)' }}>
-            <div style={{ fontSize: '0.92em', fontWeight: 700, color: selectedAnswer === PRONOUN_SCENARIOS[scenarioIdx].answer ? '#10b981' : '#f59e0b', flex: '1 1 320px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', background: 'var(--bg-main)', padding: '1rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', animation: 'fadeInContent 0.25s ease' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '1rem', fontWeight: 900, color: selectedAnswer === PRONOUN_SCENARIOS[scenarioIdx].answer ? 'var(--brand-green)' : 'var(--brand-primary)' }}>
+              {selectedAnswer === PRONOUN_SCENARIOS[scenarioIdx].answer ? '🎉 答對了！社交分寸掌握極佳！' : '❌ 答錯了！請注意以下文化社交準則：'}
+            </div>
+            <div style={{ fontSize: '0.92em', fontWeight: 600, color: 'var(--text-secondary)', lineHeight: 1.55 }}>
               {learningMode === 'zh' ? PRONOUN_SCENARIOS[scenarioIdx].explainZh : (PRONOUN_SCENARIOS[scenarioIdx].explainEn || PRONOUN_SCENARIOS[scenarioIdx].explainZh)}
             </div>
-            <button
-              className="primary-action"
-              style={{ padding: '0.45rem 1.1rem', fontSize: '0.88em' }}
-              onClick={nextScenario}
-            >
-              下一情境 ➔
-            </button>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.3rem' }}>
+              <button
+                className="primary-action"
+                style={{ padding: '0.45rem 1.1rem', fontSize: '0.88em' }}
+                onClick={nextScenario}
+              >
+                下一情境 ➔
+              </button>
+            </div>
           </div>
         )}
       </div>

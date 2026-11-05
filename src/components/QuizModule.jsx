@@ -249,15 +249,38 @@ export const QuizModule = ({ userStats, updateUserStats, selectedAccent, setActi
             })}
           </div>
 
-          {/* Explanation Box */}
+          {/* Explanation Box with Intelligent Error Diagnostics */}
           {isAnswered && (
-            <div style={{ background: 'var(--bg-main)', padding: '1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', marginBottom: '1.5rem', animation: 'fadeInContent 0.3s ease' }}>
-              <div style={{ fontWeight: 800, color: selectedOption === activeQuiz.answer ? 'var(--brand-green)' : 'var(--brand-primary)', marginBottom: '0.4rem' }}>
-                {selectedOption === activeQuiz.answer ? '🎉 ' + t('common.correct') : '❌ ' + t('common.wrong')}
+            <div style={{ background: 'var(--bg-main)', padding: '1.25rem 1.4rem', borderRadius: 'var(--radius-lg, 14px)', border: '1.5px solid var(--border-color)', marginBottom: '1.5rem', animation: 'fadeInContent 0.3s ease', boxShadow: '0 4px 16px rgba(0,0,0,0.04)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 900, fontSize: '1.05rem', color: selectedOption === activeQuiz.answer ? 'var(--brand-green)' : 'var(--brand-primary)', marginBottom: '0.6rem' }}>
+                {selectedOption === activeQuiz.answer ? '🎉 ' + t('common.correct') + '！太棒了！' : '❌ ' + t('common.wrong') + '！讓我們來看看癥結點：'}
               </div>
-              <div style={{ fontSize: '0.94em', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                <strong>{t('common.explanation')}：</strong>
-                {learningMode === 'zh' ? activeQuiz.explanationZh : activeQuiz.explanationEn}
+
+              {/* Specific Distractor Error Analysis */}
+              {selectedOption !== activeQuiz.answer && activeQuiz.distractorExplanationsZh?.[selectedOption] && (
+                <div style={{
+                  background: 'rgba(239, 68, 68, 0.08)',
+                  borderLeft: '4px solid #ef4444',
+                  padding: '0.75rem 1rem',
+                  borderRadius: '6px',
+                  marginBottom: '0.85rem',
+                  fontSize: '0.92rem',
+                  lineHeight: 1.55,
+                  color: 'var(--text-primary)'
+                }}>
+                  <strong style={{ color: '#ef4444', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.2rem' }}>
+                    💡 為什麼你的選項會錯？(陷阱剖析)
+                  </strong>
+                  <span>{activeQuiz.distractorExplanationsZh[selectedOption]}</span>
+                </div>
+              )}
+
+              {/* Core Pedagogical Concept Breakdown */}
+              <div style={{ fontSize: '0.94em', color: 'var(--text-secondary)', lineHeight: 1.6, background: 'var(--bg-card)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid var(--border-color)' }}>
+                <strong style={{ color: 'var(--brand-accent)' }}>📘 {t('common.explanation')} (核心知識點)：</strong>
+                <div style={{ marginTop: '0.25rem' }}>
+                  {learningMode === 'zh' ? activeQuiz.explanationZh : activeQuiz.explanationEn}
+                </div>
               </div>
             </div>
           )}
