@@ -17,6 +17,9 @@ import {
   AlertTriangle,
   Layers,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
+  Zap,
   Filter,
   ClipboardList,
   Map,
@@ -38,11 +41,27 @@ import CityGuideViewer from './CityGuideViewer';
 import { useLanguage } from '../context/LanguageContext';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 
+export const MOBILE_HIGH_FREQUENCY_SCENARIOS = [
+  { id: 'cafe', level: 'A1 入門', shortTitle: '點冰奶咖啡', icon: '☕', sub: 'Gọi Cà Phê', tipZh: 'Cho em một ly cà phê sữa đá...' },
+  { id: 'pho', level: 'A1 入門', shortTitle: '點牛肉河粉', icon: '🍜', sub: 'Quán Phở', tipZh: 'Cho em một tô phở bò tái...' },
+  { id: 'banhmi', level: 'A1 入門', shortTitle: '法國麵包攤', icon: '🥖', sub: 'Mua Bánh Mì', tipZh: 'Cho em một ổ bánh mì thịt...' },
+  { id: 'taxi', level: 'A1 入門', shortTitle: 'Grab/計程車', icon: '🚖', sub: 'Đi Xe Grab', tipZh: 'Rẽ trái / rẽ phải / dừng lại...' },
+  { id: 'market', level: 'A1 入門', shortTitle: '市場夜市殺價', icon: '🛍️', sub: 'Đi Chợ Mặc Cả', tipZh: 'Bao nhiêu tiền một ký? Bớt được không?' },
+  { id: 'hotel', level: 'A2 初級', shortTitle: '飯店入住退房', icon: '🏨', sub: 'Khách Sạn', tipZh: 'Tôi đã đặt phòng trước...' },
+  { id: 'airport', level: 'A2 初級', shortTitle: '機場海關託運', icon: '✈️', sub: 'Sân Bay & Hải Quan', tipZh: 'Làm thủ tục / ký gửi hành lý...' },
+  { id: 'pharmacy', level: 'A1 入門', shortTitle: '藥局症狀買藥', icon: '💊', sub: 'Hiệu Thuốc', tipZh: 'Tôi bị đau đầu, sốt...' },
+  { id: 'meeting', level: 'A1 入門', shortTitle: '初見交友加Zalo', icon: '🤝', sub: 'Gặp Gỡ & Kết Bạn', tipZh: 'Rất vui được gặp bạn! Cho mình xin Zalo...' },
+  { id: 'nhau_culture_dinner', level: 'A2 初級', shortTitle: '熱炒敬酒乾杯', icon: '🍻', sub: 'Văn Hóa Nhậu', tipZh: 'Một, hai, ba, dô!...' },
+  { id: 'business_meeting', level: 'A2 初級', shortTitle: '商務拜訪名片', icon: '💼', sub: 'Đối Tác & Danh Thiếp', tipZh: 'Đây là danh thiếp của tôi...' },
+  { id: 'emergency', level: 'A1 入門', shortTitle: '急難求助報警', icon: '🚨', sub: 'Trợ Giúp Khẩn Cấp', tipZh: 'Cứu tôi với! Làm ơn giúp tôi...' }
+];
+
 export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, t } = useLanguage();
   
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [activeScenarioId, setActiveScenarioId] = useState(() => {
     try {
       const saved = sessionStorage.getItem('viet_target_chapter');
@@ -209,13 +228,16 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
         </p>
       </div>
 
-      {/* Educational Guide Block */}
-      <div className="scenario-guide-card" style={{ backgroundColor: 'var(--bg-secondary, #f8f9fa)', padding: '16px', borderRadius: '8px', marginBottom: '24px', borderLeft: '4px solid var(--brand-primary, #007bff)' }}>
-        <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: 0, marginBottom: '12px', fontSize: '1.1rem' }}>
-          <Compass size={18} style={{ color: 'var(--brand-primary, #007bff)' }} />
-          {learningMode === 'zh' ? '💡 學習指南：情境語境與南北差異' : '💡 Learning Guide: Context & Regional Differences'}
-        </h4>
-        <ul style={{ margin: 0, paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.95rem', color: 'var(--text-secondary, #4b5563)' }}>
+      {/* Educational Guide Block (Collapsible on mobile) */}
+      <details className="scenario-guide-card scenario-guide-collapsible" style={{ backgroundColor: 'var(--bg-secondary, #f8f9fa)', padding: '14px 16px', borderRadius: '12px', marginBottom: '20px', borderLeft: '4px solid var(--brand-primary, #007bff)' }}>
+        <summary style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', cursor: 'pointer', listStyle: 'none' }}>
+          <h4 style={{ display: 'flex', alignItems: 'center', gap: '8px', margin: 0, fontSize: '1rem', color: 'var(--text-primary)' }}>
+            <Compass size={18} style={{ color: 'var(--brand-primary, #007bff)' }} />
+            <span>{learningMode === 'zh' ? '💡 學習指南：情境語境、南北音與雙模式 (點擊展開/收合)' : '💡 Learning Guide: Context, Regional Accents & Modes'}</span>
+          </h4>
+          <span className="guide-chevron" style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>▾</span>
+        </summary>
+        <ul style={{ margin: '12px 0 0', paddingLeft: '20px', display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '0.92rem', color: 'var(--text-secondary, #4b5563)' }}>
           <li>
             <strong style={{ color: 'var(--text-primary, #1f2937)' }}>{learningMode === 'zh' ? '語境至上：' : 'Context is Key: '}</strong>
             {learningMode === 'zh' 
@@ -241,6 +263,73 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
               : 'Start with "Dialogue Study" and "Cultural Tips" to build a foundation, then jump into "Role-Play" to practice and earn XP.'}
           </li>
         </ul>
+      </details>
+
+      {/* Mobile Top Quick Launcher Carousel (12 Top Survival Scenarios) */}
+      <div className="mobile-conversation-quick-launcher">
+        <div className="quick-launcher-header-row">
+          <div className="quick-launcher-title-box">
+            <span className="quick-launcher-badge">
+              <Zap size={14} />
+              <span>{learningMode === 'zh' ? '手機速選 · 12 大生存會話' : 'Mobile Survival Quick Launch'}</span>
+            </span>
+            <span className="quick-launcher-hint">
+              {learningMode === 'zh' ? '點擊卡片立即跳轉聽力 · 零等待秒開口' : 'Tap any scenario to start audio instantly'}
+            </span>
+          </div>
+        </div>
+
+        <div className="quick-launcher-scroll-track" role="region" aria-label="12 High-frequency scenarios">
+          {MOBILE_HIGH_FREQUENCY_SCENARIOS.map((item) => {
+            const isCurrent = activeScenarioId === item.id;
+            return (
+              <div
+                key={item.id}
+                className={`quick-scenario-chip ${isCurrent ? 'active' : ''}`}
+                onClick={() => {
+                  setActiveScenarioId(item.id);
+                  setActiveViewTab('dialogue');
+                  const el = document.getElementById('dialogue-player-section');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setActiveScenarioId(item.id);
+                    setActiveViewTab('dialogue');
+                  }
+                }}
+              >
+                <div className="chip-top-bar">
+                  <span className="chip-icon-box">{item.icon}</span>
+                  <span className="chip-level-pill">{item.level}</span>
+                </div>
+                <div className="chip-title-text">{item.shortTitle}</div>
+                <div className="chip-sub-text">{item.sub}</div>
+                <div className="chip-phrase-preview" title={item.tipZh}>
+                  <span>💬 {item.tipZh}</span>
+                </div>
+                <button
+                  type="button"
+                  className={`chip-instant-play-btn ${isCurrent ? 'playing' : ''}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveScenarioId(item.id);
+                    setActiveViewTab('dialogue');
+                    setDialogueAutoStart({ scenarioId: item.id, mode: 'vi-zh', nonce: Date.now() });
+                    const el = document.getElementById('dialogue-player-section');
+                    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }}
+                  title={learningMode === 'zh' ? '立即從第一句連播' : 'Play dialogue now'}
+                >
+                  <Play size={12} fill="currentColor" />
+                  <span>{isCurrent ? (learningMode === 'zh' ? '正在播放' : 'Playing') : (learningMode === 'zh' ? '立即聽' : 'Play')}</span>
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       {/* Category Filter Pills & Search Bar with Widescreen Toolbar */}
@@ -292,12 +381,39 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
         </div>
       </div>
 
+      {/* Mobile Accordion Toggle for Full 64 Scenarios */}
+      <button
+        type="button"
+        className="mobile-scenario-drawer-toggle"
+        onClick={() => setMobileDrawerOpen(prev => !prev)}
+        aria-expanded={mobileDrawerOpen}
+      >
+        <div className="drawer-toggle-left">
+          <span className="drawer-toggle-icon">📂</span>
+          <div className="drawer-toggle-info">
+            <span className="drawer-toggle-title">
+              {learningMode === 'zh'
+                ? (mobileDrawerOpen ? '收合完整情境目錄' : `瀏覽全部 64 個主題清單 (目前：${currentScenario.titleZh || ''})`)
+                : (mobileDrawerOpen ? 'Hide Full Scenarios List' : `Browse All 64 Scenarios (${currentScenario.titleEn || ''})`)}
+            </span>
+            <span className="drawer-toggle-hint">
+              {learningMode === 'zh'
+                ? `共 ${filteredScenarios.length} 個主題 · 點擊${mobileDrawerOpen ? '收起清單' : '展開完整情境庫'}`
+                : `${filteredScenarios.length} scenarios`}
+            </span>
+          </div>
+        </div>
+        <span className="drawer-toggle-chevron">
+          {mobileDrawerOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+        </span>
+      </button>
+
       {/* Main Grid: Left Scenario List / Middle Detail Workstation / Right Exegesis Panel (in widescreen) */}
       <div className={`scenario-workspace-grid ${isWidescreen ? 'widescreen-active' : ''}`}>
         {/* Scenario List (Left Sidebar / Drawer) */}
-        <div className="scenario-sidebar">
+        <div className={`scenario-sidebar ${mobileDrawerOpen ? 'mobile-drawer-open' : 'mobile-drawer-collapsed'}`}>
           <div className="sidebar-header-badge">
-            <span>{learningMode === 'zh' ? `情境清單 (${filteredScenarios.length})` : `Scenarios (${filteredScenarios.length})`}</span>
+            <span>{learningMode === 'zh' ? `完整情境庫 (${filteredScenarios.length})` : `Scenarios (${filteredScenarios.length})`}</span>
           </div>
 
           <div className="scenario-card-list">
@@ -317,6 +433,7 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
                   className={`scenario-nav-card ${isSelected ? 'active-card' : ''}`}
                   onClick={() => {
                     setActiveScenarioId(sc.id);
+                    setMobileDrawerOpen(false);
                   }}
                   aria-pressed={isSelected}
                   title={`${fullTitle} · ${fullTag} (${titleVi})`}
@@ -343,7 +460,7 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
         </div>
 
         {/* Active Scenario Detail Box (Right Main Panel) */}
-        <div className="scenario-detail-panel">
+        <div className="scenario-detail-panel" id="dialogue-player-section">
           {/* Active Scenario Hero Illustration Banner */}
           {currentScenario.image && (
             <div className="scenario-hero-cover-wrap">

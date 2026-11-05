@@ -1,11 +1,28 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { Volume2, PlayCircle, Eye, EyeOff, Sparkles, Star, Copy, Check, Headphones } from 'lucide-react';
+import { Volume2, PlayCircle, Eye, EyeOff, Sparkles, Star, Copy, Check, Headphones, Lightbulb, Play } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { bookmarkService } from '../services/bookmarkService';
 import { getPlaybackPrefs } from '../services/dialoguePlayback';
 import { useDialoguePlayback, useFollowActiveLine } from '../hooks/useDialoguePlayback';
 import { DialoguePlaybackBar, PlaybackPartChip, getPlaybackCopy } from './DialoguePlaybackBar';
+
+export const isKeySurvivalLine = (line, idx, dialogues = []) => {
+  if (line.isKey === true) return true;
+  const viet = (line.viet || line.vi || '').toLowerCase();
+  const isLearner = line.role === 'learner' || line.isLearner || (line.speakerVi && (line.speakerVi.includes('Khách') || line.speakerVi.includes('thuê') || line.speakerVi.includes('Bạn') || line.speakerVi.includes('nhân') || line.speakerVi.includes('Du khách')));
+  
+  const survivalTriggers = [
+    'cho em', 'cho tôi', 'tôi muốn', 'làm ơn', 'bao nhiêu', 'bớt', 'tính tiền', 
+    'thanh toán', 'rẽ trái', 'rẽ phải', 'dừng lại', 'đặt phòng', 'bị sốt', 'đau đầu', 
+    'ở đâu', 'cứu tôi', 'danh thiếp', 'zalo', 'một hai ba', 'dô'
+  ];
+  if (isLearner && survivalTriggers.some(t => viet.includes(t))) return true;
+  
+  // Fallback: If this is the first learner utterance, mark it as key
+  const firstLearnerIdx = dialogues.findIndex(d => d.role === 'learner' || d.isLearner || (d.speakerVi && (d.speakerVi.includes('Khách') || d.speakerVi.includes('Bạn'))));
+  return isLearner && idx === firstLearnerIdx;
+};
 
 const TypewriterText = ({ text, isActive, speed = 30 }) => {
   const [displayedText, setDisplayedText] = useState('');
@@ -113,6 +130,7 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, auto
 
   const [activeSectionId, setActiveSectionId] = useState(sections[0]?.id || 'd1');
   const [showTranslations, setShowTranslations] = useState(true);
+  const [revealedLines, setRevealedLines] = useState(new Set());
   const [engineKey, setEngineKey] = useState(null);
   const [copiedLineIdx, setCopiedLineIdx] = useState(null);
   const [, setBmTick] = useState(0);
@@ -124,6 +142,19 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, auto
   const activeSection = sections.find(s => s.id === activeSectionId) || sections[0];
   const dialogues = activeSection?.lines || [];
   const sectionIndex = Math.max(0, sections.findIndex(s => s.id === activeSection?.id));
+
+  // Reset revealed lines on section or scenario change
+  useEffect(() => {
+    setRevealedLines(new Set());
+  }, [scenario.id, activeSectionId]);
+
+  const essentialLines = useMemo(() => {
+    const keys = dialogues
+      .map((d, idx) => ({ ...d, originalIdx: idx }))
+      .filter((d, idx) => isKeySurvivalLine(d, idx, dialogues));
+    if (keys.length > 0) return keys.slice(0, 3);
+    return dialogues.slice(0, 2).map((d, idx) => ({ ...d, originalIdx: idx }));
+  }, [dialogues]);
 
   const handlePlaylistComplete = ({ mode }) => {
     const awardKey = `${scenario.id}:${activeSection?.id}`;
@@ -354,13 +385,14 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, auto
       <div className="dialogue-chat-feed" ref={feedRef}>
         {dialogues.map((line, idx) => {
           const speakerName = line.speaker || line.speakerVi || line.speakerZh || 'Người đối thoại';
-          const isUserRole = line.role === 'learner' || line.isLearner || (line.speakerVi && (line.speakerVi.includes('Khách') || line.speakerVi.includes('thuê') || line.speakerVi.includes('Bạn') || line.speakerVi.includes('nhân')));
+          const isUserRole = line.role === 'learner' || line.isLearner || (line.speakerVi && (line.speakerVi.includes('Khách') || line.speakerVi.includes('thuê') || line.speakerVi.includes('Bạn') || line.speakerVi.includes('nhân') || line.speakerVi.includes('Du khách')));
           const isSequenceLine = player.isActive && player.index === idx;
           const isActive = isSequenceLine || engineKey === `line_${activeSectionId}_${idx}`;
           const visual = getSpeakerVisual(speakerName, isUserRole ? 'learner' : line.role, learningMode);
           const vietText = line.viet || line.vi;
           const translation = learningMode === 'zh' ? line.zh : line.en;
-          const revealTranslation = showTranslations || (isSequenceLine && player.part === 'native');
+          const revealTranslation = showTranslations || (isSequenceLine && player.part === 'native') || revealedLines.has(idx);
+          const isKeyLine = isKeySurvivalLine(line, idx, dialogues);
 
           return (
             <div
@@ -395,6 +427,12 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, auto
                     <span>{visual.icon}</span>
                     <span>{visual.roleName}</span>
                   </span>
+                  {isKeyLine && (
+                    <span className="golden-key-badge" title={learningMode === 'zh' ? '高頻核心生存句 · 必背' : 'Essential Survival Line'}>
+                      <Star size={11} fill="#eab308" color="#ca8a04" />
+                      <span>{learningMode === 'zh' ? '核心必學句' : 'Key Sentence'}</span>
+                    </span>
+                  )}
                   {(line.northTip || line.southTip) && (
                     <span className="dialect-badge-pill">
                       <span>🗣️</span>
@@ -409,10 +447,45 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, auto
                     <TypewriterText text={vietText} isActive={isActive} speed={30} />
                   </div>
 
-                  {revealTranslation && (
+                  {revealTranslation ? (
                     <div className="translation-text dpb-native-text">
                       <TypewriterText text={translation} isActive={isActive} speed={30} />
+                      {!showTranslations && (
+                        <button
+                          type="button"
+                          className="tap-revealed-indicator"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setRevealedLines(prev => {
+                              const next = new Set(prev);
+                              next.delete(idx);
+                              return next;
+                            });
+                          }}
+                          title={learningMode === 'zh' ? '點擊重新隱藏' : 'Tap to re-hide'}
+                        >
+                          <EyeOff size={11} />
+                          <span>{learningMode === 'zh' ? '已揭曉 (點擊重新隱藏)' : 'Revealed'}</span>
+                        </button>
+                      )}
                     </div>
+                  ) : (
+                    <button
+                      type="button"
+                      className="tap-to-reveal-prompt-btn"
+                      onClick={() => {
+                        audioEngine.playHaptic('tap');
+                        setRevealedLines(prev => {
+                          const next = new Set(prev);
+                          next.add(idx);
+                          return next;
+                        });
+                      }}
+                      title={learningMode === 'zh' ? '點擊揭曉中文翻譯 (盲聽自測)' : 'Tap to reveal translation'}
+                    >
+                      <Eye size={12} />
+                      <span>{learningMode === 'zh' ? '點擊查看中文翻譯 (盲聽自測)' : 'Tap to reveal translation'}</span>
+                    </button>
                   )}
 
                   {(line.northTip || line.southTip) && (
@@ -507,6 +580,98 @@ export const DialoguePlayer = ({ scenario, selectedAccent, updateUserStats, auto
             </div>
           );
         })}
+
+        {/* 30-Second Essential Dialogue Takeaway Summary Card */}
+        {essentialLines.length > 0 && (
+          <div className="essential-takeaway-card">
+            <div className="takeaway-header">
+              <div className="takeaway-title-row">
+                <span className="takeaway-icon-bubble">💡</span>
+                <div>
+                  <h4 className="takeaway-title">
+                    {learningMode === 'zh' ? '30秒會話速記精華 (Essential Cheat Sheet)' : '30-Second Dialogue Cheat Sheet'}
+                  </h4>
+                  <p className="takeaway-sub">
+                    {learningMode === 'zh' ? '本情境核心必背句，出門 30 秒快速聽誦秒上手！' : 'Key survival phrases from this scenario for rapid recall.'}
+                  </p>
+                </div>
+              </div>
+              <span className="takeaway-priority-badge">⭐ {learningMode === 'zh' ? '高頻必背' : 'High Priority'}</span>
+            </div>
+
+            <div className="takeaway-items-grid">
+              {essentialLines.map((item, eIdx) => {
+                const vText = item.viet || item.vi;
+                const trans = learningMode === 'zh' ? item.zh : item.en;
+                const tkKey = `takeaway_${activeSectionId}_${eIdx}`;
+                const isPlayingVi = engineKey === tkKey;
+                return (
+                  <div key={eIdx} className="takeaway-phrase-row">
+                    <div className="takeaway-phrase-content">
+                      <div className="takeaway-idx-pill">0{eIdx + 1}</div>
+                      <div className="takeaway-text-wrap">
+                        <div className="takeaway-viet-line">{vText}</div>
+                        <div className="takeaway-trans-line">{trans}</div>
+                      </div>
+                    </div>
+                    <div className="takeaway-btn-group">
+                      <button
+                        type="button"
+                        className={`takeaway-mini-btn btn-vi ${isPlayingVi ? 'playing' : ''}`}
+                        onClick={() => {
+                          audioEngine.playHaptic('tap');
+                          audioEngine.speak(vText, {
+                            accent: selectedAccent,
+                            rate: player.prefs.speed,
+                            key: tkKey
+                          });
+                        }}
+                        title={learningMode === 'zh' ? '播放越文原音' : 'Play Viet'}
+                      >
+                        <Volume2 size={13} />
+                        <span>{learningMode === 'zh' ? '純越文' : 'Viet'}</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        className="takeaway-mini-btn btn-both"
+                        onClick={() => {
+                          audioEngine.playHaptic('tap');
+                          player.playSingleLine(item.originalIdx, 'vi-zh');
+                        }}
+                        title={learningMode === 'zh' ? '越+中 逐句精聽' : 'Play Viet + Native'}
+                      >
+                        <Headphones size={13} />
+                        <span>{learningMode === 'zh' ? '越+中' : 'Dual'}</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        className="takeaway-mini-btn btn-copy"
+                        onClick={() => handleCopyLine(vText, trans, `takeaway_${eIdx}`)}
+                        title={learningMode === 'zh' ? '複製整句' : 'Copy'}
+                      >
+                        {copiedLineIdx === `takeaway_${eIdx}` ? <Check size={13} color="#10b981" /> : <Copy size={13} />}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="takeaway-protip-footer">
+              <span className="protip-icon">🎯</span>
+              <div className="protip-text">
+                <strong>{learningMode === 'zh' ? '實戰口訣：' : 'Pro-Tip: '}</strong>
+                <span>
+                  {learningMode === 'zh'
+                    ? '稱呼在前 (Em ơi / Chị ơi)，接「Cho em một...」(請給我一份...)，句尾加上「nhé / ạ」禮貌感滿分！'
+                    : 'Start with polite address (Em ơi / Chị ơi), follow with "Cho em một..." (Give me a...), and end with "nhé / ạ" to sound natural!'}
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
