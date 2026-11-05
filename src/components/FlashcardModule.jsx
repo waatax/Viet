@@ -93,6 +93,17 @@ const getToneColor = (tone) => {
   }
 };
 
+const detectWordTone = (word = '') => {
+  if (!word) return { id: 'ngang', label: '平聲 (Ngang)', symbol: '—', color: '#3b82f6', desc: '44 高平無變' };
+  const lower = word.toLowerCase();
+  if (/[áéíóúýắấếốứ]/.test(lower)) return { id: 'sac', label: '銳聲 (Sắc)', symbol: '↗', color: '#ef4444', desc: '35 昂揚高升' };
+  if (/[àèìòùỳằầềồừ]/.test(lower)) return { id: 'huyen', label: '玄聲 (Huyền)', symbol: '↘', color: '#10b981', desc: '31 舒緩低降' };
+  if (/[ảẻỉỏủỷẳẩểổử]/.test(lower)) return { id: 'hoi', label: '問聲 (Hỏi)', symbol: '?', color: '#f59e0b', desc: '313 降後微揚' };
+  if (/[ãẽĩõũỹẵẫễỗữ]/.test(lower)) return { id: 'nga', label: '跌聲 (Ngã)', symbol: '~', color: '#8b5cf6', desc: '35̃ 喉音跳躍' };
+  if (/[ạẹịọụỵặậệộự]/.test(lower)) return { id: 'nang', label: '重聲 (Nặng)', symbol: '•', color: '#64748b', desc: '21 短促重沉' };
+  return { id: 'ngang', label: '平聲 (Ngang)', symbol: '—', color: '#3b82f6', desc: '44 高平無變' };
+};
+
 export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
 
@@ -161,6 +172,8 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
   
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [cardStudyMode, setCardStudyMode] = useState('flip'); // 'flip' | 'quiz'
+  const [quizSelected, setQuizSelected] = useState(null);
   const [srsData, setSrsData] = useState({});
   const [audioFirstMode, setAudioFirstMode] = useState(false);
   const [activeKey, setActiveKey] = useState(null);
@@ -407,6 +420,40 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
   }, []);
 
   const currentCard = reviewDeck[currentIndex] || reviewDeck[0];
+
+  useEffect(() => {
+    setQuizSelected(null);
+  }, [currentIndex, cardStudyMode]);
+
+  const quizOptions = useMemo(() => {
+    if (!currentCard) return [];
+    const pool = (reviewDeck.length >= 8 ? reviewDeck : tierDeck).filter(c => (c.id || c.viet) !== (currentCard.id || currentCard.viet));
+    const seed = (currentIndex * 19 + (currentCard.id ? String(currentCard.id).charCodeAt(0) : 42)) % 997;
+    const shuffledPool = [...pool].sort((a, b) => {
+      const hashA = (a.viet.charCodeAt(0) * 31 + seed) % 100;
+      const hashB = (b.viet.charCodeAt(0) * 31 + seed) % 100;
+      return hashA - hashB;
+    });
+    const distractors = shuffledPool.slice(0, 3);
+    const insertIdx = seed % 4;
+    const res = [...distractors];
+    res.splice(insertIdx, 0, currentCard);
+    return res;
+  }, [currentCard, currentIndex, reviewDeck, tierDeck]);
+
+  const handleQuizSelect = (opt) => {
+    if (quizSelected !== null || !currentCard) return;
+    setQuizSelected(opt);
+    const isCorrect = (opt.id || opt.viet) === (currentCard.id || currentCard.viet);
+    if (isCorrect) {
+      audioEngine.playComboSound(2);
+      if (updateUserStats) updateUserStats(10);
+      srsEngine.reviewCard(currentCard.id, 4);
+    } else {
+      audioEngine.playGentleError();
+      srsEngine.reviewCard(currentCard.id, 1);
+    }
+  };
 
   // Preload next upcoming cards for instant zero-latency audio playback
   useEffect(() => {
@@ -1755,8 +1802,160 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
             </div>
           </div>
 
-          {/* 3D Flip Card Container */}
-          {currentCard && (
+          {/* Study Mode Selector: Flip Mode vs Active Recall Quiz Mode */}
+          <div className="fc-study-mode-bar">
+            <button
+              className={`fc-study-submode-btn ${cardStudyMode === 'flip' ? 'active' : ''}`}
+              onClick={() => setCardStudyMode('flip')}
+              type="button"
+            >
+              <span>🎴 {learningMode === 'zh' ? '雙面翻卡模式' : 'Flip Card Mode'}</span>
+            </button>
+            <button
+              className={`fc-study-submode-btn ${cardStudyMode === 'quiz' ? 'active' : ''}`}
+              onClick={() => setCardStudyMode('quiz')}
+              type="button"
+            >
+              <Zap size={14} />
+              <span>⚡ {learningMode === 'zh' ? '極速自測模式 (Active Recall)' : 'Active Recall Quiz'}</span>
+            </button>
+          </div>
+
+          {/* Active Recall Quiz Mode */}
+          {cardStudyMode === 'quiz' && currentCard && (
+            <div className="fc-active-quiz-card">
+              <div style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', gap: '0.4rem', marginBottom: '0.8rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+                  {currentCard.rank && (
+                    <span className="tone-symbol" style={{ background: 'var(--bg-accent)', color: 'var(--brand-primary)', fontWeight: 800 }}>
+                      #{currentCard.rank}
+                    </span>
+                  )}
+                  {currentCard.cefr && (
+                    <span className="tone-symbol" style={{ background: 'rgba(59,130,246,0.1)', color: '#3b82f6', fontWeight: 800 }}>
+                      {currentCard.cefr}
+                    </span>
+                  )}
+                  {currentCard.pos && (
+                    <span className="tone-symbol" style={{ background: 'rgba(16,185,129,0.1)', color: '#10b981', fontWeight: 700 }}>
+                      {currentCard.pos}
+                    </span>
+                  )}
+                  <span className="tone-symbol" style={{ background: 'var(--bg-accent)', color: 'var(--brand-gold)' }}>
+                    {currentCard.category || '生活日常'}
+                  </span>
+                  {(() => {
+                    const toneInfo = detectWordTone(currentCard.viet);
+                    return (
+                      <span 
+                        className="tone-symbol" 
+                        style={{ background: `${toneInfo.color}18`, border: `1px solid ${toneInfo.color}40`, color: toneInfo.color, fontWeight: 800 }}
+                        title={toneInfo.desc}
+                      >
+                        {toneInfo.symbol} {toneInfo.label}
+                      </span>
+                    );
+                  })()}
+                </div>
+
+                <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--brand-accent)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem', lineHeight: 1.2, marginBottom: '0.4rem' }}>
+                  <span>{getCardIcon(currentCard)}</span>
+                  <span>{currentCard.viet}</span>
+                  <Volume2 
+                    size={26} 
+                    className={isCardPlaying ? 'playing-pulse' : ''} 
+                    style={{ color: isCardPlaying ? 'var(--brand-primary)' : 'var(--brand-accent)', cursor: 'pointer' }}
+                    onClick={() => audioEngine.speak(currentCard.viet, { accent: flashcardAccent, key: `fc_quiz_${currentCard.id}` })}
+                    title="點擊朗讀單字"
+                  />
+                </div>
+
+                {currentCard.hanViet && (
+                  <div style={{ fontSize: '0.95rem', color: 'var(--brand-gold)', fontWeight: 800, marginBottom: '0.5rem' }}>
+                    {learningMode === 'zh' ? `漢越字源：${currentCard.hanViet}` : `Sino-Vietnamese: ${currentCard.hanViet}`}
+                  </div>
+                )}
+
+                <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', margin: '0' }}>
+                  {learningMode === 'zh' ? '⚡ 選擇對應的中文釋義，快速檢驗記憶突觸：' : 'Select matching translation:'}
+                </p>
+              </div>
+
+              {/* 4 Quiz Options */}
+              <div className="fc-quiz-grid">
+                {quizOptions.map((opt, optIdx) => {
+                  const isOptSelected = quizSelected === opt;
+                  const isOptCorrect = (opt.id || opt.viet) === (currentCard.id || currentCard.viet);
+                  let btnClass = 'fc-quiz-opt-btn';
+                  if (quizSelected) {
+                    if (isOptCorrect) btnClass += ' opt-correct';
+                    else if (isOptSelected) btnClass += ' opt-wrong';
+                    else btnClass += ' opt-dimmed';
+                  }
+
+                  return (
+                    <button
+                      key={optIdx}
+                      className={btnClass}
+                      onClick={() => handleQuizSelect(opt)}
+                      disabled={quizSelected !== null}
+                      type="button"
+                    >
+                      <span className="fc-opt-index">{String.fromCharCode(65 + optIdx)}</span>
+                      <span className="fc-opt-text">{learningMode === 'zh' ? opt.zh : (opt.en || opt.zh)}</span>
+                      {quizSelected && isOptCorrect && <CheckCircle2 size={18} color="#10b981" />}
+                      {quizSelected && isOptSelected && !isOptCorrect && <XCircle size={18} color="#ef4444" />}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Quiz Diagnostics & Explanation */}
+              {quizSelected && (
+                <div className={`fc-quiz-feedback ${quizSelected.viet === currentCard.viet ? 'feedback-correct' : 'feedback-wrong'}`}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 900, fontSize: '0.98rem', marginBottom: '0.4rem' }}>
+                    {quizSelected.viet === currentCard.viet ? (
+                      <>
+                        <CheckCircle2 size={18} color="#10b981" />
+                        <span style={{ color: '#065f46' }}>{learningMode === 'zh' ? '太棒了！記憶精準 (+10 XP)' : 'Excellent! Perfect recall (+10 XP)'}</span>
+                      </>
+                    ) : (
+                      <>
+                        <AlertTriangle size={18} color="#ef4444" />
+                        <span style={{ color: '#b91c1c' }}>{learningMode === 'zh' ? '💡 記憶盲點與易混淆診斷' : 'Diagnostic Feedback'}</span>
+                      </>
+                    )}
+                  </div>
+
+                  {quizSelected.viet !== currentCard.viet && (
+                    <div style={{ fontSize: '0.88rem', lineHeight: 1.6, color: 'var(--text-primary)', marginBottom: '0.75rem' }}>
+                      <p style={{ margin: '0 0 0.35rem' }}>
+                        ❌ 你誤選了<strong>「{learningMode === 'zh' ? quizSelected.zh : quizSelected.en}」</strong>，其越文為<strong>「{quizSelected.viet}」</strong>（{detectWordTone(quizSelected.viet).label}）。
+                      </p>
+                      <p style={{ margin: '0' }}>
+                        ✅ 正確答案<strong>「{currentCard.viet}」</strong>（{detectWordTone(currentCard.viet).label}）意思為<strong>「{learningMode === 'zh' ? currentCard.zh : currentCard.en}」</strong>。
+                        {currentCard.example && <span style={{ display: 'block', marginTop: '0.3rem', color: 'var(--text-secondary)' }}>情境例句：{currentCard.example} ({currentCard.exampleZh})</span>}
+                      </p>
+                    </div>
+                  )}
+
+                  <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.65rem' }}>
+                    <button
+                      className="control-btn"
+                      style={{ background: 'var(--brand-primary)', color: '#fff', padding: '0.5rem 1.15rem', fontSize: '0.88rem', fontWeight: 800, borderRadius: 'var(--radius-full)' }}
+                      onClick={() => handleStep(1)}
+                      type="button"
+                    >
+                      <span>{learningMode === 'zh' ? '下一單字 ➔' : 'Next Word ➔'}</span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* 3D Flip Card Container (Classic Flip Mode) */}
+          {cardStudyMode === 'flip' && currentCard && (
             <div 
               className={`flashcard-container ${isFlipped ? 'flipped' : ''}`}
               onClick={handleCardClick}
@@ -1792,6 +1991,18 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
                     <span className="tone-symbol" style={{ background: 'var(--bg-accent)', color: 'var(--brand-gold)' }}>
                       {currentCard.category || '生活日常'}
                     </span>
+                    {(() => {
+                      const toneInfo = detectWordTone(currentCard.viet);
+                      return (
+                        <span 
+                          className="tone-symbol" 
+                          style={{ background: `${toneInfo.color}18`, border: `1px solid ${toneInfo.color}40`, color: toneInfo.color, fontWeight: 800 }}
+                          title={toneInfo.desc}
+                        >
+                          {toneInfo.symbol} {toneInfo.label}
+                        </span>
+                      );
+                    })()}
                     <button
                       className="fc-card-star-btn"
                       onClick={(e) => {
@@ -1942,48 +2153,50 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
             </div>
           )}
 
-          {/* Action Buttons: Remembered vs Need Review */}
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1rem' }}>
-            <button 
-              className="control-btn"
-              style={{ background: '#ef4444', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
-              onClick={() => handleAnswer(0)}
-              title="鍵盤快捷鍵: 1 或 ←"
-            >
-              <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>1</span>
-              <span>{learningMode === 'zh' ? '生疏 (Again) · 1d' : 'Again · 1d'}</span>
-            </button>
+          {/* Action Buttons: Remembered vs Need Review (Only in Flip Mode) */}
+          {cardStudyMode === 'flip' && (
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1rem' }}>
+              <button 
+                className="control-btn"
+                style={{ background: '#ef4444', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                onClick={() => handleAnswer(0)}
+                title="鍵盤快捷鍵: 1 或 ←"
+              >
+                <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>1</span>
+                <span>{learningMode === 'zh' ? '生疏 (Again) · 1d' : 'Again · 1d'}</span>
+              </button>
 
-            <button 
-              className="control-btn"
-              style={{ background: '#f59e0b', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
-              onClick={() => handleAnswer(3)}
-              title="鍵盤快捷鍵: 2"
-            >
-              <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>2</span>
-              <span>{learningMode === 'zh' ? '困難 (Hard) · 3d' : 'Hard · 3d'}</span>
-            </button>
+              <button 
+                className="control-btn"
+                style={{ background: '#f59e0b', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                onClick={() => handleAnswer(3)}
+                title="鍵盤快捷鍵: 2"
+              >
+                <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>2</span>
+                <span>{learningMode === 'zh' ? '困難 (Hard) · 3d' : 'Hard · 3d'}</span>
+              </button>
 
-            <button 
-              className="control-btn"
-              style={{ background: '#3b82f6', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
-              onClick={() => handleAnswer(4)}
-              title="鍵盤快捷鍵: 3 或 →"
-            >
-              <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>3</span>
-              <span>{learningMode === 'zh' ? '良好 (Good) · 6d' : 'Good · 6d'}</span>
-            </button>
+              <button 
+                className="control-btn"
+                style={{ background: '#3b82f6', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                onClick={() => handleAnswer(4)}
+                title="鍵盤快捷鍵: 3 或 →"
+              >
+                <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>3</span>
+                <span>{learningMode === 'zh' ? '良好 (Good) · 6d' : 'Good · 6d'}</span>
+              </button>
 
-            <button 
-              className="control-btn"
-              style={{ background: 'var(--brand-green)', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
-              onClick={() => handleAnswer(5)}
-              title="鍵盤快捷鍵: 4"
-            >
-              <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>4</span>
-              <span>{learningMode === 'zh' ? '容易 (Easy) · 14d+' : 'Easy · 14d+'}</span>
-            </button>
-          </div>
+              <button 
+                className="control-btn"
+                style={{ background: 'var(--brand-green)', color: '#fff', padding: '0.6rem 1rem', fontSize: '0.92em', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                onClick={() => handleAnswer(5)}
+                title="鍵盤快捷鍵: 4"
+              >
+                <span style={{ opacity: 0.8, fontSize: '0.8em', background: 'rgba(0,0,0,0.2)', padding: '0.1rem 0.35rem', borderRadius: '3px' }}>4</span>
+                <span>{learningMode === 'zh' ? '容易 (Easy) · 14d+' : 'Easy · 14d+'}</span>
+              </button>
+            </div>
+          )}
 
           {/* Keyboard Shortcut Indicator */}
           <div style={{ textAlign: 'center', marginTop: '0.9rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>

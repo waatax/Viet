@@ -98,6 +98,54 @@ export const mouthPhoneticGuide = [
   }
 ];
 
+export const TAIWAN_MINIMAL_PAIRS = [
+  {
+    id: 'mp_1',
+    titleZh: 'ư vs u (不圓唇 vs 圓唇閉後元音)',
+    taiwanZh: '台灣人發音最大通病：把 ư 發成 u！',
+    pairVi: 'từ (從/詞) vs tù (牢房)',
+    ruleZh: '發 ư 時嘴角必須向兩側拉開（咬牙微笑），舌根後縮，嘴唇絕對不能噘圓；發 u 則嘴唇向前噘圓成小孔。',
+    audio1: 'từ',
+    audio2: 'tù'
+  },
+  {
+    id: 'mp_2',
+    titleZh: 'tr vs ch (捲舌 vs 不捲舌塞擦音)',
+    taiwanZh: '南越捲舌 vs 北越完全合流',
+    pairVi: 'trà (茶) vs chà (擦拭/摩)',
+    ruleZh: '北越兩者皆讀清脆 [c] (似注音ㄗ)；南越 tr 舌尖捲向硬腭發 [ʈ] (似國語ㄓ)，ch 則不捲舌。',
+    audio1: 'trà',
+    audio2: 'chà'
+  },
+  {
+    id: 'mp_3',
+    titleZh: 'th vs t (強送氣 ㄊ vs 不送氣 ㄉ)',
+    taiwanZh: '千萬不能讀成英文咬舌 th！',
+    pairVi: 'thịt (肉) vs tịt (堵塞)',
+    ruleZh: 'th 是強烈噴氣的「ㄊ」，可在嘴前放衛生紙測試是否大幅飄起；t 則是不送氣的清塞音（等同國語「ㄉ」）。',
+    audio1: 'thịt',
+    audio2: 'tịt'
+  },
+  {
+    id: 'mp_4',
+    titleZh: 's vs x (翹舌擦音 vs 舌尖前平舌音)',
+    taiwanZh: '西貢腔嚴格區別，河內腔皆讀 s/x 為清擦音',
+    pairVi: 'sao (星/星星) vs xao (動盪/心慌)',
+    ruleZh: '在南方 s 明顯捲舌 [ʂ] (似國語ㄕ)，x 則為平舌 [s] (似國語ㄙ)；北方則合流為平舌 [s]。',
+    audio1: 'sao',
+    audio2: 'xao'
+  },
+  {
+    id: 'mp_5',
+    titleZh: '-n vs -ng (前鼻尾音 vs 後鼻尾音)',
+    taiwanZh: '注音 ㄣ vs ㄥ 的鼻腔共鳴對決',
+    pairVi: 'bàn (桌子/商量) vs bàng (欖仁樹)',
+    ruleZh: '-n 結尾舌尖頂住上門牙牙齦封死氣流；-ng 結尾舌根後部緊貼軟腭，嘴巴微開，氣流全由鼻孔送出。',
+    audio1: 'bàn',
+    audio2: 'bàng'
+  }
+];
+
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Volume2, Music, Sparkles, Filter, Info, Play, Activity,
@@ -246,6 +294,27 @@ export const AlphabetModule = ({ selectedAccent = 'north', updateUserStats, setA
       default:
         return { path: "M 20 35 L 180 35", dots: [], desc: "" };
     }
+  };
+
+  const getAcousticToneComparison = (guessedId, targetId) => {
+    const pairKey = `${guessedId}_${targetId}`;
+    const comparisons = {
+      hoi_nga: '【問聲 vs 跌聲】兩者皆有轉折，但跌聲 (Ngã 35̃) 在北越帶有鮮明的聲門緊閉斷音 (glottal stop)，音流中途會被喉門急剎車後再向上彈升；而問聲 (Hỏi 313) 則是舒緩平滑地先沉降再微揚，無喉塞感。',
+      nga_hoi: '【跌聲 vs 問聲】剛剛播放的是問聲 (Hỏi 313)，聲調流暢深沉微折；跌聲則有明顯的喉音爆發力與中斷感。南越腔中這兩者常合流為同一聲調。',
+      ngang_huyen: '【平聲 vs 玄聲】平聲 (Ngang 44) 是高平平穩調，聲帶張力恆定；玄聲 (Huyền 31) 則是低平沉降調，音域明顯低沉舒緩。',
+      huyen_ngang: '【玄聲 vs 平聲】剛剛播放的是平聲 (Ngang 44)，平直不滑落；玄聲則是低沉放鬆向下滑降。',
+      sac_nang: '【銳聲 vs 重聲】銳聲 (Sắc 35) 是高亢持續上揚調；重聲 (Nặng 21) 則是聲門緊縮急降短促音，音長極短。',
+      nang_sac: '【重聲 vs 銳聲】剛剛播放的是銳聲 (Sắc 35)，調值一路衝高；重聲則是向下急沉砸地。',
+      hoi_huyen: '【問聲 vs 玄聲】玄聲是一路平緩向下滑落；問聲則有鮮明的「先降再拉升」勾狀調值。',
+      huyen_hoi: '【玄聲 vs 問聲】問聲是 313 彎曲調；玄聲是 31 純滑降，沒有回升段。',
+      sac_ngang: '【銳聲 vs 平聲】平聲平直向前不爬升；銳聲則需要聲帶快速拉緊衝上最高音。',
+      ngang_sac: '【平聲 vs 銳聲】銳聲從 35 向上狂飆；平聲則是 44 高中平調。',
+      nga_sac: '【跌聲 vs 銳聲】銳聲是一路直衝向上；跌聲在起音後中間有一處微中斷的喉音折點。',
+      sac_nga: '【銳聲 vs 跌聲】跌聲帶有波浪喉音中斷；銳聲則是乾淨利落的高升滑音。',
+      nang_huyen: '【重聲 vs 玄聲】玄聲音長較長、緩緩滑降；重聲則音長極短促、喉門急剎車並下墜。',
+      huyen_nang: '【玄聲 vs 重聲】重聲帶有點音短促收煞感；玄聲則是綿長鬆弛的低降調。'
+    };
+    return comparisons[pairKey] || `你猜測的是 ${guessedId}，但實際播放的是 ${targetId}。請注意兩者的音高起點與聲帶緊張度的走向差異。`;
   };
 
   return (
@@ -1201,25 +1270,85 @@ export const AlphabetModule = ({ selectedAccent = 'north', updateUserStats, setA
                 </div>
 
                 {trainerSelected !== null && (
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', background: 'var(--bg-main)', padding: '0.75rem 1.25rem', borderRadius: 'var(--radius-md)' }}>
-                    <div style={{ fontSize: '0.95em', fontWeight: 700, color: trainerSelected === trainerTarget.id ? '#10b981' : '#ef4444' }}>
-                      {trainerSelected === trainerTarget.id ? (
-                        <>🎉 辨音正確！正確答案是 <strong>{loc(trainerTarget, 'name')} ({loc(trainerTarget, 'symbol')})</strong> · 例字：{trainerTarget.example}</>
-                      ) : (
-                        <>❌ 答錯囉！剛剛播放的是 <strong>{loc(trainerTarget, 'name')} ({loc(trainerTarget, 'symbol')})</strong> · 例字：{trainerTarget.example}</>
-                      )}
+                  <div style={{ background: 'var(--bg-main)', padding: '0.9rem 1.25rem', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)', marginTop: '0.5rem' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: trainerSelected !== trainerTarget.id ? '0.6rem' : '0' }}>
+                      <div style={{ fontSize: '0.95em', fontWeight: 700, color: trainerSelected === trainerTarget.id ? '#10b981' : '#ef4444' }}>
+                        {trainerSelected === trainerTarget.id ? (
+                          <>🎉 辨音正確！正確答案是 <strong>{loc(trainerTarget, 'name')} ({loc(trainerTarget, 'symbol')})</strong> · 例字：{trainerTarget.example}</>
+                        ) : (
+                          <>❌ 辨音有誤！剛剛播放的是 <strong>{loc(trainerTarget, 'name')} ({loc(trainerTarget, 'symbol')})</strong> · 例字：{trainerTarget.example}</>
+                        )}
+                      </div>
+                      <button
+                        className="secondary-action"
+                        style={{ padding: '0.4rem 0.9rem', fontSize: '0.85em', fontWeight: 800 }}
+                        onClick={startNewEarTraining}
+                      >
+                        下一題 ➔
+                      </button>
                     </div>
-                    <button
-                      className="secondary-action"
-                      style={{ padding: '0.4rem 0.9rem', fontSize: '0.85em' }}
-                      onClick={startNewEarTraining}
-                    >
-                      下一題 ➔
-                    </button>
+
+                    {trainerSelected !== trainerTarget.id && (
+                      <div style={{
+                        background: 'rgba(239, 68, 68, 0.08)',
+                        borderLeft: '3px solid #ef4444',
+                        padding: '0.55rem 0.85rem',
+                        borderRadius: '4px',
+                        fontSize: '0.88rem',
+                        color: '#991b1b',
+                        lineHeight: 1.5
+                      }}>
+                        <strong>💡 聲學盲點深度解析：</strong>
+                        {getAcousticToneComparison(trainerSelected, trainerTarget.id)}
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
             )}
+          </div>
+
+          {/* Taiwan Learner Minimal Pairs Guide */}
+          <div style={{ background: 'var(--bg-card)', padding: '1.5rem', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-color)', marginBottom: '1.5rem' }}>
+            <h3 style={{ margin: '0 0 1rem', fontSize: '1.2rem', fontWeight: 900, color: 'var(--brand-primary)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
+              <Activity size={20} />
+              🇹🇼 台灣學習者專屬：五大母音/子音最小對立對 (Minimal Pairs 排雷實戰)
+            </h3>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+              {TAIWAN_MINIMAL_PAIRS.map((pair) => (
+                <div key={pair.id} style={{ background: 'var(--bg-input)', padding: '1.1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+                    <strong style={{ fontSize: '1rem', color: 'var(--brand-accent)' }}>{pair.titleZh}</strong>
+                    <span style={{ fontSize: '0.78rem', background: 'rgba(234, 179, 8, 0.15)', color: 'var(--brand-gold)', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 700 }}>
+                      易混淆排雷
+                    </span>
+                  </div>
+                  <div style={{ fontSize: '0.84rem', color: 'var(--brand-primary)', fontWeight: 700, marginBottom: '0.5rem' }}>
+                    {pair.taiwanZh}
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', background: 'var(--bg-card)', padding: '0.5rem 0.8rem', borderRadius: '6px', marginBottom: '0.6rem' }}>
+                    <span style={{ fontWeight: 800, fontSize: '0.95rem', color: 'var(--text-primary)' }}>{pair.pairVi}</span>
+                    <button
+                      onClick={() => handleSpeak(pair.audio1, `mp_${pair.audio1}`)}
+                      style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--brand-primary)', display: 'inline-flex', alignItems: 'center' }}
+                      title={`朗讀 ${pair.audio1}`}
+                    >
+                      <Volume2 size={16} />
+                    </button>
+                    <button
+                      onClick={() => handleSpeak(pair.audio2, `mp_${pair.audio2}`)}
+                      style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--brand-accent)', display: 'inline-flex', alignItems: 'center' }}
+                      title={`朗讀 ${pair.audio2}`}
+                    >
+                      <Volume2 size={16} />
+                    </button>
+                  </div>
+                  <p style={{ fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.45, margin: 0 }}>
+                    💡 <strong>發音口訣：</strong>{pair.ruleZh}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Tone Pitfalls Guide */}

@@ -249,7 +249,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'How do you say "Iced Milk Coffee" using the post-nominal adjective rule?',
     options: [
       { vi: 'Cà phê sữa đá', zh: '咖啡 + 奶 + 冰 (修飾語後置)', isCorrect: true },
-      { vi: 'Đá sữa cà phê', zh: '冰 + 奶 + 咖啡 (中文直譯語序)', isCorrect: false }
+      { vi: 'Đá sữa cà phê', zh: '冰 + 奶 + 咖啡 (中文直譯語序)', isCorrect: false, mistakeReasonZh: '受中文直譯思維影響！越南語中心名詞必須在前（cà phê），修飾語在後（sữa đá）。' }
     ],
     explanationZh: '越南語修飾語嚴格後置！中心名詞「cà phê」在前，修飾語「sữa」(奶) 與「đá」(冰) 在後。',
     audioText: 'Cho tôi một ly cà phê sữa đá.'
@@ -261,7 +261,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which particle denotes a fortunate event like getting a promotion?',
     options: [
       { vi: 'Anh ấy được thăng chức.', zh: '他升職了 (幸運正面: Được)', isCorrect: true },
-      { vi: 'Anh ấy bị thăng chức.', zh: '他升職了 (遭遇不幸: Bị)', isCorrect: false }
+      { vi: 'Anh ấy bị thăng chức.', zh: '他升職了 (遭遇不幸: Bị)', isCorrect: false, mistakeReasonZh: '「Bị」專門用於不幸、非自願負面遭遇（如 bị phạt 被罰、bị ốm 生病），升職是好事不能用 Bị！' }
     ],
     explanationZh: '正面獲得好處、晉升、得獎一律用「Được」；遭受罰款、被罵、生病、車禍非自願不幸事件才用「Bị」。',
     audioText: 'Anh ấy được thăng chức.'
@@ -273,7 +273,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'If someone asks if you have eaten lunch yet and you haven\'t yet, which negation do you use?',
     options: [
       { vi: 'Tôi chưa ăn.', zh: '我尚未吃 (尚未發生的狀態: Chưa)', isCorrect: true },
-      { vi: 'Tôi không ăn.', zh: '我不吃 (拒絕或永久否定: Không)', isCorrect: false }
+      { vi: 'Tôi không ăn.', zh: '我不吃 (拒絕或永久否定: Không)', isCorrect: false, mistakeReasonZh: '「Không ăn」意思是「我不吃 / 絕食」，回答生活問候時若只是「還沒吃」必須用「Chưa」。' }
     ],
     explanationZh: '「Chưa」表示「尚未/還沒 (未來可能會做)」；「Không」表示「不/非事實/拒絕」。回答是否吃飽問候時請用「Chưa」。',
     audioText: 'Tôi chưa ăn cơm.'
@@ -285,7 +285,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Traveling North to Hanoi from the South in Vietnamese directional semantics is:',
     options: [
       { vi: 'Tôi đi ra Hà Nội công tác.', zh: '北上稱「Ra」(出)', isCorrect: true },
-      { vi: 'Tôi đi vào Hà Nội công tác.', zh: '誤用「Vào」', isCorrect: false }
+      { vi: 'Tôi đi vào Hà Nội công tác.', zh: '誤用「Vào」', isCorrect: false, mistakeReasonZh: '越南地理方位體系中，北上必須用「Ra (出)」，南下胡志明市才用「Vào (入)」。' }
     ],
     explanationZh: '越南獨特地理動態：北上稱「Ra (出)」，南下稱「Vào (入)」，去高山/高原稱「Lên (上)」，去平原三角洲稱「Xuống (下)」。',
     audioText: 'Ngày mai tôi đi ra Hà Nội công tác.'
@@ -297,7 +297,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which sentence-final particle denotes the highest degree of politeness to seniors?',
     options: [
       { vi: 'Em cảm ơn anh ạ!', zh: '句尾加上「ạ」(敬語標誌)', isCorrect: true },
-      { vi: 'Em cảm ơn anh nhé!', zh: '句尾加上「nhé」(平輩親暱相約)', isCorrect: false }
+      { vi: 'Em cảm ơn anh nhé!', zh: '句尾加上「nhé」(平輩親暱相約)', isCorrect: false, mistakeReasonZh: '「nhé」是平輩之間親暱相約的語氣，對長輩、主管說話失敬，敬語句尾必須用「ạ」。' }
     ],
     explanationZh: '「ạ」為越南語面對年長者與尊客的終極禮貌助詞；而「nhé/nha」表示親切隨和的約定，不適合正式對長輩使用。',
     audioText: 'Em cảm ơn anh ạ!'
@@ -309,7 +309,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which word expresses the superlative "the best / most delicious"?',
     options: [
       { vi: 'Phở bò ở đây ngon nhất.', zh: '最高級用「Nhất」(最)', isCorrect: true },
-      { vi: 'Phở bò ở đây ngon hơn.', zh: '比較級用「Hơn」(更/比較)', isCorrect: false }
+      { vi: 'Phở bò ở đây ngon hơn.', zh: '比較級用「Hơn」(更/比較)', isCorrect: false, mistakeReasonZh: '「Hơn」僅表示「比...更美味（兩者比較）」，要表達全城「第一、最頂級」必須使用「Nhất」。' }
     ],
     explanationZh: '比較級：形容詞 + Hơn (例如 ngon hơn 比較好吃)；最高級：形容詞 + Nhất (例如 ngon nhất 最好吃)。',
     audioText: 'Phở bò ở đây ngon nhất.'
@@ -321,7 +321,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which conditional connector pair means "If ... then ..."?',
     options: [
       { vi: 'Nếu ngày mai trời mưa thì chúng ta ở nhà.', zh: 'Nếu ... thì (如果...那麼)', isCorrect: true },
-      { vi: 'Tuy ngày mai trời mưa nhưng chúng ta ở nhà.', zh: 'Tuy ... nhưng (雖然...但是)', isCorrect: false }
+      { vi: 'Tuy ngày mai trời mưa nhưng chúng ta ở nhà.', zh: 'Tuy ... nhưng (雖然...但是)', isCorrect: false, mistakeReasonZh: '「Tuy... nhưng...」是轉折讓步關係（雖然...但是...），條件假設關係必須使用「Nếu... thì...」。' }
     ],
     explanationZh: '「Nếu (如果) ... thì (那麼)」為經典條件假設句型；「Tuy (雖然) ... nhưng (但是)」則為讓步轉折句型。',
     audioText: 'Nếu trời mưa thì chúng ta ở nhà.'
@@ -333,7 +333,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Formal business or public imperative for "Please kindly keep quiet":',
     options: [
       { vi: 'Xin vui lòng giữ im lặng.', zh: 'Xin vui lòng (敬請/請務必)', isCorrect: true },
-      { vi: 'Đừng nói chuyện.', zh: 'Đừng (別/祈使否定，偏口語口吻)', isCorrect: false }
+      { vi: 'Đừng nói chuyện.', zh: 'Đừng (別/祈使否定，偏口語口吻)', isCorrect: false, mistakeReasonZh: '「Đừng nói chuyện」語氣生硬直接帶有訓斥感，正式公共與商務場合應使用最高禮貌形式「Xin vui lòng...」。' }
     ],
     explanationZh: '「Xin vui lòng + 動詞」為最高規格商務與公共禮貌用語；「Làm ơn」用於日常隨意請求；「Đừng」帶有較強的生硬命令色彩。',
     audioText: 'Xin vui lòng giữ im lặng trong phòng họp.'
@@ -345,7 +345,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which is the correct Han-Viet term for National Flag with prefix modifier?',
     options: [
       { vi: 'Quốc kỳ', zh: 'Quốc (國) + kỳ (旗) - 漢越前置修飾', isCorrect: true },
-      { vi: 'Kỳ quốc', zh: '語序顛倒之錯誤拼法', isCorrect: false }
+      { vi: 'Kỳ quốc', zh: '語序顛倒之錯誤拼法', isCorrect: false, mistakeReasonZh: '漢越詞語序與古代漢語相同：Quốc (國) 修飾 kỳ (旗)，拼成 Kỳ quốc 屬於完全顛倒錯誤。' }
     ],
     explanationZh: '漢越詞遵循古代漢語語法，修飾語在中心詞之前：Quốc (國) + kỳ (旗) = 國旗；而純越語則後置：Lá cờ của nước。',
     audioText: 'Quốc kỳ Việt Nam là lá cờ đỏ sao vàng.'
@@ -357,7 +357,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which reduplication word (Từ láy) expresses "immaculately clean"?',
     options: [
       { vi: 'Căn phòng rất sạch sẽ.', zh: 'Sạch sẽ (乾乾淨淨·重疊音律修辭)', isCorrect: true },
-      { vi: 'Căn phòng rất sạch sạch.', zh: '非標準越語重疊形式', isCorrect: false }
+      { vi: 'Căn phòng rất sạch sạch.', zh: '非標準越語重疊形式', isCorrect: false, mistakeReasonZh: '越南語形容詞重疊並非單純重複字詞（不可直接說 sạch sạch），而是有音律規律的「sạch sẽ」。' }
     ],
     explanationZh: '「Sạch sẽ」為經典音韻重疊詞 (Từ láy)，比單純的「sạch」更具生動形象感與滿意情感色彩。',
     audioText: 'Căn phòng này rất sạch sẽ.'
@@ -369,7 +369,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which preposition denotes payment instrument (by credit card)?',
     options: [
       { vi: 'Tôi có thể thanh toán bằng thẻ tín dụng không?', zh: 'Bằng (以/用...工具媒介)', isCorrect: true },
-      { vi: 'Tôi có thể thanh toán với thẻ tín dụng không?', zh: '與 (誤用伴隨介詞)', isCorrect: false }
+      { vi: 'Tôi có thể thanh toán với thẻ tín dụng không?', zh: '與 (誤用伴隨介詞)', isCorrect: false, mistakeReasonZh: '「với」是伴隨介詞「和/跟某人在一起」，工具媒介手段（用卡、用現金、搭機車）必須用「Bằng」。' }
     ],
     explanationZh: '工具、手段、支付方式一律使用介詞「Bằng」(例如：bằng thẻ 用卡, bằng tiền mặt 用現金, bằng xe máy 騎機車)。',
     audioText: 'Tôi thanh toán bằng thẻ tín dụng.'
@@ -381,7 +381,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which focus cleft sentence emphasizes "He is the one who decides"?',
     options: [
       { vi: 'Chính anh ấy mới là người quyết định.', zh: 'Chính ... mới là (正是...才是...)', isCorrect: true },
-      { vi: 'Anh ấy là người quyết định cũng được.', zh: '語氣平淡無排他強調', isCorrect: false }
+      { vi: 'Anh ấy là người quyết định cũng được.', zh: '語氣平淡無排他強調', isCorrect: false, mistakeReasonZh: '缺乏焦點加強詞「Chính... mới là」，「cũng được」更帶有妥協隨便意味，無法表達唯獨強調。' }
     ],
     explanationZh: '「Chính [主語] mới là [受語]」是越語最正統的分裂焦點句，表達「只有某人才是... / 正是某人才是...」。',
     audioText: 'Chính anh ấy mới là người quyết định.'
@@ -393,7 +393,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which cognitive verb specifically marks a mistaken assumption?',
     options: [
       { vi: 'Tôi tưởng rằng cuộc họp vào buổi chiều.', zh: 'Tưởng rằng (特指事後證明為錯誤的以為)', isCorrect: true },
-      { vi: 'Tôi biết rằng cuộc họp vào buổi chiều.', zh: 'Biết rằng (知道事實)', isCorrect: false }
+      { vi: 'Tôi biết rằng cuộc họp vào buổi chiều.', zh: 'Biết rằng (知道事實)', isCorrect: false, mistakeReasonZh: '「Biết rằng」是確認客觀已知事實；而事後發現自己弄錯了的「原本誤以為」專門用「Tưởng rằng / Tưởng là」。' }
     ],
     explanationZh: '「Tưởng rằng / Tưởng là」在越語中專門用於「原本誤以為 (但事實並非如此)」；而「Cho rằng」則是深思後的客觀主張。',
     audioText: 'Tôi tưởng rằng hôm nay được nghỉ.'
@@ -405,7 +405,7 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which approximative marker means "around / approximately"?',
     options: [
       { vi: 'Dự án này cần khoảng ba tuần.', zh: 'Khoảng (大約/約莫)', isCorrect: true },
-      { vi: 'Dự án này cần đúng ba tuần.', zh: 'Đúng (恰好/剛好，非概數)', isCorrect: false }
+      { vi: 'Dự án này cần đúng ba tuần.', zh: 'Đúng (恰好/剛好，非概數)', isCorrect: false, mistakeReasonZh: '「Đúng」意思是「剛好、準確恰好」，非概數詞；表達大約必須用「Khoảng」或口語「Tầm」。' }
     ],
     explanationZh: '「Khoảng」或「Chừng」置於數字之前表示「大約、約莫」；南越口語常說「Tầm」。',
     audioText: 'Dự án này cần khoảng ba tuần.'
@@ -417,10 +417,70 @@ export const GRAMMAR_DRILLS = [
     questionEn: 'Which 4-syllable Vietnamese idiom translates to "When in Rome, do as the Romans do"?',
     options: [
       { vi: 'Nhập gia tùy tục', zh: 'Nhập gia tùy tục (入境隨俗·2+2對仗)', isCorrect: true },
-      { vi: 'Ăn quả nhớ kẻ', zh: '句子殘缺不全', isCorrect: false }
+      { vi: 'Ăn quả nhớ kẻ', zh: '句子殘缺不全', isCorrect: false, mistakeReasonZh: '「Ăn quả nhớ kẻ trồng cây」意思是「飲水思源 / 吃果子拜樹頭」，並非「入境隨俗」。' }
     ],
     explanationZh: '「Nhập gia tùy tục」為漢越成語，結構嚴整對仗，是跨國經商與跨文化溝通的最高頻成語。',
     audioText: 'Đến nơi này thì phải nhập gia tùy tục.'
+  },
+  {
+    id: 'drill_16',
+    ruleIndex: 11, // Rule 12
+    questionZh: '越南語表達「越南語越學越覺得有趣」，正確的比例遞進句型是？',
+    questionEn: 'Which progressive correlative structure correctly means "The more I study Vietnamese, the more interesting it is"?',
+    options: [
+      { vi: 'Tiếng Việt càng học càng thấy thú vị.', zh: 'Càng ... càng ... (越...越...)', isCorrect: true },
+      { vi: 'Tiếng Việt hơn học hơn thấy thú vị.', zh: '誤將比較級 Hơn 用作遞進', isCorrect: false, mistakeReasonZh: '「Hơn」僅是比較級副詞（比...更...），不可用於成對遞進！成對遞進必須使用「Càng [動詞/形容詞] càng [動詞/形容詞]」。' }
+    ],
+    explanationZh: '「Càng A càng B」表示前項條件增加帶動後項結果遞增（越 A 越 B），是日常與論述中最高頻的遞進語法。',
+    audioText: 'Tiếng Việt càng học càng thấy thú vị.'
+  },
+  {
+    id: 'drill_17',
+    ruleIndex: 11, // Rule 12
+    questionZh: '稱讚一位新同仁「既聰明又勤勞」，表達同時具備兩項特質的標準句型是？',
+    questionEn: 'Which correlative marker means "both [A] and [B]" simultaneously?',
+    options: [
+      { vi: 'Anh ấy vừa thông minh vừa chăm chỉ.', zh: 'Vừa ... vừa ... (既...又...)', isCorrect: true },
+      { vi: 'Anh ấy cũng thông minh cũng chăm chỉ.', zh: '中文直譯錯誤句型', isCorrect: false, mistakeReasonZh: '受到中文「也聰明也勤勞」直譯干擾！越南語表達雙重屬性或同時動作必須使用「Vừa A vừa B」。' }
+    ],
+    explanationZh: '「Vừa A vừa B」表示同時進行或同時擁有兩種性質（既...又... / 一邊...一邊...）；不可直譯為「cũng... cũng...」。',
+    audioText: 'Anh ấy vừa thông minh vừa chăm chỉ.'
+  },
+  {
+    id: 'drill_18',
+    ruleIndex: 12, // Rule 13
+    questionZh: '表達「這場午後暴雨使得整個市中心交通嚴重癱瘓」，引導致使結果的正確動詞是？',
+    questionEn: 'Which causative verb means "causes / makes something happen"?',
+    options: [
+      { vi: 'Cơn mưa lớn làm cho giao thông bị tắc nghẽn.', zh: 'Làm cho (使得/致使)', isCorrect: true },
+      { vi: 'Cơn mưa lớn cho phép giao thông bị tắc nghẽn.', zh: '誤用 Cho phép (允許)', isCorrect: false, mistakeReasonZh: '「Cho phép」表示主動許可、准許（如許可休假）；造成客觀後果的致使動詞必須用「Làm cho」或「Khiến cho」。' }
+    ],
+    explanationZh: '「Làm cho」或「Khiến cho」為致使動詞，後接子句表達「使/令某情況發生」；不幸結果常搭配被動助詞「bị」。',
+    audioText: 'Cơn mưa lớn làm cho giao thông bị tắc nghẽn.'
+  },
+  {
+    id: 'drill_19',
+    ruleIndex: 8, // Rule 9
+    questionZh: '在服飾店挑選衣服，稱讚這件洋裝「價格便宜而且質料好看」，口語中最道地的轉折修飾連詞是？',
+    questionEn: 'Which colloquial connector means "inexpensive yet beautiful"?',
+    options: [
+      { vi: 'Chiếc áo này rẻ mà đẹp.', zh: 'Mà (兼具轉折與遞進的天然口語連詞)', isCorrect: true },
+      { vi: 'Chiếc áo này rẻ nhưng đẹp.', zh: 'Nhưng (語氣生硬對立)', isCorrect: false, mistakeReasonZh: '「Nhưng」帶有嚴格的矛盾對立意味（雖然便宜但還是好看），口語讚美物美價廉最道地的說法是「Rẻ mà đẹp」。' }
+    ],
+    explanationZh: '連詞「Mà」在口語中兼具轉折與補充功能，常用於「Rẻ mà đẹp (便宜又好看)」、「Ăn ít mà mập (吃得少卻變胖)」。',
+    audioText: 'Chiếc áo này rẻ mà đẹp.'
+  },
+  {
+    id: 'drill_20',
+    ruleIndex: 6, // Rule 7
+    questionZh: '朋友明天要進行人生第一次越語演講非常緊張，你溫和勸慰他「別緊張、別害怕！」，應使用哪種祈使否定詞？',
+    questionEn: 'Which gentle imperative negation means "Don\'t worry / Don\'t be afraid"?',
+    options: [
+      { vi: 'Đừng lo lắng, bạn làm được mà!', zh: 'Đừng (親切勸慰: 別...)', isCorrect: true },
+      { vi: 'Không được lo lắng, bạn làm được mà!', zh: 'Không được (嚴禁/不得，如法令禁令)', isCorrect: false, mistakeReasonZh: '「Không được」是強制禁止命令（不得/不准，如「不准吸菸 Không được hút thuốc」）；朋友間親切勸導請用「Đừng (別...)」。' }
+    ],
+    explanationZh: '「Đừng」用於日常善意祈使否定（別擔心 Đừng lo, 別急 Đừng vội）；「Không được」則為強制規定與法規禁止。',
+    audioText: 'Đừng lo lắng, bạn làm được mà!'
   }
 ];
 
@@ -1117,8 +1177,22 @@ export const GrammarModule = ({ selectedAccent, updateUserStats, setActiveTab: s
                 {selectedDrillOption?.isCorrect ? <CheckCircle2 size={20} /> : <AlertCircle size={20} />}
                 <span>{selectedDrillOption?.isCorrect ? '回答正確！(+15 XP)' : '回答有誤，解析如下：'}</span>
               </div>
+              {!selectedDrillOption?.isCorrect && selectedDrillOption?.mistakeReasonZh && (
+                <div style={{
+                  background: 'rgba(239, 68, 68, 0.08)',
+                  borderLeft: '3px solid #ef4444',
+                  padding: '0.55rem 0.85rem',
+                  borderRadius: '4px',
+                  marginBottom: '0.75rem',
+                  fontSize: '0.88rem',
+                  color: '#991b1b',
+                  lineHeight: 1.5
+                }}>
+                  <strong>❌ 誤選診斷：</strong>{selectedDrillOption.mistakeReasonZh}
+                </div>
+              )}
               <p style={{ margin: '0 0 0.8rem', fontSize: '0.92rem', lineHeight: 1.6, color: 'var(--text-primary)' }}>
-                {learningMode === 'zh' ? currentDrill.explanationZh : currentDrill.explanationZh}
+                <strong>💡 正確文法概念：</strong>{learningMode === 'zh' ? currentDrill.explanationZh : currentDrill.explanationZh}
               </p>
 
               <button

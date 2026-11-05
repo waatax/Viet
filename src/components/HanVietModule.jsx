@@ -476,7 +476,12 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
       optionsZh: ['A. 博士學位 (PhD)', 'B. 醫生 (Medical Doctor)', 'C. 博學的大師 (Master)'],
       optionsEn: ['A. PhD Degree', 'B. Medical Doctor', 'C. Great Scholar'],
       answer: 1,
-      explanationZh: '⚠️ 陷阱！Bác sĩ 源自漢字「博士」，但在越文中指「醫生」。學術博士在越語為「Tiến sĩ (進士)」。'
+      distractorExplanationsZh: [
+        '學術博士在越語中稱為「Tiến sĩ (進士)」，絕不可用 Bác sĩ！',
+        '正確！Bác sĩ 源自漢字博士，但在現代越文中專指看診的「醫生」。',
+        '博學大師屬於中文古義直譯，越語沒有此用法。'
+      ],
+      explanationZh: '⚠️ 陷阱！Bác sĩ 源自漢字「博士」，但在現代越文中專指「醫生」。學術博士在越語為「Tiến sĩ (進士)」。'
     },
     {
       viet: 'Sinh viên',
@@ -486,6 +491,11 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
       optionsZh: ['A. 大學生 (University Student)', 'B. 小學生 (Primary Student)', 'C. 剛出生的嬰兒 (Newborn)'],
       optionsEn: ['A. University Student', 'B. Primary Student', 'C. Newborn baby'],
       answer: 0,
+      distractorExplanationsZh: [
+        '正確！Sinh viên 源自古代科舉「秀才/生員」，現代專指高等教育「大學生」。',
+        '中小學生在越語一律稱為「Học sinh (學生)」。',
+        '剛出生的嬰兒是「Trẻ sơ sinh (初生兒)」，不可望文生義。'
+      ],
       explanationZh: '⚠️ 陷阱！Sinh viên 源自古代科舉「生員 (秀才)」，在現代越語中專指「大學生」。中小學生稱為「Học sinh (學生)」。'
     },
     {
@@ -496,7 +506,12 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
       optionsZh: ['A. 你很有歷史淵源', 'B. 你非常有禮貌、文雅', 'C. 你說話很古老'],
       optionsEn: ['A. You are historical', 'B. You are very polite/courteous', 'C. You speak archaic'],
       answer: 1,
-      explanationZh: '⚠️ 陷阱！Lịch sự 是「禮貌、文雅、得體」；真正的「歷史」在越文中發音為「Lịch sử」。'
+      distractorExplanationsZh: [
+        '誤將「Lịch sự (文雅禮貌)」與「Lịch sử (歷史)」混淆，聲調重聲(sự)與問聲(sử)不同！',
+        '正確！Lịch sự 是「禮貌、文雅、得體、教養好」，是極高的讚賞。',
+        '說話古老是「Cổ kính」或「Lạc hậu」，不可望文生義。'
+      ],
+      explanationZh: '⚠️ 陷阱！Lịch sự 是「禮貌、文雅、得體」；真正的「歷史」在越文中發音為「Lịch sử」(問聲)。'
     },
     {
       viet: 'Khách sạn',
@@ -506,7 +521,72 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
       optionsZh: ['A. 現代飯店/酒店 (Hotel)', 'B. 古裝拍片客棧', 'C. 餐廳小吃攤'],
       optionsEn: ['A. Modern Hotel', 'B. Ancient Inn', 'C. Restaurant stall'],
       answer: 0,
-      explanationZh: '⚠️ 陷阱！Khách sạn 字面為「客棧」，在現代越南專指標準「飯店、酒店 (Hotel)」。'
+      distractorExplanationsZh: [
+        '正確！Khách sạn 字面為客棧，在現代越南是標準「飯店、酒店 (Hotel)」。',
+        '在現代越南沒有古裝客棧這種商號，它就是現代旅館。',
+        '小吃餐廳稱為「Nhà hàng」或「Quán ăn」。'
+      ],
+      explanationZh: '⚠️ 陷阱！Khách sạn 字面為「客棧」，在現代越南專指標準「飯店、酒店 (Hotel)」。平價民宿則叫「Nhà nghỉ」。'
+    },
+    {
+      viet: 'Cơ hội',
+      han: '機會',
+      questionZh: '越南商務簡報中常說「Đây là cơ hội lớn」，「Cơ hội」的真正意思是？',
+      questionEn: 'What does "Cơ hội" mean in business presentations?',
+      optionsZh: ['A. 商業機會 / 機遇 (Opportunity)', 'B. 後悔莫及 (Regret)', 'C. 機械聚會 (Machine club)'],
+      optionsEn: ['A. Opportunity', 'B. Regret', 'C. Machine meeting'],
+      answer: 0,
+      distractorExplanationsZh: [
+        '正確！Cơ hội 源自漢字「機遇/機會」，是商務與投資最高頻的詞彙。',
+        '後悔在越文中是「Hối hận (悔恨)」，請勿因為 hội 的音而誤會。',
+        '中文諧音直譯笑話，越南語絕無此意。'
+      ],
+      explanationZh: '⚠️ 詞序注意！「Cơ hội」即中文「機會/機遇」，口語亦常稱「dịp」，正式商務合約一律寫「cơ hội」。'
+    },
+    {
+      viet: 'Khốn nạn',
+      han: '困難',
+      questionZh: '⚠️ 超級地雷！越語中「Khốn nạn」看似漢字「困難」，但現代越文意思是什麼？千萬不能對人亂說！',
+      questionEn: 'What does the false friend "Khốn nạn" actually mean in modern Vietnamese?',
+      optionsZh: ['A. 工作項目很難完成 (Difficult)', 'B. 卑鄙無恥、悲慘可惡 (Despicable / Miserable)', 'C. 貧窮苦悶 (Poor)'],
+      optionsEn: ['A. Difficult to do', 'B. Despicable / Bastard / Miserable', 'C. Poor'],
+      answer: 1,
+      distractorExplanationsZh: [
+        '🚨 絕對地雷！工作很難請說「Khó khăn」或「Khó」，絕不可說「Khốn nạn」！',
+        '正確！現代越語中「Khốn nạn」詞義已嚴重惡化為「可惡透頂、卑鄙無恥、王八蛋」，罵人語氣極重。',
+        '貧窮苦悶稱為「Nghèo khổ」，不可使用 Khốn nạn。'
+      ],
+      explanationZh: '🚨 超級地雷！越文「Khốn nạn」在現代已嚴重惡化為謾罵語「無恥之徒、卑鄙可惡」！形容事情困難請務必使用「Khó khăn」。'
+    },
+    {
+      viet: 'Thủ đoạn',
+      han: '手段',
+      questionZh: '越南新聞中常出現「Thủ đoạn tinh vi」，「Thủ đoạn」在越語中帶有什麼語氣色彩？',
+      questionEn: 'What nuance does "Thủ đoạn" carry in Vietnamese?',
+      optionsZh: ['A. 巧妙的中性方法 (Skillful method)', 'B. 卑鄙狡詐的奸計/陰謀詭計 (Deceptive trick/Scam)', 'C. 手術進行階段 (Surgery stage)'],
+      optionsEn: ['A. Neutral Method', 'B. Deceptive trick / Sinister plot', 'C. Surgery stage'],
+      answer: 1,
+      distractorExplanationsZh: [
+        '中文的「手段」可中性（如營銷手段），但越文的「Thủ đoạn」100% 帶有強烈罪惡感！',
+        '正確！在越文中「Thủ đoạn」完全專指違法詐騙、陰險害人的「奸計、詭計、陰謀手腕」。',
+        '手術是「Phẫu thuật」，無關「Thủ đoạn」。'
+      ],
+      explanationZh: '⚠️ 感情色彩陷阱！越語「Thủ đoạn」不可用作中性商業方法，它專指「陰險卑鄙的詭計、作案手法」；中性方法請用「Phương pháp」或「Biện pháp」。'
+    },
+    {
+      viet: 'Cảnh sát',
+      han: '警察',
+      questionZh: '在越南遇到緊急事故需要警方求助時，執法人員的通用稱謂是？',
+      questionEn: 'In Vietnam, what is the term for police enforcement?',
+      optionsZh: ['A. Cảnh sát (警察 / 巡警)', 'B. Bác sĩ (醫生)', 'C. Kỹ sư (工程師)'],
+      optionsEn: ['A. Police (Cảnh sát)', 'B. Doctor', 'C. Engineer'],
+      answer: 0,
+      distractorExplanationsZh: [
+        '正確！Cảnh sát 是「警察」（如 Cảnh sát giao thông 交警）；求助專線請撥 113！',
+        'Bác sĩ 是「醫生」，求醫才找 Bác sĩ。',
+        'Kỹ sư 是「工程師」，源自漢字「技師」。'
+      ],
+      explanationZh: '⚠️ 治安要詞！「Cảnh sát」為警政部門警察；越南同時有「Công an (公安)」，兩者皆為重要執法體系，報警求助說「Làm ơn gọi cảnh sát」。'
     }
   ];
 
@@ -1463,17 +1543,24 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
         </div>
 
         {drillAnswered !== null && (
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', background: 'var(--bg-main)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)' }}>
-            <div style={{ fontSize: '0.9em', color: drillAnswered === FALSE_FRIENDS_DRILLS[drillIdx].answer ? '#10b981' : '#d97706', flex: '1 1 300px' }}>
-              {learningMode === 'zh' ? FALSE_FRIENDS_DRILLS[drillIdx].explanationZh : FALSE_FRIENDS_DRILLS[drillIdx].explanationZh}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', background: 'var(--bg-main)', padding: '0.9rem 1.1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
+            {drillAnswered !== FALSE_FRIENDS_DRILLS[drillIdx].answer && FALSE_FRIENDS_DRILLS[drillIdx].distractorExplanationsZh?.[drillAnswered] && (
+              <div style={{ fontSize: '0.88rem', color: '#dc2626', lineHeight: 1.5, background: 'rgba(239, 68, 68, 0.08)', padding: '0.45rem 0.75rem', borderRadius: '4px' }}>
+                <strong>❌ 誤選診斷：</strong>{FALSE_FRIENDS_DRILLS[drillIdx].distractorExplanationsZh[drillAnswered]}
+              </div>
+            )}
+            <div style={{ fontSize: '0.92rem', color: drillAnswered === FALSE_FRIENDS_DRILLS[drillIdx].answer ? '#10b981' : '#b45309', lineHeight: 1.5 }}>
+              <strong>💡 深度解說：</strong>{learningMode === 'zh' ? FALSE_FRIENDS_DRILLS[drillIdx].explanationZh : FALSE_FRIENDS_DRILLS[drillIdx].explanationZh}
             </div>
-            <button
-              className="primary-action"
-              style={{ padding: '0.45rem 1rem', fontSize: '0.88em' }}
-              onClick={nextDrill}
-            >
-              下一題 ➔
-            </button>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.2rem' }}>
+              <button
+                className="primary-action"
+                style={{ padding: '0.45rem 1.1rem', fontSize: '0.88em', fontWeight: 800 }}
+                onClick={nextDrill}
+              >
+                下一題 ➔
+              </button>
+            </div>
           </div>
         )}
       </div>

@@ -137,6 +137,12 @@ export const FAST_TRACK_DAYS = [
       optionsZh: ['A. Không', 'B. Dạ ạ', 'C. Đi đâu', 'D. Tạm biệt'],
       optionsEn: ['A. Không', 'B. Dạ ạ', 'C. Đi đâu', 'D. Tạm biệt'],
       answer: 1,
+      distractorExplanationsZh: [
+        '「Không」是「不/沒有」，不能用來禮貌表示「好的、是的」。',
+        '正確！南越人習慣用「Dạ (夜)」作為肯定與禮貌回覆，句尾加上「ạ」更顯親切尊重！',
+        '「Đi đâu」是「去哪裡？」，並非應答詞。',
+        '「Tạm biệt」是「再見」，不能用於肯定應答。'
+      ],
       explainZh: '南越人習慣用「Dạ (夜)」作為肯定與禮貌回覆，句尾加上「ạ」更顯親切尊重！',
       explainEn: '"Dạ" is the classic Southern polite affirmative, and "ạ" adds extra courtesy.'
     }
@@ -206,6 +212,12 @@ export const FAST_TRACK_DAYS = [
       optionsZh: ['A. Cho tôi phở gà', 'B. Ít đá, không đường', 'C. Bao nhiêu tiền', 'D. Xin lỗi nhé'],
       optionsEn: ['A. Cho tôi phở gà', 'B. Ít đá, không đường', 'C. Bao nhiêu tiền', 'D. Xin lỗi nhé'],
       answer: 1,
+      distractorExplanationsZh: [
+        '「Cho tôi phở gà」意思是「給我一碗雞肉河粉」，不是調飲甜度冰塊要求！',
+        '正確！Ít đá (少冰) + không đường (無糖/不要糖)，是健康少負擔點飲品的黃金組合！',
+        '「Bao nhiêu tiền」是問「多少錢」，不是甜度要求。',
+        '「Xin lỗi nhé」是「不好意思喔/對不起」，非點單要求。'
+      ],
       explainZh: 'Ít đá (少冰) + không đường (無糖/不要糖)，是健康少負擔點飲品的黃金組合！',
       explainEn: '"Ít đá" (less ice) + "không đường" (no sugar) is the golden combo for beverages!'
     }
@@ -275,6 +287,12 @@ export const FAST_TRACK_DAYS = [
       optionsZh: ['A. Bớt chút được không?', 'B. Tôi không biết', 'C. Xin chào bạn', 'D. Rất vui'],
       optionsEn: ['A. Bớt chút được không?', 'B. Tôi không biết', 'C. Xin chào bạn', 'D. Rất vui'],
       answer: 0,
+      distractorExplanationsZh: [
+        '正確！「Bớt chút được không?」(減一點好嗎？) 是全越南通用的溫和殺價神句！',
+        '「Tôi không biết」意思是「我不知道」，無法殺價。',
+        '「Xin chào bạn」是「你好」，只是基本打招呼。',
+        '「Rất vui」意思是「很高興」，無殺價功能。'
+      ],
       explainZh: '「Bớt chút được không?」(減一點好嗎？) 是全越南通用的溫和殺價神句！',
       explainEn: '"Bớt chút được không?" (Can you reduce a little?) is universally understood.'
     }
@@ -344,6 +362,12 @@ export const FAST_TRACK_DAYS = [
       optionsZh: ['A. Đi thẳng', 'B. Rẽ trái', 'C. Rẽ phải', 'D. Dừng lại'],
       optionsEn: ['A. Đi thẳng', 'B. Rẽ trái', 'C. Rẽ phải', 'D. Dừng lại'],
       answer: 1,
+      distractorExplanationsZh: [
+        '「Đi thẳng」是「直走」，並非轉彎！',
+        '正確！Rẽ trái 是左轉，Rẽ phải 是右轉，Đi thẳng 是直走！',
+        '「Rẽ phải」是「右轉」，方向相反囉！',
+        '「Dừng lại」是「停下來/停止」，非轉彎指引。'
+      ],
       explainZh: 'Rẽ trái 是左轉，Rẽ phải 是右轉，Đi thẳng 是直走！',
       explainEn: '"Rẽ trái" = Turn left, "Rẽ phải" = Turn right, "Đi thẳng" = Go straight!'
     }
@@ -413,6 +437,12 @@ export const FAST_TRACK_DAYS = [
       optionsZh: ['A. Bác ơi!', 'B. Em ơi!', 'C. Tạm biệt!', 'D. Cảm ơn!'],
       optionsEn: ['A. Bác ơi!', 'B. Em ơi!', 'C. Tạm biệt!', 'D. Cảm ơn!'],
       answer: 1,
+      distractorExplanationsZh: [
+        '「Bác ơi!」是用於尊稱與父母年齡相當的長輩，對年輕店員使用顯得過於老成！',
+        '正確！「Em ơi!」是越南全境呼喚餐廳年輕服務生最親切有禮貌的經典口語！',
+        '「Tạm biệt!」是道別說「再見！」，不能用來叫服務生。',
+        '「Cảm ơn!」是「謝謝！」，非招呼前來用語。'
+      ],
       explainZh: '「Em ơi!」是越南全境呼喚餐廳年輕服務生最親切有禮貌的經典口語！',
       explainEn: '"Em ơi!" is the standard, friendly way to call waitstaff in Vietnam.'
     }
@@ -482,6 +512,12 @@ export const FAST_TRACK_DAYS = [
       optionsZh: ['A. 清算 / 結算', 'B. 談判 / 商討', 'C. 探險 / 尋找', 'D. 感謝 / 報恩'],
       optionsEn: ['A. Settle / Pay (清算)', 'B. Negotiate (談判)', 'C. Explore (探險)', 'D. Thank (感謝)'],
       answer: 0,
+      distractorExplanationsZh: [
+        '正確！「Thanh toán」正是漢字「清算」的音讀，現代越南語中廣泛表示「結帳、付款」！',
+        '談判是「Đàm phán」，無關結帳。',
+        '探險是「Thám hiểm」，字音不同。',
+        '感謝是「Cảm ơn」，非結算意。'
+      ],
       explainZh: '「Thanh toán」正是漢字「清算」的音讀，現代越南語中廣泛表示「結帳、付款」！',
       explainEn: '"Thanh toán" comes from Han-Viet "清算" and means to pay/settle the bill!'
     }
@@ -551,6 +587,12 @@ export const FAST_TRACK_DAYS = [
       optionsZh: ['A. Zalo', 'B. WeChat', 'C. KakaoTalk', 'D. WhatsApp'],
       optionsEn: ['A. Zalo', 'B. WeChat', 'C. KakaoTalk', 'D. WhatsApp'],
       answer: 0,
+      distractorExplanationsZh: [
+        '正確！Zalo 是越南人人必備的國民通訊 App，交換 Zalo 是在越南交友與商務聯繫的第一步！',
+        'WeChat 在越南不普遍，主要盛行於中國。',
+        'KakaoTalk 是韓國主流通訊軟體，非越南主流。',
+        'WhatsApp 在越南使用率遠低於 Zalo。'
+      ],
       explainZh: 'Zalo 是越南人人必備的國民通訊 App，交換 Zalo 是在越南交友與商務聯繫的第一步！',
       explainEn: 'Zalo is Vietnam\'s national messaging app, essential for connecting with locals!'
     }
@@ -1449,15 +1491,26 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
           ) : (
             <div style={{
               marginTop: '1rem',
-              padding: '0.9rem',
+              padding: '1rem',
               borderRadius: 'var(--radius-md)',
-              background: quizState.isCorrect ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.1)',
-              border: quizState.isCorrect ? '1px solid var(--brand-green)' : '1px solid #ef4444',
+              background: quizState.isCorrect ? 'rgba(16,185,129,0.1)' : 'rgba(239,68,68,0.08)',
+              border: quizState.isCorrect ? '1.5px solid var(--brand-green)' : '1.5px solid #ef4444',
               color: 'var(--text-primary)',
               fontSize: '0.92rem',
-              lineHeight: 1.5
+              lineHeight: 1.55
             }}>
-              <strong>{quizState.isCorrect ? '🎉 正確！' : '💡 解析：'}</strong> {learningMode === 'zh' ? currentDay.quiz.explainZh : currentDay.quiz.explainEn}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 800, fontSize: '1rem', color: quizState.isCorrect ? 'var(--brand-green)' : '#dc2626', marginBottom: '0.35rem' }}>
+                {quizState.isCorrect ? <CheckCircle2 size={18} /> : <AlertTriangle size={18} />}
+                <span>{quizState.isCorrect ? '回答正確！(+15 XP)' : '回答有誤，解析如下：'}</span>
+              </div>
+              {!quizState.isCorrect && currentDay.quiz.distractorExplanationsZh?.[quizState.selectedOption] && (
+                <div style={{ background: 'rgba(239, 68, 68, 0.08)', borderLeft: '3px solid #ef4444', padding: '0.45rem 0.75rem', borderRadius: '4px', marginBottom: '0.5rem', fontSize: '0.88rem', color: '#991b1b' }}>
+                  <strong>❌ 誤選診斷：</strong>{currentDay.quiz.distractorExplanationsZh[quizState.selectedOption]}
+                </div>
+              )}
+              <div>
+                <strong>💡 實戰生存指南：</strong>{learningMode === 'zh' ? currentDay.quiz.explainZh : currentDay.quiz.explainEn}
+              </div>
             </div>
           )}
         </div>

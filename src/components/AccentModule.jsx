@@ -148,6 +148,7 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       accent: 'south',
       audioText: 'vào',
       meaningZh: '進入 (Vào)',
+      acousticMistakeTipZh: '若你選了北越腔，請注意：北越發標準咬唇的 [v] 音；而錄音中「v」明顯弱化為滑音「y/d」(yào)，這是西貢腔典型特徵。',
       explainZh: '🌴 西貢腔特色：「v」常被發為「d/y」音，聽起來像「yào」。北越則發標準的清脆「v」音。'
     },
     {
@@ -155,6 +156,7 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       accent: 'north',
       audioText: 'dạ',
       meaningZh: '應答敬語 (Dạ)',
+      acousticMistakeTipZh: '若你選了南越腔，請注意：南越 dạ 讀滑音 [yạ]；錄音中清楚聽到了齒齦擦音「zạ」，這是河內標準音。',
       explainZh: '🏛️ 河內腔特色：「d」與「gi」完全合流為「z」音，聽起來像「zạ」。南越則發「y」音 (yạ)。'
     },
     {
@@ -162,6 +164,7 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       accent: 'south',
       audioText: 'trời',
       meaningZh: '天空 / 天氣 (Trời)',
+      acousticMistakeTipZh: '若你選了北越腔，請注意：北越 tr 與 ch 合流為不捲舌清音「chời」；錄音中舌尖明顯向硬腭捲起發「tr」，屬於西貢腔。',
       explainZh: '🌴 西貢腔特色：「tr」發清晰捲舌音 [ʈ]；河內腔則完全合流為不捲舌的「ch (z)」音。'
     },
     {
@@ -169,6 +172,7 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       accent: 'south',
       audioText: 'sữa',
       meaningZh: '牛奶 (Sữa - 跌聲)',
+      acousticMistakeTipZh: '若你選了北越腔，請注意：北越跌聲有非常劇烈的「喉門閉鎖頓音 (glottal stop)」；錄音中問跌合流，聲音平順無卡喉感，為典型西貢腔。',
       explainZh: '🌴 西貢腔特色：問聲 (Hỏi) 與跌聲 (Ngã) 合流為同一個聲調，無喉塞跳躍感。北越則有明顯的喉門中斷 (glottal stop)。'
     },
     {
@@ -176,6 +180,7 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       accent: 'north',
       audioText: 'rất',
       meaningZh: '非常 (Rất)',
+      acousticMistakeTipZh: '若你選了南越腔，請注意：南越 rất 讀閃音或捲舌 [r]；錄音中聲母是清脆的「z (zất)」，為河內合流音。',
       explainZh: '🏛️ 河內腔特色：「r」讀為清脆「z」音 (zất)；南越讀閃音或捲舌 [r/ʐ] 音。'
     },
     {
@@ -183,6 +188,7 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       accent: 'north',
       audioText: 'ngủ',
       meaningZh: '睡覺 (Ngủ - 問聲)',
+      acousticMistakeTipZh: '若你選了南越腔，請注意：南越問聲平緩微降；錄音中問聲有鮮明的「先降後微揚 (31-12)」飽滿調值，為河內廣播標準音。',
       explainZh: '🏛️ 河內腔特色：問聲降後微揚 (31-12)，調值飽滿；南越問聲則平緩微降。'
     },
     {
@@ -190,6 +196,7 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       accent: 'south',
       audioText: 'máy lạnh',
       meaningZh: '冷氣機 (Máy lạnh)',
+      acousticMistakeTipZh: '若你選了北越腔，請注意：北方家電稱「điều hòa」(調節空氣)；南方才會叫「máy lạnh」(冷機)。',
       explainZh: '🌴 西貢腔/南越慣用語：南方稱「máy lạnh」（冷機）；河內與北部則稱「điều hòa」（調節空氣之機）。'
     },
     {
@@ -197,6 +204,7 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       accent: 'north',
       audioText: 'thìa',
       meaningZh: '湯匙 / 杓子 (Thìa)',
+      acousticMistakeTipZh: '若你選了南越腔，請注意：南方餐廳必定稱「muỗng」；北方河內喝湯才稱「thìa」。',
       explainZh: '🏛️ 河內腔/北越慣用語：北方喝湯用「thìa」；南方西貢餐廳則必定稱「muỗng」。'
     },
     {
@@ -204,7 +212,32 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
       accent: 'south',
       audioText: 'bắp',
       meaningZh: '玉米 (Bắp)',
+      acousticMistakeTipZh: '若你選了北越腔，請注意：北方叫「ngô」；南方叫「bắp」（夜市經典美食 bắp xào 炒玉米）。',
       explainZh: '🌴 南越用語：南部夜市叫「bắp xào」（炒玉米）；河內街頭招牌則寫「ngô nướng」（烤玉米）。'
+    },
+    {
+      word: 'xe hơi',
+      accent: 'south',
+      audioText: 'xe hơi',
+      meaningZh: '汽車 / 私家車 (Xe hơi)',
+      acousticMistakeTipZh: '若你選了北越腔，請注意：北越普遍稱汽車為「ô tô」(源自法文 auto)；南方西貢則習慣稱「xe hơi」。',
+      explainZh: '🌴 南越用語：南方稱私家轎車為「xe hơi」（汽機車）；北方河內公文與日常則高頻稱「ô tô」。'
+    },
+    {
+      word: 'bát',
+      accent: 'north',
+      audioText: 'bát',
+      meaningZh: '碗 / 飯碗 (Bát)',
+      acousticMistakeTipZh: '若你選了南越腔，請注意：南越用餐稱飯碗為「chén」、大碗為「tô」；北方河內不論大小碗一律稱「bát」。',
+      explainZh: '🏛️ 北越用語：北方盛飯喝湯都說「bát cơm, bát canh」；南方西貢人則說「chén cơm, tô canh」。'
+    },
+    {
+      word: 'dù',
+      accent: 'south',
+      audioText: 'dù',
+      meaningZh: '雨傘 (Cây dù)',
+      acousticMistakeTipZh: '若你選了北越腔，請注意：錄音中聲母讀滑音「yù」，且詞彙為 dù；北方稱雨傘為「ô / cái ô」且發「z」音。',
+      explainZh: '🌴 南越語音與詞彙雙重特徵：南方稱雨傘為「cây dù」（d發滑音y）；北方則稱「cái ô」。'
     }
   ];
 
@@ -978,11 +1011,25 @@ export const AccentModule = ({ selectedAccent, setSelectedAccent }) => {
               animation: 'floatUp 0.3s ease-out'
             }}>
               <div style={{ fontWeight: 800, color: accentQuizSelected === currentAccentQuiz.accent ? 'var(--brand-green)' : '#ef4444', marginBottom: '0.4rem', fontSize: '1.05rem' }}>
-                {accentQuizSelected === currentAccentQuiz.accent ? '✓ 恭喜答對！聽力非常敏銳！' : '✕ 答錯囉！'}
+                {accentQuizSelected === currentAccentQuiz.accent ? '✓ 恭喜答對！聽力非常敏銳！' : '✕ 辨析有誤！'}
                 （正確為：{currentAccentQuiz.accent === 'north' ? '🏛️ 河內北越腔' : '🌴 西貢南越腔'}）
               </div>
+              {accentQuizSelected !== currentAccentQuiz.accent && currentAccentQuiz.acousticMistakeTipZh && (
+                <div style={{
+                  background: 'rgba(239, 68, 68, 0.08)',
+                  borderLeft: '3px solid #ef4444',
+                  padding: '0.55rem 0.85rem',
+                  borderRadius: '4px',
+                  marginBottom: '0.65rem',
+                  fontSize: '0.88rem',
+                  color: '#991b1b',
+                  lineHeight: 1.5
+                }}>
+                  <strong>💡 誤判聲學診斷：</strong>{currentAccentQuiz.acousticMistakeTipZh}
+                </div>
+              )}
               <p style={{ margin: 0, fontSize: '0.92rem', color: 'var(--text-secondary)', lineHeight: 1.55 }}>
-                {currentAccentQuiz.explainZh}
+                <strong>🎙️ 方言語音特徵：</strong>{currentAccentQuiz.explainZh}
               </p>
             </div>
           )}
