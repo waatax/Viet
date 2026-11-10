@@ -371,3 +371,13 @@
 .kg-practical button[aria-pressed="true"] { border: 2px solid var(--brand-green); }
 .kg-practical small { display: block; }
 
+
+/* Touch-friendly chapter controls and stable anchors at every viewport. */
+.kg-nav-pill { min-height: 44px; box-sizing: border-box; }
+.knowledge-guide [id] { scroll-margin-top: 160px; }
+.knowledge-guide .knowledge-sprint { min-width: 0; }
+.knowledge-guide .sprint-body { overflow-wrap: anywhere; }
+.knowledge-guide .sprint-body:focus { outline: none; }
+.knowledge-guide .sprint-body:focus-visible { outline: 3px solid #bd8837; outline-offset: -3px; }
+@media (prefers-reduced-motion: reduce) { .kg-nav-pill { transition: none; }.kg-nav-pill:hover { transform: none; } }
+@media (max-width: 380px) { .kg-flow ol { grid-template-columns: 1fr; }.sprint-actions button { flex-basis: 100%; }.sprint-heading { padding: 14px; }.sprint-body { padding: 14px; } }

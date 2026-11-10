@@ -425,3 +425,6 @@ fs.writeFileSync(
   'utf8'
 );
 console.log(`\nWrote ${missingList.length} items to scripts/missing_audio_list.json`);
+
+// A missing asset is a failed audit, not a successful report.
+if (missingList.length) process.exitCode = 1;

@@ -1,11 +1,12 @@
+import HomeLearningHub from './components/HomeLearningHub';
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { ArrowUp, Settings2, Sparkles, Trophy, Award, X, Target, Activity } from 'lucide-react';
+import { BookOpen, Gamepad2, Home, ChevronRight, ArrowUp, Settings2, Sparkles, Trophy, Award, X, Target, Activity } from 'lucide-react';
 import { Navbar } from './components/Navbar';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { useLanguage } from './context/LanguageContext';
 import { gamificationEngine } from './utils/gamificationEngine';
 import { audioEngine } from './services/audioEngine';
-import { MODULE_IDS } from './config/navigation';
+import { MODULE_IDS, ALL_NAV_ITEMS } from './config/navigation';
 import { APP_VERSION, BUILD_REVISION } from './config/release';
 
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
@@ -38,6 +39,13 @@ const ChapterFinderModal = lazyNamed(() => import('./components/ChapterFinderMod
 const AudioDiagnosticModal = lazyNamed(() => import('./components/AudioDiagnosticModal'), 'default');
 const BookmarksModal = lazyNamed(() => import('./components/BookmarksModal'), 'default');
 
+const readPreference = (key, fallback) => {
+  try { return localStorage.getItem(key) || fallback; } catch { return fallback; }
+};
+const writePreference = (key, value) => {
+  try { localStorage.setItem(key, value); } catch { /* Learning remains available without storage. */ }
+};
+
 const getModuleFromHash = () => {
   const moduleId = window.location.hash.replace(/^#\/?/, '');
   if (moduleId === 'quest') return 'quest';
@@ -49,17 +57,17 @@ export function App() {
 
   // Theme state: light or dark
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('viet_theme') || 'dark';
+    return readPreference('viet_theme', 'dark');
   });
 
   // Font size state: small, normal, large, xlarge
   const [fontSize, setFontSize] = useState(() => {
-    return localStorage.getItem('viet_fontsize') || 'normal';
+    return readPreference('viet_fontsize', 'normal');
   });
 
   // Accent preference: north or south
   const [selectedAccent, setSelectedAccent] = useState(() => {
-    return localStorage.getItem('viet_accent') || 'north';
+    return readPreference('viet_accent', 'north');
   });
 
   // Speech rate preference: 1.0 or 0.75
@@ -72,6 +80,7 @@ export function App() {
 
   // Active module tab
   const [activeTab, setActiveTabState] = useState(getModuleFromHash);
+  const [moduleView, setModuleView] = useState('practice');
 
   // Show Back To Top Button
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -99,18 +108,18 @@ export function App() {
   // Effect: Sync Theme attribute to html tag
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('viet_theme', theme);
+    writePreference('viet_theme', theme);
   }, [theme]);
 
   // Effect: Sync Font Size attribute to html tag
   useEffect(() => {
     document.documentElement.setAttribute('data-font-size', fontSize);
-    localStorage.setItem('viet_fontsize', fontSize);
+    writePreference('viet_fontsize', fontSize);
   }, [fontSize]);
 
   // Effect: Sync Accent preference
   useEffect(() => {
-    localStorage.setItem('viet_accent', selectedAccent);
+    writePreference('viet_accent', selectedAccent);
   }, [selectedAccent]);
 
   // Effect: Persist Stats
@@ -141,7 +150,12 @@ export function App() {
   }, []);
 
   useEffect(() => {
-    const handleHashChange = () => setActiveTabState(getModuleFromHash());
+    const handleHashChange = () => {
+      const id = window.location.hash.replace(/^#\/?/, '');
+      if (id === 'quest' || MODULE_IDS.includes(id)) {
+        setActiveTabState(id);
+      }
+    };
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
@@ -179,6 +193,7 @@ export function App() {
   const setActiveTab = (moduleId) => {
     const nextModule = (moduleId === 'quest' || MODULE_IDS.includes(moduleId)) ? moduleId : 'path';
     setActiveTabState(nextModule);
+    setModuleView('practice');
     const nextHash = `#/${nextModule}`;
     if (window.location.hash !== nextHash) window.location.hash = nextHash;
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -284,9 +299,12 @@ export function App() {
       <main id="main-content" className="main-content" tabIndex="-1">
         <ErrorBoundary>
           <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
-            {activeTab !== 'path' && activeTab !== 'quest' && (
-              <div className="kg-shortcut"><button type="button" onClick={() => document.getElementById(`knowledge-${activeTab}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })}>本課知識圖解與檢核 ↓</button></div>
-            )}
+            {activeTab !== 'path' && activeTab !== 'quest' && <nav className="module-workspace-nav" aria-label="本課學習工作台">
+              <div className="workspace-location"><button onClick={() => setActiveTab('path')}><Home size={17} aria-hidden="true" /> 學習首頁</button><ChevronRight size={15} aria-hidden="true" /><span>{t(ALL_NAV_ITEMS.find(item => item.id === activeTab)?.labelKey || 'tabs.path')}</span></div>
+              <div className="workspace-options"><button aria-pressed={moduleView === 'practice'} onClick={() => { audioEngine.stop(); setModuleView('practice'); }}><Gamepad2 size={18} aria-hidden="true" /> 互動練習</button><button aria-pressed={moduleView === 'knowledge'} onClick={() => { audioEngine.stop(); setModuleView('knowledge'); }}><BookOpen size={18} aria-hidden="true" /> 知識圖解・3 分鐘練習</button></div>
+            </nav>}
+            {activeTab === 'path' && <HomeLearningHub onNavigate={setActiveTab} onStartStudy={id => { setActiveTab(id); setModuleView('knowledge'); }} />}
+            {(moduleView === 'practice' || activeTab === 'path' || activeTab === 'quest') && <>
             {activeTab === 'path' && (
               <LearningPathModule
                 setActiveTab={setActiveTab}
@@ -321,7 +339,8 @@ export function App() {
             {activeTab === 'shadowing' && <ShadowingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'sentence' && <SentenceBuilderModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'tonegame' && <ToneGameModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
-            <KnowledgeGuide key={activeTab} moduleId={activeTab} selectedAccent={selectedAccent} onSelectChapter={handleSelectChapter} setActiveTab={setActiveTab} />
+            </>}
+            {(moduleView === 'knowledge' || activeTab === 'path') && <KnowledgeGuide key={activeTab} moduleId={activeTab} selectedAccent={selectedAccent} onSelectChapter={handleSelectChapter} setActiveTab={setActiveTab} />}
           </Suspense>
         </ErrorBoundary>
       </main>

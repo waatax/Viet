@@ -1026,3 +1026,12 @@
     min-height: 36px;
   }
 }
+
+.audio-downloads { margin: 16px 0; padding: 16px; border: 1px solid var(--border-color, #c9d9d1); border-radius: 16px; }
+.audio-downloads summary { cursor: pointer; font-weight: 700; min-height: 44px; display: list-item; padding: 10px 0; }
+.audio-downloads p { font-size: .86rem; line-height: 1.8; }
+.audio-downloads ol { margin: 0; padding-left: 24px; max-height: 380px; overflow: auto; }
+.audio-downloads li { padding: 14px 8px; border-bottom: 1px solid #dce6df; overflow-wrap: anywhere; }
+.audio-downloads small { display: block; line-height: 1.8; }
+.audio-download-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.audio-download-links a { min-height: 44px; display: inline-flex; align-items: center; color: #176958; background: #eef7f0; border-radius: 8px; padding: 0 12px; margin-top: 8px; font-weight: 600; }

@@ -1,3 +1,4 @@
+import AudioDownloads from './AudioDownloads';
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import {
   Play,
@@ -643,7 +644,7 @@ export const HomeConversationStudio = ({
                 checked={isAutoCache}
                 onChange={handleToggleAutoCache}
               />
-              <span>{learningMode === 'zh' ? '播過即存離線' : 'Auto-cache offline'}</span>
+              <span>{learningMode === 'zh' ? '播過即快取' : 'Auto-cache offline'}</span>
             </label>
 
             {/* One-Click Preload Download Button */}
@@ -666,7 +667,7 @@ export const HomeConversationStudio = ({
               ) : (
                 <>
                   <Download size={14} />
-                  <span>{learningMode === 'zh' ? `一鍵下載離線 (${cacheStatus.cachedCount}/${cacheStatus.total})` : `Download (${cacheStatus.cachedCount}/${cacheStatus.total})`}</span>
+                  <span>{learningMode === 'zh' ? `儲存瀏覽器快取 (${cacheStatus.cachedCount}/${cacheStatus.total})` : `Download (${cacheStatus.cachedCount}/${cacheStatus.total})`}</span>
                 </>
               )}
             </button>
@@ -675,6 +676,8 @@ export const HomeConversationStudio = ({
       </div>
 
       <p role="status" className="studio-voice-note">{!offlineAudioService.isSupported ? '目前瀏覽器不支援離線儲存，仍可線上播放。' : downloadMessage}</p>
+
+      <AudioDownloads lines={dialogueLines} accent={selectedAccent} />
 
       {/* 6. Sentence-by-Sentence Interactive Card Deck */}
       <div className="dialogue-card-deck" ref={containerRef}>

@@ -19,8 +19,8 @@ assert.equal(knowledgeGuides.accent.stage, 1, 'Accent orientation begins in stag
 for (const [id, g] of Object.entries(knowledgeGuides)) {
   for (const key of ['title', 'goal', 'trap', 'task', 'question', 'explain']) assert.ok(g[key]?.trim(), `${id}: ${key}`);
   assert.ok(g.stage >= 1 && g.stage <= 7);
-  assert.equal(g.rows.length, 9, `${id}: nine knowledge points (basic, applied, advanced)`);
-  assert.deepEqual(g.tiers, ['basic', 'basic', 'basic', 'applied', 'applied', 'applied', 'advanced', 'advanced', 'advanced'], `${id}: tiers`);
+  assert.equal(g.rows.length, 10, `${id}: ten knowledge points with transfer extension`);
+  assert.deepEqual(g.tiers, ['basic', 'basic', 'basic', 'applied', 'applied', 'applied', 'advanced', 'advanced', 'advanced', 'advanced'], `${id}: tiers`);
   assert.ok(knowledgeCanDo[id]?.length >= 3, `${id}: can-do goals`);
   assert.ok(knowledgeVisuals[id]?.title && knowledgeVisuals[id]?.note, `${id}: lesson chart with caption and note`);
   const [listenVi, listenOptions, listenAnswer, listenWhy] = listeningChecks[id] || [];

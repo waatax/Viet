@@ -1,3 +1,4 @@
+import { bridgeDetails } from './knowledgeBridge.js';
 /**
  * Explicit Knowledge Point Details & Micro-Infographics Database (全量 180 知識點架構庫)
  * 每個知識點均配備：
@@ -14,24 +15,24 @@ export const conceptDetails = {
     {
       "concept": "信：語意正確",
       "syntax": "[S] + chưa + [V] (尚未) vs [S] + không + [V] (否定)",
-      "usage": "chưa 標記尚未發生，保留後續發生的期待與禮貌緩衝空間；不可與 không（決絕否定、無意願）混淆。在問候「Ăn cơm chưa?」時，回答「Dạ chưa」合乎禮節。",
-      "trap": "直覺將中文的「我不吃」套入「Tôi không ăn」，在長輩或初次見面社交場合顯得生硬突兀。",
-      "mnemonic": "「chưa 留後步，không 斷退路；初學翻譯，信字為基。」",
+      "usage": "chưa 標記尚未發生，保留後續發生的期待與禮貌緩衝空間；不可與 không（否定，依語境判斷）混淆。在問候「Ăn cơm chưa?」時，回答「Dạ chưa」合乎禮節。",
+      "trap": "不要把「還沒吃」誤說成「不吃」；否定的禮貌程度取決於稱謂、語調與上下文。",
+      "mnemonic": "「chưa 是尚未，không 是否定；初學翻譯，信字為基。」",
       "infograph": {
         "type": "contrast",
-        "title": "語意狀態分水嶺：chưa（留有餘地） vs không（絕對否定）",
+        "title": "語意狀態分水嶺：chưa（尚未） vs không（否定）",
         "columns": [
           {
             "label": "chưa (尚未)",
             "status": "保留進行時序",
             "example": "Tôi chưa ăn.",
-            "note": "隱含：等等會吃，禮貌婉轉"
+            "note": "表示截至當下尚未吃；未保證之後一定會吃"
           },
           {
             "label": "không (不/沒有)",
-            "status": "狀態完全封閉",
+            "status": "一般否定",
             "example": "Tôi không ăn.",
-            "note": "隱含：斷然拒絕，語氣決絕"
+            "note": "否定吃這個動作；是否拒絕及語氣強弱須看語境"
           }
         ]
       }
@@ -4908,3 +4909,5 @@ export const conceptDetails = {
     }
   ]
 };
+
+for (const [id, detail] of Object.entries(bridgeDetails)) conceptDetails[id].push(detail);

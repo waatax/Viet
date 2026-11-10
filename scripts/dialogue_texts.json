@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-05T02:20:23.862Z",
-  "totalLines": 2039,
+  "generatedAt": "2026-11-10T12:47:26.884Z",
+  "totalLines": 2161,
   "zh": [
     {
       "raw": "我想去越南旅遊，你能介紹幾個城市給我嗎？",
@@ -3633,6 +3633,41 @@
       "source": "topic-survival:numbers_scale"
     },
     {
+      "raw": "我來自台灣。",
+      "cleaned": "我來自台灣。",
+      "source": "fasttrack-phrases:day1"
+    },
+    {
+      "raw": "請給我菜單。",
+      "cleaned": "請給我菜單。",
+      "source": "fasttrack-phrases:day2"
+    },
+    {
+      "raw": "太貴了，算便宜一點嘛！",
+      "cleaned": "太貴了，算便宜一點嘛！",
+      "source": "fasttrack-phrases:day3"
+    },
+    {
+      "raw": "大哥，讓我在這裡下車。",
+      "cleaned": "大哥，讓我在這裡下車。",
+      "source": "fasttrack-phrases:day4"
+    },
+    {
+      "raw": "我該怎麼稱呼您呢？",
+      "cleaned": "我該怎麼稱呼您呢？",
+      "source": "fasttrack-phrases:day5"
+    },
+    {
+      "raw": "這裡可以刷卡嗎？",
+      "cleaned": "這裡可以刷卡嗎？",
+      "source": "fasttrack-phrases:day6"
+    },
+    {
+      "raw": "這個週末你有空嗎？",
+      "cleaned": "這個週末你有空嗎？",
+      "source": "fasttrack-phrases:day7"
+    },
+    {
       "raw": "請問展覽主辦方：我們 A12 號攤位在展館的哪一個區域？",
       "cleaned": "請問展覽主辦方：我們 A12 號攤位在展館的哪一個區域？",
       "source": "lesson:biz_trade_show:booth_setup"
@@ -3848,11 +3883,6 @@
       "source": "phrases:問候與禮貌 / Greetings"
     },
     {
-      "raw": "我來自台灣。",
-      "cleaned": "我來自台灣。",
-      "source": "phrases:問候與禮貌 / Greetings"
-    },
-    {
       "raw": "抱歉打擾你了。",
       "cleaned": "抱歉打擾你了。",
       "source": "phrases:問候與禮貌 / Greetings"
@@ -4053,6 +4083,36 @@
       "source": "phrases:問候與禮貌 / Greetings"
     },
     {
+      "raw": "你最近怎麼樣？",
+      "cleaned": "你最近怎麼樣？",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "好久不見了！",
+      "cleaned": "好久不見了！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "對不起，我不是故意的。",
+      "cleaned": "對不起，我不是故意的。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "不客氣，別客套！",
+      "cleaned": "不客氣，別客套！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "祝你一路平安！",
+      "cleaned": "祝你一路平安！",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
+      "raw": "下週再見喔。",
+      "cleaned": "下週再見喔。",
+      "source": "phrases:問候與禮貌 / Greetings"
+    },
+    {
       "raw": "給我一杯外帶冰奶咖啡。",
       "cleaned": "給我一杯外帶冰奶咖啡。",
       "source": "phrases:咖啡與飲品 / Cafe & Drinks"
@@ -4250,6 +4310,31 @@
     {
       "raw": "本店 24 小時全天候營業。",
       "cleaned": "本店 24 小時全天候營業。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "請給我一杯白咖啡，少甜喔。",
+      "cleaned": "請給我一杯白咖啡，少甜喔。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "這裡有鹽咖啡嗎？",
+      "cleaned": "這裡有鹽咖啡嗎？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "請再給我一些冰塊。",
+      "cleaned": "請再給我一些冰塊。",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "這裡的冰茶是免費的嗎？",
+      "cleaned": "這裡的冰茶是免費的嗎？",
+      "source": "phrases:咖啡與飲品 / Cafe & Drinks"
+    },
+    {
+      "raw": "Wi-Fi 密碼是什麼？",
+      "cleaned": "Wi-Fi 密碼是什麼？",
       "source": "phrases:咖啡與飲品 / Cafe & Drinks"
     },
     {
@@ -4525,6 +4610,41 @@
     {
       "raw": "請幫我送到門口 / 放在一樓櫃檯桌上喔。",
       "cleaned": "請幫我送到門口 、 放在一樓櫃檯桌上喔。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "哪道是店裡的招牌菜？",
+      "cleaned": "哪道是店裡的招牌菜？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請給我一份排骨豬皮絲蒸蛋碎米飯。",
+      "cleaned": "請給我一份排骨豬皮絲蒸蛋碎米飯。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請不要放香菜，我不敢吃。",
+      "cleaned": "請不要放香菜，我不敢吃。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這道菜要配什麼吃？",
+      "cleaned": "這道菜要配什麼吃？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "這份兩個人吃夠嗎？",
+      "cleaned": "這份兩個人吃夠嗎？",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "剩下的幫我打包帶走喔。",
+      "cleaned": "剩下的幫我打包帶走喔。",
+      "source": "phrases:餐飲與點餐 / Dining"
+    },
+    {
+      "raw": "請再給我一碗飯。",
+      "cleaned": "請再給我一碗飯。",
       "source": "phrases:餐飲與點餐 / Dining"
     },
     {
@@ -4813,6 +4933,36 @@
       "source": "phrases:購物與殺價 / Shopping"
     },
     {
+      "raw": "這個有其他顏色嗎？",
+      "cleaned": "這個有其他顏色嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我可以試穿嗎？",
+      "cleaned": "我可以試穿嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這是最後的價格了嗎？",
+      "cleaned": "這是最後的價格了嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "我買很多，再便宜一點吧。",
+      "cleaned": "我買很多，再便宜一點吧。",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "有發票（收據）嗎？",
+      "cleaned": "有發票 嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
+      "raw": "這個商品有保固嗎？",
+      "cleaned": "這個商品有保固嗎？",
+      "source": "phrases:購物與殺價 / Shopping"
+    },
+    {
       "raw": "我想叫一輛四人座 Grab 汽車。",
       "cleaned": "我想叫一輛四人座 Grab 汽車。",
       "source": "phrases:交通與出行 / Grab & Transport"
@@ -5098,6 +5248,36 @@
       "source": "phrases:交通與出行 / Grab & Transport"
     },
     {
+      "raw": "你騎慢一點，我有點怕。",
+      "cleaned": "你騎慢一點，我有點怕。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "從這裡到機場要多久？",
+      "cleaned": "從這裡到機場要多久？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "走這條路會塞車嗎？",
+      "cleaned": "走這條路會塞車嗎？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "請在飯店門口前停。",
+      "cleaned": "請在飯店門口前停。",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "幾號公車到濱城？",
+      "cleaned": "幾號公車到濱城？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
+      "raw": "司機大哥，你的車牌號碼是多少？",
+      "cleaned": "司機大哥，你的車牌號碼是多少？",
+      "source": "phrases:交通與出行 / Grab & Transport"
+    },
+    {
       "raw": "我想辦理入住登記手續。",
       "cleaned": "我想辦理入住登記手續。",
       "source": "phrases:飯店與住宿 / Hotel"
@@ -5298,6 +5478,36 @@
       "source": "phrases:飯店與住宿 / Hotel"
     },
     {
+      "raw": "我可以晚一點退房嗎？",
+      "cleaned": "我可以晚一點退房嗎？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我房間的冷氣壞了。",
+      "cleaned": "我房間的冷氣壞了。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "我想把行李寄放在櫃檯。",
+      "cleaned": "我想把行李寄放在櫃檯。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "早餐幾點開始供應？",
+      "cleaned": "早餐幾點開始供應？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "請幫我打掃房間。",
+      "cleaned": "請幫我打掃房間。",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
+      "raw": "這間房有窗戶嗎？",
+      "cleaned": "這間房有窗戶嗎？",
+      "source": "phrases:飯店與住宿 / Hotel"
+    },
+    {
       "raw": "我想辦理登機報到與行李託運手續。",
       "cleaned": "我想辦理登機報到與行李託運手續。",
       "source": "phrases:機場與出入境 / Airport & Visa"
@@ -5473,6 +5683,31 @@
       "source": "phrases:機場與出入境 / Airport & Visa"
     },
     {
+      "raw": "我想坐靠窗的位子。",
+      "cleaned": "我想坐靠窗的位子。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我的行李遺失了。",
+      "cleaned": "我的行李遺失了。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "我來越南旅遊，停留十天。",
+      "cleaned": "我來越南旅遊，停留十天。",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "這家航空公司的報到櫃檯在哪裡？",
+      "cleaned": "這家航空公司的報到櫃檯在哪裡？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
+      "raw": "班機有延誤嗎？",
+      "cleaned": "班機有延誤嗎？",
+      "source": "phrases:機場與出入境 / Airport & Visa"
+    },
+    {
       "raw": "我想體驗越式草本養生洗頭服務。",
       "cleaned": "我想體驗越式草本養生洗頭服務。",
       "source": "phrases:放鬆與水療 / Hair Spa & Massage"
@@ -5645,6 +5880,31 @@
     {
       "raw": "祝貴 Spa 店天天高朋滿座、客源不斷！",
       "cleaned": "祝貴 Spa 店天天高朋滿座、客源不斷！",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "請輕一點喔。",
+      "cleaned": "請輕一點喔。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "這裡有點痠，可以再用力一點嗎？",
+      "cleaned": "這裡有點痠，可以再用力一點嗎？",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "養生洗頭一次多少錢？",
+      "cleaned": "養生洗頭一次多少錢？",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "我想剪短一點，保留瀏海。",
+      "cleaned": "我想剪短一點，保留瀏海。",
+      "source": "phrases:放鬆與水療 / Hair Spa & Massage"
+    },
+    {
+      "raw": "小費有算進帳單了嗎？",
+      "cleaned": "小費有算進帳單了嗎？",
       "source": "phrases:放鬆與水療 / Hair Spa & Massage"
     },
     {
@@ -5918,6 +6178,36 @@
       "source": "phrases:商務與職場 / Business"
     },
     {
+      "raw": "我今天內把報價單用 email 寄給您。",
+      "cleaned": "我今天內把報價單用 email 寄給您。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我們把重點確認一下吧。",
+      "cleaned": "我們把重點確認一下吧。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "報告的截止日是星期幾？",
+      "cleaned": "報告的截止日是星期幾？",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "抱歉，可以再說一次那個數字嗎？",
+      "cleaned": "抱歉，可以再說一次那個數字嗎？",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "我跟主管確認後再回覆您。",
+      "cleaned": "我跟主管確認後再回覆您。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
+      "raw": "謝謝您今天撥空開會。",
+      "cleaned": "謝謝您今天撥空開會。",
+      "source": "phrases:商務與職場 / Business"
+    },
+    {
       "raw": "我覺得全身非常疲憊乏力，而且發高燒。",
       "cleaned": "我覺得全身非常疲憊乏力，而且發高燒。",
       "source": "phrases:醫療與急難 / Pharmacy & Emergency"
@@ -6133,6 +6423,36 @@
       "source": "phrases:醫療與急難 / Pharmacy & Emergency"
     },
     {
+      "raw": "我從昨晚開始發燒。",
+      "cleaned": "我從昨晚開始發燒。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "這藥是飯前還是飯後吃？",
+      "cleaned": "這藥是飯前還是飯後吃？",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我拉肚子，有藥嗎？",
+      "cleaned": "我拉肚子，有藥嗎？",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "一天吃幾次，每次幾顆？",
+      "cleaned": "一天吃幾次，每次幾顆？",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "我有旅遊保險。",
+      "cleaned": "我有旅遊保險。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
+      "raw": "請幫我叫一台計程車去醫院。",
+      "cleaned": "請幫我叫一台計程車去醫院。",
+      "source": "phrases:醫療與急難 / Pharmacy & Emergency"
+    },
+    {
       "raw": "我想尋找租賃一間高樓層的高級公寓套房。",
       "cleaned": "我想尋找租賃一間高樓層的高級公寓套房。",
       "source": "phrases:居家與租屋 / Apartment & Living"
@@ -6330,6 +6650,31 @@
     {
       "raw": "巷口就有傳統早市菜市場，買新鮮蔬果非常便利。",
       "cleaned": "巷口就有傳統早市菜市場，買新鮮蔬果非常便利。",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "水電費另計還是已經包含？",
+      "cleaned": "水電費另計還是已經包含？",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "租約最少要幾個月？",
+      "cleaned": "租約最少要幾個月？",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "水槽堵住了，你可以過來幫我修嗎？",
+      "cleaned": "水槽堵住了，你可以過來幫我修嗎？",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "押金是幾個月？",
+      "cleaned": "押金是幾個月？",
+      "source": "phrases:居家與租屋 / Apartment & Living"
+    },
+    {
+      "raw": "垃圾車星期幾晚上來？",
+      "cleaned": "垃圾車星期幾晚上來？",
       "source": "phrases:居家與租屋 / Apartment & Living"
     },
     {
@@ -6533,6 +6878,41 @@
       "source": "phrases:旅遊與休閒 / Tourism & Travel"
     },
     {
+      "raw": "門票一個人多少錢？",
+      "cleaned": "門票一個人多少錢？",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "博物館幾點關門？",
+      "cleaned": "博物館幾點關門？",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "有下龍灣一日遊嗎？",
+      "cleaned": "有下龍灣一日遊嗎？",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "你可以幫我拍張照嗎？",
+      "cleaned": "你可以幫我拍張照嗎？",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "這附近有看夕陽的好地方嗎？",
+      "cleaned": "這附近有看夕陽的好地方嗎？",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "這個季節去大叻會冷嗎？",
+      "cleaned": "這個季節去大叻會冷嗎？",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
+      "raw": "走路上山的路難走嗎？",
+      "cleaned": "走路上山的路難走嗎？",
+      "source": "phrases:旅遊與休閒 / Tourism & Travel"
+    },
+    {
       "raw": "週末到了，快約好兄弟們一起去路邊喝鮮啤酒！",
       "cleaned": "週末到了，快約好兄弟們一起去路邊喝鮮啤酒！",
       "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
@@ -6705,6 +7085,31 @@
     {
       "raw": "敬祝全體好兄弟姊妹們身體健康壯如牛、事業大發達！",
       "cleaned": "敬祝全體好兄弟姊妹們身體健康壯如牛、事業大發達！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "我喝半杯就好喔。",
+      "cleaned": "我喝半杯就好喔。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "今天我開車，請容我不喝酒。",
+      "cleaned": "今天我開車，請容我不喝酒。",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "再來一箱啤酒！",
+      "cleaned": "再來一箱啤酒！",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "這裡哪道下酒菜最好吃？",
+      "cleaned": "這裡哪道下酒菜最好吃？",
+      "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
+    },
+    {
+      "raw": "隨意喝喔，不勉強。",
+      "cleaned": "隨意喝喔，不勉強。",
       "source": "phrases:熱炒與乾杯 / Nightlife & Cheers"
     },
     {
@@ -6908,6 +7313,31 @@
       "source": "phrases:情感與俗諺 / Idioms & Slang"
     },
     {
+      "raw": "一匹馬病了，整個馬廄都不吃草。",
+      "cleaned": "一匹馬病了，整個馬廄都不吃草。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "跟老師學不如跟朋友學。",
+      "cleaned": "跟老師學不如跟朋友學。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "慢慢來，粥總會煮爛的。",
+      "cleaned": "慢慢來，粥總會煮爛的。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "說起來容易，做起來難。",
+      "cleaned": "說起來容易，做起來難。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
+      "raw": "慢而穩。",
+      "cleaned": "慢而穩。",
+      "source": "phrases:情感與俗諺 / Idioms & Slang"
+    },
+    {
       "raw": "最近你身邊的事一切都還順利吧？",
       "cleaned": "最近你身邊的事一切都還順利吧？",
       "source": "phrases:社交閒聊與生活 / Small Talk"
@@ -7025,6 +7455,31 @@
     {
       "raw": "路邊攤咖啡與冰茶是越南極具代表性的道地文化！",
       "cleaned": "路邊攤咖啡與冰茶是越南極具代表性的道地文化！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "你有空時喜歡做什麼？",
+      "cleaned": "你有空時喜歡做什麼？",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "你的老家在哪裡？",
+      "cleaned": "你的老家在哪裡？",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "你住西貢很久了嗎？",
+      "cleaned": "你住西貢很久了嗎？",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "今天天氣好舒服！",
+      "cleaned": "今天天氣好舒服！",
+      "source": "phrases:社交閒聊與生活 / Small Talk"
+    },
+    {
+      "raw": "上個週末你去哪裡玩？",
+      "cleaned": "上個週末你去哪裡玩？",
       "source": "phrases:社交閒聊與生活 / Small Talk"
     },
     {
@@ -7873,6 +8328,11 @@
       "source": "knowledge:path"
     },
     {
+      "raw": "我懂這個詞，但還沒懂整句。",
+      "cleaned": "我懂這個詞，但還沒懂整句。",
+      "source": "knowledge:path"
+    },
+    {
       "raw": "不同字母，不能省略附加符號。",
       "cleaned": "不同字母，不能省略附加符號。",
       "source": "knowledge:alphabet"
@@ -7915,6 +8375,11 @@
     {
       "raw": "車站／椅子／聽",
       "cleaned": "車站、椅子、聽",
+      "source": "knowledge:alphabet"
+    },
+    {
+      "raw": "我喜歡學越南文。",
+      "cleaned": "我喜歡學越南文。",
       "source": "knowledge:alphabet"
     },
     {
@@ -7963,6 +8428,11 @@
       "source": "knowledge:tonegame"
     },
     {
+      "raw": "這張桌子很髒。",
+      "cleaned": "這張桌子很髒。",
+      "source": "knowledge:tonegame"
+    },
+    {
       "raw": "哥哥／姊姊 ↔ 晚輩",
       "cleaned": "哥哥、姊姊 ↔ 晚輩",
       "source": "knowledge:pronoun"
@@ -8003,6 +8473,11 @@
       "source": "knowledge:pronoun"
     },
     {
+      "raw": "我該怎麼稱呼比較合適？",
+      "cleaned": "我該怎麼稱呼比較合適？",
+      "source": "knowledge:pronoun"
+    },
+    {
       "raw": "21／25",
       "cleaned": "21、25",
       "source": "knowledge:shopping"
@@ -8040,6 +8515,11 @@
     {
       "raw": "我可以轉帳嗎？",
       "cleaned": "我可以轉帳嗎？",
+      "source": "knowledge:shopping"
+    },
+    {
+      "raw": "這個價錢是一個還是兩個合計？",
+      "cleaned": "這個價錢是一個還是兩個合計？",
       "source": "knowledge:shopping"
     },
     {
@@ -8088,6 +8568,11 @@
       "source": "knowledge:phrases"
     },
     {
+      "raw": "不好意思，我沒聽清楚。",
+      "cleaned": "不好意思，我沒聽清楚。",
+      "source": "knowledge:phrases"
+    },
+    {
       "raw": "我買一本新書。",
       "cleaned": "我買一本新書。",
       "source": "knowledge:grammar"
@@ -8130,6 +8615,11 @@
     {
       "raw": "正是我打給你的。",
       "cleaned": "正是我打給你的。",
+      "source": "knowledge:grammar"
+    },
+    {
+      "raw": "這道菜好吃，但有點辣。",
+      "cleaned": "這道菜好吃，但有點辣。",
       "source": "knowledge:grammar"
     },
     {
@@ -8178,6 +8668,11 @@
       "source": "knowledge:sentence"
     },
     {
+      "raw": "你想喝茶還是咖啡？",
+      "cleaned": "你想喝茶還是咖啡？",
+      "source": "knowledge:sentence"
+    },
+    {
       "raw": "國家／國際／留學",
       "cleaned": "國家、國際、留學",
       "source": "knowledge:hanviet"
@@ -8220,6 +8715,11 @@
     {
       "raw": "同心協力",
       "cleaned": "同心協力",
+      "source": "knowledge:hanviet"
+    },
+    {
+      "raw": "我是大學生，不是老師。",
+      "cleaned": "我是大學生，不是老師。",
       "source": "knowledge:hanviet"
     },
     {
@@ -8268,6 +8768,11 @@
       "source": "knowledge:conversation"
     },
     {
+      "raw": "兩個人，晚上七點，對嗎？",
+      "cleaned": "兩個人，晚上七點，對嗎？",
+      "source": "knowledge:conversation"
+    },
+    {
       "raw": "問聲／跌聲",
       "cleaned": "問聲、跌聲",
       "source": "knowledge:accent"
@@ -8310,6 +8815,11 @@
     {
       "raw": "你是哪個地區的口音？",
       "cleaned": "你是哪個地區的口音？",
+      "source": "knowledge:accent"
+    },
+    {
+      "raw": "我想要一杯水。",
+      "cleaned": "我想要一杯水。",
       "source": "knowledge:accent"
     },
     {
@@ -8358,6 +8868,11 @@
       "source": "knowledge:shadowing"
     },
     {
+      "raw": "明天我會再打來。",
+      "cleaned": "明天我會再打來。",
+      "source": "knowledge:shadowing"
+    },
+    {
       "raw": "如果訂500件，價格如何？",
       "cleaned": "如果訂500件，價格如何？",
       "source": "knowledge:business"
@@ -8400,6 +8915,11 @@
     {
       "raw": "雙方已就以下內容達成一致：",
       "cleaned": "雙方已就以下內容達成一致：",
+      "source": "knowledge:business"
+    },
+    {
+      "raw": "可以請你再確認數量嗎？",
+      "cleaned": "可以請你再確認數量嗎？",
       "source": "knowledge:business"
     },
     {
@@ -8448,6 +8968,11 @@
       "source": "knowledge:macropol"
     },
     {
+      "raw": "價格可能在下個月上升。",
+      "cleaned": "價格可能在下個月上升。",
+      "source": "knowledge:macropol"
+    },
+    {
       "raw": "買／雨",
       "cleaned": "買、雨",
       "source": "knowledge:quiz"
@@ -8490,6 +9015,11 @@
     {
       "raw": "我還沒去過峴港。",
       "cleaned": "我還沒去過峴港。",
+      "source": "knowledge:quiz"
+    },
+    {
+      "raw": "我不喝咖啡。",
+      "cleaned": "我不喝咖啡。",
       "source": "knowledge:quiz"
     },
     {
@@ -8538,6 +9068,11 @@
       "source": "knowledge:flashcards"
     },
     {
+      "raw": "我通常早上散步。",
+      "cleaned": "我通常早上散步。",
+      "source": "knowledge:flashcards"
+    },
+    {
       "raw": "請給我一杯少糖咖啡。",
       "cleaned": "請給我一杯少糖咖啡。",
       "source": "knowledge:topics"
@@ -8583,6 +9118,11 @@
       "source": "knowledge:topics"
     },
     {
+      "raw": "請給我一杯茶，不加糖。",
+      "cleaned": "請給我一杯茶，不加糖。",
+      "source": "knowledge:topics"
+    },
+    {
       "raw": "你好。／請給我一杯茶。",
       "cleaned": "你好。、請給我一杯茶。",
       "source": "knowledge:fasttrack"
@@ -8620,6 +9160,11 @@
     {
       "raw": "我的手機被搶了。",
       "cleaned": "我的手機被搶了。",
+      "source": "knowledge:fasttrack"
+    },
+    {
+      "raw": "請讓我在這裡下車。",
+      "cleaned": "請讓我在這裡下車。",
       "source": "knowledge:fasttrack"
     },
     {
@@ -8668,6 +9213,11 @@
       "source": "knowledge:emergency"
     },
     {
+      "raw": "我不記得地址。",
+      "cleaned": "我不記得地址。",
+      "source": "knowledge:emergency"
+    },
+    {
       "raw": "請不看課文再說一次。",
       "cleaned": "請不看課文再說一次。",
       "source": "knowledge:science"
@@ -8710,6 +9260,11 @@
     {
       "raw": "晚上學，早上複習。",
       "cleaned": "晚上學，早上複習。",
+      "source": "knowledge:science"
+    },
+    {
+      "raw": "今天我能想起五個詞。",
+      "cleaned": "今天我能想起五個詞。",
       "source": "knowledge:science"
     },
     {
@@ -9020,6 +9575,16 @@
     {
       "raw": "你能幫我一下嗎？非常感謝你！",
       "cleaned": "你能幫我一下嗎？非常感謝你！",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "我迷路了，請幫我指引回這家飯店的路。",
+      "cleaned": "我迷路了，請幫我指引回這家飯店的路。",
+      "source": "emergency-cards"
+    },
+    {
+      "raw": "我的護照遺失了，最近的派出所在哪裡？",
+      "cleaned": "我的護照遺失了，最近的派出所在哪裡？",
       "source": "emergency-cards"
     }
   ],

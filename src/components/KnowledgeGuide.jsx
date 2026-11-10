@@ -1,3 +1,4 @@
+import KnowledgeSprint from './KnowledgeSprint';
 import React, { useEffect, useMemo, useState } from 'react';
 import PracticalChallenge from './PracticalChallenge';
 import {
@@ -120,12 +121,19 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
         <span className="kg-level">{curriculumStages[guide.stage - 1].level}</span>
       </header>
 
+      <KnowledgeSprint key={moduleId} moduleId={moduleId} accent={selectedAccent} />
+
       {/* Quick Jump Navigation Pill Bar */}
-      <nav className="kg-quick-nav" aria-label="本單元核心導覽">
+      <nav className="kg-quick-nav" aria-label="本單元核心導覽" onClick={event => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link) return;
+        event.preventDefault();
+        document.getElementById(link.getAttribute('href').slice(1))?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      }}>
         <a href={`#kg-concepts-${moduleId}`} className="kg-nav-pill"><BookOpen size={14} aria-hidden="true" /> 核心對照表</a>
         <a href={`#kg-flow-${moduleId}`} className="kg-nav-pill"><GitBranch size={14} aria-hidden="true" /> 心智流程</a>
         <a href={`#kg-infograph-${moduleId}`} className="kg-nav-pill"><BarChart2 size={14} aria-hidden="true" /> 專業資訊圖解</a>
-        <a href={`#recall-${moduleId}`} className="kg-nav-pill"><EyeOff size={14} aria-hidden="true" /> 9大回想卡</a>
+        <a href={`#recall-${moduleId}`} className="kg-nav-pill"><EyeOff size={14} aria-hidden="true" /> {guide.rows.length} 個回想卡</a>
         <a href={`#kg-trap-${moduleId}`} className="kg-nav-pill"><AlertTriangle size={14} aria-hidden="true" /> 易錯警戒</a>
         <a href={`#kg-practice-${moduleId}`} className="kg-nav-pill"><ClipboardCheck size={14} aria-hidden="true" /> 隨堂檢驗</a>
         <a href={`#kg-repair-${moduleId}`} className="kg-nav-pill"><Wrench size={14} aria-hidden="true" /> 錯因修復</a>
@@ -160,7 +168,7 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
       <section className="kg-recall" aria-labelledby={`recall-${moduleId}`}>
         <div className="kg-recall-header-block">
           <div className="kg-recall-title-wrap">
-            <h3 id={`recall-${moduleId}`}><EyeOff size={20} aria-hidden="true" /> 知識點逐項回想與深度解構 (9大知識點全量圖解)</h3>
+            <h3 id={`recall-${moduleId}`}><EyeOff size={20} aria-hidden="true" /> 知識點逐項回想與深度解構 （{guide.rows.length} 個知識點全量圖解）</h3>
             <p>先收起上方對照表，播放純越文、說出意思與使用規則，再展開核對；需要時改播「越＋中」對照。每個知識點均配備專屬微型向量圖解 (INFOGRAPH) 與避坑指引。</p>
           </div>
 

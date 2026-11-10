@@ -1,3 +1,4 @@
+import { knowledgeBridge } from './knowledgeBridge.js';
 import { knowledgeExtensions } from './knowledgeExtensions.js';
 export { knowledgeVisuals } from './knowledgeVisuals.js';
 import { knowledgeAdvanced, knowledgeCanDo } from './knowledgeAdvanced.js';
@@ -223,7 +224,7 @@ export const speakableVi = (text = '') => text
 
 // Keep the core examples first, then extend each module with its own application cases.
 for (const [id, guide] of Object.entries(knowledgeGuides)) {
-  guide.rows = [...guide.rows, ...knowledgeExtensions[id], ...knowledgeAdvanced[id]];
+  guide.rows = [...guide.rows, ...knowledgeExtensions[id], ...knowledgeAdvanced[id], knowledgeBridge[id].slice(0, 4)];
   // basic → applied → advanced, three knowledge points each
   guide.tiers = guide.rows.map((_, i) => ['basic', 'applied', 'advanced'][Math.min(2, Math.floor(i / 3))]);
 }

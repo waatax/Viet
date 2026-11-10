@@ -1,13 +1,13 @@
 {
   "name": "viet-learning-hub",
   "private": true,
-  "version": "2.19.0",
+  "version": "2.20.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "test:quest": "node scripts/test_quest_curriculum.mjs && node scripts/test_quest_engine.mjs && node scripts/test_quest_progress.mjs && node scripts/test_learning_upgrade.mjs && node scripts/export_learning_audio.mjs --check",
-    "test:knowledge": "npm run test:quest && node scripts/test_knowledge_curriculum.mjs && node scripts/test_knowledge_ui.mjs && node scripts/test_concept_infographics.mjs && node scripts/audit_knowledge_pages.mjs && npm run test:flashcards",
+    "test:knowledge": "npm run test:quest && node scripts/test_knowledge_curriculum.mjs && node scripts/test_knowledge_ui.mjs && node scripts/test_concept_infographics.mjs && node scripts/audit_knowledge_pages.mjs && npm run test:flashcards && npm run test:workspace",
     "test:flashcards": "node scripts/test_flashcard_engine.mjs && node scripts/test_vocab_quality.mjs && node scripts/test_content_growth.mjs && node scripts/collect_content_audio.mjs --check",
     "test:audio": "node scripts/spot_check_audio_correctness.mjs && node scripts/deep_audio_audit_v2.mjs",
     "test:dialogue": "node scripts/extract_dialogue_texts.mjs && node scripts/test_dialogue_playback.mjs && node scripts/test_audio_reliability.mjs && node scripts/test_lockscreen_playback.mjs",
@@ -16,7 +16,8 @@
     "verify:pages": "node scripts/verify_pages_release.mjs",
     "predeploy": "npm run test:dialogue && npm run test:quality && npm run build",
     "deploy": "node scripts/deploy_gh_pages.mjs",
-    "test:quality": "node scripts/extract_dialogue_texts.mjs && node scripts/audit_audio_quality.mjs"
+    "test:quality": "node scripts/extract_dialogue_texts.mjs && node scripts/audit_audio_quality.mjs",
+    "test:workspace": "node scripts/test_learning_workspace.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.344.0",
@@ -28,6 +29,7 @@
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
     "gh-pages": "^6.3.0",
+    "react-test-renderer": "^18.3.1",
     "vite": "^5.1.6"
   }
 }

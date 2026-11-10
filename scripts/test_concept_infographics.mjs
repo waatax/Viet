@@ -27,7 +27,7 @@ try {
   for (const modId of modules) {
     const details = conceptDetails[modId];
     assert.ok(details, `conceptDetails has module ${modId}`);
-    assert.equal(details.length, 9, `module ${modId} has 9 concepts`);
+    assert.equal(details.length, 10, `module ${modId} has 10 concepts`);
 
     const guideRows = knowledgeGuides[modId].rows;
 
@@ -62,8 +62,8 @@ try {
     });
   }
 
-  assert.equal(totalInfographsRendered, 180, 'all 180 dedicated micro-infographics rendered');
-  console.log(`PASS: All 20 modules, 180 explicit knowledge points, and 180 dedicated micro-infographics verified and rendered successfully.`);
+  assert.equal(totalInfographsRendered, 200, 'all 200 dedicated micro-infographics rendered');
+  console.log(`PASS: All 20 modules, 200 explicit knowledge points, and 200 dedicated micro-infographics verified and rendered successfully.`);
 } finally {
   await server.close();
 }
