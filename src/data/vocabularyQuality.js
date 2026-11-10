@@ -1,7 +1,8 @@
 /**
  * 詞彙品質層：把原始 10k 詞頻庫整理成可以安全拿來教學的資料。
  *
- * 1. Top 1,000：套用 top1kCurated.js 的人工校對（釋義、詞性、例句、易錯提示），標記 verified。
+ * 1. Top 3,000：套用 top1kCurated.js（1–1,000）與 top3kCurated.js（1,001–3,000）的人工校對
+ *    （釋義、詞性、例句、易錯提示、漢越音），標記 verified。
  * 2. 其他階層：尚未逐條校對，因此只做「不會出錯」的清理——
  *    - 英文欄位的佔位字（vocabulary、common term）清空，介面改用中文；
  *    - 系統套版的假例句（「X 這個在工作上非常必需」等）不顯示；
@@ -10,6 +11,9 @@
  */
 import { FREQUENCY_VOCABULARY, TIER_DEFINITIONS } from './frequencyVocabularyData.js';
 import { TOP1K_CURATED_ROWS } from './top1kCurated.js';
+import { TOP3K_CURATED_ROWS } from './top3kCurated.js';
+
+const CURATED_TIERS = new Set(['top1k', 'top3k']);
 
 const POS_CATEGORY = {
   名詞: '生活名詞',
@@ -40,7 +44,8 @@ export const parseCuratedRows = (text = '') => {
   text.split(/\r?\n/).forEach((line) => {
     const row = line.trim();
     if (!row) return;
-    const [rank, viet, zh = '', en = '', pos = '', example = '', exampleZh = '', note = ''] = row.split('|');
+    const parts = row.split('|');
+    const [rank, viet, zh = '', en = '', pos = '', example = '', exampleZh = '', note = '', hanViet = ''] = parts;
     map.set(Number(rank), {
       rank: Number(rank),
       viet,
@@ -50,13 +55,17 @@ export const parseCuratedRows = (text = '') => {
       pos,
       example,
       exampleZh,
-      note
+      note,
+      hanViet,
+      hasHanViet: parts.length >= 9
     });
   });
   return map;
 };
 
 export const TOP1K_CURATED = parseCuratedRows(TOP1K_CURATED_ROWS);
+export const TOP3K_CURATED = parseCuratedRows(TOP3K_CURATED_ROWS);
+const CURATED = new Map([...TOP1K_CURATED, ...TOP3K_CURATED]);
 
 /**
  * 漢越音校正（Top 1,000）：原檔有大量「同音不同義」的誤配（anh＝英、ai＝哀、xa＝車…），
@@ -89,8 +98,8 @@ export const cleanExampleZh = (zh = '') => {
   return text.replace(/。。$/, '。');
 };
 
-export const refineEntry = (raw, curated = TOP1K_CURATED.get(raw.rank)) => {
-  if (curated && curated.viet === raw.viet && raw.tier === 'top1k') {
+export const refineEntry = (raw, curated = CURATED.get(raw.rank)) => {
+  if (curated && curated.viet === raw.viet && CURATED_TIERS.has(raw.tier)) {
     if (curated.skip) return { ...raw, hidden: true };
     const pos = curated.pos || raw.pos;
     const keepExample = !curated.example;
@@ -103,7 +112,9 @@ export const refineEntry = (raw, curated = TOP1K_CURATED.get(raw.rank)) => {
       example: keepExample ? raw.example : curated.example,
       exampleZh: keepExample ? cleanExampleZh(raw.exampleZh) : curated.exampleZh,
       exampleKind: 'sentence',
-      hanViet: Object.prototype.hasOwnProperty.call(HANVIET_FIX, raw.rank) ? HANVIET_FIX[raw.rank] : raw.hanViet,
+      hanViet: curated.hasHanViet
+        ? curated.hanViet
+        : Object.prototype.hasOwnProperty.call(HANVIET_FIX, raw.rank) ? HANVIET_FIX[raw.rank] : raw.hanViet,
       note: curated.note || '',
       verified: true
     };

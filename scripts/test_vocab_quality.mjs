@@ -1,16 +1,19 @@
-// Guards the corrected Top-1,000 layer and the cleanup applied to the rest of the 10k bank.
+// Guards the corrected Top-3,000 layer (ranks 1–3000) and the cleanup applied to the rest of the 10k bank.
 import assert from 'node:assert/strict';
 import { FREQUENCY_VOCABULARY } from '../src/data/frequencyVocabularyData.js';
-import { TOP1K_CURATED, VOCABULARY, VOCAB_TIERS, classifyExample, cleanExampleZh } from '../src/data/vocabularyQuality.js';
+import { TOP1K_CURATED, TOP3K_CURATED, VOCABULARY, VOCAB_TIERS, classifyExample, cleanExampleZh } from '../src/data/vocabularyQuality.js';
 
 const ALLOWED_POS = new Set(['名詞', '動詞', '形容詞', '副詞', '代名詞', '介詞', '連詞', '助詞', '量詞', '數詞', '感嘆詞', '限定詞']);
 const lower = (s = '') => s.normalize('NFC').toLowerCase();
-const raw1k = FREQUENCY_VOCABULARY.filter((w) => w.tier === 'top1k');
+const raw1k = FREQUENCY_VOCABULARY.filter((w) => w.tier === 'top1k' || w.tier === 'top3k');
+const CURATED = new Map([...TOP1K_CURATED, ...TOP3K_CURATED]);
 
 assert.equal(TOP1K_CURATED.size, 1000, 'every Top-1000 rank has a curated row');
+assert.equal(TOP3K_CURATED.size, 2000, 'every rank 1001–3000 has a curated row');
+assert.ok([...TOP3K_CURATED.values()].every((r) => r.skip || r.hasHanViet), 'Top-3000 rows state their Sino-Vietnamese root explicitly');
 const problems = [];
 for (const w of raw1k) {
-  const row = TOP1K_CURATED.get(w.rank);
+  const row = CURATED.get(w.rank);
   if (!row) { problems.push(`#${w.rank} missing`); continue; }
   if (row.viet !== w.viet) problems.push(`#${w.rank} word mismatch ${row.viet} ≠ ${w.viet}`);
   if (row.skip) continue;
@@ -37,8 +40,17 @@ assert.ok(byWord['năm'].zh.includes('年'));
 assert.equal(byWord['ai'].zh, '誰');
 assert.ok(!VOCABULARY.some((w) => ['c', 'm', 'i', 'v', 'b', 'the'].includes(w.viet) && w.tier === 'top1k'), 'letter noise removed');
 
+const refined3k = VOCABULARY.filter((w) => w.tier === 'top3k');
+assert.ok(refined3k.length >= 1970 && refined3k.length <= 2000, `Top-3000 noise rows hidden (${refined3k.length})`);
+assert.ok(refined3k.every((w) => w.verified && w.exampleKind === 'sentence' && classifyExample(w) === 'sentence' && lower(w.example).includes(lower(w.viet))), 'every visible 1001–3000 card is verified with a full sentence');
+const by3k = Object.fromEntries(refined3k.map((w) => [w.viet, w]));
+assert.equal(by3k['giây'].zh, '秒');
+assert.ok(by3k['chiến'].zh.includes('戰'), 'chiến no longer glossed 弁');
+assert.equal(by3k['tai'].hanViet, '', 'tai (ear) is not 災');
+assert.ok(!refined3k.some((w) => ['h', 'o', 'g', 'k', 'gi', 'đéo', 'cứt'].includes(w.viet)), 'letter noise and profanity removed');
+
 // Rest of the bank: placeholders and template sentences never reach learners.
-const rest = VOCABULARY.filter((w) => w.tier !== 'top1k');
+const rest = VOCABULARY.filter((w) => w.tier !== 'top1k' && w.tier !== 'top3k');
 assert.ok(!rest.some((w) => /^(vocabulary|common term)$/i.test(w.en)), 'no placeholder English');
 assert.ok(!rest.some((w) => /在工作上非常必需|在這種情境下請注意/.test(w.exampleZh)), 'no template example translations');
 assert.ok(!rest.some((w) => /rất cần thiết cho công việc/.test(w.example)), 'no template examples');
