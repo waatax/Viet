@@ -29,12 +29,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_1",
           "rank": 1,
           "viet": "không",
-          "zh": "不 / 沒有 / 空",
+          "zh": "不 / 沒有",
           "zhSpoken": "不，沒有",
-          "en": "not; no; zero",
+          "en": "not; no",
           "pos": "副詞",
           "hanViet": "空",
-          "category": "生活日常",
+          "category": "語法功能詞",
           "example": "Tôi không phải là người Việt Nam.",
           "exampleZh": "我不是越南人。"
         },
@@ -44,10 +44,10 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "là",
           "zh": "是",
           "zhSpoken": "是",
-          "en": "to be, is/am/are",
+          "en": "to be",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
+          "category": "日常動詞",
           "example": "Đây là sách tiếng Việt.",
           "exampleZh": "這是越南語書。"
         },
@@ -57,10 +57,10 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tôi",
           "zh": "我",
           "zhSpoken": "我",
-          "en": "I, me",
+          "en": "I; me",
           "pos": "代名詞",
           "hanViet": "",
-          "category": "核心人稱",
+          "category": "人稱與指示",
           "example": "Tôi đang học tiếng Việt.",
           "exampleZh": "我正在學越南語。"
         },
@@ -68,12 +68,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_4",
           "rank": 4,
           "viet": "có",
-          "zh": "有 / 具備 / 存在",
-          "zhSpoken": "有，具備",
-          "en": "to have; there is/are",
+          "zh": "有",
+          "zhSpoken": "有",
+          "en": "to have; there is",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
+          "category": "日常動詞",
           "example": "Bạn có câu hỏi nào không?",
           "exampleZh": "你有任何問題嗎？"
         },
@@ -81,12 +81,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_5",
           "rank": 5,
           "viet": "của",
-          "zh": "的 / 屬於 / 財產",
-          "zhSpoken": "的，屬於",
-          "en": "of; belongs to",
+          "zh": "的（所屬）",
+          "zhSpoken": "的",
+          "en": "of; belonging to",
           "pos": "介詞",
           "hanViet": "",
-          "category": "語法標記",
+          "category": "語法功能詞",
           "example": "Đây là điện thoại của tôi.",
           "exampleZh": "這是我的手機。"
         },
@@ -94,12 +94,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_6",
           "rank": 6,
           "viet": "và",
-          "zh": "和 / 與 / 以及",
-          "zhSpoken": "和，與",
+          "zh": "和 / 以及",
+          "zhSpoken": "和，以及",
           "en": "and",
           "pos": "連詞",
           "hanViet": "",
-          "category": "語法標記",
+          "category": "語法功能詞",
           "example": "Tôi thích cà phê và trà sữa.",
           "exampleZh": "我喜歡咖啡和奶茶。"
         },
@@ -107,12 +107,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_7",
           "rank": 7,
           "viet": "anh",
-          "zh": "哥哥 / 你 (對年輕男性)",
+          "zh": "哥哥 / 你（對年長男性）",
           "zhSpoken": "哥哥，你",
-          "en": "elder brother; you (male)",
+          "en": "older brother; you (to a man)",
           "pos": "代名詞",
-          "hanViet": "英",
-          "category": "核心人稱",
+          "hanViet": "",
+          "category": "人稱與指示",
           "example": "Anh có khỏe không?",
           "exampleZh": "你身體好嗎？"
         },
@@ -120,12 +120,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_8",
           "rank": 8,
           "viet": "được",
-          "zh": "得到 / 可以 / 能",
-          "zhSpoken": "得到，可以",
-          "en": "can, get, passive (positive)",
+          "zh": "可以 / 得以",
+          "zhSpoken": "可以，得以",
+          "en": "can; to get to",
           "pos": "助詞",
           "hanViet": "得",
-          "category": "語法標記",
+          "category": "語氣與助詞",
           "example": "Tôi được mời dự tiệc.",
           "exampleZh": "我受邀參加宴會。"
         },
@@ -133,12 +133,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_9",
           "rank": 9,
           "viet": "đã",
-          "zh": "已經 / 曾",
-          "zhSpoken": "已經，曾",
-          "en": "already (past tense)",
+          "zh": "已經（過去）",
+          "zhSpoken": "已經",
+          "en": "already; past marker",
           "pos": "副詞",
           "hanViet": "",
-          "category": "生活日常",
+          "category": "語法功能詞",
           "example": "Tôi đã ăn cơm rồi.",
           "exampleZh": "我已經吃過飯了。"
         },
@@ -146,12 +146,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_10",
           "rank": 10,
           "viet": "cho",
-          "zh": "給 / 讓 / 為",
+          "zh": "給 / 讓 / 為了",
           "zhSpoken": "給，讓",
-          "en": "give, for, let",
+          "en": "to give; for; to let",
           "pos": "介詞",
           "hanViet": "",
-          "category": "語法標記",
+          "category": "語法功能詞",
           "example": "Làm ơn cho tôi một ly nước.",
           "exampleZh": "請給我一杯水。"
         },
@@ -161,10 +161,10 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "sẽ",
           "zh": "將會",
           "zhSpoken": "將會",
-          "en": "will, shall",
+          "en": "will (future)",
           "pos": "副詞",
           "hanViet": "",
-          "category": "生活日常",
+          "category": "語法功能詞",
           "example": "Ngày mai tôi sẽ đến công ty.",
           "exampleZh": "明天我會去公司。"
         },
@@ -172,12 +172,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_12",
           "rank": 12,
           "viet": "đó",
-          "zh": "那 / 那裡 / 那個",
+          "zh": "那 / 那裡",
           "zhSpoken": "那，那裡",
-          "en": "that, there",
+          "en": "that; there",
           "pos": "代名詞",
           "hanViet": "",
-          "category": "核心人稱",
+          "category": "人稱與指示",
           "example": "Người đó là ai?",
           "exampleZh": "那個人是誰？"
         },
@@ -185,12 +185,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_13",
           "rank": 13,
           "viet": "các",
-          "zh": "各位 / 諸位 / 這些",
-          "zhSpoken": "各位，諸位",
-          "en": "plural marker (these, all)",
+          "zh": "各位 / 們（複數）",
+          "zhSpoken": "各位，們",
+          "en": "plural marker",
           "pos": "限定詞",
           "hanViet": "各",
-          "category": "生活日常",
+          "category": "語法功能詞",
           "example": "Xin chào các bạn!",
           "exampleZh": "各位朋友好！"
         },
@@ -200,10 +200,10 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "người",
           "zh": "人",
           "zhSpoken": "人",
-          "en": "person, people, human",
+          "en": "person; people",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
+          "category": "生活名詞",
           "example": "Người Việt Nam rất thân thiện.",
           "exampleZh": "越南人非常友善。"
         },
@@ -211,12 +211,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_15",
           "rank": 15,
           "viet": "trong",
-          "zh": "在裡面 / 內部 / 當中",
-          "zhSpoken": "在裡面，內部",
-          "en": "in, inside, within",
+          "zh": "在…裡面",
+          "zhSpoken": "在裡面",
+          "en": "in; inside",
           "pos": "介詞",
           "hanViet": "",
-          "category": "語法標記",
+          "category": "語法功能詞",
           "example": "Chìa khóa ở trong túi.",
           "exampleZh": "鑰匙在袋子裡。"
         },
@@ -224,12 +224,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_16",
           "rank": 16,
           "viet": "với",
-          "zh": "跟 / 和 / 一起",
-          "zhSpoken": "跟，和",
-          "en": "with",
+          "zh": "和…一起 / 對",
+          "zhSpoken": "和一起，對",
+          "en": "with; to",
           "pos": "介詞",
           "hanViet": "",
-          "category": "語法標記",
+          "category": "語法功能詞",
           "example": "Đi ăn trưa với tôi nhé!",
           "exampleZh": "跟我一起去吃午餐吧！"
         },
@@ -242,7 +242,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "en": "this",
           "pos": "限定詞",
           "hanViet": "",
-          "category": "生活日常",
+          "category": "語法功能詞",
           "example": "Cuốn sách này rất hay.",
           "exampleZh": "這本書非常好。"
         },
@@ -250,12 +250,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_18",
           "rank": 18,
           "viet": "đi",
-          "zh": "去 / 走 / 祈使助詞",
+          "zh": "去 / 走",
           "zhSpoken": "去，走",
-          "en": "to go, walk, imperative particle",
+          "en": "to go",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
+          "category": "日常動詞",
           "example": "Chúng ta đi ăn thôi!",
           "exampleZh": "我們去吃飯吧！"
         },
@@ -263,12 +263,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_19",
           "rank": 19,
           "viet": "phải",
-          "zh": "必須 / 正確 / 應該",
-          "zhSpoken": "必須，正確",
-          "en": "must, right, correct",
+          "zh": "必須 / 對的 / 右邊",
+          "zhSpoken": "必須，對的",
+          "en": "must; right",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
+          "category": "日常動詞",
           "example": "Bạn phải chú ý an toàn.",
           "exampleZh": "你必須注意安全。"
         },
@@ -281,7 +281,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "en": "what",
           "pos": "代名詞",
           "hanViet": "",
-          "category": "核心人稱",
+          "category": "人稱與指示",
           "example": "Bạn đang làm gì thế?",
           "exampleZh": "你正在做什麼呢？"
         },
@@ -289,12 +289,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_21",
           "rank": 21,
           "viet": "những",
-          "zh": "這些 / 一些",
-          "zhSpoken": "這些，一些",
-          "en": "plural marker (some/these)",
+          "zh": "一些 / 那些（複數）",
+          "zhSpoken": "一些，那些",
+          "en": "plural marker (some)",
           "pos": "限定詞",
           "hanViet": "",
-          "category": "生活日常",
+          "category": "語法功能詞",
           "example": "Những ngày ở Hà Nội rất vui.",
           "exampleZh": "在河內的日子很開心。"
         },
@@ -302,12 +302,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_22",
           "rank": 22,
           "viet": "ở",
-          "zh": "在 / 住 / 處於",
-          "zhSpoken": "在，住",
-          "en": "at, in, live, stay",
+          "zh": "在 / 住在",
+          "zhSpoken": "在，住在",
+          "en": "at; in; to live",
           "pos": "介詞",
           "hanViet": "",
-          "category": "語法標記",
+          "category": "語法功能詞",
           "example": "Tôi đang ở khách sạn.",
           "exampleZh": "我正在飯店。"
         },
@@ -315,12 +315,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_23",
           "rank": 23,
           "viet": "để",
-          "zh": "為了 / 放置 / 讓",
-          "zhSpoken": "為了，放置",
-          "en": "to, in order to, put, let",
+          "zh": "為了 / 放",
+          "zhSpoken": "為了，放",
+          "en": "in order to; to put",
           "pos": "連詞",
           "hanViet": "",
-          "category": "語法標記",
+          "category": "語法功能詞",
           "example": "Học tiếng Việt để làm việc.",
           "exampleZh": "學越南語是為了工作。"
         },
@@ -328,12 +328,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_24",
           "rank": 24,
           "viet": "cô",
-          "zh": "小姐 / 姑姑 / 女老師",
-          "zhSpoken": "小姐，姑姑",
-          "en": "young lady, miss, aunt",
+          "zh": "小姐 / 阿姨 / 女老師",
+          "zhSpoken": "小姐，阿姨",
+          "en": "miss; aunt; female teacher",
           "pos": "代名詞",
           "hanViet": "姑",
-          "category": "核心人稱",
+          "category": "人稱與指示",
           "example": "Cô ấy là giáo viên tiếng Việt.",
           "exampleZh": "她是越南語老師。"
         },
@@ -341,12 +341,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_25",
           "rank": 25,
           "viet": "làm",
-          "zh": "做 / 從事 / 工作",
-          "zhSpoken": "做，從事",
-          "en": "to do, make, work",
+          "zh": "做 / 工作",
+          "zhSpoken": "做，工作",
+          "en": "to do; to make; to work",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
+          "category": "日常動詞",
           "example": "Bạn làm nghề gì?",
           "exampleZh": "你做什麼工作？"
         },
@@ -354,12 +354,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_26",
           "rank": 26,
           "viet": "rồi",
-          "zh": "了 / 已經 / 接著",
+          "zh": "了 / 已經",
           "zhSpoken": "了，已經",
-          "en": "already, finished, then",
+          "en": "already",
           "pos": "助詞",
           "hanViet": "",
-          "category": "語法標記",
+          "category": "語氣與助詞",
           "example": "Tôi hiểu rồi.",
           "exampleZh": "我懂了。"
         },
@@ -367,51 +367,51 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_27",
           "rank": 27,
           "viet": "ta",
-          "zh": "本身 / 你",
-          "zhSpoken": "本身，你",
-          "en": "I, me, my",
-          "pos": "名詞",
+          "zh": "我們 / 咱",
+          "zhSpoken": "我們，咱",
+          "en": "we; us (informal)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "là vấn đề của chính đơn vị ta",
-          "exampleZh": "是單位本身問題。"
+          "category": "人稱與指示",
+          "example": "Ta đi thôi!",
+          "exampleZh": "咱們走吧！"
         },
         {
           "id": "freq_28",
           "rank": 28,
           "viet": "đây",
-          "zh": "此 / 着",
-          "zhSpoken": "此，着",
-          "en": "here",
-          "pos": "名詞",
+          "zh": "這裡 / 這",
+          "zhSpoken": "這裡，這",
+          "en": "here; this",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "anh nghe đây",
-          "exampleZh": "你聽着口。"
+          "category": "人稱與指示",
+          "example": "Tôi ở đây.",
+          "exampleZh": "我在這裡。"
         },
         {
           "id": "freq_29",
           "rank": 29,
           "viet": "em",
-          "zh": "阿 / 弟弟",
-          "zhSpoken": "阿，弟弟",
-          "en": "M,  m (chữ cái)",
-          "pos": "名詞",
+          "zh": "弟妹 / 你（對晚輩）/ 我（對長輩）",
+          "zhSpoken": "弟妹，你",
+          "en": "younger sibling; I or you (younger)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "em Vương ơi",
-          "exampleZh": "阿王。"
+          "category": "人稱與指示",
+          "example": "Em ăn cơm chưa?",
+          "exampleZh": "你吃飯了嗎？"
         },
         {
           "id": "freq_30",
           "rank": 30,
           "viet": "biết",
-          "zh": "知道 / 認識 / 會",
-          "zhSpoken": "知道，認識",
-          "en": "to know, understand",
+          "zh": "知道 / 會",
+          "zhSpoken": "知道，會",
+          "en": "to know; can",
           "pos": "動詞",
-          "hanViet": "別",
-          "category": "日常必備動詞",
+          "hanViet": "",
+          "category": "日常動詞",
           "example": "Tôi biết nói một chút tiếng Việt.",
           "exampleZh": "我會說一點點越南語。"
         },
@@ -419,40 +419,40 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_31",
           "rank": 31,
           "viet": "ông",
-          "zh": "阿公 / 太爺",
-          "zhSpoken": "阿公，太爺",
-          "en": "grandfather",
-          "pos": "名詞",
+          "zh": "爺爺 / 先生（年長男性）",
+          "zhSpoken": "爺爺，先生",
+          "en": "grandfather; sir",
+          "pos": "代名詞",
           "hanViet": "翁",
-          "category": "生活日常",
-          "example": "các ông",
-          "exampleZh": "諸公。"
+          "category": "人稱與指示",
+          "example": "Ông ấy là bác sĩ.",
+          "exampleZh": "他是醫生。"
         },
         {
           "id": "freq_32",
           "rank": 32,
           "viet": "đến",
-          "zh": "出 / 到",
-          "zhSpoken": "出，到",
-          "en": "to arrive; to come; to get in",
+          "zh": "到 / 來到",
+          "zhSpoken": "到，來到",
+          "en": "to arrive; to come",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đến dự (họp, tiệc tùng... )",
-          "exampleZh": "出席。"
+          "category": "日常動詞",
+          "example": "Tôi đến lúc tám giờ.",
+          "exampleZh": "我八點到。"
         },
         {
           "id": "freq_33",
           "rank": 33,
           "viet": "khi",
-          "zh": "早晚 / 欺騙",
-          "zhSpoken": "早晚，欺騙",
-          "en": "case; time",
-          "pos": "動詞",
-          "hanViet": "欺",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể khi giúp tôi không?",
-          "exampleZh": "你能幫我早晚嗎？"
+          "zh": "當…的時候",
+          "zhSpoken": "當的時候",
+          "en": "when",
+          "pos": "連詞",
+          "hanViet": "",
+          "category": "語法功能詞",
+          "example": "Khi rảnh, tôi đọc sách.",
+          "exampleZh": "有空的時候，我看書。"
         },
         {
           "id": "freq_34",
@@ -460,223 +460,223 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lại",
           "zh": "又 / 再 / 回來",
           "zhSpoken": "又，再",
-          "en": "Still; should; back",
-          "pos": "動詞",
-          "hanViet": "又",
-          "category": "日常必備動詞",
-          "example": "anh khách khí quá, lại tỏ ra là người ngoài rồi",
-          "exampleZh": "你太客氣, 倒顯得見外了。"
+          "en": "again; back",
+          "pos": "副詞",
+          "hanViet": "",
+          "category": "語法功能詞",
+          "example": "Anh ấy lại đến muộn.",
+          "exampleZh": "他又遲到了。"
         },
         {
           "id": "freq_35",
           "rank": 35,
           "viet": "về",
-          "zh": "對於 / 關於",
-          "zhSpoken": "對於，關於",
-          "en": "to return, to come back to belong t",
+          "zh": "回 / 關於",
+          "zhSpoken": "回，關於",
+          "en": "to return; about",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "về vấn đề hợp tác hoá nông nghiệp",
-          "exampleZh": "關於農業合作化問題。"
+          "category": "日常動詞",
+          "example": "Tôi về nhà lúc sáu giờ.",
+          "exampleZh": "我六點回家。"
         },
         {
           "id": "freq_36",
           "rank": 36,
           "viet": "nó",
-          "zh": "彼 / 厥",
-          "zhSpoken": "彼，厥",
-          "en": "he",
-          "pos": "名詞",
+          "zh": "他 / 它（非正式）",
+          "zhSpoken": "他，它",
+          "en": "he; she; it (informal)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cho nó đến đây",
-          "exampleZh": "học? 使夫往而學焉?。"
+          "category": "人稱與指示",
+          "example": "Nó là em tôi.",
+          "exampleZh": "他是我弟弟。"
         },
         {
           "id": "freq_37",
           "rank": 37,
           "viet": "cũng",
-          "zh": "還 / 皆",
-          "zhSpoken": "還，皆",
-          "en": "also; as; too",
-          "pos": "動詞",
+          "zh": "也",
+          "zhSpoken": "也",
+          "en": "also; too",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nhà cửa không rộng, dọn dẹp coi cũng sạch sẽ",
-          "exampleZh": "屋子不大, 收拾得倒還乾淨。書。"
+          "category": "語法功能詞",
+          "example": "Tôi cũng thích phở.",
+          "exampleZh": "我也喜歡河粉。"
         },
         {
           "id": "freq_38",
           "rank": 38,
           "viet": "con",
-          "zh": "雛 / 花",
-          "zhSpoken": "雛，花",
-          "en": "Child, offspring, young, son, daugh",
+          "zh": "孩子 / 隻（動物量詞）",
+          "zhSpoken": "孩子，隻",
+          "en": "child; classifier for animals",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "gà con",
-          "exampleZh": "雛雞。"
+          "category": "生活名詞",
+          "example": "Con của tôi năm tuổi.",
+          "exampleZh": "我的孩子五歲。"
         },
         {
           "id": "freq_39",
           "rank": 39,
           "viet": "nhưng",
-          "zh": "不過 / 只是",
-          "zhSpoken": "不過，只是",
-          "en": "but; yet",
+          "zh": "但是",
+          "zhSpoken": "但是",
+          "en": "but",
           "pos": "連詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "phòng tuy nhỏ, nhưng rất sạch sẽ",
-          "exampleZh": "屋子小, 但挺乾淨。"
+          "category": "語法功能詞",
+          "example": "Phòng nhỏ nhưng rất sạch.",
+          "exampleZh": "房間小，但很乾淨。"
         },
         {
           "id": "freq_40",
           "rank": 40,
           "viet": "nói",
-          "zh": "說 / 講 / 說話",
+          "zh": "說 / 講",
           "zhSpoken": "說，講",
-          "en": "to speak; to talk; to say; to tell",
+          "en": "to speak; to say",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nó nói linh tinh cả buổi cũng chưa nói ra nguyên do",
-          "exampleZh": "他胡掰了半天, 也沒說出個所以然。 陳說。"
+          "category": "日常動詞",
+          "example": "Anh nói chậm một chút nhé.",
+          "exampleZh": "請你說慢一點。"
         },
         {
           "id": "freq_41",
           "rank": 41,
           "viet": "có thể",
-          "zh": "辦得到 / 保不住",
-          "zhSpoken": "辦得到，保不住",
-          "en": "Can, may, to be possible, to be abl",
+          "zh": "可以 / 可能",
+          "zhSpoken": "可以，可能",
+          "en": "can; may",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tuyết không dày lắm, có thể đến nửa đêm là ngừng rơi",
-          "exampleZh": "雪並沒有多厚, 大概在半夜就不下了。"
+          "category": "日常動詞",
+          "example": "Tôi có thể ngồi ở đây không?",
+          "exampleZh": "我可以坐這裡嗎？"
         },
         {
           "id": "freq_42",
           "rank": 42,
           "viet": "vào",
-          "zh": "進 / 進來",
-          "zhSpoken": "進，進來",
-          "en": "to come in, to go in to set in, to ",
+          "zh": "進入 / 在（時間）",
+          "zhSpoken": "進入，在",
+          "en": "to enter; on (time)",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vào",
-          "exampleZh": "進入。"
+          "category": "日常動詞",
+          "example": "Mời anh vào nhà.",
+          "exampleZh": "請進屋。"
         },
         {
           "id": "freq_43",
           "rank": 43,
           "viet": "mà",
-          "zh": "但是 / 以",
-          "zhSpoken": "但是，以",
-          "en": "Where",
+          "zh": "而 / 卻 / 的（關係詞）",
+          "zhSpoken": "而，卻",
+          "en": "but; that (relative)",
           "pos": "連詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "sự việc này mà sao tôi không biết nhỉ?",
-          "exampleZh": "這件事我可怎麼知道呢?。"
+          "category": "語法功能詞",
+          "example": "Cái áo mà tôi mua rất đẹp.",
+          "exampleZh": "我買的那件衣服很漂亮。"
         },
         {
           "id": "freq_44",
           "rank": 44,
           "viet": "đang",
-          "zh": "次 / 鼎",
-          "zhSpoken": "次，鼎",
-          "en": "to be the process of",
-          "pos": "助詞",
+          "zh": "正在",
+          "zhSpoken": "正在",
+          "en": "in the process of (-ing)",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "đang nói",
-          "exampleZh": "言次。"
+          "category": "語法功能詞",
+          "example": "Tôi đang ăn cơm.",
+          "exampleZh": "我正在吃飯。"
         },
         {
           "id": "freq_45",
           "rank": 45,
           "viet": "như",
-          "zh": "比 / 比如",
-          "zhSpoken": "比，比如",
-          "en": "as",
-          "pos": "助詞",
+          "zh": "像 / 如同",
+          "zhSpoken": "像，如同",
+          "en": "like; as",
+          "pos": "介詞",
           "hanViet": "如",
-          "category": "語法標記",
-          "example": "không nên đối đãi với tôi như khách",
-          "exampleZh": "不要把我當客人看待。"
+          "category": "語法功能詞",
+          "example": "Cô ấy hát như ca sĩ.",
+          "exampleZh": "她唱歌像歌手一樣。"
         },
         {
           "id": "freq_46",
           "rank": 46,
           "viet": "cậu",
-          "zh": "哥兒 / 姑爺",
-          "zhSpoken": "哥兒，姑爺",
-          "en": "Uncle, mother's brother",
-          "pos": "名詞",
+          "zh": "你（平輩朋友）/ 舅舅",
+          "zhSpoken": "你，舅舅",
+          "en": "you (friend); maternal uncle",
+          "pos": "代名詞",
           "hanViet": "舅",
-          "category": "生活日常",
-          "example": "cậu cả",
-          "exampleZh": "大舅。"
+          "category": "人稱與指示",
+          "example": "Cậu đi đâu đấy?",
+          "exampleZh": "你要去哪裡？"
         },
         {
           "id": "freq_47",
           "rank": 47,
           "viet": "còn",
-          "zh": "還有 / 仍然 / 還在",
-          "zhSpoken": "還有，仍然",
-          "en": "To continue (to live, to exist..)",
-          "pos": "動詞",
+          "zh": "還 / 還有 / 至於",
+          "zhSpoken": "還，還有",
+          "en": "still; and what about",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lấy thu bù chi, thực còn hai trăm đồng",
-          "exampleZh": "收支相抵, 淨存 二百元。"
+          "category": "語法功能詞",
+          "example": "Tôi còn nhiều việc.",
+          "exampleZh": "我還有很多事。"
         },
         {
           "id": "freq_48",
           "rank": 48,
           "viet": "thì",
-          "zh": "叵 / 倒是",
-          "zhSpoken": "叵，倒是",
-          "en": "prime of youth full season",
-          "pos": "名詞",
+          "zh": "就 / 則（承接）",
+          "zhSpoken": "就，則",
+          "en": "then; as for",
+          "pos": "助詞",
           "hanViet": "時",
-          "category": "生活日常",
-          "example": "chỉ cần chăm chỉ thì có thể học tốt",
-          "exampleZh": "只要用功, 就能學好。"
+          "category": "語氣與助詞",
+          "example": "Nếu mưa thì tôi ở nhà.",
+          "exampleZh": "如果下雨，我就待在家。"
         },
         {
           "id": "freq_49",
           "rank": 49,
           "viet": "cái",
-          "zh": "柄 / 部",
-          "zhSpoken": "柄，部",
-          "en": "Mother",
-          "pos": "名詞",
+          "zh": "個（物品量詞）",
+          "zhSpoken": "個",
+          "en": "classifier for objects",
+          "pos": "量詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cái đuôi",
-          "exampleZh": "尾巴。"
+          "category": "數字與量詞",
+          "example": "Cho tôi hai cái bánh.",
+          "exampleZh": "請給我兩個餅。"
         },
         {
           "id": "freq_50",
           "rank": 50,
           "viet": "chúng ta",
-          "zh": "咱們 / 吾",
-          "zhSpoken": "咱們，吾",
-          "en": "We, us (including person addressed)",
-          "pos": "名詞",
+          "zh": "我們（包含對方）",
+          "zhSpoken": "我們",
+          "en": "we (including you)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "người nghèo chúng ta đều chuyển mình rồi",
-          "exampleZh": "咱窮人都翻身了。"
+          "category": "人稱與指示",
+          "example": "Chúng ta đi ăn nhé.",
+          "exampleZh": "我們去吃飯吧。"
         }
       ],
-      "duration": 718.9
+      "duration": 711.7
     },
     {
       "batchId": 2,
@@ -694,38 +694,38 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_51",
           "rank": 51,
           "viet": "ấy",
-          "zh": "噯 / 彼",
-          "zhSpoken": "噯，彼",
-          "en": "That",
-          "pos": "名詞",
+          "zh": "那 / 他那個（指示）",
+          "zhSpoken": "那，他那個",
+          "en": "that (aforementioned)",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ấy, không phải thế",
-          "exampleZh": "噯, 不是這樣的。"
+          "category": "語法功能詞",
+          "example": "Cô ấy là bạn tôi.",
+          "exampleZh": "她是我朋友。"
         },
         {
           "id": "freq_52",
           "rank": 52,
           "viet": "chỉ",
-          "zh": "標明 / 錢",
-          "zhSpoken": "標明，錢",
-          "en": "Thread, yarn",
-          "pos": "動詞",
-          "hanViet": "指",
-          "category": "日常必備動詞",
-          "example": "tấm biển chỉ đường cho biết con đường chúng ta đi là đúng",
-          "exampleZh": "路標上標明我們走的路是對的。"
+          "zh": "只 / 指",
+          "zhSpoken": "只，指",
+          "en": "only; to point",
+          "pos": "副詞",
+          "hanViet": "只",
+          "category": "語法功能詞",
+          "example": "Tôi chỉ uống nước.",
+          "exampleZh": "我只喝水。"
         },
         {
           "id": "freq_53",
           "rank": 53,
           "viet": "bạn",
-          "zh": "你 / 朋友 / 伙伴",
-          "zhSpoken": "你，朋友",
-          "en": "friend, you",
+          "zh": "朋友 / 你",
+          "zhSpoken": "朋友，你",
+          "en": "friend; you",
           "pos": "代名詞",
           "hanViet": "伴",
-          "category": "核心人稱",
+          "category": "人稱與指示",
           "example": "Rất vui được gặp bạn.",
           "exampleZh": "很高興認識你。"
         },
@@ -733,25 +733,25 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_54",
           "rank": 54,
           "viet": "nhiều",
-          "zh": "百 / 博",
-          "zhSpoken": "百，博",
-          "en": "numerous; abundant; very much; much",
-          "pos": "名詞",
+          "zh": "多 / 很多",
+          "zhSpoken": "多，很多",
+          "en": "many; much",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nhiều nhưng không tinh nhuệ",
-          "exampleZh": "博而不精。"
+          "category": "描述與狀態",
+          "example": "Hôm nay có nhiều khách.",
+          "exampleZh": "今天客人很多。"
         },
         {
           "id": "freq_55",
           "rank": 55,
           "viet": "muốn",
-          "zh": "想要 / 希望",
-          "zhSpoken": "想要，希望",
-          "en": "want, desire",
+          "zh": "想要",
+          "zhSpoken": "想要",
+          "en": "to want",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
+          "category": "日常動詞",
           "example": "Tôi muốn đi du lịch Đà Nẵng.",
           "exampleZh": "我想去峴港旅遊。"
         },
@@ -759,233 +759,233 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_56",
           "rank": 56,
           "viet": "từ",
-          "zh": "長短句 / 磁",
-          "zhSpoken": "長短句，磁",
-          "en": "word",
-          "pos": "動詞",
+          "zh": "從 / 詞",
+          "zhSpoken": "從，詞",
+          "en": "from; word",
+          "pos": "介詞",
           "hanViet": "詞",
-          "category": "日常必備動詞",
-          "example": "tu từ",
-          "exampleZh": "修辭。"
+          "category": "語法功能詞",
+          "example": "Tôi đến từ Đài Loan.",
+          "exampleZh": "我來自台灣。"
         },
         {
           "id": "freq_57",
           "rank": 57,
           "viet": "sao",
-          "zh": "安 / 熬",
-          "zhSpoken": "安，熬",
-          "en": "star",
-          "pos": "動詞",
-          "hanViet": "抄",
-          "category": "日常必備動詞",
-          "example": "không vào hang cọp, sao bắt được cọp con?",
-          "exampleZh": "不入虎穴, 安 得虎子?。"
+          "zh": "為什麼 / 怎麼 / 星星",
+          "zhSpoken": "為什麼，怎麼",
+          "en": "why; how; star",
+          "pos": "副詞",
+          "hanViet": "",
+          "category": "語法功能詞",
+          "example": "Sao anh không đến?",
+          "exampleZh": "你為什麼沒來？"
         },
         {
           "id": "freq_58",
           "rank": 58,
           "viet": "rất",
-          "zh": "倍兒 / 沉",
-          "zhSpoken": "倍兒，沉",
-          "en": "very; very much; most",
-          "pos": "動詞",
+          "zh": "很 / 非常",
+          "zhSpoken": "很，非常",
+          "en": "very",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "rất đau",
-          "exampleZh": "沉痛。"
+          "category": "語法功能詞",
+          "example": "Món này rất ngon.",
+          "exampleZh": "這道菜很好吃。"
         },
         {
           "id": "freq_59",
           "rank": 59,
           "viet": "nào",
-          "zh": "啵 / 嗨",
-          "zhSpoken": "啵，嗨",
+          "zh": "哪 / 哪個",
+          "zhSpoken": "哪，哪個",
           "en": "which",
-          "pos": "動詞",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "không sớm sủa gì nữa đâu, đi nhanh lên nào!",
-          "exampleZh": "時間不早了, 趕快走吧!。"
+          "category": "語法功能詞",
+          "example": "Bạn thích món nào?",
+          "exampleZh": "你喜歡哪道菜？"
         },
         {
           "id": "freq_60",
           "rank": 60,
           "viet": "trên",
-          "zh": "崇 / 大幾",
-          "zhSpoken": "崇，大幾",
-          "en": "upper, above",
-          "pos": "形容詞",
+          "zh": "在…上面",
+          "zhSpoken": "在上面",
+          "en": "on; above",
+          "pos": "介詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "chú trên cháu một bậc",
-          "exampleZh": "叔叔比侄子長一輩。"
+          "category": "語法功能詞",
+          "example": "Sách ở trên bàn.",
+          "exampleZh": "書在桌上。"
         },
         {
           "id": "freq_61",
           "rank": 61,
           "viet": "mình",
-          "zh": "我 / 自我",
-          "zhSpoken": "我，自我",
-          "en": "body. oneself",
-          "pos": "動詞",
+          "zh": "我 / 自己",
+          "zhSpoken": "我，自己",
+          "en": "I; oneself",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "quên mình vì người khác",
-          "exampleZh": "捨己爲人。"
+          "category": "人稱與指示",
+          "example": "Mình là sinh viên.",
+          "exampleZh": "我是學生。"
         },
         {
           "id": "freq_62",
           "rank": 62,
           "viet": "họ",
-          "zh": "表 / 從",
-          "zhSpoken": "表，從",
-          "en": "last name ; family name",
-          "pos": "名詞",
+          "zh": "他們 / 姓氏",
+          "zhSpoken": "他們，姓氏",
+          "en": "they; family name",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "anh em họ",
-          "exampleZh": "表兄弟。"
+          "category": "人稱與指示",
+          "example": "Họ đến từ Hà Nội.",
+          "exampleZh": "他們來自河內。"
         },
         {
           "id": "freq_63",
           "rank": 63,
           "viet": "năm",
-          "zh": "春秋 / 寒暑",
-          "zhSpoken": "春秋，寒暑",
-          "en": "year",
+          "zh": "年 / 五",
+          "zhSpoken": "年，五",
+          "en": "year; five",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "trải qua 15 năm mới hoàn thành bộ sách này",
-          "exampleZh": "經歷了十五個寒暑才完成這部書稿。"
+          "category": "生活名詞",
+          "example": "Năm nay tôi ba mươi tuổi.",
+          "exampleZh": "我今年三十歲。"
         },
         {
           "id": "freq_64",
           "rank": 64,
           "viet": "hơn",
-          "zh": "打不住 / 大幾",
-          "zhSpoken": "打不住，大幾",
+          "zh": "更 / 比…多",
+          "zhSpoken": "更，比多",
           "en": "more than",
-          "pos": "動詞",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đã hơn hai mươi tuổi đầu rồi mà sao vẫn như con nít",
-          "exampleZh": "二十大幾的人了, 怎麼還跟小孩子一樣。 多。"
+          "category": "語法功能詞",
+          "example": "Hôm nay nóng hơn hôm qua.",
+          "exampleZh": "今天比昨天熱。"
         },
         {
           "id": "freq_65",
           "rank": 65,
           "viet": "bị",
-          "zh": "挨 / 被",
-          "zhSpoken": "挨，被",
-          "en": "sack; bag",
-          "pos": "動詞",
+          "zh": "被（不好的事）",
+          "zhSpoken": "被",
+          "en": "passive (adverse)",
+          "pos": "助詞",
           "hanViet": "被",
-          "category": "日常必備動詞",
-          "example": "bị đánh; ăn đòn",
-          "exampleZh": "捱打。"
+          "category": "語氣與助詞",
+          "example": "Tôi bị cảm.",
+          "exampleZh": "我感冒了。"
         },
         {
           "id": "freq_66",
           "rank": 66,
           "viet": "vậy",
-          "zh": "也 / 一",
-          "zhSpoken": "也，一",
-          "en": "so, thus, that",
-          "pos": "動詞",
+          "zh": "那麼 / 這樣",
+          "zhSpoken": "那麼，這樣",
+          "en": "so; like that",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể vậy giúp tôi không?",
-          "exampleZh": "你能幫我也嗎？"
+          "category": "語法功能詞",
+          "example": "Vậy thì chúng ta đi thôi.",
+          "exampleZh": "那我們就走吧。"
         },
         {
           "id": "freq_67",
           "rank": 67,
           "viet": "thấy",
-          "zh": "瞅見 / 覺得",
-          "zhSpoken": "瞅見，覺得",
-          "en": "to see to find, to feel",
+          "zh": "看見 / 覺得",
+          "zhSpoken": "看見，覺得",
+          "en": "to see; to feel",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh ấy thấy tôi đến, liền cất tiếng chào",
-          "exampleZh": "他瞅見我來了, 打了個招呼。 感; 感到; 覺得。"
+          "category": "日常動詞",
+          "example": "Tôi thấy món này hơi cay.",
+          "exampleZh": "我覺得這道菜有點辣。"
         },
         {
           "id": "freq_68",
           "rank": 68,
           "viet": "nếu",
-          "zh": "比方 / 的話",
-          "zhSpoken": "比方，的話",
-          "en": "if; unless",
+          "zh": "如果",
+          "zhSpoken": "如果",
+          "en": "if",
           "pos": "連詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "nếu không có dân thì làm sao có vua",
-          "exampleZh": "苟無民, 何以有君。"
+          "category": "語法功能詞",
+          "example": "Nếu rảnh, bạn hãy đến nhé.",
+          "exampleZh": "如果有空，你就來吧。"
         },
         {
           "id": "freq_69",
           "rank": 69,
           "viet": "thế",
-          "zh": "代替 / 頂替",
-          "zhSpoken": "代替，頂替",
-          "en": "position disposition, posture power",
-          "pos": "動詞",
-          "hanViet": "替",
-          "category": "日常必備動詞",
-          "example": "anh không mang theo, thế thì không dùng nữa ư?",
-          "exampleZh": "你不拿走, 那你不要啦?。"
+          "zh": "那樣 / 這麼",
+          "zhSpoken": "那樣，這麼",
+          "en": "so; like that",
+          "pos": "副詞",
+          "hanViet": "",
+          "category": "語法功能詞",
+          "example": "Sao anh về sớm thế?",
+          "exampleZh": "你怎麼這麼早回來？"
         },
         {
           "id": "freq_70",
           "rank": 70,
           "viet": "việc",
-          "zh": "檔子 / 活兒",
-          "zhSpoken": "檔子，活兒",
-          "en": "business, affair job, work incident",
+          "zh": "事情 / 工作",
+          "zhSpoken": "事情，工作",
+          "en": "matter; work",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "việc này do tôi quản lý",
-          "exampleZh": "這檔子事我來管吧。"
+          "category": "生活名詞",
+          "example": "Tôi có việc gấp.",
+          "exampleZh": "我有急事。"
         },
         {
           "id": "freq_71",
           "rank": 71,
           "viet": "cần",
-          "zh": "需要 / 該",
-          "zhSpoken": "需要，該",
-          "en": "Water dropwort",
+          "zh": "需要",
+          "zhSpoken": "需要",
+          "en": "to need",
           "pos": "動詞",
-          "hanViet": "竿",
-          "category": "日常必備動詞",
-          "example": "khỏi phải nói; không cần nói",
-          "exampleZh": "自不待言 當; 該。"
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Tôi cần một cái túi.",
+          "exampleZh": "我需要一個袋子。"
         },
         {
           "id": "freq_72",
           "rank": 72,
           "viet": "đâu",
-          "zh": "安 / 哩",
-          "zhSpoken": "安，哩",
-          "en": "where ; somewhere ; anywhere ; ever",
-          "pos": "動詞",
+          "zh": "哪裡 / 才不（否定）",
+          "zhSpoken": "哪裡，才不",
+          "en": "where; not at all",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tuyết trên núi vẫn chưa tan đâu",
-          "exampleZh": "山上的雪還沒有化哩。 哪。"
+          "category": "人稱與指示",
+          "example": "Nhà vệ sinh ở đâu?",
+          "exampleZh": "廁所在哪裡？"
         },
         {
           "id": "freq_73",
           "rank": 73,
           "viet": "nhà",
-          "zh": "家 / 房子 / 房屋",
+          "zh": "家 / 房子",
           "zhSpoken": "家，房子",
-          "en": "house, home",
+          "en": "house; home",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
+          "category": "生活名詞",
           "example": "Nhà tôi ở gần đây.",
           "exampleZh": "我家在附近。"
         },
@@ -993,355 +993,355 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_74",
           "rank": 74,
           "viet": "tới",
-          "zh": "及 / 來",
-          "zhSpoken": "及，來",
-          "en": "to come, to arrive, to reach",
+          "zh": "到 / 下一個",
+          "zhSpoken": "到，下一個",
+          "en": "to arrive; next",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lui tới; đi lại",
-          "exampleZh": "來往。"
+          "category": "日常動詞",
+          "example": "Xe tới rồi.",
+          "exampleZh": "車到了。"
         },
         {
           "id": "freq_75",
           "rank": 75,
           "viet": "lên",
-          "zh": "編造 / 躋",
-          "zhSpoken": "編造，躋",
-          "en": "to go up; to come up; to rise",
+          "zh": "上 / 往上",
+          "zhSpoken": "上，往上",
+          "en": "to go up",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lên danh sách",
-          "exampleZh": "編造名冊。"
+          "category": "日常動詞",
+          "example": "Mời chị lên xe.",
+          "exampleZh": "請上車。"
         },
         {
           "id": "freq_76",
           "rank": 76,
           "viet": "sau",
-          "zh": "後 / 過後",
-          "zhSpoken": "後，過後",
-          "en": "behind, at the back of, hind, rear",
-          "pos": "動詞",
+          "zh": "之後 / 後面",
+          "zhSpoken": "之後，後面",
+          "en": "after; behind",
+          "pos": "介詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cửa sau",
-          "exampleZh": "後門。"
+          "category": "語法功能詞",
+          "example": "Sau bữa tối, tôi đi dạo.",
+          "exampleZh": "晚餐後我去散步。"
         },
         {
           "id": "freq_77",
           "rank": 77,
           "viet": "thôi",
-          "zh": "停止 / 罷了",
-          "zhSpoken": "停止，罷了",
-          "en": "a long while",
-          "pos": "動詞",
+          "zh": "而已 / 算了 / 吧",
+          "zhSpoken": "而已，算了",
+          "en": "only; let's; stop",
+          "pos": "助詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "muốn thôi chẳng được",
-          "exampleZh": "欲罷不能。"
+          "category": "語氣與助詞",
+          "example": "Một chút thôi.",
+          "exampleZh": "一點點而已。"
         },
         {
           "id": "freq_78",
           "rank": 78,
           "viet": "cả",
-          "zh": "伯 / 長",
-          "zhSpoken": "伯，長",
-          "en": "(dùng hạn chế trong một số tổ hợp) ",
-          "pos": "名詞",
+          "zh": "全部 / 連…都",
+          "zhSpoken": "全部，連都",
+          "en": "all; even",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "anh cả; anh hai",
-          "exampleZh": "伯兄。"
+          "category": "語法功能詞",
+          "example": "Cả nhà tôi đều khỏe.",
+          "exampleZh": "我全家都很好。"
         },
         {
           "id": "freq_79",
           "rank": 79,
           "viet": "ai",
-          "zh": "哀傷",
-          "zhSpoken": "哀傷",
-          "en": "trí tuệ nhân tạo (artificial intell",
-          "pos": "名詞",
-          "hanViet": "哀",
-          "category": "生活日常",
-          "example": "ai đó?",
-          "exampleZh": "誰呀? 誰人。"
+          "zh": "誰",
+          "zhSpoken": "誰",
+          "en": "who",
+          "pos": "代名詞",
+          "hanViet": "",
+          "category": "人稱與指示",
+          "example": "Ai gọi điện cho tôi?",
+          "exampleZh": "誰打電話給我？"
         },
         {
           "id": "freq_80",
           "rank": 80,
           "viet": "theo",
-          "zh": "本 / 伴隨",
-          "zhSpoken": "本，伴隨",
-          "en": "to follow to believe in to go over ",
+          "zh": "跟隨 / 根據",
+          "zhSpoken": "跟隨，根據",
+          "en": "to follow; according to",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "làm việc theo đúng chế độ",
-          "exampleZh": "按制度辦事。"
+          "category": "日常動詞",
+          "example": "Theo tôi, món này ngon hơn.",
+          "exampleZh": "依我看，這道比較好吃。"
         },
         {
           "id": "freq_81",
           "rank": 81,
           "viet": "nên",
-          "zh": "本該 / 從而",
-          "zhSpoken": "本該，從而",
-          "en": "ought tọ",
-          "pos": "動詞",
+          "zh": "應該 / 所以",
+          "zhSpoken": "應該，所以",
+          "en": "should; therefore",
+          "pos": "連詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nên; cần phải",
-          "exampleZh": "應該。"
+          "category": "語法功能詞",
+          "example": "Bạn nên nghỉ một chút.",
+          "exampleZh": "你應該休息一下。"
         },
         {
           "id": "freq_82",
           "rank": 82,
           "viet": "chuyện",
-          "zh": "岔子 / 話兒",
-          "zhSpoken": "岔子，話兒",
-          "en": "Talk, story",
+          "zh": "事情 / 故事",
+          "zhSpoken": "事情，故事",
+          "en": "story; matter",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "anh cứ yên tâm đi, không xảy ra chuyện gì đâu",
-          "exampleZh": "你放心吧, 出不了岔子。"
+          "category": "生活名詞",
+          "example": "Có chuyện gì vậy?",
+          "exampleZh": "發生什麼事了？"
         },
         {
           "id": "freq_83",
           "rank": 83,
           "viet": "sự",
-          "zh": "事",
-          "zhSpoken": "事",
-          "en": "deed, act, action event, occurrence",
+          "zh": "（動詞、形容詞名詞化）",
+          "zhSpoken": "（動詞、形容詞名詞化）",
+          "en": "nominalizer",
           "pos": "名詞",
           "hanViet": "事",
-          "category": "生活日常",
-          "example": "Sự này rất cần thiết cho công việc.",
-          "exampleZh": "這個「事」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Cảm ơn sự giúp đỡ của anh.",
+          "exampleZh": "謝謝你的幫忙。"
         },
         {
           "id": "freq_84",
           "rank": 84,
           "viet": "chưa",
-          "zh": "不夠 / 朆",
-          "zhSpoken": "不夠，朆",
-          "en": "Yet, not yet",
-          "pos": "助詞",
+          "zh": "還沒",
+          "zhSpoken": "還沒",
+          "en": "not yet",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "phân tích chưa sâu",
-          "exampleZh": "分析得還不夠深入。"
+          "category": "語法功能詞",
+          "example": "Tôi chưa ăn sáng.",
+          "exampleZh": "我還沒吃早餐。"
         },
         {
           "id": "freq_85",
           "rank": 85,
           "viet": "nghĩ",
-          "zh": "擬 / 想",
-          "zhSpoken": "擬，想",
+          "zh": "想 / 思考",
+          "zhSpoken": "想，思考",
           "en": "to think",
           "pos": "動詞",
           "hanViet": "擬",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể nghĩ giúp tôi không?",
-          "exampleZh": "你能幫我擬嗎？"
+          "category": "日常動詞",
+          "example": "Tôi nghĩ anh ấy đúng.",
+          "exampleZh": "我想他是對的。"
         },
         {
           "id": "freq_86",
           "rank": 86,
           "viet": "vì",
-          "zh": "打主意 / 惟其",
-          "zhSpoken": "打主意，惟其",
-          "en": "common term",
-          "pos": "介詞",
+          "zh": "因為",
+          "zhSpoken": "因為",
+          "en": "because",
+          "pos": "連詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "làm việc không chỉ vì tiền",
-          "exampleZh": "做事不能只在錢上打主意。"
+          "category": "語法功能詞",
+          "example": "Tôi nghỉ vì bị ốm.",
+          "exampleZh": "我因為生病請假。"
         },
         {
           "id": "freq_87",
           "rank": 87,
           "viet": "nữa",
-          "zh": "還",
-          "zhSpoken": "還",
-          "en": "more, further",
-          "pos": "動詞",
+          "zh": "再 / 還要",
+          "zhSpoken": "再，還要",
+          "en": "more; further",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể nữa giúp tôi không?",
-          "exampleZh": "你能幫我還嗎？"
+          "category": "語法功能詞",
+          "example": "Cho tôi một ly nữa.",
+          "exampleZh": "請再給我一杯。"
         },
         {
           "id": "freq_88",
           "rank": 88,
           "viet": "đấy",
-          "zh": "價 / 啦",
-          "zhSpoken": "價，啦",
-          "en": "there",
-          "pos": "名詞",
+          "zh": "那裡 / 喔（語氣）",
+          "zhSpoken": "那裡，喔",
+          "en": "there; emphatic particle",
+          "pos": "助詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "không đâu đấy",
-          "exampleZh": "不價。"
+          "category": "語氣與助詞",
+          "example": "Anh đi đâu đấy?",
+          "exampleZh": "你要去哪裡呀？"
         },
         {
           "id": "freq_89",
           "rank": 89,
           "viet": "hắn",
-          "zh": "他",
+          "zh": "他（帶貶意）",
           "zhSpoken": "他",
-          "en": "he; him",
-          "pos": "名詞",
+          "en": "he (pejorative)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Hắn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「他」在工作上非常必需。"
+          "category": "人稱與指示",
+          "example": "Tôi không tin hắn.",
+          "exampleZh": "我不相信他。"
         },
         {
           "id": "freq_90",
           "rank": 90,
           "viet": "điều",
-          "zh": "撥 / 抽調",
-          "zhSpoken": "撥，抽調",
-          "en": "Word, sentence",
+          "zh": "事 / 件（抽象）",
+          "zhSpoken": "事，件",
+          "en": "thing; matter",
           "pos": "名詞",
-          "hanViet": "調",
-          "category": "生活日常",
-          "example": "điều hai người đến phân xưởng rèn làm việc",
-          "exampleZh": "調派兩個人到鍛造產線工作。"
+          "hanViet": "條",
+          "category": "生活名詞",
+          "example": "Điều này rất quan trọng.",
+          "exampleZh": "這件事很重要。"
         },
         {
           "id": "freq_91",
           "rank": 91,
           "viet": "ngày",
-          "zh": "天 / 日 / 日子",
-          "zhSpoken": "天，日",
-          "en": "Day",
+          "zh": "日 / 天",
+          "zhSpoken": "日，天",
+          "en": "day",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nó học ba ngày là biết bơi",
-          "exampleZh": "他三天工夫就學會了游泳。 號。"
+          "category": "生活名詞",
+          "example": "Hôm nay là ngày đẹp trời.",
+          "exampleZh": "今天是好天氣的日子。"
         },
         {
           "id": "freq_92",
           "rank": 92,
           "viet": "mới",
-          "zh": "始 / 方始",
-          "zhSpoken": "始，方始",
-          "en": "new; fresh; recent",
-          "pos": "動詞",
+          "zh": "新的 / 才 / 剛",
+          "zhSpoken": "新的，才",
+          "en": "new; just",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chỉ có dựa vào quần chúng, mới làm tốt công việc được",
-          "exampleZh": "只有依靠羣衆, 才能把工作做好。"
+          "category": "描述與狀態",
+          "example": "Tôi mua điện thoại mới.",
+          "exampleZh": "我買了新手機。"
         },
         {
           "id": "freq_93",
           "rank": 93,
           "viet": "trước",
-          "zh": "邊頭 / 從先",
-          "zhSpoken": "邊頭，從先",
-          "en": "former; first",
-          "pos": "動詞",
+          "zh": "之前 / 前面",
+          "zhSpoken": "之前，前面",
+          "en": "before; in front",
+          "pos": "介詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "người nó rắn chắc hơn trước nhiều",
-          "exampleZh": "他身體比從先結實多了。"
+          "category": "語法功能詞",
+          "example": "Rửa tay trước khi ăn.",
+          "exampleZh": "吃飯前先洗手。"
         },
         {
           "id": "freq_94",
           "rank": 94,
           "viet": "tại",
-          "zh": "處在 / 因爲",
-          "zhSpoken": "處在，因爲",
-          "en": "common term",
-          "pos": "動詞",
+          "zh": "在 / 由於",
+          "zhSpoken": "在，由於",
+          "en": "at; because of",
+          "pos": "介詞",
           "hanViet": "在",
-          "category": "日常必備動詞",
-          "example": "tại chức",
-          "exampleZh": "在職。"
+          "category": "語法功能詞",
+          "example": "Tôi làm việc tại Hà Nội.",
+          "exampleZh": "我在河內工作。"
         },
         {
           "id": "freq_95",
           "rank": 95,
           "viet": "thứ",
-          "zh": "類 / 次",
-          "zhSpoken": "類，次",
-          "en": "order, rank kind, sort, thing",
-          "pos": "動詞",
+          "zh": "第 / 種 / 星期",
+          "zhSpoken": "第，種",
+          "en": "ordinal; kind; day of week",
+          "pos": "名詞",
           "hanViet": "次",
-          "category": "日常必備動詞",
-          "example": "con thứ",
-          "exampleZh": "次子。"
+          "category": "生活名詞",
+          "example": "Thứ hai tôi đi làm.",
+          "exampleZh": "星期一我去上班。"
         },
         {
           "id": "freq_96",
           "rank": 96,
           "viet": "khác",
-          "zh": "別個 / 別樣",
-          "zhSpoken": "別個，別樣",
-          "en": "other; another; further; otherwise",
+          "zh": "別的 / 不同",
+          "zhSpoken": "別的，不同",
+          "en": "other; different",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "người khác",
-          "exampleZh": "別人。"
+          "category": "描述與狀態",
+          "example": "Cho tôi xem cái khác.",
+          "exampleZh": "請給我看別的。"
         },
         {
           "id": "freq_97",
           "rank": 97,
           "viet": "mọi",
-          "zh": "百 / 凡是",
-          "zhSpoken": "百，凡是",
-          "en": "all; every",
-          "pos": "名詞",
+          "zh": "每 / 所有",
+          "zhSpoken": "每，所有",
+          "en": "every; all",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "trăm sông đổ về biển; mọi thứ quy về một mối",
-          "exampleZh": "百川歸海。"
+          "category": "語法功能詞",
+          "example": "Mọi người đều đồng ý.",
+          "exampleZh": "大家都同意。"
         },
         {
           "id": "freq_98",
           "rank": 98,
           "viet": "hay",
-          "zh": "愛 / 不含糊",
-          "zhSpoken": "愛，不含糊",
-          "en": "well; grad; interesting",
-          "pos": "動詞",
+          "zh": "或者 / 常常 / 好看",
+          "zhSpoken": "或者，常常",
+          "en": "or; often; interesting",
+          "pos": "連詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hay nổi nóng",
-          "exampleZh": "愛發脾氣。"
+          "category": "語法功能詞",
+          "example": "Anh uống trà hay cà phê?",
+          "exampleZh": "你喝茶還是咖啡？"
         },
         {
           "id": "freq_99",
           "rank": 99,
           "viet": "nhất",
-          "zh": "冠 / 甲",
-          "zhSpoken": "冠，甲",
-          "en": "common term",
-          "pos": "動詞",
+          "zh": "最",
+          "zhSpoken": "最",
+          "en": "the most",
+          "pos": "副詞",
           "hanViet": "一",
-          "category": "日常必備動詞",
-          "example": "đứng nhất",
-          "exampleZh": "冠軍。"
+          "category": "語法功能詞",
+          "example": "Món này ngon nhất.",
+          "exampleZh": "這道最好吃。"
         },
         {
           "id": "freq_100",
           "rank": 100,
           "viet": "chứ",
-          "zh": "吧 / 唄",
-          "zhSpoken": "吧，唄",
-          "en": "từ nối",
+          "zh": "當然 / 吧（確認）",
+          "zhSpoken": "當然，吧",
+          "en": "of course; right?",
           "pos": "助詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "các em đã nhập học rồi chứ!",
-          "exampleZh": "你們開學了吧!。"
+          "category": "語氣與助詞",
+          "example": "Anh đi chứ?",
+          "exampleZh": "你會去吧？"
         }
       ],
-      "duration": 722.4
+      "duration": 725.8
     },
     {
       "batchId": 3,
@@ -1359,610 +1359,610 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_101",
           "rank": 101,
           "viet": "vẫn",
-          "zh": "倒是 / 還是",
-          "zhSpoken": "倒是，還是",
-          "en": "still, yet",
-          "pos": "動詞",
+          "zh": "仍然",
+          "zhSpoken": "仍然",
+          "en": "still",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "còn lý do nào khác, tôi vẫn muốn nghe đây",
-          "exampleZh": "還有什麼理由, 我倒是想聽一聽。"
+          "category": "語法功能詞",
+          "example": "Trời vẫn mưa.",
+          "exampleZh": "天還在下雨。"
         },
         {
           "id": "freq_102",
           "rank": 102,
           "viet": "thật",
-          "zh": "誠 / 當真",
-          "zhSpoken": "誠，當真",
-          "en": "true, real, actual",
-          "pos": "動詞",
+          "zh": "真的",
+          "zhSpoken": "真的",
+          "en": "true; really",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thật lòng thật dạ",
-          "exampleZh": "誠心誠意。"
+          "category": "語法功能詞",
+          "example": "Thật không?",
+          "exampleZh": "真的嗎？"
         },
         {
           "id": "freq_103",
           "rank": 103,
           "viet": "à",
-          "zh": "啦 / 來着",
-          "zhSpoken": "啦，來着",
-          "en": "Oh! (exclamation of surprise)",
+          "zh": "啊 / 嗎（句尾）",
+          "zhSpoken": "啊，嗎",
+          "en": "oh; question particle",
           "pos": "助詞",
-          "hanViet": "啊",
-          "category": "語法標記",
-          "example": "anh ấy đến thật à?",
-          "exampleZh": "他真來啦。"
+          "hanViet": "",
+          "category": "語氣與助詞",
+          "example": "Anh đến rồi à?",
+          "exampleZh": "你到了啊？"
         },
         {
           "id": "freq_104",
           "rank": 104,
           "viet": "nghe",
-          "zh": "聽取 / 聽聞",
-          "zhSpoken": "聽取，聽聞",
-          "en": "to hear",
+          "zh": "聽",
+          "zhSpoken": "聽",
+          "en": "to listen; to hear",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nghe",
-          "exampleZh": "聆聽。"
+          "category": "日常動詞",
+          "example": "Tôi thích nghe nhạc Việt.",
+          "exampleZh": "我喜歡聽越南音樂。"
         },
         {
           "id": "freq_105",
           "rank": 105,
           "viet": "qua",
-          "zh": "從 / 度",
-          "zhSpoken": "從，度",
-          "en": "last",
+          "zh": "經過 / 過去的",
+          "zhSpoken": "經過，過去的",
+          "en": "to pass; last",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "qua khe cửa sổ nhìn ra ngoài",
-          "exampleZh": "從窗縫裏往外望。"
+          "category": "日常動詞",
+          "example": "Hôm qua tôi đi qua chợ.",
+          "exampleZh": "昨天我經過市場。"
         },
         {
           "id": "freq_106",
           "rank": 106,
           "viet": "đúng",
-          "zh": "當真 / 是",
-          "zhSpoken": "當真，是",
-          "en": "just; exact; accurate; right; preci",
+          "zh": "對 / 正確",
+          "zhSpoken": "對，正確",
+          "en": "correct; right",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "đúng như vậy",
-          "exampleZh": "không? 此話當真?。"
+          "category": "描述與狀態",
+          "example": "Bạn nói đúng.",
+          "exampleZh": "你說得對。"
         },
         {
           "id": "freq_107",
           "rank": 107,
           "viet": "mẹ",
-          "zh": "阿婆 / 慈",
-          "zhSpoken": "阿婆，慈",
+          "zh": "媽媽",
+          "zhSpoken": "媽媽",
           "en": "mother",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "mẹ và con gái",
-          "exampleZh": "母女。"
+          "category": "生活名詞",
+          "example": "Mẹ tôi nấu ăn rất ngon.",
+          "exampleZh": "我媽媽很會做菜。"
         },
         {
           "id": "freq_108",
           "rank": 108,
           "viet": "hãy",
-          "zh": "去 / 再",
-          "zhSpoken": "去，再",
-          "en": "let; let's; still; yet",
-          "pos": "動詞",
+          "zh": "請 / 應（祈使）",
+          "zhSpoken": "請，應",
+          "en": "please; let's (imperative)",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh hãy đọc một lần đi",
-          "exampleZh": "你來唸一遍。"
+          "category": "語法功能詞",
+          "example": "Hãy nghe tôi nói.",
+          "exampleZh": "請聽我說。"
         },
         {
           "id": "freq_109",
           "rank": 109,
           "viet": "chúng",
-          "zh": "它們 / 他們",
-          "zhSpoken": "它們，他們",
-          "en": "Masses",
-          "pos": "名詞",
+          "zh": "他們 / 它們",
+          "zhSpoken": "他們，它們",
+          "en": "they (often objects, animals)",
+          "pos": "代名詞",
           "hanViet": "衆",
-          "category": "生活日常",
-          "example": "Chúng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「它們」在工作上非常必需。"
+          "category": "人稱與指示",
+          "example": "Chúng rất đáng yêu.",
+          "exampleZh": "牠們很可愛。"
         },
         {
           "id": "freq_110",
           "rank": 110,
           "viet": "cùng",
-          "zh": "對口兒 / 跟班",
-          "zhSpoken": "對口兒，跟班",
-          "en": "end; limit; extremity",
-          "pos": "名詞",
-          "hanViet": "窮",
-          "category": "生活日常",
-          "example": "cùng công việc",
-          "exampleZh": "工作對口。"
+          "zh": "一起 / 相同",
+          "zhSpoken": "一起，相同",
+          "en": "together; same",
+          "pos": "副詞",
+          "hanViet": "",
+          "category": "語法功能詞",
+          "example": "Chúng ta cùng đi nhé.",
+          "exampleZh": "我們一起去吧。"
         },
         {
           "id": "freq_111",
           "rank": 111,
           "viet": "lần",
-          "zh": "倍 / 遍",
-          "zhSpoken": "倍，遍",
-          "en": "time",
-          "pos": "動詞",
+          "zh": "次",
+          "zhSpoken": "次",
+          "en": "time (occurrence)",
+          "pos": "量詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "năm lần hai là mười",
-          "exampleZh": "二的五倍是十。"
+          "category": "數字與量詞",
+          "example": "Đây là lần đầu tôi đến Việt Nam.",
+          "exampleZh": "這是我第一次來越南。"
         },
         {
           "id": "freq_112",
           "rank": 112,
           "viet": "quá",
-          "zh": "不得了 / 不止",
-          "zhSpoken": "不得了，不止",
-          "en": "to exceed",
-          "pos": "動詞",
+          "zh": "太 / 超過",
+          "zhSpoken": "太，超過",
+          "en": "too; excessively",
+          "pos": "副詞",
           "hanViet": "過",
-          "category": "日常必備動詞",
-          "example": "cô ta sốt ruột quá nhưng không biết làm sao",
-          "exampleZh": "她急得不得了, 可又沒辦法。"
+          "category": "語法功能詞",
+          "example": "Đắt quá!",
+          "exampleZh": "太貴了！"
         },
         {
           "id": "freq_113",
           "rank": 113,
           "viet": "bà",
-          "zh": "阿奶 / 祖母",
-          "zhSpoken": "阿奶，祖母",
-          "en": "Grandmother",
-          "pos": "名詞",
+          "zh": "奶奶 / 女士（年長女性）",
+          "zhSpoken": "奶奶，女士",
+          "en": "grandmother; madam",
+          "pos": "代名詞",
           "hanViet": "婆",
-          "category": "生活日常",
-          "example": "bà nội",
-          "exampleZh": "祖母。"
+          "category": "人稱與指示",
+          "example": "Bà tôi năm nay tám mươi tuổi.",
+          "exampleZh": "我奶奶今年八十歲。"
         },
         {
           "id": "freq_114",
           "rank": 114,
           "viet": "nước",
-          "zh": "國 / 步",
-          "zhSpoken": "國，步",
-          "en": "water",
+          "zh": "水 / 國家",
+          "zhSpoken": "水，國家",
+          "en": "water; country",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "trong nước; quốc nội",
-          "exampleZh": "國內。"
+          "category": "生活名詞",
+          "example": "Cho tôi một chai nước.",
+          "exampleZh": "請給我一瓶水。"
         },
         {
           "id": "freq_115",
           "rank": 115,
           "viet": "cách",
-          "zh": "撤消 / 般",
-          "zhSpoken": "撤消，般",
-          "en": "Way, manner, fashion",
-          "pos": "動詞",
+          "zh": "方法 / 距離",
+          "zhSpoken": "方法，距離",
+          "en": "way; method; away from",
+          "pos": "名詞",
           "hanViet": "格",
-          "category": "日常必備動詞",
-          "example": "cách chức",
-          "exampleZh": "罷官。"
+          "category": "生活名詞",
+          "example": "Cách này dễ hơn.",
+          "exampleZh": "這個方法比較簡單。"
         },
         {
           "id": "freq_116",
           "rank": 116,
           "viet": "không thể",
-          "zh": "辦不到 / 不得",
-          "zhSpoken": "辦不到，不得",
-          "en": "impossible; unable",
+          "zh": "不能 / 無法",
+          "zhSpoken": "不能，無法",
+          "en": "cannot",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "không thể nào đi được",
-          "exampleZh": "去不得。"
+          "category": "日常動詞",
+          "example": "Tôi không thể đến hôm nay.",
+          "exampleZh": "我今天不能來。"
         },
         {
           "id": "freq_117",
           "rank": 117,
           "viet": "đừng",
-          "zh": "別 / 休",
-          "zhSpoken": "別，休",
-          "en": "do not",
-          "pos": "動詞",
+          "zh": "不要",
+          "zhSpoken": "不要",
+          "en": "don't",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh đừng đi, hãy ở lại đây vài hôm nữa",
-          "exampleZh": "你別走了, 在這兒住兩天吧。"
+          "category": "語法功能詞",
+          "example": "Đừng lo!",
+          "exampleZh": "別擔心！"
         },
         {
           "id": "freq_118",
           "rank": 118,
           "viet": "tên",
-          "zh": "稱號 / 大名",
-          "zhSpoken": "稱號，大名",
-          "en": "arrow name chap,bloke",
+          "zh": "名字",
+          "zhSpoken": "名字",
+          "en": "name",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nhũ danh của anh ấy là Hổ, tên gọi là Lý Kim Bưu",
-          "exampleZh": "他小名叫老虎, 大名叫李金彪。"
+          "category": "生活名詞",
+          "example": "Tên của bạn là gì?",
+          "exampleZh": "你叫什麼名字？"
         },
         {
           "id": "freq_119",
           "rank": 119,
           "viet": "giờ",
-          "zh": "辰 / 點",
-          "zhSpoken": "辰，點",
-          "en": "hour",
+          "zh": "點鐘 / 小時 / 現在",
+          "zhSpoken": "點鐘，小時",
+          "en": "hour; o'clock; now",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "giờ khắc",
-          "exampleZh": "時辰。"
+          "category": "生活名詞",
+          "example": "Bây giờ là mấy giờ?",
+          "exampleZh": "現在幾點？"
         },
         {
           "id": "freq_120",
           "rank": 120,
           "viet": "đưa",
-          "zh": "帶領 / 登",
-          "zhSpoken": "帶領，登",
-          "en": "to conduct; to escort; to bring; to",
+          "zh": "遞給 / 帶去",
+          "zhSpoken": "遞給，帶去",
+          "en": "to hand; to take someone",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "học sinh cũ đưa học sinh mới đi gặp thầy cô",
-          "exampleZh": "老同學帶領新同學去見老師。 帶; 引。"
+          "category": "日常動詞",
+          "example": "Anh đưa em ra sân bay nhé.",
+          "exampleZh": "我送你去機場吧。"
         },
         {
           "id": "freq_121",
           "rank": 121,
           "viet": "ngay",
-          "zh": "頓時 / 跟腳兒",
-          "zhSpoken": "頓時，跟腳兒",
-          "en": "direct; straight",
-          "pos": "形容詞",
+          "zh": "立刻 / 就在",
+          "zhSpoken": "立刻，就在",
+          "en": "right away; right at",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "có vấn đề thì giải quyết ngay",
-          "exampleZh": "有問題就及時解決。 即 書。"
+          "category": "語法功能詞",
+          "example": "Tôi đến ngay.",
+          "exampleZh": "我馬上到。"
         },
         {
           "id": "freq_122",
           "rank": 122,
           "viet": "mày",
-          "zh": "痂 / 眉毛",
-          "zhSpoken": "痂，眉毛",
-          "en": "you",
-          "pos": "名詞",
+          "zh": "你（粗俗或極親近）",
+          "zhSpoken": "你",
+          "en": "you (rude or intimate)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "mày; mày vết thương",
-          "exampleZh": "瘡疙疤。"
+          "category": "人稱與指示",
+          "example": "Mày đi đâu đấy?",
+          "exampleZh": "你去哪？"
         },
         {
           "id": "freq_123",
           "rank": 123,
           "viet": "giúp",
-          "zh": "幫助 / 幫忙 / 協助",
-          "zhSpoken": "幫助，幫忙",
-          "en": "to help; to aid; to assist",
+          "zh": "幫助",
+          "zhSpoken": "幫助",
+          "en": "to help",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "con lớn có thể giúp mẹ làm việc được rồi",
-          "exampleZh": "大孩子能幫媽媽幹活兒了。 幫補。"
+          "category": "日常動詞",
+          "example": "Bạn giúp tôi được không?",
+          "exampleZh": "你可以幫我嗎？"
         },
         {
           "id": "freq_124",
           "rank": 124,
           "viet": "tớ",
-          "zh": "俺 / 灑家",
-          "zhSpoken": "俺，灑家",
-          "en": "servant",
-          "pos": "名詞",
+          "zh": "我（朋友間）",
+          "zhSpoken": "我",
+          "en": "I (between friends)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Tớ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「俺」在工作上非常必需。"
+          "category": "人稱與指示",
+          "example": "Tớ đói quá.",
+          "exampleZh": "我好餓。"
         },
         {
           "id": "freq_125",
           "rank": 125,
           "viet": "nhìn",
-          "zh": "睹 / 睇",
-          "zhSpoken": "睹，睇",
-          "en": "to look (at)",
+          "zh": "看 / 注視",
+          "zhSpoken": "看，注視",
+          "en": "to look at",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nhìn quanh",
-          "exampleZh": "環顧。"
+          "category": "日常動詞",
+          "example": "Nhìn kìa, đẹp quá!",
+          "exampleZh": "你看，好美！"
         },
         {
           "id": "freq_126",
           "rank": 126,
           "viet": "nhau",
-          "zh": "交互 / 胞衣",
-          "zhSpoken": "交互，胞衣",
-          "en": "placenta. together;in company",
-          "pos": "動詞",
+          "zh": "互相",
+          "zhSpoken": "互相",
+          "en": "each other",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chửi nhau",
-          "exampleZh": "相罵。"
+          "category": "語法功能詞",
+          "example": "Chúng ta gặp nhau ở quán cà phê.",
+          "exampleZh": "我們在咖啡館見面吧。"
         },
         {
           "id": "freq_127",
           "rank": 127,
           "viet": "chết",
-          "zh": "敗謝 / 閉眼",
-          "zhSpoken": "敗謝，閉眼",
-          "en": "Dead, to die",
+          "zh": "死 / 糟了",
+          "zhSpoken": "死，糟了",
+          "en": "to die; damn",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chết",
-          "exampleZh": "薨逝。"
+          "category": "日常動詞",
+          "example": "Cây này chết rồi.",
+          "exampleZh": "這棵植物死了。"
         },
         {
           "id": "freq_128",
           "rank": 128,
           "viet": "lúc",
-          "zh": "忽而 / 會兒",
-          "zhSpoken": "忽而，會兒",
-          "en": "moment; while",
+          "zh": "時候 / 時刻",
+          "zhSpoken": "時候，時刻",
+          "en": "moment; at (time)",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "thời tiết lúc lạnh lúc nóng",
-          "exampleZh": "天氣忽冷忽熱。"
+          "category": "生活名詞",
+          "example": "Lúc đó tôi đang ngủ.",
+          "exampleZh": "那時候我正在睡覺。"
         },
         {
           "id": "freq_129",
           "rank": 129,
           "viet": "xem",
-          "zh": "翻閱 / 顧盼",
-          "zhSpoken": "翻閱，顧盼",
-          "en": "to see, to watch",
+          "zh": "看（節目、東西）",
+          "zhSpoken": "看",
+          "en": "to watch; to look at",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "xem mặt trời mọc",
-          "exampleZh": "觀日出。"
+          "category": "日常動詞",
+          "example": "Tối nay chúng ta xem phim nhé.",
+          "exampleZh": "今晚我們看電影吧。"
         },
         {
           "id": "freq_130",
           "rank": 130,
           "viet": "gặp",
-          "zh": "拜會 / 湊",
-          "zhSpoken": "拜會，湊",
-          "en": "to meet; to see; to find; to encoun",
+          "zh": "見面 / 遇到",
+          "zhSpoken": "見面，遇到",
+          "en": "to meet",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "gặp tai nạn",
-          "exampleZh": "被災。"
+          "category": "日常動詞",
+          "example": "Rất vui được gặp anh.",
+          "exampleZh": "很高興見到你。"
         },
         {
           "id": "freq_131",
           "rank": 131,
           "viet": "bằng",
-          "zh": "用 / 藉由 / 平等",
-          "zhSpoken": "用，藉由",
-          "en": "Eagle, hero in his element",
-          "pos": "動詞",
+          "zh": "用 / 搭乘 / 等於",
+          "zhSpoken": "用，搭乘",
+          "en": "by means of; equal",
+          "pos": "介詞",
           "hanViet": "憑",
-          "category": "日常必備動詞",
-          "example": "một mình anh ấy gặt lúa mạch bằng hai người",
-          "exampleZh": "割麥子他一個人能當兩個人。 等於。"
+          "category": "語法功能詞",
+          "example": "Tôi đi bằng xe máy.",
+          "exampleZh": "我騎機車去。"
         },
         {
           "id": "freq_132",
           "rank": 132,
           "viet": "tất cả",
-          "zh": "剗 / 共計",
-          "zhSpoken": "剗，共計",
-          "en": "all, whole, as a whole",
-          "pos": "名詞",
+          "zh": "全部 / 所有",
+          "zhSpoken": "全部，所有",
+          "en": "all",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Yêu cầu bồi thường tất cả mọi tổn thất",
-          "exampleZh": "要求賠償全部損失。"
+          "category": "語法功能詞",
+          "example": "Tất cả là hai trăm nghìn.",
+          "exampleZh": "總共二十萬盾。"
         },
         {
           "id": "freq_133",
           "rank": 133,
           "viet": "bên",
-          "zh": "邊 / 半邊",
-          "zhSpoken": "邊，半邊",
-          "en": "Side, edge, face",
+          "zh": "邊 / 方",
+          "zhSpoken": "邊，方",
+          "en": "side",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "bên cạnh",
-          "exampleZh": "旁邊。"
+          "category": "生活名詞",
+          "example": "Ngân hàng ở bên trái.",
+          "exampleZh": "銀行在左邊。"
         },
         {
           "id": "freq_134",
           "rank": 134,
           "viet": "lấy",
-          "zh": "把 / 跟",
-          "zhSpoken": "把，跟",
-          "en": "to take",
+          "zh": "拿 / 取",
+          "zhSpoken": "拿，取",
+          "en": "to take; to get",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lấy công chuộc tội",
-          "exampleZh": "將功折罪。"
+          "category": "日常動詞",
+          "example": "Tôi lấy cái này.",
+          "exampleZh": "我要這個。"
         },
         {
           "id": "freq_135",
           "rank": 135,
           "viet": "đều",
-          "zh": "全 / 平",
-          "zhSpoken": "全，平",
-          "en": "even; regular; steady",
-          "pos": "動詞",
+          "zh": "都 / 均勻",
+          "zhSpoken": "都，均勻",
+          "en": "all; evenly",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đều vui mừng",
-          "exampleZh": "皆大歡喜。"
+          "category": "語法功能詞",
+          "example": "Chúng tôi đều là người Đài Loan.",
+          "exampleZh": "我們都是台灣人。"
         },
         {
           "id": "freq_136",
           "rank": 136,
           "viet": "cháu",
-          "zh": "孫 / 侄兒",
-          "zhSpoken": "孫，侄兒",
-          "en": "Grandchild, grandson, granddaughter",
-          "pos": "名詞",
+          "zh": "孫子 / 姪甥 / 晚輩自稱",
+          "zhSpoken": "孫子，姪甥",
+          "en": "grandchild; niece; nephew",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cháu họ",
-          "exampleZh": "表侄。"
+          "category": "人稱與指示",
+          "example": "Cháu chào ông ạ.",
+          "exampleZh": "爺爺您好。"
         },
         {
           "id": "freq_137",
           "rank": 137,
           "viet": "gọi",
-          "zh": "叫 / 稱呼 / 打電話",
-          "zhSpoken": "叫，稱呼",
-          "en": "to call; to hail",
+          "zh": "叫 / 打電話",
+          "zhSpoken": "叫，打電話",
+          "en": "to call",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "các xã viên đều thân thiết gọi ông ấy là bác đội trưởng",
-          "exampleZh": "社員都親切地稱他爲老隊長。 傳。"
+          "category": "日常動詞",
+          "example": "Tôi sẽ gọi cho bạn.",
+          "exampleZh": "我會打給你。"
         },
         {
           "id": "freq_138",
           "rank": 138,
           "viet": "chính",
-          "zh": "本 / 嫡",
-          "zhSpoken": "本，嫡",
-          "en": "Main",
-          "pos": "動詞",
+          "zh": "正是 / 主要",
+          "zhSpoken": "正是，主要",
+          "en": "exactly; main",
+          "pos": "副詞",
           "hanViet": "正",
-          "category": "日常必備動詞",
-          "example": "chính phái",
-          "exampleZh": "嫡派。"
+          "category": "語法功能詞",
+          "example": "Chính anh ấy đã giúp tôi.",
+          "exampleZh": "正是他幫了我。"
         },
         {
           "id": "freq_139",
           "rank": 139,
           "viet": "cao",
-          "zh": "拔海 / 喬",
-          "zhSpoken": "拔海，喬",
-          "en": "Jelly, glue (of animal bones or pla",
-          "pos": "名詞",
+          "zh": "高",
+          "zhSpoken": "高",
+          "en": "tall; high",
+          "pos": "形容詞",
           "hanViet": "高",
-          "category": "生活日常",
-          "example": "ngọn núi này cao hơn mặt biển 1000 mét",
-          "exampleZh": "這山峯拔海一千米 崇; 峨; 高; 高亢; 喬。"
+          "category": "描述與狀態",
+          "example": "Anh ấy rất cao.",
+          "exampleZh": "他很高。"
         },
         {
           "id": "freq_140",
           "rank": 140,
           "viet": "nơi",
-          "zh": "場兒 / 場合",
-          "zhSpoken": "場兒，場合",
+          "zh": "地方",
+          "zhSpoken": "地方",
           "en": "place",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ở nơi công cộng, phải tuân thủ theo trật tự",
-          "exampleZh": "在公共場合, 要遵守秩序。"
+          "category": "生活名詞",
+          "example": "Đây là nơi tôi sinh ra.",
+          "exampleZh": "這裡是我出生的地方。"
         },
         {
           "id": "freq_141",
           "rank": 141,
           "viet": "do",
-          "zh": "由於 / 因為 / 由",
-          "zhSpoken": "由於，因為",
-          "en": "làm, thực hiện",
+          "zh": "由於 / 由",
+          "zhSpoken": "由於，由",
+          "en": "due to; by",
           "pos": "介詞",
           "hanViet": "由",
-          "category": "語法標記",
-          "example": "đều do anh ấy dây dưa, làm tôi phải đến muộn",
-          "exampleZh": "都是你磨蹭, 要不我也不會遲到。"
+          "category": "語法功能詞",
+          "example": "Chuyến bay bị hoãn do trời mưa.",
+          "exampleZh": "班機因下雨延誤。"
         },
         {
           "id": "freq_142",
           "rank": 142,
           "viet": "thời gian",
-          "zh": "白日 / 垡子",
-          "zhSpoken": "白日，垡子",
+          "zh": "時間",
+          "zhSpoken": "時間",
           "en": "time",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "thời gian này",
-          "exampleZh": "這一垡子。"
+          "category": "生活名詞",
+          "example": "Tôi không có thời gian.",
+          "exampleZh": "我沒有時間。"
         },
         {
           "id": "freq_143",
           "rank": 143,
           "viet": "từng",
-          "zh": "挨 / 曾經",
-          "zhSpoken": "挨，曾經",
-          "en": "used to",
-          "pos": "動詞",
+          "zh": "曾經 / 每一",
+          "zhSpoken": "曾經，每一",
+          "en": "once; ever; each",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "kiểm tra vệ sinh từng nhà, từng hộ",
-          "exampleZh": "挨 門挨 戶地檢查衛生。"
+          "category": "語法功能詞",
+          "example": "Tôi từng sống ở Huế.",
+          "exampleZh": "我曾住在順化。"
         },
         {
           "id": "freq_144",
           "rank": 144,
           "viet": "đường",
-          "zh": "邊 / 塗",
-          "zhSpoken": "邊，塗",
-          "en": "road; street; way; route",
+          "zh": "路 / 糖",
+          "zhSpoken": "路，糖",
+          "en": "road; sugar",
           "pos": "名詞",
-          "hanViet": "餹",
-          "category": "生活日常",
-          "example": "đường bộ",
-          "exampleZh": "陸路。"
+          "hanViet": "糖",
+          "category": "生活名詞",
+          "example": "Đường này rất đông xe.",
+          "exampleZh": "這條路車很多。"
         },
         {
           "id": "freq_145",
           "rank": 145,
           "viet": "lớn",
-          "zh": "弘 / 成",
-          "zhSpoken": "弘，成",
-          "en": "big; large",
-          "pos": "動詞",
+          "zh": "大",
+          "zhSpoken": "大",
+          "en": "big",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "áo rộng thắt lưng lớn",
-          "exampleZh": "寬衣博帶。"
+          "category": "描述與狀態",
+          "example": "Thành phố này rất lớn.",
+          "exampleZh": "這座城市很大。"
         },
         {
           "id": "freq_146",
           "rank": 146,
           "viet": "tháng",
-          "zh": "月 / 月份兒",
-          "zhSpoken": "月，月份兒",
-          "en": "month menses time",
+          "zh": "月",
+          "zhSpoken": "月",
+          "en": "month",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "sản lượng của tháng bảy tăng hơn tháng sáu 15%",
-          "exampleZh": "七月份的產量比六月份提高百分之十五。"
+          "category": "生活名詞",
+          "example": "Tháng sau tôi về Đài Loan.",
+          "exampleZh": "下個月我回台灣。"
         },
         {
           "id": "freq_147",
           "rank": 147,
           "viet": "tiền",
-          "zh": "錢 / 金錢 / 貨幣",
-          "zhSpoken": "錢，金錢",
+          "zh": "錢",
+          "zhSpoken": "錢",
           "en": "money",
           "pos": "名詞",
           "hanViet": "錢",
-          "category": "生活日常",
+          "category": "生活名詞",
           "example": "Bao nhiêu tiền một cái?",
           "exampleZh": "一個多少錢？"
         },
@@ -1970,43 +1970,43 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_148",
           "rank": 148,
           "viet": "lắm",
-          "zh": "百 / 高度",
-          "zhSpoken": "百，高度",
-          "en": "common term",
-          "pos": "動詞",
+          "zh": "很（放句尾）",
+          "zhSpoken": "很",
+          "en": "very (after adjective)",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lâu rồi; lâu lắm",
-          "exampleZh": "好久。"
+          "category": "語法功能詞",
+          "example": "Ngon lắm!",
+          "exampleZh": "很好吃！"
         },
         {
           "id": "freq_149",
           "rank": 149,
           "viet": "sống",
-          "zh": "成活 / 處",
-          "zhSpoken": "成活，處",
-          "en": "ridge, spine, back",
+          "zh": "生活 / 活著 / 生的",
+          "zhSpoken": "生活，活著",
+          "en": "to live; raw",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tỉ lệ sống",
-          "exampleZh": "成活率。書。"
+          "category": "日常動詞",
+          "example": "Tôi sống ở Sài Gòn.",
+          "exampleZh": "我住在西貢。"
         },
         {
           "id": "freq_150",
           "rank": 150,
           "viet": "dùng",
-          "zh": "使 / 使喚",
-          "zhSpoken": "使，使喚",
-          "en": "to employ; to use; to take",
+          "zh": "使用 / 用餐（禮貌）",
+          "zhSpoken": "使用，用餐",
+          "en": "to use; to have (polite)",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "dùng thước đo",
-          "exampleZh": "拿尺量。"
+          "category": "日常動詞",
+          "example": "Tôi dùng thẻ được không?",
+          "exampleZh": "我可以用卡嗎？"
         }
       ],
-      "duration": 725.3
+      "duration": 721.0
     },
     {
       "batchId": 4,
@@ -2024,38 +2024,38 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_151",
           "rank": 151,
           "viet": "hoặc",
-          "zh": "還是 / 或者",
-          "zhSpoken": "還是，或者",
-          "en": "common term",
+          "zh": "或者",
+          "zhSpoken": "或者",
+          "en": "or",
           "pos": "連詞",
           "hanViet": "或",
-          "category": "語法標記",
-          "example": "hoặc nhiều hoặc ít",
-          "exampleZh": "或多或少。"
+          "category": "語法功能詞",
+          "example": "Bạn có thể đi xe buýt hoặc taxi.",
+          "exampleZh": "你可以搭公車或計程車。"
         },
         {
           "id": "freq_152",
           "rank": 152,
           "viet": "xe",
-          "zh": "搓 / 紡",
-          "zhSpoken": "搓，紡",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "車",
+          "zhSpoken": "車",
+          "en": "vehicle",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "xe một sợi dây thừng bằng đay",
-          "exampleZh": "搓 一條麻繩兒。"
+          "category": "生活名詞",
+          "example": "Xe của tôi màu đen.",
+          "exampleZh": "我的車是黑色的。"
         },
         {
           "id": "freq_153",
           "rank": 153,
           "viet": "ăn",
-          "zh": "吃 / 用餐",
-          "zhSpoken": "吃，用餐",
+          "zh": "吃",
+          "zhSpoken": "吃",
           "en": "to eat",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
+          "category": "日常動詞",
           "example": "Mời bạn ăn cơm!",
           "exampleZh": "請吃飯！"
         },
@@ -2063,105 +2063,105 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_154",
           "rank": 154,
           "viet": "bố",
-          "zh": "父親 / 椿庭",
-          "zhSpoken": "父親，椿庭",
-          "en": "Father, papa, dad",
+          "zh": "爸爸（北部）",
+          "zhSpoken": "爸爸",
+          "en": "father (Northern)",
           "pos": "名詞",
-          "hanViet": "布",
-          "category": "生活日常",
-          "example": "bố già",
-          "exampleZh": "老父。"
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Bố tôi là giáo viên.",
+          "exampleZh": "我爸爸是老師。"
         },
         {
           "id": "freq_155",
           "rank": 155,
           "viet": "hết",
-          "zh": "大好 / 竭",
-          "zhSpoken": "大好，竭",
-          "en": "to finish; to end; to expire; to co",
+          "zh": "完 / 用光",
+          "zhSpoken": "完，用光",
+          "en": "to run out; finished",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lo lắng hết lòng",
-          "exampleZh": "殫思極慮。"
+          "category": "日常動詞",
+          "example": "Hết tiền rồi.",
+          "exampleZh": "錢用完了。"
         },
         {
           "id": "freq_156",
           "rank": 156,
           "viet": "đầu",
-          "zh": "初 / 早",
-          "zhSpoken": "初，早",
-          "en": "head",
+          "zh": "頭 / 開始",
+          "zhSpoken": "頭，開始",
+          "en": "head; beginning",
           "pos": "名詞",
           "hanViet": "頭",
-          "category": "生活日常",
-          "example": "đầu mùa hè",
-          "exampleZh": "初夏。"
+          "category": "生活名詞",
+          "example": "Tôi bị đau đầu.",
+          "exampleZh": "我頭痛。"
         },
         {
           "id": "freq_157",
           "rank": 157,
           "viet": "ngoài",
-          "zh": "別樣 / 不止",
-          "zhSpoken": "別樣，不止",
-          "en": "out; outside; without; exterior; ex",
-          "pos": "動詞",
+          "zh": "外面 / 除了",
+          "zhSpoken": "外面，除了",
+          "en": "outside; besides",
+          "pos": "介詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chắc ông ta ngoài 60 rồi",
-          "exampleZh": "他恐怕不止六十歲了。方。"
+          "category": "語法功能詞",
+          "example": "Trời ngoài kia lạnh lắm.",
+          "exampleZh": "外面很冷。"
         },
         {
           "id": "freq_158",
           "rank": 158,
           "viet": "chị",
-          "zh": "大姑子 / 大姐",
-          "zhSpoken": "大姑子，大姐",
-          "en": "Elder sister, first cousin (daughte",
-          "pos": "名詞",
+          "zh": "姊姊 / 妳（對年長女性）",
+          "zhSpoken": "姊姊，妳",
+          "en": "older sister; you (to a woman)",
+          "pos": "代名詞",
           "hanViet": "姊",
-          "category": "生活日常",
-          "example": "chị Lưu",
-          "exampleZh": "劉大姐。"
+          "category": "人稱與指示",
+          "example": "Chị ơi, cho em hỏi.",
+          "exampleZh": "姊姊，請問一下。"
         },
         {
           "id": "freq_159",
           "rank": 159,
           "viet": "hiểu",
-          "zh": "達 / 解",
-          "zhSpoken": "達，解",
-          "en": "to grasp; to comprehend; to underst",
+          "zh": "懂 / 理解",
+          "zhSpoken": "懂，理解",
+          "en": "to understand",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tôi hiểu lời anh ấy",
-          "exampleZh": "他的話我聽懂了。"
+          "category": "日常動詞",
+          "example": "Tôi không hiểu.",
+          "exampleZh": "我不懂。"
         },
         {
           "id": "freq_160",
           "rank": 160,
           "viet": "số",
-          "zh": "齒輪 / 代號",
-          "zhSpoken": "齒輪，代號",
-          "en": "destiny, fate, lot number, size sum",
+          "zh": "數字 / 號碼",
+          "zhSpoken": "數字，號碼",
+          "en": "number",
           "pos": "名詞",
           "hanViet": "數",
-          "category": "生活日常",
-          "example": "số người",
-          "exampleZh": "名額。"
+          "category": "生活名詞",
+          "example": "Số điện thoại của bạn là gì?",
+          "exampleZh": "你的電話號碼是多少？"
         },
         {
           "id": "freq_161",
           "rank": 161,
           "viet": "bọn",
-          "zh": "曹 / 夥伴",
-          "zhSpoken": "曹，夥伴",
-          "en": "Gang, band, group",
+          "zh": "（一群人，非正式）",
+          "zhSpoken": "（一群人，非正式）",
+          "en": "group of people (informal)",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "kết bọn",
-          "exampleZh": "搭幫。"
+          "category": "生活名詞",
+          "example": "Bọn mình đi ăn đi.",
+          "exampleZh": "我們去吃東西吧。"
         },
         {
           "id": "freq_162",
@@ -2172,506 +2172,506 @@ export const VOCAB_BATCHES_BY_TIER = {
           "en": "Vietnam",
           "pos": "名詞",
           "hanViet": "越南",
-          "category": "生活日常",
-          "example": "Việt nam này rất cần thiết cho công việc.",
-          "exampleZh": "這個「越南」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tôi rất thích Việt Nam.",
+          "exampleZh": "我很喜歡越南。"
         },
         {
           "id": "freq_163",
           "rank": 163,
           "viet": "mất",
-          "zh": "敗壞 / 不見",
-          "zhSpoken": "敗壞，不見",
-          "en": "to lose",
+          "zh": "失去 / 花費（時間）",
+          "zhSpoken": "失去，花費",
+          "en": "to lose; to take (time)",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mất danh dự",
-          "exampleZh": "敗壞名譽。"
+          "category": "日常動詞",
+          "example": "Tôi bị mất ví.",
+          "exampleZh": "我的皮夾不見了。"
         },
         {
           "id": "freq_164",
           "rank": 164,
           "viet": "luôn",
-          "zh": "不停 / 常常",
-          "zhSpoken": "不停，常常",
-          "en": "often",
-          "pos": "動詞",
+          "zh": "總是 / 立刻",
+          "zhSpoken": "總是，立刻",
+          "en": "always; right away",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể luôn giúp tôi không?",
-          "exampleZh": "你能幫我不停嗎？"
+          "category": "語法功能詞",
+          "example": "Cô ấy luôn đúng giờ.",
+          "exampleZh": "她總是很準時。"
         },
         {
           "id": "freq_165",
           "rank": 165,
           "viet": "hàng",
-          "zh": "包裹 / 輩分",
-          "zhSpoken": "包裹，輩分",
-          "en": "goods; wares; merchandise",
-          "pos": "動詞",
+          "zh": "商品 / 排 / 店",
+          "zhSpoken": "商品，排",
+          "en": "goods; row; shop",
+          "pos": "名詞",
           "hanViet": "行",
-          "category": "日常必備動詞",
-          "example": "tôi ra bưu điện gửi hàng",
-          "exampleZh": "我到郵電局寄包裹去。"
+          "category": "生活名詞",
+          "example": "Hàng này mới về.",
+          "exampleZh": "這批貨剛到。"
         },
         {
           "id": "freq_166",
           "rank": 166,
           "viet": "thêm",
-          "zh": "補充 / 補述",
-          "zhSpoken": "補充，補述",
-          "en": "to add",
+          "zh": "加 / 再",
+          "zhSpoken": "加，再",
+          "en": "to add; more",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nhận thêm nhiệm vụ",
-          "exampleZh": "補充任務。"
+          "category": "日常動詞",
+          "example": "Cho tôi thêm đá.",
+          "exampleZh": "請幫我加冰塊。"
         },
         {
           "id": "freq_167",
           "rank": 167,
           "viet": "thích",
-          "zh": "喜歡 / 喜",
-          "zhSpoken": "喜歡，喜",
-          "en": "buddhist (a buddhist title)",
+          "zh": "喜歡",
+          "zhSpoken": "喜歡",
+          "en": "to like",
           "pos": "動詞",
-          "hanViet": "刺",
-          "category": "日常必備動詞",
-          "example": "thích xem phim",
-          "exampleZh": "愛看電影。"
+          "hanViet": "適",
+          "category": "日常動詞",
+          "example": "Tôi thích uống cà phê.",
+          "exampleZh": "我喜歡喝咖啡。"
         },
         {
           "id": "freq_168",
           "rank": 168,
           "viet": "bộ",
-          "zh": "部 / 步",
-          "zhSpoken": "部，步",
-          "en": "Appearance, look, carriage, gait",
-          "pos": "動詞",
+          "zh": "套 / 部（部門）",
+          "zhSpoken": "套，部",
+          "en": "set; ministry",
+          "pos": "名詞",
           "hanViet": "部",
-          "category": "日常必備動詞",
-          "example": "cục bộ",
-          "exampleZh": "局部。"
+          "category": "生活名詞",
+          "example": "Tôi mua một bộ quần áo.",
+          "exampleZh": "我買了一套衣服。"
         },
         {
           "id": "freq_169",
           "rank": 169,
           "viet": "bé",
-          "zh": "奀 / 尕",
-          "zhSpoken": "奀，尕",
-          "en": "Small, little, tiny",
-          "pos": "名詞",
+          "zh": "小 / 小孩",
+          "zhSpoken": "小，小孩",
+          "en": "small; little kid",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "đứa bé; đứa trẻ",
-          "exampleZh": "尕娃。"
+          "category": "描述與狀態",
+          "example": "Em bé đang ngủ.",
+          "exampleZh": "小寶寶正在睡覺。"
         },
         {
           "id": "freq_170",
           "rank": 170,
           "viet": "giết",
-          "zh": "毒 / 結果",
-          "zhSpoken": "毒，結果",
-          "en": "to kill; to murder",
+          "zh": "殺",
+          "zhSpoken": "殺",
+          "en": "to kill",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "giết người; hành quyết",
-          "exampleZh": "出人。"
+          "category": "日常動詞",
+          "example": "Xin đừng giết con mèo đó.",
+          "exampleZh": "請別殺那隻貓。"
         },
         {
           "id": "freq_171",
           "rank": 171,
           "viet": "khỏi",
-          "zh": "不 / 不待",
-          "zhSpoken": "不，不待",
-          "en": "(khỏi bệnh) to recover one's health",
+          "zh": "離開 / 痊癒 / 不用",
+          "zhSpoken": "離開，痊癒",
+          "en": "out of; recovered",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "khỏi phải tiễn",
-          "exampleZh": "不送。"
+          "category": "日常動詞",
+          "example": "Tôi đã khỏi bệnh.",
+          "exampleZh": "我病好了。"
         },
         {
           "id": "freq_172",
           "rank": 172,
           "viet": "xin",
-          "zh": "奉 / 告",
-          "zhSpoken": "奉，告",
-          "en": "to ask (for), to beg",
+          "zh": "請 / 請求",
+          "zhSpoken": "請，請求",
+          "en": "please; to ask for",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "xin khuyên",
-          "exampleZh": "奉勸。"
+          "category": "日常動詞",
+          "example": "Xin cảm ơn.",
+          "exampleZh": "謝謝。"
         },
         {
           "id": "freq_173",
           "rank": 173,
           "viet": "sử dụng",
-          "zh": "拔取 / 動",
-          "zhSpoken": "拔取，動",
-          "en": "to use, to utilize, to employ",
+          "zh": "使用",
+          "zhSpoken": "使用",
+          "en": "to use",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "sử dụng",
-          "exampleZh": "動用。"
+          "category": "日常動詞",
+          "example": "Tôi không biết sử dụng máy này.",
+          "exampleZh": "我不會用這台機器。"
         },
         {
           "id": "freq_174",
           "rank": 174,
           "viet": "mang",
-          "zh": "抱 / 揹負",
-          "zhSpoken": "抱，揹負",
-          "en": "to carry; to wear",
+          "zh": "攜帶 / 拿",
+          "zhSpoken": "攜帶，拿",
+          "en": "to carry; to bring",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mang niềm hy vọng của nhân dân",
-          "exampleZh": "揹負着人民的希望。"
+          "category": "日常動詞",
+          "example": "Tôi quên mang ô.",
+          "exampleZh": "我忘了帶傘。"
         },
         {
           "id": "freq_175",
           "rank": 175,
           "viet": "tay",
-          "zh": "手 / 手臂",
-          "zhSpoken": "手，手臂",
-          "en": "hand",
+          "zh": "手",
+          "zhSpoken": "手",
+          "en": "hand; arm",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "vỗ tay",
-          "exampleZh": "鼓掌。"
+          "category": "生活名詞",
+          "example": "Rửa tay trước khi ăn.",
+          "exampleZh": "吃飯前要洗手。"
         },
         {
           "id": "freq_176",
           "rank": 176,
           "viet": "phòng",
-          "zh": "部 / 處",
-          "zhSpoken": "部，處",
-          "en": "room, chamber, hall",
-          "pos": "動詞",
-          "hanViet": "防",
-          "category": "日常必備動詞",
-          "example": "trưởng phòng",
-          "exampleZh": "處長。"
+          "zh": "房間",
+          "zhSpoken": "房間",
+          "en": "room",
+          "pos": "名詞",
+          "hanViet": "房",
+          "category": "生活名詞",
+          "example": "Tôi muốn đặt một phòng đơn.",
+          "exampleZh": "我想訂一間單人房。"
         },
         {
           "id": "freq_177",
           "rank": 177,
           "viet": "học",
-          "zh": "讀書 / 喝墨水",
-          "zhSpoken": "讀書，喝墨水",
-          "en": "to study; to learn; to read",
+          "zh": "學 / 讀書",
+          "zhSpoken": "學，讀書",
+          "en": "to study; to learn",
           "pos": "動詞",
           "hanViet": "學",
-          "category": "日常必備動詞",
-          "example": "nó nghỉ học mấy năm rồi",
-          "exampleZh": "他沒喝過幾年墨水。 念。"
+          "category": "日常動詞",
+          "example": "Tôi đang học tiếng Việt.",
+          "exampleZh": "我正在學越南語。"
         },
         {
           "id": "freq_178",
           "rank": 178,
           "viet": "xin lỗi",
-          "zh": "不過意 / 對不住",
-          "zhSpoken": "不過意，對不住",
-          "en": "apologize",
+          "zh": "對不起",
+          "zhSpoken": "對不起",
+          "en": "sorry; excuse me",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "xin lỗi, phiền ông phải đợi lâu",
-          "exampleZh": "對不起, 讓您久等了。"
+          "category": "日常動詞",
+          "example": "Xin lỗi, tôi đến muộn.",
+          "exampleZh": "對不起，我遲到了。"
         },
         {
           "id": "freq_179",
           "rank": 179,
           "viet": "vừa",
-          "zh": "邊 / 不",
-          "zhSpoken": "邊，不",
-          "en": "suitable, fitting",
-          "pos": "動詞",
+          "zh": "剛剛 / 剛好 / 一邊",
+          "zhSpoken": "剛剛，剛好",
+          "en": "just; fitting; while",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vừa làm vừa học",
-          "exampleZh": "邊幹邊學。"
+          "category": "語法功能詞",
+          "example": "Tôi vừa ăn xong.",
+          "exampleZh": "我剛吃完。"
         },
         {
           "id": "freq_180",
           "rank": 180,
           "viet": "gần",
-          "zh": "巴 / 把",
-          "zhSpoken": "巴，把",
-          "en": "near; next to",
-          "pos": "動詞",
+          "zh": "近",
+          "zhSpoken": "近",
+          "en": "near",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nhà anh ta gần bên nhà máy",
-          "exampleZh": "他家挨 着工廠。"
+          "category": "描述與狀態",
+          "example": "Khách sạn ở gần biển.",
+          "exampleZh": "飯店靠近海邊。"
         },
         {
           "id": "freq_181",
           "rank": 181,
           "viet": "trường",
-          "zh": "場所 / 久",
-          "zhSpoken": "場所，久",
-          "en": "school field; ground",
+          "zh": "學校",
+          "zhSpoken": "學校",
+          "en": "school",
           "pos": "名詞",
           "hanViet": "場",
-          "category": "生活日常",
-          "example": "hội trường; nơi họp",
-          "exampleZh": "會場。"
+          "category": "生活名詞",
+          "example": "Con tôi học ở trường này.",
+          "exampleZh": "我孩子在這間學校上學。"
         },
         {
           "id": "freq_182",
           "rank": 182,
           "viet": "xuống",
-          "zh": "挫 / 低沉",
-          "zhSpoken": "挫，低沉",
-          "en": "go down, get down",
+          "zh": "下 / 往下",
+          "zhSpoken": "下，往下",
+          "en": "to go down",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lên bổng xuống trầm",
-          "exampleZh": "抑揚頓挫。"
+          "category": "日常動詞",
+          "example": "Tôi xuống xe ở đây.",
+          "exampleZh": "我在這裡下車。"
         },
         {
           "id": "freq_183",
           "rank": 183,
           "viet": "chiếc",
-          "zh": "把 / 柄",
-          "zhSpoken": "把，柄",
-          "en": "A (unit of)",
+          "zh": "輛 / 個（單件物品）",
+          "zhSpoken": "輛，個",
+          "en": "classifier for vehicles, items",
           "pos": "量詞",
           "hanViet": "",
-          "category": "數字量詞",
-          "example": "một chiếc ấm trà",
-          "exampleZh": "一把茶壺。"
+          "category": "數字與量詞",
+          "example": "Tôi mua một chiếc xe máy.",
+          "exampleZh": "我買了一輛機車。"
         },
         {
           "id": "freq_184",
           "rank": 184,
           "viet": "cứ",
-          "zh": "乾脆 / 還是",
-          "zhSpoken": "乾脆，還是",
-          "en": "to continue; to keep on",
-          "pos": "動詞",
+          "zh": "儘管 / 一直",
+          "zhSpoken": "儘管，一直",
+          "en": "just go on; keep on",
+          "pos": "副詞",
           "hanViet": "據",
-          "category": "日常必備動詞",
-          "example": "người đó không biết lý lẽ, cứ mặc kệ nó",
-          "exampleZh": "那人不講理, 乾脆別理他。"
+          "category": "語法功能詞",
+          "example": "Anh cứ nói đi.",
+          "exampleZh": "你儘管說吧。"
         },
         {
           "id": "freq_185",
           "rank": 185,
           "viet": "ngài",
-          "zh": "大駕 / 閣下",
-          "zhSpoken": "大駕，閣下",
-          "en": "bombycid moth",
-          "pos": "名詞",
+          "zh": "您（敬稱）",
+          "zhSpoken": "您",
+          "en": "sir (formal)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cung kính chờ tôn giá; cung kính chờ ngài đến",
-          "exampleZh": "恭候大駕。"
+          "category": "人稱與指示",
+          "example": "Xin mời ngài ngồi.",
+          "exampleZh": "請您就座。"
         },
         {
           "id": "freq_186",
           "rank": 186,
           "viet": "nay",
-          "zh": "本 / 當",
-          "zhSpoken": "本，當",
-          "en": "Now; at present; at this time",
-          "pos": "動詞",
+          "zh": "現在 / 今",
+          "zhSpoken": "現在，今",
+          "en": "now; this",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "năm nay",
-          "exampleZh": "本年。"
+          "category": "生活名詞",
+          "example": "Năm nay tôi đi Đà Nẵng.",
+          "exampleZh": "今年我去峴港。"
         },
         {
           "id": "freq_187",
           "rank": 187,
           "viet": "yêu",
-          "zh": "愛好 / 結緣",
-          "zhSpoken": "愛好，結緣",
-          "en": "love, to be in love with",
+          "zh": "愛",
+          "zhSpoken": "愛",
+          "en": "to love",
           "pos": "動詞",
-          "hanViet": "妖",
-          "category": "日常必備動詞",
-          "example": "yêu tổ quốc",
-          "exampleZh": "愛祖國。"
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Tôi yêu Việt Nam.",
+          "exampleZh": "我愛越南。"
         },
         {
           "id": "freq_188",
           "rank": 188,
           "viet": "nhé",
-          "zh": "啵 / 啦",
-          "zhSpoken": "啵，啦",
-          "en": "Right",
+          "zh": "喔 / 吧（親切語氣）",
+          "zhSpoken": "喔，吧",
+          "en": "okay? (friendly particle)",
           "pos": "助詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "cậu chịu khó suy nghĩ 1 chút nhé!",
-          "exampleZh": "你好好兒想想吧!。"
+          "category": "語氣與助詞",
+          "example": "Mai gặp nhé!",
+          "exampleZh": "明天見喔！"
         },
         {
           "id": "freq_189",
           "rank": 189,
           "viet": "mấy",
-          "zh": "幾 / 幾個 / 多少",
+          "zh": "幾 / 幾個",
           "zhSpoken": "幾，幾個",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "en": "how many (few)",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chúng mình mấy năm rồi không gặp",
-          "exampleZh": "咱們好幾年沒見了。"
+          "category": "語法功能詞",
+          "example": "Bạn có mấy người con?",
+          "exampleZh": "你有幾個孩子？"
         },
         {
           "id": "freq_190",
           "rank": 190,
           "viet": "cuộc",
-          "zh": "場 / 屆",
-          "zhSpoken": "場，屆",
-          "en": "party; bont; match; game",
-          "pos": "名詞",
+          "zh": "場（活動、事件）",
+          "zhSpoken": "場",
+          "en": "classifier for events",
+          "pos": "量詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "một cuộc đại chiến",
-          "exampleZh": "一場大戰。量。"
+          "category": "數字與量詞",
+          "example": "Cuộc họp bắt đầu lúc chín giờ.",
+          "exampleZh": "會議九點開始。"
         },
         {
           "id": "freq_191",
           "rank": 191,
           "viet": "chắc",
-          "zh": "吧 / 大約摸",
-          "zhSpoken": "吧，大約摸",
-          "en": "Solid, firm; secure, steady",
-          "pos": "動詞",
+          "zh": "大概 / 確實",
+          "zhSpoken": "大概，確實",
+          "en": "probably; firm",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chắc anh ta không đến nữa",
-          "exampleZh": "他大概不來了吧。"
+          "category": "語法功能詞",
+          "example": "Chắc anh ấy quên rồi.",
+          "exampleZh": "他大概忘了。"
         },
         {
           "id": "freq_192",
           "rank": 192,
           "viet": "hỏi",
-          "zh": "發問 / 管",
-          "zhSpoken": "發問，管",
-          "en": "to ask; to question, to inquire; to",
+          "zh": "問",
+          "zhSpoken": "問",
+          "en": "to ask",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hỏi chuyện phiếm; nói chuyện phiếm",
-          "exampleZh": "管閒事。"
+          "category": "日常動詞",
+          "example": "Cho tôi hỏi một chút.",
+          "exampleZh": "請問一下。"
         },
         {
           "id": "freq_193",
           "rank": 193,
           "viet": "bỏ",
-          "zh": "罷手 / 擯除",
-          "zhSpoken": "罷手，擯除",
-          "en": "To put, to place",
+          "zh": "放棄 / 丟掉 / 放",
+          "zhSpoken": "放棄，丟掉",
+          "en": "to quit; to throw away",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bỏ học",
-          "exampleZh": "輟 學。"
+          "category": "日常動詞",
+          "example": "Đừng bỏ rác ở đây.",
+          "exampleZh": "不要在這裡丟垃圾。"
         },
         {
           "id": "freq_194",
           "rank": 194,
           "viet": "chào",
-          "zh": "拜見 / 打招呼",
-          "zhSpoken": "拜見，打招呼",
-          "en": "To greet, to salute",
+          "zh": "打招呼 / 你好",
+          "zhSpoken": "打招呼，你好",
+          "en": "to greet; hello",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chào thầy!",
-          "exampleZh": "老師早!。"
+          "category": "日常動詞",
+          "example": "Chào chị, chị khỏe không?",
+          "exampleZh": "姊姊妳好，妳好嗎？"
         },
         {
           "id": "freq_195",
           "rank": 195,
           "viet": "loại",
-          "zh": "樣 / 標號",
-          "zhSpoken": "樣，標號",
-          "en": "sort; category; gemos",
-          "pos": "動詞",
+          "zh": "種類",
+          "zhSpoken": "種類",
+          "en": "type; kind",
+          "pos": "名詞",
           "hanViet": "類",
-          "category": "日常必備動詞",
-          "example": "loại này",
-          "exampleZh": "這般。"
+          "category": "生活名詞",
+          "example": "Bạn thích loại nào?",
+          "exampleZh": "你喜歡哪一種？"
         },
         {
           "id": "freq_196",
           "rank": 196,
           "viet": "bao giờ",
-          "zh": "多咱 / 多早晚",
-          "zhSpoken": "多咱，多早晚",
-          "en": "When",
-          "pos": "動詞",
+          "zh": "什麼時候",
+          "zhSpoken": "什麼時候",
+          "en": "when",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bao giờ chúng ta",
-          "exampleZh": "đi? 咱們多咱走?。"
+          "category": "語法功能詞",
+          "example": "Bao giờ anh về?",
+          "exampleZh": "你什麼時候回來？"
         },
         {
           "id": "freq_197",
           "rank": 197,
           "viet": "hả",
-          "zh": "啊 / 唻",
-          "zhSpoken": "啊，唻",
-          "en": "to open",
-          "pos": "動詞",
+          "zh": "啊？ / 嗎（口語）",
+          "zhSpoken": "啊，嗎",
+          "en": "huh? (casual question)",
+          "pos": "助詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hả? rốt cuộc ngày mai anh có đi không?",
-          "exampleZh": "啊?你明天到底去不去呀?助。"
+          "category": "語氣與助詞",
+          "example": "Anh nói gì hả?",
+          "exampleZh": "你說什麼啊？"
         },
         {
           "id": "freq_198",
           "rank": 198,
           "viet": "nhanh",
-          "zh": "遄 / 飛",
-          "zhSpoken": "遄，飛",
-          "en": "volatite m. bộ nhớ trong thời gian ",
-          "pos": "動詞",
+          "zh": "快",
+          "zhSpoken": "快",
+          "en": "fast",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đi nhanh",
-          "exampleZh": "遄往。"
+          "category": "描述與狀態",
+          "example": "Anh đi nhanh lên!",
+          "exampleZh": "你快一點！"
         },
         {
           "id": "freq_199",
           "rank": 199,
           "viet": "giống",
-          "zh": "像 / 類似 / 品種",
-          "zhSpoken": "像，類似",
-          "en": "kind; race; breed; gender; sex",
-          "pos": "動詞",
+          "zh": "像 / 相似",
+          "zhSpoken": "像，相似",
+          "en": "similar; to resemble",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nó rất giống cậu nó",
-          "exampleZh": "他長得跟他舅舅相仿。"
+          "category": "描述與狀態",
+          "example": "Con giống mẹ.",
+          "exampleZh": "孩子長得像媽媽。"
         },
         {
           "id": "freq_200",
           "rank": 200,
           "viet": "gia đình",
-          "zh": "人家 / 家園",
-          "zhSpoken": "人家，家園",
-          "en": "family; househole",
+          "zh": "家庭 / 家人",
+          "zhSpoken": "家庭，家人",
+          "en": "family",
           "pos": "名詞",
           "hanViet": "家庭",
-          "category": "生活日常",
-          "example": "gia đình anh ấy có năm người",
-          "exampleZh": "他家有五口人。"
+          "category": "生活名詞",
+          "example": "Gia đình tôi có bốn người.",
+          "exampleZh": "我家有四個人。"
         }
       ],
-      "duration": 727.3
+      "duration": 721.1
     },
     {
       "batchId": 5,
@@ -2689,654 +2689,654 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_201",
           "rank": 201,
           "viet": "chỗ",
-          "zh": "艙位 / 塊兒",
-          "zhSpoken": "艙位，塊兒",
-          "en": "Seat, place, room, space, point, ex",
+          "zh": "地方 / 座位",
+          "zhSpoken": "地方，座位",
+          "en": "place; seat",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "chỗ ở",
-          "exampleZh": "住處。"
+          "category": "生活名詞",
+          "example": "Chỗ này có người chưa?",
+          "exampleZh": "這個位子有人嗎？"
         },
         {
           "id": "freq_202",
           "rank": 202,
           "viet": "nhỏ",
-          "zh": "不丁點兒 / 尺寸",
-          "zhSpoken": "不丁點兒，尺寸",
-          "en": "small; little; petty; young",
-          "pos": "動詞",
+          "zh": "小",
+          "zhSpoken": "小",
+          "en": "small",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nhỏ dãi",
-          "exampleZh": "垂涎。"
+          "category": "描述與狀態",
+          "example": "Phòng này hơi nhỏ.",
+          "exampleZh": "這個房間有點小。"
         },
         {
           "id": "freq_203",
           "rank": 203,
           "viet": "chẳng",
-          "zh": "並不 / 毫不",
-          "zhSpoken": "並不，毫不",
-          "en": "Not at all",
-          "pos": "動詞",
+          "zh": "一點也不（語氣強）",
+          "zhSpoken": "一點也不",
+          "en": "not at all",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh ấy chẳng quên anh đâu",
-          "exampleZh": "他並沒忘了你。"
+          "category": "語法功能詞",
+          "example": "Tôi chẳng biết gì cả.",
+          "exampleZh": "我什麼都不知道。"
         },
         {
           "id": "freq_204",
           "rank": 204,
           "viet": "tiếng",
-          "zh": "聲氣 / 聲",
-          "zhSpoken": "聲氣，聲",
-          "en": "sound, voice language name, reputat",
+          "zh": "語言 / 聲音 / 小時",
+          "zhSpoken": "語言，聲音",
+          "en": "language; sound; hour",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tiếng mưa rơi",
-          "exampleZh": "雨聲。"
+          "category": "生活名詞",
+          "example": "Tôi nói tiếng Việt chưa tốt.",
+          "exampleZh": "我的越語還說得不好。"
         },
         {
           "id": "freq_205",
           "rank": 205,
           "viet": "bây giờ",
-          "zh": "此刻 / 現代　",
-          "zhSpoken": "此刻，現代",
-          "en": "Now, right now",
-          "pos": "動詞",
+          "zh": "現在",
+          "zhSpoken": "現在",
+          "en": "now",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bây giờ cơn bão đã qua, tàu thuyền có thể ra khơi ngay được",
-          "exampleZh": "此刻颱風已過, 輪船即可起航。"
+          "category": "語法功能詞",
+          "example": "Bây giờ tôi phải đi.",
+          "exampleZh": "我現在得走了。"
         },
         {
           "id": "freq_206",
           "rank": 206,
           "viet": "vấn đề",
-          "zh": "疙瘩 / 問題",
-          "zhSpoken": "疙瘩，問題",
-          "en": "problem, matter, question",
+          "zh": "問題 / 議題",
+          "zhSpoken": "問題，議題",
+          "en": "problem; issue",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "giải quyết vấn đề giữa hai người với nhau",
-          "exampleZh": "解開他們兩人中間的疙瘩。"
+          "category": "生活名詞",
+          "example": "Không có vấn đề gì.",
+          "exampleZh": "沒有什麼問題。"
         },
         {
           "id": "freq_207",
           "rank": 207,
           "viet": "ngươi",
-          "zh": "爾 / 瞳人兒",
-          "zhSpoken": "爾，瞳人兒",
-          "en": "(cũ) Thou, thee",
-          "pos": "名詞",
+          "zh": "你（古語）",
+          "zhSpoken": "你",
+          "en": "thou (archaic)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Ngươi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「爾」在工作上非常必需。"
+          "category": "人稱與指示",
+          "example": "Ngươi là ai?",
+          "exampleZh": "你是誰？"
         },
         {
           "id": "freq_208",
           "rank": 208,
           "viet": "xảy",
-          "zh": "發生 / 忽然",
-          "zhSpoken": "發生，忽然",
-          "en": "vocabulary",
+          "zh": "發生",
+          "zhSpoken": "發生",
+          "en": "to happen",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể xảy giúp tôi không?",
-          "exampleZh": "你能幫我發生嗎？"
+          "category": "日常動詞",
+          "example": "Chuyện gì đã xảy ra?",
+          "exampleZh": "發生了什麼事？"
         },
         {
           "id": "freq_209",
           "rank": 209,
           "viet": "làm việc",
-          "zh": "工作 / 辦公",
-          "zhSpoken": "工作，辦公",
-          "en": "vocabulary",
+          "zh": "工作",
+          "zhSpoken": "工作",
+          "en": "to work",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chủ nhật làm việc như ngày thường",
-          "exampleZh": "星期天照常辦公。 操作。"
+          "category": "日常動詞",
+          "example": "Tôi làm việc ở công ty Đài Loan.",
+          "exampleZh": "我在台灣公司工作。"
         },
         {
           "id": "freq_210",
           "rank": 210,
           "viet": "thế giới",
-          "zh": "大地 / 世界",
-          "zhSpoken": "大地，世界",
-          "en": "world, universe",
+          "zh": "世界",
+          "zhSpoken": "世界",
+          "en": "world",
           "pos": "名詞",
           "hanViet": "世界",
-          "category": "生活日常",
-          "example": "thế giới quan",
-          "exampleZh": "世界觀。"
+          "category": "生活名詞",
+          "example": "Việt Nam xuất khẩu cà phê ra thế giới.",
+          "exampleZh": "越南把咖啡出口到世界各地。"
         },
         {
           "id": "freq_211",
           "rank": 211,
           "viet": "công ty",
-          "zh": "會社",
-          "zhSpoken": "會社",
-          "en": "company; corporation",
+          "zh": "公司",
+          "zhSpoken": "公司",
+          "en": "company",
           "pos": "名詞",
           "hanViet": "公司",
-          "category": "生活日常",
-          "example": "Công ty này rất cần thiết cho công việc.",
-          "exampleZh": "這個「會社」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Công ty tôi ở Bình Dương.",
+          "exampleZh": "我的公司在平陽。"
         },
         {
           "id": "freq_212",
           "rank": 212,
           "viet": "tạo",
-          "zh": "開創 / 創造",
-          "zhSpoken": "開創，創造",
-          "en": "to create, to make, to form, to cau",
+          "zh": "創造 / 造成",
+          "zhSpoken": "創造，造成",
+          "en": "to create",
           "pos": "動詞",
           "hanViet": "造",
-          "category": "日常必備動詞",
-          "example": "tạo nên cục diện mới",
-          "exampleZh": "開創新局面。"
+          "category": "日常動詞",
+          "example": "Chúng tôi tạo việc làm cho người dân.",
+          "exampleZh": "我們為居民創造工作機會。"
         },
         {
           "id": "freq_213",
           "rank": 213,
           "viet": "lời",
-          "zh": "詞 / 紅",
-          "zhSpoken": "詞，紅",
-          "en": "word",
+          "zh": "話語 / 利潤",
+          "zhSpoken": "話語，利潤",
+          "en": "words; profit",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "lời kịch",
-          "exampleZh": "戲詞。"
+          "category": "生活名詞",
+          "example": "Cảm ơn lời khuyên của bạn.",
+          "exampleZh": "謝謝你的建議。"
         },
         {
           "id": "freq_214",
           "rank": 214,
           "viet": "phát triển",
-          "zh": "昌明 / 出挑",
-          "zhSpoken": "昌明，出挑",
-          "en": "Develop, expand",
+          "zh": "發展",
+          "zhSpoken": "發展",
+          "en": "to develop",
           "pos": "動詞",
           "hanViet": "發展",
-          "category": "日常必備動詞",
-          "example": "khoa học phát triển mạnh",
-          "exampleZh": "科學昌明。"
+          "category": "日常動詞",
+          "example": "Kinh tế Việt Nam phát triển nhanh.",
+          "exampleZh": "越南經濟發展很快。"
         },
         {
           "id": "freq_215",
           "rank": 215,
           "viet": "giữ",
-          "zh": "按 / 按耐",
-          "zhSpoken": "按，按耐",
-          "en": "to keep; to guard; to retain; to ho",
+          "zh": "保持 / 保管",
+          "zhSpoken": "保持，保管",
+          "en": "to keep",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "giữ liên hệ chặt chẽ với quần chúng",
-          "exampleZh": "跟羣衆保持密切聯繫。"
+          "category": "日常動詞",
+          "example": "Anh giữ giúp tôi cái túi này nhé.",
+          "exampleZh": "請幫我保管這個包。"
         },
         {
           "id": "freq_216",
           "rank": 216,
           "viet": "thực hiện",
-          "zh": "辦理 / 酬",
-          "zhSpoken": "辦理，酬",
-          "en": "to realize, to carry out",
+          "zh": "實行 / 執行",
+          "zhSpoken": "實行，執行",
+          "en": "to carry out",
           "pos": "動詞",
           "hanViet": "實現",
-          "category": "日常必備動詞",
-          "example": "đã hứa với con thì nhất định phải thực hiện",
-          "exampleZh": "答應孩子的事, 一定要兌現。"
+          "category": "日常動詞",
+          "example": "Chúng tôi sẽ thực hiện kế hoạch này.",
+          "exampleZh": "我們會執行這個計畫。"
         },
         {
           "id": "freq_217",
           "rank": 217,
           "viet": "trẻ",
-          "zh": "兒 / 孩",
-          "zhSpoken": "兒，孩",
-          "en": "young",
-          "pos": "名詞",
+          "zh": "年輕 / 小孩",
+          "zhSpoken": "年輕，小孩",
+          "en": "young; child",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "trẻ sơ sinh",
-          "exampleZh": "嬰兒。"
+          "category": "描述與狀態",
+          "example": "Cô ấy còn rất trẻ.",
+          "exampleZh": "她還很年輕。"
         },
         {
           "id": "freq_218",
           "rank": 218,
           "viet": "cha",
-          "zh": "爹爹 / 父親",
-          "zhSpoken": "爹爹，父親",
-          "en": "Father, dad",
+          "zh": "父親",
+          "zhSpoken": "父親",
+          "en": "father",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cha tôi bảo tôi đến thăm anh",
-          "exampleZh": "俺大叫我來看看你。"
+          "category": "生活名詞",
+          "example": "Cha tôi đã về hưu.",
+          "exampleZh": "我父親已經退休了。"
         },
         {
           "id": "freq_219",
           "rank": 219,
           "viet": "đủ",
-          "zh": "備 / 不乏",
-          "zhSpoken": "備，不乏",
-          "en": "enough; adequate; sufficient",
-          "pos": "動詞",
+          "zh": "足夠",
+          "zhSpoken": "足夠",
+          "en": "enough",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "gian khổ nếm đủ",
-          "exampleZh": "艱苦備嚐。"
+          "category": "描述與狀態",
+          "example": "Bao nhiêu đây là đủ rồi.",
+          "exampleZh": "這些就夠了。"
         },
         {
           "id": "freq_220",
           "rank": 220,
           "viet": "quay",
-          "zh": "扳 / 別",
-          "zhSpoken": "扳，別",
-          "en": "ke, bến (cảng)",
+          "zh": "轉 / 回 / 拍攝",
+          "zhSpoken": "轉，回",
+          "en": "to turn; to return; to film",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tay quay (clê; lắc lê; cờ-lê)",
-          "exampleZh": "扳手。"
+          "category": "日常動詞",
+          "example": "Anh quay lại đây nhé.",
+          "exampleZh": "你回到這裡來吧。"
         },
         {
           "id": "freq_221",
           "rank": 221,
           "viet": "vụ",
-          "zh": "茬 / 號",
-          "zhSpoken": "茬，號",
-          "en": "season, time",
-          "pos": "動詞",
+          "zh": "案件 / 季節",
+          "zhSpoken": "案件，季節",
+          "en": "case; incident",
+          "pos": "名詞",
           "hanViet": "務",
-          "category": "日常必備動詞",
-          "example": "đổi vụ",
-          "exampleZh": "換茬。"
+          "category": "生活名詞",
+          "example": "Vụ này cảnh sát đang điều tra.",
+          "exampleZh": "這起案件警方正在調查。"
         },
         {
           "id": "freq_222",
           "rank": 222,
           "viet": "đẹp",
-          "zh": "美 / 佳",
-          "zhSpoken": "美，佳",
-          "en": "beautiful; handsome; fair; pretty",
+          "zh": "美 / 漂亮",
+          "zhSpoken": "美，漂亮",
+          "en": "beautiful",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "người con gái đẹp",
-          "exampleZh": "靚女。"
+          "category": "描述與狀態",
+          "example": "Hội An rất đẹp.",
+          "exampleZh": "會安很美。"
         },
         {
           "id": "freq_223",
           "rank": 223,
           "viet": "câu",
-          "zh": "捕撈 / 釣",
-          "zhSpoken": "捕撈，釣",
-          "en": "Colt, filly, foal",
-          "pos": "動詞",
-          "hanViet": "鉤",
-          "category": "日常必備動詞",
-          "example": "câu cá",
-          "exampleZh": "釣魚。"
+          "zh": "句子 / 釣魚",
+          "zhSpoken": "句子，釣魚",
+          "en": "sentence; to fish",
+          "pos": "名詞",
+          "hanViet": "句",
+          "category": "生活名詞",
+          "example": "Câu này nghĩa là gì?",
+          "exampleZh": "這句話是什麼意思？"
         },
         {
           "id": "freq_224",
           "rank": 224,
           "viet": "dưới",
-          "zh": "在下面 / 以下 / 低於",
-          "zhSpoken": "在下面，以下",
-          "en": "Under; below",
+          "zh": "在…下面",
+          "zhSpoken": "在下面",
+          "en": "under; below",
           "pos": "介詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "ở trường nó học dưới tôi một lớp",
-          "exampleZh": "他在學校裏比我矮 一級。"
+          "category": "語法功能詞",
+          "example": "Con mèo nằm dưới bàn.",
+          "exampleZh": "貓躺在桌子下。"
         },
         {
           "id": "freq_225",
           "rank": 225,
           "viet": "thằng",
-          "zh": "仔 / 小子",
-          "zhSpoken": "仔，小子",
-          "en": "vocabulary",
-          "pos": "量詞",
-          "hanViet": "繩",
-          "category": "數字量詞",
-          "example": "Hãy chú ý đến thằng trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「仔」。"
+          "zh": "小子（貶或親暱）",
+          "zhSpoken": "小子",
+          "en": "guy (rude or intimate)",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Thằng bé rất ngoan.",
+          "exampleZh": "那小男孩很乖。"
         },
         {
           "id": "freq_226",
           "rank": 226,
           "viet": "hoạt động",
-          "zh": "活動 / 運營",
-          "zhSpoken": "活動，運營",
-          "en": "action; activity",
+          "zh": "活動 / 運作",
+          "zhSpoken": "活動，運作",
+          "en": "activity; to operate",
           "pos": "名詞",
           "hanViet": "活動",
-          "category": "生活日常",
-          "example": "cối xay gió không hoạt động nữa",
-          "exampleZh": "風車不動彈了。"
+          "category": "生活名詞",
+          "example": "Máy này không hoạt động.",
+          "exampleZh": "這台機器不運作。"
         },
         {
           "id": "freq_227",
           "rank": 227,
           "viet": "tỉnh",
-          "zh": "恍然 / 恍然大悟",
-          "zhSpoken": "恍然，恍然大悟",
-          "en": "province, town",
-          "pos": "動詞",
-          "hanViet": "醒",
-          "category": "日常必備動詞",
-          "example": "tỉnh ngộ",
-          "exampleZh": "恍悟。"
+          "zh": "省 / 清醒",
+          "zhSpoken": "省，清醒",
+          "en": "province; awake",
+          "pos": "名詞",
+          "hanViet": "省",
+          "category": "生活名詞",
+          "example": "Tôi đi công tác ở tỉnh Đồng Nai.",
+          "exampleZh": "我去同奈省出差。"
         },
         {
           "id": "freq_228",
           "rank": 228,
           "viet": "tự",
-          "zh": "本人 / 親自",
-          "zhSpoken": "本人，親自",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "自己",
+          "zhSpoken": "自己",
+          "en": "by oneself",
+          "pos": "副詞",
           "hanViet": "自",
-          "category": "日常必備動詞",
-          "example": "thành tích tiên tiến của anh ấy hãy để anh ấy tự kể",
-          "exampleZh": "他的先進事蹟, 還是由他本人來談吧。 躬; 親; 親自。"
+          "category": "語法功能詞",
+          "example": "Tôi tự làm được.",
+          "exampleZh": "我自己做得來。"
         },
         {
           "id": "freq_229",
           "rank": 229,
           "viet": "giữa",
-          "zh": "半 / 中間",
-          "zhSpoken": "半，中間",
-          "en": "middle; among; midst",
+          "zh": "中間",
+          "zhSpoken": "中間",
+          "en": "between; middle",
           "pos": "介詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "giữa đường",
-          "exampleZh": "半路上。"
+          "category": "語法功能詞",
+          "example": "Ngồi giữa hai người.",
+          "exampleZh": "坐在兩人中間。"
         },
         {
           "id": "freq_230",
           "rank": 230,
           "viet": "chơi",
-          "zh": "撥弄 / 吹奏",
-          "zhSpoken": "撥弄，吹奏",
-          "en": "To play",
+          "zh": "玩",
+          "zhSpoken": "玩",
+          "en": "to play",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chơi đàn",
-          "exampleZh": "撥弄琴絃。"
+          "category": "日常動詞",
+          "example": "Cuối tuần đi chơi không?",
+          "exampleZh": "週末要出去玩嗎？"
         },
         {
           "id": "freq_231",
           "rank": 231,
           "viet": "mua",
-          "zh": "採購 / 購辦",
-          "zhSpoken": "採購，購辦",
-          "en": "to buy; to purchase; to get",
+          "zh": "買",
+          "zhSpoken": "買",
+          "en": "to buy",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mua hàng",
-          "exampleZh": "辦貨。"
+          "category": "日常動詞",
+          "example": "Tôi muốn mua cái này.",
+          "exampleZh": "我想買這個。"
         },
         {
           "id": "freq_232",
           "rank": 232,
           "viet": "vâng",
-          "zh": "喏 / 是",
-          "zhSpoken": "喏，是",
-          "en": "Yes ; All right",
-          "pos": "動詞",
+          "zh": "是的（北部）",
+          "zhSpoken": "是的",
+          "en": "yes (polite)",
+          "pos": "感嘆詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vâng dạ liên hồi",
-          "exampleZh": "諾諾連聲。"
+          "category": "語氣與助詞",
+          "example": "Vâng, tôi hiểu rồi.",
+          "exampleZh": "好的，我明白了。"
         },
         {
           "id": "freq_233",
           "rank": 233,
           "viet": "thưa",
-          "zh": "淡 / 淡薄",
-          "zhSpoken": "淡，淡薄",
-          "en": "thin, sparse occasional",
+          "zh": "敬稟（敬語開頭）",
+          "zhSpoken": "敬稟",
+          "en": "polite address word",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "gọi mãi hắn không thưa",
-          "exampleZh": "喊他不應。"
+          "category": "日常動詞",
+          "example": "Thưa cô, em xin phép về.",
+          "exampleZh": "老師，我先告辭了。"
         },
         {
           "id": "freq_234",
           "rank": 234,
           "viet": "kẻ",
-          "zh": "者 / 份子",
-          "zhSpoken": "者，份子",
-          "en": "to line; to draw",
-          "pos": "動詞",
+          "zh": "人（帶貶意）/ 畫線",
+          "zhSpoken": "人，畫線",
+          "en": "person (negative)",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "kẻ mạnh",
-          "exampleZh": "強者。"
+          "category": "生活名詞",
+          "example": "Kẻ trộm đã bỏ chạy.",
+          "exampleZh": "小偷跑掉了。"
         },
         {
           "id": "freq_235",
           "rank": 235,
           "viet": "đồng",
-          "zh": "地 / 田野",
-          "zhSpoken": "地，田野",
-          "en": "Field",
+          "zh": "盾（貨幣）/ 銅 / 田野",
+          "zhSpoken": "盾，銅",
+          "en": "dong; copper; field",
           "pos": "名詞",
-          "hanViet": "同",
-          "category": "生活日常",
-          "example": "ra đồng làm việc",
-          "exampleZh": "下地幹活兒。"
+          "hanViet": "銅",
+          "category": "生活名詞",
+          "example": "Một trăm nghìn đồng.",
+          "exampleZh": "十萬盾。"
         },
         {
           "id": "freq_236",
           "rank": 236,
           "viet": "vài",
-          "zh": "幾個 / 兩",
-          "zhSpoken": "幾個，兩",
-          "en": "some, several",
-          "pos": "名詞",
+          "zh": "幾個",
+          "zhSpoken": "幾個",
+          "en": "a few",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "vài quyển sách",
-          "exampleZh": "幾本書。"
+          "category": "語法功能詞",
+          "example": "Tôi ở đây vài ngày.",
+          "exampleZh": "我在這裡待幾天。"
         },
         {
           "id": "freq_237",
           "rank": 237,
           "viet": "bài",
-          "zh": "稿子 / 卷兒",
-          "zhSpoken": "稿子，卷兒",
-          "en": "Tag, tablet",
-          "pos": "動詞",
-          "hanViet": "牌",
-          "category": "日常必備動詞",
-          "example": "bài này do ai",
-          "exampleZh": "viết? 這篇稿子是誰寫的?。"
+          "zh": "課 / 篇 / 歌曲",
+          "zhSpoken": "課，篇",
+          "en": "lesson; article",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Hôm nay chúng ta học bài mới.",
+          "exampleZh": "今天我們學新的一課。"
         },
         {
           "id": "freq_238",
           "rank": 238,
           "viet": "phần",
-          "zh": "百分比 / 半邊",
-          "zhSpoken": "百分比，半邊",
-          "en": "part, portion, share",
-          "pos": "動詞",
+          "zh": "部分",
+          "zhSpoken": "部分",
+          "en": "part",
+          "pos": "名詞",
           "hanViet": "份",
-          "category": "日常必備動詞",
-          "example": "nửa phần thân",
-          "exampleZh": "半邊身子。"
+          "category": "生活名詞",
+          "example": "Phần này khó quá.",
+          "exampleZh": "這部分太難了。"
         },
         {
           "id": "freq_239",
           "rank": 239,
           "viet": "tăng",
-          "zh": "昂 / 遞增",
-          "zhSpoken": "昂，遞增",
-          "en": "buddhist monk tank",
+          "zh": "增加",
+          "zhSpoken": "增加",
+          "en": "to increase",
           "pos": "動詞",
           "hanViet": "增",
-          "category": "日常必備動詞",
-          "example": "giá cả tăng rất cao",
-          "exampleZh": "昂貴。"
+          "category": "日常動詞",
+          "example": "Giá xăng lại tăng.",
+          "exampleZh": "油價又漲了。"
         },
         {
           "id": "freq_240",
           "rank": 240,
           "viet": "tuổi",
-          "zh": "高齡 / 齒",
-          "zhSpoken": "高齡，齒",
-          "en": "age, year of age",
+          "zh": "歲",
+          "zhSpoken": "歲",
+          "en": "age; years old",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cùng tuổi",
-          "exampleZh": "同庚。"
+          "category": "生活名詞",
+          "example": "Bạn bao nhiêu tuổi?",
+          "exampleZh": "你幾歲？"
         },
         {
           "id": "freq_241",
           "rank": 241,
           "viet": "giá",
-          "zh": "邊框 / 代價",
-          "zhSpoken": "邊框，代價",
-          "en": "bean sprouts",
+          "zh": "價格 / 豆芽",
+          "zhSpoken": "價格，豆芽",
+          "en": "price; bean sprouts",
           "pos": "名詞",
           "hanViet": "價",
-          "category": "生活日常",
-          "example": "thắng lợi phải trả giá bằng máu",
-          "exampleZh": "勝利是用血的代價換來的。"
+          "category": "生活名詞",
+          "example": "Giá bao nhiêu?",
+          "exampleZh": "價格多少？"
         },
         {
           "id": "freq_242",
           "rank": 242,
           "viet": "cảm ơn",
-          "zh": "拜謝 / 道謝",
-          "zhSpoken": "拜謝，道謝",
-          "en": "To thank, to express one's gratitud",
+          "zh": "謝謝",
+          "zhSpoken": "謝謝",
+          "en": "to thank",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mong gởi cho sớm thì rất cảm ơn",
-          "exampleZh": "請早日寄下爲感。"
+          "category": "日常動詞",
+          "example": "Cảm ơn bạn rất nhiều.",
+          "exampleZh": "非常謝謝你。"
         },
         {
           "id": "freq_243",
           "rank": 243,
           "viet": "xây dựng",
-          "zh": "編寫 / 締造",
-          "zhSpoken": "編寫，締造",
-          "en": "build, construct",
+          "zh": "建設",
+          "zhSpoken": "建設",
+          "en": "to build",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "sáng tác kịch bản; xây dựng kịch bản",
-          "exampleZh": "編寫劇本。"
+          "category": "日常動詞",
+          "example": "Họ đang xây dựng một cây cầu mới.",
+          "exampleZh": "他們正在建一座新橋。"
         },
         {
           "id": "freq_244",
           "rank": 244,
           "viet": "đồ",
-          "zh": "東西 / 仿影",
-          "zhSpoken": "東西，仿影",
-          "en": "thing; object; article",
-          "pos": "動詞",
-          "hanViet": "徒",
-          "category": "日常必備動詞",
-          "example": "anh ấy đi mua đồ rồi",
-          "exampleZh": "他買東西去了。"
+          "zh": "東西",
+          "zhSpoken": "東西",
+          "en": "thing; stuff",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Đồ ăn ở đây rất rẻ.",
+          "exampleZh": "這裡的食物很便宜。"
         },
         {
           "id": "freq_245",
           "rank": 245,
           "viet": "khoảng",
-          "zh": "把 / 可",
-          "zhSpoken": "把，可",
-          "en": "distance; interval; space; compass",
-          "pos": "動詞",
+          "zh": "大約",
+          "zhSpoken": "大約",
+          "en": "about; approximately",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "ông ấy khoảng ngoài 60 tuổi",
-          "exampleZh": "他大約有六十開外了。"
+          "category": "語法功能詞",
+          "example": "Khoảng mười phút nữa tôi đến.",
+          "exampleZh": "大約再十分鐘我到。"
         },
         {
           "id": "freq_246",
           "rank": 246,
           "viet": "khiến",
-          "zh": "造成 / 逗",
-          "zhSpoken": "造成，逗",
-          "en": "to bid; to order",
+          "zh": "使得 / 讓",
+          "zhSpoken": "使得，讓",
+          "en": "to cause; to make",
           "pos": "動詞",
           "hanViet": "遣",
-          "category": "日常必備動詞",
-          "example": "khiến người ta tỉnh ngộ",
-          "exampleZh": "發人深省。"
+          "category": "日常動詞",
+          "example": "Tin này khiến tôi rất vui.",
+          "exampleZh": "這消息讓我很開心。"
         },
         {
           "id": "freq_247",
           "rank": 247,
           "viet": "bán",
-          "zh": "半 / 發售",
-          "zhSpoken": "半，發售",
-          "en": "To sell",
+          "zh": "賣 / 半",
+          "zhSpoken": "賣，半",
+          "en": "to sell",
           "pos": "動詞",
-          "hanViet": "半",
-          "category": "日常必備動詞",
-          "example": "nửa tin nửa ngờ; bán tín bán nghi",
-          "exampleZh": "半信半疑。"
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Chị bán cái này bao nhiêu?",
+          "exampleZh": "這個妳賣多少？"
         },
         {
           "id": "freq_248",
           "rank": 248,
           "viet": "sáng",
-          "zh": "杲 / 旦",
-          "zhSpoken": "杲，旦",
-          "en": "bright, light",
+          "zh": "早上 / 明亮",
+          "zhSpoken": "早上，明亮",
+          "en": "morning; bright",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "trời sáng",
-          "exampleZh": "杲日。"
+          "category": "生活名詞",
+          "example": "Sáng nay tôi dậy sớm.",
+          "exampleZh": "今天早上我很早起。"
         },
         {
           "id": "freq_249",
           "rank": 249,
           "viet": "phía",
-          "zh": "半邊 / 壁廂",
-          "zhSpoken": "半邊，壁廂",
-          "en": "side, way, direction",
+          "zh": "方向 / 那一邊",
+          "zhSpoken": "方向，那一邊",
+          "en": "direction; side",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "bên phía Đông của quảng trường",
-          "exampleZh": "廣場東半邊。"
+          "category": "生活名詞",
+          "example": "Đi về phía trước.",
+          "exampleZh": "往前走。"
         },
         {
           "id": "freq_250",
           "rank": 250,
           "viet": "điểm",
-          "zh": "點 / 分數 / 地點",
+          "zh": "點 / 分數",
           "zhSpoken": "點，分數",
-          "en": "point, dot",
-          "pos": "動詞",
+          "en": "point; score",
+          "pos": "名詞",
           "hanViet": "點",
-          "category": "日常必備動詞",
-          "example": "ưu điểm",
-          "exampleZh": "長處。"
+          "category": "生活名詞",
+          "example": "Con được điểm cao.",
+          "exampleZh": "孩子得了高分。"
         }
       ],
-      "duration": 730.7
+      "duration": 713.7
     },
     {
       "batchId": 6,
@@ -3354,508 +3354,508 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_251",
           "rank": 251,
           "viet": "ý",
-          "zh": "口風 / 意思",
-          "zhSpoken": "口風，意思",
-          "en": "idea",
+          "zh": "意思 / 想法",
+          "zhSpoken": "意思，想法",
+          "en": "idea; meaning",
           "pos": "名詞",
           "hanViet": "意",
-          "category": "生活日常",
-          "example": "Ý này rất cần thiết cho công việc.",
-          "exampleZh": "這個「口風」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Ý bạn là gì?",
+          "exampleZh": "你的意思是什麼？"
         },
         {
           "id": "freq_252",
           "rank": 252,
           "viet": "đầu tiên",
-          "zh": "處女 / 元",
-          "zhSpoken": "處女，元",
-          "en": "First",
+          "zh": "第一 / 最初",
+          "zhSpoken": "第一，最初",
+          "en": "first",
           "pos": "形容詞",
           "hanViet": "頭先",
-          "category": "基礎描述",
-          "example": "chuyến bay đầu tiên",
-          "exampleZh": "處女航。"
+          "category": "描述與狀態",
+          "example": "Đây là lần đầu tiên tôi ăn phở.",
+          "exampleZh": "這是我第一次吃河粉。"
         },
         {
           "id": "freq_253",
           "rank": 253,
           "viet": "chạy",
-          "zh": "走 / 躒",
-          "zhSpoken": "走，躒",
-          "en": "To run",
+          "zh": "跑",
+          "zhSpoken": "跑",
+          "en": "to run",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thi chạy; chạy đua",
-          "exampleZh": "賽跑。"
+          "category": "日常動詞",
+          "example": "Xe này chạy rất nhanh.",
+          "exampleZh": "這輛車跑得很快。"
         },
         {
           "id": "freq_254",
           "rank": 254,
           "viet": "thành",
-          "zh": "幫兒 / 壁",
-          "zhSpoken": "幫兒，壁",
-          "en": "citadel, rampart wall town, city",
+          "zh": "成為 / 城市",
+          "zhSpoken": "成為，城市",
+          "en": "to become; city",
           "pos": "動詞",
-          "hanViet": "城",
-          "category": "日常必備動詞",
-          "example": "thành nồi (súp-de)",
-          "exampleZh": "鍋爐壁。"
+          "hanViet": "成",
+          "category": "日常動詞",
+          "example": "Nước biến thành đá.",
+          "exampleZh": "水變成冰。"
         },
         {
           "id": "freq_255",
           "rank": 255,
           "viet": "bởi",
-          "zh": "由 / 於",
-          "zhSpoken": "由，於",
-          "en": "By; because of",
-          "pos": "連詞",
+          "zh": "由於 / 被",
+          "zhSpoken": "由於，被",
+          "en": "because of; by",
+          "pos": "介詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "Hãy chú ý đến bởi trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「由」。"
+          "category": "語法功能詞",
+          "example": "Tôi đến muộn bởi trời mưa.",
+          "exampleZh": "我因為下雨遲到了。"
         },
         {
           "id": "freq_256",
           "rank": 256,
           "viet": "bắt đầu",
-          "zh": "創 / 創始",
-          "zhSpoken": "創，創始",
-          "en": "To start, to begin",
+          "zh": "開始",
+          "zhSpoken": "開始",
+          "en": "to begin",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bắt đầu lập ra; sáng lập",
-          "exampleZh": "創辦。"
+          "category": "日常動詞",
+          "example": "Phim bắt đầu lúc bảy giờ.",
+          "exampleZh": "電影七點開始。"
         },
         {
           "id": "freq_257",
           "rank": 257,
           "viet": "gây",
-          "zh": "策動 / 奠定",
-          "zhSpoken": "策動，奠定",
-          "en": "to quarrel",
+          "zh": "造成",
+          "zhSpoken": "造成",
+          "en": "to cause",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "gây chiến tranh",
-          "exampleZh": "策動戰爭。"
+          "category": "日常動詞",
+          "example": "Mưa lớn gây ngập đường.",
+          "exampleZh": "大雨造成道路淹水。"
         },
         {
           "id": "freq_258",
           "rank": 258,
           "viet": "một số",
-          "zh": "兩 / 若干",
-          "zhSpoken": "兩，若干",
-          "en": "vocabulary",
-          "pos": "形容詞",
+          "zh": "一些",
+          "zhSpoken": "一些",
+          "en": "some",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "Điều này rất một số và quan trọng.",
-          "exampleZh": "這非常兩且重要。"
+          "category": "語法功能詞",
+          "example": "Tôi có một số câu hỏi.",
+          "exampleZh": "我有一些問題。"
         },
         {
           "id": "freq_259",
           "rank": 259,
           "viet": "đặc biệt",
-          "zh": "嗲 / 獨特",
-          "zhSpoken": "嗲，獨特",
-          "en": "unusual; special",
+          "zh": "特別",
+          "zhSpoken": "特別",
+          "en": "special",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "mùi vị đặc biệt!",
-          "exampleZh": "味道嗲!。"
+          "category": "描述與狀態",
+          "example": "Hôm nay là ngày đặc biệt.",
+          "exampleZh": "今天是特別的日子。"
         },
         {
           "id": "freq_260",
           "rank": 260,
           "viet": "kia",
-          "zh": "彼",
-          "zhSpoken": "彼",
-          "en": "over; that",
-          "pos": "動詞",
+          "zh": "那（較遠）",
+          "zhSpoken": "那",
+          "en": "that (farther)",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể kia giúp tôi không?",
-          "exampleZh": "你能幫我彼嗎？"
+          "category": "語法功能詞",
+          "example": "Cái kia đẹp hơn.",
+          "exampleZh": "那個比較漂亮。"
         },
         {
           "id": "freq_261",
           "rank": 261,
           "viet": "bắt",
-          "zh": "捕 / 捕撈",
-          "zhSpoken": "捕，捕撈",
-          "en": "To seize, to catch",
+          "zh": "抓 / 搭乘",
+          "zhSpoken": "抓，搭乘",
+          "en": "to catch",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bắt; bắt bớ; tróc nã",
-          "exampleZh": "捕捉。"
+          "category": "日常動詞",
+          "example": "Tôi bắt taxi về khách sạn.",
+          "exampleZh": "我搭計程車回飯店。"
         },
         {
           "id": "freq_262",
           "rank": 262,
           "viet": "đối với",
-          "zh": "爲 / 乎",
-          "zhSpoken": "爲，乎",
-          "en": "vocabulary",
+          "zh": "對於",
+          "zhSpoken": "對於",
+          "en": "towards; for",
           "pos": "介詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "mọi người đều nhất trí đối với vấn đề này",
-          "exampleZh": "大家對於這個問題的意見是一致的。"
+          "category": "語法功能詞",
+          "example": "Đối với tôi, gia đình là số một.",
+          "exampleZh": "對我來說，家庭最重要。"
         },
         {
           "id": "freq_263",
           "rank": 263,
           "viet": "chú",
-          "zh": "阿 / 大",
-          "zhSpoken": "阿，大",
-          "en": "Uncle (younger brother of one's fat",
-          "pos": "名詞",
-          "hanViet": "咒",
-          "category": "生活日常",
-          "example": "chú Bảo",
-          "exampleZh": "阿寶。"
+          "zh": "叔叔",
+          "zhSpoken": "叔叔",
+          "en": "uncle (younger than parent)",
+          "pos": "代名詞",
+          "hanViet": "",
+          "category": "人稱與指示",
+          "example": "Chú ơi, cho cháu hỏi đường.",
+          "exampleZh": "叔叔，請問路怎麼走。"
         },
         {
           "id": "freq_264",
           "rank": 264,
           "viet": "thông tin",
-          "zh": "空中 / 情報",
-          "zhSpoken": "空中，情報",
+          "zh": "資訊",
+          "zhSpoken": "資訊",
           "en": "information",
-          "pos": "動詞",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hộp thư thông tin",
-          "exampleZh": "空中信箱。"
+          "category": "生活名詞",
+          "example": "Tôi cần thêm thông tin.",
+          "exampleZh": "我需要更多資訊。"
         },
         {
           "id": "freq_265",
           "rank": 265,
           "viet": "thành phố",
-          "zh": "都 / 浩特",
-          "zhSpoken": "都，浩特",
-          "en": "City, town",
+          "zh": "城市",
+          "zhSpoken": "城市",
+          "en": "city",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "thành phố lớn; đô thị lớn",
-          "exampleZh": "通都大邑。"
+          "category": "生活名詞",
+          "example": "Thành phố Hồ Chí Minh rất đông.",
+          "exampleZh": "胡志明市人很多。"
         },
         {
           "id": "freq_266",
           "rank": 266,
           "viet": "máy",
-          "zh": "發動機 / 機",
-          "zhSpoken": "發動機，機",
-          "en": "machine; engine. internal-combustio",
+          "zh": "機器",
+          "zhSpoken": "機器",
+          "en": "machine",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "máy may; máy khâu",
-          "exampleZh": "縫紉機。"
+          "category": "生活名詞",
+          "example": "Máy lạnh bị hỏng rồi.",
+          "exampleZh": "冷氣壞了。"
         },
         {
           "id": "freq_267",
           "rank": 267,
           "viet": "ơi",
-          "zh": "阿 / 乎",
-          "zhSpoken": "阿，乎",
-          "en": "Hey, hello",
+          "zh": "喂（呼喚）",
+          "zhSpoken": "喂",
+          "en": "hey (calling)",
           "pos": "助詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "bà ơi",
-          "exampleZh": "阿婆。"
+          "category": "語氣與助詞",
+          "example": "Em ơi, tính tiền!",
+          "exampleZh": "（對店員）請結帳！"
         },
         {
           "id": "freq_268",
           "rank": 268,
           "viet": "gái",
-          "zh": "坤 / 女兒",
-          "zhSpoken": "坤，女兒",
-          "en": "girl",
+          "zh": "女生",
+          "zhSpoken": "女生",
+          "en": "girl; female",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "đàng gái",
-          "exampleZh": "坤宅。"
+          "category": "生活名詞",
+          "example": "Con gái tôi học lớp ba.",
+          "exampleZh": "我女兒讀三年級。"
         },
         {
           "id": "freq_269",
           "rank": 269,
           "viet": "khá",
-          "zh": "相當 / 頗為 / 較好",
-          "zhSpoken": "相當，頗為",
-          "en": "rather; fairy; enough; passably",
-          "pos": "動詞",
+          "zh": "相當 / 還不錯",
+          "zhSpoken": "相當，還不錯",
+          "en": "rather; quite",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "dùng tương đối ít tiền mà làm được khá nhiều việc",
-          "exampleZh": "用較少的錢, 辦較多的事。"
+          "category": "語法功能詞",
+          "example": "Tiếng Việt của bạn khá tốt.",
+          "exampleZh": "你的越語相當好。"
         },
         {
           "id": "freq_270",
           "rank": 270,
           "viet": "quan trọng",
-          "zh": "打緊 / 腹心",
-          "zhSpoken": "打緊，腹心",
-          "en": "important, chief; grave",
+          "zh": "重要",
+          "zhSpoken": "重要",
+          "en": "important",
           "pos": "形容詞",
           "hanViet": "關重",
-          "category": "基礎描述",
-          "example": "thời khắc quan trọng; giờ quan trọng; giờ G",
-          "exampleZh": "關鍵時刻。"
+          "category": "描述與狀態",
+          "example": "Sức khỏe là quan trọng nhất.",
+          "exampleZh": "健康最重要。"
         },
         {
           "id": "freq_271",
           "rank": 271,
           "viet": "dân",
-          "zh": "家 / 居民",
-          "zhSpoken": "家，居民",
-          "en": "people; citizen",
+          "zh": "人民 / 居民",
+          "zhSpoken": "人民，居民",
+          "en": "people; resident",
           "pos": "名詞",
           "hanViet": "民",
-          "category": "生活日常",
-          "example": "dân chài",
-          "exampleZh": "漁家。"
+          "category": "生活名詞",
+          "example": "Người dân ở đây rất thân thiện.",
+          "exampleZh": "這裡的居民很友善。"
         },
         {
           "id": "freq_272",
           "rank": 272,
           "viet": "tối",
-          "zh": "藹藹 / 曖",
-          "zhSpoken": "藹藹，曖",
-          "en": "night, evening",
+          "zh": "晚上 / 暗",
+          "zhSpoken": "晚上，暗",
+          "en": "evening; dark",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tối quá",
-          "exampleZh": "光線太暗。"
+          "category": "生活名詞",
+          "example": "Tối nay anh rảnh không?",
+          "exampleZh": "今晚你有空嗎？"
         },
         {
           "id": "freq_273",
           "rank": 273,
           "viet": "ổn",
-          "zh": "妥靠",
-          "zhSpoken": "妥靠",
-          "en": "settled; snooth; without a hitch",
+          "zh": "穩 / 沒問題",
+          "zhSpoken": "穩，沒問題",
+          "en": "fine; stable",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "Điều này rất ổn và quan trọng.",
-          "exampleZh": "這非常妥靠且重要。"
+          "category": "描述與狀態",
+          "example": "Mọi việc đều ổn.",
+          "exampleZh": "一切都好。"
         },
         {
           "id": "freq_274",
           "rank": 274,
           "viet": "Mỹ",
-          "zh": "美 / 美國",
-          "zhSpoken": "美，美國",
-          "en": "vocabulary",
+          "zh": "美國",
+          "zhSpoken": "美國",
+          "en": "USA",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "đồng đô-la Mỹ",
-          "exampleZh": "美圓。"
+          "category": "生活名詞",
+          "example": "Anh ấy sống ở Mỹ.",
+          "exampleZh": "他住在美國。"
         },
         {
           "id": "freq_275",
           "rank": 275,
           "viet": "chương trình",
-          "zh": "程式 / 程序",
-          "zhSpoken": "程式，程序",
-          "en": "Programme, plan, syllabus",
+          "zh": "節目 / 計畫",
+          "zhSpoken": "節目，計畫",
+          "en": "program",
           "pos": "名詞",
           "hanViet": "章程",
-          "category": "生活日常",
-          "example": "chương trình biểu diễn",
-          "exampleZh": "表演的程式。"
+          "category": "生活名詞",
+          "example": "Chương trình này rất hay.",
+          "exampleZh": "這個節目很好看。"
         },
         {
           "id": "freq_276",
           "rank": 276,
           "viet": "thế nào",
-          "zh": "怎麼樣 / 如何",
-          "zhSpoken": "怎麼樣，如何",
-          "en": "how why, well",
-          "pos": "動詞",
+          "zh": "怎麼樣",
+          "zhSpoken": "怎麼樣",
+          "en": "how",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chẳng biết làm thế nào",
-          "exampleZh": "無奈。"
+          "category": "語法功能詞",
+          "example": "Món này thế nào?",
+          "exampleZh": "這道菜怎麼樣？"
         },
         {
           "id": "freq_277",
           "rank": 277,
           "viet": "đứng",
-          "zh": "踩 / 亭立",
-          "zhSpoken": "踩，亭立",
-          "en": "to stand; to set",
+          "zh": "站",
+          "zhSpoken": "站",
+          "en": "to stand",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "em gái đứng lên băng ghế dán hoa giấy trang trí cửa sổ",
-          "exampleZh": "妹妹踩在凳子上貼窗花。"
+          "category": "日常動詞",
+          "example": "Đứng ở đây đợi tôi nhé.",
+          "exampleZh": "站在這裡等我喔。"
         },
         {
           "id": "freq_278",
           "rank": 278,
           "viet": "nói chuyện",
-          "zh": "過話 / 嘴",
-          "zhSpoken": "過話，嘴",
+          "zh": "聊天 / 談話",
+          "zhSpoken": "聊天，談話",
           "en": "to talk",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "trước kia hai người bất hoà, không nói chuyện với nhau",
-          "exampleZh": "從前他倆合不來, 彼此不搭腔。 動嘴; 嘴。"
+          "category": "日常動詞",
+          "example": "Tôi muốn nói chuyện với anh.",
+          "exampleZh": "我想跟你談談。"
         },
         {
           "id": "freq_279",
           "rank": 279,
           "viet": "đứa",
-          "zh": "廝 / 傢伙",
-          "zhSpoken": "廝，傢伙",
-          "en": "(used in front of nouns or absolute",
+          "zh": "個（小孩量詞）",
+          "zhSpoken": "個",
+          "en": "classifier for children",
           "pos": "量詞",
           "hanViet": "",
-          "category": "數字量詞",
-          "example": "Hãy chú ý đến đứa trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「廝」。"
+          "category": "數字與量詞",
+          "example": "Chị có mấy đứa con?",
+          "exampleZh": "妳有幾個孩子？"
         },
         {
           "id": "freq_280",
           "rank": 280,
           "viet": "giảm",
-          "zh": "敗 / 貶",
-          "zhSpoken": "敗，貶",
-          "en": "to lessen; to reduce; to decrease",
+          "zh": "減少 / 降價",
+          "zhSpoken": "減少，降價",
+          "en": "to reduce",
           "pos": "動詞",
           "hanViet": "減",
-          "category": "日常必備動詞",
-          "example": "giảm biên chế; cắt giảm nhân viên",
-          "exampleZh": "裁員。方。"
+          "category": "日常動詞",
+          "example": "Giảm giá cho tôi đi!",
+          "exampleZh": "算我便宜一點嘛！"
         },
         {
           "id": "freq_281",
           "rank": 281,
           "viet": "mặt",
-          "zh": "層面 / 方面",
-          "zhSpoken": "層面，方面",
+          "zh": "臉 / 面",
+          "zhSpoken": "臉，面",
           "en": "face",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "phương diện kinh tế; mặt kinh tế",
-          "exampleZh": "經濟層面。"
+          "category": "生活名詞",
+          "example": "Rửa mặt đi con.",
+          "exampleZh": "孩子，去洗臉。"
         },
         {
           "id": "freq_282",
           "rank": 282,
           "viet": "buổi",
-          "zh": "一趟",
-          "zhSpoken": "一趟",
-          "en": "Spell, length of time, time, period",
+          "zh": "（一段時間）/ 場",
+          "zhSpoken": "場",
+          "en": "session; part of day",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "buổi sáng",
-          "exampleZh": "前半晌。"
+          "category": "生活名詞",
+          "example": "Buổi sáng tôi uống cà phê.",
+          "exampleZh": "早上我喝咖啡。"
         },
         {
           "id": "freq_283",
           "rank": 283,
           "viet": "rõ",
-          "zh": "泚 / 分解",
-          "zhSpoken": "泚，分解",
+          "zh": "清楚",
+          "zhSpoken": "清楚",
           "en": "clear",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "hãy xem hồi sau sẽ rõ",
-          "exampleZh": "且聽下回分解。"
+          "category": "描述與狀態",
+          "example": "Tôi nghe không rõ.",
+          "exampleZh": "我聽不清楚。"
         },
         {
           "id": "freq_284",
           "rank": 284,
           "viet": "bệnh",
-          "zh": "病 / 痾",
-          "zhSpoken": "病，痾",
-          "en": "Disease, illness, sickness",
+          "zh": "病",
+          "zhSpoken": "病",
+          "en": "illness",
           "pos": "名詞",
           "hanViet": "病",
-          "category": "生活日常",
-          "example": "đã khỏi bệnh rồi",
-          "exampleZh": "病已經好了。"
+          "category": "生活名詞",
+          "example": "Bệnh này có nặng không?",
+          "exampleZh": "這個病嚴重嗎？"
         },
         {
           "id": "freq_285",
           "rank": 285,
           "viet": "đặt",
-          "zh": "安設 / 安放",
-          "zhSpoken": "安設，安放",
-          "en": "to place; to put; to set; to depose",
+          "zh": "放 / 預訂",
+          "zhSpoken": "放，預訂",
+          "en": "to place; to book",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đặt mình vào hoàn cảnh",
-          "exampleZh": "設身處地。"
+          "category": "日常動詞",
+          "example": "Tôi muốn đặt bàn cho bốn người.",
+          "exampleZh": "我想訂四人桌。"
         },
         {
           "id": "freq_286",
           "rank": 286,
           "viet": "tiếp tục",
-          "zh": "接續 / 接着",
-          "zhSpoken": "接續，接着",
-          "en": "to continous",
+          "zh": "繼續",
+          "zhSpoken": "繼續",
+          "en": "to continue",
           "pos": "動詞",
           "hanViet": "接續",
-          "category": "日常必備動詞",
-          "example": "người trước ngã xuống, người sau tiếp tục",
-          "exampleZh": "前赴後繼。"
+          "category": "日常動詞",
+          "example": "Chúng ta tiếp tục nhé.",
+          "exampleZh": "我們繼續吧。"
         },
         {
           "id": "freq_287",
           "rank": 287,
           "viet": "ừ",
-          "zh": "可不 / 欸",
-          "zhSpoken": "可不，欸",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "嗯（對平輩、晚輩）",
+          "zhSpoken": "嗯",
+          "en": "yeah (casual)",
+          "pos": "感嘆詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "ừ, được",
-          "exampleZh": "啊, 好吧。"
+          "category": "語氣與助詞",
+          "example": "Ừ, để mình làm.",
+          "exampleZh": "嗯，我來做。"
         },
         {
           "id": "freq_288",
           "rank": 288,
           "viet": "đêm",
-          "zh": "晦 / 夜裏",
-          "zhSpoken": "晦，夜裏",
+          "zh": "夜晚",
+          "zhSpoken": "夜晚",
           "en": "night",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ngày đêm không ngừng thi công",
-          "exampleZh": "白天黑夜不停地施工。 星夜; 夜裏。"
+          "category": "生活名詞",
+          "example": "Đêm qua tôi ngủ không ngon.",
+          "exampleZh": "昨晚我睡得不好。"
         },
         {
           "id": "freq_289",
           "rank": 289,
           "viet": "vui",
-          "zh": "歡快 / 樂不可支",
-          "zhSpoken": "歡快，樂不可支",
-          "en": "merry, joyful, gay",
+          "zh": "開心 / 好玩",
+          "zhSpoken": "開心，好玩",
+          "en": "happy; fun",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "Điều này rất vui và quan trọng.",
-          "exampleZh": "這非常歡快且重要。"
+          "category": "描述與狀態",
+          "example": "Hôm nay tôi rất vui.",
+          "exampleZh": "今天我很開心。"
         },
         {
           "id": "freq_290",
@@ -3863,114 +3863,114 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đầu tư",
           "zh": "投資",
           "zhSpoken": "投資",
-          "en": "vocabulary",
+          "en": "to invest",
           "pos": "動詞",
           "hanViet": "投資",
-          "category": "日常必備動詞",
-          "example": "đầu tư 1. 000. 000 đồng",
-          "exampleZh": "投資一百萬元。"
+          "category": "日常動詞",
+          "example": "Công ty đầu tư vào Việt Nam.",
+          "exampleZh": "公司投資越南。"
         },
         {
           "id": "freq_291",
           "rank": 291,
           "viet": "kể",
-          "zh": "陳 / 另函詳陳",
-          "zhSpoken": "陳，另函詳陳",
-          "en": "to tell; to relate",
+          "zh": "講述",
+          "zhSpoken": "講述",
+          "en": "to tell (a story)",
           "pos": "動詞",
           "hanViet": "計",
-          "category": "日常必備動詞",
-          "example": "thư sau lại kể tỉ mỉ; thư sau sẽ nói rõ",
-          "exampleZh": "另函詳陳。 記敘。"
+          "category": "日常動詞",
+          "example": "Bà kể chuyện cho cháu nghe.",
+          "exampleZh": "奶奶講故事給孫子聽。"
         },
         {
           "id": "freq_292",
           "rank": 292,
           "viet": "chờ",
-          "zh": "等待 / 等候",
-          "zhSpoken": "等待，等候",
-          "en": "To wait",
+          "zh": "等",
+          "zhSpoken": "等",
+          "en": "to wait",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bày sẵn thế trận chờ địch",
-          "exampleZh": "嚴陣以待。"
+          "category": "日常動詞",
+          "example": "Xin chờ một chút.",
+          "exampleZh": "請稍等。"
         },
         {
           "id": "freq_293",
           "rank": 293,
           "viet": "ngủ",
-          "zh": "安息 / 閤眼",
-          "zhSpoken": "安息，閤眼",
-          "en": "to sleep; to be asleep",
+          "zh": "睡覺",
+          "zhSpoken": "睡覺",
+          "en": "to sleep",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cả đêm anh ấy không ngủ",
-          "exampleZh": "他一夜沒閤眼。 瞌 方。"
+          "category": "日常動詞",
+          "example": "Tối qua tôi ngủ sớm.",
+          "exampleZh": "昨晚我很早睡。"
         },
         {
           "id": "freq_294",
           "rank": 294,
           "viet": "viết",
-          "zh": "筆 / 編寫",
-          "zhSpoken": "筆，編寫",
-          "en": "to write, to record",
+          "zh": "寫",
+          "zhSpoken": "寫",
+          "en": "to write",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lâu rồi không viết",
-          "exampleZh": "好久沒動筆了。"
+          "category": "日常動詞",
+          "example": "Bạn viết ra giúp tôi nhé.",
+          "exampleZh": "請你幫我寫下來。"
         },
         {
           "id": "freq_295",
           "rank": 295,
           "viet": "tham gia",
-          "zh": "加入 / 插手",
-          "zhSpoken": "加入，插手",
-          "en": "to take part in, to participate in,",
+          "zh": "參加",
+          "zhSpoken": "參加",
+          "en": "to participate",
           "pos": "動詞",
           "hanViet": "參加",
-          "category": "日常必備動詞",
-          "example": "tham gia tuyển cử",
-          "exampleZh": "參加選舉。"
+          "category": "日常動詞",
+          "example": "Tôi muốn tham gia lớp học này.",
+          "exampleZh": "我想參加這堂課。"
         },
         {
           "id": "freq_296",
           "rank": 296,
           "viet": "thi",
-          "zh": "比試 / 競",
-          "zhSpoken": "比試，競",
-          "en": "poetry",
+          "zh": "考試",
+          "zhSpoken": "考試",
+          "en": "to take an exam",
           "pos": "動詞",
-          "hanViet": "詩",
-          "category": "日常必備動詞",
-          "example": "thi đi bộ",
-          "exampleZh": "競走。"
+          "hanViet": "試",
+          "category": "日常動詞",
+          "example": "Tuần sau tôi thi tiếng Việt.",
+          "exampleZh": "下週我考越語。"
         },
         {
           "id": "freq_297",
           "rank": 297,
           "viet": "ngồi",
-          "zh": "椉 / 踞",
-          "zhSpoken": "椉，踞",
+          "zh": "坐",
+          "zhSpoken": "坐",
           "en": "to sit",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "rồng cuộn hổ ngồi; long bàn hổ cứ",
-          "exampleZh": "龍盤虎踞。"
+          "category": "日常動詞",
+          "example": "Mời chị ngồi.",
+          "exampleZh": "請坐。"
         },
         {
           "id": "freq_298",
           "rank": 298,
           "viet": "uống",
-          "zh": "喝 / 飲",
-          "zhSpoken": "喝，飲",
+          "zh": "喝",
+          "zhSpoken": "喝",
           "en": "to drink",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
+          "category": "日常動詞",
           "example": "Tôi muốn uống cà phê sữa đá.",
           "exampleZh": "我想喝冰奶咖啡。"
         },
@@ -3978,14 +3978,14 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_299",
           "rank": 299,
           "viet": "chọn",
-          "zh": "卜 / 點",
-          "zhSpoken": "卜，點",
-          "en": "To choose, to select, to pick out",
+          "zh": "選",
+          "zhSpoken": "選",
+          "en": "to choose",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chọn nhà",
-          "exampleZh": "卜宅。"
+          "category": "日常動詞",
+          "example": "Bạn chọn màu nào?",
+          "exampleZh": "你選哪個顏色？"
         },
         {
           "id": "freq_300",
@@ -3993,15 +3993,15 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tuy nhiên",
           "zh": "然而",
           "zhSpoken": "然而",
-          "en": "however, but, yet",
-          "pos": "動詞",
+          "en": "however",
+          "pos": "連詞",
           "hanViet": "雖然",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể tuy nhiên giúp tôi không?",
-          "exampleZh": "你能幫我然而嗎？"
+          "category": "語法功能詞",
+          "example": "Tuy nhiên, tôi vẫn muốn thử.",
+          "exampleZh": "然而，我還是想試試。"
         }
       ],
-      "duration": 725.0
+      "duration": 707.8
     },
     {
       "batchId": 7,
@@ -4019,495 +4019,495 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_301",
           "rank": 301,
           "viet": "đội",
-          "zh": "隊伍 / 戴(帽子)",
-          "zhSpoken": "隊伍，戴",
-          "en": "To carry on one's head",
-          "pos": "動詞",
+          "zh": "隊 / 戴（帽）",
+          "zhSpoken": "隊，戴",
+          "en": "team; to wear (hat)",
+          "pos": "名詞",
           "hanViet": "隊",
-          "category": "日常必備動詞",
-          "example": "đội mũ; đội nón",
-          "exampleZh": "戴帽子。"
+          "category": "生活名詞",
+          "example": "Đội của chúng tôi đã thắng.",
+          "exampleZh": "我們隊贏了。"
         },
         {
           "id": "freq_302",
           "rank": 302,
           "viet": "thuốc",
-          "zh": "劑 / 藥",
-          "zhSpoken": "劑，藥",
-          "en": "medicine, medicament, drug powder",
-          "pos": "動詞",
+          "zh": "藥",
+          "zhSpoken": "藥",
+          "en": "medicine",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thuốc tiêm",
-          "exampleZh": "針劑。"
+          "category": "生活名詞",
+          "example": "Tôi cần mua thuốc đau đầu.",
+          "exampleZh": "我要買頭痛藥。"
         },
         {
           "id": "freq_303",
           "rank": 303,
           "viet": "bảo",
-          "zh": "寶 / 堡",
-          "zhSpoken": "寶，堡",
-          "en": "To tell, to say",
+          "zh": "告訴 / 叫（某人做）",
+          "zhSpoken": "告訴，叫",
+          "en": "to tell",
           "pos": "動詞",
-          "hanViet": "寶",
-          "category": "日常必備動詞",
-          "example": "bảo đao",
-          "exampleZh": "寶刀。"
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Mẹ bảo tôi về sớm.",
+          "exampleZh": "媽媽叫我早點回來。"
         },
         {
           "id": "freq_304",
           "rank": 304,
           "viet": "đạt",
-          "zh": "到家 / 夠",
-          "zhSpoken": "到家，夠",
-          "en": "to reach; to attain",
+          "zh": "達到",
+          "zhSpoken": "達到",
+          "en": "to achieve",
           "pos": "動詞",
           "hanViet": "達",
-          "category": "日常必備動詞",
-          "example": "cuối cùng đạt được thành công",
-          "exampleZh": "終底於成。"
+          "category": "日常動詞",
+          "example": "Anh ấy đạt điểm cao.",
+          "exampleZh": "他得到高分。"
         },
         {
           "id": "freq_305",
           "rank": 305,
           "viet": "hệ thống",
-          "zh": "網絡 / 系統",
-          "zhSpoken": "網絡，系統",
-          "en": "system; network; chanel; net",
+          "zh": "系統",
+          "zhSpoken": "系統",
+          "en": "system",
           "pos": "名詞",
           "hanViet": "系統",
-          "category": "生活日常",
-          "example": "hệ thống chặt chẽ",
-          "exampleZh": "組織嚴密。"
+          "category": "生活名詞",
+          "example": "Hệ thống đang bị lỗi.",
+          "exampleZh": "系統現在有問題。"
         },
         {
           "id": "freq_306",
           "rank": 306,
           "viet": "bảo vệ",
-          "zh": "愛護 / 把門兒",
-          "zhSpoken": "愛護，把門兒",
-          "en": "To defend, to protect, to preserve",
+          "zh": "保護 / 警衛",
+          "zhSpoken": "保護，警衛",
+          "en": "to protect; security guard",
           "pos": "動詞",
           "hanViet": "保衛",
-          "category": "日常必備動詞",
-          "example": "bảo vệ của công",
-          "exampleZh": "愛護公物。"
+          "category": "日常動詞",
+          "example": "Anh bảo vệ chỉ đường cho tôi.",
+          "exampleZh": "警衛幫我指路。"
         },
         {
           "id": "freq_307",
           "rank": 307,
           "viet": "đánh",
-          "zh": "打 / 膺懲",
-          "zhSpoken": "打，膺懲",
-          "en": "to beat; to strike; to fight; to co",
+          "zh": "打",
+          "zhSpoken": "打",
+          "en": "to hit; to play",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đánh trống",
-          "exampleZh": "打鼓。"
+          "category": "日常動詞",
+          "example": "Tôi thích đánh cầu lông.",
+          "exampleZh": "我喜歡打羽毛球。"
         },
         {
           "id": "freq_308",
           "rank": 308,
           "viet": "cây",
-          "zh": "莖 / 把",
-          "zhSpoken": "莖，把",
-          "en": "Tree, plant",
+          "zh": "樹 / 棵",
+          "zhSpoken": "樹，棵",
+          "en": "tree; plant",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "một cây quạt",
-          "exampleZh": "一把扇子。"
+          "category": "生活名詞",
+          "example": "Cây này rất cao.",
+          "exampleZh": "這棵樹很高。"
         },
         {
           "id": "freq_309",
           "rank": 309,
           "viet": "thay đổi",
-          "zh": "變更 / 變換",
-          "zhSpoken": "變更，變換",
+          "zh": "改變",
+          "zhSpoken": "改變",
           "en": "to change",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tình hình đã thay đổi",
-          "exampleZh": "情況變了。"
+          "category": "日常動詞",
+          "example": "Kế hoạch đã thay đổi.",
+          "exampleZh": "計畫改變了。"
         },
         {
           "id": "freq_310",
           "rank": 310,
           "viet": "đáng",
-          "zh": "犯得着 / 應當",
-          "zhSpoken": "犯得着，應當",
-          "en": "to deserve; to merit",
-          "pos": "動詞",
+          "zh": "值得",
+          "zhSpoken": "值得",
+          "en": "worth",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vì việc nhỏ này mà nổi giận với con cái có đáng",
-          "exampleZh": "không? 一點小事, 跟孩子發脾氣犯得上嗎?。"
+          "category": "語法功能詞",
+          "example": "Phim này đáng xem.",
+          "exampleZh": "這部片值得看。"
         },
         {
           "id": "freq_311",
           "rank": 311,
           "viet": "da",
-          "zh": "表皮 / 皮膚",
-          "zhSpoken": "表皮，皮膚",
-          "en": "(Bot) banyan-tree skin; derm",
+          "zh": "皮膚 / 皮革",
+          "zhSpoken": "皮膚，皮革",
+          "en": "skin; leather",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "đau như cắt da; nỗi đau khổ thống thiết",
-          "exampleZh": "切膚之痛。"
+          "category": "生活名詞",
+          "example": "Cô ấy có da trắng.",
+          "exampleZh": "她皮膚白。"
         },
         {
           "id": "freq_312",
           "rank": 312,
           "viet": "đất",
-          "zh": "地 / 地面",
-          "zhSpoken": "地，地面",
-          "en": "earth; soil; land; ground",
+          "zh": "土地",
+          "zhSpoken": "土地",
+          "en": "land; soil",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "trời đất",
-          "exampleZh": "天地。"
+          "category": "生活名詞",
+          "example": "Đất ở đây rất tốt.",
+          "exampleZh": "這裡的土地很好。"
         },
         {
           "id": "freq_313",
           "rank": 313,
           "viet": "Chúa",
-          "zh": "老天爺 / 王",
-          "zhSpoken": "老天爺，王",
-          "en": "Master",
+          "zh": "上帝 / 主",
+          "zhSpoken": "上帝，主",
+          "en": "God; Lord",
           "pos": "名詞",
           "hanViet": "主",
-          "category": "生活日常",
-          "example": "Chúa này rất cần thiết cho công việc.",
-          "exampleZh": "這個「老天爺」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Chúa ơi, muộn quá rồi!",
+          "exampleZh": "天啊，太晚了！"
         },
         {
           "id": "freq_314",
           "rank": 314,
           "viet": "khả năng",
-          "zh": "本錢 / 蹦兒",
-          "zhSpoken": "本錢，蹦兒",
-          "en": "abilily; capablity; competence",
+          "zh": "能力 / 可能性",
+          "zhSpoken": "能力，可能性",
+          "en": "ability; possibility",
           "pos": "名詞",
           "hanViet": "可能",
-          "category": "生活日常",
-          "example": "cố gắng hết khả năng để hoàn thành nhiệm vụ",
-          "exampleZh": "盡一切力量完成任務。"
+          "category": "生活名詞",
+          "example": "Anh ấy có khả năng làm việc này.",
+          "exampleZh": "他有能力做這件事。"
         },
         {
           "id": "freq_315",
           "rank": 315,
           "viet": "cấp",
-          "zh": "班級 / 標號",
-          "zhSpoken": "班級，標號",
-          "en": "Step",
+          "zh": "等級 / 核發",
+          "zhSpoken": "等級，核發",
+          "en": "level; to issue",
           "pos": "動詞",
           "hanViet": "級",
-          "category": "日常必備動詞",
-          "example": "cấp kinh phí; chi một khoản tiền",
-          "exampleZh": "撥款。"
+          "category": "日常動詞",
+          "example": "Anh ấy đã được cấp visa.",
+          "exampleZh": "他已經拿到簽證了。"
         },
         {
           "id": "freq_316",
           "rank": 316,
           "viet": "màu",
-          "zh": "彩色 / 花色",
-          "zhSpoken": "彩色，花色",
-          "en": "colour",
+          "zh": "顏色",
+          "zhSpoken": "顏色",
+          "en": "color",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "hình màu",
-          "exampleZh": "彩色照片。"
+          "category": "生活名詞",
+          "example": "Tôi thích màu xanh.",
+          "exampleZh": "我喜歡藍色。"
         },
         {
           "id": "freq_317",
           "rank": 317,
           "viet": "tuần",
-          "zh": "浣 / 周",
-          "zhSpoken": "浣，周",
-          "en": "vocabulary",
-          "pos": "動詞",
-          "hanViet": "巡",
-          "category": "日常必備動詞",
-          "example": "tuần sau",
-          "exampleZh": "下禮拜。"
+          "zh": "週",
+          "zhSpoken": "週",
+          "en": "week",
+          "pos": "名詞",
+          "hanViet": "旬",
+          "category": "生活名詞",
+          "example": "Tuần này tôi rất bận.",
+          "exampleZh": "這週我很忙。"
         },
         {
           "id": "freq_318",
           "rank": 318,
           "viet": "lâu",
-          "zh": "經久 / 闊",
-          "zhSpoken": "經久，闊",
-          "en": "long; long while ; a long time",
-          "pos": "動詞",
+          "zh": "久",
+          "zhSpoken": "久",
+          "en": "long (time)",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "xa nhau đã lâu",
-          "exampleZh": "闊別。 老。"
+          "category": "描述與狀態",
+          "example": "Lâu rồi không gặp!",
+          "exampleZh": "好久不見！"
         },
         {
           "id": "freq_319",
           "rank": 319,
           "viet": "công việc",
-          "zh": "營生兒 / 生活",
-          "zhSpoken": "營生兒，生活",
-          "en": "vocabulary",
+          "zh": "工作",
+          "zhSpoken": "工作",
+          "en": "job; work",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "công việc dưới mặt đất sắp xong rồi",
-          "exampleZh": "地裏的活計快乾完了。"
+          "category": "生活名詞",
+          "example": "Công việc của bạn thế nào?",
+          "exampleZh": "你的工作怎麼樣？"
         },
         {
           "id": "freq_320",
           "rank": 320,
           "viet": "cám ơn",
-          "zh": "感恩",
-          "zhSpoken": "感恩",
-          "en": "như cảm ơn",
+          "zh": "謝謝",
+          "zhSpoken": "謝謝",
+          "en": "thank you",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể cám ơn giúp tôi không?",
-          "exampleZh": "你能幫我感恩嗎？"
+          "category": "日常動詞",
+          "example": "Cám ơn anh nhiều.",
+          "exampleZh": "非常謝謝你。"
         },
         {
           "id": "freq_321",
           "rank": 321,
           "viet": "thị trường",
-          "zh": "出路 / 商場",
-          "zhSpoken": "出路，商場",
-          "en": "market field of vision",
+          "zh": "市場（經濟）",
+          "zhSpoken": "市場",
+          "en": "market",
           "pos": "名詞",
           "hanViet": "市場",
-          "category": "生活日常",
-          "example": "thị trường trong nước",
-          "exampleZh": "國內市場。"
+          "category": "生活名詞",
+          "example": "Thị trường Việt Nam rất tiềm năng.",
+          "exampleZh": "越南市場很有潛力。"
         },
         {
           "id": "freq_322",
           "rank": 322,
           "viet": "mức",
-          "zh": "標號 / 程度",
-          "zhSpoken": "標號，程度",
-          "en": "Level, degree, measure, extent, sta",
+          "zh": "程度 / 水準",
+          "zhSpoken": "程度，水準",
+          "en": "level",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "trời tuy rét nhưng chưa đến mức đóng băng",
-          "exampleZh": "天氣雖冷, 還沒有到上凍的程度。"
+          "category": "生活名詞",
+          "example": "Mức lương ở đây khá cao.",
+          "exampleZh": "這裡的薪資水準相當高。"
         },
         {
           "id": "freq_323",
           "rank": 323,
           "viet": "ảnh",
-          "zh": "相片",
-          "zhSpoken": "相片",
-          "en": "Image",
+          "zh": "照片",
+          "zhSpoken": "照片",
+          "en": "photo",
           "pos": "名詞",
           "hanViet": "影",
-          "category": "生活日常",
-          "example": "như ảnh tuỳ hình; như hình với bóng",
-          "exampleZh": "如影隨形。"
+          "category": "生活名詞",
+          "example": "Cho tôi xem ảnh nhé.",
+          "exampleZh": "讓我看看照片吧。"
         },
         {
           "id": "freq_324",
           "rank": 324,
           "viet": "doanh nghiệp",
-          "zh": "營業",
-          "zhSpoken": "營業",
-          "en": "trade; business",
+          "zh": "企業",
+          "zhSpoken": "企業",
+          "en": "enterprise",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "thuế doanh nghiệp",
-          "exampleZh": "營業稅。"
+          "category": "生活名詞",
+          "example": "Đây là doanh nghiệp Đài Loan.",
+          "exampleZh": "這是台灣企業。"
         },
         {
           "id": "freq_325",
           "rank": 325,
           "viet": "phụ nữ",
-          "zh": "粉黛 / 堂客",
-          "zhSpoken": "粉黛，堂客",
+          "zh": "女性",
+          "zhSpoken": "女性",
           "en": "woman",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "hội liên hiệp phụ nữ",
-          "exampleZh": "婦聯。"
+          "category": "生活名詞",
+          "example": "Hôm nay là ngày Phụ nữ Việt Nam.",
+          "exampleZh": "今天是越南婦女節。"
         },
         {
           "id": "freq_326",
           "rank": 326,
           "viet": "quan tâm",
-          "zh": "耽心 / 感冒",
-          "zhSpoken": "耽心，感冒",
-          "en": "vocabulary",
+          "zh": "關心",
+          "zhSpoken": "關心",
+          "en": "to care about",
           "pos": "動詞",
           "hanViet": "關心",
-          "category": "日常必備動詞",
-          "example": "quan tâm ân cần",
-          "exampleZh": "親切關懷。"
+          "category": "日常動詞",
+          "example": "Cảm ơn bạn đã quan tâm.",
+          "exampleZh": "謝謝你的關心。"
         },
         {
           "id": "freq_327",
           "rank": 327,
           "viet": "quyết định",
-          "zh": "裁定 / 打定主意",
-          "zhSpoken": "裁定，打定主意",
-          "en": "to decide; to resolve; to determine",
+          "zh": "決定",
+          "zhSpoken": "決定",
+          "en": "to decide",
           "pos": "動詞",
           "hanViet": "決定",
-          "category": "日常必備動詞",
-          "example": "toà án quyết định; toà án phán quyết",
-          "exampleZh": "法院裁定。"
+          "category": "日常動詞",
+          "example": "Tôi quyết định ở lại.",
+          "exampleZh": "我決定留下來。"
         },
         {
           "id": "freq_328",
           "rank": 328,
           "viet": "khó",
-          "zh": "艱 / 難",
-          "zhSpoken": "艱，難",
-          "en": "hard; difficult; delicate",
+          "zh": "難",
+          "zhSpoken": "難",
+          "en": "difficult",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "thâm thuý; khó hiểu",
-          "exampleZh": "艱深。"
+          "category": "描述與狀態",
+          "example": "Tiếng Việt không khó lắm.",
+          "exampleZh": "越語沒那麼難。"
         },
         {
           "id": "freq_329",
           "rank": 329,
           "viet": "bước",
-          "zh": "腳步 / 步驟",
-          "zhSpoken": "腳步，步驟",
-          "en": "Step, pace",
-          "pos": "動詞",
+          "zh": "步 / 走",
+          "zhSpoken": "步，走",
+          "en": "step",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "khó nhích nổi một bước",
-          "exampleZh": "寸步難移。"
+          "category": "生活名詞",
+          "example": "Bước đầu tiên rất quan trọng.",
+          "exampleZh": "第一步很重要。"
         },
         {
           "id": "freq_330",
           "rank": 330,
           "viet": "khu",
-          "zh": "部分 / 地區",
-          "zhSpoken": "部分，地區",
-          "en": "bottom",
+          "zh": "區域",
+          "zhSpoken": "區域",
+          "en": "area; zone",
           "pos": "名詞",
           "hanViet": "區",
-          "category": "生活日常",
-          "example": "tình hình trị an của khu này rất tốt",
-          "exampleZh": "這一管段的治安狀況良好。"
+          "category": "生活名詞",
+          "example": "Khu này có nhiều nhà hàng.",
+          "exampleZh": "這區有很多餐廳。"
         },
         {
           "id": "freq_331",
           "rank": 331,
           "viet": "bắn",
-          "zh": "攛 / 發出",
-          "zhSpoken": "攛，發出",
-          "en": "To fire, to shoot, to let off",
+          "zh": "射擊 / 開槍",
+          "zhSpoken": "射擊，開槍",
+          "en": "to shoot",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bắn pháo",
-          "exampleZh": "打炮; 發炮。"
+          "category": "日常動詞",
+          "example": "Họ bắn pháo hoa vào dịp Tết.",
+          "exampleZh": "他們在春節放煙火。"
         },
         {
           "id": "freq_332",
           "rank": 332,
           "viet": "kiểm tra",
-          "zh": "測試 / 查看",
-          "zhSpoken": "測試，查看",
-          "en": "Inspect",
+          "zh": "檢查",
+          "zhSpoken": "檢查",
+          "en": "to check",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "kiểm tra chuyên môn",
-          "exampleZh": "專業測試。"
+          "category": "日常動詞",
+          "example": "Anh kiểm tra lại giúp tôi.",
+          "exampleZh": "請幫我再檢查一次。"
         },
         {
           "id": "freq_333",
           "rank": 333,
           "viet": "phút",
-          "zh": "分 / 頃刻",
-          "zhSpoken": "分，頃刻",
-          "en": "minute; moment",
+          "zh": "分鐘",
+          "zhSpoken": "分鐘",
+          "en": "minute",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Phút này rất cần thiết cho công việc.",
-          "exampleZh": "這個「分」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Đợi tôi năm phút.",
+          "exampleZh": "等我五分鐘。"
         },
         {
           "id": "freq_334",
           "rank": 334,
           "viet": "xa",
-          "zh": "長 / 車",
-          "zhSpoken": "長，車",
-          "en": "far, distant, remote",
+          "zh": "遠",
+          "zhSpoken": "遠",
+          "en": "far",
           "pos": "形容詞",
-          "hanViet": "車",
-          "category": "基礎描述",
-          "example": "hoả xa",
-          "exampleZh": "火車。"
+          "hanViet": "",
+          "category": "描述與狀態",
+          "example": "Sân bay có xa không?",
+          "exampleZh": "機場遠嗎？"
         },
         {
           "id": "freq_335",
           "rank": 335,
           "viet": "nằm",
-          "zh": "臥 / 處在",
-          "zhSpoken": "臥，處在",
-          "en": "to lie down",
+          "zh": "躺 / 位於",
+          "zhSpoken": "躺，位於",
+          "en": "to lie; to be located",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nằm xuống",
-          "exampleZh": "臥倒。"
+          "category": "日常動詞",
+          "example": "Đà Nẵng nằm ở miền Trung.",
+          "exampleZh": "峴港位於中部。"
         },
         {
           "id": "freq_336",
           "rank": 336,
           "viet": "trả",
-          "zh": "付出 / 退回",
-          "zhSpoken": "付出，退回",
-          "en": "to return, to give back to pay",
+          "zh": "付 / 歸還",
+          "zhSpoken": "付，歸還",
+          "en": "to pay; to return",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "trả tiền mặt",
-          "exampleZh": "付出現款。"
+          "category": "日常動詞",
+          "example": "Tôi trả bằng tiền mặt.",
+          "exampleZh": "我付現金。"
         },
         {
           "id": "freq_337",
           "rank": 337,
           "viet": "sợ",
-          "zh": "發憷 / 恫",
-          "zhSpoken": "發憷，恫",
-          "en": "to fear, to be afraid",
+          "zh": "怕",
+          "zhSpoken": "怕",
+          "en": "to be afraid",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "khiếp sợ",
-          "exampleZh": "恫恐。"
+          "category": "日常動詞",
+          "example": "Tôi sợ đi xe máy.",
+          "exampleZh": "我怕騎機車。"
         },
         {
           "id": "freq_338",
           "rank": 338,
           "viet": "thuộc",
-          "zh": "處於 / 屬",
-          "zhSpoken": "處於，屬",
-          "en": "to tan, to cure to know by heart; t",
+          "zh": "屬於 / 背熟",
+          "zhSpoken": "屬於，背熟",
+          "en": "to belong; to know by heart",
           "pos": "動詞",
           "hanViet": "屬",
-          "category": "日常必備動詞",
-          "example": "trong tổ chức; thuộc tổ chức",
-          "exampleZh": "在組織。"
+          "category": "日常動詞",
+          "example": "Công ty này thuộc tập đoàn lớn.",
+          "exampleZh": "這家公司隸屬大集團。"
         },
         {
           "id": "freq_339",
@@ -4518,155 +4518,155 @@ export const VOCAB_BATCHES_BY_TIER = {
           "en": "economy",
           "pos": "名詞",
           "hanViet": "經濟",
-          "category": "生活日常",
-          "example": "cây công nghiệp; cây kinh tế",
-          "exampleZh": "經濟作物。"
+          "category": "生活名詞",
+          "example": "Kinh tế năm nay tăng trưởng tốt.",
+          "exampleZh": "今年經濟成長不錯。"
         },
         {
           "id": "freq_340",
           "rank": 340,
           "viet": "sản xuất",
-          "zh": "出產 / 製造",
-          "zhSpoken": "出產，製造",
-          "en": "to produce, to make, to manufacture",
+          "zh": "生產",
+          "zhSpoken": "生產",
+          "en": "to produce",
           "pos": "動詞",
           "hanViet": "產出",
-          "category": "日常必備動詞",
-          "example": "sản xuất và tiêu thụ",
-          "exampleZh": "產銷。"
+          "category": "日常動詞",
+          "example": "Nhà máy sản xuất giày dép.",
+          "exampleZh": "工廠生產鞋子。"
         },
         {
           "id": "freq_341",
           "rank": 341,
           "viet": "vợ",
-          "zh": "愛人 / 夫人",
-          "zhSpoken": "愛人，夫人",
+          "zh": "妻子",
+          "zhSpoken": "妻子",
           "en": "wife",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "vợ chồng",
-          "exampleZh": "夫婦。"
+          "category": "生活名詞",
+          "example": "Vợ tôi là người Việt.",
+          "exampleZh": "我太太是越南人。"
         },
         {
           "id": "freq_342",
           "rank": 342,
           "viet": "ít",
-          "zh": "薄 / 不丁點兒",
-          "zhSpoken": "薄，不丁點兒",
-          "en": "little; few",
-          "pos": "名詞",
+          "zh": "少",
+          "zhSpoken": "少",
+          "en": "few; little",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tình cảm dành cho nó đâu có ít",
-          "exampleZh": "待他的情分不薄。"
+          "category": "描述與狀態",
+          "example": "Ít đường thôi nhé.",
+          "exampleZh": "少糖就好喔。"
         },
         {
           "id": "freq_343",
           "rank": 343,
           "viet": "hôm nay",
-          "zh": "今 / 今兒",
-          "zhSpoken": "今，今兒",
+          "zh": "今天",
+          "zhSpoken": "今天",
           "en": "today",
-          "pos": "動詞",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hôm nay",
-          "exampleZh": "今天。方。"
+          "category": "語法功能詞",
+          "example": "Hôm nay trời đẹp quá.",
+          "exampleZh": "今天天氣真好。"
         },
         {
           "id": "freq_344",
           "rank": 344,
           "viet": "xong",
-          "zh": "罷 / 得",
-          "zhSpoken": "罷，得",
-          "en": "finish, be complete",
+          "zh": "完成",
+          "zhSpoken": "完成",
+          "en": "finished",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "ăn cơm tối xong",
-          "exampleZh": "喫罷晚飯。"
+          "category": "日常動詞",
+          "example": "Tôi làm xong rồi.",
+          "exampleZh": "我做完了。"
         },
         {
           "id": "freq_345",
           "rank": 345,
           "viet": "cảnh sát",
-          "zh": "幹警 / 公安",
-          "zhSpoken": "幹警，公安",
-          "en": "Policeman",
+          "zh": "警察",
+          "zhSpoken": "警察",
+          "en": "police",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cảnh sát dân sự; cảnh sát nhân dân",
-          "exampleZh": "民警。"
+          "category": "生活名詞",
+          "example": "Gọi cảnh sát ngay!",
+          "exampleZh": "馬上叫警察！"
         },
         {
           "id": "freq_346",
           "rank": 346,
           "viet": "chân",
-          "zh": "存根 / 蹯",
-          "zhSpoken": "存根，蹯",
-          "en": "Foot, leg",
+          "zh": "腳 / 腿",
+          "zhSpoken": "腳，腿",
+          "en": "foot; leg",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "chân gấu",
-          "exampleZh": "熊蹯。"
+          "category": "生活名詞",
+          "example": "Chân tôi bị đau.",
+          "exampleZh": "我的腳痛。"
         },
         {
           "id": "freq_347",
           "rank": 347,
           "viet": "kế hoạch",
-          "zh": "大譜兒 / 大數",
-          "zhSpoken": "大譜兒，大數",
-          "en": "to plan; to design",
+          "zh": "計畫",
+          "zhSpoken": "計畫",
+          "en": "plan",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "kế hoạch dạy học",
-          "exampleZh": "教學方案。"
+          "category": "生活名詞",
+          "example": "Kế hoạch của bạn là gì?",
+          "exampleZh": "你的計畫是什麼？"
         },
         {
           "id": "freq_348",
           "rank": 348,
           "viet": "nghiên cứu",
-          "zh": "研究 / 研討",
-          "zhSpoken": "研究，研討",
-          "en": "to study; to examine",
+          "zh": "研究",
+          "zhSpoken": "研究",
+          "en": "to research",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh ấy chuyên nghiên cứu địa chất học",
-          "exampleZh": "他是專攻地質學的。 究。"
+          "category": "日常動詞",
+          "example": "Tôi nghiên cứu văn hóa Việt Nam.",
+          "exampleZh": "我研究越南文化。"
         },
         {
           "id": "freq_349",
           "rank": 349,
           "viet": "mắt",
-          "zh": "圪節 / 睛",
-          "zhSpoken": "圪節，睛",
-          "en": "eye. eye",
+          "zh": "眼睛",
+          "zhSpoken": "眼睛",
+          "en": "eye",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "chăm chú nhìn không nháy mắt",
-          "exampleZh": "目不轉睛。"
+          "category": "生活名詞",
+          "example": "Mắt cô ấy rất đẹp.",
+          "exampleZh": "她的眼睛很美。"
         },
         {
           "id": "freq_350",
           "rank": 350,
           "viet": "an toàn",
-          "zh": "安全 / 安然",
-          "zhSpoken": "安全，安然",
-          "en": "Safe",
-          "pos": "名詞",
+          "zh": "安全",
+          "zhSpoken": "安全",
+          "en": "safe",
+          "pos": "形容詞",
           "hanViet": "安全",
-          "category": "生活日常",
-          "example": "thao tác an toàn",
-          "exampleZh": "安全操作。"
+          "category": "描述與狀態",
+          "example": "Đi xe an toàn nhé.",
+          "exampleZh": "騎車小心喔。"
         }
       ],
-      "duration": 733.0
+      "duration": 707.5
     },
     {
       "batchId": 8,
@@ -4684,235 +4684,235 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_351",
           "rank": 351,
           "viet": "cố",
-          "zh": "不禁 / 故道",
-          "zhSpoken": "不禁，故道",
-          "en": "Great grandfather or mother",
+          "zh": "努力 / 盡力",
+          "zhSpoken": "努力，盡力",
+          "en": "to try hard",
           "pos": "動詞",
-          "hanViet": "故",
-          "category": "日常必備動詞",
-          "example": "cố nghĩ cách",
-          "exampleZh": "極力設法。"
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Tôi sẽ cố học.",
+          "exampleZh": "我會努力學習。"
         },
         {
           "id": "freq_352",
           "rank": 352,
           "viet": "quản lý",
-          "zh": "把總 / 典",
-          "zhSpoken": "把總，典",
-          "en": "to manage",
+          "zh": "管理 / 經理",
+          "zhSpoken": "管理，經理",
+          "en": "to manage; manager",
           "pos": "動詞",
           "hanViet": "管理",
-          "category": "日常必備動詞",
-          "example": "quản lý sổ sách",
-          "exampleZh": "管帳。"
+          "category": "日常動詞",
+          "example": "Anh ấy quản lý nhà máy này.",
+          "exampleZh": "他管理這間工廠。"
         },
         {
           "id": "freq_353",
           "rank": 353,
           "viet": "chút",
-          "zh": "把子 / 半",
-          "zhSpoken": "把子，半",
-          "en": "Great-great grandchild",
+          "zh": "一點",
+          "zhSpoken": "一點",
+          "en": "a bit",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "không hề có chút tin tức gì cả",
-          "exampleZh": "半點消息都沒有。"
+          "category": "生活名詞",
+          "example": "Đợi một chút nhé.",
+          "exampleZh": "等一下喔。"
         },
         {
           "id": "freq_354",
           "rank": 354,
           "viet": "so",
-          "zh": "查對 / 和",
-          "zhSpoken": "查對，和",
-          "en": "to compare; to pair (ddu~a)",
+          "zh": "比較",
+          "zhSpoken": "比較",
+          "en": "to compare",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "so tài liệu",
-          "exampleZh": "查對材料。"
+          "category": "日常動詞",
+          "example": "So với năm ngoái, giá cao hơn.",
+          "exampleZh": "跟去年比，價格比較高。"
         },
         {
           "id": "freq_355",
           "rank": 355,
           "viet": "cuối cùng",
-          "zh": "終歸 / 到頭來",
-          "zhSpoken": "終歸，到頭來",
-          "en": "last; final, at last; ultimate",
-          "pos": "動詞",
+          "zh": "最後",
+          "zhSpoken": "最後",
+          "en": "finally; last",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cuối cùng nên làm thế nào?",
-          "exampleZh": "究應如何辦理?。"
+          "category": "語法功能詞",
+          "example": "Cuối cùng tôi cũng đến nơi.",
+          "exampleZh": "我終於到了。"
         },
         {
           "id": "freq_356",
           "rank": 356,
           "viet": "cổ",
-          "zh": "脰 / 古老",
-          "zhSpoken": "脰，古老",
-          "en": "Neck",
+          "zh": "脖子 / 古老",
+          "zhSpoken": "脖子，古老",
+          "en": "neck; ancient",
           "pos": "名詞",
-          "hanViet": "古",
-          "category": "生活日常",
-          "example": "cổ bình này dài",
-          "exampleZh": "這個瓶子脖兒長 古; 古舊; 古代; 古老。"
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Tôi bị đau cổ.",
+          "exampleZh": "我脖子痛。"
         },
         {
           "id": "freq_357",
           "rank": 357,
           "viet": "dù",
-          "zh": "別管 / 不論",
-          "zhSpoken": "別管，不論",
-          "en": "umbrella; parachute; sunshade",
-          "pos": "名詞",
+          "zh": "雖然 / 雨傘（南部）",
+          "zhSpoken": "雖然，雨傘",
+          "en": "although; umbrella",
+          "pos": "連詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "dù anh có đưa đến tôi cũng không lấy",
-          "exampleZh": "你就送來, 我也不要。 憑。"
+          "category": "語法功能詞",
+          "example": "Dù mưa, tôi vẫn đi.",
+          "exampleZh": "雖然下雨，我還是去。"
         },
         {
           "id": "freq_358",
           "rank": 358,
           "viet": "biển",
-          "zh": "匾 / 牌匾",
-          "zhSpoken": "匾，牌匾",
-          "en": "Sea",
+          "zh": "海 / 招牌",
+          "zhSpoken": "海，招牌",
+          "en": "sea; sign",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tấm biển thêu kim tuyến",
-          "exampleZh": "繡金匾。"
+          "category": "生活名詞",
+          "example": "Tôi thích đi biển.",
+          "exampleZh": "我喜歡去海邊。"
         },
         {
           "id": "freq_359",
           "rank": 359,
           "viet": "dành",
-          "zh": "儲蓄",
-          "zhSpoken": "儲蓄",
-          "en": "to save; to reserve; to engage",
+          "zh": "留給 / 花（時間）",
+          "zhSpoken": "留給，花",
+          "en": "to spare; to reserve",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể dành giúp tôi không?",
-          "exampleZh": "你能幫我儲蓄嗎？"
+          "category": "日常動詞",
+          "example": "Tôi dành thời gian cho gia đình.",
+          "exampleZh": "我把時間留給家人。"
         },
         {
           "id": "freq_360",
           "rank": 360,
           "viet": "ôi",
-          "zh": "哎 / 哎喲",
-          "zhSpoken": "哎，哎喲",
-          "en": "tainted (meat); putrid (flesh)",
-          "pos": "形容詞",
+          "zh": "哎呀",
+          "zhSpoken": "哎呀",
+          "en": "oh!",
+          "pos": "感嘆詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "ôi ! sao tôi lại hồ đồ đến thế!",
-          "exampleZh": "咳!我怎麼這麼糊塗!。"
+          "category": "語氣與助詞",
+          "example": "Ôi, đẹp quá!",
+          "exampleZh": "哎呀，好美！"
         },
         {
           "id": "freq_361",
           "rank": 361,
           "viet": "cuộc sống",
-          "zh": "日子 / 生活",
-          "zhSpoken": "日子，生活",
-          "en": "vocabulary",
+          "zh": "生活",
+          "zhSpoken": "生活",
+          "en": "life",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cuộc sống ngày càng tốt đẹp",
-          "exampleZh": "日子越過越美。"
+          "category": "生活名詞",
+          "example": "Cuộc sống ở đây rất vui.",
+          "exampleZh": "這裡的生活很有趣。"
         },
         {
           "id": "freq_362",
           "rank": 362,
           "viet": "mở",
-          "zh": "辦 / 敞",
-          "zhSpoken": "辦，敞",
+          "zh": "打開",
+          "zhSpoken": "打開",
           "en": "to open",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mở nhà máy",
-          "exampleZh": "辦工廠。"
+          "category": "日常動詞",
+          "example": "Mấy giờ cửa hàng mở cửa?",
+          "exampleZh": "店幾點開門？"
         },
         {
           "id": "freq_363",
           "rank": 363,
           "viet": "món",
-          "zh": "批 / 餐",
-          "zhSpoken": "批，餐",
-          "en": "item; article; dish",
+          "zh": "道（菜）",
+          "zhSpoken": "道",
+          "en": "dish",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ba món nợ",
-          "exampleZh": "三筆帳。"
+          "category": "生活名詞",
+          "example": "Món này là món gì?",
+          "exampleZh": "這道是什麼菜？"
         },
         {
           "id": "freq_364",
           "rank": 364,
           "viet": "dừng",
-          "zh": "罷休 / 消歇",
-          "zhSpoken": "罷休，消歇",
-          "en": "to stop; to halt",
+          "zh": "停",
+          "zhSpoken": "停",
+          "en": "to stop",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mãi mãi không dừng",
-          "exampleZh": "永無止息。"
+          "category": "日常動詞",
+          "example": "Dừng ở đây giúp tôi.",
+          "exampleZh": "請在這裡停。"
         },
         {
           "id": "freq_365",
           "rank": 365,
           "viet": "thực sự",
-          "zh": "存在 / 切實",
-          "zhSpoken": "存在，切實",
-          "en": "really indeed; actual",
-          "pos": "動詞",
+          "zh": "真正 / 確實",
+          "zhSpoken": "真正，確實",
+          "en": "really",
+          "pos": "副詞",
           "hanViet": "實事",
-          "category": "日常必備動詞",
-          "example": "thực sự sửa chữa khuyết điểm",
-          "exampleZh": "切實改正缺點。"
+          "category": "語法功能詞",
+          "example": "Tôi thực sự thích nơi này.",
+          "exampleZh": "我真的很喜歡這裡。"
         },
         {
           "id": "freq_366",
           "rank": 366,
           "viet": "phim",
-          "zh": "影戲 / 菲林",
-          "zhSpoken": "影戲，菲林",
-          "en": "film, picture",
+          "zh": "電影",
+          "zhSpoken": "電影",
+          "en": "movie",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "đổi phim",
-          "exampleZh": "換片子。"
+          "category": "生活名詞",
+          "example": "Bộ phim này rất hay.",
+          "exampleZh": "這部電影很好看。"
         },
         {
           "id": "freq_367",
           "rank": 367,
           "viet": "cuối",
-          "zh": "端梢 / 下梢",
-          "zhSpoken": "端梢，下梢",
-          "en": "Suamp hen",
+          "zh": "最後 / 末端",
+          "zhSpoken": "最後，末端",
+          "en": "end; last",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cuối tháng",
-          "exampleZh": "月杪。"
+          "category": "生活名詞",
+          "example": "Cuối tuần bạn làm gì?",
+          "exampleZh": "週末你做什麼？"
         },
         {
           "id": "freq_368",
           "rank": 368,
           "viet": "lo",
-          "zh": "愁 / 不愁喫",
-          "zhSpoken": "愁，不愁喫",
-          "en": "(từ cổ,nghĩa cổ) trông kìa!, nhìn k",
+          "zh": "擔心",
+          "zhSpoken": "擔心",
+          "en": "to worry",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "không lo cái ăn, không lo cái mặc",
-          "exampleZh": "不愁喫, 不愁穿。 發急。"
+          "category": "日常動詞",
+          "example": "Đừng lo, không sao đâu.",
+          "exampleZh": "別擔心，沒事的。"
         },
         {
           "id": "freq_369",
@@ -4920,12 +4920,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Hà Nội",
           "zh": "河內",
           "zhSpoken": "河內",
-          "en": "Hà Nội is the political capital of ",
+          "en": "Hanoi",
           "pos": "名詞",
           "hanViet": "河內",
-          "category": "生活日常",
-          "example": "Hà nội này rất cần thiết cho công việc.",
-          "exampleZh": "這個「河內」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tôi sẽ đi Hà Nội vào tháng sau.",
+          "exampleZh": "我下個月要去河內。"
         },
         {
           "id": "freq_370",
@@ -4936,411 +4936,411 @@ export const VOCAB_BATCHES_BY_TIER = {
           "en": "society",
           "pos": "名詞",
           "hanViet": "社會",
-          "category": "生活日常",
-          "example": "Xã hội này rất cần thiết cho công việc.",
-          "exampleZh": "這個「社會」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Mạng xã hội rất phổ biến ở Việt Nam.",
+          "exampleZh": "社群網路在越南很普遍。"
         },
         {
           "id": "freq_371",
           "rank": 371,
           "viet": "ngành",
-          "zh": "部門 / 行業",
-          "zhSpoken": "部門，行業",
-          "en": "Twig, branch, phylum",
+          "zh": "行業 / 產業",
+          "zhSpoken": "行業，產業",
+          "en": "industry; field",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ngành công nghiệp",
-          "exampleZh": "工業部門。"
+          "category": "生活名詞",
+          "example": "Tôi làm trong ngành điện tử.",
+          "exampleZh": "我在電子業工作。"
         },
         {
           "id": "freq_372",
           "rank": 372,
           "viet": "con người",
-          "zh": "人 / 主兒",
-          "zhSpoken": "人，主兒",
-          "en": "Man",
+          "zh": "人類 / 為人",
+          "zhSpoken": "人類，為人",
+          "en": "human being",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "con người này thật không biết phải trái",
-          "exampleZh": "這主兒真不講理。"
+          "category": "生活名詞",
+          "example": "Con người cần ngủ đủ giấc.",
+          "exampleZh": "人需要充足的睡眠。"
         },
         {
           "id": "freq_373",
           "rank": 373,
           "viet": "chịu",
-          "zh": "擔負 / 擔名",
-          "zhSpoken": "擔負，擔名",
-          "en": "To sustain, to bear, to accept",
+          "zh": "承受 / 願意",
+          "zhSpoken": "承受，願意",
+          "en": "to bear; to accept",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chịu thua",
-          "exampleZh": "伏輸。"
+          "category": "日常動詞",
+          "example": "Tôi không chịu nổi cái nóng này.",
+          "exampleZh": "我受不了這種熱。"
         },
         {
           "id": "freq_374",
           "rank": 374,
           "viet": "lớp",
-          "zh": "班 / 班級",
-          "zhSpoken": "班，班級",
-          "en": "bed; layer; stratum; coat",
+          "zh": "班級 / 層",
+          "zhSpoken": "班級，層",
+          "en": "class; layer",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "lớp luyện tập",
-          "exampleZh": "作業班。"
+          "category": "生活名詞",
+          "example": "Lớp tiếng Việt bắt đầu lúc bảy giờ.",
+          "exampleZh": "越語課七點開始。"
         },
         {
           "id": "freq_375",
           "rank": 375,
           "viet": "yêu cầu",
-          "zh": "告 / 請求",
-          "zhSpoken": "告，請求",
-          "en": "require, ask",
+          "zh": "要求",
+          "zhSpoken": "要求",
+          "en": "to request",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "xuất phát từ yêu cầu của quần chúng",
-          "exampleZh": "從羣衆的需要出發。 需要。"
+          "category": "日常動詞",
+          "example": "Khách hàng yêu cầu giao hàng sớm.",
+          "exampleZh": "客戶要求提早交貨。"
         },
         {
           "id": "freq_376",
           "rank": 376,
           "viet": "nhóm",
-          "zh": "把子 / 班子",
-          "zhSpoken": "把子，班子",
-          "en": "to gather; to group; to collect",
-          "pos": "動詞",
+          "zh": "小組",
+          "zhSpoken": "小組",
+          "en": "group",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nó dẫn một nhóm bạn nhỏ đến",
-          "exampleZh": "他帶來了一幫小朋友。"
+          "category": "生活名詞",
+          "example": "Nhóm chúng tôi có năm người.",
+          "exampleZh": "我們小組有五個人。"
         },
         {
           "id": "freq_377",
           "rank": 377,
           "viet": "gửi",
-          "zh": "寄送 / 寄 / 寄存",
-          "zhSpoken": "寄送，寄",
-          "en": "to send, to give, to lay on",
+          "zh": "寄 / 傳送",
+          "zhSpoken": "寄，傳送",
+          "en": "to send",
           "pos": "動詞",
           "hanViet": "寄",
-          "category": "日常必備動詞",
-          "example": "bãi gửi xe",
-          "exampleZh": "存車處。"
+          "category": "日常動詞",
+          "example": "Tôi gửi cho bạn qua Zalo.",
+          "exampleZh": "我用 Zalo 傳給你。"
         },
         {
           "id": "freq_378",
           "rank": 378,
           "viet": "huyện",
-          "zh": "邑 / 縣",
-          "zhSpoken": "邑，縣",
-          "en": "district",
+          "zh": "縣（省以下行政區）",
+          "zhSpoken": "縣",
+          "en": "rural district",
           "pos": "名詞",
           "hanViet": "縣",
-          "category": "生活日常",
-          "example": "chỗ chúng tôi là một huyện nhỏ",
-          "exampleZh": "我們那兒是個小縣份兒。"
+          "category": "生活名詞",
+          "example": "Nhà máy nằm ở huyện bên cạnh.",
+          "exampleZh": "工廠位在隔壁縣。"
         },
         {
           "id": "freq_379",
           "rank": 379,
           "viet": "vàng",
-          "zh": "金子 / 黃色",
-          "zhSpoken": "金子，黃色",
-          "en": "gold",
-          "pos": "名詞",
+          "zh": "黃色 / 金",
+          "zhSpoken": "黃色，金",
+          "en": "yellow; gold",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "vàng",
-          "exampleZh": "黃貨。"
+          "category": "描述與狀態",
+          "example": "Cô ấy mặc áo màu vàng.",
+          "exampleZh": "她穿黃色的衣服。"
         },
         {
           "id": "freq_380",
           "rank": 380,
           "viet": "càng",
-          "zh": "更爲 / 還",
-          "zhSpoken": "更爲，還",
-          "en": "Chela, claw, nipper, pincers",
-          "pos": "動詞",
+          "zh": "越…越…",
+          "zhSpoken": "越越",
+          "en": "the more",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "qua một đêm gió bấc, trời càng lạnh hơn",
-          "exampleZh": "颳了一夜北風, 天更冷了。"
+          "category": "語法功能詞",
+          "example": "Càng học càng thích.",
+          "exampleZh": "越學越喜歡。"
         },
         {
           "id": "freq_381",
           "rank": 381,
           "viet": "coi",
-          "zh": "看 / 看待",
-          "zhSpoken": "看，看待",
-          "en": "To see, to read",
+          "zh": "看（南部）",
+          "zhSpoken": "看",
+          "en": "to watch (Southern)",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đợi chút nữa coi",
-          "exampleZh": "等等看。"
+          "category": "日常動詞",
+          "example": "Tối nay coi phim không?",
+          "exampleZh": "今晚要看電影嗎？"
         },
         {
           "id": "freq_382",
           "rank": 382,
           "viet": "ạ",
-          "zh": "表示尊重",
-          "zhSpoken": "表示尊重",
-          "en": "common term",
-          "pos": "動詞",
+          "zh": "（句尾敬語）",
+          "zhSpoken": "（句尾敬語）",
+          "en": "polite final particle",
+          "pos": "助詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vâng ạ!",
-          "exampleZh": "是的! 表示親切。"
+          "category": "語氣與助詞",
+          "example": "Em cảm ơn chị ạ.",
+          "exampleZh": "謝謝姊姊。"
         },
         {
           "id": "freq_383",
           "rank": 383,
           "viet": "phép",
-          "zh": "法 / 法寶",
-          "zhSpoken": "法，法寶",
-          "en": "rule, custom",
+          "zh": "許可 / 規則",
+          "zhSpoken": "許可，規則",
+          "en": "permission",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "phép cộng",
-          "exampleZh": "加法。"
+          "category": "生活名詞",
+          "example": "Tôi xin phép về trước.",
+          "exampleZh": "我先告辭了。"
         },
         {
           "id": "freq_384",
           "rank": 384,
           "viet": "cứu",
-          "zh": "搭救 / 扶助",
-          "zhSpoken": "搭救，扶助",
-          "en": "to save; to rescue; to relieve",
+          "zh": "救",
+          "zhSpoken": "救",
+          "en": "to rescue",
           "pos": "動詞",
           "hanViet": "救",
-          "category": "日常必備動詞",
-          "example": "cứu khốn phò nguy",
-          "exampleZh": "扶危濟困。"
+          "category": "日常動詞",
+          "example": "Cứu tôi với!",
+          "exampleZh": "救命啊！"
         },
         {
           "id": "freq_385",
           "rank": 385,
           "viet": "chắc chắn",
-          "zh": "把牢 / 八成",
-          "zhSpoken": "把牢，八成",
-          "en": "Reliable, reliably solid",
-          "pos": "動詞",
+          "zh": "確定 / 一定",
+          "zhSpoken": "確定，一定",
+          "en": "certain",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh ta làm việc chắc chắn lắm",
-          "exampleZh": "他辦事很把穩。"
+          "category": "語法功能詞",
+          "example": "Tôi chắc chắn sẽ đến.",
+          "exampleZh": "我一定會來。"
         },
         {
           "id": "freq_386",
           "rank": 386,
           "viet": "mùa",
-          "zh": "季 / 節令",
-          "zhSpoken": "季，節令",
-          "en": "season; time; tide",
+          "zh": "季節",
+          "zhSpoken": "季節",
+          "en": "season",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "mùa mưa",
-          "exampleZh": "雨季。"
+          "category": "生活名詞",
+          "example": "Mùa mưa ở Sài Gòn bắt đầu tháng năm.",
+          "exampleZh": "西貢雨季五月開始。"
         },
         {
           "id": "freq_387",
           "rank": 387,
           "viet": "nhỉ",
-          "zh": "唻 / 啊",
-          "zhSpoken": "唻，啊",
-          "en": "Inn't it, doesn't it..",
+          "zh": "對吧（徵求同意）",
+          "zhSpoken": "對吧",
+          "en": "right? (seeking agreement)",
           "pos": "助詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "trước giải phóng trẻ chăn trâu khổ nhỉ?",
-          "exampleZh": "解放前放牛娃可苦唻。"
+          "category": "語氣與助詞",
+          "example": "Hôm nay nóng nhỉ?",
+          "exampleZh": "今天好熱喔，對吧？"
         },
         {
           "id": "freq_388",
           "rank": 388,
           "viet": "đọc",
-          "zh": "讀 / 翻閱",
-          "zhSpoken": "讀，翻閱",
-          "en": "To read; to pronounce; to deliver (",
+          "zh": "讀",
+          "zhSpoken": "讀",
+          "en": "to read",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đọc to",
-          "exampleZh": "朗讀。"
+          "category": "日常動詞",
+          "example": "Từ này đọc thế nào?",
+          "exampleZh": "這個字怎麼唸？"
         },
         {
           "id": "freq_389",
           "rank": 389,
           "viet": "khó khăn",
-          "zh": "困難 / 艱難",
-          "zhSpoken": "困難，艱難",
-          "en": "hard, difficult",
+          "zh": "困難",
+          "zhSpoken": "困難",
+          "en": "hardship",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "qua bao khó khăn, cuối cùng cũng xông qua được cửa ải này",
-          "exampleZh": "經過許多波折, 總算闖過了這一關。 蹭蹬。"
+          "category": "生活名詞",
+          "example": "Công việc này có nhiều khó khăn.",
+          "exampleZh": "這份工作有許多困難。"
         },
         {
           "id": "freq_390",
           "rank": 390,
           "viet": "vùng",
-          "zh": "場子 / 壤",
-          "zhSpoken": "場子，壤",
-          "en": "region, area",
-          "pos": "動詞",
+          "zh": "地區",
+          "zhSpoken": "地區",
+          "en": "region",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vùng ngoài; nơi xa",
-          "exampleZh": "外地。"
+          "category": "生活名詞",
+          "example": "Vùng này trồng nhiều cà phê.",
+          "exampleZh": "這地區種很多咖啡。"
         },
         {
           "id": "freq_391",
           "rank": 391,
           "viet": "vị",
-          "zh": "口 / 口感",
-          "zhSpoken": "口，口感",
-          "en": "taste",
+          "zh": "味道 / 位（敬稱）",
+          "zhSpoken": "味道，位",
+          "en": "taste; honorific classifier",
           "pos": "名詞",
           "hanViet": "味",
-          "category": "生活日常",
-          "example": "loại mì này vị ngon mà chất dinh dưỡng cũng nhiều",
-          "exampleZh": "這種麪條喫 起來口感好, 營養也較豐富。 未。"
+          "category": "生活名詞",
+          "example": "Món này có vị hơi ngọt.",
+          "exampleZh": "這道菜味道有點甜。"
         },
         {
           "id": "freq_392",
           "rank": 392,
           "viet": "cơ hội",
-          "zh": "遇 / 機會主義",
-          "zhSpoken": "遇，機會主義",
-          "en": "Opportunity; occasion; chance",
+          "zh": "機會",
+          "zhSpoken": "機會",
+          "en": "opportunity",
           "pos": "名詞",
           "hanViet": "機會",
-          "category": "生活日常",
-          "example": "cơ hội",
-          "exampleZh": "機遇。"
+          "category": "生活名詞",
+          "example": "Đây là cơ hội tốt.",
+          "exampleZh": "這是個好機會。"
         },
         {
           "id": "freq_393",
           "rank": 393,
           "viet": "hoàn toàn",
-          "zh": "百分之百 / 透",
-          "zhSpoken": "百分之百，透",
-          "en": "complet; perfect; entirely; faultle",
-          "pos": "動詞",
+          "zh": "完全",
+          "zhSpoken": "完全",
+          "en": "completely",
+          "pos": "副詞",
           "hanViet": "完全",
-          "category": "日常必備動詞",
-          "example": "những gì mà hắn ta nói hoàn toàn là giả dối",
-          "exampleZh": "他所說的是徹頭徹尾的謊言。"
+          "category": "語法功能詞",
+          "example": "Tôi hoàn toàn đồng ý.",
+          "exampleZh": "我完全同意。"
         },
         {
           "id": "freq_394",
           "rank": 394,
           "viet": "diễn",
-          "zh": "表演 / 開幕",
-          "zhSpoken": "表演，開幕",
-          "en": "to act; perform",
+          "zh": "表演",
+          "zhSpoken": "表演",
+          "en": "to perform",
           "pos": "動詞",
           "hanViet": "演",
-          "category": "日常必備動詞",
-          "example": "bây giờ là tám giờ, e rằng kịch đã diễn rồi",
-          "exampleZh": "現在八點, 戲恐怕已經開幕了。 排。"
+          "category": "日常動詞",
+          "example": "Cô ấy diễn rất hay.",
+          "exampleZh": "她演得很好。"
         },
         {
           "id": "freq_395",
           "rank": 395,
           "viet": "dự án",
-          "zh": "方案 / 預案",
-          "zhSpoken": "方案，預案",
-          "en": "Draft; project",
+          "zh": "專案",
+          "zhSpoken": "專案",
+          "en": "project",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Dự án này rất cần thiết cho công việc.",
-          "exampleZh": "這個「方案」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Dự án này kéo dài một năm.",
+          "exampleZh": "這個專案為期一年。"
         },
         {
           "id": "freq_396",
           "rank": 396,
           "viet": "bất cứ",
-          "zh": "不管 / 不論",
-          "zhSpoken": "不管，不論",
-          "en": "Any",
-          "pos": "名詞",
+          "zh": "任何",
+          "zhSpoken": "任何",
+          "en": "any",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "bất cứ thế nào tôi cũng đến",
-          "exampleZh": "不管怎樣我都來。"
+          "category": "語法功能詞",
+          "example": "Bạn có thể gọi tôi bất cứ lúc nào.",
+          "exampleZh": "你隨時都可以打給我。"
         },
         {
           "id": "freq_397",
           "rank": 397,
           "viet": "khu vực",
-          "zh": "地帶 / 地段",
-          "zhSpoken": "地帶，地段",
-          "en": "Zone, area",
+          "zh": "區域",
+          "zhSpoken": "區域",
+          "en": "area",
           "pos": "名詞",
           "hanViet": "區域",
-          "category": "生活日常",
-          "example": "khu vực nguy hiểm",
-          "exampleZh": "危險地帶。"
+          "category": "生活名詞",
+          "example": "Khu vực này cấm hút thuốc.",
+          "exampleZh": "這個區域禁止吸菸。"
         },
         {
           "id": "freq_398",
           "rank": 398,
           "viet": "kết quả",
-          "zh": "產物 / 成果",
-          "zhSpoken": "產物，成果",
-          "en": "result; effect",
+          "zh": "結果",
+          "zhSpoken": "結果",
+          "en": "result",
           "pos": "名詞",
           "hanViet": "結果",
-          "category": "生活日常",
-          "example": "ra hoa kết quả",
-          "exampleZh": "開花結果。"
+          "category": "生活名詞",
+          "example": "Kết quả kiểm tra thế nào?",
+          "exampleZh": "檢查結果怎麼樣？"
         },
         {
           "id": "freq_399",
           "rank": 399,
           "viet": "sớm",
-          "zh": "不久 / 旦",
-          "zhSpoken": "不久，旦",
-          "en": "common term",
-          "pos": "動詞",
+          "zh": "早",
+          "zhSpoken": "早",
+          "en": "early",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "sớm tối; sớm chiều",
-          "exampleZh": "旦暮。"
+          "category": "描述與狀態",
+          "example": "Mai tôi phải dậy sớm.",
+          "exampleZh": "明天我得早起。"
         },
         {
           "id": "freq_400",
           "rank": 400,
           "viet": "thầy",
-          "zh": "導師 / 夫子",
-          "zhSpoken": "導師，夫子",
-          "en": "teacher, master, father, dad",
+          "zh": "男老師",
+          "zhSpoken": "男老師",
+          "en": "male teacher",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Thầy này rất cần thiết cho công việc.",
-          "exampleZh": "這個「導師」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Thầy giáo của tôi rất vui tính.",
+          "exampleZh": "我的老師很風趣。"
         }
       ],
-      "duration": 730.4
+      "duration": 712.2
     },
     {
       "batchId": 9,
       "tier": "top1k",
       "titleZh": "第 09 組 · 人際互動與性格情緒",
       "titleEn": "Batch 09 · Top 1,000",
-      "range": "401 - 450",
+      "range": "401 - 451",
       "startRank": 401,
-      "endRank": 450,
+      "endRank": 451,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_09.mp3",
       "fileName": "vocab_1000_batch_09.mp3",
@@ -5349,222 +5349,209 @@ export const VOCAB_BATCHES_BY_TIER = {
           "id": "freq_401",
           "rank": 401,
           "viet": "báo",
-          "zh": "報 / 報紙",
-          "zhSpoken": "報，報紙",
-          "en": "Panther",
-          "pos": "動詞",
+          "zh": "報紙 / 通報",
+          "zhSpoken": "報紙，通報",
+          "en": "newspaper; to report",
+          "pos": "名詞",
           "hanViet": "報",
-          "category": "日常必備動詞",
-          "example": "báo danh",
-          "exampleZh": "報名。"
+          "category": "生活名詞",
+          "example": "Bố tôi đọc báo mỗi sáng.",
+          "exampleZh": "我爸爸每天早上看報。"
         },
         {
           "id": "freq_402",
           "rank": 402,
           "viet": "tàu",
-          "zh": "舸 / 航",
-          "zhSpoken": "舸，航",
-          "en": "ship, boat, craft. junk stable",
+          "zh": "火車 / 船",
+          "zhSpoken": "火車，船",
+          "en": "train; ship",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tàu chủ lực",
-          "exampleZh": "主力艦。"
+          "category": "生活名詞",
+          "example": "Tôi đi tàu từ Hà Nội vào Huế.",
+          "exampleZh": "我搭火車從河內到順化。"
         },
         {
           "id": "freq_403",
           "rank": 403,
           "viet": "thử",
-          "zh": "嘗 / 抽樣",
-          "zhSpoken": "嘗，抽樣",
-          "en": "to test; to try (attempt) (on,.)",
+          "zh": "試",
+          "zhSpoken": "試",
+          "en": "to try",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thử nghĩ xem",
-          "exampleZh": "想想看。"
+          "category": "日常動詞",
+          "example": "Tôi mặc thử được không?",
+          "exampleZh": "我可以試穿嗎？"
         },
         {
           "id": "freq_404",
           "rank": 404,
           "viet": "bác sĩ",
-          "zh": "醫生 / 西醫",
-          "zhSpoken": "醫生，西醫",
-          "en": "Doctor, physician",
+          "zh": "醫生",
+          "zhSpoken": "醫生",
+          "en": "doctor",
           "pos": "名詞",
           "hanViet": "博士",
-          "category": "生活日常",
-          "example": "Bác sĩ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「醫生」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tôi cần gặp bác sĩ.",
+          "exampleZh": "我需要看醫生。"
         },
         {
           "id": "freq_405",
           "rank": 405,
           "viet": "người ta",
-          "zh": "你 / 別人",
-          "zhSpoken": "你，別人",
-          "en": "people; they; one; you",
-          "pos": "名詞",
+          "zh": "別人 / 人家",
+          "zhSpoken": "別人，人家",
+          "en": "people; they",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tài năng học vấn của anh ấy khiến người ta khâm phục",
-          "exampleZh": "他的才學叫你不得不佩服。 人家; 別人。"
+          "category": "人稱與指示",
+          "example": "Người ta nói món này rất ngon.",
+          "exampleZh": "大家都說這道菜很好吃。"
         },
         {
           "id": "freq_406",
           "rank": 406,
           "viet": "lòng",
-          "zh": "德 / 肚腸",
-          "zhSpoken": "德，肚腸",
-          "en": "heart; soul; mind",
+          "zh": "內心 / 內臟",
+          "zhSpoken": "內心，內臟",
+          "en": "heart; innards",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "một lòng một ý; một lòng một dạ",
-          "exampleZh": "一心一德。"
+          "category": "生活名詞",
+          "example": "Tôi rất vui lòng giúp bạn.",
+          "exampleZh": "我很樂意幫你。"
         },
         {
           "id": "freq_407",
           "rank": 407,
           "viet": "thiết kế",
-          "zh": "擬 / 裝幀",
-          "zhSpoken": "擬，裝幀",
+          "zh": "設計",
+          "zhSpoken": "設計",
           "en": "to design",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "kỹ sư thiết kế; nhà thiết kế",
-          "exampleZh": "設計師。"
-        },
-        {
-          "id": "freq_408",
-          "rank": 408,
-          "viet": "c",
-          "zh": "丙",
-          "zhSpoken": "丙",
-          "en": "c",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "lớp C",
-          "exampleZh": "丙班。 越文字母第五字。"
+          "category": "日常動詞",
+          "example": "Cô ấy thiết kế áo dài.",
+          "exampleZh": "她設計奧黛。"
         },
         {
           "id": "freq_409",
           "rank": 409,
           "viet": "cảm thấy",
-          "zh": "發 / 嘴裏發苦",
-          "zhSpoken": "發，嘴裏發苦",
+          "zh": "感覺",
+          "zhSpoken": "感覺",
           "en": "to feel",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cảm thấy tê tê",
-          "exampleZh": "發麻。"
+          "category": "日常動詞",
+          "example": "Tôi cảm thấy mệt.",
+          "exampleZh": "我覺得累。"
         },
         {
           "id": "freq_410",
           "rank": 410,
           "viet": "quên",
-          "zh": "落 / 漏脫",
-          "zhSpoken": "落，漏脫",
-          "en": "to for get",
+          "zh": "忘記",
+          "zhSpoken": "忘記",
+          "en": "to forget",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lâu năm quên mất",
-          "exampleZh": "年遠失記。"
+          "category": "日常動詞",
+          "example": "Tôi quên tên bạn rồi.",
+          "exampleZh": "我忘記你的名字了。"
         },
         {
           "id": "freq_411",
           "rank": 411,
           "viet": "chủ",
-          "zh": "大班 / 東",
-          "zhSpoken": "大班，東",
-          "en": "Owner, proprietor",
-          "pos": "動詞",
+          "zh": "老闆 / 主人",
+          "zhSpoken": "老闆，主人",
+          "en": "owner; boss",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chủ nhà",
-          "exampleZh": "房東。"
+          "category": "生活名詞",
+          "example": "Chủ quán rất thân thiện.",
+          "exampleZh": "店老闆很親切。"
         },
         {
           "id": "freq_412",
           "rank": 412,
           "viet": "công tác",
-          "zh": "差 / 差事",
-          "zhSpoken": "差，差事",
-          "en": "Mission; business",
-          "pos": "動詞",
+          "zh": "出差 / 工作",
+          "zhSpoken": "出差，工作",
+          "en": "business trip; work",
+          "pos": "名詞",
           "hanViet": "工作",
-          "category": "日常必備動詞",
-          "example": "đi công tác",
-          "exampleZh": "出差。"
+          "category": "生活名詞",
+          "example": "Tuần sau tôi đi công tác.",
+          "exampleZh": "下週我要出差。"
         },
         {
           "id": "freq_413",
           "rank": 413,
           "viet": "chống",
-          "zh": "架 / 拒",
-          "zhSpoken": "架，拒",
-          "en": "To prop, to lean on as a prop",
+          "zh": "對抗 / 防",
+          "zhSpoken": "對抗，防",
+          "en": "to oppose; against",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hai tay chống cằm, trầm ngâm suy nghĩ",
-          "exampleZh": "兩手撐着下巴沉思。"
+          "category": "日常動詞",
+          "example": "Kem chống nắng ở đâu?",
+          "exampleZh": "防曬乳在哪裡？"
         },
         {
           "id": "freq_414",
           "rank": 414,
           "viet": "ban",
-          "zh": "班兒 / 部",
-          "zhSpoken": "班兒，部",
-          "en": "Time",
+          "zh": "部門 / 委員會",
+          "zhSpoken": "部門，委員會",
+          "en": "committee; board",
           "pos": "名詞",
           "hanViet": "班",
-          "category": "生活日常",
-          "example": "ban biên tập",
-          "exampleZh": "編輯部。"
+          "category": "生活名詞",
+          "example": "Ban giám đốc đang họp.",
+          "exampleZh": "董事會正在開會。"
         },
         {
           "id": "freq_415",
           "rank": 415,
           "viet": "trung tâm",
-          "zh": "大本營 / 核心",
-          "zhSpoken": "大本營，核心",
-          "en": "centre",
+          "zh": "中心",
+          "zhSpoken": "中心",
+          "en": "center",
           "pos": "名詞",
           "hanViet": "中心",
-          "category": "生活日常",
-          "example": "nhóm trung tâm; nhóm chính",
-          "exampleZh": "核心小組。"
+          "category": "生活名詞",
+          "example": "Khách sạn ở trung tâm thành phố.",
+          "exampleZh": "飯店在市中心。"
         },
         {
           "id": "freq_416",
           "rank": 416,
           "viet": "tuyệt",
-          "zh": "絕妙 / 極佳 / 太棒了",
-          "zhSpoken": "絕妙，極佳",
-          "en": "excellent; great, mighty",
-          "pos": "動詞",
+          "zh": "太棒了",
+          "zhSpoken": "太棒了",
+          "en": "great",
+          "pos": "形容詞",
           "hanViet": "絕",
-          "category": "日常必備動詞",
-          "example": "hai câu này anh hát rất tuyệt",
-          "exampleZh": "這兩句你唱得可真夠味兒。 呱呱叫。"
+          "category": "描述與狀態",
+          "example": "Tuyệt quá!",
+          "exampleZh": "太棒了！"
         },
         {
           "id": "freq_417",
           "rank": 417,
           "viet": "khách hàng",
-          "zh": "顧 / 主顧",
-          "zhSpoken": "顧，主顧",
-          "en": "customer; patron; client",
+          "zh": "客戶",
+          "zhSpoken": "客戶",
+          "en": "customer",
           "pos": "名詞",
           "hanViet": "客行",
-          "category": "生活日常",
-          "example": "khách hàng",
-          "exampleZh": "顧客。"
+          "category": "生活名詞",
+          "example": "Khách hàng rất hài lòng.",
+          "exampleZh": "客戶很滿意。"
         },
         {
           "id": "freq_418",
@@ -5573,141 +5560,141 @@ export const VOCAB_BATCHES_BY_TIER = {
           "zh": "長",
           "zhSpoken": "長",
           "en": "long",
-          "pos": "動詞",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "con đường này rất dài",
+          "category": "描述與狀態",
+          "example": "Con đường này rất dài.",
           "exampleZh": "這條路很長。"
         },
         {
           "id": "freq_419",
           "rank": 419,
           "viet": "điện thoại",
-          "zh": "電話",
-          "zhSpoken": "電話",
-          "en": "Telephone",
-          "pos": "動詞",
+          "zh": "電話 / 手機",
+          "zhSpoken": "電話，手機",
+          "en": "telephone",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "gọi điện thoại",
-          "exampleZh": "打電話。"
+          "category": "生活名詞",
+          "example": "Điện thoại của tôi hết pin rồi.",
+          "exampleZh": "我的手機沒電了。"
         },
         {
           "id": "freq_420",
           "rank": 420,
           "viet": "chuyển",
-          "zh": "搬 / 傳遞",
-          "zhSpoken": "搬，傳遞",
-          "en": "To move, to transfer, to shift, to ",
+          "zh": "轉移 / 搬",
+          "zhSpoken": "轉移，搬",
+          "en": "to move; to transfer",
           "pos": "動詞",
           "hanViet": "轉",
-          "category": "日常必備動詞",
-          "example": "chuyển dọn hàng hoá đi",
-          "exampleZh": "把貨物搬走。"
+          "category": "日常動詞",
+          "example": "Tôi chuyển tiền cho bạn nhé.",
+          "exampleZh": "我轉帳給你喔。"
         },
         {
           "id": "freq_421",
           "rank": 421,
           "viet": "sẵn sàng",
-          "zh": "預備 / 預先",
-          "zhSpoken": "預備，預先",
-          "en": "ready, prepared willing to",
-          "pos": "動詞",
+          "zh": "準備好",
+          "zhSpoken": "準備好",
+          "en": "ready",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể sẵn sàng giúp tôi không?",
-          "exampleZh": "你能幫我預備嗎？"
+          "category": "描述與狀態",
+          "example": "Tôi sẵn sàng rồi.",
+          "exampleZh": "我準備好了。"
         },
         {
           "id": "freq_422",
           "rank": 422,
           "viet": "sang",
-          "zh": "徂 / 渡",
-          "zhSpoken": "徂，渡",
-          "en": "hát, ca hát",
+          "zh": "到（對面、他處）",
+          "zhSpoken": "到",
+          "en": "to cross over",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "từ tây sang đông",
-          "exampleZh": "自西徂東。"
+          "category": "日常動詞",
+          "example": "Tôi sang Việt Nam làm việc.",
+          "exampleZh": "我到越南工作。"
         },
         {
           "id": "freq_423",
           "rank": 423,
           "viet": "hướng",
-          "zh": "方向 / 導向",
-          "zhSpoken": "方向，導向",
-          "en": "way; direction",
-          "pos": "動詞",
+          "zh": "方向",
+          "zhSpoken": "方向",
+          "en": "direction",
+          "pos": "名詞",
           "hanViet": "向",
-          "category": "日常必備動詞",
-          "example": "tàu đánh cá chạy về hướng ngư trường",
-          "exampleZh": "漁輪奔魚場開去。"
+          "category": "生活名詞",
+          "example": "Khách sạn ở hướng nào?",
+          "exampleZh": "飯店在哪個方向？"
         },
         {
           "id": "freq_424",
           "rank": 424,
           "viet": "sắp",
-          "zh": "挨邊 / 傍",
-          "zhSpoken": "挨邊，傍",
-          "en": "band, group, gang",
-          "pos": "動詞",
+          "zh": "快要",
+          "zhSpoken": "快要",
+          "en": "about to",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "màu trời đã sắp hoàng hôn",
-          "exampleZh": "天色已經逼近黃昏。"
+          "category": "語法功能詞",
+          "example": "Tôi sắp đến rồi.",
+          "exampleZh": "我快到了。"
         },
         {
           "id": "freq_425",
           "rank": 425,
           "viet": "xã",
-          "zh": "社 / 鄉",
-          "zhSpoken": "社，鄉",
-          "en": "village",
+          "zh": "鄉",
+          "zhSpoken": "鄉",
+          "en": "commune",
           "pos": "名詞",
           "hanViet": "社",
-          "category": "生活日常",
-          "example": "Xã này rất cần thiết cho công việc.",
-          "exampleZh": "這個「社」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Xã này có một trường học mới.",
+          "exampleZh": "這個鄉有一所新學校。"
         },
         {
           "id": "freq_426",
           "rank": 426,
           "viet": "chuẩn bị",
-          "zh": "張羅 / 備辦",
-          "zhSpoken": "張羅，備辦",
-          "en": "To prepare, to make ready",
+          "zh": "準備",
+          "zhSpoken": "準備",
+          "en": "to prepare",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chuẩn bị một món tiền",
-          "exampleZh": "張羅一筆錢。"
+          "category": "日常動詞",
+          "example": "Tôi đang chuẩn bị bữa tối.",
+          "exampleZh": "我正在準備晚餐。"
         },
         {
           "id": "freq_427",
           "rank": 427,
           "viet": "dịch vụ",
-          "zh": "第三產業 / 勞務",
-          "zhSpoken": "第三產業，勞務",
-          "en": "Service",
+          "zh": "服務",
+          "zhSpoken": "服務",
+          "en": "service",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Dịch vụ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「第三產業」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Dịch vụ ở đây rất tốt.",
+          "exampleZh": "這裡的服務很好。"
         },
         {
           "id": "freq_428",
           "rank": 428,
           "viet": "hiệu quả",
-          "zh": "反應 / 成效",
-          "zhSpoken": "反應，成效",
-          "en": "result; effect",
+          "zh": "效果 / 有效",
+          "zhSpoken": "效果，有效",
+          "en": "effective; result",
           "pos": "名詞",
           "hanViet": "效果",
-          "category": "生活日常",
-          "example": "phương pháp này quả nhiên rất có hiệu quả",
-          "exampleZh": "這個方法果然有效。"
+          "category": "生活名詞",
+          "example": "Cách này rất hiệu quả.",
+          "exampleZh": "這個方法很有效。"
         },
         {
           "id": "freq_429",
@@ -5715,612 +5702,612 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đại học",
           "zh": "大學",
           "zhSpoken": "大學",
-          "en": "higher education",
+          "en": "university",
           "pos": "名詞",
           "hanViet": "大學",
-          "category": "生活日常",
-          "example": "Đại học này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大學」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tôi học đại học ở Đài Bắc.",
+          "exampleZh": "我在台北念大學。"
         },
         {
           "id": "freq_430",
           "rank": 430,
           "viet": "độ",
-          "zh": "度 / 火候",
-          "zhSpoken": "度，火候",
-          "en": "Degree; measure",
-          "pos": "動詞",
+          "zh": "度 / 程度",
+          "zhSpoken": "度，程度",
+          "en": "degree",
+          "pos": "名詞",
           "hanViet": "度",
-          "category": "日常必備動詞",
-          "example": "cực độ",
-          "exampleZh": "極度。"
+          "category": "生活名詞",
+          "example": "Hôm nay ba mươi lăm độ.",
+          "exampleZh": "今天三十五度。"
         },
         {
           "id": "freq_431",
           "rank": 431,
           "viet": "vòng",
-          "zh": "釧 / 玉釧",
-          "zhSpoken": "釧，玉釧",
-          "en": "circle, round, ring revolution hoop",
-          "pos": "動詞",
+          "zh": "圈 / 環",
+          "zhSpoken": "圈，環",
+          "en": "circle; round",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vòng ngọc; xuyến ngọc",
-          "exampleZh": "玉釧。 兜。"
+          "category": "生活名詞",
+          "example": "Tôi đi bộ một vòng hồ.",
+          "exampleZh": "我繞湖走一圈。"
         },
         {
           "id": "freq_432",
           "rank": 432,
           "viet": "máu",
-          "zh": "血液",
-          "zhSpoken": "血液",
+          "zh": "血",
+          "zhSpoken": "血",
           "en": "blood",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "chảy một ít máu",
-          "exampleZh": "流了一點血。"
+          "category": "生活名詞",
+          "example": "Tôi cần xét nghiệm máu.",
+          "exampleZh": "我需要驗血。"
         },
         {
           "id": "freq_433",
           "rank": 433,
           "viet": "hơi",
-          "zh": "些微 / 雰",
-          "zhSpoken": "些微，雰",
-          "en": "gas; steam; air",
-          "pos": "動詞",
+          "zh": "有點 / 氣體",
+          "zhSpoken": "有點，氣體",
+          "en": "a little; steam",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thời tiết hơi ấm",
-          "exampleZh": "天氣差暖。"
+          "category": "語法功能詞",
+          "example": "Món này hơi cay.",
+          "exampleZh": "這道菜有點辣。"
         },
         {
           "id": "freq_434",
           "rank": 434,
           "viet": "dễ",
-          "zh": "便於 / 好",
-          "zhSpoken": "便於，好",
-          "en": "easy; facile",
+          "zh": "容易",
+          "zhSpoken": "容易",
+          "en": "easy",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "bài nhạc ấy dễ hát",
-          "exampleZh": "那個歌兒好唱。"
+          "category": "描述與狀態",
+          "example": "Bài này dễ lắm.",
+          "exampleZh": "這課很簡單。"
         },
         {
           "id": "freq_435",
           "rank": 435,
           "viet": "bay",
-          "zh": "翻卷 / 飛",
-          "zhSpoken": "翻卷，飛",
-          "en": "hồng",
+          "zh": "飛",
+          "zhSpoken": "飛",
+          "en": "to fly",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cờ đỏ bay phấp phới",
-          "exampleZh": "紅旗翻卷。"
+          "category": "日常動詞",
+          "example": "Chuyến bay của tôi lúc mười giờ.",
+          "exampleZh": "我的班機十點起飛。"
         },
         {
           "id": "freq_436",
           "rank": 436,
           "viet": "vốn",
-          "zh": "本 / 本來",
-          "zhSpoken": "本，本來",
-          "en": "capital, bond, fund",
-          "pos": "動詞",
+          "zh": "資金 / 本來",
+          "zhSpoken": "資金，本來",
+          "en": "capital; originally",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "trả cả vốn lẫn lãi",
-          "exampleZh": "還本付息。"
+          "category": "生活名詞",
+          "example": "Công ty cần thêm vốn.",
+          "exampleZh": "公司需要更多資金。"
         },
         {
           "id": "freq_437",
           "rank": 437,
           "viet": "đời",
-          "zh": "一世 / 代",
-          "zhSpoken": "一世，代",
-          "en": "life; existence; world",
+          "zh": "人生 / 一代",
+          "zhSpoken": "人生，一代",
+          "en": "life; generation",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nửa đời sau",
-          "exampleZh": "後半輩兒。"
+          "category": "生活名詞",
+          "example": "Đó là chuyện đời tôi.",
+          "exampleZh": "那是我人生的故事。"
         },
         {
           "id": "freq_438",
           "rank": 438,
           "viet": "sách",
-          "zh": "冊子 / 籍",
-          "zhSpoken": "冊子，籍",
+          "zh": "書",
+          "zhSpoken": "書",
           "en": "book",
           "pos": "名詞",
           "hanViet": "冊",
-          "category": "生活日常",
-          "example": "sách cổ",
-          "exampleZh": "古籍。"
+          "category": "生活名詞",
+          "example": "Tôi mua một cuốn sách tiếng Việt.",
+          "exampleZh": "我買了一本越語書。"
         },
         {
           "id": "freq_439",
           "rank": 439,
           "viet": "kiểu",
-          "zh": "筆 / 範",
-          "zhSpoken": "筆，範",
-          "en": "model; pattern; design",
+          "zh": "樣式",
+          "zhSpoken": "樣式",
+          "en": "style",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "anh ấy có thể vẽ mấy kiểu tranh sơn thuỷ",
-          "exampleZh": "他能畫幾筆山水畫。"
+          "category": "生活名詞",
+          "example": "Tôi thích kiểu áo này.",
+          "exampleZh": "我喜歡這款上衣。"
         },
         {
           "id": "freq_440",
           "rank": 440,
           "viet": "súng",
-          "zh": "銃 / 槍械",
-          "zhSpoken": "銃，槍械",
-          "en": "water-lily",
+          "zh": "槍",
+          "zhSpoken": "槍",
+          "en": "gun",
           "pos": "名詞",
           "hanViet": "銃",
-          "category": "生活日常",
-          "example": "Súng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「銃」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Cảnh sát có súng.",
+          "exampleZh": "警察有槍。"
         },
         {
           "id": "freq_441",
           "rank": 441,
           "viet": "hiện nay",
-          "zh": "本 / 方今",
-          "zhSpoken": "本，方今",
-          "en": "nowadays, today",
-          "pos": "動詞",
+          "zh": "現今",
+          "zhSpoken": "現今",
+          "en": "nowadays",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thế giới hiện nay; thế giới ngày nay",
-          "exampleZh": "當今世界。"
+          "category": "語法功能詞",
+          "example": "Hiện nay nhiều người học tiếng Việt.",
+          "exampleZh": "現今很多人學越語。"
         },
         {
           "id": "freq_442",
           "rank": 442,
           "viet": "khoa học",
-          "zh": "學",
-          "zhSpoken": "學",
+          "zh": "科學",
+          "zhSpoken": "科學",
           "en": "science",
           "pos": "名詞",
           "hanViet": "科學",
-          "category": "生活日常",
-          "example": "cách nói này không đúng khoa học",
-          "exampleZh": "這種說法不科學。"
+          "category": "生活名詞",
+          "example": "Con tôi thích môn khoa học.",
+          "exampleZh": "我孩子喜歡自然科學。"
         },
         {
           "id": "freq_443",
           "rank": 443,
           "viet": "khách",
-          "zh": "人客 / 來賓",
-          "zhSpoken": "人客，來賓",
-          "en": "guest; caller; vistor",
+          "zh": "客人",
+          "zhSpoken": "客人",
+          "en": "guest",
           "pos": "名詞",
           "hanViet": "客",
-          "category": "生活日常",
-          "example": "khách quý",
-          "exampleZh": "貴賓。"
+          "category": "生活名詞",
+          "example": "Nhà hàng hôm nay đông khách.",
+          "exampleZh": "餐廳今天客人很多。"
         },
         {
           "id": "freq_444",
           "rank": 444,
           "viet": "trời",
-          "zh": "彼蒼 / 帝",
-          "zhSpoken": "彼蒼，帝",
-          "en": "sky good, goodness, heaven weather-",
+          "zh": "天 / 天氣",
+          "zhSpoken": "天，天氣",
+          "en": "sky; weather",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "trời không phụ người cùng khổ",
-          "exampleZh": "皇天不負苦心人。 空; 天; 旻。"
+          "category": "生活名詞",
+          "example": "Trời sắp mưa.",
+          "exampleZh": "天快下雨了。"
         },
         {
           "id": "freq_445",
           "rank": 445,
           "viet": "chất lượng",
-          "zh": "品質 / 質量",
-          "zhSpoken": "品質，質量",
-          "en": "Quality",
+          "zh": "品質",
+          "zhSpoken": "品質",
+          "en": "quality",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "chất lượng vải này tốt, mặc bền",
-          "exampleZh": "這種布料成色好, 耐穿。 品質。"
+          "category": "生活名詞",
+          "example": "Chất lượng sản phẩm rất tốt.",
+          "exampleZh": "產品品質很好。"
         },
         {
           "id": "freq_446",
           "rank": 446,
           "viet": "thành công",
-          "zh": "成功 / 勝利",
-          "zhSpoken": "成功，勝利",
-          "en": "to succeed, to come off well",
+          "zh": "成功",
+          "zhSpoken": "成功",
+          "en": "to succeed",
           "pos": "動詞",
           "hanViet": "成功",
-          "category": "日常必備動詞",
-          "example": "thực nghiệm thành công",
-          "exampleZh": "試驗成功了。"
+          "category": "日常動詞",
+          "example": "Chúc bạn thành công!",
+          "exampleZh": "祝你成功！"
         },
         {
           "id": "freq_447",
           "rank": 447,
           "viet": "hỗ trợ",
-          "zh": "輔助 / 互助",
-          "zhSpoken": "輔助，互助",
-          "en": "to help one another",
+          "zh": "支援 / 協助",
+          "zhSpoken": "支援，協助",
+          "en": "to support",
           "pos": "動詞",
           "hanViet": "互助",
-          "category": "日常必備動詞",
-          "example": "nương tựa lẫn nhau; hỗ trợ lẫn nhau",
-          "exampleZh": "相輔而行。"
+          "category": "日常動詞",
+          "example": "Chúng tôi sẽ hỗ trợ anh.",
+          "exampleZh": "我們會協助你。"
         },
         {
           "id": "freq_448",
           "rank": 448,
           "viet": "chồng",
-          "zh": "重疊 / 堆疊",
-          "zhSpoken": "重疊，堆疊",
-          "en": "Husband",
-          "pos": "動詞",
+          "zh": "丈夫",
+          "zhSpoken": "丈夫",
+          "en": "husband",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chồng đá thành núi",
-          "exampleZh": "疊石爲山。"
+          "category": "生活名詞",
+          "example": "Chồng tôi làm kỹ sư.",
+          "exampleZh": "我先生是工程師。"
         },
         {
           "id": "freq_449",
           "rank": 449,
           "viet": "điện",
-          "zh": "電 / 殿",
-          "zhSpoken": "電，殿",
-          "en": "Eletricity",
-          "pos": "動詞",
-          "hanViet": "殿",
-          "category": "日常必備動詞",
-          "example": "đại hùng bảo điện",
-          "exampleZh": "大雄寶殿。"
+          "zh": "電",
+          "zhSpoken": "電",
+          "en": "electricity",
+          "pos": "名詞",
+          "hanViet": "電",
+          "category": "生活名詞",
+          "example": "Nhà tôi bị mất điện.",
+          "exampleZh": "我家停電了。"
         },
         {
           "id": "freq_450",
           "rank": 450,
           "viet": "liên quan",
-          "zh": "搭界 / 干連",
-          "zhSpoken": "搭界，干連",
-          "en": "to concern",
-          "pos": "名詞",
-          "hanViet": "連貫",
-          "category": "生活日常",
-          "example": "việc này không liên quan đến anh ấy",
-          "exampleZh": "這件事跟他不搭界。 幹; 干連。"
+          "zh": "相關",
+          "zhSpoken": "相關",
+          "en": "related",
+          "pos": "動詞",
+          "hanViet": "聯關",
+          "category": "日常動詞",
+          "example": "Việc này không liên quan đến tôi.",
+          "exampleZh": "這件事跟我無關。"
+        },
+        {
+          "id": "freq_451",
+          "rank": 451,
+          "viet": "đợi",
+          "zh": "等",
+          "zhSpoken": "等",
+          "en": "to wait",
+          "pos": "動詞",
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Đợi tôi với!",
+          "exampleZh": "等等我！"
         }
       ],
-      "duration": 724.2
+      "duration": 711.3
     },
     {
       "batchId": 10,
       "tier": "top1k",
       "titleZh": "第 10 組 · 狀態程度與修飾描述",
       "titleEn": "Batch 10 · Top 1,000",
-      "range": "451 - 500",
-      "startRank": 451,
-      "endRank": 500,
+      "range": "452 - 501",
+      "startRank": 452,
+      "endRank": 501,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_10.mp3",
       "fileName": "vocab_1000_batch_10.mp3",
       "words": [
         {
-          "id": "freq_451",
-          "rank": 451,
-          "viet": "đợi",
-          "zh": "待到",
-          "zhSpoken": "待到",
-          "en": "to wait for; to await",
-          "pos": "動詞",
-          "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đợi anh ấy đến cùng đi",
-          "exampleZh": "等他來了一塊兒去。"
-        },
-        {
           "id": "freq_452",
           "rank": 452,
           "viet": "nhờ",
-          "zh": "蹭 / 煩勞",
-          "zhSpoken": "蹭，煩勞",
-          "en": "to commision. to be dependent on",
+          "zh": "拜託 / 多虧",
+          "zhSpoken": "拜託，多虧",
+          "en": "to ask a favor; thanks to",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đi nhờ xe; quá giang xe",
-          "exampleZh": "坐蹭車。"
+          "category": "日常動詞",
+          "example": "Tôi nhờ bạn một việc nhé.",
+          "exampleZh": "我拜託你一件事。"
         },
         {
           "id": "freq_453",
           "rank": 453,
           "viet": "đàn ông",
-          "zh": "好漢 / 老爺們兒",
-          "zhSpoken": "好漢，老爺們兒",
+          "zh": "男人",
+          "zhSpoken": "男人",
           "en": "man",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "đàn ông, dám làm dám chịu",
-          "exampleZh": "好漢做事好漢當。方。"
+          "category": "生活名詞",
+          "example": "Người đàn ông kia là ai?",
+          "exampleZh": "那個男人是誰？"
         },
         {
           "id": "freq_454",
           "rank": 454,
           "viet": "lựa chọn",
-          "zh": "挑揀 / 抽選",
-          "zhSpoken": "挑揀，抽選",
-          "en": "Select, choose,pick,sort",
-          "pos": "動詞",
+          "zh": "選擇",
+          "zhSpoken": "選擇",
+          "en": "choice; to choose",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lựa chọn",
-          "exampleZh": "選拔。"
+          "category": "生活名詞",
+          "example": "Đây là lựa chọn tốt nhất.",
+          "exampleZh": "這是最好的選擇。"
         },
         {
           "id": "freq_455",
           "rank": 455,
           "viet": "duy nhất",
-          "zh": "單一 / 獨",
-          "zhSpoken": "單一，獨",
-          "en": "Unique.",
+          "zh": "唯一",
+          "zhSpoken": "唯一",
+          "en": "only; unique",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "đây là biện pháp duy nhất có thể thực hiện được",
-          "exampleZh": "這是惟一可行的辦法。"
+          "category": "描述與狀態",
+          "example": "Đây là cách duy nhất.",
+          "exampleZh": "這是唯一的方法。"
         },
         {
           "id": "freq_456",
           "rank": 456,
           "viet": "chung",
-          "zh": "概 / 公",
-          "zhSpoken": "概，公",
-          "en": "Common, public",
-          "pos": "動詞",
+          "zh": "共同",
+          "zhSpoken": "共同",
+          "en": "common; together",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tình hình chung",
-          "exampleZh": "概況。"
+          "category": "描述與狀態",
+          "example": "Chúng tôi ở chung một phòng.",
+          "exampleZh": "我們住同一間房。"
         },
         {
           "id": "freq_457",
           "rank": 457,
           "viet": "đầy",
-          "zh": "盎然 / 飽滿",
-          "zhSpoken": "盎然，飽滿",
-          "en": "full; filled",
+          "zh": "滿",
+          "zhSpoken": "滿",
+          "en": "full",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "đầy thú vị",
-          "exampleZh": "趣味盎然。"
+          "category": "描述與狀態",
+          "example": "Xe buýt đầy người.",
+          "exampleZh": "公車擠滿了人。"
         },
         {
           "id": "freq_458",
           "rank": 458,
           "viet": "biến",
-          "zh": "改變 / 發",
-          "zhSpoken": "改變，發",
-          "en": "(thường đi với thành) To change int",
+          "zh": "變成 / 消失",
+          "zhSpoken": "變成，消失",
+          "en": "to turn into; to vanish",
           "pos": "動詞",
           "hanViet": "變",
-          "category": "日常必備動詞",
-          "example": "biến nước nông nghiệp thành nước công nghiệp",
-          "exampleZh": "變農業國爲工業國。"
+          "category": "日常動詞",
+          "example": "Anh ấy biến mất rồi.",
+          "exampleZh": "他消失了。"
         },
         {
           "id": "freq_459",
           "rank": 459,
           "viet": "làm ơn",
-          "zh": "費心 / 奉託",
-          "zhSpoken": "費心，奉託",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "請（客氣）",
+          "zhSpoken": "請",
+          "en": "please",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "làm ơn chỉ giúp, của hàng bách hoá ở đâu?",
-          "exampleZh": "借光, 百貨大數在哪兒?。"
+          "category": "語法功能詞",
+          "example": "Làm ơn cho tôi xem thực đơn.",
+          "exampleZh": "麻煩給我看菜單。"
         },
         {
           "id": "freq_460",
           "rank": 460,
           "viet": "gã",
-          "zh": "傢伙 / 那傢伙",
-          "zhSpoken": "傢伙，那傢伙",
-          "en": "chap; bloke",
+          "zh": "傢伙",
+          "zhSpoken": "傢伙",
+          "en": "guy (dismissive)",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Gã này rất cần thiết cho công việc.",
-          "exampleZh": "這個「你這傢伙」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Gã đó trông rất lạ.",
+          "exampleZh": "那傢伙看起來很奇怪。"
         },
         {
           "id": "freq_461",
           "rank": 461,
           "viet": "mời",
-          "zh": "待承 / 煩請",
-          "zhSpoken": "待承，煩請",
-          "en": "to invite",
+          "zh": "請 / 邀請",
+          "zhSpoken": "請，邀請",
+          "en": "to invite; please",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mời người làm việc thay cho mình",
-          "exampleZh": "僱請傭工。"
+          "category": "日常動詞",
+          "example": "Mời anh dùng trà.",
+          "exampleZh": "請喝茶。"
         },
         {
           "id": "freq_462",
           "rank": 462,
           "viet": "bởi vì",
-          "zh": "惟其 / 因爲",
-          "zhSpoken": "惟其，因爲",
-          "en": "vocabulary",
+          "zh": "因為",
+          "zhSpoken": "因為",
+          "en": "because",
           "pos": "連詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "bởi vì hôm nay nhiều việc, cho nên không có đi",
-          "exampleZh": "因爲今天事情多, 所以沒有去。"
+          "category": "語法功能詞",
+          "example": "Tôi không đi bởi vì trời mưa.",
+          "exampleZh": "我不去，因為下雨。"
         },
         {
           "id": "freq_463",
           "rank": 463,
           "viet": "quyền",
-          "zh": "代 / 代理",
-          "zhSpoken": "代，代理",
-          "en": "Right",
+          "zh": "權利",
+          "zhSpoken": "權利",
+          "en": "right",
           "pos": "名詞",
           "hanViet": "權",
-          "category": "生活日常",
-          "example": "quyền cục trưởng",
-          "exampleZh": "代局長。"
+          "category": "生活名詞",
+          "example": "Ai cũng có quyền học tập.",
+          "exampleZh": "人人都有受教育的權利。"
         },
         {
           "id": "freq_464",
           "rank": 464,
           "viet": "một cách",
-          "zh": "地 / 而",
-          "zhSpoken": "地，而",
-          "en": "vocabulary",
-          "pos": "名詞",
+          "zh": "（形容詞副詞化）",
+          "zhSpoken": "（形容詞副詞化）",
+          "en": "-ly (adverbial)",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "xử lý vấn đề một cách thực sự cầu thị",
-          "exampleZh": "實事求是地處理問題。"
+          "category": "語法功能詞",
+          "example": "Anh ấy nói một cách rõ ràng.",
+          "exampleZh": "他說得很清楚。"
         },
         {
           "id": "freq_465",
           "rank": 465,
           "viet": "giải",
-          "zh": "敗 / 彩",
-          "zhSpoken": "敗，彩",
-          "en": "award; prize",
-          "pos": "動詞",
+          "zh": "獎項 / 解決",
+          "zhSpoken": "獎項，解決",
+          "en": "prize; to solve",
+          "pos": "名詞",
           "hanViet": "解",
-          "category": "日常必備動詞",
-          "example": "giải độc",
-          "exampleZh": "敗毒。"
+          "category": "生活名詞",
+          "example": "Cô ấy đoạt giải nhất.",
+          "exampleZh": "她得了第一名。"
         },
         {
           "id": "freq_466",
           "rank": 466,
           "viet": "đá",
-          "zh": "踏 / 踆",
-          "zhSpoken": "踏，踆",
-          "en": "rock; stone",
+          "zh": "踢 / 石頭 / 冰塊",
+          "zhSpoken": "踢，石頭",
+          "en": "to kick; stone; ice",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bốn vó ngựa con cứ đá lung tung",
-          "exampleZh": "小馬蹄子只顧亂踹。"
+          "category": "日常動詞",
+          "example": "Chúng tôi đá bóng mỗi chiều.",
+          "exampleZh": "我們每天下午踢足球。"
         },
         {
           "id": "freq_467",
           "rank": 467,
           "viet": "con trai",
-          "zh": "阿哥 / 丁",
-          "zhSpoken": "阿哥，丁",
-          "en": "Son, boy",
+          "zh": "兒子 / 男孩",
+          "zhSpoken": "兒子，男孩",
+          "en": "son; boy",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "con trai đã trưởng thành",
-          "exampleZh": "成丁。"
+          "category": "生活名詞",
+          "example": "Con trai tôi mười tuổi.",
+          "exampleZh": "我兒子十歲。"
         },
         {
           "id": "freq_468",
           "rank": 468,
           "viet": "một chút",
-          "zh": "差 / 分毫",
-          "zhSpoken": "差，分毫",
-          "en": "a little; moment; instant; a taste",
+          "zh": "一點點",
+          "zhSpoken": "一點點",
+          "en": "a little",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "an ủi một chút",
-          "exampleZh": "差可告慰。"
+          "category": "生活名詞",
+          "example": "Tôi biết một chút tiếng Việt.",
+          "exampleZh": "我會一點點越語。"
         },
         {
           "id": "freq_469",
           "rank": 469,
           "viet": "học sinh",
-          "zh": "弟子 / 學生",
-          "zhSpoken": "弟子，學生",
-          "en": "Schoolboy, schoolgirl, pupil",
+          "zh": "（中小學）學生",
+          "zhSpoken": "學生",
+          "en": "pupil",
           "pos": "名詞",
           "hanViet": "學生",
-          "category": "生活日常",
-          "example": "Học sinh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「弟子」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Các học sinh đang học bài.",
+          "exampleZh": "學生們正在讀書。"
         },
         {
           "id": "freq_470",
           "rank": 470,
           "viet": "cung cấp",
-          "zh": "支應 / 給養",
-          "zhSpoken": "支應，給養",
-          "en": "vocabulary",
+          "zh": "供應",
+          "zhSpoken": "供應",
+          "en": "to supply",
           "pos": "動詞",
           "hanViet": "供給",
-          "category": "日常必備動詞",
-          "example": "đồ dùng học tập đều do lớp huấn luyện cung cấp miễn phí",
-          "exampleZh": "學習用品由訓練班免費供給。"
+          "category": "日常動詞",
+          "example": "Công ty cung cấp nguyên liệu.",
+          "exampleZh": "公司供應原料。"
         },
         {
           "id": "freq_471",
           "rank": 471,
           "viet": "vị trí",
-          "zh": "部位 / 定址",
-          "zhSpoken": "部位，定址",
-          "en": "position, place",
+          "zh": "位置",
+          "zhSpoken": "位置",
+          "en": "position",
           "pos": "名詞",
           "hanViet": "位置",
-          "category": "生活日常",
-          "example": "trước tiên củng cố vị trí, rồi tiếp tục phát triển",
-          "exampleZh": "先鞏固立腳點, 再求發展。 位置; 位。"
+          "category": "生活名詞",
+          "example": "Bạn gửi vị trí cho tôi nhé.",
+          "exampleZh": "你把位置傳給我喔。"
         },
         {
           "id": "freq_472",
           "rank": 472,
           "viet": "đau",
-          "zh": "痾 / 害",
-          "zhSpoken": "痾，害",
-          "en": "sore; tender; aching",
-          "pos": "動詞",
+          "zh": "痛",
+          "zhSpoken": "痛",
+          "en": "painful; to hurt",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đau mới khỏi",
-          "exampleZh": "病剛好。"
+          "category": "描述與狀態",
+          "example": "Tôi đau bụng quá.",
+          "exampleZh": "我肚子好痛。"
         },
         {
           "id": "freq_473",
           "rank": 473,
           "viet": "cạnh",
-          "zh": "壁廂 / 邊",
-          "zhSpoken": "壁廂，邊",
-          "en": "Edge",
+          "zh": "旁邊",
+          "zhSpoken": "旁邊",
+          "en": "beside",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cô ấy ngồi ngay đầu giường cạnh cửa sổ",
-          "exampleZh": "她坐在窗戶跟前的牀上。口。"
+          "category": "生活名詞",
+          "example": "Nhà tôi ở cạnh trường học.",
+          "exampleZh": "我家在學校旁邊。"
         },
         {
           "id": "freq_474",
           "rank": 474,
           "viet": "mạnh",
-          "zh": "霸道 / 衝勁兒",
-          "zhSpoken": "霸道，衝勁兒",
-          "en": "strong; robust; drastic",
+          "zh": "強",
+          "zhSpoken": "強",
+          "en": "strong",
           "pos": "形容詞",
-          "hanViet": "孟",
-          "category": "基礎描述",
-          "example": "thứ rượu này mạnh quá, uống ít thôi",
-          "exampleZh": "這酒真霸道, 少喝點吧。"
+          "hanViet": "",
+          "category": "描述與狀態",
+          "example": "Gió hôm nay rất mạnh.",
+          "exampleZh": "今天風很強。"
         },
         {
           "id": "freq_475",
@@ -6328,534 +6315,534 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "sinh viên",
           "zh": "大學生",
           "zhSpoken": "大學生",
-          "en": "student",
+          "en": "university student",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Sinh viên này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大學生」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tôi là sinh viên năm hai.",
+          "exampleZh": "我是大二學生。"
         },
         {
           "id": "freq_476",
           "rank": 476,
           "viet": "vẻ",
-          "zh": "勁兒 / 派",
-          "zhSpoken": "勁兒，派",
-          "en": "look, appearance, sound",
+          "zh": "外表 / 樣子",
+          "zhSpoken": "外表，樣子",
+          "en": "appearance",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "hãy trông cái vẻ kiêu ngạo của anh ta",
-          "exampleZh": "瞧他那股驕傲勁兒。"
+          "category": "生活名詞",
+          "example": "Trông anh có vẻ mệt.",
+          "exampleZh": "你看起來有點累。"
         },
         {
           "id": "freq_477",
           "rank": 477,
           "viet": "a",
-          "zh": "啊 / 且",
-          "zhSpoken": "啊，且",
-          "en": "(thông tục) loại a, hạng nhất, hạng",
-          "pos": "名詞",
+          "zh": "啊（驚嘆）",
+          "zhSpoken": "啊",
+          "en": "ah!",
+          "pos": "感嘆詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "a, có cầu vồng kìa!",
-          "exampleZh": "啊, 出虹了! 呵。"
+          "category": "語氣與助詞",
+          "example": "A, tôi nhớ rồi!",
+          "exampleZh": "啊，我想起來了！"
         },
         {
           "id": "freq_478",
           "rank": 478,
           "viet": "khoá",
-          "zh": "閉鎖 / 屆",
-          "zhSpoken": "閉鎖，屆",
-          "en": "Lock. padlock",
-          "pos": "動詞",
-          "hanViet": "課",
-          "category": "日常必備動詞",
-          "example": "học sinh tốt nghiệp khoá này",
-          "exampleZh": "本屆畢業生。"
+          "zh": "鎖 / 課程",
+          "zhSpoken": "鎖，課程",
+          "en": "lock; course",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Tôi quên khoá cửa rồi.",
+          "exampleZh": "我忘記鎖門了。"
         },
         {
           "id": "freq_479",
           "rank": 479,
           "viet": "mạng",
-          "zh": "補綴 / 裰",
-          "zhSpoken": "補綴，裰",
-          "en": "to darn",
-          "pos": "動詞",
+          "zh": "網路 / 生命",
+          "zhSpoken": "網路，生命",
+          "en": "network; life",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vá tất; mạng vớ",
-          "exampleZh": "補襪子。"
+          "category": "生活名詞",
+          "example": "Mạng ở đây rất chậm.",
+          "exampleZh": "這裡網路很慢。"
         },
         {
           "id": "freq_480",
           "rank": 480,
           "viet": "đem",
-          "zh": "帶來 / 拿來",
-          "zhSpoken": "帶來，拿來",
-          "en": "to bring; to carry",
+          "zh": "帶 / 拿",
+          "zhSpoken": "帶，拿",
+          "en": "to bring",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đem quần áo đi giặt một cái",
-          "exampleZh": "把衣服洗洗。"
+          "category": "日常動詞",
+          "example": "Em đem hóa đơn ra giúp anh.",
+          "exampleZh": "請把帳單拿來。"
         },
         {
           "id": "freq_481",
           "rank": 481,
           "viet": "kết thúc",
-          "zh": "閉幕 / 底止",
-          "zhSpoken": "閉幕，底止",
-          "en": "to end ; to bring,come to end",
+          "zh": "結束",
+          "zhSpoken": "結束",
+          "en": "to end",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thu hoạch vụ thu sắp kết thúc",
-          "exampleZh": "秋收快要結束了。"
+          "category": "日常動詞",
+          "example": "Cuộc họp kết thúc lúc năm giờ.",
+          "exampleZh": "會議五點結束。"
         },
         {
           "id": "freq_482",
           "rank": 482,
           "viet": "định",
-          "zh": "測定 / 打",
-          "zhSpoken": "測定，打",
-          "en": "to fix; to appoint; to set; to assi",
+          "zh": "打算",
+          "zhSpoken": "打算",
+          "en": "to intend",
           "pos": "動詞",
           "hanViet": "定",
-          "category": "日常必備動詞",
-          "example": "định phương hướng",
-          "exampleZh": "測定方向。"
+          "category": "日常動詞",
+          "example": "Tôi định đi Đà Lạt.",
+          "exampleZh": "我打算去大叻。"
         },
         {
           "id": "freq_483",
           "rank": 483,
           "viet": "quốc gia",
-          "zh": "王國 / 國家",
-          "zhSpoken": "王國，國家",
-          "en": "state; nation; country",
+          "zh": "國家",
+          "zhSpoken": "國家",
+          "en": "nation",
           "pos": "名詞",
           "hanViet": "國家",
-          "category": "生活日常",
-          "example": "quốc gia độc lập; vương quốc độc lập",
-          "exampleZh": "獨立王國。"
+          "category": "生活名詞",
+          "example": "Việt Nam là quốc gia đẹp.",
+          "exampleZh": "越南是美麗的國家。"
         },
         {
           "id": "freq_484",
           "rank": 484,
           "viet": "bàn",
-          "zh": "案子 / 唸叨",
-          "zhSpoken": "案子，唸叨",
-          "en": "Table",
-          "pos": "動詞",
+          "zh": "桌子 / 討論",
+          "zhSpoken": "桌子，討論",
+          "en": "table; to discuss",
+          "pos": "名詞",
           "hanViet": "盤",
-          "category": "日常必備動詞",
-          "example": "bàn thái thịt",
-          "exampleZh": "肉案子。"
+          "category": "生活名詞",
+          "example": "Cho tôi một bàn cho hai người.",
+          "exampleZh": "請給我兩人桌。"
         },
         {
           "id": "freq_485",
           "rank": 485,
           "viet": "chiều",
-          "zh": "午後 / 暮",
-          "zhSpoken": "午後，暮",
-          "en": "Afternoon, evening",
-          "pos": "動詞",
+          "zh": "下午",
+          "zhSpoken": "下午",
+          "en": "afternoon",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể chiều giúp tôi không?",
-          "exampleZh": "你能幫我午後嗎？"
+          "category": "生活名詞",
+          "example": "Chiều nay tôi đi siêu thị.",
+          "exampleZh": "今天下午我去超市。"
         },
         {
           "id": "freq_486",
           "rank": 486,
           "viet": "nhiệm vụ",
-          "zh": "本務 / 差事",
-          "zhSpoken": "本務，差事",
-          "en": "duty; mission",
+          "zh": "任務",
+          "zhSpoken": "任務",
+          "en": "duty",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "học hành là nhiệm vụ của học sinh",
-          "exampleZh": "學習是學生的本務。"
+          "category": "生活名詞",
+          "example": "Đây là nhiệm vụ của tôi.",
+          "exampleZh": "這是我的任務。"
         },
         {
           "id": "freq_487",
           "rank": 487,
           "viet": "công nghệ",
-          "zh": "工藝",
-          "zhSpoken": "工藝",
-          "en": "Craft; industry",
+          "zh": "科技",
+          "zhSpoken": "科技",
+          "en": "technology",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "công nghệ phức tạp; kỹ thuật phức tạp",
-          "exampleZh": "工藝複雜。"
+          "category": "生活名詞",
+          "example": "Công nghệ thay đổi rất nhanh.",
+          "exampleZh": "科技變化很快。"
         },
         {
           "id": "freq_488",
           "rank": 488,
           "viet": "dẫn",
-          "zh": "導 / 率",
-          "zhSpoken": "導，率",
-          "en": "to conduct; to guide; to escort to ",
+          "zh": "帶領",
+          "zhSpoken": "帶領",
+          "en": "to lead",
           "pos": "動詞",
           "hanViet": "引",
-          "category": "日常必備動詞",
-          "example": "dẫn điện",
-          "exampleZh": "傳電。"
+          "category": "日常動詞",
+          "example": "Anh dẫn tôi đi nhé.",
+          "exampleZh": "你帶我去吧。"
         },
         {
           "id": "freq_489",
           "rank": 489,
           "viet": "kinh doanh",
-          "zh": "出賣 / 搗騰",
-          "zhSpoken": "出賣，搗騰",
-          "en": "to carry on business",
+          "zh": "經商",
+          "zhSpoken": "經商",
+          "en": "to do business",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lắm của giỏi kinh doanh",
-          "exampleZh": "多財善賈。"
+          "category": "日常動詞",
+          "example": "Gia đình tôi kinh doanh nhà hàng.",
+          "exampleZh": "我家經營餐廳。"
         },
         {
           "id": "freq_490",
           "rank": 490,
           "viet": "con gái",
-          "zh": "姬 / 女",
-          "zhSpoken": "姬，女",
-          "en": "Girl, daughter",
+          "zh": "女兒 / 女孩",
+          "zhSpoken": "女兒，女孩",
+          "en": "daughter; girl",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "con gái lớn",
-          "exampleZh": "大妞。"
+          "category": "生活名詞",
+          "example": "Con gái chị xinh quá.",
+          "exampleZh": "妳女兒好漂亮。"
         },
         {
           "id": "freq_491",
           "rank": 491,
           "viet": "lý do",
-          "zh": "緣由 / 理由",
-          "zhSpoken": "緣由，理由",
-          "en": "cause; reason; argument",
+          "zh": "理由",
+          "zhSpoken": "理由",
+          "en": "reason",
           "pos": "名詞",
           "hanViet": "理由",
-          "category": "生活日常",
-          "example": "những lời nói này không phải không có lý do đâu",
-          "exampleZh": "這些話不是沒有來由的。"
+          "category": "生活名詞",
+          "example": "Lý do là gì?",
+          "exampleZh": "理由是什麼？"
         },
         {
           "id": "freq_492",
           "rank": 492,
           "viet": "hiện",
-          "zh": "現時 / 出現",
-          "zhSpoken": "現時，出現",
-          "en": "to rise; to appear; to come into si",
-          "pos": "動詞",
+          "zh": "目前 / 顯現",
+          "zhSpoken": "目前，顯現",
+          "en": "currently; to appear",
+          "pos": "副詞",
           "hanViet": "現",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể hiện giúp tôi không?",
-          "exampleZh": "你能幫我現時嗎？"
+          "category": "語法功能詞",
+          "example": "Tôi hiện sống ở Đà Nẵng.",
+          "exampleZh": "我目前住在峴港。"
         },
         {
           "id": "freq_493",
           "rank": 493,
           "viet": "cơ sở",
-          "zh": "初等 / 礎",
-          "zhSpoken": "初等，礎",
-          "en": "Installation; foundation; establish",
+          "zh": "基礎 / 據點",
+          "zhSpoken": "基礎，據點",
+          "en": "basis; facility",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nâng cao trên cơ sở sẵn có",
-          "exampleZh": "在原有的基礎上提高。"
+          "category": "生活名詞",
+          "example": "Công ty có ba cơ sở ở miền Nam.",
+          "exampleZh": "公司在南部有三個據點。"
         },
         {
           "id": "freq_494",
           "rank": 494,
           "viet": "bao nhiêu",
-          "zh": "好多 / 幾多",
-          "zhSpoken": "好多，幾多",
-          "en": "How much; how many",
-          "pos": "名詞",
+          "zh": "多少",
+          "zhSpoken": "多少",
+          "en": "how much; how many",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "thôn này có bao nhiêu",
-          "exampleZh": "hộ? 這個村子有多少人家?。"
+          "category": "人稱與指示",
+          "example": "Cái này bao nhiêu tiền?",
+          "exampleZh": "這個多少錢？"
         },
         {
           "id": "freq_495",
           "rank": 495,
           "viet": "thật sự",
-          "zh": "活 / 實地",
-          "zhSpoken": "活，實地",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "真的",
+          "zhSpoken": "真的",
+          "en": "really",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nếu anh thật sự yêu cô ấy, thì nên giúp đỡ cô ấy",
-          "exampleZh": "你果然愛她, 就該幫助她。"
+          "category": "語法功能詞",
+          "example": "Tôi thật sự xin lỗi.",
+          "exampleZh": "我真的很抱歉。"
         },
         {
           "id": "freq_496",
           "rank": 496,
           "viet": "trường hợp",
-          "zh": "案件 / 案例",
-          "zhSpoken": "案件，案例",
-          "en": "circumstance, case",
+          "zh": "情況",
+          "zhSpoken": "情況",
+          "en": "case; situation",
           "pos": "名詞",
           "hanViet": "場合",
-          "category": "生活日常",
-          "example": "Trường hợp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「案件」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Trong trường hợp này, hãy gọi tôi.",
+          "exampleZh": "這種情況下請打給我。"
         },
         {
           "id": "freq_497",
           "rank": 497,
           "viet": "bóng",
-          "zh": "倒映 / 光溜",
-          "zhSpoken": "倒映，光溜",
-          "en": "shadow; shade; reflection",
+          "zh": "球 / 影子",
+          "zhSpoken": "球，影子",
+          "en": "ball; shadow",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "liễu rủ bóng trên mặt hồ",
-          "exampleZh": "垂柳倒映在湖面上。 光; 光溜。"
+          "category": "生活名詞",
+          "example": "Bóng đá rất phổ biến ở Việt Nam.",
+          "exampleZh": "足球在越南很普遍。"
         },
         {
           "id": "freq_498",
           "rank": 498,
           "viet": "hội",
-          "zh": "幫口 / 會",
-          "zhSpoken": "幫口，會",
-          "en": "club; company; association",
+          "zh": "協會 / 節慶",
+          "zhSpoken": "協會，節慶",
+          "en": "association; festival",
           "pos": "名詞",
           "hanViet": "會",
-          "category": "生活日常",
-          "example": "công đoàn; công hội",
-          "exampleZh": "工會。"
+          "category": "生活名詞",
+          "example": "Tôi tham gia hội doanh nhân Đài Loan.",
+          "exampleZh": "我參加台商協會。"
         },
         {
           "id": "freq_499",
           "rank": 499,
           "viet": "hoa",
-          "zh": "華 / 花",
-          "zhSpoken": "華，花",
-          "en": "dân tộc Hoa",
+          "zh": "花",
+          "zhSpoken": "花",
+          "en": "flower",
           "pos": "名詞",
-          "hanViet": "華",
-          "category": "生活日常",
-          "example": "hoa đản (gọi ngày sinh của người khác)",
-          "exampleZh": "華誕。"
+          "hanViet": "花",
+          "category": "生活名詞",
+          "example": "Tôi tặng mẹ một bó hoa.",
+          "exampleZh": "我送媽媽一束花。"
         },
         {
           "id": "freq_500",
           "rank": 500,
           "viet": "quy định",
-          "zh": "定規 / 公約",
-          "zhSpoken": "定規，公約",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "規定",
+          "zhSpoken": "規定",
+          "en": "regulation",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cuối tháng kiểm lại, đã thành quy định",
-          "exampleZh": "月底盤點, 已成定規。"
+          "category": "生活名詞",
+          "example": "Đây là quy định của công ty.",
+          "exampleZh": "這是公司的規定。"
+        },
+        {
+          "id": "freq_501",
+          "rank": 501,
+          "viet": "to",
+          "zh": "大（口語）",
+          "zhSpoken": "大",
+          "en": "big",
+          "pos": "形容詞",
+          "hanViet": "",
+          "category": "描述與狀態",
+          "example": "Con cá này to quá.",
+          "exampleZh": "這條魚好大。"
         }
       ],
-      "duration": 727.8
+      "duration": 712.4
     },
     {
       "batchId": 11,
       "tier": "top1k",
       "titleZh": "第 11 組 · 數量貨幣與買賣商務",
       "titleEn": "Batch 11 · Top 1,000",
-      "range": "501 - 550",
-      "startRank": 501,
-      "endRank": 550,
+      "range": "502 - 552",
+      "startRank": 502,
+      "endRank": 552,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_11.mp3",
       "fileName": "vocab_1000_batch_11.mp3",
       "words": [
         {
-          "id": "freq_501",
-          "rank": 501,
-          "viet": "to",
-          "zh": "稠糊 / 頇",
-          "zhSpoken": "稠糊，頇",
-          "en": "đến, tới, về",
-          "pos": "形容詞",
-          "hanViet": "",
-          "category": "基礎描述",
-          "example": "cái cây này rất to",
-          "exampleZh": "這棵樹很粗。"
-        },
-        {
           "id": "freq_502",
           "rank": 502,
           "viet": "cửa",
-          "zh": "板兒 / 窗洞",
-          "zhSpoken": "板兒，窗洞",
-          "en": "Door; entrance, opening",
+          "zh": "門",
+          "zhSpoken": "門",
+          "en": "door",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cửa ngõ",
-          "exampleZh": "門戶。"
+          "category": "生活名詞",
+          "example": "Làm ơn đóng cửa lại.",
+          "exampleZh": "請把門關上。"
         },
         {
           "id": "freq_503",
           "rank": 503,
           "viet": "nàng",
-          "zh": "小娘子 / 娘子",
-          "zhSpoken": "小娘子，娘子",
-          "en": "she; her",
-          "pos": "名詞",
+          "zh": "她（文學）",
+          "zhSpoken": "她",
+          "en": "she (literary)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Nàng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「小娘子」在工作上非常必需。"
+          "category": "人稱與指示",
+          "example": "Nàng hát rất hay.",
+          "exampleZh": "她唱得很好聽。"
         },
         {
           "id": "freq_504",
           "rank": 504,
           "viet": "kiếm",
-          "zh": "奔 / 籌措",
-          "zhSpoken": "奔，籌措",
-          "en": "sword",
+          "zh": "尋找 / 賺",
+          "zhSpoken": "尋找，賺",
+          "en": "to look for; to earn",
           "pos": "動詞",
-          "hanViet": "劍",
-          "category": "日常必備動詞",
-          "example": "kiếm tiền đi đường",
-          "exampleZh": "籌措旅費。"
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Tôi đang kiếm việc làm.",
+          "exampleZh": "我正在找工作。"
         },
         {
           "id": "freq_505",
           "rank": 505,
           "viet": "đơn vị",
-          "zh": "單位 / 機構",
-          "zhSpoken": "單位，機構",
+          "zh": "單位",
+          "zhSpoken": "單位",
           "en": "unit",
           "pos": "名詞",
           "hanViet": "單位",
-          "category": "生活日常",
-          "example": "Đơn vị này rất cần thiết cho công việc.",
-          "exampleZh": "這個「單位」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Đơn vị tiền Việt Nam là đồng.",
+          "exampleZh": "越南貨幣單位是盾。"
         },
         {
           "id": "freq_506",
           "rank": 506,
           "viet": "ồ",
-          "zh": "哄 / 鬨堂",
-          "zhSpoken": "哄，鬨堂",
-          "en": "oh; o",
-          "pos": "動詞",
+          "zh": "喔",
+          "zhSpoken": "喔",
+          "en": "oh!",
+          "pos": "感嘆詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "ồ, thì ra các bạn đều ở đây!",
-          "exampleZh": "嚯, 原來你們也在這兒!。"
+          "category": "語氣與助詞",
+          "example": "Ồ, tôi không biết.",
+          "exampleZh": "喔，我不知道。"
         },
         {
           "id": "freq_507",
           "rank": 507,
           "viet": "văn hoá",
-          "zh": "文 / 文化",
-          "zhSpoken": "文，文化",
-          "en": "vocabulary",
+          "zh": "文化",
+          "zhSpoken": "文化",
+          "en": "culture",
           "pos": "名詞",
           "hanViet": "文化",
-          "category": "生活日常",
-          "example": "văn hoá Việt Nam",
-          "exampleZh": "越南文化。"
+          "category": "生活名詞",
+          "example": "Tôi thích tìm hiểu văn hoá Việt Nam.",
+          "exampleZh": "我喜歡了解越南文化。"
         },
         {
           "id": "freq_508",
           "rank": 508,
           "viet": "Trung Quốc",
-          "zh": "夏 / 中國",
-          "zhSpoken": "夏，中國",
-          "en": "vocabulary",
+          "zh": "中國",
+          "zhSpoken": "中國",
+          "en": "China",
           "pos": "名詞",
           "hanViet": "中國",
-          "category": "生活日常",
-          "example": "đại sứ nước ngoài tại Trung Quốc",
-          "exampleZh": "駐華大使。"
+          "category": "生活名詞",
+          "example": "Hàng này nhập từ Trung Quốc.",
+          "exampleZh": "這批貨從中國進口。"
         },
         {
           "id": "freq_509",
           "rank": 509,
           "viet": "cơ",
-          "zh": "基 / 機",
-          "zhSpoken": "基，機",
-          "en": "heart",
+          "zh": "肌肉 / 機（漢越）",
+          "zhSpoken": "肌肉，機",
+          "en": "muscle; (Sino-Viet) machine",
           "pos": "名詞",
-          "hanViet": "基",
-          "category": "生活日常",
-          "example": "cơ sở",
-          "exampleZh": "基層。"
+          "hanViet": "肌",
+          "category": "生活名詞",
+          "example": "Cơ chân tôi bị đau.",
+          "exampleZh": "我腿部肌肉痛。"
         },
         {
           "id": "freq_510",
           "rank": 510,
           "viet": "xuất hiện",
-          "zh": "產生 / 出來",
-          "zhSpoken": "產生，出來",
+          "zh": "出現",
+          "zhSpoken": "出現",
           "en": "to appear",
           "pos": "動詞",
           "hanViet": "出現",
-          "category": "日常必備動詞",
-          "example": "lúc nãy trong hội nghị anh ấy chỉ xuất hiện một cái rồi đi",
-          "exampleZh": "他剛纔在會上打了個照面兒就走了。"
+          "category": "日常動詞",
+          "example": "Anh ấy xuất hiện trên tivi.",
+          "exampleZh": "他出現在電視上。"
         },
         {
           "id": "freq_511",
           "rank": 511,
           "viet": "hình",
-          "zh": "形狀 / 刑罰",
-          "zhSpoken": "形狀，刑罰",
-          "en": "Appearance, outward look, shape, fi",
+          "zh": "圖 / 形狀",
+          "zhSpoken": "圖，形狀",
+          "en": "picture; shape",
           "pos": "名詞",
           "hanViet": "形",
-          "category": "生活日常",
-          "example": "Hình này rất cần thiết cho công việc.",
-          "exampleZh": "這個「形狀」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Hình này rất đẹp.",
+          "exampleZh": "這張圖很美。"
         },
         {
           "id": "freq_512",
           "rank": 512,
           "viet": "suốt",
-          "zh": "不停 / 徹",
-          "zhSpoken": "不停，徹",
-          "en": "bobbin, cop",
-          "pos": "動詞",
+          "zh": "整個 / 一直",
+          "zhSpoken": "整個，一直",
+          "en": "throughout",
+          "pos": "介詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bận suốt",
-          "exampleZh": "忙個不停。"
+          "category": "語法功能詞",
+          "example": "Tôi làm việc suốt ngày.",
+          "exampleZh": "我工作一整天。"
         },
         {
           "id": "freq_513",
           "rank": 513,
           "viet": "giỏi",
-          "zh": "把勢 / 長",
-          "zhSpoken": "把勢，長",
-          "en": "good; well; fine; skilled",
+          "zh": "厲害 / 擅長",
+          "zhSpoken": "厲害，擅長",
+          "en": "good at",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "người đánh xe giỏi",
-          "exampleZh": "車把勢。"
+          "category": "描述與狀態",
+          "example": "Bạn nói tiếng Việt giỏi quá!",
+          "exampleZh": "你越語說得真好！"
         },
         {
           "id": "freq_514",
           "rank": 514,
           "viet": "cơ quan",
-          "zh": "公家 / 機構",
-          "zhSpoken": "公家，機構",
-          "en": "Organ",
+          "zh": "機關 / 器官",
+          "zhSpoken": "機關，器官",
+          "en": "agency; organ",
           "pos": "名詞",
           "hanViet": "機關",
-          "category": "生活日常",
-          "example": "cơ quan này đã giải thể rồi",
-          "exampleZh": "這個機構已經撤銷了。 機關。"
+          "category": "生活名詞",
+          "example": "Tôi làm việc ở cơ quan nhà nước.",
+          "exampleZh": "我在政府機關工作。"
         },
         {
           "id": "freq_515",
@@ -6864,2370 +6851,2357 @@ export const VOCAB_BATCHES_BY_TIER = {
           "zh": "甚至",
           "zhSpoken": "甚至",
           "en": "even",
-          "pos": "動詞",
+          "pos": "副詞",
           "hanViet": "甚至",
-          "category": "日常必備動詞",
-          "example": "thậm chí",
-          "exampleZh": "甚至。"
+          "category": "語法功能詞",
+          "example": "Anh ấy thậm chí không gọi cho tôi.",
+          "exampleZh": "他甚至沒打給我。"
         },
         {
           "id": "freq_516",
           "rank": 516,
           "viet": "rời",
-          "zh": "起 / 脫離",
-          "zhSpoken": "起，脫離",
-          "en": "to break off; to break loose; to le",
+          "zh": "離開",
+          "zhSpoken": "離開",
+          "en": "to leave",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể rời giúp tôi không?",
-          "exampleZh": "你能幫我起嗎？"
+          "category": "日常動詞",
+          "example": "Tôi rời Hà Nội vào sáng mai.",
+          "exampleZh": "我明天早上離開河內。"
         },
         {
           "id": "freq_517",
           "rank": 517,
           "viet": "thiếu",
-          "zh": "不夠 / 不足",
-          "zhSpoken": "不夠，不足",
-          "en": "to be short of, to lack to owe",
+          "zh": "缺少",
+          "zhSpoken": "缺少",
+          "en": "to lack",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "còn thiếu một người",
-          "exampleZh": "還差 一個人。 潮。"
+          "category": "日常動詞",
+          "example": "Còn thiếu một người.",
+          "exampleZh": "還少一個人。"
         },
         {
           "id": "freq_518",
           "rank": 518,
           "viet": "đánh giá",
-          "zh": "端量 / 斟酌",
-          "zhSpoken": "端量，斟酌",
-          "en": "to estimate; to value; to asses",
+          "zh": "評估",
+          "zhSpoken": "評估",
+          "en": "to evaluate",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "không nên đánh giá thấp khả năng của nó",
-          "exampleZh": "不要低估他的作用。"
+          "category": "日常動詞",
+          "example": "Khách hàng đánh giá sản phẩm rất tốt.",
+          "exampleZh": "客戶對產品評價很好。"
         },
         {
           "id": "freq_519",
           "rank": 519,
           "viet": "quả",
-          "zh": "個 / 莢",
-          "zhSpoken": "個，莢",
-          "en": "fruit",
-          "pos": "動詞",
+          "zh": "水果 / 顆",
+          "zhSpoken": "水果，顆",
+          "en": "fruit; classifier for round items",
+          "pos": "名詞",
           "hanViet": "果",
-          "category": "日常必備動詞",
-          "example": "ba quả táo; ba trái táo",
-          "exampleZh": "三個蘋果。"
+          "category": "生活名詞",
+          "example": "Tôi mua một quả dưa hấu.",
+          "exampleZh": "我買了一顆西瓜。"
         },
         {
           "id": "freq_520",
           "rank": 520,
           "viet": "bức",
-          "zh": "逼迫 / 炎熱",
-          "zhSpoken": "逼迫，炎熱",
-          "en": "(chỉ đơn vị của cái gì thuộc loại t",
-          "pos": "動詞",
-          "hanViet": "逼",
-          "category": "日常必備動詞",
-          "example": "một bức tường vây quanh",
-          "exampleZh": "一堵圍牆。量。"
+          "zh": "幅 / 封（量詞）",
+          "zhSpoken": "幅，封",
+          "en": "classifier for pictures, letters",
+          "pos": "量詞",
+          "hanViet": "幅",
+          "category": "數字與量詞",
+          "example": "Tôi nhận được một bức thư.",
+          "exampleZh": "我收到一封信。"
         },
         {
           "id": "freq_521",
           "rank": 521,
           "viet": "dòng",
-          "zh": "河流 / 水流 / 行列",
-          "zhSpoken": "河流，水流",
-          "en": "current; stream",
+          "zh": "行 / 河流",
+          "zhSpoken": "行，河流",
+          "en": "line; stream",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "một dòng sông",
-          "exampleZh": "一道河。"
+          "category": "生活名詞",
+          "example": "Đọc dòng đầu tiên đi.",
+          "exampleZh": "唸第一行吧。"
         },
         {
           "id": "freq_522",
           "rank": 522,
           "viet": "hát",
-          "zh": "歈 / 唱歌",
-          "zhSpoken": "歈，唱歌",
+          "zh": "唱歌",
+          "zhSpoken": "唱歌",
           "en": "to sing",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hát ca",
-          "exampleZh": "歌唱。"
+          "category": "日常動詞",
+          "example": "Chị hát hay quá.",
+          "exampleZh": "姊姊唱得真好聽。"
         },
         {
           "id": "freq_523",
           "rank": 523,
           "viet": "vượt",
-          "zh": "超 / 出",
-          "zhSpoken": "超，出",
-          "en": "to cross to pass overcome",
+          "zh": "超越 / 跨過",
+          "zhSpoken": "超越，跨過",
+          "en": "to exceed; to cross",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vượt mức",
-          "exampleZh": "超額。"
+          "category": "日常動詞",
+          "example": "Đừng vượt đèn đỏ.",
+          "exampleZh": "不要闖紅燈。"
         },
         {
           "id": "freq_524",
           "rank": 524,
           "viet": "ngon",
-          "zh": "合口 / 囫圇",
-          "zhSpoken": "合口，囫圇",
-          "en": "delicious; tasty; succulent",
-          "pos": "動詞",
+          "zh": "好吃",
+          "zhSpoken": "好吃",
+          "en": "delicious",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "ngủ ngon",
-          "exampleZh": "囫圇覺。 旨。"
+          "category": "描述與狀態",
+          "example": "Phở này ngon quá!",
+          "exampleZh": "這碗河粉真好吃！"
         },
         {
           "id": "freq_525",
           "rank": 525,
           "viet": "dạy",
-          "zh": "誨 / 講授",
-          "zhSpoken": "誨，講授",
-          "en": "to teach; to train; to educate",
+          "zh": "教",
+          "zhSpoken": "教",
+          "en": "to teach",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "dạy người không biết mệt mỏi",
-          "exampleZh": "誨人不倦。"
+          "category": "日常動詞",
+          "example": "Cô ấy dạy tiếng Việt.",
+          "exampleZh": "她教越語。"
         },
         {
           "id": "freq_526",
           "rank": 526,
           "viet": "du lịch",
-          "zh": "出遊 / 觀光",
-          "zhSpoken": "出遊，觀光",
-          "en": "to travel; to tour",
-          "pos": "名詞",
+          "zh": "旅遊",
+          "zhSpoken": "旅遊",
+          "en": "to travel",
+          "pos": "動詞",
           "hanViet": "遊歷",
-          "category": "生活日常",
-          "example": "đoàn lữ hành; đoàn du lịch",
-          "exampleZh": "旅行團。"
+          "category": "日常動詞",
+          "example": "Tôi đi du lịch Hội An.",
+          "exampleZh": "我去會安旅遊。"
         },
         {
           "id": "freq_527",
           "rank": 527,
           "viet": "tuyệt vời",
-          "zh": "出神入化 / 頂刮刮",
-          "zhSpoken": "出神入化，頂刮刮",
-          "en": "excellent, splendid",
+          "zh": "太棒了 / 極好",
+          "zhSpoken": "太棒了，極好",
+          "en": "wonderful",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "tranh của cô ấy có thể nói là tuyệt vời",
-          "exampleZh": "她的書畫可稱雙絕。 絕妙。"
+          "category": "描述與狀態",
+          "example": "Bữa ăn này thật tuyệt vời.",
+          "exampleZh": "這頓飯真棒。"
         },
         {
           "id": "freq_528",
           "rank": 528,
           "viet": "cá",
-          "zh": "個 / 魚類",
-          "zhSpoken": "個，魚類",
-          "en": "Click, pawl",
-          "pos": "動詞",
-          "hanViet": "個",
-          "category": "日常必備動詞",
-          "example": "cá nhân",
-          "exampleZh": "個人。"
+          "zh": "魚",
+          "zhSpoken": "魚",
+          "en": "fish",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Tôi thích ăn cá kho.",
+          "exampleZh": "我喜歡吃滷魚。"
         },
         {
           "id": "freq_529",
           "rank": 529,
           "viet": "quân",
-          "zh": "軍隊 / 軍人",
-          "zhSpoken": "軍隊，軍人",
-          "en": "army",
+          "zh": "軍隊",
+          "zhSpoken": "軍隊",
+          "en": "army; troops",
           "pos": "名詞",
           "hanViet": "軍",
-          "category": "生活日常",
-          "example": "năm chục vạn quân",
-          "exampleZh": "五十萬兵員 軍。"
+          "category": "生活名詞",
+          "example": "Quân đội đang giúp dân.",
+          "exampleZh": "軍隊正在幫助人民。"
         },
         {
           "id": "freq_530",
           "rank": 530,
           "viet": "giải quyết",
-          "zh": "解決 / 處理解決",
-          "zhSpoken": "解決，處理解決",
-          "en": "to solve; to resolve; to settle; to",
+          "zh": "解決",
+          "zhSpoken": "解決",
+          "en": "to solve",
           "pos": "動詞",
           "hanViet": "解決",
-          "category": "日常必備動詞",
-          "example": "những chuyện này anh có thể cân nhắc mà giải quyết",
-          "exampleZh": "這些事情你可以斟酌辦理。 處決。"
+          "category": "日常動詞",
+          "example": "Chúng ta giải quyết việc này nhé.",
+          "exampleZh": "我們解決這件事吧。"
         },
         {
           "id": "freq_531",
           "rank": 531,
           "viet": "đào tạo",
-          "zh": "教育 / 培訓",
-          "zhSpoken": "教育，培訓",
-          "en": "to form; to create",
+          "zh": "培訓",
+          "zhSpoken": "培訓",
+          "en": "to train",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đào tạo lớp người mới xã hội chủ nghĩa",
-          "exampleZh": "培育社會主義一代新人。"
+          "category": "日常動詞",
+          "example": "Công ty đào tạo nhân viên mới.",
+          "exampleZh": "公司培訓新員工。"
         },
         {
           "id": "freq_532",
           "rank": 532,
           "viet": "toàn",
-          "zh": "畢 / 遍",
-          "zhSpoken": "畢，遍",
-          "en": "all, as a whole",
-          "pos": "動詞",
+          "zh": "全部 / 全都",
+          "zhSpoken": "全部，全都",
+          "en": "all; entire",
+          "pos": "限定詞",
           "hanViet": "全",
-          "category": "日常必備動詞",
-          "example": "toàn lực",
-          "exampleZh": "畢力。"
+          "category": "語法功能詞",
+          "example": "Toàn công ty nghỉ lễ.",
+          "exampleZh": "全公司放假。"
         },
         {
           "id": "freq_533",
           "rank": 533,
           "viet": "chuyến",
-          "zh": "班",
-          "zhSpoken": "班",
-          "en": "Trip, flight",
+          "zh": "趟 / 班次",
+          "zhSpoken": "趟，班次",
+          "en": "trip; flight",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "anh đi chuyến bay sau nhé",
-          "exampleZh": "你搭下一班飛機走吧。"
+          "category": "生活名詞",
+          "example": "Chuyến bay này bị hoãn.",
+          "exampleZh": "這班飛機延誤了。"
         },
         {
           "id": "freq_534",
           "rank": 534,
           "viet": "lễ",
-          "zh": "大典 / 儀式",
-          "zhSpoken": "大典，儀式",
-          "en": "To kowtow",
-          "pos": "動詞",
+          "zh": "節日 / 儀式",
+          "zhSpoken": "節日，儀式",
+          "en": "holiday; ceremony",
+          "pos": "名詞",
           "hanViet": "禮",
-          "category": "日常必備動詞",
-          "example": "lễ thành lập nước",
-          "exampleZh": "開國大典。 典; 儀式。"
+          "category": "生活名詞",
+          "example": "Ngày mai là ngày lễ.",
+          "exampleZh": "明天是假日。"
         },
         {
           "id": "freq_535",
           "rank": 535,
           "viet": "cười",
-          "zh": "大笑 / 發笑",
-          "zhSpoken": "大笑，發笑",
-          "en": "to laugh; to smile; to sneer",
+          "zh": "笑",
+          "zhSpoken": "笑",
+          "en": "to laugh; to smile",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chả đáng cười chút nào",
-          "exampleZh": "不值一哂。"
+          "category": "日常動詞",
+          "example": "Em bé cười rất dễ thương.",
+          "exampleZh": "小寶寶笑得很可愛。"
         },
         {
           "id": "freq_536",
           "rank": 536,
           "viet": "quan hệ",
-          "zh": "打 / 打交道",
-          "zhSpoken": "打，打交道",
-          "en": "to affect; to concern; to correlate",
-          "pos": "動詞",
+          "zh": "關係",
+          "zhSpoken": "關係",
+          "en": "relationship",
+          "pos": "名詞",
           "hanViet": "關係",
-          "category": "日常必備動詞",
-          "example": "hai bên không có quan hệ gì",
-          "exampleZh": "二者了無干涉。"
+          "category": "生活名詞",
+          "example": "Quan hệ của họ rất tốt.",
+          "exampleZh": "他們的關係很好。"
         },
         {
           "id": "freq_537",
           "rank": 537,
           "viet": "hề",
-          "zh": "醜 / 在",
-          "zhSpoken": "醜，在",
-          "en": "clown; funny-man",
-          "pos": "動詞",
+          "zh": "小丑 / 絲毫",
+          "zhSpoken": "小丑，絲毫",
+          "en": "clown; (not) at all",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "không hề tiếc",
-          "exampleZh": "在所不惜。"
+          "category": "語法功能詞",
+          "example": "Tôi không hề biết.",
+          "exampleZh": "我完全不知道。"
         },
         {
           "id": "freq_538",
           "rank": 538,
           "viet": "cũ",
-          "zh": "敗 / 故",
-          "zhSpoken": "敗，故",
-          "en": "Old; ancient; second-hand",
+          "zh": "舊",
+          "zhSpoken": "舊",
+          "en": "old (things)",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "loại bỏ cái cũ, tìm ra cái mới",
-          "exampleZh": "推陳出新。"
+          "category": "描述與狀態",
+          "example": "Chiếc xe này cũ rồi.",
+          "exampleZh": "這輛車舊了。"
         },
         {
           "id": "freq_539",
           "rank": 539,
           "viet": "rượu",
-          "zh": "杜康 / 醞",
-          "zhSpoken": "杜康，醞",
-          "en": "wine; liquor; drink; alcohol",
+          "zh": "酒",
+          "zhSpoken": "酒",
+          "en": "alcohol; wine",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "rượu ngon",
-          "exampleZh": "佳釀。"
+          "category": "生活名詞",
+          "example": "Tôi không uống rượu.",
+          "exampleZh": "我不喝酒。"
         },
         {
           "id": "freq_540",
           "rank": 540,
           "viet": "thiết bị",
-          "zh": "備 / 設施",
-          "zhSpoken": "備，設施",
-          "en": "vocabulary",
+          "zh": "設備",
+          "zhSpoken": "設備",
+          "en": "equipment",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "thiết bị nhà xưởng",
-          "exampleZh": "廠房設備。"
+          "category": "生活名詞",
+          "example": "Thiết bị này bị hỏng.",
+          "exampleZh": "這個設備壞了。"
         },
         {
           "id": "freq_541",
           "rank": 541,
           "viet": "mặc",
-          "zh": "不管 / 穿",
-          "zhSpoken": "不管，穿",
-          "en": "to dress; to clothe; to wear; to pu",
+          "zh": "穿 / 不管",
+          "zhSpoken": "穿，不管",
+          "en": "to wear; regardless",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "sống chết mặc bây",
-          "exampleZh": "不管一切。"
-        },
-        {
-          "id": "freq_542",
-          "rank": 542,
-          "viet": "m",
-          "zh": "公尺 / 米",
-          "zhSpoken": "公尺，米",
-          "en": "M,  m",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "M này rất cần thiết cho công việc.",
-          "exampleZh": "這個「越文字母第十五字」在工作上非常必需。"
+          "category": "日常動詞",
+          "example": "Hôm nay bạn mặc đẹp quá.",
+          "exampleZh": "你今天穿得真好看。"
         },
         {
           "id": "freq_543",
           "rank": 543,
           "viet": "giáo dục",
-          "zh": "教導 / 育",
-          "zhSpoken": "教導，育",
-          "en": "education; bringing up",
-          "pos": "動詞",
+          "zh": "教育",
+          "zhSpoken": "教育",
+          "en": "education",
+          "pos": "名詞",
           "hanViet": "教育",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể giáo dục giúp tôi không?",
-          "exampleZh": "你能幫我教導嗎？"
+          "category": "生活名詞",
+          "example": "Giáo dục rất quan trọng.",
+          "exampleZh": "教育很重要。"
         },
         {
           "id": "freq_544",
           "rank": 544,
           "viet": "kìa",
-          "zh": "呃 / 猗",
-          "zhSpoken": "呃，猗",
-          "en": "Before the day before yesterday; be",
-          "pos": "名詞",
+          "zh": "看那邊（語氣）",
+          "zhSpoken": "看那邊",
+          "en": "look! (over there)",
+          "pos": "助詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ráng hồng sáng rực vách núi kìa!",
-          "exampleZh": "紅霞映山崖呃!。"
+          "category": "語氣與助詞",
+          "example": "Xe buýt đến kìa!",
+          "exampleZh": "公車來了！"
         },
         {
           "id": "freq_545",
           "rank": 545,
           "viet": "đông",
-          "zh": "稠 / 東",
-          "zhSpoken": "稠，東",
-          "en": "East; orient",
-          "pos": "動詞",
-          "hanViet": "冬",
-          "category": "日常必備動詞",
-          "example": "đông người; đám đông",
-          "exampleZh": "稠人廣衆。"
+          "zh": "東 / 冬 / 人多",
+          "zhSpoken": "東，冬",
+          "en": "east; winter; crowded",
+          "pos": "形容詞",
+          "hanViet": "東",
+          "category": "描述與狀態",
+          "example": "Chợ hôm nay đông quá.",
+          "exampleZh": "今天市場人好多。"
         },
         {
           "id": "freq_546",
           "rank": 546,
           "viet": "ảnh hưởng",
-          "zh": "妨礙 / 影響",
-          "zhSpoken": "妨礙，影響",
-          "en": "Influence, effect, impact",
+          "zh": "影響",
+          "zhSpoken": "影響",
+          "en": "influence",
           "pos": "動詞",
           "hanViet": "影響",
-          "category": "日常必備動詞",
-          "example": "nói chuyện lớn tiếng ảnh hưởng đến việc học của người khác",
-          "exampleZh": "大聲說話妨礙別人學習。"
+          "category": "日常動詞",
+          "example": "Trời mưa ảnh hưởng đến công việc.",
+          "exampleZh": "下雨影響工作。"
         },
         {
           "id": "freq_547",
           "rank": 547,
           "viet": "chính phủ",
-          "zh": "官廳 / 政府",
-          "zhSpoken": "官廳，政府",
-          "en": "Government, cabinet",
+          "zh": "政府",
+          "zhSpoken": "政府",
+          "en": "government",
           "pos": "名詞",
           "hanViet": "政府",
-          "category": "生活日常",
-          "example": "Chính phủ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「官廳」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Chính phủ vừa ban hành quy định mới.",
+          "exampleZh": "政府剛頒布新規定。"
         },
         {
           "id": "freq_548",
           "rank": 548,
           "viet": "ngôi",
-          "zh": "皇位 / 家",
-          "zhSpoken": "皇位，家",
-          "en": "throne",
-          "pos": "名詞",
+          "zh": "棟 / 顆（量詞）",
+          "zhSpoken": "棟，顆",
+          "en": "classifier for buildings, stars",
+          "pos": "量詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "lên ngôi",
-          "exampleZh": "繼承皇位。"
+          "category": "數字與量詞",
+          "example": "Ngôi nhà này rất đẹp.",
+          "exampleZh": "這棟房子很美。"
         },
         {
           "id": "freq_549",
           "rank": 549,
           "viet": "quá trình",
-          "zh": "工序 / 過程",
-          "zhSpoken": "工序，過程",
+          "zh": "過程",
+          "zhSpoken": "過程",
           "en": "process",
           "pos": "名詞",
           "hanViet": "過程",
-          "category": "生活日常",
-          "example": "quá trình nhận thức",
-          "exampleZh": "認識過程。"
+          "category": "生活名詞",
+          "example": "Quá trình này mất ba tháng.",
+          "exampleZh": "這個過程要花三個月。"
         },
         {
           "id": "freq_550",
           "rank": 550,
           "viet": "phát hiện",
-          "zh": "發覺 / 發現",
-          "zhSpoken": "發覺，發現",
-          "en": "Discover, excavate",
+          "zh": "發現",
+          "zhSpoken": "發現",
+          "en": "to discover",
           "pos": "動詞",
           "hanViet": "發現",
-          "category": "日常必備動詞",
-          "example": "lâu ngày, cô ấy mới phát hiện ra tai của anh ấy hơi bị điếc",
-          "exampleZh": "日子長了, 她才覺察出他耳朵有些聾。 開發。"
+          "category": "日常動詞",
+          "example": "Tôi phát hiện một lỗi nhỏ.",
+          "exampleZh": "我發現一個小錯誤。"
+        },
+        {
+          "id": "freq_551",
+          "rank": 551,
+          "viet": "nâng",
+          "zh": "提高 / 抬起",
+          "zhSpoken": "提高，抬起",
+          "en": "to raise",
+          "pos": "動詞",
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Chúng ta nâng ly nào!",
+          "exampleZh": "我們舉杯吧！"
+        },
+        {
+          "id": "freq_552",
+          "rank": 552,
+          "viet": "thu",
+          "zh": "收 / 秋",
+          "zhSpoken": "收，秋",
+          "en": "to collect; autumn",
+          "pos": "動詞",
+          "hanViet": "收",
+          "category": "日常動詞",
+          "example": "Công ty thu tiền vào cuối tháng.",
+          "exampleZh": "公司月底收款。"
         }
       ],
-      "duration": 734.6
+      "duration": 712.2
     },
     {
       "batchId": 12,
       "tier": "top1k",
       "titleZh": "第 12 組 · 身體健康與醫療保健",
       "titleEn": "Batch 12 · Top 1,000",
-      "range": "551 - 600",
-      "startRank": 551,
-      "endRank": 600,
+      "range": "553 - 602",
+      "startRank": 553,
+      "endRank": 602,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_12.mp3",
       "fileName": "vocab_1000_batch_12.mp3",
       "words": [
         {
-          "id": "freq_551",
-          "rank": 551,
-          "viet": "nâng",
-          "zh": "扶將 / 舉",
-          "zhSpoken": "扶將，舉",
-          "en": "to raise",
-          "pos": "動詞",
-          "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nâng cốc chúc thọ",
-          "exampleZh": "稱觴祝壽。"
-        },
-        {
-          "id": "freq_552",
-          "rank": 552,
-          "viet": "thu",
-          "zh": "灌 / 灌唱片",
-          "zhSpoken": "灌，灌唱片",
-          "en": "autumn;(Mỹ) fall",
-          "pos": "動詞",
-          "hanViet": "收",
-          "category": "日常必備動詞",
-          "example": "thu đĩa hát; thu đĩa nhạc",
-          "exampleZh": "灌唱片。 接收。"
-        },
-        {
           "id": "freq_553",
           "rank": 553,
           "viet": "môi trường",
-          "zh": "環境 / 介質",
-          "zhSpoken": "環境，介質",
-          "en": "Enviroment, medium",
+          "zh": "環境",
+          "zhSpoken": "環境",
+          "en": "environment",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "vệ sinh môi trường",
-          "exampleZh": "環境衛生。"
+          "category": "生活名詞",
+          "example": "Chúng ta cần bảo vệ môi trường.",
+          "exampleZh": "我們需要保護環境。"
         },
         {
           "id": "freq_554",
           "rank": 554,
           "viet": "điều kiện",
-          "zh": "關係 / 好景",
-          "zhSpoken": "關係，好景",
-          "en": "Condition, terms",
+          "zh": "條件",
+          "zhSpoken": "條件",
+          "en": "condition",
           "pos": "名詞",
           "hanViet": "條件",
-          "category": "生活日常",
-          "example": "vì điều kiện thời gian, tạm thời nói đến đây thôi",
-          "exampleZh": "由於時間關係, 暫時談到這裏爲止。"
+          "category": "生活名詞",
+          "example": "Điều kiện làm việc ở đây rất tốt.",
+          "exampleZh": "這裡的工作條件很好。"
         },
         {
           "id": "freq_555",
           "rank": 555,
           "viet": "giá trị",
-          "zh": "財富 / 意義",
-          "zhSpoken": "財富，意義",
-          "en": "Value worth",
+          "zh": "價值",
+          "zhSpoken": "價值",
+          "en": "value",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "sáng tạo ra của cải; tạo ra giá trị",
-          "exampleZh": "創造財富。"
+          "category": "生活名詞",
+          "example": "Hợp đồng này có giá trị lớn.",
+          "exampleZh": "這份合約價值很高。"
         },
         {
           "id": "freq_556",
           "rank": 556,
           "viet": "sông",
-          "zh": "水 / 江",
-          "zhSpoken": "水，江",
+          "zh": "河",
+          "zhSpoken": "河",
           "en": "river",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "núi cao sông rộng",
-          "exampleZh": "高山大川。"
+          "category": "生活名詞",
+          "example": "Sông Hồng chảy qua Hà Nội.",
+          "exampleZh": "紅河流經河內。"
         },
         {
           "id": "freq_557",
           "rank": 557,
           "viet": "dậy",
-          "zh": "起牀",
-          "zhSpoken": "起牀",
-          "en": "to rise; to get up; to wake up",
+          "zh": "起床",
+          "zhSpoken": "起床",
+          "en": "to get up",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể dậy giúp tôi không?",
-          "exampleZh": "你能幫我起牀嗎？"
+          "category": "日常動詞",
+          "example": "Mấy giờ bạn dậy?",
+          "exampleZh": "你幾點起床？"
         },
         {
           "id": "freq_558",
           "rank": 558,
           "viet": "địa phương",
-          "zh": "地 / 土",
-          "zhSpoken": "地，土",
-          "en": "Region,area (is a country)",
+          "zh": "地方 / 當地",
+          "zhSpoken": "地方，當地",
+          "en": "local",
           "pos": "名詞",
           "hanViet": "地方",
-          "category": "生活日常",
-          "example": "đầu óc địa phương; đầu óc cục bộ",
-          "exampleZh": "地域觀念。"
+          "category": "生活名詞",
+          "example": "Tôi muốn ăn món địa phương.",
+          "exampleZh": "我想吃當地的菜。"
         },
         {
           "id": "freq_559",
           "rank": 559,
           "viet": "quý",
-          "zh": "愛惜 / 寶",
-          "zhSpoken": "愛惜，寶",
-          "en": "The tenth Heavenly stem",
-          "pos": "動詞",
+          "zh": "珍貴 / 季",
+          "zhSpoken": "珍貴，季",
+          "en": "precious; quarter",
+          "pos": "形容詞",
           "hanViet": "貴",
-          "category": "日常必備動詞",
-          "example": "quý thời gian",
-          "exampleZh": "愛惜時間。"
+          "category": "描述與狀態",
+          "example": "Thời gian rất quý.",
+          "exampleZh": "時間很寶貴。"
         },
         {
           "id": "freq_560",
           "rank": 560,
           "viet": "hình ảnh",
-          "zh": "影像 / 印象",
-          "zhSpoken": "影像，印象",
-          "en": "vocabulary",
+          "zh": "影像",
+          "zhSpoken": "影像",
+          "en": "image",
           "pos": "名詞",
           "hanViet": "形影",
-          "category": "生活日常",
-          "example": "Hình ảnh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「影像」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Hình ảnh này rất rõ.",
+          "exampleZh": "這張影像很清楚。"
         },
         {
           "id": "freq_561",
           "rank": 561,
           "viet": "đơn giản",
-          "zh": "椎 / 粗淺",
-          "zhSpoken": "椎，粗淺",
-          "en": "Simple",
-          "pos": "名詞",
+          "zh": "簡單",
+          "zhSpoken": "簡單",
+          "en": "simple",
+          "pos": "形容詞",
           "hanViet": "單簡",
-          "category": "生活日常",
-          "example": "lí lẽ đơn giản như vậy thì rất dễ hiểu",
-          "exampleZh": "象這樣粗淺的道理是很容易懂的。 單純。"
+          "category": "描述與狀態",
+          "example": "Cách làm rất đơn giản.",
+          "exampleZh": "做法很簡單。"
         },
         {
           "id": "freq_562",
           "rank": 562,
           "viet": "báo cáo",
-          "zh": "關報 / 稟明",
-          "zhSpoken": "關報，稟明",
-          "en": "To report; to refer",
+          "zh": "報告",
+          "zhSpoken": "報告",
+          "en": "to report",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh nên báo cáo những sự việc đã xảy ra cho lãnh đạo biết",
-          "exampleZh": "你應當把事情的經過向領導報告。"
+          "category": "日常動詞",
+          "example": "Tôi phải báo cáo với sếp.",
+          "exampleZh": "我得向老闆報告。"
         },
         {
           "id": "freq_563",
           "rank": 563,
           "viet": "cố gắng",
-          "zh": "巴結 / 不禁",
-          "zhSpoken": "巴結，不禁",
-          "en": "To try; to endeavour; to make every",
+          "zh": "努力",
+          "zhSpoken": "努力",
+          "en": "to try hard",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cố gắng đến quên cả ăn uống",
-          "exampleZh": "發憤忘食。"
+          "category": "日常動詞",
+          "example": "Tôi sẽ cố gắng hết sức.",
+          "exampleZh": "我會盡全力。"
         },
         {
           "id": "freq_564",
           "rank": 564,
           "viet": "bản thân",
-          "zh": "本人 / 己",
-          "zhSpoken": "本人，己",
-          "en": "Self",
+          "zh": "自己",
+          "zhSpoken": "自己",
+          "en": "oneself",
           "pos": "名詞",
           "hanViet": "本身",
-          "category": "生活日常",
-          "example": "thể nghiệm bản thân",
-          "exampleZh": "切身體驗。"
+          "category": "生活名詞",
+          "example": "Hãy tin vào bản thân.",
+          "exampleZh": "要相信自己。"
         },
         {
           "id": "freq_565",
           "rank": 565,
           "viet": "nổi",
-          "zh": "風頭 / 浮",
-          "zhSpoken": "風頭，浮",
-          "en": "to float; to overfloat",
+          "zh": "浮 / 有名 / 動得了",
+          "zhSpoken": "浮，有名",
+          "en": "to float; famous",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "dầu nổi trên mặt nước",
-          "exampleZh": "油浮在水上。"
+          "category": "日常動詞",
+          "example": "Tôi không ăn nổi nữa.",
+          "exampleZh": "我吃不下了。"
         },
         {
           "id": "freq_566",
           "rank": 566,
           "viet": "bác",
-          "zh": "大爺 / 伯公",
-          "zhSpoken": "大爺，伯公",
-          "en": "Uncle, one's father's sister-in-law",
-          "pos": "動詞",
-          "hanViet": "駁",
-          "category": "日常必備動詞",
-          "example": "bác hai",
-          "exampleZh": "二伯伯。"
+          "zh": "伯伯 / 伯母",
+          "zhSpoken": "伯伯，伯母",
+          "en": "uncle; aunt (older than parents)",
+          "pos": "代名詞",
+          "hanViet": "伯",
+          "category": "人稱與指示",
+          "example": "Cháu chào bác ạ.",
+          "exampleZh": "伯伯您好。"
         },
         {
           "id": "freq_567",
           "rank": 567,
           "viet": "chàng",
-          "zh": "夫君 / 良人",
-          "zhSpoken": "夫君，良人",
-          "en": "Large-bladed chisel",
+          "zh": "小伙子 / 他（文學）",
+          "zhSpoken": "小伙子，他",
+          "en": "young man",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Chàng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「夫君」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Chàng trai ấy rất dễ thương.",
+          "exampleZh": "那個小伙子很可愛。"
         },
         {
           "id": "freq_568",
           "rank": 568,
           "viet": "xanh",
-          "zh": "翠 / 滴翠",
-          "zhSpoken": "翠，滴翠",
-          "en": "blue, green",
-          "pos": "名詞",
+          "zh": "藍 / 綠",
+          "zhSpoken": "藍，綠",
+          "en": "blue; green",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tre xanh",
-          "exampleZh": "翠竹。"
+          "category": "描述與狀態",
+          "example": "Bầu trời hôm nay rất xanh.",
+          "exampleZh": "今天的天空很藍。"
         },
         {
           "id": "freq_569",
           "rank": 569,
           "viet": "máy bay",
-          "zh": "機 / 銀鷹",
-          "zhSpoken": "機，銀鷹",
-          "en": "vocabulary",
+          "zh": "飛機",
+          "zhSpoken": "飛機",
+          "en": "airplane",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "máy bay lên thẳng",
-          "exampleZh": "直升飛機。"
+          "category": "生活名詞",
+          "example": "Máy bay sắp cất cánh.",
+          "exampleZh": "飛機快起飛了。"
         },
         {
           "id": "freq_570",
           "rank": 570,
           "viet": "tấn công",
-          "zh": "衝鋒 / 抵近攻擊",
-          "zhSpoken": "衝鋒，抵近攻擊",
-          "en": "to attack, to assault",
+          "zh": "攻擊",
+          "zhSpoken": "攻擊",
+          "en": "to attack",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tấn công trận địa của địch",
-          "exampleZh": "攻打敵人的陣地。"
+          "category": "日常動詞",
+          "example": "Đội bạn tấn công rất mạnh.",
+          "exampleZh": "對手進攻很猛。"
         },
         {
           "id": "freq_571",
           "rank": 571,
           "viet": "phù hợp",
-          "zh": "得 / 對茬兒",
-          "zhSpoken": "得，對茬兒",
-          "en": "to agree; to tally; to accord",
-          "pos": "動詞",
+          "zh": "適合",
+          "zhSpoken": "適合",
+          "en": "suitable",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hành động phù hợp",
-          "exampleZh": "對應行動。"
+          "category": "描述與狀態",
+          "example": "Công việc này phù hợp với tôi.",
+          "exampleZh": "這份工作適合我。"
         },
         {
           "id": "freq_572",
           "rank": 572,
           "viet": "tập trung",
-          "zh": "籌集 / 調集",
-          "zhSpoken": "籌集，調集",
-          "en": "to concentrate, to focus(on), to ma",
+          "zh": "專注 / 集中",
+          "zhSpoken": "專注，集中",
+          "en": "to focus",
           "pos": "動詞",
           "hanViet": "集中",
-          "category": "日常必備動詞",
-          "example": "tập trung tiền vốn; góp vốn",
-          "exampleZh": "籌集資金。"
+          "category": "日常動詞",
+          "example": "Tôi không thể tập trung.",
+          "exampleZh": "我無法專心。"
         },
         {
           "id": "freq_573",
           "rank": 573,
           "viet": "hy vọng",
-          "zh": "柳暗花明 / 希望",
-          "zhSpoken": "柳暗花明，希望",
-          "en": "to hope; to expect and desire",
+          "zh": "希望",
+          "zhSpoken": "希望",
+          "en": "to hope",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tôi hy vọng mình sẽ trở thành một bác sĩ nổi tiếng",
-          "exampleZh": "當一名醫生是我的理想。"
+          "category": "日常動詞",
+          "example": "Tôi hy vọng gặp lại bạn.",
+          "exampleZh": "我希望能再見到你。"
         },
         {
           "id": "freq_574",
           "rank": 574,
           "viet": "chính xác",
-          "zh": "不差毫髮 / 不錯",
-          "zhSpoken": "不差毫髮，不錯",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "正確 / 精確",
+          "zhSpoken": "正確，精確",
+          "en": "exact",
+          "pos": "形容詞",
           "hanViet": "正確",
-          "category": "日常必備動詞",
-          "example": "tính toán chính xác",
-          "exampleZh": "精確的計算。"
+          "category": "描述與狀態",
+          "example": "Số này có chính xác không?",
+          "exampleZh": "這個數字正確嗎？"
         },
         {
           "id": "freq_575",
           "rank": 575,
           "viet": "tất nhiên",
-          "zh": "必將 / 不能不",
-          "zhSpoken": "必將，不能不",
-          "en": "inevitably, naturally, ofcouse",
-          "pos": "動詞",
+          "zh": "當然",
+          "zhSpoken": "當然",
+          "en": "of course",
+          "pos": "副詞",
           "hanViet": "必然",
-          "category": "日常必備動詞",
-          "example": "năm nay được mùa là tất nhiên",
-          "exampleZh": "今年豐收已成定局。 定然。"
+          "category": "語法功能詞",
+          "example": "Tất nhiên rồi!",
+          "exampleZh": "當然了！"
         },
         {
           "id": "freq_576",
           "rank": 576,
           "viet": "thoát",
-          "zh": "抽身 / 跑",
-          "zhSpoken": "抽身，跑",
-          "en": "vocabulary",
+          "zh": "逃離 / 退出",
+          "zhSpoken": "逃離，退出",
+          "en": "to escape; to exit",
           "pos": "動詞",
           "hanViet": "脫",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể thoát giúp tôi không?",
-          "exampleZh": "你能幫我抽身嗎？"
+          "category": "日常動詞",
+          "example": "Tôi không thoát được ứng dụng.",
+          "exampleZh": "我退不出這個應用程式。"
         },
         {
           "id": "freq_577",
           "rank": 577,
           "viet": "chất",
-          "zh": "物質 / 質量 / 堆積",
-          "zhSpoken": "物質，質量",
-          "en": "Substance, matter",
-          "pos": "動詞",
+          "zh": "物質 / 品質",
+          "zhSpoken": "物質，品質",
+          "en": "substance",
+          "pos": "名詞",
           "hanViet": "質",
-          "category": "日常必備動詞",
-          "example": "lương thực chất đầy kho, hoa quả chất cao như núi",
-          "exampleZh": "糧食堆滿倉, 果子堆成山。 堆疊。"
+          "category": "生活名詞",
+          "example": "Thực phẩm này không có chất bảo quản.",
+          "exampleZh": "這種食品沒有防腐劑。"
         },
         {
           "id": "freq_578",
           "rank": 578,
           "viet": "bản",
-          "zh": "本子 / 箔",
-          "zhSpoken": "本子，箔",
-          "en": "Mountain village",
+          "zh": "份 / 版本",
+          "zhSpoken": "份，版本",
+          "en": "copy; version",
           "pos": "名詞",
           "hanViet": "本",
-          "category": "生活日常",
-          "example": "bản khắc",
-          "exampleZh": "刻本。"
+          "category": "生活名詞",
+          "example": "Cho tôi hai bản hợp đồng.",
+          "exampleZh": "請給我兩份合約。"
         },
         {
           "id": "freq_579",
           "rank": 579,
           "viet": "thấp",
-          "zh": "矮 / 矮篤篤",
-          "zhSpoken": "矮，矮篤篤",
-          "en": "low poor, bad",
+          "zh": "低 / 矮",
+          "zhSpoken": "低，矮",
+          "en": "low; short",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "tường thấp",
-          "exampleZh": "矮牆。"
+          "category": "描述與狀態",
+          "example": "Bàn này hơi thấp.",
+          "exampleZh": "這張桌子有點矮。"
         },
         {
           "id": "freq_580",
           "rank": 580,
           "viet": "lỗi",
-          "zh": "弊 / 病",
-          "zhSpoken": "弊，病",
-          "en": "mistake; fault; error",
+          "zh": "錯誤",
+          "zhSpoken": "錯誤",
+          "en": "error; fault",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "một số lỗi ngôn ngữ thường gặp",
-          "exampleZh": "常見的語病。"
+          "category": "生活名詞",
+          "example": "Lỗi của tôi, xin lỗi anh.",
+          "exampleZh": "是我的錯，對不起。"
         },
         {
           "id": "freq_581",
           "rank": 581,
           "viet": "áo",
-          "zh": "襖 / 上身",
-          "zhSpoken": "襖，上身",
-          "en": "(địa lý) Austria",
+          "zh": "上衣",
+          "zhSpoken": "上衣",
+          "en": "shirt; top",
           "pos": "名詞",
           "hanViet": "襖",
-          "category": "生活日常",
-          "example": "áo da",
-          "exampleZh": "皮襖。"
+          "category": "生活名詞",
+          "example": "Cái áo này bao nhiêu tiền?",
+          "exampleZh": "這件上衣多少錢？"
         },
         {
           "id": "freq_582",
           "rank": 582,
           "viet": "bữa",
-          "zh": "頓 / 飯",
-          "zhSpoken": "頓，飯",
-          "en": "Meal",
+          "zh": "餐 / 頓",
+          "zhSpoken": "餐，頓",
+          "en": "meal",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ngày ba bữa",
-          "exampleZh": "一日三餐。"
+          "category": "生活名詞",
+          "example": "Bữa tối nay ăn gì?",
+          "exampleZh": "今天晚餐吃什麼？"
         },
         {
           "id": "freq_583",
           "rank": 583,
           "viet": "sai",
-          "zh": "白 / 白字",
-          "zhSpoken": "白，白字",
-          "en": "fruitful, bearing much fruit false",
-          "pos": "動詞",
+          "zh": "錯",
+          "zhSpoken": "錯",
+          "en": "wrong",
+          "pos": "形容詞",
           "hanViet": "差",
-          "category": "日常必備動詞",
-          "example": "viết sai",
-          "exampleZh": "寫白字。"
+          "category": "描述與狀態",
+          "example": "Tôi nói sai rồi.",
+          "exampleZh": "我說錯了。"
         },
         {
           "id": "freq_584",
           "rank": 584,
           "viet": "đảm bảo",
-          "zh": "擔保 / 包管",
-          "zhSpoken": "擔保，包管",
+          "zh": "保證",
+          "zhSpoken": "保證",
           "en": "to guarantee",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đảm bảo không sai",
-          "exampleZh": "包你沒錯。"
+          "category": "日常動詞",
+          "example": "Tôi đảm bảo hàng này tốt.",
+          "exampleZh": "我保證這批貨很好。"
         },
         {
           "id": "freq_585",
           "rank": 585,
           "viet": "trắng",
-          "zh": "白 / 白色",
-          "zhSpoken": "白，白色",
-          "en": "white clear",
+          "zh": "白色",
+          "zhSpoken": "白色",
+          "en": "white",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "cơm trắng",
-          "exampleZh": "白飯。"
+          "category": "描述與狀態",
+          "example": "Tôi muốn mua áo trắng.",
+          "exampleZh": "我想買白色上衣。"
         },
         {
           "id": "freq_586",
           "rank": 586,
           "viet": "ổng",
-          "zh": "那位先生",
-          "zhSpoken": "那位先生",
-          "en": "vocabulary",
-          "pos": "名詞",
+          "zh": "他（南部口語）",
+          "zhSpoken": "他",
+          "en": "he (Southern casual)",
+          "pos": "代名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Ổng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「那位先生」在工作上非常必需。"
+          "category": "人稱與指示",
+          "example": "Ổng đi đâu rồi?",
+          "exampleZh": "他去哪裡了？"
         },
         {
           "id": "freq_587",
           "rank": 587,
           "viet": "tiếp",
-          "zh": "拜會 / 奉陪",
-          "zhSpoken": "拜會，奉陪",
-          "en": "to procede to receive to transfuse ",
+          "zh": "接著 / 接待",
+          "zhSpoken": "接著，接待",
+          "en": "next; to receive",
           "pos": "動詞",
           "hanViet": "接",
-          "category": "日常必備動詞",
-          "example": "xin thứ lỗi vì không tiếp đãi",
-          "exampleZh": "恕不奉陪。"
+          "category": "日常動詞",
+          "example": "Chúng ta làm tiếp nhé.",
+          "exampleZh": "我們接著做吧。"
         },
         {
           "id": "freq_588",
           "rank": 588,
           "viet": "nhà nước",
-          "zh": "公房 / 公家",
-          "zhSpoken": "公房，公家",
-          "en": "State",
+          "zh": "國家（政府）",
+          "zhSpoken": "國家",
+          "en": "the state",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nhà nước làm",
-          "exampleZh": "官辦。"
+          "category": "生活名詞",
+          "example": "Đây là ngân hàng nhà nước.",
+          "exampleZh": "這是國家銀行。"
         },
         {
           "id": "freq_589",
           "rank": 589,
           "viet": "mối",
-          "zh": "白蟻 / 頭",
-          "zhSpoken": "白蟻，頭",
-          "en": "termite; white ant",
-          "pos": "動詞",
-          "hanViet": "媒",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể mối giúp tôi không?",
-          "exampleZh": "你能幫我白蟻嗎？"
+          "zh": "（關係）/ 白蟻",
+          "zhSpoken": "白蟻",
+          "en": "relationship; termite",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Đây là mối quan hệ tốt.",
+          "exampleZh": "這是良好的關係。"
         },
         {
           "id": "freq_590",
           "rank": 590,
           "viet": "tưởng",
-          "zh": "當",
-          "zhSpoken": "當",
-          "en": "to think",
+          "zh": "以為",
+          "zhSpoken": "以為",
+          "en": "to assume wrongly",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tưởng thật",
-          "exampleZh": "當真。"
+          "category": "日常動詞",
+          "example": "Tôi tưởng hôm nay là thứ hai.",
+          "exampleZh": "我以為今天是星期一。"
         },
         {
           "id": "freq_591",
           "rank": 591,
           "viet": "cảm giác",
-          "zh": "感覺 / 感受",
-          "zhSpoken": "感覺，感受",
-          "en": "Sensation, impression",
-          "pos": "動詞",
+          "zh": "感覺",
+          "zhSpoken": "感覺",
+          "en": "feeling",
+          "pos": "名詞",
           "hanViet": "感覺",
-          "category": "日常必備動詞",
-          "example": "đoàn đại biểu đang say sưa nói đến cảm giác về nông thôn",
-          "exampleZh": "代表們暢談訪問農村的觀感。 人事。"
+          "category": "生活名詞",
+          "example": "Cảm giác này rất lạ.",
+          "exampleZh": "這種感覺很奇怪。"
         },
         {
           "id": "freq_592",
           "rank": 592,
           "viet": "chó",
-          "zh": "犬",
-          "zhSpoken": "犬",
-          "en": "Cur, ass, donkey",
+          "zh": "狗",
+          "zhSpoken": "狗",
+          "en": "dog",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "chó nghiệp vụ",
-          "exampleZh": "警犬。"
+          "category": "生活名詞",
+          "example": "Con chó này rất ngoan.",
+          "exampleZh": "這隻狗很乖。"
         },
         {
           "id": "freq_593",
           "rank": 593,
           "viet": "thực tế",
-          "zh": "誠然 / 實",
-          "zhSpoken": "誠然，實",
-          "en": "reality, practice, real life",
-          "pos": "動詞",
+          "zh": "實際",
+          "zhSpoken": "實際",
+          "en": "reality",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tất cả xuất phát từ thực tế",
-          "exampleZh": "一切從實際出發。"
+          "category": "生活名詞",
+          "example": "Thực tế rất khác.",
+          "exampleZh": "實際上很不一樣。"
         },
         {
           "id": "freq_594",
           "rank": 594,
           "viet": "lao động",
-          "zh": "勞作 / 幹活",
-          "zhSpoken": "勞作，幹活",
-          "en": "labour",
-          "pos": "動詞",
+          "zh": "勞工 / 勞動",
+          "zhSpoken": "勞工，勞動",
+          "en": "labor; worker",
+          "pos": "名詞",
           "hanViet": "勞動",
-          "category": "日常必備動詞",
-          "example": "phân phối theo lao động",
-          "exampleZh": "按勞分配。"
+          "category": "生活名詞",
+          "example": "Công ty cần thêm lao động.",
+          "exampleZh": "公司需要更多勞工。"
         },
         {
           "id": "freq_595",
           "rank": 595,
           "viet": "đóng",
-          "zh": "按 / 打造",
-          "zhSpoken": "按，打造",
-          "en": "to close; to shut",
+          "zh": "關 / 繳",
+          "zhSpoken": "關，繳",
+          "en": "to close; to pay (fees)",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đóng đinh rệp",
-          "exampleZh": "按 圖釘。"
+          "category": "日常動詞",
+          "example": "Mấy giờ đóng cửa?",
+          "exampleZh": "幾點關門？"
         },
         {
           "id": "freq_596",
           "rank": 596,
           "viet": "lãnh đạo",
-          "zh": "白領 / 搭拉密",
-          "zhSpoken": "白領，搭拉密",
-          "en": "to lead; to guide; to conduct",
+          "zh": "領導",
+          "zhSpoken": "領導",
+          "en": "leader; to lead",
           "pos": "名詞",
           "hanViet": "領導",
-          "category": "生活日常",
-          "example": "tầng lớp lãnh đạo",
-          "exampleZh": "白領階層。"
+          "category": "生活名詞",
+          "example": "Lãnh đạo công ty đến thăm nhà máy.",
+          "exampleZh": "公司高層來參訪工廠。"
         },
         {
           "id": "freq_597",
           "rank": 597,
           "viet": "tấm",
-          "zh": "板兒 / 鈑",
-          "zhSpoken": "板兒，鈑",
-          "en": "broken rice piece, length",
-          "pos": "名詞",
-          "hanViet": "糝",
-          "category": "生活日常",
-          "example": "tấm gỗ",
-          "exampleZh": "木板兒。"
+          "zh": "張 / 片",
+          "zhSpoken": "張，片",
+          "en": "classifier for flat items",
+          "pos": "量詞",
+          "hanViet": "",
+          "category": "數字與量詞",
+          "example": "Cho tôi một tấm vé.",
+          "exampleZh": "請給我一張票。"
         },
         {
           "id": "freq_598",
           "rank": 598,
           "viet": "cá nhân",
-          "zh": "個人 / 私人",
-          "zhSpoken": "個人，私人",
-          "en": "Individual, personal",
+          "zh": "個人",
+          "zhSpoken": "個人",
+          "en": "individual; personal",
           "pos": "名詞",
           "hanViet": "個人",
-          "category": "生活日常",
-          "example": "lợi ích cá nhân phải phục tùng lợi ích tập thể",
-          "exampleZh": "個人利益服從集體利益。"
+          "category": "生活名詞",
+          "example": "Đây là ý kiến cá nhân của tôi.",
+          "exampleZh": "這是我個人的意見。"
         },
         {
           "id": "freq_599",
           "rank": 599,
           "viet": "cán bộ",
-          "zh": "幹部 / 官員",
-          "zhSpoken": "幹部，官員",
-          "en": "Cadre",
+          "zh": "幹部",
+          "zhSpoken": "幹部",
+          "en": "official; cadre",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "điều cán bộ",
-          "exampleZh": "調幹。"
+          "category": "生活名詞",
+          "example": "Cán bộ hải quan đang kiểm tra.",
+          "exampleZh": "海關人員正在檢查。"
         },
         {
           "id": "freq_600",
           "rank": 600,
           "viet": "câu chuyện",
-          "zh": "碴兒 / 事情",
-          "zhSpoken": "碴兒，事情",
-          "en": "Story, tale, talk",
+          "zh": "故事",
+          "zhSpoken": "故事",
+          "en": "story",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nói tiếp câu chuyện",
-          "exampleZh": "答碴兒。"
+          "category": "生活名詞",
+          "example": "Câu chuyện này rất cảm động.",
+          "exampleZh": "這個故事很感人。"
+        },
+        {
+          "id": "freq_601",
+          "rank": 601,
+          "viet": "mục tiêu",
+          "zh": "目標",
+          "zhSpoken": "目標",
+          "en": "goal",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Mục tiêu của tôi là nói lưu loát.",
+          "exampleZh": "我的目標是說得流利。"
+        },
+        {
+          "id": "freq_602",
+          "rank": 602,
+          "viet": "loài",
+          "zh": "物種",
+          "zhSpoken": "物種",
+          "en": "species",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Loài hoa này rất hiếm.",
+          "exampleZh": "這種花很稀有。"
         }
       ],
-      "duration": 733.8
+      "duration": 706.8
     },
     {
       "batchId": 13,
       "tier": "top1k",
       "titleZh": "第 13 組 · 休閒娛樂與旅行生活",
       "titleEn": "Batch 13 · Top 1,000",
-      "range": "601 - 650",
-      "startRank": 601,
-      "endRank": 650,
+      "range": "603 - 652",
+      "startRank": 603,
+      "endRank": 652,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_13.mp3",
       "fileName": "vocab_1000_batch_13.mp3",
       "words": [
         {
-          "id": "freq_601",
-          "rank": 601,
-          "viet": "mục tiêu",
-          "zh": "靶子 / 標的",
-          "zhSpoken": "靶子，標的",
-          "en": "aim; object; target",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "nhìn rõ mục tiêu",
-          "exampleZh": "看清目標。"
-        },
-        {
-          "id": "freq_602",
-          "rank": 602,
-          "viet": "loài",
-          "zh": "科 / 門",
-          "zhSpoken": "科，門",
-          "en": "kind; gender ; specied",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "Loài này rất cần thiết cho công việc.",
-          "exampleZh": "這個「科」在工作上非常必需。"
-        },
-        {
           "id": "freq_603",
           "rank": 603,
           "viet": "nền",
-          "zh": "背景 / 本底",
-          "zhSpoken": "背景，本底",
-          "en": "foundation",
+          "zh": "基礎 / 背景",
+          "zhSpoken": "基礎，背景",
+          "en": "foundation; background",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nền trắng hoa đỏ",
-          "exampleZh": "白底紅花。"
+          "category": "生活名詞",
+          "example": "Nền kinh tế đang phát triển.",
+          "exampleZh": "經濟正在發展。"
         },
         {
           "id": "freq_604",
           "rank": 604,
           "viet": "thắng",
-          "zh": "鞁 / 勝利",
-          "zhSpoken": "鞁，勝利",
-          "en": "to win to boil to harness to brake",
+          "zh": "贏",
+          "zhSpoken": "贏",
+          "en": "to win",
           "pos": "動詞",
           "hanViet": "勝",
-          "category": "日常必備動詞",
-          "example": "đạp thắng; hãm phanh",
-          "exampleZh": "踩閘。"
+          "category": "日常動詞",
+          "example": "Đội Việt Nam thắng rồi!",
+          "exampleZh": "越南隊贏了！"
         },
         {
           "id": "freq_605",
           "rank": 605,
           "viet": "phục vụ",
-          "zh": "辦事 / 承歡",
-          "zhSpoken": "辦事，承歡",
-          "en": "Serve, attend tọ",
+          "zh": "服務",
+          "zhSpoken": "服務",
+          "en": "to serve",
           "pos": "動詞",
           "hanViet": "服務",
-          "category": "日常必備動詞",
-          "example": "chúng ta phục vụ nhân dân",
-          "exampleZh": "我們是給羣衆辦事的。"
+          "category": "日常動詞",
+          "example": "Nhân viên phục vụ rất nhiệt tình.",
+          "exampleZh": "服務員非常熱心。"
         },
         {
           "id": "freq_606",
           "rank": 606,
           "viet": "ư",
-          "zh": "乎 / 唻",
-          "zhSpoken": "乎，唻",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "嗎（驚訝）",
+          "zhSpoken": "嗎",
+          "en": "really? (surprise)",
+          "pos": "助詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "người ư ? sao tìm không thấy?",
-          "exampleZh": "人唻?怎麼找不到了? 嗎。"
+          "category": "語氣與助詞",
+          "example": "Anh về rồi ư?",
+          "exampleZh": "你回來了嗎？"
         },
         {
           "id": "freq_607",
           "rank": 607,
           "viet": "hạnh phúc",
-          "zh": "康樂 / 快樂",
-          "zhSpoken": "康樂，快樂",
-          "en": "happiness",
-          "pos": "名詞",
+          "zh": "幸福",
+          "zhSpoken": "幸福",
+          "en": "happy; happiness",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nắm chắc cơ hội hạnh phúc, hãy yêu và được yêu đi!",
-          "exampleZh": "抓住幸福的時機, 去愛和被愛吧!。"
+          "category": "描述與狀態",
+          "example": "Chúc hai bạn hạnh phúc.",
+          "exampleZh": "祝兩位幸福。"
         },
         {
           "id": "freq_608",
           "rank": 608,
           "viet": "mau",
-          "zh": "早早兒 / 快速",
-          "zhSpoken": "早早兒，快速",
-          "en": "quickly; fast; rapidly",
-          "pos": "動詞",
+          "zh": "快（口語）",
+          "zhSpoken": "快",
+          "en": "quick",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mau tung hàng ra bán đi",
-          "exampleZh": "趕早把貨脫手。"
+          "category": "描述與狀態",
+          "example": "Mau lên, muộn rồi!",
+          "exampleZh": "快點，遲到了！"
         },
         {
           "id": "freq_609",
           "rank": 609,
           "viet": "mẫu",
-          "zh": "母親 / 樣子",
-          "zhSpoken": "母親，樣子",
-          "en": "acre. model; pattern; specimen",
+          "zh": "樣品 / 款式",
+          "zhSpoken": "樣品，款式",
+          "en": "sample; model",
           "pos": "名詞",
-          "hanViet": "母",
-          "category": "生活日常",
-          "example": "bản in chữ mẫu; bản dập",
-          "exampleZh": "法帖。"
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Cho tôi xem mẫu này.",
+          "exampleZh": "請給我看這個款式。"
         },
         {
           "id": "freq_610",
           "rank": 610,
           "viet": "điên",
-          "zh": "癲 / 癲子",
-          "zhSpoken": "癲，癲子",
-          "en": "Mad, out of one's mind, insane",
-          "pos": "動詞",
+          "zh": "瘋",
+          "zhSpoken": "瘋",
+          "en": "crazy",
+          "pos": "形容詞",
           "hanViet": "癲",
-          "category": "日常必備動詞",
-          "example": "anh điên à, trời nóng như thế này mà lại mặc áo bông!",
-          "exampleZh": "你發瘋啦, 這麼大熱天, 還穿棉襖!。"
+          "category": "描述與狀態",
+          "example": "Trời nóng điên lên được.",
+          "exampleZh": "天氣熱得快瘋了。"
         },
         {
           "id": "freq_611",
           "rank": 611,
           "viet": "nội dung",
-          "zh": "名堂",
-          "zhSpoken": "名堂",
-          "en": "tenor ; terms",
+          "zh": "內容",
+          "zhSpoken": "內容",
+          "en": "content",
           "pos": "名詞",
           "hanViet": "內容",
-          "category": "生活日常",
-          "example": "nội dung của tờ tạp chí này rất phong phú",
-          "exampleZh": "這個刊物內容豐富。"
+          "category": "生活名詞",
+          "example": "Nội dung hợp đồng rất rõ ràng.",
+          "exampleZh": "合約內容很清楚。"
         },
         {
           "id": "freq_612",
           "rank": 612,
           "viet": "nhân viên",
-          "zh": "辦事員 / 店小二",
-          "zhSpoken": "辦事員，店小二",
-          "en": "personnel; staff ; member",
+          "zh": "員工",
+          "zhSpoken": "員工",
+          "en": "employee",
           "pos": "名詞",
           "hanViet": "人員",
-          "category": "生活日常",
-          "example": "nhân viên ngoại giao",
-          "exampleZh": "外交官。"
+          "category": "生活名詞",
+          "example": "Công ty có năm mươi nhân viên.",
+          "exampleZh": "公司有五十名員工。"
         },
         {
           "id": "freq_613",
           "rank": 613,
           "viet": "nữ",
-          "zh": "雌 / 堂客",
-          "zhSpoken": "雌，堂客",
-          "en": "female; woman",
-          "pos": "名詞",
+          "zh": "女",
+          "zhSpoken": "女",
+          "en": "female",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nữ anh hùng",
-          "exampleZh": "巾幗英雄。 坤。"
+          "category": "描述與狀態",
+          "example": "Nhà vệ sinh nữ ở đâu?",
+          "exampleZh": "女廁在哪裡？"
         },
         {
           "id": "freq_614",
           "rank": 614,
           "viet": "chia sẻ",
-          "zh": "分擔 / 分憂",
-          "zhSpoken": "分擔，分憂",
-          "en": "To share",
+          "zh": "分享",
+          "zhSpoken": "分享",
+          "en": "to share",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chia sẻ trách nhiệm",
-          "exampleZh": "分擔責任。"
+          "category": "日常動詞",
+          "example": "Cảm ơn bạn đã chia sẻ.",
+          "exampleZh": "謝謝你的分享。"
         },
         {
           "id": "freq_615",
           "rank": 615,
           "viet": "thịt",
-          "zh": "肉類 / 宰",
-          "zhSpoken": "肉類，宰",
-          "en": "meat, flesh pulp",
+          "zh": "肉",
+          "zhSpoken": "肉",
+          "en": "meat",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Thịt này rất cần thiết cho công việc.",
-          "exampleZh": "這個「肉類」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tôi không ăn thịt bò.",
+          "exampleZh": "我不吃牛肉。"
         },
         {
           "id": "freq_616",
           "rank": 616,
           "viet": "nặng",
-          "zh": "沉 / 沉重",
-          "zhSpoken": "沉，沉重",
-          "en": "heavy; ponderous; weighty",
-          "pos": "動詞",
+          "zh": "重",
+          "zhSpoken": "重",
+          "en": "heavy",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cái này rất nặng",
-          "exampleZh": "這東西很沉。"
+          "category": "描述與狀態",
+          "example": "Vali này nặng quá.",
+          "exampleZh": "這個行李箱好重。"
         },
         {
           "id": "freq_617",
           "rank": 617,
           "viet": "bình thường",
-          "zh": "慣常 / 不即不離",
-          "zhSpoken": "慣常，不即不離",
-          "en": "Ordinary, usual, normal, indifferen",
-          "pos": "動詞",
+          "zh": "普通 / 正常",
+          "zhSpoken": "普通，正常",
+          "en": "normal",
+          "pos": "形容詞",
           "hanViet": "平常",
-          "category": "日常必備動詞",
-          "example": "xem là bình thường; coi là bình thường",
-          "exampleZh": "等閒視之。"
+          "category": "描述與狀態",
+          "example": "Hôm nay tôi thấy bình thường.",
+          "exampleZh": "今天我覺得還好。"
         },
         {
           "id": "freq_618",
           "rank": 618,
           "viet": "vua",
-          "zh": "闢 / 大王",
-          "zhSpoken": "闢，大王",
+          "zh": "國王",
+          "zhSpoken": "國王",
           "en": "king",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "vua dầu lửa",
-          "exampleZh": "石油大王。"
+          "category": "生活名詞",
+          "example": "Huế từng là nơi ở của vua.",
+          "exampleZh": "順化曾是皇帝的居所。"
         },
         {
           "id": "freq_619",
           "rank": 619,
           "viet": "giới thiệu",
-          "zh": "引薦 / 薦",
-          "zhSpoken": "引薦，薦",
-          "en": "to present; to introduce",
+          "zh": "介紹",
+          "zhSpoken": "介紹",
+          "en": "to introduce",
           "pos": "動詞",
           "hanViet": "介紹",
-          "category": "日常必備動詞",
-          "example": "làm mối; giới thiệu",
-          "exampleZh": "牽線搭橋。"
+          "category": "日常動詞",
+          "example": "Tôi xin giới thiệu về bản thân.",
+          "exampleZh": "我來自我介紹一下。"
         },
         {
           "id": "freq_620",
           "rank": 620,
           "viet": "nhu cầu",
-          "zh": "需求 / 需要",
-          "zhSpoken": "需求，需要",
-          "en": "need; want; demand; requirement",
+          "zh": "需求",
+          "zhSpoken": "需求",
+          "en": "demand",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nhu cầu",
-          "exampleZh": "需求。"
+          "category": "生活名詞",
+          "example": "Nhu cầu cà phê ngày càng tăng.",
+          "exampleZh": "咖啡的需求越來越高。"
         },
         {
           "id": "freq_621",
           "rank": 621,
           "viet": "cắt",
-          "zh": "裁 / 裁剪",
-          "zhSpoken": "裁，裁剪",
-          "en": "Common kestrel",
+          "zh": "剪 / 切",
+          "zhSpoken": "剪，切",
+          "en": "to cut",
           "pos": "動詞",
           "hanViet": "割",
-          "category": "日常必備動詞",
-          "example": "cắt cỏ",
-          "exampleZh": "打草。"
+          "category": "日常動詞",
+          "example": "Tôi muốn cắt tóc.",
+          "exampleZh": "我想剪頭髮。"
         },
         {
           "id": "freq_622",
           "rank": 622,
           "viet": "kỳ",
-          "zh": "期 / 旗",
-          "zhSpoken": "期，旗",
-          "en": "flag; banner",
-          "pos": "動詞",
-          "hanViet": "奇",
-          "category": "日常必備動詞",
-          "example": "học kỳ",
-          "exampleZh": "學期。"
+          "zh": "期 / 奇怪",
+          "zhSpoken": "期，奇怪",
+          "en": "period; strange",
+          "pos": "名詞",
+          "hanViet": "期",
+          "category": "生活名詞",
+          "example": "Kỳ nghỉ này tôi về nước.",
+          "exampleZh": "這次假期我要回國。"
         },
         {
           "id": "freq_623",
           "rank": 623,
           "viet": "đỏ",
-          "zh": "赤 / 飛紅",
-          "zhSpoken": "赤，飛紅",
-          "en": "Red",
+          "zh": "紅色",
+          "zhSpoken": "紅色",
+          "en": "red",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "đậu đỏ",
-          "exampleZh": "赤小豆。"
+          "category": "描述與狀態",
+          "example": "Lì xì màu đỏ rất đẹp.",
+          "exampleZh": "紅包很漂亮。"
         },
         {
           "id": "freq_624",
           "rank": 624,
           "viet": "nhân dân",
-          "zh": "百姓 / 人們",
-          "zhSpoken": "百姓，人們",
-          "en": "people; country",
+          "zh": "人民",
+          "zhSpoken": "人民",
+          "en": "the people",
           "pos": "名詞",
           "hanViet": "人民",
-          "category": "生活日常",
-          "example": "Nhân dân này rất cần thiết cho công việc.",
-          "exampleZh": "這個「百姓」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Nhân dân Việt Nam rất hiếu khách.",
+          "exampleZh": "越南人民很好客。"
         },
         {
           "id": "freq_625",
           "rank": 625,
           "viet": "thành viên",
-          "zh": "成員 / 會員",
-          "zhSpoken": "成員，會員",
+          "zh": "成員",
+          "zhSpoken": "成員",
           "en": "member",
           "pos": "名詞",
           "hanViet": "成員",
-          "category": "生活日常",
-          "example": "thành viên công đoàn",
-          "exampleZh": "工會會員。"
+          "category": "生活名詞",
+          "example": "Gia đình tôi có năm thành viên.",
+          "exampleZh": "我家有五位成員。"
         },
         {
           "id": "freq_626",
           "rank": 626,
           "viet": "rõ ràng",
-          "zh": "白 / 炳",
-          "zhSpoken": "白，炳",
-          "en": "clear; evident; plain",
+          "zh": "清楚 / 明確",
+          "zhSpoken": "清楚，明確",
+          "en": "clear",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "nói có sách mách có chứng; rõ ràng ràng; rõ mười mươi",
-          "exampleZh": "班班可考。"
+          "category": "描述與狀態",
+          "example": "Anh ấy giải thích rất rõ ràng.",
+          "exampleZh": "他解釋得很清楚。"
         },
         {
           "id": "freq_627",
           "rank": 627,
           "viet": "miền",
-          "zh": "地區 / 地帶",
-          "zhSpoken": "地區，地帶",
-          "en": "region; district; climate",
+          "zh": "地區（大區域）",
+          "zhSpoken": "地區",
+          "en": "region",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "các miền",
-          "exampleZh": "各地。"
+          "category": "生活名詞",
+          "example": "Tôi thích món ăn miền Trung.",
+          "exampleZh": "我喜歡中部菜。"
         },
         {
           "id": "freq_628",
           "rank": 628,
           "viet": "giao",
-          "zh": "發 / 交代",
-          "zhSpoken": "發，交代",
-          "en": "to entrust; to assign",
+          "zh": "交付 / 外送",
+          "zhSpoken": "交付，外送",
+          "en": "to deliver",
           "pos": "動詞",
           "hanViet": "交",
-          "category": "日常必備動詞",
-          "example": "giao hàng",
-          "exampleZh": "發貨。"
+          "category": "日常動詞",
+          "example": "Khi nào giao hàng?",
+          "exampleZh": "什麼時候交貨？"
         },
         {
           "id": "freq_629",
           "rank": 629,
           "viet": "Pháp",
-          "zh": "法 / 法術",
-          "zhSpoken": "法，法術",
-          "en": "France",
+          "zh": "法國 / 法律",
+          "zhSpoken": "法國，法律",
+          "en": "France; law",
           "pos": "名詞",
           "hanViet": "法",
-          "category": "生活日常",
-          "example": "hợp pháp",
-          "exampleZh": "合法。"
+          "category": "生活名詞",
+          "example": "Bánh mì có nguồn gốc từ Pháp.",
+          "exampleZh": "法國麵包源自法國。"
         },
         {
           "id": "freq_630",
           "rank": 630,
           "viet": "cơ thể",
-          "zh": "機理 / 軀體",
-          "zhSpoken": "機理，軀體",
-          "en": "Organism; Human body",
+          "zh": "身體",
+          "zhSpoken": "身體",
+          "en": "body",
           "pos": "名詞",
           "hanViet": "機體",
-          "category": "生活日常",
-          "example": "Cơ thể này rất cần thiết cho công việc.",
-          "exampleZh": "這個「機理」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Cơ thể cần nhiều nước.",
+          "exampleZh": "身體需要很多水。"
         },
         {
           "id": "freq_631",
           "rank": 631,
           "viet": "chết tiệt",
-          "zh": "該死的 / 倒楣",
-          "zhSpoken": "該死的，倒楣",
-          "en": "vocabulary",
+          "zh": "該死（粗話）",
+          "zhSpoken": "該死",
+          "en": "damn (swear)",
           "pos": "感嘆詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "con mèo chết tiệt tha mất một con cá rồi",
-          "exampleZh": "該死的貓又叼去一條魚。 鬼。"
+          "category": "語氣與助詞",
+          "example": "Chết tiệt, tôi quên chìa khóa!",
+          "exampleZh": "該死，我忘了鑰匙！"
         },
         {
           "id": "freq_632",
           "rank": 632,
           "viet": "luật",
-          "zh": "定則 / 規律",
-          "zhSpoken": "定則，規律",
-          "en": "law; rule; code; regulation",
+          "zh": "法律",
+          "zhSpoken": "法律",
+          "en": "law",
           "pos": "名詞",
           "hanViet": "律",
-          "category": "生活日常",
-          "example": "luật bàn tay trái",
-          "exampleZh": "左手定則。"
+          "category": "生活名詞",
+          "example": "Luật giao thông rất nghiêm.",
+          "exampleZh": "交通法規很嚴格。"
         },
         {
           "id": "freq_633",
           "rank": 633,
           "viet": "chúc",
-          "zh": "道喜 / 賀",
-          "zhSpoken": "道喜，賀",
-          "en": "To tilt",
+          "zh": "祝",
+          "zhSpoken": "祝",
+          "en": "to wish",
           "pos": "動詞",
           "hanViet": "祝",
-          "category": "日常必備動詞",
-          "example": "chúc mừng",
-          "exampleZh": "祝賀。"
+          "category": "日常動詞",
+          "example": "Chúc mừng năm mới!",
+          "exampleZh": "新年快樂！"
         },
         {
           "id": "freq_634",
           "rank": 634,
           "viet": "bệnh viện",
-          "zh": "病院 / 醫院",
-          "zhSpoken": "病院，醫院",
-          "en": "Hospital",
+          "zh": "醫院",
+          "zhSpoken": "醫院",
+          "en": "hospital",
           "pos": "名詞",
           "hanViet": "病院",
-          "category": "生活日常",
-          "example": "bệnh viện tâm thần",
-          "exampleZh": "精神病院。"
+          "category": "生活名詞",
+          "example": "Đưa tôi đến bệnh viện.",
+          "exampleZh": "送我去醫院。"
         },
         {
           "id": "freq_635",
           "rank": 635,
           "viet": "đoàn",
-          "zh": "撥子 / 綱",
-          "zhSpoken": "撥子，綱",
-          "en": "group; party; hand; crops",
+          "zh": "團體",
+          "zhSpoken": "團體",
+          "en": "group; delegation",
           "pos": "名詞",
           "hanViet": "團",
-          "category": "生活日常",
-          "example": "vừa nãy có một đoàn đi ngang qua đây",
-          "exampleZh": "剛纔有一撥子隊伍從這裏過去了。"
+          "category": "生活名詞",
+          "example": "Đoàn du lịch có hai mươi người.",
+          "exampleZh": "旅行團有二十人。"
         },
         {
           "id": "freq_636",
           "rank": 636,
           "viet": "thư",
-          "zh": "飛鴻 / 來信",
-          "zhSpoken": "飛鴻，來信",
+          "zh": "信件",
+          "zhSpoken": "信件",
           "en": "letter",
           "pos": "名詞",
           "hanViet": "書",
-          "category": "生活日常",
-          "example": "đưa thư tỏ tình; đýa tin nhạn",
-          "exampleZh": "飛鴻傳情。"
+          "category": "生活名詞",
+          "example": "Tôi gửi thư cho khách hàng.",
+          "exampleZh": "我寄信給客戶。"
         },
         {
           "id": "freq_637",
           "rank": 637,
           "viet": "thời điểm",
-          "zh": "時刻",
-          "zhSpoken": "時刻",
-          "en": "vocabulary",
+          "zh": "時間點",
+          "zhSpoken": "時間點",
+          "en": "moment; point in time",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Thời điểm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「時刻」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Bây giờ là thời điểm tốt nhất.",
+          "exampleZh": "現在是最好的時機。"
         },
         {
           "id": "freq_638",
           "rank": 638,
           "viet": "hứa",
-          "zh": "答允 / 應允",
-          "zhSpoken": "答允，應允",
-          "en": "to promise; to engage",
+          "zh": "承諾",
+          "zhSpoken": "承諾",
+          "en": "to promise",
           "pos": "動詞",
           "hanViet": "許",
-          "category": "日常必備動詞",
-          "example": "chúng tôi hứa hoàn thành nhiệm vụ trước thời hạn",
-          "exampleZh": "我們保證提前完成任務。"
+          "category": "日常動詞",
+          "example": "Tôi hứa sẽ trở lại.",
+          "exampleZh": "我答應會回來。"
         },
         {
           "id": "freq_639",
           "rank": 639,
           "viet": "may mắn",
-          "zh": "湊巧 / 多虧",
-          "zhSpoken": "湊巧，多虧",
-          "en": "lucky, fortunate",
+          "zh": "幸運",
+          "zhSpoken": "幸運",
+          "en": "lucky",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "mở cửa đã gặp may mắn",
-          "exampleZh": "開門紅。"
+          "category": "描述與狀態",
+          "example": "Chúc bạn may mắn!",
+          "exampleZh": "祝你好運！"
         },
         {
           "id": "freq_640",
           "rank": 640,
           "viet": "trang",
-          "zh": "版 / 篇兒",
-          "zhSpoken": "版，篇兒",
+          "zh": "頁",
+          "zhSpoken": "頁",
           "en": "page",
           "pos": "名詞",
-          "hanViet": "裝",
-          "category": "生活日常",
-          "example": "tin trang nhất",
-          "exampleZh": "頭版新聞。"
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Mở sách trang mười.",
+          "exampleZh": "打開書第十頁。"
         },
         {
           "id": "freq_641",
           "rank": 641,
           "viet": "trở nên",
-          "zh": "成爲 / 出挑",
-          "zhSpoken": "成爲，出挑",
-          "en": "to turn, to become",
+          "zh": "變得",
+          "zhSpoken": "變得",
+          "en": "to become",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể trở nên giúp tôi không?",
-          "exampleZh": "你能幫我成爲嗎？"
+          "category": "日常動詞",
+          "example": "Thời tiết trở nên lạnh hơn.",
+          "exampleZh": "天氣變得更冷了。"
         },
         {
           "id": "freq_642",
           "rank": 642,
           "viet": "sở",
-          "zh": "局 / 塊",
-          "zhSpoken": "局，塊",
-          "en": "service office",
+          "zh": "局 / 處",
+          "zhSpoken": "局，處",
+          "en": "department; office",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Sở này rất cần thiết cho công việc.",
-          "exampleZh": "這個「局」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tôi đến sở kế hoạch và đầu tư.",
+          "exampleZh": "我去計畫投資局。"
         },
         {
           "id": "freq_643",
           "rank": 643,
           "viet": "tình yêu",
-          "zh": "愛情 / 春",
-          "zhSpoken": "愛情，春",
-          "en": "love; passion",
+          "zh": "愛情",
+          "zhSpoken": "愛情",
+          "en": "love",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tình yêu trai gái",
-          "exampleZh": "春心。"
+          "category": "生活名詞",
+          "example": "Đây là một bài hát về tình yêu.",
+          "exampleZh": "這是一首關於愛情的歌。"
         },
         {
           "id": "freq_644",
           "rank": 644,
           "viet": "toàn bộ",
-          "zh": "百分之百 / 成數",
-          "zhSpoken": "百分之百，成數",
-          "en": "whole, all",
-          "pos": "名詞",
+          "zh": "全部",
+          "zhSpoken": "全部",
+          "en": "entire",
+          "pos": "限定詞",
           "hanViet": "全部",
-          "category": "生活日常",
-          "example": "thu hồi toàn bộ",
-          "exampleZh": "盡數收回。"
+          "category": "語法功能詞",
+          "example": "Tôi đã trả toàn bộ tiền.",
+          "exampleZh": "我已付清全部款項。"
         },
         {
           "id": "freq_645",
           "rank": 645,
           "viet": "trai",
-          "zh": "蟶 / 男子",
-          "zhSpoken": "蟶，男子",
-          "en": "oyster young man, boy",
+          "zh": "男的 / 蚌",
+          "zhSpoken": "男的，蚌",
+          "en": "male; clam",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ruộng nuôi trai",
-          "exampleZh": "蟶田。"
+          "category": "生活名詞",
+          "example": "Bạn trai của tôi người Việt.",
+          "exampleZh": "我男朋友是越南人。"
         },
         {
           "id": "freq_646",
           "rank": 646,
           "viet": "lũ",
-          "zh": "把子 / 撥",
-          "zhSpoken": "把子，撥",
-          "en": "gang; band; croud",
+          "zh": "洪水 / 一幫",
+          "zhSpoken": "洪水，一幫",
+          "en": "flood; bunch",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Lũ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「把子」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Miền Trung thường có lũ vào tháng mười.",
+          "exampleZh": "中部十月常有洪水。"
         },
         {
           "id": "freq_647",
           "rank": 647,
           "viet": "giấy",
-          "zh": "桑皮紙 / 紙",
-          "zhSpoken": "桑皮紙，紙",
+          "zh": "紙",
+          "zhSpoken": "紙",
           "en": "paper",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Giấy này rất cần thiết cho công việc.",
-          "exampleZh": "這個「桑皮紙」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Cho tôi một tờ giấy.",
+          "exampleZh": "請給我一張紙。"
         },
         {
           "id": "freq_648",
           "rank": 648,
           "viet": "vô",
-          "zh": "不 / 無",
-          "zhSpoken": "不，無",
-          "en": "vocabulary",
+          "zh": "進（南部）",
+          "zhSpoken": "進",
+          "en": "to enter (Southern)",
           "pos": "動詞",
-          "hanViet": "無",
-          "category": "日常必備動詞",
-          "example": "vô đạo đức",
-          "exampleZh": "不道德。"
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Mời anh vô nhà.",
+          "exampleZh": "請進屋。"
         },
         {
           "id": "freq_649",
           "rank": 649,
           "viet": "dễ dàng",
-          "zh": "便當 / 東西不多",
-          "zhSpoken": "便當，東西不多",
-          "en": "easy; fluent",
+          "zh": "容易",
+          "zhSpoken": "容易",
+          "en": "easily",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "đồ đạc chẳng nhiều nhặn gì, dọn dẹp rất dễ dàng",
-          "exampleZh": "東西不多, 收拾起來很便當。 便捷。"
+          "category": "描述與狀態",
+          "example": "Việc này rất dễ dàng.",
+          "exampleZh": "這件事很容易。"
         },
         {
           "id": "freq_650",
           "rank": 650,
           "viet": "thuê",
-          "zh": "包 / 僱",
-          "zhSpoken": "包，僱",
-          "en": "to hire to rent",
+          "zh": "租 / 雇用",
+          "zhSpoken": "租，雇用",
+          "en": "to rent; to hire",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thuê riêng một chiếc thuyền",
-          "exampleZh": "包 了一隻船。"
+          "category": "日常動詞",
+          "example": "Tôi muốn thuê xe máy.",
+          "exampleZh": "我想租機車。"
+        },
+        {
+          "id": "freq_651",
+          "rank": 651,
+          "viet": "tóc",
+          "zh": "頭髮",
+          "zhSpoken": "頭髮",
+          "en": "hair",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Tóc của cô ấy rất dài.",
+          "exampleZh": "她的頭髮很長。"
+        },
+        {
+          "id": "freq_652",
+          "rank": 652,
+          "viet": "tặng",
+          "zh": "贈送",
+          "zhSpoken": "贈送",
+          "en": "to give (a gift)",
+          "pos": "動詞",
+          "hanViet": "贈",
+          "category": "日常動詞",
+          "example": "Tôi tặng bạn món quà này.",
+          "exampleZh": "這份禮物送給你。"
         }
       ],
-      "duration": 736.0
+      "duration": 706.2
     },
     {
       "batchId": 14,
       "tier": "top1k",
       "titleZh": "第 14 組 · 天氣環境與自然萬物",
       "titleEn": "Batch 14 · Top 1,000",
-      "range": "651 - 700",
-      "startRank": 651,
-      "endRank": 700,
+      "range": "653 - 702",
+      "startRank": 653,
+      "endRank": 702,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_14.mp3",
       "fileName": "vocab_1000_batch_14.mp3",
       "words": [
         {
-          "id": "freq_651",
-          "rank": 651,
-          "viet": "tóc",
-          "zh": "頭髮 / 毛髮",
-          "zhSpoken": "頭髮，毛髮",
-          "en": "hair",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "lông tóc",
-          "exampleZh": "毛髮。"
-        },
-        {
-          "id": "freq_652",
-          "rank": 652,
-          "viet": "tặng",
-          "zh": "頒贈 / 佈施",
-          "zhSpoken": "頒贈，佈施",
-          "en": "to present, to give",
-          "pos": "動詞",
-          "hanViet": "贈",
-          "category": "日常必備動詞",
-          "example": "kính tặng một quyển sách mới",
-          "exampleZh": "奉上新書一冊。"
-        },
-        {
           "id": "freq_653",
           "rank": 653,
           "viet": "trái",
-          "zh": "拗 / 倒掛",
-          "zhSpoken": "拗，倒掛",
-          "en": "left wrong contrary",
-          "pos": "動詞",
-          "hanViet": "債",
-          "category": "日常必備動詞",
-          "example": "trái ý; không tuân theo",
-          "exampleZh": "違拗。"
+          "zh": "左 / 水果（南部）",
+          "zhSpoken": "左，水果",
+          "en": "left; fruit",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Rẽ trái ở ngã tư.",
+          "exampleZh": "在十字路口左轉。"
         },
         {
           "id": "freq_654",
           "rank": 654,
           "viet": "cuốn",
-          "zh": "本 / 卷",
-          "zhSpoken": "本，卷",
-          "en": "to roll; to roll up; to sweep; to c",
-          "pos": "動詞",
+          "zh": "本（量詞）/ 捲",
+          "zhSpoken": "本，捲",
+          "en": "classifier for books; to roll",
+          "pos": "量詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "gió cuốn những giọt mưa phà tới tấp vào mặt",
-          "exampleZh": "風捲着雨點劈面打來。"
+          "category": "數字與量詞",
+          "example": "Tôi đọc xong cuốn sách này rồi.",
+          "exampleZh": "我讀完這本書了。"
         },
         {
           "id": "freq_655",
           "rank": 655,
           "viet": "bánh",
-          "zh": "粑粑 / 餅",
-          "zhSpoken": "粑粑，餅",
-          "en": "Cake",
+          "zh": "餅 / 糕點",
+          "zhSpoken": "餅，糕點",
+          "en": "cake; bread",
           "pos": "名詞",
           "hanViet": "餅",
-          "category": "生活日常",
-          "example": "bánh dày",
-          "exampleZh": "餈粑。"
+          "category": "生活名詞",
+          "example": "Bánh này rất ngọt.",
+          "exampleZh": "這個餅很甜。"
         },
         {
           "id": "freq_656",
           "rank": 656,
           "viet": "trải",
-          "zh": "鋪 / 鋪設",
-          "zhSpoken": "鋪，鋪設",
-          "en": "to spread, to lay; to stretch out",
+          "zh": "鋪 / 經歷",
+          "zhSpoken": "鋪，經歷",
+          "en": "to spread; to go through",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "trải giường chiếu",
-          "exampleZh": "鋪牀。"
+          "category": "日常動詞",
+          "example": "Tôi trải chiếu ra sàn.",
+          "exampleZh": "我把蓆子鋪在地上。"
         },
         {
           "id": "freq_657",
           "rank": 657,
           "viet": "cánh",
-          "zh": "花瓣 / 側翼",
-          "zhSpoken": "花瓣，側翼",
-          "en": "Wing",
+          "zh": "翅膀 / 一側",
+          "zhSpoken": "翅膀，一側",
+          "en": "wing",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "hoa mai có 5 cánh",
-          "exampleZh": "梅花有五個瓣兒。"
+          "category": "生活名詞",
+          "example": "Cánh gà nướng rất ngon.",
+          "exampleZh": "烤雞翅很好吃。"
         },
         {
           "id": "freq_658",
           "rank": 658,
           "viet": "quà",
-          "zh": "禮物 / 禮品",
-          "zhSpoken": "禮物，禮品",
-          "en": "gift; present",
+          "zh": "禮物",
+          "zhSpoken": "禮物",
+          "en": "gift",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nhận quà hậu hỉ mà thấy hổ thẹn",
-          "exampleZh": "厚賜 受之有愧。 回禮。"
+          "category": "生活名詞",
+          "example": "Đây là quà cho bạn.",
+          "exampleZh": "這是給你的禮物。"
         },
         {
           "id": "freq_659",
           "rank": 659,
           "viet": "chăm sóc",
-          "zh": "擺治 / 保養",
-          "zhSpoken": "擺治，保養",
-          "en": "To attend on (upon), to care for",
+          "zh": "照顧",
+          "zhSpoken": "照顧",
+          "en": "to take care of",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mảnh đất này anh ấy chăm sóc khá quá",
-          "exampleZh": "這塊地他擺治得不錯。"
+          "category": "日常動詞",
+          "example": "Tôi chăm sóc mẹ tôi.",
+          "exampleZh": "我照顧媽媽。"
         },
         {
           "id": "freq_660",
           "rank": 660,
           "viet": "lịch sử",
-          "zh": "史",
-          "zhSpoken": "史",
-          "en": "History",
+          "zh": "歷史",
+          "zhSpoken": "歷史",
+          "en": "history",
           "pos": "名詞",
           "hanViet": "歷史",
-          "category": "生活日常",
-          "example": "lịch sử của trái đất",
-          "exampleZh": "地球的歷史。"
+          "category": "生活名詞",
+          "example": "Việt Nam có lịch sử rất lâu đời.",
+          "exampleZh": "越南有悠久的歷史。"
         },
         {
           "id": "freq_661",
           "rank": 661,
           "viet": "văn phòng",
-          "zh": "辦公廳",
-          "zhSpoken": "辦公廳",
-          "en": "office secretariat",
+          "zh": "辦公室",
+          "zhSpoken": "辦公室",
+          "en": "office",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Văn phòng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「辦公廳」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Văn phòng ở tầng năm.",
+          "exampleZh": "辦公室在五樓。"
         },
         {
           "id": "freq_662",
           "rank": 662,
           "viet": "nuôi",
-          "zh": "把 / 幹",
-          "zhSpoken": "把，幹",
-          "en": "to nourish; to bring up; to feed; t",
+          "zh": "養",
+          "zhSpoken": "養",
+          "en": "to raise",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh kết nghĩa; anh nuôi",
-          "exampleZh": "把兄。"
+          "category": "日常動詞",
+          "example": "Nhà tôi nuôi một con mèo.",
+          "exampleZh": "我家養了一隻貓。"
         },
         {
           "id": "freq_663",
           "rank": 663,
           "viet": "hồ sơ",
-          "zh": "檔案 / 卷宗",
-          "zhSpoken": "檔案，卷宗",
-          "en": "file; record",
+          "zh": "資料 / 檔案",
+          "zhSpoken": "資料，檔案",
+          "en": "file; dossier",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tìm hồ sơ",
-          "exampleZh": "查檔。"
+          "category": "生活名詞",
+          "example": "Tôi đã nộp hồ sơ xin việc.",
+          "exampleZh": "我已遞交求職資料。"
         },
         {
           "id": "freq_664",
           "rank": 664,
           "viet": "căn",
-          "zh": "棟 / 幢",
-          "zhSpoken": "棟，幢",
-          "en": "House",
-          "pos": "動詞",
-          "hanViet": "根",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể căn giúp tôi không?",
-          "exampleZh": "你能幫我棟嗎？"
+          "zh": "間 / 棟（量詞）",
+          "zhSpoken": "間，棟",
+          "en": "classifier for rooms, houses",
+          "pos": "量詞",
+          "hanViet": "",
+          "category": "數字與量詞",
+          "example": "Tôi thuê một căn hộ nhỏ.",
+          "exampleZh": "我租了一間小公寓。"
         },
         {
           "id": "freq_665",
           "rank": 665,
           "viet": "nghỉ",
-          "zh": "罷休 / 打揢",
-          "zhSpoken": "罷休，打揢",
-          "en": "to rest; to repose; to take a rest",
+          "zh": "休息 / 請假",
+          "zhSpoken": "休息，請假",
+          "en": "to rest; to take leave",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh ấy nói chuyện không hề nghỉ",
-          "exampleZh": "他說話從不打揢。 度假。"
+          "category": "日常動詞",
+          "example": "Chúng ta nghỉ một lát nhé.",
+          "exampleZh": "我們休息一下吧。"
         },
         {
           "id": "freq_666",
           "rank": 666,
           "viet": "thân",
-          "zh": "親屬 / 稈子",
-          "zhSpoken": "親屬，稈子",
-          "en": "body, trunk, stem personal lot, fat",
-          "pos": "名詞",
-          "hanViet": "親",
-          "category": "生活日常",
-          "example": "thân cây thuốc",
-          "exampleZh": "煙稈。"
+          "zh": "身體 / 親近",
+          "zhSpoken": "身體，親近",
+          "en": "body; close",
+          "pos": "形容詞",
+          "hanViet": "身",
+          "category": "描述與狀態",
+          "example": "Chúng tôi là bạn thân.",
+          "exampleZh": "我們是好朋友。"
         },
         {
           "id": "freq_667",
           "rank": 667,
           "viet": "rừng",
-          "zh": "林",
-          "zhSpoken": "林",
-          "en": "wood; forest; jungle",
+          "zh": "森林",
+          "zhSpoken": "森林",
+          "en": "forest",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "rừng cây",
-          "exampleZh": "樹林。"
+          "category": "生活名詞",
+          "example": "Vườn quốc gia này có rừng rất lớn.",
+          "exampleZh": "這座國家公園有很大的森林。"
         },
         {
           "id": "freq_668",
           "rank": 668,
           "viet": "nhạc",
-          "zh": "曲 / 清音",
-          "zhSpoken": "曲，清音",
-          "en": "Music",
+          "zh": "音樂",
+          "zhSpoken": "音樂",
+          "en": "music",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Nhạc này rất cần thiết cho công việc.",
-          "exampleZh": "這個「曲」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tôi thích nghe nhạc trữ tình.",
+          "exampleZh": "我喜歡聽抒情樂。"
         },
         {
           "id": "freq_669",
           "rank": 669,
           "viet": "lượng",
-          "zh": "估量 / 量",
-          "zhSpoken": "估量，量",
-          "en": "quantity",
+          "zh": "量",
+          "zhSpoken": "量",
+          "en": "amount",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "lượng cơm",
-          "exampleZh": "飯量。"
+          "category": "生活名詞",
+          "example": "Lượng khách năm nay tăng nhiều.",
+          "exampleZh": "今年客量增加很多。"
         },
         {
           "id": "freq_670",
           "rank": 670,
           "viet": "xấu",
-          "zh": "貶 / 蹩腳",
-          "zhSpoken": "貶，蹩腳",
-          "en": "ugly, bad, worse",
+          "zh": "醜 / 不好",
+          "zhSpoken": "醜，不好",
+          "en": "ugly; bad",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "từ mang nghĩa xấu",
-          "exampleZh": "貶詞。"
+          "category": "描述與狀態",
+          "example": "Thời tiết hôm nay xấu quá.",
+          "exampleZh": "今天天氣真差。"
         },
         {
           "id": "freq_671",
           "rank": 671,
           "viet": "Việt",
-          "zh": "鉞 / 超越",
-          "zhSpoken": "鉞，超越",
-          "en": "Việt ethnic group occupies 87% of t",
+          "zh": "越（越南）",
+          "zhSpoken": "越",
+          "en": "Viet",
           "pos": "名詞",
-          "hanViet": "鉞",
-          "category": "生活日常",
-          "example": "Lưỡng Việt; Lưỡng Quảng",
-          "exampleZh": "兩粵。"
+          "hanViet": "越",
+          "category": "生活名詞",
+          "example": "Tôi đang học tiếng Việt.",
+          "exampleZh": "我正在學越語。"
         },
         {
           "id": "freq_672",
           "rank": 672,
           "viet": "chú ý",
-          "zh": "打量 / 定神",
-          "zhSpoken": "打量，定神",
-          "en": "To pay attention to",
+          "zh": "注意",
+          "zhSpoken": "注意",
+          "en": "to pay attention",
           "pos": "動詞",
           "hanViet": "注意",
-          "category": "日常必備動詞",
-          "example": "nghe có tiếng người gọi, tôi chú ý nhìn thì ra là cậu Lý",
-          "exampleZh": "聽見有人叫我, 定神一看原來是小李。 分神。"
+          "category": "日常動詞",
+          "example": "Xin chú ý, tàu sắp đến.",
+          "exampleZh": "請注意，列車即將到站。"
         },
         {
           "id": "freq_673",
           "rank": 673,
           "viet": "trực tiếp",
-          "zh": "筆直 / 第一手",
-          "zhSpoken": "筆直，第一手",
+          "zh": "直接",
+          "zhSpoken": "直接",
           "en": "direct",
-          "pos": "動詞",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tài liệu trực tiếp",
-          "exampleZh": "第一手材料。"
+          "category": "描述與狀態",
+          "example": "Chúng ta nói chuyện trực tiếp nhé.",
+          "exampleZh": "我們當面談吧。"
         },
         {
           "id": "freq_674",
           "rank": 674,
           "viet": "lá",
-          "zh": "薄層 / 箔",
-          "zhSpoken": "薄層，箔",
+          "zh": "葉子 / 張",
+          "zhSpoken": "葉子，張",
           "en": "leaf",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "vàng lá",
-          "exampleZh": "金箔兒。"
+          "category": "生活名詞",
+          "example": "Lá cây chuyển màu vàng.",
+          "exampleZh": "樹葉變黃了。"
         },
         {
           "id": "freq_675",
           "rank": 675,
           "viet": "thay",
-          "zh": "代爲 / 代償",
-          "zhSpoken": "代爲，代償",
-          "en": "to replace, to substitute to change",
+          "zh": "換 / 代替",
+          "zhSpoken": "換，代替",
+          "en": "to change; instead of",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "dạy thay; dạy thế; dạy hộ",
-          "exampleZh": "代課。"
+          "category": "日常動詞",
+          "example": "Tôi muốn thay phòng khác.",
+          "exampleZh": "我想換另一間房。"
         },
         {
           "id": "freq_676",
           "rank": 676,
           "viet": "tệ",
-          "zh": "敝 / 幣",
-          "zhSpoken": "敝，幣",
-          "en": "evil, social evil",
-          "pos": "名詞",
-          "hanViet": "敝",
-          "category": "生活日常",
-          "example": "tệ tính (họ của tôi)",
-          "exampleZh": "敝姓。"
+          "zh": "糟 / 貨幣",
+          "zhSpoken": "糟，貨幣",
+          "en": "bad; currency",
+          "pos": "形容詞",
+          "hanViet": "弊",
+          "category": "描述與狀態",
+          "example": "Dịch vụ này tệ quá.",
+          "exampleZh": "這服務太差了。"
         },
         {
           "id": "freq_677",
           "rank": 677,
           "viet": "đen",
-          "zh": "黕 / 黑",
-          "zhSpoken": "黕，黑",
-          "en": "black; unlucky",
+          "zh": "黑色",
+          "zhSpoken": "黑色",
+          "en": "black",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "hoa cúc đen",
-          "exampleZh": "墨菊。"
+          "category": "描述與狀態",
+          "example": "Cho tôi một ly cà phê đen.",
+          "exampleZh": "請給我一杯黑咖啡。"
         },
         {
           "id": "freq_678",
           "rank": 678,
           "viet": "hãng",
-          "zh": "公司 / 行",
-          "zhSpoken": "公司，行",
-          "en": "firm; company",
+          "zh": "公司（品牌）",
+          "zhSpoken": "公司",
+          "en": "firm; brand",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "hãng buôn; hiệu buôn",
-          "exampleZh": "商行。"
+          "category": "生活名詞",
+          "example": "Hãng này sản xuất xe máy.",
+          "exampleZh": "這家公司生產機車。"
         },
         {
           "id": "freq_679",
           "rank": 679,
           "viet": "viên",
-          "zh": "蛋子 / 疙瘩",
-          "zhSpoken": "蛋子，疙瘩",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "顆 / 員（職稱）",
+          "zhSpoken": "顆，員",
+          "en": "pill; member suffix",
+          "pos": "量詞",
           "hanViet": "員",
-          "category": "日常必備動詞",
-          "example": "một viên đạn",
-          "exampleZh": "一發子彈。"
+          "category": "數字與量詞",
+          "example": "Uống hai viên sau bữa ăn.",
+          "exampleZh": "飯後吃兩顆。"
         },
         {
           "id": "freq_680",
           "rank": 680,
           "viet": "phát",
-          "zh": "撥 / 播",
-          "zhSpoken": "撥，播",
-          "en": "to distribute, to dispense, to issu",
+          "zh": "發放 / 播放",
+          "zhSpoken": "發放，播放",
+          "en": "to distribute; to broadcast",
           "pos": "動詞",
           "hanViet": "發",
-          "category": "日常必備動詞",
-          "example": "phát thanh",
-          "exampleZh": "廣播。"
+          "category": "日常動詞",
+          "example": "Họ phát tài liệu cho mọi người.",
+          "exampleZh": "他們發資料給大家。"
         },
         {
           "id": "freq_681",
           "rank": 681,
           "viet": "trốn",
-          "zh": "閃躲 / 逭",
-          "zhSpoken": "閃躲，逭",
-          "en": "to hide oneself, to run away to eva",
+          "zh": "躲 / 逃",
+          "zhSpoken": "躲，逃",
+          "en": "to hide; to flee",
           "pos": "動詞",
-          "hanViet": "遁",
-          "category": "日常必備動詞",
-          "example": "trốn",
-          "exampleZh": "逃遁。"
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Con mèo trốn dưới giường.",
+          "exampleZh": "貓躲在床底下。"
         },
         {
           "id": "freq_682",
           "rank": 682,
           "viet": "tim",
-          "zh": "燈草 / 芯",
-          "zhSpoken": "燈草，芯",
-          "en": "heart wick",
+          "zh": "心臟",
+          "zhSpoken": "心臟",
+          "en": "heart",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Tim này rất cần thiết cho công việc.",
-          "exampleZh": "這個「燈草」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tim tôi đập rất nhanh.",
+          "exampleZh": "我的心跳很快。"
         },
         {
           "id": "freq_683",
           "rank": 683,
           "viet": "thăm",
-          "zh": "過訪 / 觀光",
-          "zhSpoken": "過訪，觀光",
-          "en": "lot; ballot, vote",
+          "zh": "拜訪",
+          "zhSpoken": "拜訪",
+          "en": "to visit",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thăm bạn",
-          "exampleZh": "訪友。"
+          "category": "日常動詞",
+          "example": "Tôi đến thăm bạn.",
+          "exampleZh": "我來拜訪你。"
         },
         {
           "id": "freq_684",
           "rank": 684,
           "viet": "hành động",
-          "zh": "跡 / 舉措",
-          "zhSpoken": "跡，舉措",
-          "en": "to act",
-          "pos": "動詞",
+          "zh": "行動",
+          "zhSpoken": "行動",
+          "en": "action",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hành động không thích hợp",
-          "exampleZh": "舉措失當。"
+          "category": "生活名詞",
+          "example": "Đây là một hành động tốt.",
+          "exampleZh": "這是個好的舉動。"
         },
         {
           "id": "freq_685",
           "rank": 685,
           "viet": "núi",
-          "zh": "岵 / 岫",
-          "zhSpoken": "岵，岫",
+          "zh": "山",
+          "zhSpoken": "山",
           "en": "mountain",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "dãy núi",
-          "exampleZh": "山巒。"
+          "category": "生活名詞",
+          "example": "Sa Pa có nhiều núi cao.",
+          "exampleZh": "沙壩有很多高山。"
         },
         {
           "id": "freq_686",
           "rank": 686,
           "viet": "tự nhiên",
-          "zh": "純樸 / 大大落落",
-          "zhSpoken": "純樸，大大落落",
-          "en": "nature",
-          "pos": "動詞",
+          "zh": "自然 / 請隨意",
+          "zhSpoken": "自然，請隨意",
+          "en": "natural; make yourself at home",
+          "pos": "形容詞",
           "hanViet": "自然",
-          "category": "日常必備動詞",
-          "example": "cử chỉ tự nhiên",
-          "exampleZh": "舉止大方。"
+          "category": "描述與狀態",
+          "example": "Anh cứ tự nhiên nhé.",
+          "exampleZh": "請別拘束喔。"
         },
         {
           "id": "freq_687",
           "rank": 687,
           "viet": "dám",
-          "zh": "敢 / 敢於",
-          "zhSpoken": "敢，敢於",
-          "en": "to dare; to be bold erought tọ",
+          "zh": "敢",
+          "zhSpoken": "敢",
+          "en": "to dare",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "dám đứng ra làm",
-          "exampleZh": "敢作敢爲。"
+          "category": "日常動詞",
+          "example": "Tôi không dám ăn món này.",
+          "exampleZh": "我不敢吃這道菜。"
         },
         {
           "id": "freq_688",
           "rank": 688,
           "viet": "cầu",
-          "zh": "擺軸 / 博取",
-          "zhSpoken": "擺軸，博取",
-          "en": "Ball",
-          "pos": "動詞",
-          "hanViet": "求",
-          "category": "日常必備動詞",
-          "example": "đá cầu",
-          "exampleZh": "蹴鞠。"
+          "zh": "橋 / 祈求",
+          "zhSpoken": "橋，祈求",
+          "en": "bridge; to pray",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Cầu Rồng ở Đà Nẵng rất đẹp.",
+          "exampleZh": "峴港的龍橋很美。"
         },
         {
           "id": "freq_689",
           "rank": 689,
           "viet": "làng",
-          "zh": "屯子 / 浩特",
-          "zhSpoken": "屯子，浩特",
-          "en": "Village",
+          "zh": "村莊",
+          "zhSpoken": "村莊",
+          "en": "village",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Làng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「屯子」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Làng này nổi tiếng về gốm.",
+          "exampleZh": "這個村子以陶器聞名。"
         },
         {
           "id": "freq_690",
           "rank": 690,
           "viet": "chụp",
-          "zh": "捕捉 / 復",
-          "zhSpoken": "捕捉，復",
-          "en": "To cover, to put on",
+          "zh": "拍（照）",
+          "zhSpoken": "拍",
+          "en": "to take (a photo)",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chụp cơ hội",
-          "exampleZh": "抓住時機。"
+          "category": "日常動詞",
+          "example": "Chụp giúp tôi một tấm ảnh nhé.",
+          "exampleZh": "請幫我拍一張照。"
         },
         {
           "id": "freq_691",
           "rank": 691,
           "viet": "tụi",
-          "zh": "幫子",
-          "zhSpoken": "幫子",
-          "en": "vocabulary",
+          "zh": "（一群人，口語）",
+          "zhSpoken": "（一群人，口語）",
+          "en": "group (Southern casual)",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tụi nhỏ này hăng thật",
-          "exampleZh": "這幫子青年幹勁真大。"
+          "category": "生活名詞",
+          "example": "Tụi mình đi cà phê đi.",
+          "exampleZh": "我們去喝咖啡吧。"
         },
         {
           "id": "freq_692",
           "rank": 692,
           "viet": "thời",
-          "zh": "代 / 年代",
-          "zhSpoken": "代，年代",
-          "en": "vocabulary",
+          "zh": "時代 / 時候",
+          "zhSpoken": "時代，時候",
+          "en": "era; time",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "thời cổ; thời xưa",
-          "exampleZh": "古代。"
+          "category": "生活名詞",
+          "example": "Thời đó chưa có điện thoại.",
+          "exampleZh": "那個年代還沒有手機。"
         },
         {
           "id": "freq_693",
           "rank": 693,
           "viet": "nhảy",
-          "zh": "跳 / 蹦兒",
-          "zhSpoken": "跳，蹦兒",
-          "en": "to dance",
+          "zh": "跳 / 跳舞",
+          "zhSpoken": "跳，跳舞",
+          "en": "to jump; to dance",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mừng nhảy cẩng lên",
-          "exampleZh": "歡蹦亂跳。"
+          "category": "日常動詞",
+          "example": "Cô ấy nhảy rất đẹp.",
+          "exampleZh": "她舞跳得很美。"
         },
         {
           "id": "freq_694",
@@ -9235,939 +9209,939 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lĩnh vực",
           "zh": "領域",
           "zhSpoken": "領域",
-          "en": "vocabulary",
+          "en": "field; sector",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "lĩnh vực tư tưởng",
-          "exampleZh": "思想領域。"
+          "category": "生活名詞",
+          "example": "Anh làm trong lĩnh vực nào?",
+          "exampleZh": "你在哪個領域工作？"
         },
         {
           "id": "freq_695",
           "rank": 695,
           "viet": "kỹ thuật",
-          "zh": "術 / 工藝",
-          "zhSpoken": "術，工藝",
-          "en": "technique; technology",
+          "zh": "技術",
+          "zhSpoken": "技術",
+          "en": "technique",
           "pos": "名詞",
           "hanViet": "技術",
-          "category": "生活日常",
-          "example": "họ đã học được toàn bộ kỹ thuật lao động trên đồng ruộng",
-          "exampleZh": "他們學會了田間勞動的全套把勢。"
+          "category": "生活名詞",
+          "example": "Tôi là nhân viên kỹ thuật.",
+          "exampleZh": "我是技術人員。"
         },
         {
           "id": "freq_696",
           "rank": 696,
           "viet": "kinh nghiệm",
-          "zh": "本錢 / 經驗",
-          "zhSpoken": "本錢，經驗",
+          "zh": "經驗",
+          "zhSpoken": "經驗",
           "en": "experience",
           "pos": "名詞",
           "hanViet": "經驗",
-          "category": "生活日常",
-          "example": "Kinh nghiệm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「本錢」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Anh ấy có nhiều kinh nghiệm.",
+          "exampleZh": "他有很多經驗。"
         },
         {
           "id": "freq_697",
           "rank": 697,
           "viet": "kiểm soát",
-          "zh": "管制 / 檢查",
-          "zhSpoken": "管制，檢查",
-          "en": "to control; to examine",
+          "zh": "控制",
+          "zhSpoken": "控制",
+          "en": "to control",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể kiểm soát giúp tôi không?",
-          "exampleZh": "你能幫我管制嗎？"
+          "category": "日常動詞",
+          "example": "Chúng ta cần kiểm soát chi phí.",
+          "exampleZh": "我們需要控制成本。"
         },
         {
           "id": "freq_698",
           "rank": 698,
           "viet": "máy tính",
-          "zh": "電腦 / 計數器",
-          "zhSpoken": "電腦，計數器",
-          "en": "calculator, arithmoneter",
+          "zh": "電腦",
+          "zhSpoken": "電腦",
+          "en": "computer",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "máy tính xách tay",
-          "exampleZh": "筆記本電腦。"
+          "category": "生活名詞",
+          "example": "Máy tính của tôi bị hỏng.",
+          "exampleZh": "我的電腦壞了。"
         },
         {
           "id": "freq_699",
           "rank": 699,
           "viet": "y",
-          "zh": "他 / 依然",
-          "zhSpoken": "他，依然",
-          "en": "y",
-          "pos": "動詞",
-          "hanViet": "依",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể y giúp tôi không?",
-          "exampleZh": "你能幫我他嗎？"
+          "zh": "他（書面）/ 醫療",
+          "zhSpoken": "他，醫療",
+          "en": "he (literary); medical",
+          "pos": "代名詞",
+          "hanViet": "伊",
+          "category": "人稱與指示",
+          "example": "Y không nói gì cả.",
+          "exampleZh": "他什麼也沒說。"
         },
         {
           "id": "freq_700",
           "rank": 700,
           "viet": "hẳn",
-          "zh": "興許 / 通通",
-          "zhSpoken": "興許，通通",
-          "en": "surely; certainly; completely; for ",
+          "zh": "一定 / 徹底",
+          "zhSpoken": "一定，徹底",
+          "en": "surely; completely",
+          "pos": "副詞",
+          "hanViet": "",
+          "category": "語法功能詞",
+          "example": "Hẳn là anh ấy rất mệt.",
+          "exampleZh": "他一定很累。"
+        },
+        {
+          "id": "freq_701",
+          "rank": 701,
+          "viet": "đoán",
+          "zh": "猜",
+          "zhSpoken": "猜",
+          "en": "to guess",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể hẳn giúp tôi không?",
-          "exampleZh": "你能幫我興許嗎？"
+          "category": "日常動詞",
+          "example": "Bạn đoán xem tôi bao nhiêu tuổi.",
+          "exampleZh": "你猜我幾歲。"
+        },
+        {
+          "id": "freq_702",
+          "rank": 702,
+          "viet": "tương lai",
+          "zh": "未來",
+          "zhSpoken": "未來",
+          "en": "future",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Tôi muốn sống ở Việt Nam trong tương lai.",
+          "exampleZh": "未來我想住在越南。"
         }
       ],
-      "duration": 727.0
+      "duration": 712.6
     },
     {
       "batchId": 15,
       "tier": "top1k",
       "titleZh": "第 15 組 · 學習教育與科技資訊",
       "titleEn": "Batch 15 · Top 1,000",
-      "range": "701 - 750",
-      "startRank": 701,
-      "endRank": 750,
+      "range": "703 - 752",
+      "startRank": 703,
+      "endRank": 752,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_15.mp3",
       "fileName": "vocab_1000_batch_15.mp3",
       "words": [
         {
-          "id": "freq_701",
-          "rank": 701,
-          "viet": "đoán",
-          "zh": "懷疑 / 猜謎兒",
-          "zhSpoken": "懷疑，猜謎兒",
-          "en": "to guess; to conjecture; to divine",
-          "pos": "動詞",
-          "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tâm tư của anh ta tôi đoán không thấu",
-          "exampleZh": "他的心思我猜不透。"
-        },
-        {
-          "id": "freq_702",
-          "rank": 702,
-          "viet": "tương lai",
-          "zh": "將來 / 日後",
-          "zhSpoken": "將來，日後",
-          "en": "future",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "tương lai còn dài",
-          "exampleZh": "來日方長。"
-        },
-        {
           "id": "freq_703",
           "rank": 703,
           "viet": "hôm",
-          "zh": "傍黑 / 日",
-          "zhSpoken": "傍黑，日",
-          "en": "day",
+          "zh": "天（某日）",
+          "zhSpoken": "天",
+          "en": "day (specific)",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Hôm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「傍黑」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Hôm đó trời rất đẹp.",
+          "exampleZh": "那天天氣很好。"
         },
         {
           "id": "freq_704",
           "rank": 704,
           "viet": "đồng ý",
-          "zh": "承應 / 同意",
-          "zhSpoken": "承應，同意",
-          "en": "To agree; to concur; to assent",
+          "zh": "同意",
+          "zhSpoken": "同意",
+          "en": "to agree",
           "pos": "動詞",
           "hanViet": "同意",
-          "category": "日常必備動詞",
-          "example": "ban đầu nó không chịu, sau mới đồng ý",
-          "exampleZh": "他起初不肯, 後來答應了。"
+          "category": "日常動詞",
+          "example": "Tôi đồng ý với bạn.",
+          "exampleZh": "我同意你。"
         },
         {
           "id": "freq_705",
           "rank": 705,
           "viet": "thể hiện",
-          "zh": "表現 / 描摹",
-          "zhSpoken": "表現，描摹",
-          "en": "to express, to give expression to, ",
+          "zh": "表現",
+          "zhSpoken": "表現",
+          "en": "to express; to show",
           "pos": "動詞",
           "hanViet": "體現",
-          "category": "日常必備動詞",
-          "example": "cách thể hiện",
-          "exampleZh": "表現手法。"
+          "category": "日常動詞",
+          "example": "Món quà thể hiện lòng biết ơn.",
+          "exampleZh": "這份禮物表達感謝。"
         },
         {
           "id": "freq_706",
           "rank": 706,
           "viet": "triển khai",
-          "zh": "恢廓 / 開展",
-          "zhSpoken": "恢廓，開展",
-          "en": "vocabulary",
+          "zh": "展開 / 推行",
+          "zhSpoken": "展開，推行",
+          "en": "to roll out",
           "pos": "動詞",
           "hanViet": "展開",
-          "category": "日常必備動詞",
-          "example": "triển khai phê bình và tự phê bình",
-          "exampleZh": "開展批評與自我批評。"
+          "category": "日常動詞",
+          "example": "Công ty sẽ triển khai dự án mới.",
+          "exampleZh": "公司將推行新專案。"
         },
         {
           "id": "freq_707",
           "rank": 707,
           "viet": "hoàn thành",
-          "zh": "得 / 成",
-          "zhSpoken": "得，成",
-          "en": "to accomplish; to complete; to fini",
+          "zh": "完成",
+          "zhSpoken": "完成",
+          "en": "to complete",
           "pos": "動詞",
           "hanViet": "完成",
-          "category": "日常必備動詞",
-          "example": "xong chuyện; hoàn thành công việc",
-          "exampleZh": "蕆事。"
+          "category": "日常動詞",
+          "example": "Tôi đã hoàn thành báo cáo.",
+          "exampleZh": "我已完成報告。"
         },
         {
           "id": "freq_708",
           "rank": 708,
           "viet": "yên",
-          "zh": "安 / 安生",
-          "zhSpoken": "安，安生",
-          "en": "saddle",
-          "pos": "名詞",
-          "hanViet": "鞍",
-          "category": "生活日常",
-          "example": "ngồi không yên, đứng không yên; đứng ngồi không yên",
-          "exampleZh": "坐不安。"
+          "zh": "安靜 / 馬鞍",
+          "zhSpoken": "安靜，馬鞍",
+          "en": "quiet; saddle",
+          "pos": "形容詞",
+          "hanViet": "安",
+          "category": "描述與狀態",
+          "example": "Ở đây rất yên tĩnh và yên bình.",
+          "exampleZh": "這裡很安靜祥和。"
         },
         {
           "id": "freq_709",
           "rank": 709,
           "viet": "tổng thống",
-          "zh": "大總統",
-          "zhSpoken": "大總統",
-          "en": "vocabulary",
+          "zh": "總統",
+          "zhSpoken": "總統",
+          "en": "president",
           "pos": "名詞",
           "hanViet": "總統",
-          "category": "生活日常",
-          "example": "Tổng thống này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大總統」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Tổng thống Mỹ đã đến thăm Việt Nam.",
+          "exampleZh": "美國總統已到訪越南。"
         },
         {
           "id": "freq_710",
           "rank": 710,
           "viet": "in",
-          "zh": "翻版 / 印刷",
-          "zhSpoken": "翻版，印刷",
-          "en": "to print; to strike off",
+          "zh": "列印",
+          "zhSpoken": "列印",
+          "en": "to print",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể in giúp tôi không?",
-          "exampleZh": "你能幫我翻版嗎？"
+          "category": "日常動詞",
+          "example": "Tôi muốn in tài liệu này.",
+          "exampleZh": "我想印這份文件。"
         },
         {
           "id": "freq_711",
           "rank": 711,
           "viet": "sức khoẻ",
-          "zh": "勁頭兒 / 身子骨兒",
-          "zhSpoken": "勁頭兒，身子骨兒",
-          "en": "vocabulary",
+          "zh": "健康",
+          "zhSpoken": "健康",
+          "en": "health",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "kiểm tra thể trạng; kiểm tra sức khoẻ",
-          "exampleZh": "檢查體格。"
+          "category": "生活名詞",
+          "example": "Chúc bác sức khoẻ!",
+          "exampleZh": "祝您身體健康！"
         },
         {
           "id": "freq_712",
           "rank": 712,
           "viet": "Nga",
-          "zh": "俄羅斯 / 嫦娥",
-          "zhSpoken": "俄羅斯，嫦娥",
+          "zh": "俄羅斯",
+          "zhSpoken": "俄羅斯",
           "en": "Russia",
           "pos": "名詞",
-          "hanViet": "娥",
-          "category": "生活日常",
-          "example": "Nga này rất cần thiết cho công việc.",
-          "exampleZh": "這個「俄羅斯」在工作上非常必需。"
+          "hanViet": "俄",
+          "category": "生活名詞",
+          "example": "Nhiều khách Nga đến Nha Trang.",
+          "exampleZh": "許多俄羅斯遊客來芽莊。"
         },
         {
           "id": "freq_713",
           "rank": 713,
           "viet": "ý kiến",
-          "zh": "觀念 / 呼聲",
-          "zhSpoken": "觀念，呼聲",
-          "en": "view, opinion",
+          "zh": "意見",
+          "zhSpoken": "意見",
+          "en": "opinion",
           "pos": "名詞",
           "hanViet": "意見",
-          "category": "生活日常",
-          "example": "cố giữ ý kiến của mình",
-          "exampleZh": "固執已見。"
+          "category": "生活名詞",
+          "example": "Ý kiến của bạn thế nào?",
+          "exampleZh": "你的意見如何？"
         },
         {
           "id": "freq_714",
           "rank": 714,
           "viet": "suy nghĩ",
-          "zh": "思考 / 想法 / 沉思",
-          "zhSpoken": "思考，想法",
-          "en": "to think",
+          "zh": "思考",
+          "zhSpoken": "思考",
+          "en": "to think over",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "những bước chân nặng nề đã cắt đứt dòng suy nghĩ của anh ấy",
-          "exampleZh": "一陣沉重的腳步聲打斷了他的沉思。 籌思。"
+          "category": "日常動詞",
+          "example": "Để tôi suy nghĩ một chút.",
+          "exampleZh": "讓我想一下。"
         },
         {
           "id": "freq_715",
           "rank": 715,
           "viet": "quái",
-          "zh": "扭 / 怪",
-          "zhSpoken": "扭，怪",
-          "en": "Freak, monster",
-          "pos": "動詞",
+          "zh": "怪 / 到底（加強語氣）",
+          "zhSpoken": "怪，到底",
+          "en": "strange; the heck",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể quái giúp tôi không?",
-          "exampleZh": "你能幫我扭嗎？"
+          "category": "描述與狀態",
+          "example": "Chuyện quái gì thế này?",
+          "exampleZh": "這到底是怎麼回事？"
         },
         {
           "id": "freq_716",
           "rank": 716,
           "viet": "hoà",
-          "zh": "衝 / 夠本",
-          "zhSpoken": "衝，夠本",
-          "en": "Dissolve",
+          "zh": "和 / 溶解",
+          "zhSpoken": "和，溶解",
+          "en": "to dissolve; to draw",
           "pos": "動詞",
           "hanViet": "和",
-          "category": "日常必備動詞",
-          "example": "hoà với rượu mà uống",
-          "exampleZh": "用酒沖服。"
+          "category": "日常動詞",
+          "example": "Hai đội hoà nhau.",
+          "exampleZh": "兩隊打成平手。"
         },
         {
           "id": "freq_717",
           "rank": 717,
           "viet": "tự do",
-          "zh": "漫 / 遊離",
-          "zhSpoken": "漫，遊離",
-          "en": "free, liberal",
+          "zh": "自由",
+          "zhSpoken": "自由",
+          "en": "freedom; free",
           "pos": "名詞",
           "hanViet": "自由",
-          "category": "生活日常",
-          "example": "tự do không hạn chế",
-          "exampleZh": "漫無限制。"
+          "category": "生活名詞",
+          "example": "Tôi thích đi du lịch tự do.",
+          "exampleZh": "我喜歡自由行。"
         },
         {
           "id": "freq_718",
           "rank": 718,
           "viet": "cần thiết",
-          "zh": "必備 / 必要",
-          "zhSpoken": "必備，必要",
-          "en": "Indispensable",
+          "zh": "必要",
+          "zhSpoken": "必要",
+          "en": "necessary",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "điều kiện cần thiết",
-          "exampleZh": "必備條件。"
+          "category": "描述與狀態",
+          "example": "Việc này không cần thiết.",
+          "exampleZh": "這件事沒必要。"
         },
         {
           "id": "freq_719",
           "rank": 719,
           "viet": "đồng thời",
-          "zh": "同時 / 與此同時",
-          "zhSpoken": "同時，與此同時",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "同時",
+          "zhSpoken": "同時",
+          "en": "at the same time",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể đồng thời giúp tôi không?",
-          "exampleZh": "你能幫我齊嗎？"
+          "category": "語法功能詞",
+          "example": "Anh ấy là giám đốc, đồng thời là kỹ sư.",
+          "exampleZh": "他是總經理，同時也是工程師。"
         },
         {
           "id": "freq_720",
           "rank": 720,
           "viet": "chữ",
-          "zh": "書畫 / 文字",
-          "zhSpoken": "書畫，文字",
-          "en": "Writing, script",
+          "zh": "文字",
+          "zhSpoken": "文字",
+          "en": "letter; word",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "chữ Hán",
-          "exampleZh": "漢字。"
+          "category": "生活名詞",
+          "example": "Chữ này đọc thế nào?",
+          "exampleZh": "這個字怎麼唸？"
         },
         {
           "id": "freq_721",
           "rank": 721,
           "viet": "cẩn thận",
-          "zh": "娖 / 成熟",
-          "zhSpoken": "娖，成熟",
-          "en": "Careful",
+          "zh": "小心",
+          "zhSpoken": "小心",
+          "en": "careful",
           "pos": "形容詞",
           "hanViet": "謹慎",
-          "category": "基礎描述",
-          "example": "giao tiếp với loại người này, anh nên cẩn thận đấy",
-          "exampleZh": "跟這種人打交道, 你可千萬當心。"
+          "category": "描述與狀態",
+          "example": "Đi cẩn thận nhé!",
+          "exampleZh": "路上小心喔！"
         },
         {
           "id": "freq_722",
           "rank": 722,
           "viet": "điều trị",
-          "zh": "調治 / 醫療",
-          "zhSpoken": "調治，醫療",
-          "en": "vocabulary",
+          "zh": "治療",
+          "zhSpoken": "治療",
+          "en": "to treat",
           "pos": "動詞",
           "hanViet": "調治",
-          "category": "日常必備動詞",
-          "example": "điều trị cẩn thận",
-          "exampleZh": "細心調治。"
+          "category": "日常動詞",
+          "example": "Bác sĩ đang điều trị cho anh ấy.",
+          "exampleZh": "醫生正在治療他。"
         },
         {
           "id": "freq_723",
           "rank": 723,
           "viet": "ghi",
-          "zh": "道岔 / 記錄",
-          "zhSpoken": "道岔，記錄",
-          "en": "to note; to record; to put down",
+          "zh": "記下",
+          "zhSpoken": "記下",
+          "en": "to note down",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "ghi âm",
-          "exampleZh": "錄音。"
+          "category": "日常動詞",
+          "example": "Anh ghi địa chỉ giúp tôi nhé.",
+          "exampleZh": "請幫我記下地址。"
         },
         {
           "id": "freq_724",
           "rank": 724,
           "viet": "đề nghị",
-          "zh": "倡言 / 創議",
-          "zhSpoken": "倡言，創議",
-          "en": "propose; to suggest",
+          "zh": "提議 / 請求",
+          "zhSpoken": "提議，請求",
+          "en": "to propose",
           "pos": "動詞",
           "hanViet": "提議",
-          "category": "日常必備動詞",
-          "example": "đề nghị khẩn cấp",
-          "exampleZh": "緊急動議 敦促。"
+          "category": "日常動詞",
+          "example": "Tôi đề nghị họp vào thứ ba.",
+          "exampleZh": "我提議星期二開會。"
         },
         {
           "id": "freq_725",
           "rank": 725,
           "viet": "đất nước",
-          "zh": "大地 / 大地回春",
-          "zhSpoken": "大地，大地回春",
-          "en": "Home country, homeland",
+          "zh": "國家",
+          "zhSpoken": "國家",
+          "en": "country; homeland",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "xuân về trên đất nước",
-          "exampleZh": "大地回春。 故國。"
+          "category": "生活名詞",
+          "example": "Đất nước này rất đẹp.",
+          "exampleZh": "這個國家很美。"
         },
         {
           "id": "freq_726",
           "rank": 726,
           "viet": "tầng",
-          "zh": "陔 / 層次",
-          "zhSpoken": "陔，層次",
-          "en": "story, floor layer, stratum, seam a",
+          "zh": "樓層",
+          "zhSpoken": "樓層",
+          "en": "floor",
           "pos": "名詞",
           "hanViet": "層",
-          "category": "生活日常",
-          "example": "nhà lầu 5 tầng",
-          "exampleZh": "五層大樓。"
+          "category": "生活名詞",
+          "example": "Phòng tôi ở tầng ba.",
+          "exampleZh": "我的房間在三樓。"
         },
         {
           "id": "freq_727",
           "rank": 727,
           "viet": "chả",
-          "zh": "並 / 不",
-          "zhSpoken": "並，不",
-          "en": "Grilled chopped meat, grilled chopp",
-          "pos": "動詞",
+          "zh": "肉餅 / 才不（口語否定）",
+          "zhSpoken": "肉餅，才不",
+          "en": "pork roll; not (casual)",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chả có gì khó lắm",
-          "exampleZh": "並不太難。"
+          "category": "生活名詞",
+          "example": "Tôi thích ăn bún chả.",
+          "exampleZh": "我喜歡吃烤肉米線。"
         },
         {
           "id": "freq_728",
           "rank": 728,
           "viet": "nè",
-          "zh": "嘿",
-          "zhSpoken": "嘿",
-          "en": "(địa phương) như này",
+          "zh": "喔 / 這裡（南部）",
+          "zhSpoken": "喔，這裡",
+          "en": "here; hey (Southern)",
           "pos": "助詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "nè, tôi nói gì anh có nghe không",
-          "exampleZh": "đấy? 嘿!我說的你聽見沒有?。"
+          "category": "語氣與助詞",
+          "example": "Tiền của chị nè.",
+          "exampleZh": "姊姊，妳的錢在這。"
         },
         {
           "id": "freq_729",
           "rank": 729,
           "viet": "tập",
-          "zh": "本 / 本本",
-          "zhSpoken": "本，本本",
-          "en": "set section booklet volume",
+          "zh": "練習 / 集",
+          "zhSpoken": "練習，集",
+          "en": "to practice; volume",
           "pos": "動詞",
           "hanViet": "習",
-          "category": "日常必備動詞",
-          "example": "tập một động tác, trước hết phải hiểu rõ yếu lĩnh",
-          "exampleZh": "操演一個動作, 先要明瞭要領 冊; 冊子。"
+          "category": "日常動詞",
+          "example": "Mỗi sáng tôi tập thể dục.",
+          "exampleZh": "每天早上我做運動。"
         },
         {
           "id": "freq_730",
           "rank": 730,
           "viet": "ứng dụng",
-          "zh": "應用",
-          "zhSpoken": "應用",
-          "en": "to apply",
-          "pos": "動詞",
+          "zh": "應用程式",
+          "zhSpoken": "應用程式",
+          "en": "application",
+          "pos": "名詞",
           "hanViet": "應用",
-          "category": "日常必備動詞",
-          "example": "văn ứng dụng",
-          "exampleZh": "應用文。"
+          "category": "生活名詞",
+          "example": "Bạn tải ứng dụng Grab chưa?",
+          "exampleZh": "你下載 Grab 了嗎？"
         },
         {
           "id": "freq_731",
           "rank": 731,
           "viet": "lối",
-          "zh": "裁 / 徑",
-          "zhSpoken": "裁，徑",
-          "en": "style; way; manner",
+          "zh": "通道 / 方式",
+          "zhSpoken": "通道，方式",
+          "en": "way; path",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Lối này rất cần thiết cho công việc.",
-          "exampleZh": "這個「裁」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Lối ra ở đâu?",
+          "exampleZh": "出口在哪裡？"
         },
         {
           "id": "freq_732",
           "rank": 732,
           "viet": "nóng",
-          "zh": "發熱 / 火兒",
-          "zhSpoken": "發熱，火兒",
-          "en": "hot; warm; fervet",
+          "zh": "熱",
+          "zhSpoken": "熱",
+          "en": "hot",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "nước nóng",
-          "exampleZh": "熱水。"
+          "category": "描述與狀態",
+          "example": "Hôm nay nóng quá.",
+          "exampleZh": "今天好熱。"
         },
         {
           "id": "freq_733",
           "rank": 733,
           "viet": "rộng",
-          "zh": "褒 / 騁",
-          "zhSpoken": "褒，騁",
-          "en": "broad; wide; extensive; ample",
+          "zh": "寬",
+          "zhSpoken": "寬",
+          "en": "wide; spacious",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "nhìn xa trông rộng",
-          "exampleZh": "騁目。"
+          "category": "描述與狀態",
+          "example": "Phòng này rất rộng.",
+          "exampleZh": "這間房很寬敞。"
         },
         {
           "id": "freq_734",
           "rank": 734,
           "viet": "chủ tịch",
-          "zh": "執行主席 / 主席",
-          "zhSpoken": "執行主席，主席",
-          "en": "Chairman, speaker",
+          "zh": "主席",
+          "zhSpoken": "主席",
+          "en": "chairman",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Chủ tịch này rất cần thiết cho công việc.",
-          "exampleZh": "這個「執行主席」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Chủ tịch công ty đến Đài Loan.",
+          "exampleZh": "公司主席來到台灣。"
         },
         {
           "id": "freq_735",
           "rank": 735,
           "viet": "mong",
-          "zh": "巴望 / 期待",
-          "zhSpoken": "巴望，期待",
-          "en": "to hope; to expect and desire",
+          "zh": "盼望",
+          "zhSpoken": "盼望",
+          "en": "to hope; to look forward",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "những mong sao",
-          "exampleZh": "巴不得。"
+          "category": "日常動詞",
+          "example": "Tôi mong được gặp anh sớm.",
+          "exampleZh": "盼望早日見到你。"
         },
         {
           "id": "freq_736",
           "rank": 736,
           "viet": "cuộc đời",
-          "zh": "輩子 / 人生",
-          "zhSpoken": "輩子，人生",
-          "en": "life; existence",
+          "zh": "人生",
+          "zhSpoken": "人生",
+          "en": "life",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cuộc đời dạy học",
-          "exampleZh": "教書生涯。"
+          "category": "生活名詞",
+          "example": "Đây là ngày vui nhất cuộc đời tôi.",
+          "exampleZh": "這是我人生最開心的一天。"
         },
         {
           "id": "freq_737",
           "rank": 737,
           "viet": "tiếc",
-          "zh": "遺憾 / 惋惜 / 捨不得",
-          "zhSpoken": "遺憾，惋惜",
-          "en": "to regret, to be sorry to grudge",
+          "zh": "可惜",
+          "zhSpoken": "可惜",
+          "en": "to regret",
           "pos": "動詞",
           "hanViet": "惜",
-          "category": "日常必備動詞",
-          "example": "mọi người đều tiếc cho đứa bé không cha không mẹ này",
-          "exampleZh": "大家都很顧惜這個沒爹沒孃的孩子。 憾。"
+          "category": "日常動詞",
+          "example": "Tiếc quá, tôi không đi được.",
+          "exampleZh": "真可惜，我不能去。"
         },
         {
           "id": "freq_738",
           "rank": 738,
           "viet": "nam",
-          "zh": "漢子 / 男",
-          "zhSpoken": "漢子，男",
-          "en": "south",
+          "zh": "南 / 男",
+          "zhSpoken": "南，男",
+          "en": "south; male",
           "pos": "名詞",
-          "hanViet": "男",
-          "category": "生活日常",
-          "example": "học sinh nam",
-          "exampleZh": "男學生。"
+          "hanViet": "南",
+          "category": "生活名詞",
+          "example": "Nhà vệ sinh nam ở bên phải.",
+          "exampleZh": "男廁在右邊。"
         },
         {
           "id": "freq_739",
           "rank": 739,
           "viet": "cầm",
-          "zh": "把 / 拿",
-          "zhSpoken": "把，拿",
-          "en": "Lute-like instrument; musical instr",
+          "zh": "拿著",
+          "zhSpoken": "拿著",
+          "en": "to hold",
           "pos": "動詞",
-          "hanViet": "琴",
-          "category": "日常必備動詞",
-          "example": "cầm lái",
-          "exampleZh": "把舵。"
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Anh cầm giúp tôi cái này.",
+          "exampleZh": "請幫我拿一下這個。"
         },
         {
           "id": "freq_740",
           "rank": 740,
           "viet": "xác định",
-          "zh": "測定 / 定",
-          "zhSpoken": "測定，定",
-          "en": "to define",
+          "zh": "確定",
+          "zhSpoken": "確定",
+          "en": "to determine",
           "pos": "動詞",
           "hanViet": "確定",
-          "category": "日常必備動詞",
-          "example": "xác định nhiệt độ không khí",
-          "exampleZh": "測定氣溫。"
+          "category": "日常動詞",
+          "example": "Chúng ta cần xác định mục tiêu.",
+          "exampleZh": "我們需要確定目標。"
         },
         {
           "id": "freq_741",
           "rank": 741,
           "viet": "dây",
-          "zh": "帶 / 筋",
-          "zhSpoken": "帶，筋",
-          "en": "rope; cord; wire; string",
-          "pos": "動詞",
+          "zh": "繩 / 線",
+          "zhSpoken": "繩，線",
+          "en": "rope; wire",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "dây giày",
-          "exampleZh": "鞋帶兒。"
+          "category": "生活名詞",
+          "example": "Dây điện này bị đứt.",
+          "exampleZh": "這條電線斷了。"
         },
         {
           "id": "freq_742",
           "rank": 742,
           "viet": "khắp",
-          "zh": "遍 / 匝",
-          "zhSpoken": "遍，匝",
+          "zh": "遍及",
+          "zhSpoken": "遍及",
           "en": "all over",
-          "pos": "動詞",
+          "pos": "介詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "khắp núi khắp sông",
-          "exampleZh": "遍山遍野。"
+          "category": "語法功能詞",
+          "example": "Tôi đi khắp Việt Nam.",
+          "exampleZh": "我走遍越南。"
         },
         {
           "id": "freq_743",
           "rank": 743,
           "viet": "quán",
-          "zh": "館兒 / 館子",
-          "zhSpoken": "館兒，館子",
-          "en": "kiosk",
+          "zh": "小店 / 餐館",
+          "zhSpoken": "小店，餐館",
+          "en": "small shop; eatery",
           "pos": "名詞",
           "hanViet": "館",
-          "category": "生活日常",
-          "example": "lữ quán; quán trọ; khách sạn",
-          "exampleZh": "旅館。"
+          "category": "生活名詞",
+          "example": "Quán này bán phở rất ngon.",
+          "exampleZh": "這間店的河粉很好吃。"
         },
         {
           "id": "freq_744",
           "rank": 744,
           "viet": "bệnh nhân",
-          "zh": "病號 / 病人",
-          "zhSpoken": "病號，病人",
-          "en": "Patient",
+          "zh": "病人",
+          "zhSpoken": "病人",
+          "en": "patient",
           "pos": "名詞",
           "hanViet": "病人",
-          "category": "生活日常",
-          "example": "cơm cho bệnh nhân",
-          "exampleZh": "病號飯。"
+          "category": "生活名詞",
+          "example": "Bệnh nhân cần nghỉ ngơi.",
+          "exampleZh": "病人需要休息。"
         },
         {
           "id": "freq_745",
           "rank": 745,
           "viet": "băng",
-          "zh": "幫 / 綁",
-          "zhSpoken": "幫，綁",
-          "en": "Ice",
-          "pos": "動詞",
+          "zh": "冰 / 繃帶",
+          "zhSpoken": "冰，繃帶",
+          "en": "ice; bandage",
+          "pos": "名詞",
           "hanViet": "冰",
-          "category": "日常必備動詞",
-          "example": "băng cướp",
-          "exampleZh": "匪幫。"
+          "category": "生活名詞",
+          "example": "Tôi cần băng để băng vết thương.",
+          "exampleZh": "我需要繃帶包紮傷口。"
         },
         {
           "id": "freq_746",
           "rank": 746,
           "viet": "Đức",
-          "zh": "爺 / 德行",
-          "zhSpoken": "爺，德行",
-          "en": "Virtue, righteousness",
+          "zh": "德國 / 德",
+          "zhSpoken": "德國，德",
+          "en": "Germany; virtue",
           "pos": "名詞",
           "hanViet": "德",
-          "category": "生活日常",
-          "example": "Đức này rất cần thiết cho công việc.",
-          "exampleZh": "這個「爺」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Máy này được sản xuất ở Đức.",
+          "exampleZh": "這台機器在德國生產。"
         },
         {
           "id": "freq_747",
           "rank": 747,
           "viet": "điều tra",
-          "zh": "查勘 / 察訪",
-          "zhSpoken": "查勘，察訪",
-          "en": "Investigate, inquire, take a census",
+          "zh": "調查",
+          "zhSpoken": "調查",
+          "en": "to investigate",
           "pos": "動詞",
           "hanViet": "調查",
-          "category": "日常必備動詞",
-          "example": "điều tra nguồn khoáng sản",
-          "exampleZh": "查勘礦產資源。"
+          "category": "日常動詞",
+          "example": "Cảnh sát đang điều tra vụ này.",
+          "exampleZh": "警察正在調查此案。"
         },
         {
           "id": "freq_748",
           "rank": 748,
           "viet": "chính sách",
-          "zh": "大政 / 政策",
-          "zhSpoken": "大政，政策",
-          "en": "Policy",
+          "zh": "政策",
+          "zhSpoken": "政策",
+          "en": "policy",
           "pos": "名詞",
           "hanViet": "政策",
-          "category": "生活日常",
-          "example": "phương châm chính sách",
-          "exampleZh": "大政方針。"
+          "category": "生活名詞",
+          "example": "Chính sách thuế đã thay đổi.",
+          "exampleZh": "稅務政策改變了。"
         },
         {
           "id": "freq_749",
           "rank": 749,
           "viet": "hiện tại",
-          "zh": "今 / 今朝",
-          "zhSpoken": "今，今朝",
-          "en": "present; existing; at present",
-          "pos": "動詞",
+          "zh": "目前",
+          "zhSpoken": "目前",
+          "en": "at present",
+          "pos": "副詞",
           "hanViet": "現在",
-          "category": "日常必備動詞",
-          "example": "coi trọng hiện tại, xem nhẹ quá khứ",
-          "exampleZh": "厚今薄古。"
+          "category": "語法功能詞",
+          "example": "Hiện tại tôi đang ở Đà Nẵng.",
+          "exampleZh": "我目前在峴港。"
         },
         {
           "id": "freq_750",
           "rank": 750,
           "viet": "giúp đỡ",
-          "zh": "幫補 / 輔佐",
-          "zhSpoken": "幫補，輔佐",
-          "en": "vocabulary",
+          "zh": "幫忙",
+          "zhSpoken": "幫忙",
+          "en": "to help",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lúc tôi học đại học, anh tôi thường gởi tiền giúp đỡ tôi",
-          "exampleZh": "我上大學時, 哥哥經常寄錢幫補我。"
+          "category": "日常動詞",
+          "example": "Cảm ơn bạn đã giúp đỡ tôi.",
+          "exampleZh": "謝謝你幫助我。"
+        },
+        {
+          "id": "freq_751",
+          "rank": 751,
+          "viet": "theo dõi",
+          "zh": "追蹤",
+          "zhSpoken": "追蹤",
+          "en": "to follow; to monitor",
+          "pos": "動詞",
+          "hanViet": "",
+          "category": "日常動詞",
+          "example": "Tôi theo dõi trang của bạn trên mạng.",
+          "exampleZh": "我在網路上追蹤你的頁面。"
+        },
+        {
+          "id": "freq_752",
+          "rank": 752,
+          "viet": "bình tĩnh",
+          "zh": "冷靜",
+          "zhSpoken": "冷靜",
+          "en": "calm",
+          "pos": "形容詞",
+          "hanViet": "",
+          "category": "描述與狀態",
+          "example": "Bình tĩnh nào, không sao đâu.",
+          "exampleZh": "冷靜點，沒事的。"
         }
       ],
-      "duration": 738.9
+      "duration": 703.7
     },
     {
       "batchId": 16,
       "tier": "top1k",
       "titleZh": "第 16 組 · 溝通表達與邏輯論理",
       "titleEn": "Batch 16 · Top 1,000",
-      "range": "751 - 800",
-      "startRank": 751,
-      "endRank": 800,
+      "range": "753 - 804",
+      "startRank": 753,
+      "endRank": 804,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_16.mp3",
       "fileName": "vocab_1000_batch_16.mp3",
       "words": [
         {
-          "id": "freq_751",
-          "rank": 751,
-          "viet": "theo dõi",
-          "zh": "傳達 / 盯梢",
-          "zhSpoken": "傳達，盯梢",
-          "en": "to watch for",
-          "pos": "動詞",
-          "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chòi gác theo dõi bọn địch từ phía xa",
-          "exampleZh": "瞭望哨遠遠監視着敵人。 看守。"
-        },
-        {
-          "id": "freq_752",
-          "rank": 752,
-          "viet": "bình tĩnh",
-          "zh": "沉住氣 / 沉着",
-          "zhSpoken": "沉住氣，沉着",
-          "en": "Calm, cool, unruffled, selfpossesse",
-          "pos": "形容詞",
-          "hanViet": "",
-          "category": "基礎描述",
-          "example": "giữ được bình tĩnh",
-          "exampleZh": "沉得住氣。"
-        },
-        {
           "id": "freq_753",
           "rank": 753,
           "viet": "hồi",
-          "zh": "八角 / 出",
-          "zhSpoken": "八角，出",
-          "en": "time; period",
-          "pos": "動詞",
+          "zh": "當時 / 回",
+          "zhSpoken": "當時，回",
+          "en": "at the time; back then",
+          "pos": "名詞",
           "hanViet": "回",
-          "category": "日常必備動詞",
-          "example": "dầu hồi",
-          "exampleZh": "八角茴香油。"
+          "category": "生活名詞",
+          "example": "Hồi nhỏ tôi sống ở Huế.",
+          "exampleZh": "小時候我住在順化。"
         },
         {
           "id": "freq_754",
           "rank": 754,
           "viet": "khách sạn",
-          "zh": "飯店 / 旅店",
-          "zhSpoken": "飯店，旅店",
+          "zh": "飯店",
+          "zhSpoken": "飯店",
           "en": "hotel",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "khách sạn Bắc Kinh",
-          "exampleZh": "北京飯店。"
+          "category": "生活名詞",
+          "example": "Khách sạn này có hồ bơi.",
+          "exampleZh": "這間飯店有游泳池。"
         },
         {
           "id": "freq_755",
           "rank": 755,
           "viet": "đối tượng",
-          "zh": "標的 / 對象",
-          "zhSpoken": "標的，對象",
-          "en": "Object",
+          "zh": "對象",
+          "zhSpoken": "對象",
+          "en": "target; object",
           "pos": "名詞",
           "hanViet": "對象",
-          "category": "生活日常",
-          "example": "đối tượng của cách mạng",
-          "exampleZh": "革命的對象。"
+          "category": "生活名詞",
+          "example": "Đối tượng của sản phẩm này là người trẻ.",
+          "exampleZh": "這項產品的對象是年輕人。"
         },
         {
           "id": "freq_756",
           "rank": 756,
           "viet": "gồm",
-          "zh": "包羅 / 舉凡",
-          "zhSpoken": "包羅，舉凡",
-          "en": "to comprise; to consist of ; to inc",
+          "zh": "包含",
+          "zhSpoken": "包含",
+          "en": "to include",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể gồm giúp tôi không?",
-          "exampleZh": "你能幫我包羅嗎？"
+          "category": "日常動詞",
+          "example": "Giá này gồm bữa sáng.",
+          "exampleZh": "這個價格含早餐。"
         },
         {
           "id": "freq_757",
           "rank": 757,
           "viet": "bảng",
-          "zh": "板子 / 榜",
-          "zhSpoken": "板子，榜",
-          "en": "Board",
+          "zh": "板 / 表格",
+          "zhSpoken": "板，表格",
+          "en": "board; table",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "bảng danh dự",
-          "exampleZh": "光榮榜。"
+          "category": "生活名詞",
+          "example": "Xem bảng giá ở đây.",
+          "exampleZh": "請看這裡的價目表。"
         },
         {
           "id": "freq_758",
           "rank": 758,
           "viet": "thường xuyên",
-          "zh": "長川 / 常川往來",
-          "zhSpoken": "長川，常川往來",
-          "en": "regular, constant; frequent",
-          "pos": "動詞",
+          "zh": "經常",
+          "zhSpoken": "經常",
+          "en": "regularly",
+          "pos": "副詞",
           "hanViet": "常川",
-          "category": "日常必備動詞",
-          "example": "thường xuyên đi lại",
-          "exampleZh": "常川往來。 常駐。"
+          "category": "語法功能詞",
+          "example": "Tôi thường xuyên đi công tác.",
+          "exampleZh": "我經常出差。"
         },
         {
           "id": "freq_759",
           "rank": 759,
           "viet": "cơn",
-          "zh": "場",
-          "zhSpoken": "場",
-          "en": "vocabulary",
-          "pos": "名詞",
+          "zh": "陣 / 場（量詞）",
+          "zhSpoken": "陣，場",
+          "en": "classifier for storms, pain",
+          "pos": "量詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cơn gió",
-          "exampleZh": "一陣風。"
+          "category": "數字與量詞",
+          "example": "Cơn mưa này rất lớn.",
+          "exampleZh": "這場雨很大。"
         },
         {
           "id": "freq_760",
           "rank": 760,
           "viet": "đảo",
-          "zh": "大陸島 / 海島",
-          "zhSpoken": "大陸島，海島",
-          "en": "isle; island",
-          "pos": "動詞",
+          "zh": "島",
+          "zhSpoken": "島",
+          "en": "island",
+          "pos": "名詞",
           "hanViet": "島",
-          "category": "日常必備動詞",
-          "example": "phơi lúa mì nên đảo đều",
-          "exampleZh": "場上曬的麥子該翻個兒了。"
+          "category": "生活名詞",
+          "example": "Phú Quốc là đảo lớn nhất Việt Nam.",
+          "exampleZh": "富國島是越南最大的島。"
         },
         {
           "id": "freq_761",
           "rank": 761,
           "viet": "kéo",
-          "zh": "搬弄 / 掣",
-          "zhSpoken": "搬弄，掣",
-          "en": "scissors",
+          "zh": "拉 / 剪刀",
+          "zhSpoken": "拉，剪刀",
+          "en": "to pull; scissors",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cản trở; kéo khuỷu tay",
-          "exampleZh": "掣肘。口。"
+          "category": "日常動詞",
+          "example": "Kéo cửa ra.",
+          "exampleZh": "把門拉開。"
         },
         {
           "id": "freq_762",
           "rank": 762,
           "viet": "tiến hành",
-          "zh": "辦理 / 加以",
-          "zhSpoken": "辦理，加以",
+          "zh": "進行",
+          "zhSpoken": "進行",
           "en": "to carry out",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "kiện nhất định, chữ viết cần phải được tiến hành cải cách",
-          "exampleZh": "文字必須在一定條件下加以改革。"
+          "category": "日常動詞",
+          "example": "Chúng ta tiến hành kiểm tra hàng.",
+          "exampleZh": "我們進行驗貨。"
         },
         {
           "id": "freq_763",
           "rank": 763,
           "viet": "đổi",
-          "zh": "倒 / 抵換",
-          "zhSpoken": "倒，抵換",
-          "en": "To change; to exchange; to alter",
+          "zh": "換",
+          "zhSpoken": "換",
+          "en": "to exchange",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đổi xe; sang xe; quay đầu xe",
-          "exampleZh": "倒車。"
+          "category": "日常動詞",
+          "example": "Tôi muốn đổi tiền.",
+          "exampleZh": "我想換錢。"
         },
         {
           "id": "freq_764",
@@ -10178,1170 +10152,1116 @@ export const VOCAB_BATCHES_BY_TIER = {
           "en": "ticket",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "vé tàu",
-          "exampleZh": "車票。"
+          "category": "生活名詞",
+          "example": "Tôi muốn mua hai vé.",
+          "exampleZh": "我想買兩張票。"
         },
         {
           "id": "freq_765",
           "rank": 765,
           "viet": "chiến đấu",
-          "zh": "搏戰 / 戰鬥",
-          "zhSpoken": "搏戰，戰鬥",
-          "en": "To fight, to combat, to struggle, t",
+          "zh": "戰鬥",
+          "zhSpoken": "戰鬥",
+          "en": "to fight",
           "pos": "動詞",
           "hanViet": "戰鬥",
-          "category": "日常必備動詞",
-          "example": "chiến đấu lâu dài; đánh lâu dài",
-          "exampleZh": "持久戰。"
+          "category": "日常動詞",
+          "example": "Họ đã chiến đấu rất dũng cảm.",
+          "exampleZh": "他們戰鬥得很勇敢。"
         },
         {
           "id": "freq_766",
           "rank": 766,
           "viet": "thần",
-          "zh": "宸 / 臣子",
-          "zhSpoken": "宸，臣子",
-          "en": "deity, genie unsual keenness extrao",
+          "zh": "神",
+          "zhSpoken": "神",
+          "en": "god; deity",
           "pos": "名詞",
-          "hanViet": "臣",
-          "category": "生活日常",
-          "example": "thuyết vô thần",
-          "exampleZh": "無神論。"
+          "hanViet": "神",
+          "category": "生活名詞",
+          "example": "Đền này thờ thần biển.",
+          "exampleZh": "這座廟供奉海神。"
         },
         {
           "id": "freq_767",
           "rank": 767,
           "viet": "đám",
-          "zh": "幫子 / 撥子",
-          "zhSpoken": "幫子，撥子",
-          "en": "mass, patch",
+          "zh": "群 / 場（婚喪）",
+          "zhSpoken": "群，場",
+          "en": "crowd; ceremony",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "đám người",
-          "exampleZh": "人叢。書。"
+          "category": "生活名詞",
+          "example": "Cuối tuần tôi đi đám cưới.",
+          "exampleZh": "週末我去喝喜酒。"
         },
         {
           "id": "freq_768",
           "rank": 768,
           "viet": "lo lắng",
-          "zh": "忡 / 愁腸寸斷",
-          "zhSpoken": "忡，愁腸寸斷",
-          "en": "vocabulary",
+          "zh": "擔憂",
+          "zhSpoken": "擔憂",
+          "en": "to be anxious",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lo lắng sợ sệt",
-          "exampleZh": "憂心忡忡。"
+          "category": "日常動詞",
+          "example": "Mẹ tôi rất lo lắng.",
+          "exampleZh": "我媽媽很擔心。"
         },
         {
           "id": "freq_769",
           "rank": 769,
           "viet": "giải thích",
-          "zh": "辯誣 / 闡釋",
-          "zhSpoken": "辯誣，闡釋",
-          "en": "to explain, to clarify",
+          "zh": "解釋",
+          "zhSpoken": "解釋",
+          "en": "to explain",
           "pos": "動詞",
           "hanViet": "解釋",
-          "category": "日常必備動詞",
-          "example": "không cho anh ấy giải thích, liền lôi anh ấy đi",
-          "exampleZh": "不容他分解, 就把他拉走了。"
+          "category": "日常動詞",
+          "example": "Anh giải thích lại được không?",
+          "exampleZh": "你可以再解釋一次嗎？"
         },
         {
           "id": "freq_770",
           "rank": 770,
           "viet": "mặc dù",
-          "zh": "不管 / 雖",
-          "zhSpoken": "不管，雖",
-          "en": "though, although",
+          "zh": "雖然",
+          "zhSpoken": "雖然",
+          "en": "although",
           "pos": "連詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "Hãy chú ý đến mặc dù trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「不管」。"
-        },
-        {
-          "id": "freq_771",
-          "rank": 771,
-          "viet": "i",
-          "zh": "字母 I",
-          "zhSpoken": "字母哀",
-          "en": "một (chữ số La mã)",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "I này rất cần thiết cho công việc.",
-          "exampleZh": "這個「越文字母第十二字」在工作上非常必需。"
+          "category": "語法功能詞",
+          "example": "Mặc dù mệt, tôi vẫn đi làm.",
+          "exampleZh": "雖然累，我還是去上班。"
         },
         {
           "id": "freq_772",
           "rank": 772,
           "viet": "thông qua",
-          "zh": "批准 / 通過",
-          "zhSpoken": "批准，通過",
-          "en": "to pass, to ratify",
+          "zh": "通過 / 透過",
+          "zhSpoken": "通過，透過",
+          "en": "to pass; through",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thông qua nghị quyết",
-          "exampleZh": "通過決議。"
+          "category": "日常動詞",
+          "example": "Công ty thông qua kế hoạch mới.",
+          "exampleZh": "公司通過了新計畫。"
         },
         {
           "id": "freq_773",
           "rank": 773,
           "viet": "sở hữu",
-          "zh": "保有 / 保有土地",
-          "zhSpoken": "保有，保有土地",
-          "en": "to own, to hold",
+          "zh": "擁有",
+          "zhSpoken": "擁有",
+          "en": "to own",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "sở hữu ruộng đất",
-          "exampleZh": "保有土地。 所有。"
+          "category": "日常動詞",
+          "example": "Anh ấy sở hữu hai cửa hàng.",
+          "exampleZh": "他擁有兩間店。"
         },
         {
           "id": "freq_774",
           "rank": 774,
           "viet": "công trình",
-          "zh": "工程 / 建築物",
-          "zhSpoken": "工程，建築物",
-          "en": "vocabulary",
+          "zh": "工程",
+          "zhSpoken": "工程",
+          "en": "construction project",
           "pos": "名詞",
           "hanViet": "工程",
-          "category": "生活日常",
-          "example": "hoàn thành công trình",
-          "exampleZh": "竣工。"
+          "category": "生活名詞",
+          "example": "Công trình này sắp hoàn thành.",
+          "exampleZh": "這項工程快完成了。"
         },
         {
           "id": "freq_775",
           "rank": 775,
           "viet": "thông báo",
-          "zh": "報信 / 佈告",
-          "zhSpoken": "報信，佈告",
-          "en": "to communicate, to announce",
+          "zh": "通知",
+          "zhSpoken": "通知",
+          "en": "to announce",
           "pos": "動詞",
           "hanViet": "通報",
-          "category": "日常必備動詞",
-          "example": "đặc biệt thông báo ở đây",
-          "exampleZh": "特此佈告。"
+          "category": "日常動詞",
+          "example": "Tôi sẽ thông báo cho bạn sau.",
+          "exampleZh": "我之後再通知你。"
         },
         {
           "id": "freq_776",
           "rank": 776,
           "viet": "đoạn",
-          "zh": "罷 / 說罷",
-          "zhSpoken": "罷，說罷",
-          "en": "Section; pant ; portion; passage; P",
-          "pos": "動詞",
+          "zh": "段落",
+          "zhSpoken": "段落",
+          "en": "section",
+          "pos": "名詞",
           "hanViet": "段",
-          "category": "日常必備動詞",
-          "example": "nói đoạn anh ta đi luôn",
-          "exampleZh": "說罷, 他就走了。 段。"
+          "category": "生活名詞",
+          "example": "Đọc đoạn này giúp tôi.",
+          "exampleZh": "請幫我唸這一段。"
         },
         {
           "id": "freq_777",
           "rank": 777,
           "viet": "giai đoạn",
-          "zh": "段落 / 步",
-          "zhSpoken": "段落，步",
-          "en": "stage; phase; period",
+          "zh": "階段",
+          "zhSpoken": "階段",
+          "en": "stage",
           "pos": "名詞",
           "hanViet": "階段",
-          "category": "生活日常",
-          "example": "công tác của chúng ta đến đây đã xong một giai đoạn",
-          "exampleZh": "我們的工作到此告一段落。"
+          "category": "生活名詞",
+          "example": "Dự án đang ở giai đoạn đầu.",
+          "exampleZh": "專案處於初期階段。"
         },
         {
           "id": "freq_778",
           "rank": 778,
           "viet": "hướng dẫn",
-          "zh": "傳達 / 帶班",
-          "zhSpoken": "傳達，帶班",
-          "en": "to lead; to guide; to conduct",
+          "zh": "指導 / 導覽",
+          "zhSpoken": "指導，導覽",
+          "en": "to guide; guide",
           "pos": "動詞",
           "hanViet": "向引",
-          "category": "日常必備動詞",
-          "example": "phòng hướng dẫn; phòng thường trực",
-          "exampleZh": "傳達室。"
+          "category": "日常動詞",
+          "example": "Anh ấy hướng dẫn tôi cách làm.",
+          "exampleZh": "他教我怎麼做。"
         },
         {
           "id": "freq_779",
           "rank": 779,
           "viet": "toà",
-          "zh": "棟 / 機關",
-          "zhSpoken": "棟，機關",
-          "en": "vocabulary",
+          "zh": "棟 / 法院",
+          "zhSpoken": "棟，法院",
+          "en": "classifier for buildings; court",
           "pos": "名詞",
           "hanViet": "座",
-          "category": "生活日常",
-          "example": "một toà nhà lầu",
-          "exampleZh": "一座高樓。"
+          "category": "生活名詞",
+          "example": "Văn phòng ở toà nhà này.",
+          "exampleZh": "辦公室在這棟大樓。"
         },
         {
           "id": "freq_780",
           "rank": 780,
           "viet": "đăng ký",
-          "zh": "報名 / 簿錄",
-          "zhSpoken": "報名，簿錄",
+          "zh": "登記 / 註冊",
+          "zhSpoken": "登記，註冊",
           "en": "to register",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đăng ký tòng quân",
-          "exampleZh": "報名參軍。"
-        },
-        {
-          "id": "freq_781",
-          "rank": 781,
-          "viet": "v",
-          "zh": "字母 V",
-          "zhSpoken": "字母微",
-          "en": "V,  v",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "V này rất cần thiết cho công việc.",
-          "exampleZh": "這個「越南文字母第二十」在工作上非常必需。"
+          "category": "日常動詞",
+          "example": "Tôi muốn đăng ký lớp này.",
+          "exampleZh": "我想報名這堂課。"
         },
         {
           "id": "freq_782",
           "rank": 782,
           "viet": "hộ",
-          "zh": "代 / 人家",
-          "zhSpoken": "代，人家",
-          "en": "common term",
-          "pos": "動詞",
-          "hanViet": "戶",
-          "category": "日常必備動詞",
-          "example": "viết thay; chấp bút hộ",
-          "exampleZh": "代筆。"
+          "zh": "幫忙 / 戶",
+          "zhSpoken": "幫忙，戶",
+          "en": "on behalf of; household",
+          "pos": "副詞",
+          "hanViet": "護",
+          "category": "語法功能詞",
+          "example": "Anh cầm hộ tôi nhé.",
+          "exampleZh": "請幫我拿一下。"
         },
         {
           "id": "freq_783",
           "rank": 783,
           "viet": "chiếm",
-          "zh": "把攬 / 處於",
-          "zhSpoken": "把攬，處於",
-          "en": "To appropriate, to occupy",
+          "zh": "佔據",
+          "zhSpoken": "佔據",
+          "en": "to occupy",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chiếm ưu thế",
-          "exampleZh": "處於優勢。 覆被。"
+          "category": "日常動詞",
+          "example": "Nữ chiếm một nửa nhân viên.",
+          "exampleZh": "女性佔員工的一半。"
         },
         {
           "id": "freq_784",
           "rank": 784,
           "viet": "phá",
-          "zh": "爆破 / 爆炸",
-          "zhSpoken": "爆破，爆炸",
-          "en": "to destroy, to demolish",
+          "zh": "破壞",
+          "zhSpoken": "破壞",
+          "en": "to destroy",
           "pos": "動詞",
           "hanViet": "破",
-          "category": "日常必備動詞",
-          "example": "phá tường",
-          "exampleZh": "拆牆。"
+          "category": "日常動詞",
+          "example": "Đừng phá đồ của em.",
+          "exampleZh": "不要弄壞弟弟的東西。"
         },
         {
           "id": "freq_785",
           "rank": 785,
           "viet": "sức",
-          "zh": "力量 / 體力 / 精力",
-          "zhSpoken": "力量，體力",
-          "en": "strength, power, force",
+          "zh": "力氣",
+          "zhSpoken": "力氣",
+          "en": "strength",
           "pos": "名詞",
-          "hanViet": "飭",
-          "category": "生活日常",
-          "example": "sức thuỷ triều rất mạnh",
-          "exampleZh": "海潮來勢很猛。 能力。"
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Tôi không còn sức nữa.",
+          "exampleZh": "我沒力氣了。"
         },
         {
           "id": "freq_786",
           "rank": 786,
           "viet": "không gian",
-          "zh": "空間 / 宇",
-          "zhSpoken": "空間，宇",
+          "zh": "空間",
+          "zhSpoken": "空間",
           "en": "space",
           "pos": "名詞",
           "hanViet": "空間",
-          "category": "生活日常",
-          "example": "không gian ba chiều",
-          "exampleZh": "三維空間。"
+          "category": "生活名詞",
+          "example": "Quán này có không gian rất đẹp.",
+          "exampleZh": "這家店的空間很美。"
         },
         {
           "id": "freq_787",
           "rank": 787,
           "viet": "phương pháp",
-          "zh": "方法 / 方式",
-          "zhSpoken": "方法，方式",
-          "en": "method;system; experient",
+          "zh": "方法",
+          "zhSpoken": "方法",
+          "en": "method",
           "pos": "名詞",
           "hanViet": "方法",
-          "category": "生活日常",
-          "example": "anh ấy làm việc rất có phương pháp",
-          "exampleZh": "他工作很有辦法。 打。"
+          "category": "生活名詞",
+          "example": "Đây là phương pháp học rất tốt.",
+          "exampleZh": "這是很好的學習方法。"
         },
         {
           "id": "freq_788",
           "rank": 788,
           "viet": "tiến",
-          "zh": "晉 / 向前",
-          "zhSpoken": "晉，向前",
-          "en": "to advance, to march forward",
+          "zh": "前進",
+          "zhSpoken": "前進",
+          "en": "to advance",
           "pos": "動詞",
           "hanViet": "進",
-          "category": "日常必備動詞",
-          "example": "tiến quân",
-          "exampleZh": "進軍。"
+          "category": "日常動詞",
+          "example": "Công việc tiến rất nhanh.",
+          "exampleZh": "工作進展很快。"
         },
         {
           "id": "freq_789",
           "rank": 789,
           "viet": "nắm",
-          "zh": "把 / 把兒",
-          "zhSpoken": "把，把兒",
-          "en": "to hold; to grasp; to seize",
+          "zh": "抓住 / 把握",
+          "zhSpoken": "抓住，把握",
+          "en": "to grasp",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nắm một phần quyền hành",
-          "exampleZh": "把持一部份權力。"
+          "category": "日常動詞",
+          "example": "Nắm chặt tay tôi nhé.",
+          "exampleZh": "抓緊我的手喔。"
         },
         {
           "id": "freq_790",
           "rank": 790,
           "viet": "lính",
-          "zh": "部 / 大兵",
-          "zhSpoken": "部，大兵",
-          "en": "soldier; private",
+          "zh": "士兵",
+          "zhSpoken": "士兵",
+          "en": "soldier",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "xuất thân là lính",
-          "exampleZh": "行伍出身。"
+          "category": "生活名詞",
+          "example": "Anh ấy từng là lính.",
+          "exampleZh": "他曾是軍人。"
         },
         {
           "id": "freq_791",
           "rank": 791,
           "viet": "chấp nhận",
-          "zh": "承兌 / 接受",
-          "zhSpoken": "承兌，接受",
-          "en": "To accept, to agree to",
+          "zh": "接受",
+          "zhSpoken": "接受",
+          "en": "to accept",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "trong đấu tranh cách mạng phải chấp nhận mọi sự thử thách",
-          "exampleZh": "在革命鬥爭中, 要承受住各種考驗。"
+          "category": "日常動詞",
+          "example": "Tôi chấp nhận giá này.",
+          "exampleZh": "我接受這個價格。"
         },
         {
           "id": "freq_792",
           "rank": 792,
           "viet": "lệnh",
-          "zh": "發令 / 號令",
-          "zhSpoken": "發令，號令",
-          "en": "order, decree",
+          "zh": "命令",
+          "zhSpoken": "命令",
+          "en": "order; command",
           "pos": "名詞",
           "hanViet": "令",
-          "category": "生活日常",
-          "example": "súng phát tín hiệu; súng lệnh",
-          "exampleZh": "發令槍。"
+          "category": "生活名詞",
+          "example": "Đây là lệnh của giám đốc.",
+          "exampleZh": "這是總經理的命令。"
         },
         {
           "id": "freq_793",
           "rank": 793,
           "viet": "vũ khí",
-          "zh": "器械 / 兵甲",
-          "zhSpoken": "器械，兵甲",
-          "en": "vocabulary",
+          "zh": "武器",
+          "zhSpoken": "武器",
+          "en": "weapon",
           "pos": "名詞",
           "hanViet": "武器",
-          "category": "生活日常",
-          "example": "thu vũ khí",
-          "exampleZh": "繳械。"
+          "category": "生活名詞",
+          "example": "Không được mang vũ khí lên máy bay.",
+          "exampleZh": "不得攜帶武器上飛機。"
         },
         {
           "id": "freq_794",
           "rank": 794,
           "viet": "già",
-          "zh": "蒼老 / 病了一場",
-          "zhSpoken": "蒼老，病了一場",
-          "en": "old; aged; senile",
-          "pos": "名詞",
+          "zh": "老（年紀）",
+          "zhSpoken": "老",
+          "en": "old (age)",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "qua một trận bệnh, so với trước người già hẳn đi",
-          "exampleZh": "病了一場, 人比以前顯得蒼老多了 高邁。"
+          "category": "描述與狀態",
+          "example": "Ông tôi đã già rồi.",
+          "exampleZh": "我爺爺已經老了。"
         },
         {
           "id": "freq_795",
           "rank": 795,
           "viet": "thả",
-          "zh": "撤回 / 放",
-          "zhSpoken": "撤回，放",
-          "en": "to set free",
+          "zh": "放開",
+          "zhSpoken": "放開",
+          "en": "to release",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thả tù binh",
-          "exampleZh": "把俘虜放回去。"
+          "category": "日常動詞",
+          "example": "Thả cá xuống hồ.",
+          "exampleZh": "把魚放到湖裡。"
         },
         {
           "id": "freq_796",
           "rank": 796,
           "viet": "khoan",
-          "zh": "戳穿 / 打孔",
-          "zhSpoken": "戳穿，打孔",
-          "en": "drill; borer; brace",
+          "zh": "先別 / 鑽孔",
+          "zhSpoken": "先別，鑽孔",
+          "en": "hold on; to drill",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "khoan lỗ",
-          "exampleZh": "絞孔。"
+          "category": "日常動詞",
+          "example": "Khoan đã, để tôi xem.",
+          "exampleZh": "等等，讓我看看。"
         },
         {
           "id": "freq_797",
           "rank": 797,
           "viet": "chính thức",
-          "zh": "官方 / 及門",
-          "zhSpoken": "官方，及門",
-          "en": "Official",
+          "zh": "正式",
+          "zhSpoken": "正式",
+          "en": "official",
           "pos": "形容詞",
           "hanViet": "正式",
-          "category": "基礎描述",
-          "example": "tin chính thức; tin tức phía chính phủ",
-          "exampleZh": "官方消息書。"
+          "category": "描述與狀態",
+          "example": "Đây là thông báo chính thức.",
+          "exampleZh": "這是正式通知。"
         },
         {
           "id": "freq_798",
           "rank": 798,
           "viet": "lạnh",
-          "zh": "滄滄 / 冽",
-          "zhSpoken": "滄滄，冽",
+          "zh": "冷",
+          "zhSpoken": "冷",
           "en": "cold",
           "pos": "形容詞",
           "hanViet": "冷",
-          "category": "基礎描述",
-          "example": "gió lạnh",
-          "exampleZh": "寒風。"
+          "category": "描述與狀態",
+          "example": "Hà Nội mùa đông rất lạnh.",
+          "exampleZh": "河內冬天很冷。"
         },
         {
           "id": "freq_799",
           "rank": 799,
           "viet": "thú vị",
-          "zh": "動聽 / 鬥趣兒",
-          "zhSpoken": "動聽，鬥趣兒",
-          "en": "pleasant, enjoyable",
+          "zh": "有趣",
+          "zhSpoken": "有趣",
+          "en": "interesting",
           "pos": "形容詞",
           "hanViet": "趣味",
-          "category": "基礎描述",
-          "example": "câu chuyện rất tầm thường, nhưng anh ấy nói nghe rất thú vị",
-          "exampleZh": "極平常的事兒, 讓他說起來就很動聽。"
+          "category": "描述與狀態",
+          "example": "Chuyến đi này rất thú vị.",
+          "exampleZh": "這趟旅程很有趣。"
         },
         {
           "id": "freq_800",
           "rank": 800,
           "viet": "đại diện",
-          "zh": "出名兒 / 代表",
-          "zhSpoken": "出名兒，代表",
-          "en": "royal court-room",
-          "pos": "動詞",
+          "zh": "代表",
+          "zhSpoken": "代表",
+          "en": "representative",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đại diện toàn quyền",
-          "exampleZh": "全權代表。"
+          "category": "生活名詞",
+          "example": "Tôi là đại diện của công ty.",
+          "exampleZh": "我是公司代表。"
+        },
+        {
+          "id": "freq_801",
+          "rank": 801,
+          "viet": "cụ thể",
+          "zh": "具體",
+          "zhSpoken": "具體",
+          "en": "specific",
+          "pos": "形容詞",
+          "hanViet": "具體",
+          "category": "描述與狀態",
+          "example": "Anh nói cụ thể hơn được không?",
+          "exampleZh": "你可以說得更具體嗎？"
+        },
+        {
+          "id": "freq_802",
+          "rank": 802,
+          "viet": "anh em",
+          "zh": "兄弟 / 大家（男性）",
+          "zhSpoken": "兄弟，大家",
+          "en": "brothers; guys",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Hai anh em rất giống nhau.",
+          "exampleZh": "兩兄弟長得很像。"
+        },
+        {
+          "id": "freq_803",
+          "rank": 803,
+          "viet": "sạch",
+          "zh": "乾淨",
+          "zhSpoken": "乾淨",
+          "en": "clean",
+          "pos": "形容詞",
+          "hanViet": "",
+          "category": "描述與狀態",
+          "example": "Phòng này rất sạch.",
+          "exampleZh": "這間房很乾淨。"
+        },
+        {
+          "id": "freq_804",
+          "rank": 804,
+          "viet": "nỗi",
+          "zh": "（情緒名詞）",
+          "zhSpoken": "（情緒名詞）",
+          "en": "classifier for sorrow",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Tôi hiểu nỗi buồn của bạn.",
+          "exampleZh": "我懂你的難過。"
         }
       ],
-      "duration": 739.9
+      "duration": 705.5
     },
     {
       "batchId": 17,
       "tier": "top1k",
       "titleZh": "第 17 組 · 社會百態與生活制度",
       "titleEn": "Batch 17 · Top 1,000",
-      "range": "801 - 850",
-      "startRank": 801,
-      "endRank": 850,
+      "range": "806 - 855",
+      "startRank": 806,
+      "endRank": 855,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_17.mp3",
       "fileName": "vocab_1000_batch_17.mp3",
       "words": [
         {
-          "id": "freq_801",
-          "rank": 801,
-          "viet": "cụ thể",
-          "zh": "具體 / 深入羣衆",
-          "zhSpoken": "具體，深入羣衆",
-          "en": "concrete; material",
-          "pos": "形容詞",
-          "hanViet": "具體",
-          "category": "基礎描述",
-          "example": "cụ thể hoá",
-          "exampleZh": "具體化。"
-        },
-        {
-          "id": "freq_802",
-          "rank": 802,
-          "viet": "anh em",
-          "zh": "哥們兒 / 哥兒",
-          "zhSpoken": "哥們兒，哥兒",
-          "en": "Brothers, siblings",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "anh em nhà nó có mấy người",
-          "exampleZh": "他們家哥們兒好幾個呢。"
-        },
-        {
-          "id": "freq_803",
-          "rank": 803,
-          "viet": "sạch",
-          "zh": "乾淨 / 光",
-          "zhSpoken": "乾淨，光",
-          "en": "clean, cleanly",
-          "pos": "動詞",
-          "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tiêu diệt sạch quân địch",
-          "exampleZh": "把敵人消滅光。 淨; 潔。"
-        },
-        {
-          "id": "freq_804",
-          "rank": 804,
-          "viet": "nỗi",
-          "zh": "程度 / 境況",
-          "zhSpoken": "程度，境況",
-          "en": "Feeling",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "Nỗi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「程度」在工作上非常必需。"
-        },
-        {
-          "id": "freq_805",
-          "rank": 805,
-          "viet": "the",
-          "zh": "紡 / 薄紗",
-          "zhSpoken": "紡，薄紗",
-          "en": "cái, con, người...",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "The này rất cần thiết cho công việc.",
-          "exampleZh": "這個「紡」在工作上非常必需。"
-        },
-        {
           "id": "freq_806",
           "rank": 806,
           "viet": "tiệc",
-          "zh": "飯局 / 酒會",
-          "zhSpoken": "飯局，酒會",
-          "en": "banquet, party, feast",
+          "zh": "宴會",
+          "zhSpoken": "宴會",
+          "en": "party",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tiệc rượu",
-          "exampleZh": "酒席。"
+          "category": "生活名詞",
+          "example": "Tối nay công ty có tiệc.",
+          "exampleZh": "今晚公司有宴會。"
         },
         {
           "id": "freq_807",
           "rank": 807,
           "viet": "hấp dẫn",
-          "zh": "觸目 / 丰韻",
-          "zhSpoken": "觸目，丰韻",
-          "en": "to attract",
-          "pos": "動詞",
+          "zh": "吸引人",
+          "zhSpoken": "吸引人",
+          "en": "attractive",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hàng hấp dẫn",
-          "exampleZh": "熱門貨。"
+          "category": "描述與狀態",
+          "example": "Món ăn này trông rất hấp dẫn.",
+          "exampleZh": "這道菜看起來很誘人。"
         },
         {
           "id": "freq_808",
           "rank": 808,
           "viet": "nhân",
-          "zh": "趁 / 核",
-          "zhSpoken": "趁，核",
-          "en": "to multiply",
-          "pos": "動詞",
+          "zh": "人（漢越）/ 餡 / 趁",
+          "zhSpoken": "人，餡",
+          "en": "filling; on the occasion of",
+          "pos": "名詞",
           "hanViet": "仁",
-          "category": "日常必備動詞",
-          "example": "nhân gió giương buồm",
-          "exampleZh": "趁風起帆。"
+          "category": "生活名詞",
+          "example": "Nhân bánh này là thịt.",
+          "exampleZh": "這個餅的餡是肉。"
         },
         {
           "id": "freq_809",
           "rank": 809,
           "viet": "lực lượng",
-          "zh": "大軍 / 力",
-          "zhSpoken": "大軍，力",
-          "en": "froce; strength",
+          "zh": "力量 / 部隊",
+          "zhSpoken": "力量，部隊",
+          "en": "force",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "lực lượng địa chất học",
-          "exampleZh": "地質大軍。"
+          "category": "生活名詞",
+          "example": "Lực lượng lao động rất trẻ.",
+          "exampleZh": "勞動力很年輕。"
         },
         {
           "id": "freq_810",
           "rank": 810,
           "viet": "phụ",
-          "zh": "幫辦 / 輔助",
-          "zhSpoken": "幫辦，輔助",
-          "en": "to aid; to help; to assist",
+          "zh": "輔助",
+          "zhSpoken": "輔助",
+          "en": "auxiliary; to assist",
           "pos": "動詞",
-          "hanViet": "婦",
-          "category": "日常必備動詞",
-          "example": "lao động phụ",
-          "exampleZh": "輔助勞動。"
+          "hanViet": "輔",
+          "category": "日常動詞",
+          "example": "Em phụ chị một tay nhé.",
+          "exampleZh": "我幫姊姊一把吧。"
         },
         {
           "id": "freq_811",
           "rank": 811,
           "viet": "bao",
-          "zh": "包 / 包紮",
-          "zhSpoken": "包，包紮",
-          "en": "bag, sack",
-          "pos": "動詞",
+          "zh": "包 / 袋",
+          "zhSpoken": "包，袋",
+          "en": "bag; pack",
+          "pos": "名詞",
           "hanViet": "包",
-          "category": "日常必備動詞",
-          "example": "bao sách",
-          "exampleZh": "包書。"
+          "category": "生活名詞",
+          "example": "Tôi mua một bao gạo.",
+          "exampleZh": "我買了一袋米。"
         },
         {
           "id": "freq_812",
           "rank": 812,
           "viet": "lửa",
-          "zh": "丙 / 火",
-          "zhSpoken": "丙，火",
+          "zh": "火",
+          "zhSpoken": "火",
           "en": "fire",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ánh lửa",
-          "exampleZh": "火光。"
+          "category": "生活名詞",
+          "example": "Lửa to quá, nhỏ lại đi.",
+          "exampleZh": "火太大了，調小一點。"
         },
         {
           "id": "freq_813",
           "rank": 813,
           "viet": "nguyên nhân",
-          "zh": "病源 / 誘因",
-          "zhSpoken": "病源，誘因",
-          "en": "cause; reason",
+          "zh": "原因",
+          "zhSpoken": "原因",
+          "en": "cause",
           "pos": "名詞",
           "hanViet": "原因",
-          "category": "生活日常",
-          "example": "không nguyên nhân",
-          "exampleZh": "無端。"
+          "category": "生活名詞",
+          "example": "Nguyên nhân là gì?",
+          "exampleZh": "原因是什麼？"
         },
         {
           "id": "freq_814",
           "rank": 814,
           "viet": "lão",
-          "zh": "父 / 傢伙",
-          "zhSpoken": "父，傢伙",
-          "en": "old",
+          "zh": "老頭 / 老（貶）",
+          "zhSpoken": "老頭，老",
+          "en": "old man (rude)",
           "pos": "名詞",
           "hanViet": "老",
-          "category": "生活日常",
-          "example": "lão nông",
-          "exampleZh": "田父。"
+          "category": "生活名詞",
+          "example": "Lão ấy rất khó tính.",
+          "exampleZh": "那老頭很難搞。"
         },
         {
           "id": "freq_815",
           "rank": 815,
           "viet": "buồn",
-          "zh": "敗興 / 乘興而來",
-          "zhSpoken": "敗興，乘興而來",
-          "en": "Sad, melancholy, grieved",
-          "pos": "動詞",
+          "zh": "難過",
+          "zhSpoken": "難過",
+          "en": "sad",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "khi vui thì đến khi buồn lại đi",
-          "exampleZh": "乘興而來, 敗興而去 堵。"
+          "category": "描述與狀態",
+          "example": "Sao bạn buồn thế?",
+          "exampleZh": "你怎麼這麼難過？"
         },
         {
           "id": "freq_816",
           "rank": 816,
           "viet": "hợp tác",
-          "zh": "合作 / 協同",
-          "zhSpoken": "合作，協同",
-          "en": "Co-operate, collaborate",
+          "zh": "合作",
+          "zhSpoken": "合作",
+          "en": "to cooperate",
           "pos": "動詞",
           "hanViet": "合作",
-          "category": "日常必備動詞",
-          "example": "phân công hợp tác",
-          "exampleZh": "分工合作。"
+          "category": "日常動詞",
+          "example": "Rất vui được hợp tác với anh.",
+          "exampleZh": "很高興能與你合作。"
         },
         {
           "id": "freq_817",
           "rank": 817,
           "viet": "bình",
-          "zh": "盛器 / 罐",
-          "zhSpoken": "盛器，罐",
-          "en": "Vase, pot, china decanter",
-          "pos": "動詞",
-          "hanViet": "平",
-          "category": "日常必備動詞",
-          "example": "bình nước",
-          "exampleZh": "水罐兒。"
+          "zh": "瓶 / 壺",
+          "zhSpoken": "瓶，壺",
+          "en": "bottle; vase",
+          "pos": "名詞",
+          "hanViet": "瓶",
+          "category": "生活名詞",
+          "example": "Cho tôi một bình trà.",
+          "exampleZh": "請給我一壺茶。"
         },
         {
           "id": "freq_818",
           "rank": 818,
           "viet": "dựa",
-          "zh": "伏 / 負",
-          "zhSpoken": "伏，負",
-          "en": "to lean on; to stand against",
+          "zh": "依靠",
+          "zhSpoken": "依靠",
+          "en": "to lean on; based on",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "dựa vào bàn",
-          "exampleZh": "伏案。"
+          "category": "日常動詞",
+          "example": "Dựa vào kết quả, chúng ta quyết định.",
+          "exampleZh": "根據結果我們來決定。"
         },
         {
           "id": "freq_819",
           "rank": 819,
           "viet": "cưới",
-          "zh": "成婚 / 娶",
-          "zhSpoken": "成婚，娶",
-          "en": "to wed; to marry",
+          "zh": "結婚",
+          "zhSpoken": "結婚",
+          "en": "to marry",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cưới vợ",
-          "exampleZh": "娶妻。"
+          "category": "日常動詞",
+          "example": "Tháng sau họ cưới.",
+          "exampleZh": "他們下個月結婚。"
         },
         {
           "id": "freq_820",
           "rank": 820,
           "viet": "tầm",
-          "zh": "短程 / 海尋",
-          "zhSpoken": "短程，海尋",
-          "en": "range, scope, reach degree, extent",
+          "zh": "範圍 / 大約",
+          "zhSpoken": "範圍，大約",
+          "en": "range; around",
           "pos": "名詞",
-          "hanViet": "尋",
-          "category": "生活日常",
-          "example": "đạn đạo tầm ngắn",
-          "exampleZh": "短程導彈。"
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Tôi đến tầm tám giờ.",
+          "exampleZh": "我大約八點到。"
         },
         {
           "id": "freq_821",
           "rank": 821,
           "viet": "mùi",
-          "zh": "股 / 氣息",
-          "zhSpoken": "股，氣息",
-          "en": "smell; odour; scent",
+          "zh": "氣味",
+          "zhSpoken": "氣味",
+          "en": "smell",
           "pos": "名詞",
-          "hanViet": "未",
-          "category": "生活日常",
-          "example": "một mùi thơm",
-          "exampleZh": "一股香味。"
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Mùi này thơm quá.",
+          "exampleZh": "這味道好香。"
         },
         {
           "id": "freq_822",
           "rank": 822,
           "viet": "bí mật",
-          "zh": "暗中 / 地下",
-          "zhSpoken": "暗中，地下",
-          "en": "Secrret; cladestine",
+          "zh": "秘密",
+          "zhSpoken": "秘密",
+          "en": "secret",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nói chuyện bí mật",
-          "exampleZh": "密談。"
+          "category": "生活名詞",
+          "example": "Đây là bí mật của tôi.",
+          "exampleZh": "這是我的秘密。"
         },
         {
           "id": "freq_823",
           "rank": 823,
           "viet": "tinh thần",
-          "zh": "魂 / 勁兒",
-          "zhSpoken": "魂，勁兒",
-          "en": "mind, mental sence,spirit, nerve",
+          "zh": "精神",
+          "zhSpoken": "精神",
+          "en": "spirit",
           "pos": "名詞",
           "hanViet": "精神",
-          "category": "生活日常",
-          "example": "bộ mặt tinh thần",
-          "exampleZh": "精神面貌。"
+          "category": "生活名詞",
+          "example": "Tinh thần làm việc rất tốt.",
+          "exampleZh": "工作士氣很好。"
         },
         {
           "id": "freq_824",
           "rank": 824,
           "viet": "ngựa",
-          "zh": "騑 / 駟",
-          "zhSpoken": "騑，駟",
+          "zh": "馬",
+          "zhSpoken": "馬",
           "en": "horse",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Ngựa này rất cần thiết cho công việc.",
-          "exampleZh": "這個「騑」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Năm nay là năm con ngựa.",
+          "exampleZh": "今年是馬年。"
         },
         {
           "id": "freq_825",
           "rank": 825,
           "viet": "môn",
-          "zh": "學科 / 門 / 科目",
-          "zhSpoken": "學科，門",
-          "en": "band, gang, elique",
+          "zh": "科目",
+          "zhSpoken": "科目",
+          "en": "subject",
           "pos": "名詞",
           "hanViet": "門",
-          "category": "生活日常",
-          "example": "ở trường môn nào nó cũng học rất giỏi",
-          "exampleZh": "他在學校裏每門功課都很好。 科。"
+          "category": "生活名詞",
+          "example": "Bạn thích môn nào nhất?",
+          "exampleZh": "你最喜歡哪一科？"
         },
         {
           "id": "freq_826",
           "rank": 826,
           "viet": "tình",
-          "zh": "風月 / 情感",
-          "zhSpoken": "風月，情感",
-          "en": "love, affection situation, plight",
+          "zh": "情感 / 情況",
+          "zhSpoken": "情感，情況",
+          "en": "feeling",
           "pos": "名詞",
           "hanViet": "情",
-          "category": "生活日常",
-          "example": "nợ tình",
-          "exampleZh": "風月債。"
+          "category": "生活名詞",
+          "example": "Họ có tình cảm rất tốt.",
+          "exampleZh": "他們感情很好。"
         },
         {
           "id": "freq_827",
           "rank": 827,
           "viet": "vô cùng",
-          "zh": "備至 / 繃",
-          "zhSpoken": "備至，繃",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "無比",
+          "zhSpoken": "無比",
+          "en": "extremely",
+          "pos": "副詞",
           "hanViet": "無窮",
-          "category": "日常必備動詞",
-          "example": "công trình đồ sộ, tốn kém vô cùng",
-          "exampleZh": "工程浩大, 所費不貲。"
+          "category": "語法功能詞",
+          "example": "Tôi vô cùng biết ơn bạn.",
+          "exampleZh": "我非常感謝你。"
         },
         {
           "id": "freq_828",
           "rank": 828,
           "viet": "nghệ thuật",
-          "zh": "藝 / 藝術",
-          "zhSpoken": "藝，藝術",
+          "zh": "藝術",
+          "zhSpoken": "藝術",
           "en": "art",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Nghệ thuật này rất cần thiết cho công việc.",
-          "exampleZh": "這個「藝」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Múa rối nước là nghệ thuật đặc sắc.",
+          "exampleZh": "水上木偶是獨特的藝術。"
         },
         {
           "id": "freq_829",
           "rank": 829,
           "viet": "may",
-          "zh": "裁縫 / 縫製",
-          "zhSpoken": "裁縫，縫製",
-          "en": "có thể, có lẽ",
-          "pos": "動詞",
+          "zh": "幸好 / 縫製",
+          "zhSpoken": "幸好，縫製",
+          "en": "luckily; to sew",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tuy là quần vải áo vải, nhưng may rất khéo",
-          "exampleZh": "雖是布衫布褲, 但裁縫得體。"
+          "category": "語法功能詞",
+          "example": "May quá, tôi tìm được ví rồi.",
+          "exampleZh": "好險，我找到皮夾了。"
         },
         {
           "id": "freq_830",
           "rank": 830,
           "viet": "công",
-          "zh": "工 / 公",
-          "zhSpoken": "工，公",
-          "en": "peacock",
+          "zh": "公 / 功",
+          "zhSpoken": "公，功",
+          "en": "public; labor",
           "pos": "名詞",
-          "hanViet": "工",
-          "category": "生活日常",
-          "example": "giải quyết việc công; xử lý việc công",
-          "exampleZh": "公事公辦。"
+          "hanViet": "公",
+          "category": "生活名詞",
+          "example": "Nhà vệ sinh công cộng ở đâu?",
+          "exampleZh": "公共廁所在哪裡？"
         },
         {
           "id": "freq_831",
           "rank": 831,
           "viet": "đổ",
-          "zh": "猖獗 / 貸",
-          "zhSpoken": "猖獗，貸",
-          "en": "To pour; to spill",
+          "zh": "倒 / 翻倒",
+          "zhSpoken": "倒，翻倒",
+          "en": "to pour; to fall over",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "trách nhiệm không đổ cho ai được",
-          "exampleZh": "責無旁貸。"
+          "category": "日常動詞",
+          "example": "Đổ nước vào ly.",
+          "exampleZh": "把水倒進杯子。"
         },
         {
           "id": "freq_832",
           "rank": 832,
           "viet": "túi",
-          "zh": "包 / 兜兒",
-          "zhSpoken": "包，兜兒",
-          "en": "pocket bag",
+          "zh": "袋子 / 包包",
+          "zhSpoken": "袋子，包包",
+          "en": "bag; pocket",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "túi lưới",
-          "exampleZh": "網兜兒。"
+          "category": "生活名詞",
+          "example": "Cho tôi một cái túi.",
+          "exampleZh": "請給我一個袋子。"
         },
         {
           "id": "freq_833",
           "rank": 833,
           "viet": "tiếp theo",
-          "zh": "承襲 / 跟着",
-          "zhSpoken": "承襲，跟着",
-          "en": "continuouss, following",
-          "pos": "動詞",
+          "zh": "接下來",
+          "zhSpoken": "接下來",
+          "en": "next",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nghe xong báo cáo tiếp theo là thảo luận",
-          "exampleZh": "聽完報告跟着就討論。"
+          "category": "描述與狀態",
+          "example": "Bước tiếp theo là gì?",
+          "exampleZh": "下一步是什麼？"
         },
         {
           "id": "freq_834",
           "rank": 834,
           "viet": "lạ",
-          "zh": "別 / 不見經傳",
-          "zhSpoken": "別，不見經傳",
-          "en": "strange; foreign",
+          "zh": "奇怪 / 陌生",
+          "zhSpoken": "奇怪，陌生",
+          "en": "strange; unfamiliar",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "mùi vị lạ; phong cách khác thường; thức ăn lạ miệng",
-          "exampleZh": "別有風味。"
+          "category": "描述與狀態",
+          "example": "Mùi này lạ quá.",
+          "exampleZh": "這味道好奇怪。"
         },
         {
           "id": "freq_835",
           "rank": 835,
           "viet": "tường",
-          "zh": "垣 / 房山",
-          "zhSpoken": "垣，房山",
+          "zh": "牆",
+          "zhSpoken": "牆",
           "en": "wall",
-          "pos": "動詞",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "báo tường",
-          "exampleZh": "壁報。"
+          "category": "生活名詞",
+          "example": "Treo bức tranh lên tường.",
+          "exampleZh": "把畫掛到牆上。"
         },
         {
           "id": "freq_836",
           "rank": 836,
           "viet": "quanh",
-          "zh": "圍繞",
-          "zhSpoken": "圍繞",
-          "en": "round",
-          "pos": "形容詞",
+          "zh": "周圍",
+          "zhSpoken": "周圍",
+          "en": "around",
+          "pos": "介詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "Điều này rất quanh và quan trọng.",
-          "exampleZh": "這非常圍繞且重要。"
+          "category": "語法功能詞",
+          "example": "Quanh đây có quán nào ngon không?",
+          "exampleZh": "這附近有好吃的店嗎？"
         },
         {
           "id": "freq_837",
           "rank": 837,
           "viet": "đầy đủ",
-          "zh": "十足 / 備至",
-          "zhSpoken": "十足，備至",
-          "en": "complete; sufficient; adequate",
-          "pos": "動詞",
+          "zh": "齊全",
+          "zhSpoken": "齊全",
+          "en": "complete",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đầy đủ lí do",
-          "exampleZh": "十足的理由。"
+          "category": "描述與狀態",
+          "example": "Hồ sơ của bạn đã đầy đủ.",
+          "exampleZh": "你的資料已經齊全了。"
         },
         {
           "id": "freq_838",
           "rank": 838,
           "viet": "chia",
-          "zh": "調撥 / 分",
-          "zhSpoken": "調撥，分",
-          "en": "To divide, to split, to distribute,",
+          "zh": "分",
+          "zhSpoken": "分",
+          "en": "to divide",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chia tiền",
-          "exampleZh": "調撥款項。"
+          "category": "日常動詞",
+          "example": "Chia đều cho mọi người.",
+          "exampleZh": "平分給大家。"
         },
         {
           "id": "freq_839",
           "rank": 839,
           "viet": "rơi",
-          "zh": "滴 / 摽",
-          "zhSpoken": "滴，摽",
-          "en": "to fall; to drop; to come down",
+          "zh": "掉落",
+          "zhSpoken": "掉落",
+          "en": "to fall",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "rơi nước mắt",
-          "exampleZh": "掉眼淚。"
+          "category": "日常動詞",
+          "example": "Điện thoại của tôi bị rơi.",
+          "exampleZh": "我的手機掉了。"
         },
         {
           "id": "freq_840",
           "rank": 840,
           "viet": "dần",
-          "zh": "搗爛 / 逐步",
-          "zhSpoken": "搗爛，逐步",
-          "en": "to beat",
-          "pos": "動詞",
-          "hanViet": "寅",
-          "category": "日常必備動詞",
-          "example": "dần thịt",
-          "exampleZh": "槌成肉泥。"
+          "zh": "漸漸",
+          "zhSpoken": "漸漸",
+          "en": "gradually",
+          "pos": "副詞",
+          "hanViet": "",
+          "category": "語法功能詞",
+          "example": "Tôi dần quen với cuộc sống ở đây.",
+          "exampleZh": "我漸漸習慣這裡的生活。"
         },
         {
           "id": "freq_841",
           "rank": 841,
           "viet": "thông minh",
-          "zh": "聰明 / 伶俐",
-          "zhSpoken": "聰明，伶俐",
-          "en": "intelligent, clever",
+          "zh": "聰明",
+          "zhSpoken": "聰明",
+          "en": "smart",
           "pos": "形容詞",
           "hanViet": "聰明",
-          "category": "基礎描述",
-          "example": "đứa trẻ này thật thông minh linh hoạt",
-          "exampleZh": "這孩子真伶俐。"
+          "category": "描述與狀態",
+          "example": "Con bạn rất thông minh.",
+          "exampleZh": "你的孩子很聰明。"
         },
         {
           "id": "freq_842",
           "rank": 842,
           "viet": "khẳng định",
-          "zh": "斷言 / 坐定",
-          "zhSpoken": "斷言，坐定",
-          "en": "affirm; to assert",
+          "zh": "肯定 / 斷言",
+          "zhSpoken": "肯定，斷言",
+          "en": "to affirm",
           "pos": "動詞",
           "hanViet": "肯定",
-          "category": "日常必備動詞",
-          "example": "có thể khẳng định, biện pháp này không được",
-          "exampleZh": "可以斷言, 這種辦法行不通。"
+          "category": "日常動詞",
+          "example": "Tôi khẳng định điều đó là đúng.",
+          "exampleZh": "我肯定那是對的。"
         },
         {
           "id": "freq_843",
           "rank": 843,
           "viet": "dầu",
-          "zh": "油 / 油酥",
-          "zhSpoken": "油，油酥",
+          "zh": "油",
+          "zhSpoken": "油",
           "en": "oil",
           "pos": "名詞",
           "hanViet": "油",
-          "category": "生活日常",
-          "example": "đèn dầu",
-          "exampleZh": "膏火。"
+          "category": "生活名詞",
+          "example": "Xe hết dầu rồi.",
+          "exampleZh": "車子沒油了。"
         },
         {
           "id": "freq_844",
           "rank": 844,
           "viet": "công nghiệp",
-          "zh": "產業 / 工業",
-          "zhSpoken": "產業，工業",
-          "en": "Industry",
+          "zh": "工業",
+          "zhSpoken": "工業",
+          "en": "industry",
           "pos": "名詞",
           "hanViet": "工業",
-          "category": "生活日常",
-          "example": "công nhân công nghiệp",
-          "exampleZh": "產業工人。"
+          "category": "生活名詞",
+          "example": "Bình Dương có nhiều khu công nghiệp.",
+          "exampleZh": "平陽有很多工業區。"
         },
         {
           "id": "freq_845",
           "rank": 845,
           "viet": "cảnh",
-          "zh": "背景 / 鏡頭",
-          "zhSpoken": "背景，鏡頭",
-          "en": "Sight, scenery, landscape",
+          "zh": "風景 / 場景",
+          "zhSpoken": "風景，場景",
+          "en": "scenery",
           "pos": "名詞",
           "hanViet": "景",
-          "category": "生活日常",
-          "example": "cảnh lao động tưng bừng sôi nổi",
-          "exampleZh": "熱火朝天的勞動場景。"
+          "category": "生活名詞",
+          "example": "Cảnh ở đây đẹp quá.",
+          "exampleZh": "這裡風景真美。"
         },
         {
           "id": "freq_846",
           "rank": 846,
           "viet": "bao gồm",
-          "zh": "包含 / 包括",
-          "zhSpoken": "包含，包括",
-          "en": "to include, to embrace, to comprise",
+          "zh": "包括",
+          "zhSpoken": "包括",
+          "en": "to include",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tài liệu về tác phẩm rất rộng, bao gồm mọi lĩnh vực xã hội",
-          "exampleZh": "作品題材很廣, 涵蓋了社會各個領域。 囊括。"
+          "category": "日常動詞",
+          "example": "Giá vé bao gồm bữa trưa.",
+          "exampleZh": "票價包含午餐。"
         },
         {
           "id": "freq_847",
           "rank": 847,
           "viet": "ngừng",
-          "zh": "躊躇 / 罷休",
-          "zhSpoken": "躊躇，罷休",
-          "en": "to stop; to draw up",
+          "zh": "停止",
+          "zhSpoken": "停止",
+          "en": "to stop",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "không chịu ngừng tay",
-          "exampleZh": "不肯罷手。"
+          "category": "日常動詞",
+          "example": "Mưa đã ngừng rồi.",
+          "exampleZh": "雨停了。"
         },
         {
           "id": "freq_848",
           "rank": 848,
           "viet": "kết hợp",
-          "zh": "抱 / 併合",
-          "zhSpoken": "抱，併合",
-          "en": "to combine, to cordinate",
+          "zh": "結合",
+          "zhSpoken": "結合",
+          "en": "to combine",
           "pos": "動詞",
           "hanViet": "結合",
-          "category": "日常必備動詞",
-          "example": "kết hợp thành đoàn thể sẽ có sức mạnh",
-          "exampleZh": "抱成團體, 就會有力量。"
+          "category": "日常動詞",
+          "example": "Tôi kết hợp đi công tác và du lịch.",
+          "exampleZh": "我把出差和旅遊結合起來。"
         },
         {
           "id": "freq_849",
           "rank": 849,
           "viet": "ca",
-          "zh": "班兒 / 班子",
-          "zhSpoken": "班兒，班子",
-          "en": "Mug (about 1/4 litre)",
-          "pos": "動詞",
-          "hanViet": "歌",
-          "category": "日常必備動詞",
-          "example": "ca sáng",
-          "exampleZh": "早班兒。"
+          "zh": "班次 / 唱 / 杯",
+          "zhSpoken": "班次，唱",
+          "en": "shift; to sing; mug",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Hôm nay tôi làm ca đêm.",
+          "exampleZh": "今天我上夜班。"
         },
         {
           "id": "freq_850",
           "rank": 850,
           "viet": "đón",
-          "zh": "逢迎 / 逆",
-          "zhSpoken": "逢迎，逆",
-          "en": "To meet; to go to meet",
+          "zh": "接（人）",
+          "zhSpoken": "接",
+          "en": "to pick up",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh ấy là người chuyên đi đón khách",
-          "exampleZh": "他是專程前來逢迎諸位的。"
-        }
-      ],
-      "duration": 734.7
-    },
-    {
-      "batchId": 18,
-      "tier": "top1k",
-      "titleZh": "第 18 組 · 抽象思維與概念理解",
-      "titleEn": "Batch 18 · Top 1,000",
-      "range": "851 - 900",
-      "startRank": 851,
-      "endRank": 900,
-      "wordCount": 50,
-      "audioUrl": "/audio/batches/vocab_1000_batch_18.mp3",
-      "fileName": "vocab_1000_batch_18.mp3",
-      "words": [
+          "category": "日常動詞",
+          "example": "Anh ra sân bay đón tôi nhé.",
+          "exampleZh": "你來機場接我喔。"
+        },
         {
           "id": "freq_851",
           "rank": 851,
           "viet": "cháy",
-          "zh": "發火 / 嘎渣兒",
-          "zhSpoken": "發火，嘎渣兒",
-          "en": "xem cá cháy",
+          "zh": "燃燒 / 著火",
+          "zhSpoken": "燃燒，著火",
+          "en": "to burn",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "điểm cháy",
-          "exampleZh": "發火點。"
+          "category": "日常動詞",
+          "example": "Nhà bên kia bị cháy!",
+          "exampleZh": "對面的房子著火了！"
         },
         {
           "id": "freq_852",
@@ -11349,155 +11269,170 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "giao thông",
           "zh": "交通",
           "zhSpoken": "交通",
-          "en": "to communicate",
+          "en": "traffic",
           "pos": "名詞",
           "hanViet": "交通",
-          "category": "生活日常",
-          "example": "Giao thông này rất cần thiết cho công việc.",
-          "exampleZh": "這個「交通」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Giao thông ở Hà Nội rất đông.",
+          "exampleZh": "河內的交通很擁擠。"
         },
         {
           "id": "freq_853",
           "rank": 853,
           "viet": "mưa",
-          "zh": "降水 / 雨",
-          "zhSpoken": "降水，雨",
+          "zh": "雨 / 下雨",
+          "zhSpoken": "雨，下雨",
           "en": "rain",
-          "pos": "動詞",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mưa bão",
-          "exampleZh": "暴風雨。"
+          "category": "生活名詞",
+          "example": "Trời đang mưa to.",
+          "exampleZh": "現在正下大雨。"
         },
         {
           "id": "freq_854",
           "rank": 854,
           "viet": "lập",
-          "zh": "辦 / 編造",
-          "zhSpoken": "辦，編造",
-          "en": "to form; to establish; to erect",
+          "zh": "建立 / 制定",
+          "zhSpoken": "建立，制定",
+          "en": "to establish",
           "pos": "動詞",
           "hanViet": "立",
-          "category": "日常必備動詞",
-          "example": "lập trường học",
-          "exampleZh": "辦學校。"
+          "category": "日常動詞",
+          "example": "Chúng tôi lập công ty năm ngoái.",
+          "exampleZh": "我們去年成立公司。"
         },
         {
           "id": "freq_855",
           "rank": 855,
           "viet": "đô",
-          "zh": "棒 / 都",
-          "zhSpoken": "棒，都",
-          "en": "như kinh đô (nói tắt)",
+          "zh": "美元 / 都城",
+          "zhSpoken": "美元，都城",
+          "en": "dollar; capital city",
           "pos": "名詞",
-          "hanViet": "都",
-          "category": "生活日常",
-          "example": "chàng trai đô con",
-          "exampleZh": "棒 小夥子。"
-        },
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Cái này giá năm đô.",
+          "exampleZh": "這個要五美元。"
+        }
+      ],
+      "duration": 710.4
+    },
+    {
+      "batchId": 18,
+      "tier": "top1k",
+      "titleZh": "第 18 組 · 抽象思維與概念理解",
+      "titleEn": "Batch 18 · Top 1,000",
+      "range": "856 - 905",
+      "startRank": 856,
+      "endRank": 905,
+      "wordCount": 50,
+      "audioUrl": "/audio/batches/vocab_1000_batch_18.mp3",
+      "fileName": "vocab_1000_batch_18.mp3",
+      "words": [
         {
           "id": "freq_856",
           "rank": 856,
           "viet": "họp",
-          "zh": "坌 / 會",
-          "zhSpoken": "坌，會",
-          "en": "to meet; to gather; to convene",
+          "zh": "開會",
+          "zhSpoken": "開會",
+          "en": "to meet",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "họp chợ",
-          "exampleZh": "坌集。"
+          "category": "日常動詞",
+          "example": "Chiều nay chúng ta họp.",
+          "exampleZh": "今天下午我們開會。"
         },
         {
           "id": "freq_857",
           "rank": 857,
           "viet": "chuyên gia",
-          "zh": "大方 / 家",
-          "zhSpoken": "大方，家",
-          "en": "Expert, specialist, authority",
+          "zh": "專家",
+          "zhSpoken": "專家",
+          "en": "expert",
           "pos": "名詞",
           "hanViet": "專家",
-          "category": "生活日常",
-          "example": "chuyên gia lúa nước",
-          "exampleZh": "水稻專家。書。"
+          "category": "生活名詞",
+          "example": "Anh ấy là chuyên gia kỹ thuật.",
+          "exampleZh": "他是技術專家。"
         },
         {
           "id": "freq_858",
           "rank": 858,
           "viet": "chi tiết",
-          "zh": "細節 / 詳細",
-          "zhSpoken": "細節，詳細",
-          "en": "Detail",
+          "zh": "細節",
+          "zhSpoken": "細節",
+          "en": "detail",
           "pos": "名詞",
           "hanViet": "枝節",
-          "category": "生活日常",
-          "example": "vấn đề chi tiết sẽ được giải quyết sau",
-          "exampleZh": "枝節問題隨後再解決。"
+          "category": "生活名詞",
+          "example": "Anh gửi chi tiết cho tôi nhé.",
+          "exampleZh": "請把細節傳給我。"
         },
         {
           "id": "freq_859",
           "rank": 859,
           "viet": "diện tích",
-          "zh": "面積 / 廣袤",
-          "zhSpoken": "面積，廣袤",
+          "zh": "面積",
+          "zhSpoken": "面積",
           "en": "area",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Diện tích này rất cần thiết cho công việc.",
-          "exampleZh": "這個「面積」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Diện tích nhà máy rất lớn.",
+          "exampleZh": "工廠面積很大。"
         },
         {
           "id": "freq_860",
           "rank": 860,
           "viet": "danh sách",
-          "zh": "花名冊 / 名冊",
-          "zhSpoken": "花名冊，名冊",
-          "en": "roll; roster; namlist",
+          "zh": "名單",
+          "zhSpoken": "名單",
+          "en": "list",
           "pos": "名詞",
           "hanViet": "名冊",
-          "category": "生活日常",
-          "example": "danh sách chiến sĩ",
-          "exampleZh": "戰士花名冊。"
+          "category": "生活名詞",
+          "example": "Tên tôi có trong danh sách không?",
+          "exampleZh": "我的名字在名單上嗎？"
         },
         {
           "id": "freq_861",
           "rank": 861,
           "viet": "mơ",
-          "zh": "睡夢 / 幻想",
-          "zhSpoken": "睡夢，幻想",
-          "en": "apricot-tree",
+          "zh": "做夢 / 夢想",
+          "zhSpoken": "做夢，夢想",
+          "en": "to dream",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể mơ giúp tôi không?",
-          "exampleZh": "你能幫我睡夢嗎？"
+          "category": "日常動詞",
+          "example": "Tôi mơ được sống ở Đà Lạt.",
+          "exampleZh": "我夢想住在大叻。"
         },
         {
           "id": "freq_862",
           "rank": 862,
           "viet": "trò",
-          "zh": "把戲 / 勾當",
-          "zhSpoken": "把戲，勾當",
-          "en": "trick",
+          "zh": "遊戲 / 把戲",
+          "zhSpoken": "遊戲，把戲",
+          "en": "game",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "làm trò",
-          "exampleZh": "耍把戲。"
+          "category": "生活名詞",
+          "example": "Trẻ em thích trò này.",
+          "exampleZh": "小孩喜歡這個遊戲。"
         },
         {
           "id": "freq_863",
           "rank": 863,
           "viet": "ngày mai",
-          "zh": "旦日 / 明",
-          "zhSpoken": "旦日，明",
+          "zh": "明天",
+          "zhSpoken": "明天",
           "en": "tomorrow",
-          "pos": "動詞",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "ngày mai",
-          "exampleZh": "明天。"
+          "category": "語法功能詞",
+          "example": "Ngày mai tôi đi Huế.",
+          "exampleZh": "明天我去順化。"
         },
         {
           "id": "freq_864",
@@ -11505,298 +11440,298 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "truyền thống",
           "zh": "傳統",
           "zhSpoken": "傳統",
-          "en": "Tradition",
+          "en": "tradition",
           "pos": "名詞",
           "hanViet": "傳統",
-          "category": "生活日常",
-          "example": "phát huy truyền thống cách mạng tốt đẹp, gian khổ giản dị",
-          "exampleZh": "發揚艱苦樸素的優良革命傳統。"
+          "category": "生活名詞",
+          "example": "Áo dài là trang phục truyền thống.",
+          "exampleZh": "奧黛是傳統服飾。"
         },
         {
           "id": "freq_865",
           "rank": 865,
           "viet": "trưởng",
-          "zh": "嫡 / 那摩溫",
-          "zhSpoken": "嫡，那摩溫",
-          "en": "head, leader",
+          "zh": "長（職位）",
+          "zhSpoken": "長",
+          "en": "chief; head",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "con trai trưởng; con trưởng vợ cả",
-          "exampleZh": "嫡長子。"
+          "category": "生活名詞",
+          "example": "Anh ấy là trưởng phòng.",
+          "exampleZh": "他是部門主管。"
         },
         {
           "id": "freq_866",
           "rank": 866,
           "viet": "ấn tượng",
-          "zh": "觀瞻 / 印跡",
-          "zhSpoken": "觀瞻，印跡",
-          "en": "Impression",
+          "zh": "印象",
+          "zhSpoken": "印象",
+          "en": "impression",
           "pos": "名詞",
           "hanViet": "印象",
-          "category": "生活日常",
-          "example": "ấn tượng sâu sắc",
-          "exampleZh": "深刻的印象。"
+          "category": "生活名詞",
+          "example": "Tôi rất có ấn tượng với thành phố này.",
+          "exampleZh": "我對這座城市印象很深。"
         },
         {
           "id": "freq_867",
           "rank": 867,
           "viet": "ghét",
-          "zh": "皴 / 一脖子皴",
-          "zhSpoken": "皴，一脖子皴",
-          "en": "to detest; to hate; to dislike; to ",
+          "zh": "討厭",
+          "zhSpoken": "討厭",
+          "en": "to hate",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "cổ đầy ghét",
-          "exampleZh": "一脖子皴。 癉。"
+          "category": "日常動詞",
+          "example": "Tôi ghét đi muộn.",
+          "exampleZh": "我討厭遲到。"
         },
         {
           "id": "freq_868",
           "rank": 868,
           "viet": "chứa",
-          "zh": "包含 / 包羅",
-          "zhSpoken": "包含，包羅",
-          "en": "To contain, to hold, to be full of",
+          "zh": "裝 / 容納",
+          "zhSpoken": "裝，容納",
+          "en": "to contain",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "căn nhà này nhỏ, người đông ngồi chứa không đủ",
-          "exampleZh": "這個屋子小, 人多了坐不開。"
+          "category": "日常動詞",
+          "example": "Phòng này chứa được năm mươi người.",
+          "exampleZh": "這間可容納五十人。"
         },
         {
           "id": "freq_869",
           "rank": 869,
           "viet": "chi phí",
-          "zh": "成本 / 代價",
-          "zhSpoken": "成本，代價",
-          "en": "To spend",
-          "pos": "動詞",
+          "zh": "費用",
+          "zhSpoken": "費用",
+          "en": "cost",
+          "pos": "名詞",
           "hanViet": "支費",
-          "category": "日常必備動詞",
-          "example": "làm được nhiều việc với chi phí thấp nhất",
-          "exampleZh": "用最小的代價辦更多的事情。 費用; 用項; 用度。"
+          "category": "生活名詞",
+          "example": "Chi phí vận chuyển là bao nhiêu?",
+          "exampleZh": "運費是多少？"
         },
         {
           "id": "freq_870",
           "rank": 870,
           "viet": "bạn bè",
-          "zh": "火伴 / 侶伴",
-          "zhSpoken": "火伴，侶伴",
-          "en": "(cũng nói) bè bạn Friends",
-          "pos": "動詞",
+          "zh": "朋友們",
+          "zhSpoken": "朋友們",
+          "en": "friends",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "bạn bè quốc tế",
-          "exampleZh": "國際友人。"
+          "category": "生活名詞",
+          "example": "Tôi đi chơi với bạn bè.",
+          "exampleZh": "我跟朋友出去玩。"
         },
         {
           "id": "freq_871",
           "rank": 871,
           "viet": "thương mại",
-          "zh": "經商 / 貿",
-          "zhSpoken": "經商，貿",
-          "en": "commerce, trade",
+          "zh": "貿易 / 商業",
+          "zhSpoken": "貿易，商業",
+          "en": "commerce",
           "pos": "名詞",
           "hanViet": "商賣",
-          "category": "生活日常",
-          "example": "Thương mại này rất cần thiết cho công việc.",
-          "exampleZh": "這個「經商」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Đây là trung tâm thương mại lớn nhất.",
+          "exampleZh": "這是最大的購物中心。"
         },
         {
           "id": "freq_872",
           "rank": 872,
           "viet": "sức mạnh",
-          "zh": "鼎力 / 勁兒",
-          "zhSpoken": "鼎力，勁兒",
-          "en": "power, strength",
+          "zh": "力量",
+          "zhSpoken": "力量",
+          "en": "strength",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Sức mạnh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「鼎力」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Đoàn kết tạo nên sức mạnh.",
+          "exampleZh": "團結就是力量。"
         },
         {
           "id": "freq_873",
           "rank": 873,
           "viet": "hiện đại",
-          "zh": "摩登 / 現代",
-          "zhSpoken": "摩登，現代",
-          "en": "present time; contemporary period",
+          "zh": "現代",
+          "zhSpoken": "現代",
+          "en": "modern",
           "pos": "形容詞",
           "hanViet": "現代",
-          "category": "基礎描述",
-          "example": "dụng cụ gia đình hiện đại",
-          "exampleZh": "摩登傢俱。"
+          "category": "描述與狀態",
+          "example": "Nhà máy này rất hiện đại.",
+          "exampleZh": "這間工廠很現代化。"
         },
         {
           "id": "freq_874",
           "rank": 874,
           "viet": "nhắc",
-          "zh": "點 / 吊",
-          "zhSpoken": "點，吊",
-          "en": "to talk of the devil",
+          "zh": "提醒",
+          "zhSpoken": "提醒",
+          "en": "to remind",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nhắc anh ấy mai đến sớm một chút",
-          "exampleZh": "關照他明天早點來。 警告。"
+          "category": "日常動詞",
+          "example": "Nhắc tôi gọi điện cho sếp nhé.",
+          "exampleZh": "提醒我打給老闆喔。"
         },
         {
           "id": "freq_875",
           "rank": 875,
           "viet": "nói dối",
-          "zh": "扯謊 / 打謊",
-          "zhSpoken": "扯謊，打謊",
-          "en": "to lie; to tell lies",
+          "zh": "說謊",
+          "zhSpoken": "說謊",
+          "en": "to lie",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nói dối",
-          "exampleZh": "說謊。"
+          "category": "日常動詞",
+          "example": "Đừng nói dối tôi.",
+          "exampleZh": "別對我說謊。"
         },
         {
           "id": "freq_876",
           "rank": 876,
           "viet": "khoẻ",
-          "zh": "棒 / 粗大",
-          "zhSpoken": "棒，粗大",
-          "en": "vocabulary",
+          "zh": "健康 / 好",
+          "zhSpoken": "健康，好",
+          "en": "healthy; well",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "ông khoẻ không!",
-          "exampleZh": "您好哇!。"
+          "category": "描述與狀態",
+          "example": "Dạo này bạn khoẻ không?",
+          "exampleZh": "你最近好嗎？"
         },
         {
           "id": "freq_877",
           "rank": 877,
           "viet": "tìm hiểu",
-          "zh": "參 / 測探",
-          "zhSpoken": "參，測探",
-          "en": "to survery, to search, to court",
+          "zh": "了解",
+          "zhSpoken": "了解",
+          "en": "to learn about",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tìm hiểu động cơ của địch",
-          "exampleZh": "推求對方的動機。"
+          "category": "日常動詞",
+          "example": "Tôi muốn tìm hiểu thị trường.",
+          "exampleZh": "我想了解市場。"
         },
         {
           "id": "freq_878",
           "rank": 878,
           "viet": "dự",
-          "zh": "干連 / 參廁其間",
-          "zhSpoken": "干連，參廁其間",
-          "en": "to assist; to take part; to attend",
+          "zh": "參加（會議）",
+          "zhSpoken": "參加",
+          "en": "to attend",
           "pos": "動詞",
           "hanViet": "預",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể dự giúp tôi không?",
-          "exampleZh": "你能幫我干連嗎？"
+          "category": "日常動詞",
+          "example": "Tôi đi dự tiệc cưới.",
+          "exampleZh": "我去參加喜宴。"
         },
         {
           "id": "freq_879",
           "rank": 879,
           "viet": "bất kỳ",
-          "zh": "任意 / 任憑",
-          "zhSpoken": "任意，任憑",
-          "en": "vocabulary",
-          "pos": "名詞",
+          "zh": "任何",
+          "zhSpoken": "任何",
+          "en": "any",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "tam giác bất kỳ",
-          "exampleZh": "任意三角形。連。"
+          "category": "語法功能詞",
+          "example": "Bạn có thể chọn bất kỳ món nào.",
+          "exampleZh": "你可以選任何一道菜。"
         },
         {
           "id": "freq_880",
           "rank": 880,
           "viet": "đùa",
-          "zh": "諢 / 打趣",
-          "zhSpoken": "諢，打趣",
-          "en": "to joke; to jest",
+          "zh": "開玩笑",
+          "zhSpoken": "開玩笑",
+          "en": "to joke",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "việc hệ trọng đấy, chúng ta không nên đùa nhé!",
-          "exampleZh": "這是正經事, 咱們可別打哈哈!。"
+          "category": "日常動詞",
+          "example": "Tôi chỉ đùa thôi.",
+          "exampleZh": "我只是開玩笑。"
         },
         {
           "id": "freq_881",
           "rank": 881,
           "viet": "hẹn",
-          "zh": "期 / 不期而遇",
-          "zhSpoken": "期，不期而遇",
-          "en": "to appoint; to date; to promise",
+          "zh": "約定",
+          "zhSpoken": "約定",
+          "en": "to make an appointment",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "không hẹn mà gặp",
-          "exampleZh": "不期而遇。 約。"
+          "category": "日常動詞",
+          "example": "Hẹn gặp lại!",
+          "exampleZh": "再會！"
         },
         {
           "id": "freq_882",
           "rank": 882,
           "viet": "y tế",
-          "zh": "醫務",
-          "zhSpoken": "醫務",
-          "en": "health service",
+          "zh": "醫療",
+          "zhSpoken": "醫療",
+          "en": "healthcare",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nhân viên y tế",
-          "exampleZh": "醫務工作者。"
+          "category": "生活名詞",
+          "example": "Bảo hiểm y tế rất quan trọng.",
+          "exampleZh": "健康保險很重要。"
         },
         {
           "id": "freq_883",
           "rank": 883,
           "viet": "chức năng",
-          "zh": "機能 / 功用",
-          "zhSpoken": "機能，功用",
-          "en": "Function",
+          "zh": "功能",
+          "zhSpoken": "功能",
+          "en": "function",
           "pos": "名詞",
           "hanViet": "職能",
-          "category": "生活日常",
-          "example": "chức năng của tiền tệ",
-          "exampleZh": "貨幣的職能。"
+          "category": "生活名詞",
+          "example": "Máy này có nhiều chức năng.",
+          "exampleZh": "這台機器有很多功能。"
         },
         {
           "id": "freq_884",
           "rank": 884,
           "viet": "mục đích",
-          "zh": "意圖 / 旨",
-          "zhSpoken": "意圖，旨",
-          "en": "mark; goal; purpose",
+          "zh": "目的",
+          "zhSpoken": "目的",
+          "en": "purpose",
           "pos": "名詞",
           "hanViet": "目的",
-          "category": "生活日常",
-          "example": "mục đích không rõ ràng",
-          "exampleZh": "意向不明。"
+          "category": "生活名詞",
+          "example": "Mục đích chuyến đi là gì?",
+          "exampleZh": "這趟行程的目的是什麼？"
         },
         {
           "id": "freq_885",
           "rank": 885,
           "viet": "nhanh chóng",
-          "zh": "從速 / 翻然",
-          "zhSpoken": "從速，翻然",
-          "en": "quick, quickly, swiftly ; prompt, p",
+          "zh": "迅速",
+          "zhSpoken": "迅速",
+          "en": "quickly",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "xử lý nhanh chóng",
-          "exampleZh": "從速處理。"
+          "category": "描述與狀態",
+          "example": "Chúng tôi sẽ giao hàng nhanh chóng.",
+          "exampleZh": "我們會迅速交貨。"
         },
         {
           "id": "freq_886",
           "rank": 886,
           "viet": "học tập",
-          "zh": "憲章 / 修業",
-          "zhSpoken": "憲章，修業",
-          "en": "Train, drill; learn study",
+          "zh": "學習",
+          "zhSpoken": "學習",
+          "en": "to study",
           "pos": "動詞",
           "hanViet": "學習",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể học tập giúp tôi không?",
-          "exampleZh": "你能幫我憲章嗎？"
+          "category": "日常動詞",
+          "example": "Môi trường học tập ở đây rất tốt.",
+          "exampleZh": "這裡的學習環境很好。"
         },
         {
           "id": "freq_887",
@@ -11804,38 +11739,38 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "chính trị",
           "zh": "政治",
           "zhSpoken": "政治",
-          "en": "Politics",
+          "en": "politics",
           "pos": "名詞",
           "hanViet": "政治",
-          "category": "生活日常",
-          "example": "việc chính trị",
-          "exampleZh": "政務。"
+          "category": "生活名詞",
+          "example": "Tôi không hiểu nhiều về chính trị.",
+          "exampleZh": "我不太懂政治。"
         },
         {
           "id": "freq_888",
           "rank": 888,
           "viet": "giả",
-          "zh": "假 / 假想",
-          "zhSpoken": "假，假想",
-          "en": "false; artificial; forged",
-          "pos": "動詞",
+          "zh": "假的",
+          "zhSpoken": "假的",
+          "en": "fake",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tóc giả",
-          "exampleZh": "假髮。"
+          "category": "描述與狀態",
+          "example": "Cái túi này là hàng giả.",
+          "exampleZh": "這個包是假貨。"
         },
         {
           "id": "freq_889",
           "rank": 889,
           "viet": "thuế",
-          "zh": "賦 / 捐",
-          "zhSpoken": "賦，捐",
+          "zh": "稅",
+          "zhSpoken": "稅",
           "en": "tax",
           "pos": "名詞",
           "hanViet": "稅",
-          "category": "生活日常",
-          "example": "thuế ruộng",
-          "exampleZh": "田賦。"
+          "category": "生活名詞",
+          "example": "Giá này đã có thuế chưa?",
+          "exampleZh": "這個價格含稅了嗎？"
         },
         {
           "id": "freq_890",
@@ -11843,391 +11778,391 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "gió",
           "zh": "風",
           "zhSpoken": "風",
-          "en": "wind; air",
+          "en": "wind",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "nổi gió",
-          "exampleZh": "颳風。"
+          "category": "生活名詞",
+          "example": "Hôm nay gió to quá.",
+          "exampleZh": "今天風好大。"
         },
         {
           "id": "freq_891",
           "rank": 891,
           "viet": "Đảng",
-          "zh": "黨",
+          "zh": "黨（共產黨）",
           "zhSpoken": "黨",
-          "en": "party; gang; band",
+          "en": "the Party",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "điều lệ Đảng",
-          "exampleZh": "黨章。"
+          "category": "生活名詞",
+          "example": "Đảng Cộng sản lãnh đạo Việt Nam.",
+          "exampleZh": "共產黨領導越南。"
         },
         {
           "id": "freq_892",
           "rank": 892,
           "viet": "chiến thắng",
-          "zh": "凱 / 捷",
-          "zhSpoken": "凱，捷",
-          "en": "To win victory over, to triumph ove",
-          "pos": "動詞",
+          "zh": "戰勝 / 勝利",
+          "zhSpoken": "戰勝，勝利",
+          "en": "victory",
+          "pos": "名詞",
           "hanViet": "戰勝",
-          "category": "日常必備動詞",
-          "example": "chiến thắng trở về",
-          "exampleZh": "凱旋。"
+          "category": "生活名詞",
+          "example": "Cả nước mừng chiến thắng.",
+          "exampleZh": "全國慶祝勝利。"
         },
         {
           "id": "freq_893",
           "rank": 893,
           "viet": "áp dụng",
-          "zh": "採取 / 運用",
-          "zhSpoken": "採取，運用",
-          "en": "To apply, to put into practice, to ",
+          "zh": "應用 / 實施",
+          "zhSpoken": "應用，實施",
+          "en": "to apply",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "áp dụng biện pháp khẩn cấp",
-          "exampleZh": "採取緊急措施。"
+          "category": "日常動詞",
+          "example": "Khuyến mãi này áp dụng đến cuối tháng.",
+          "exampleZh": "這項優惠適用到月底。"
         },
         {
           "id": "freq_894",
           "rank": 894,
           "viet": "giải pháp",
-          "zh": "辦法 / 解法",
-          "zhSpoken": "辦法，解法",
+          "zh": "解決方案",
+          "zhSpoken": "解決方案",
           "en": "solution",
           "pos": "名詞",
           "hanViet": "解法",
-          "category": "生活日常",
-          "example": "Giải pháp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「辦法」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Chúng ta cần giải pháp tốt hơn.",
+          "exampleZh": "我們需要更好的解決方案。"
         },
         {
           "id": "freq_895",
           "rank": 895,
           "viet": "vui vẻ",
-          "zh": "高興 / 僖",
-          "zhSpoken": "高興，僖",
-          "en": "vocabulary",
+          "zh": "愉快",
+          "zhSpoken": "愉快",
+          "en": "cheerful",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "vui vẻ; vui mừng",
-          "exampleZh": "歡咍。"
+          "category": "描述與狀態",
+          "example": "Chúc bạn cuối tuần vui vẻ!",
+          "exampleZh": "祝你週末愉快！"
         },
         {
           "id": "freq_896",
           "rank": 896,
           "viet": "việc làm",
-          "zh": "飯碗兒 / 事由兒",
-          "zhSpoken": "飯碗兒，事由兒",
-          "en": "deed, action job, work",
+          "zh": "工作機會",
+          "zhSpoken": "工作機會",
+          "en": "job; employment",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "việc làm vững chắc",
-          "exampleZh": "鐵飯碗。 工作; 事由; 事由兒。"
+          "category": "生活名詞",
+          "example": "Nhà máy tạo nhiều việc làm.",
+          "exampleZh": "工廠創造很多工作機會。"
         },
         {
           "id": "freq_897",
           "rank": 897,
           "viet": "liệu",
-          "zh": "估計 / 材料",
-          "zhSpoken": "估計，材料",
-          "en": "to manage; to calculate",
-          "pos": "動詞",
+          "zh": "是否 / 料想",
+          "zhSpoken": "是否，料想",
+          "en": "whether (wondering)",
+          "pos": "副詞",
           "hanViet": "料",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể liệu giúp tôi không?",
-          "exampleZh": "你能幫我估計嗎？"
+          "category": "語法功能詞",
+          "example": "Liệu anh ấy có đến không?",
+          "exampleZh": "不知道他會不會來？"
         },
         {
           "id": "freq_898",
           "rank": 898,
           "viet": "giới",
-          "zh": "戒 / 介",
-          "zhSpoken": "戒，介",
-          "en": "set; circle; world",
+          "zh": "界 / 性別",
+          "zhSpoken": "界，性別",
+          "en": "circle; gender",
           "pos": "名詞",
-          "hanViet": "戒",
-          "category": "生活日常",
-          "example": "thụ giới",
-          "exampleZh": "受戒。"
+          "hanViet": "界",
+          "category": "生活名詞",
+          "example": "Giới trẻ rất thích ứng dụng này.",
+          "exampleZh": "年輕族群很喜歡這個應用程式。"
         },
         {
           "id": "freq_899",
           "rank": 899,
           "viet": "ổn định",
-          "zh": "安安心心 / 安定",
-          "zhSpoken": "安安心心，安定",
-          "en": "stable; settled",
-          "pos": "名詞",
+          "zh": "穩定",
+          "zhSpoken": "穩定",
+          "en": "stable",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "anh ấy bắt đầu sống ổn định",
-          "exampleZh": "安 能若無其事?。"
+          "category": "描述與狀態",
+          "example": "Công việc của tôi khá ổn định.",
+          "exampleZh": "我的工作相當穩定。"
         },
         {
           "id": "freq_900",
           "rank": 900,
           "viet": "bố mẹ",
-          "zh": "堂上",
-          "zhSpoken": "堂上",
+          "zh": "爸媽",
+          "zhSpoken": "爸媽",
           "en": "parents",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Bố mẹ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「堂上」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Bố mẹ tôi sống ở Đài Loan.",
+          "exampleZh": "我爸媽住在台灣。"
+        },
+        {
+          "id": "freq_901",
+          "rank": 901,
+          "viet": "thẻ",
+          "zh": "卡",
+          "zhSpoken": "卡",
+          "en": "card",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Ở đây có nhận thẻ không?",
+          "exampleZh": "這裡收卡嗎？"
+        },
+        {
+          "id": "freq_902",
+          "rank": 902,
+          "viet": "đằng",
+          "zh": "那邊",
+          "zhSpoken": "那邊",
+          "en": "over there; side",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Quán ở đằng kia.",
+          "exampleZh": "店在那邊。"
+        },
+        {
+          "id": "freq_903",
+          "rank": 903,
+          "viet": "hạ",
+          "zh": "降低 / 夏",
+          "zhSpoken": "降低，夏",
+          "en": "to lower; summer",
+          "pos": "動詞",
+          "hanViet": "下",
+          "category": "日常動詞",
+          "example": "Hạ giá cho tôi đi.",
+          "exampleZh": "算我便宜一點吧。"
+        },
+        {
+          "id": "freq_904",
+          "rank": 904,
+          "viet": "trừ",
+          "zh": "除了 / 扣除",
+          "zhSpoken": "除了，扣除",
+          "en": "except; to subtract",
+          "pos": "介詞",
+          "hanViet": "除",
+          "category": "語法功能詞",
+          "example": "Tôi ăn được tất cả, trừ rau mùi.",
+          "exampleZh": "我什麼都吃，除了香菜。"
+        },
+        {
+          "id": "freq_905",
+          "rank": 905,
+          "viet": "sự kiện",
+          "zh": "活動 / 事件",
+          "zhSpoken": "活動，事件",
+          "en": "event",
+          "pos": "名詞",
+          "hanViet": "事件",
+          "category": "生活名詞",
+          "example": "Công ty tổ chức sự kiện lớn.",
+          "exampleZh": "公司舉辦大型活動。"
         }
       ],
-      "duration": 735.2
+      "duration": 708.5
     },
     {
       "batchId": 19,
       "tier": "top1k",
       "titleZh": "第 19 組 · 進階行動與精準修飾",
       "titleEn": "Batch 19 · Top 1,000",
-      "range": "901 - 950",
-      "startRank": 901,
-      "endRank": 950,
+      "range": "906 - 955",
+      "startRank": 906,
+      "endRank": 955,
       "wordCount": 50,
       "audioUrl": "/audio/batches/vocab_1000_batch_19.mp3",
       "fileName": "vocab_1000_batch_19.mp3",
       "words": [
         {
-          "id": "freq_901",
-          "rank": 901,
-          "viet": "thẻ",
-          "zh": "籌 / 小牌兒",
-          "zhSpoken": "籌，小牌兒",
-          "en": "tag card fortunetelling tablet",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "thẻ tre",
-          "exampleZh": "竹籌。"
-        },
-        {
-          "id": "freq_902",
-          "rank": 902,
-          "viet": "đằng",
-          "zh": "邊 / 飛騰",
-          "zhSpoken": "邊，飛騰",
-          "en": "direction",
-          "pos": "名詞",
-          "hanViet": "藤",
-          "category": "生活日常",
-          "example": "đằng trước",
-          "exampleZh": "前邊。"
-        },
-        {
-          "id": "freq_903",
-          "rank": 903,
-          "viet": "hạ",
-          "zh": "敗 / 貶",
-          "zhSpoken": "敗，貶",
-          "en": "summer",
-          "pos": "動詞",
-          "hanViet": "下",
-          "category": "日常必備動詞",
-          "example": "hạ hoả",
-          "exampleZh": "敗火。"
-        },
-        {
-          "id": "freq_904",
-          "rank": 904,
-          "viet": "trừ",
-          "zh": "敗 / 撤",
-          "zhSpoken": "敗，撤",
-          "en": "to eliminate, to liquidate to subtr",
-          "pos": "動詞",
-          "hanViet": "除",
-          "category": "日常必備動詞",
-          "example": "trừ tận gốc",
-          "exampleZh": "根除。"
-        },
-        {
-          "id": "freq_905",
-          "rank": 905,
-          "viet": "sự kiện",
-          "zh": "事件",
-          "zhSpoken": "事件",
-          "en": "event",
-          "pos": "名詞",
-          "hanViet": "事件",
-          "category": "生活日常",
-          "example": "Sự kiện này rất cần thiết cho công việc.",
-          "exampleZh": "這個「事件」在工作上非常必需。"
-        },
-        {
           "id": "freq_906",
           "rank": 906,
           "viet": "cộng đồng",
-          "zh": "大家庭 / 公共",
-          "zhSpoken": "大家庭，公共",
-          "en": "vocabulary",
+          "zh": "社群",
+          "zhSpoken": "社群",
+          "en": "community",
           "pos": "名詞",
           "hanViet": "共同",
-          "category": "生活日常",
-          "example": "Cộng đồng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大家庭」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Cộng đồng người Đài Loan ở đây rất đông.",
+          "exampleZh": "這裡的台灣人社群很大。"
         },
         {
           "id": "freq_907",
           "rank": 907,
           "viet": "bất ngờ",
-          "zh": "不測 / 不防",
-          "zhSpoken": "不測，不防",
-          "en": "Sudden, unexpected, unforeseen",
+          "zh": "意外",
+          "zhSpoken": "意外",
+          "en": "surprising",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "trời nổi cơn giông bất ngờ / nào ai mua được chữ ngờ",
-          "exampleZh": "天有不測風雲。"
+          "category": "描述與狀態",
+          "example": "Tin này thật bất ngờ.",
+          "exampleZh": "這個消息真令人意外。"
         },
         {
           "id": "freq_908",
           "rank": 908,
           "viet": "năng lượng",
-          "zh": "能",
-          "zhSpoken": "能",
+          "zh": "能源",
+          "zhSpoken": "能源",
           "en": "energy",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Năng lượng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「能」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Năng lượng mặt trời đang phát triển.",
+          "exampleZh": "太陽能正在發展。"
         },
         {
           "id": "freq_909",
           "rank": 909,
           "viet": "thành lập",
-          "zh": "設立 / 創建",
-          "zhSpoken": "設立，創建",
-          "en": "vocabulary",
+          "zh": "成立",
+          "zhSpoken": "成立",
+          "en": "to found",
           "pos": "動詞",
           "hanViet": "成立",
-          "category": "日常必備動詞",
-          "example": "thành lập đoàn kịch",
-          "exampleZh": "組建劇團。"
+          "category": "日常動詞",
+          "example": "Công ty thành lập năm 2010.",
+          "exampleZh": "公司成立於 2010 年。"
         },
         {
           "id": "freq_910",
           "rank": 910,
           "viet": "chiến tranh",
-          "zh": "金戈鐵馬 / 刀兵",
-          "zhSpoken": "金戈鐵馬，刀兵",
-          "en": "War, warfare",
+          "zh": "戰爭",
+          "zhSpoken": "戰爭",
+          "en": "war",
           "pos": "名詞",
           "hanViet": "戰爭",
-          "category": "生活日常",
-          "example": "không dùng đến chiến tranh; không động binh qua",
-          "exampleZh": "不動兵戈。"
+          "category": "生活名詞",
+          "example": "Ông tôi kể về chiến tranh.",
+          "exampleZh": "我爺爺講述戰爭的事。"
         },
         {
           "id": "freq_911",
           "rank": 911,
           "viet": "vai",
-          "zh": "肩胛 / 作用",
-          "zhSpoken": "肩胛，作用",
-          "en": "shoulder rank part, role",
+          "zh": "肩膀 / 角色",
+          "zhSpoken": "肩膀，角色",
+          "en": "shoulder; role",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "vai rộng eo tròn",
-          "exampleZh": "膀闊腰圓。"
+          "category": "生活名詞",
+          "example": "Vai tôi bị đau.",
+          "exampleZh": "我的肩膀痛。"
         },
         {
           "id": "freq_912",
           "rank": 912,
           "viet": "chậm",
-          "zh": "慢 / 晏",
-          "zhSpoken": "慢，晏",
-          "en": "Slow",
+          "zh": "慢",
+          "zhSpoken": "慢",
+          "en": "slow",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "tàu chậm",
-          "exampleZh": "慢車。"
+          "category": "描述與狀態",
+          "example": "Xin nói chậm lại.",
+          "exampleZh": "請說慢一點。"
         },
         {
           "id": "freq_913",
           "rank": 913,
           "viet": "số lượng",
-          "zh": "數字 / 數目",
-          "zhSpoken": "數字，數目",
-          "en": "quantity, amount",
+          "zh": "數量",
+          "zhSpoken": "數量",
+          "en": "quantity",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "không nên mù quáng chạy theo số lượng",
-          "exampleZh": "不要盲目追求數字。"
+          "category": "生活名詞",
+          "example": "Số lượng đơn hàng là bao nhiêu?",
+          "exampleZh": "訂單數量是多少？"
         },
         {
           "id": "freq_914",
           "rank": 914,
           "viet": "thở",
-          "zh": "鼻息 / 喘",
-          "zhSpoken": "鼻息，喘",
-          "en": "to breathe, to respire",
+          "zh": "呼吸",
+          "zhSpoken": "呼吸",
+          "en": "to breathe",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thở một hơi",
-          "exampleZh": "呵一口氣。"
+          "category": "日常動詞",
+          "example": "Tôi khó thở.",
+          "exampleZh": "我呼吸困難。"
         },
         {
           "id": "freq_915",
           "rank": 915,
           "viet": "hội nghị",
-          "zh": "大會 / 會務",
-          "zhSpoken": "大會，會務",
-          "en": "conference; congress; meeting",
+          "zh": "會議",
+          "zhSpoken": "會議",
+          "en": "conference",
           "pos": "名詞",
           "hanViet": "會議",
-          "category": "生活日常",
-          "example": "chủ trì hội nghị",
-          "exampleZh": "主持會務。"
+          "category": "生活名詞",
+          "example": "Hội nghị diễn ra ở Hà Nội.",
+          "exampleZh": "會議在河內舉行。"
         },
         {
           "id": "freq_916",
           "rank": 916,
           "viet": "có mặt",
-          "zh": "到場 / 在座",
-          "zhSpoken": "到場，在座",
-          "en": "To be present at, to be attending",
+          "zh": "在場",
+          "zhSpoken": "在場",
+          "en": "to be present",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "khi sự việc xảy ra anh ấy không có mặt ở đó",
-          "exampleZh": "事故發生時他不在場。"
+          "category": "日常動詞",
+          "example": "Tất cả đã có mặt chưa?",
+          "exampleZh": "大家都到了嗎？"
         },
         {
           "id": "freq_917",
           "rank": 917,
           "viet": "sữa",
-          "zh": "漿 / 奶",
-          "zhSpoken": "漿，奶",
+          "zh": "牛奶",
+          "zhSpoken": "牛奶",
           "en": "milk",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "sữa bò",
-          "exampleZh": "牛奶。"
+          "category": "生活名詞",
+          "example": "Cho tôi cà phê sữa đá.",
+          "exampleZh": "請給我冰奶咖啡。"
         },
         {
           "id": "freq_918",
           "rank": 918,
           "viet": "một vài",
-          "zh": "些個 / 一二",
-          "zhSpoken": "些個，一二",
-          "en": "a few, several, some",
-          "pos": "形容詞",
+          "zh": "幾個",
+          "zhSpoken": "幾個",
+          "en": "a few",
+          "pos": "限定詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "Điều này rất một vài và quan trọng.",
-          "exampleZh": "這非常些個且重要。"
+          "category": "語法功能詞",
+          "example": "Tôi có một vài câu hỏi.",
+          "exampleZh": "我有幾個問題。"
         },
         {
           "id": "freq_919",
@@ -12235,625 +12170,625 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "dân tộc",
           "zh": "民族",
           "zhSpoken": "民族",
-          "en": "Nation, race",
+          "en": "ethnic group",
           "pos": "名詞",
           "hanViet": "民族",
-          "category": "生活日常",
-          "example": "dân tộc Hán",
-          "exampleZh": "漢族。"
+          "category": "生活名詞",
+          "example": "Việt Nam có năm mươi tư dân tộc.",
+          "exampleZh": "越南有五十四個民族。"
         },
         {
           "id": "freq_920",
           "rank": 920,
           "viet": "đèn",
-          "zh": "燈 / 燈亮兒",
-          "zhSpoken": "燈，燈亮兒",
-          "en": "lamp; light",
+          "zh": "燈",
+          "zhSpoken": "燈",
+          "en": "lamp",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "đèn điện",
-          "exampleZh": "電燈。"
+          "category": "生活名詞",
+          "example": "Làm ơn tắt đèn.",
+          "exampleZh": "請關燈。"
         },
         {
           "id": "freq_921",
           "rank": 921,
           "viet": "chế độ",
-          "zh": "制度 / 規則",
-          "zhSpoken": "制度，規則",
-          "en": "System, order, regime",
+          "zh": "制度 / 模式",
+          "zhSpoken": "制度，模式",
+          "en": "regime; mode",
           "pos": "名詞",
           "hanViet": "制度",
-          "category": "生活日常",
-          "example": "chế độ tài chánh",
-          "exampleZh": "財政制度。"
+          "category": "生活名詞",
+          "example": "Điện thoại đang ở chế độ im lặng.",
+          "exampleZh": "手機在靜音模式。"
         },
         {
           "id": "freq_922",
           "rank": 922,
           "viet": "hút",
-          "zh": "吸 / 抽菸 / 吸引",
-          "zhSpoken": "吸，抽菸",
-          "en": "to inhale; to suck (air; smokẹ) to ",
+          "zh": "吸",
+          "zhSpoken": "吸",
+          "en": "to suck; to smoke",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "ông ta vừa hút điếu xì-gà vừa nghĩ cách",
-          "exampleZh": "他吧嗒着葉子菸打主意。 拔。"
+          "category": "日常動詞",
+          "example": "Ở đây không được hút thuốc.",
+          "exampleZh": "這裡不能吸菸。"
         },
         {
           "id": "freq_923",
           "rank": 923,
           "viet": "mạnh mẽ",
-          "zh": "奡 / 勃然",
-          "zhSpoken": "奡，勃然",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "強而有力",
+          "zhSpoken": "強而有力",
+          "en": "powerful",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "giọng văn mạnh mẽ",
-          "exampleZh": "排奡。"
+          "category": "描述與狀態",
+          "example": "Thị trường tăng trưởng mạnh mẽ.",
+          "exampleZh": "市場強勁成長。"
         },
         {
           "id": "freq_924",
           "rank": 924,
           "viet": "đơn",
-          "zh": "稟 / 丹",
-          "zhSpoken": "稟，丹",
-          "en": "appication; petition; request",
+          "zh": "單子 / 訂單",
+          "zhSpoken": "單子，訂單",
+          "en": "form; order",
           "pos": "名詞",
           "hanViet": "單",
-          "category": "生活日常",
-          "example": "đơn; tờ bẩm",
-          "exampleZh": "稟帖。"
+          "category": "生活名詞",
+          "example": "Anh đã nhận đơn hàng chưa?",
+          "exampleZh": "你收到訂單了嗎？"
         },
         {
           "id": "freq_925",
           "rank": 925,
           "viet": "thoải mái",
-          "zh": "安適 / 安慰",
-          "zhSpoken": "安適，安慰",
-          "en": "easy-going, comfortable, relaxative",
+          "zh": "舒適 / 自在",
+          "zhSpoken": "舒適，自在",
+          "en": "comfortable",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "nói thoải mái",
-          "exampleZh": "暢所欲言。"
+          "category": "描述與狀態",
+          "example": "Ghế này rất thoải mái.",
+          "exampleZh": "這張椅子很舒服。"
         },
         {
           "id": "freq_926",
           "rank": 926,
           "viet": "khoản",
-          "zh": "筆 / 額",
-          "zhSpoken": "筆，額",
-          "en": "term; item; article",
+          "zh": "款項",
+          "zhSpoken": "款項",
+          "en": "sum; item",
           "pos": "名詞",
           "hanViet": "款",
-          "category": "生活日常",
-          "example": "một khoản tiền",
-          "exampleZh": "一筆錢。"
+          "category": "生活名詞",
+          "example": "Tôi đã trả khoản tiền đó.",
+          "exampleZh": "我已付了那筆款項。"
         },
         {
           "id": "freq_927",
           "rank": 927,
           "viet": "giáo viên",
-          "zh": "教員 / 教習",
-          "zhSpoken": "教員，教習",
-          "en": "primary school teacher",
+          "zh": "老師",
+          "zhSpoken": "老師",
+          "en": "teacher",
           "pos": "名詞",
           "hanViet": "教員",
-          "category": "生活日常",
-          "example": "giáo viên nhân dân",
-          "exampleZh": "人民教師。"
+          "category": "生活名詞",
+          "example": "Mẹ tôi là giáo viên tiếng Anh.",
+          "exampleZh": "我媽媽是英文老師。"
         },
         {
           "id": "freq_928",
           "rank": 928,
           "viet": "tốc độ",
-          "zh": "航速 / 快",
-          "zhSpoken": "航速，快",
+          "zh": "速度",
+          "zhSpoken": "速度",
           "en": "speed",
           "pos": "名詞",
           "hanViet": "速度",
-          "category": "生活日常",
-          "example": "loại xe hơi này chạy trên đường bộ có tốc độ là bao",
-          "exampleZh": "nhiêu? 這種汽車在柏油 路上能跑多快?。"
+          "category": "生活名詞",
+          "example": "Tốc độ mạng rất chậm.",
+          "exampleZh": "網速很慢。"
         },
         {
           "id": "freq_929",
           "rank": 929,
           "viet": "đạn",
-          "zh": "炸彈",
-          "zhSpoken": "炸彈",
-          "en": "ball; cartridge; marble",
+          "zh": "子彈",
+          "zhSpoken": "子彈",
+          "en": "bullet",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "đạn bằng đất",
-          "exampleZh": "泥彈兒。"
+          "category": "生活名詞",
+          "example": "Viên đạn bay qua đầu anh ấy.",
+          "exampleZh": "子彈從他頭上飛過。"
         },
         {
           "id": "freq_930",
           "rank": 930,
           "viet": "cướp",
-          "zh": "剝 / 篡奪",
-          "zhSpoken": "剝，篡奪",
-          "en": "to rob; to pillage; to plunder; to ",
+          "zh": "搶",
+          "zhSpoken": "搶",
+          "en": "to rob",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "lừa gạt cướp bóc",
-          "exampleZh": "巧取豪奪。"
+          "category": "日常動詞",
+          "example": "Tôi bị cướp điện thoại.",
+          "exampleZh": "我的手機被搶了。"
         },
         {
           "id": "freq_931",
           "rank": 931,
           "viet": "thị trấn",
-          "zh": "村鎮 / 鎮子",
-          "zhSpoken": "村鎮，鎮子",
+          "zh": "鎮",
+          "zhSpoken": "鎮",
           "en": "town",
           "pos": "名詞",
           "hanViet": "市鎮",
-          "category": "生活日常",
-          "example": "Thị trấn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「村鎮」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Sa Pa là một thị trấn nhỏ.",
+          "exampleZh": "沙壩是個小鎮。"
         },
         {
           "id": "freq_932",
           "rank": 932,
           "viet": "thẳng",
-          "zh": "筆挺 / 單向",
-          "zhSpoken": "筆挺，單向",
-          "en": "straight straightforward at a stret",
-          "pos": "動詞",
+          "zh": "直",
+          "zhSpoken": "直",
+          "en": "straight",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh ấy không uống lấy một ngụm nước, đi thẳng về nhà",
-          "exampleZh": "他水也沒喝一口, 管自回家去了。 鵠立。"
+          "category": "描述與狀態",
+          "example": "Đi thẳng rồi rẽ phải.",
+          "exampleZh": "直走再右轉。"
         },
         {
           "id": "freq_933",
           "rank": 933,
           "viet": "giám đốc",
-          "zh": "大班 / 董",
-          "zhSpoken": "大班，董",
-          "en": "director; manager; supervisor",
+          "zh": "總經理",
+          "zhSpoken": "總經理",
+          "en": "director",
           "pos": "名詞",
           "hanViet": "監督",
-          "category": "生活日常",
-          "example": "thành viên ban giám đốc cửa hàng",
-          "exampleZh": "商董。"
+          "category": "生活名詞",
+          "example": "Giám đốc đang họp.",
+          "exampleZh": "總經理正在開會。"
         },
         {
           "id": "freq_934",
           "rank": 934,
           "viet": "khóc",
-          "zh": "啕 / 啼",
-          "zhSpoken": "啕，啼",
-          "en": "to cry; to weep; to shed tears",
+          "zh": "哭",
+          "zhSpoken": "哭",
+          "en": "to cry",
           "pos": "動詞",
           "hanViet": "哭",
-          "category": "日常必備動詞",
-          "example": "khóc to thành tiếng",
-          "exampleZh": "放聲大哭。"
+          "category": "日常動詞",
+          "example": "Em bé đang khóc.",
+          "exampleZh": "小寶寶在哭。"
         },
         {
           "id": "freq_935",
           "rank": 935,
           "viet": "quân đội",
-          "zh": "部 / 行伍",
-          "zhSpoken": "部，行伍",
-          "en": "army, armed forces",
+          "zh": "軍隊",
+          "zhSpoken": "軍隊",
+          "en": "army",
           "pos": "名詞",
           "hanViet": "軍隊",
-          "category": "生活日常",
-          "example": "Quân đội này rất cần thiết cho công việc.",
-          "exampleZh": "這個「部」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Anh trai tôi đi quân đội.",
+          "exampleZh": "我哥哥去當兵。"
         },
         {
           "id": "freq_936",
           "rank": 936,
           "viet": "an ninh",
-          "zh": "太平 / 保安",
-          "zhSpoken": "太平，保安",
-          "en": "Security",
+          "zh": "安全 / 保安",
+          "zhSpoken": "安全，保安",
+          "en": "security",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cơ quan an ninh",
-          "exampleZh": "保安機構。"
+          "category": "生活名詞",
+          "example": "Đi qua cửa an ninh ở sân bay.",
+          "exampleZh": "通過機場安檢門。"
         },
         {
           "id": "freq_937",
           "rank": 937,
           "viet": "vai trò",
-          "zh": "角色 / 職能",
-          "zhSpoken": "角色，職能",
-          "en": "role, part",
+          "zh": "角色",
+          "zhSpoken": "角色",
+          "en": "role",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Vai trò này rất cần thiết cho công việc.",
-          "exampleZh": "這個「角色」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Bạn có vai trò rất quan trọng.",
+          "exampleZh": "你的角色很重要。"
         },
         {
           "id": "freq_938",
           "rank": 938,
           "viet": "thức ăn",
-          "zh": "菜餚 / 喫食",
-          "zhSpoken": "菜餚，喫食",
-          "en": "vocabulary",
+          "zh": "食物",
+          "zhSpoken": "食物",
+          "en": "food",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Thức ăn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「菜餚」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Thức ăn ở đây rất tươi.",
+          "exampleZh": "這裡的食物很新鮮。"
         },
         {
           "id": "freq_939",
           "rank": 939,
           "viet": "viện",
-          "zh": "所 / 援",
-          "zhSpoken": "所，援",
-          "en": "institute, court chamber",
-          "pos": "動詞",
-          "hanViet": "援",
-          "category": "日常必備動詞",
-          "example": "viện dẫn lệ cũ",
-          "exampleZh": "援例。"
+          "zh": "院（機構）",
+          "zhSpoken": "院",
+          "en": "institute",
+          "pos": "名詞",
+          "hanViet": "院",
+          "category": "生活名詞",
+          "example": "Anh ấy làm ở viện nghiên cứu.",
+          "exampleZh": "他在研究院工作。"
         },
         {
           "id": "freq_940",
           "rank": 940,
           "viet": "địa chỉ",
-          "zh": "地址 / 住址",
-          "zhSpoken": "地址，住址",
-          "en": "address, direction, destination",
+          "zh": "地址",
+          "zhSpoken": "地址",
+          "en": "address",
           "pos": "名詞",
           "hanViet": "地址",
-          "category": "生活日常",
-          "example": "địa chỉ của gia đình",
-          "exampleZh": "家庭住址。 通訊處。"
+          "category": "生活名詞",
+          "example": "Địa chỉ của bạn là gì?",
+          "exampleZh": "你的地址是什麼？"
         },
         {
           "id": "freq_941",
           "rank": 941,
           "viet": "nạn nhân",
-          "zh": "難人",
-          "zhSpoken": "難人",
+          "zh": "受害者",
+          "zhSpoken": "受害者",
           "en": "victim",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Nạn nhân này rất cần thiết cho công việc.",
-          "exampleZh": "這個「難人」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Nạn nhân đã được đưa đi bệnh viện.",
+          "exampleZh": "傷者已被送往醫院。"
         },
         {
           "id": "freq_942",
           "rank": 942,
           "viet": "di chuyển",
-          "zh": "開拔 / 挪動",
-          "zhSpoken": "開拔，挪動",
-          "en": "to transfer; to move; to displace",
+          "zh": "移動",
+          "zhSpoken": "移動",
+          "en": "to move",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "di chuyển về phía trước mấy bước",
-          "exampleZh": "往前挪動了幾步。"
+          "category": "日常動詞",
+          "example": "Tôi di chuyển bằng xe máy.",
+          "exampleZh": "我騎機車移動。"
         },
         {
           "id": "freq_943",
           "rank": 943,
           "viet": "cơ bản",
-          "zh": "初等 / 大體",
-          "zhSpoken": "初等，大體",
-          "en": "Base; foundation; fundamentals",
-          "pos": "動詞",
+          "zh": "基本",
+          "zhSpoken": "基本",
+          "en": "basic",
+          "pos": "形容詞",
           "hanViet": "基本",
-          "category": "日常必備動詞",
-          "example": "tình hình hai gia đình cơ bản như nhau",
-          "exampleZh": "兩家的情況大致相同。 基本; 基本; 大致; 原則。"
+          "category": "描述與狀態",
+          "example": "Tôi biết tiếng Việt cơ bản.",
+          "exampleZh": "我會基礎越語。"
         },
         {
           "id": "freq_944",
           "rank": 944,
           "viet": "cục",
-          "zh": "疸 / 繨",
-          "zhSpoken": "疸，繨",
-          "en": "clod; clot; lump; piece",
+          "zh": "塊 / 局",
+          "zhSpoken": "塊，局",
+          "en": "lump; bureau",
           "pos": "名詞",
           "hanViet": "局",
-          "category": "生活日常",
-          "example": "cục giáo dục",
-          "exampleZh": "教育局。"
+          "category": "生活名詞",
+          "example": "Cho tôi thêm vài cục đá.",
+          "exampleZh": "請再給我幾塊冰。"
         },
         {
           "id": "freq_945",
           "rank": 945,
           "viet": "vì vậy",
-          "zh": "從而 / 故而",
-          "zhSpoken": "從而，故而",
-          "en": "vocabulary",
-          "pos": "動詞",
+          "zh": "因此",
+          "zhSpoken": "因此",
+          "en": "therefore",
+          "pos": "連詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể vì vậy giúp tôi không?",
-          "exampleZh": "你能幫我從而嗎？"
+          "category": "語法功能詞",
+          "example": "Trời mưa, vì vậy tôi ở nhà.",
+          "exampleZh": "下雨了，因此我待在家。"
         },
         {
           "id": "freq_946",
           "rank": 946,
           "viet": "bờ",
-          "zh": "岸 / 幫",
-          "zhSpoken": "岸，幫",
-          "en": "Shore, bank",
+          "zh": "岸",
+          "zhSpoken": "岸",
+          "en": "shore",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "bờ sông",
-          "exampleZh": "江岸。"
+          "category": "生活名詞",
+          "example": "Chúng tôi đi dạo dọc bờ biển.",
+          "exampleZh": "我們沿著海岸散步。"
         },
         {
           "id": "freq_947",
           "rank": 947,
           "viet": "hợp đồng",
-          "zh": "承攬 / 合約",
-          "zhSpoken": "承攬，合約",
+          "zh": "合約",
+          "zhSpoken": "合約",
           "en": "contract",
           "pos": "名詞",
           "hanViet": "合同",
-          "category": "生活日常",
-          "example": "hợp đồng sản xuất và tiêu thụ",
-          "exampleZh": "產銷合同。"
+          "category": "生活名詞",
+          "example": "Chúng ta ký hợp đồng nhé.",
+          "exampleZh": "我們簽合約吧。"
         },
         {
           "id": "freq_948",
           "rank": 948,
           "viet": "giành",
-          "zh": "奪 / 奪取",
-          "zhSpoken": "奪，奪取",
-          "en": "to dispute ; to recure",
+          "zh": "爭取",
+          "zhSpoken": "爭取",
+          "en": "to win; to compete for",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "giành cờ đỏ",
-          "exampleZh": "奪紅旗。"
+          "category": "日常動詞",
+          "example": "Họ giành giải nhất.",
+          "exampleZh": "他們奪得第一名。"
         },
         {
           "id": "freq_949",
           "rank": 949,
           "viet": "trồng",
-          "zh": "點播 / 培植",
-          "zhSpoken": "點播，培植",
-          "en": "to grow, to cultivate",
+          "zh": "種植",
+          "zhSpoken": "種植",
+          "en": "to plant",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "trồng cây",
-          "exampleZh": "栽樹。"
+          "category": "日常動詞",
+          "example": "Nhà tôi trồng nhiều rau.",
+          "exampleZh": "我家種很多菜。"
         },
         {
           "id": "freq_950",
           "rank": 950,
           "viet": "địa bàn",
-          "zh": "地盤 / 羅盤",
-          "zhSpoken": "地盤，羅盤",
-          "en": "(cũ) 1 Compass",
+          "zh": "區域 / 轄區",
+          "zhSpoken": "區域，轄區",
+          "en": "local area",
           "pos": "名詞",
           "hanViet": "地盤",
-          "category": "生活日常",
-          "example": "địa bàn tranh chấp",
-          "exampleZh": "爭奪地盤。"
+          "category": "生活名詞",
+          "example": "Công ty mở rộng địa bàn hoạt động.",
+          "exampleZh": "公司擴大營運範圍。"
+        },
+        {
+          "id": "freq_951",
+          "rank": 951,
+          "viet": "màn hình",
+          "zh": "螢幕",
+          "zhSpoken": "螢幕",
+          "en": "screen",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Màn hình điện thoại bị vỡ.",
+          "exampleZh": "手機螢幕破了。"
+        },
+        {
+          "id": "freq_952",
+          "rank": 952,
+          "viet": "nét",
+          "zh": "筆畫 / 清晰",
+          "zhSpoken": "筆畫，清晰",
+          "en": "stroke; sharp",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Hình này rất nét.",
+          "exampleZh": "這張圖很清晰。"
+        },
+        {
+          "id": "freq_953",
+          "rank": 953,
+          "viet": "Bắc",
+          "zh": "北",
+          "zhSpoken": "北",
+          "en": "north",
+          "pos": "名詞",
+          "hanViet": "",
+          "category": "生活名詞",
+          "example": "Tôi thích món ăn miền Bắc.",
+          "exampleZh": "我喜歡北部菜。"
+        },
+        {
+          "id": "freq_954",
+          "rank": 954,
+          "viet": "dạng",
+          "zh": "類型 / 形式",
+          "zhSpoken": "類型，形式",
+          "en": "form",
+          "pos": "名詞",
+          "hanViet": "樣",
+          "category": "生活名詞",
+          "example": "Thuốc này có dạng viên.",
+          "exampleZh": "這種藥是錠狀。"
+        },
+        {
+          "id": "freq_955",
+          "rank": 955,
+          "viet": "yếu tố",
+          "zh": "因素",
+          "zhSpoken": "因素",
+          "en": "factor",
+          "pos": "名詞",
+          "hanViet": "要素",
+          "category": "生活名詞",
+          "example": "Giá là yếu tố quan trọng.",
+          "exampleZh": "價格是重要因素。"
         }
       ],
-      "duration": 730.2
+      "duration": 706.3
     },
     {
       "batchId": 20,
       "tier": "top1k",
       "titleZh": "第 20 組 · 綜合應用與全能詞彙",
       "titleEn": "Batch 20 · Top 1,000",
-      "range": "951 - 1000",
-      "startRank": 951,
+      "range": "956 - 1000",
+      "startRank": 956,
       "endRank": 1000,
-      "wordCount": 50,
+      "wordCount": 44,
       "audioUrl": "/audio/batches/vocab_1000_batch_20.mp3",
       "fileName": "vocab_1000_batch_20.mp3",
       "words": [
         {
-          "id": "freq_951",
-          "rank": 951,
-          "viet": "màn hình",
-          "zh": "銀屏",
-          "zhSpoken": "銀屏",
-          "en": "vocabulary",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "Màn hình này rất cần thiết cho công việc.",
-          "exampleZh": "這個「銀屏」在工作上非常必需。"
-        },
-        {
-          "id": "freq_952",
-          "rank": 952,
-          "viet": "nét",
-          "zh": "筆劃 / 衝程",
-          "zhSpoken": "筆劃，衝程",
-          "en": "stroke; line (of pen); line",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "một nét bút đẹp",
-          "exampleZh": "一筆好字。"
-        },
-        {
-          "id": "freq_953",
-          "rank": 953,
-          "viet": "Bắc",
-          "zh": "搭 / 架設",
-          "zhSpoken": "搭，架設",
-          "en": "North",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "bắc cầu",
-          "exampleZh": "搭橋。"
-        },
-        {
-          "id": "freq_954",
-          "rank": 954,
-          "viet": "dạng",
-          "zh": "款式 / 式",
-          "zhSpoken": "款式，式",
-          "en": "form; shape",
-          "pos": "名詞",
-          "hanViet": "樣",
-          "category": "生活日常",
-          "example": "dạng phân tử",
-          "exampleZh": "分子式。"
-        },
-        {
-          "id": "freq_955",
-          "rank": 955,
-          "viet": "yếu tố",
-          "zh": "元素",
-          "zhSpoken": "元素",
-          "en": "element, factor",
-          "pos": "名詞",
-          "hanViet": "要素",
-          "category": "生活日常",
-          "example": "Yếu tố này rất cần thiết cho công việc.",
-          "exampleZh": "這個「元素」在工作上非常必需。"
-        },
-        {
           "id": "freq_956",
           "rank": 956,
           "viet": "chặt",
-          "zh": "板實 / 錛",
-          "zhSpoken": "板實，錛",
-          "en": "To cut, to fell, to chop, to shatte",
+          "zh": "砍 / 緊",
+          "zhSpoken": "砍，緊",
+          "en": "to chop; tight",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chặt củi",
-          "exampleZh": "錛木頭。"
+          "category": "日常動詞",
+          "example": "Chặt thịt gà thành miếng nhỏ.",
+          "exampleZh": "把雞肉剁成小塊。"
         },
         {
           "id": "freq_957",
           "rank": 957,
           "viet": "gà",
-          "zh": "雞子 / 偷教",
-          "zhSpoken": "雞子，偷教",
-          "en": "cock; fowl; chicken",
-          "pos": "動詞",
+          "zh": "雞",
+          "zhSpoken": "雞",
+          "en": "chicken",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể gà giúp tôi không?",
-          "exampleZh": "你能幫我雞子嗎？"
+          "category": "生活名詞",
+          "example": "Tôi thích ăn cơm gà.",
+          "exampleZh": "我喜歡吃雞肉飯。"
         },
         {
           "id": "freq_958",
           "rank": 958,
           "viet": "đồng chí",
-          "zh": "袍澤 / 同志",
-          "zhSpoken": "袍澤，同志",
-          "en": "Comrade",
+          "zh": "同志",
+          "zhSpoken": "同志",
+          "en": "comrade",
           "pos": "名詞",
           "hanViet": "同志",
-          "category": "生活日常",
-          "example": "nữ đồng chí",
-          "exampleZh": "女同志。"
+          "category": "生活名詞",
+          "example": "Xin chào các đồng chí.",
+          "exampleZh": "各位同志好。"
         },
         {
           "id": "freq_959",
           "rank": 959,
           "viet": "Nhật Bản",
-          "zh": "常用字詞",
-          "zhSpoken": "常用字詞",
-          "en": "vocabulary",
+          "zh": "日本",
+          "zhSpoken": "日本",
+          "en": "Japan",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Nhật bản này rất cần thiết cho công việc.",
-          "exampleZh": "這個「常用字詞」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Xe này được nhập từ Nhật Bản.",
+          "exampleZh": "這輛車從日本進口。"
         },
         {
           "id": "freq_960",
           "rank": 960,
           "viet": "án",
-          "zh": "案件 / 按語",
-          "zhSpoken": "案件，按語",
-          "en": "High and narrow table",
-          "pos": "動詞",
-          "hanViet": "按",
-          "category": "日常必備動詞",
-          "example": "phá án",
-          "exampleZh": "破案。"
+          "zh": "案件 / 判決",
+          "zhSpoken": "案件，判決",
+          "en": "case; verdict",
+          "pos": "名詞",
+          "hanViet": "案",
+          "category": "生活名詞",
+          "example": "Toà đã xử xong vụ án.",
+          "exampleZh": "法院已審結此案。"
         },
         {
           "id": "freq_961",
           "rank": 961,
           "viet": "giường",
-          "zh": "艙位 / 牀",
-          "zhSpoken": "艙位，牀",
+          "zh": "床",
+          "zhSpoken": "床",
           "en": "bed",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "giường sắt",
-          "exampleZh": "鐵牀。"
+          "category": "生活名詞",
+          "example": "Tôi muốn phòng có hai giường.",
+          "exampleZh": "我想要有兩張床的房間。"
         },
         {
           "id": "freq_962",
           "rank": 962,
           "viet": "giọng",
-          "zh": "調調 / 調門兒",
-          "zhSpoken": "調調，調門兒",
-          "en": "accent",
+          "zh": "口音 / 聲音",
+          "zhSpoken": "口音，聲音",
+          "en": "accent; voice",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "giọng nam tiếng bắc",
-          "exampleZh": "南腔北調。"
+          "category": "生活名詞",
+          "example": "Giọng miền Nam rất dễ nghe.",
+          "exampleZh": "南部口音很好聽。"
         },
         {
           "id": "freq_963",
           "rank": 963,
           "viet": "cưng",
-          "zh": "愛撫 / 愛憐",
-          "zhSpoken": "愛撫，愛憐",
-          "en": "to pamper",
+          "zh": "寶貝 / 疼愛",
+          "zhSpoken": "寶貝，疼愛",
+          "en": "darling; to pamper",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể cưng giúp tôi không?",
-          "exampleZh": "你能幫我愛撫嗎？"
+          "category": "日常動詞",
+          "example": "Bà rất cưng cháu.",
+          "exampleZh": "奶奶很疼孫子。"
         },
         {
           "id": "freq_964",
           "rank": 964,
           "viet": "liên lạc",
-          "zh": "聯絡 / 通聯",
-          "zhSpoken": "聯絡，通聯",
-          "en": "conection; liaison; communication",
+          "zh": "聯絡",
+          "zhSpoken": "聯絡",
+          "en": "to contact",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "liên lạc viên; giao liên",
-          "exampleZh": "聯絡員。"
+          "category": "日常動詞",
+          "example": "Tôi sẽ liên lạc với bạn sau.",
+          "exampleZh": "我之後再聯絡你。"
         },
         {
           "id": "freq_965",
           "rank": 965,
           "viet": "phố",
-          "zh": "衝 / 坊",
-          "zhSpoken": "衝，坊",
-          "en": "street, house, apartment",
+          "zh": "街",
+          "zhSpoken": "街",
+          "en": "street",
           "pos": "名詞",
           "hanViet": "鋪",
-          "category": "生活日常",
-          "example": "đi phố sắm đồ",
-          "exampleZh": "上街買東西。"
+          "category": "生活名詞",
+          "example": "Phố cổ Hà Nội rất đông.",
+          "exampleZh": "河內古街人很多。"
         },
         {
           "id": "freq_966",
@@ -12861,311 +12796,298 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cà phê",
           "zh": "咖啡",
           "zhSpoken": "咖啡",
-          "en": "Coffee",
+          "en": "coffee",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "Cà phê này rất cần thiết cho công việc.",
-          "exampleZh": "這個「咖啡」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Cho tôi một ly cà phê.",
+          "exampleZh": "請給我一杯咖啡。"
         },
         {
           "id": "freq_967",
           "rank": 967,
           "viet": "nghèo",
-          "zh": "寒 / 寒微",
-          "zhSpoken": "寒，寒微",
-          "en": "poor; needy; indigent; proventy",
+          "zh": "窮",
+          "zhSpoken": "窮",
+          "en": "poor",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "dân nghèo",
-          "exampleZh": "貧民。"
+          "category": "描述與狀態",
+          "example": "Gia đình tôi ngày xưa rất nghèo.",
+          "exampleZh": "我家以前很窮。"
         },
         {
           "id": "freq_968",
           "rank": 968,
           "viet": "chim",
-          "zh": "鳥 / 鳥兒",
-          "zhSpoken": "鳥，鳥兒",
-          "en": "Bird",
+          "zh": "鳥",
+          "zhSpoken": "鳥",
+          "en": "bird",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "chim bay",
-          "exampleZh": "飛禽。"
+          "category": "生活名詞",
+          "example": "Con chim này hót rất hay.",
+          "exampleZh": "這隻鳥叫得很好聽。"
         },
         {
           "id": "freq_969",
           "rank": 969,
           "viet": "gấp",
-          "zh": "搶 / 急促",
-          "zhSpoken": "搶，急促",
-          "en": "to fold; to close; to shut",
-          "pos": "動詞",
+          "zh": "急 / 摺疊",
+          "zhSpoken": "急，摺疊",
+          "en": "urgent; to fold",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "thời gian gấp lắm rồi, không nói kỹ được",
-          "exampleZh": "時間倉猝, 來不及細說了。"
+          "category": "描述與狀態",
+          "example": "Việc này rất gấp.",
+          "exampleZh": "這件事很急。"
         },
         {
           "id": "freq_970",
           "rank": 970,
           "viet": "miệng",
-          "zh": "喙 / 頜",
-          "zhSpoken": "喙，頜",
+          "zh": "嘴",
+          "zhSpoken": "嘴",
           "en": "mouth",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "trăm miệng khó cãi",
-          "exampleZh": "百喙莫辯。"
+          "category": "生活名詞",
+          "example": "Mở miệng ra nào.",
+          "exampleZh": "張開嘴巴。"
         },
         {
           "id": "freq_971",
           "rank": 971,
           "viet": "hệ",
-          "zh": "組織 / 系",
-          "zhSpoken": "組織，系",
-          "en": "branch, system",
+          "zh": "系統 / 學制",
+          "zhSpoken": "系統，學制",
+          "en": "system; program type",
           "pos": "名詞",
           "hanViet": "系",
-          "category": "生活日常",
-          "example": "ngữ hệ",
-          "exampleZh": "語系。"
+          "category": "生活名詞",
+          "example": "Em ấy học hệ đại học chính quy.",
+          "exampleZh": "他讀的是正規大學部。"
         },
         {
           "id": "freq_972",
           "rank": 972,
           "viet": "phối hợp",
-          "zh": "伴生 / 併合",
-          "zhSpoken": "伴生，併合",
-          "en": "co-ordinate, combine",
+          "zh": "協調 / 配合",
+          "zhSpoken": "協調，配合",
+          "en": "to coordinate",
           "pos": "動詞",
           "hanViet": "配合",
-          "category": "日常必備動詞",
-          "example": "đánh đôi nam nữ phối hợp",
-          "exampleZh": "男女混合雙打。"
+          "category": "日常動詞",
+          "example": "Hai bộ phận cần phối hợp tốt hơn.",
+          "exampleZh": "兩個部門需要更好的配合。"
         },
         {
           "id": "freq_973",
           "rank": 973,
           "viet": "thuyền",
-          "zh": "船舶 / 舡",
-          "zhSpoken": "船舶，舡",
-          "en": "boat schooner",
+          "zh": "船",
+          "zhSpoken": "船",
+          "en": "boat",
           "pos": "名詞",
           "hanViet": "船",
-          "category": "生活日常",
-          "example": "thuyền bè",
-          "exampleZh": "船舶。"
+          "category": "生活名詞",
+          "example": "Chúng tôi đi thuyền trên vịnh Hạ Long.",
+          "exampleZh": "我們在下龍灣搭船。"
         },
         {
           "id": "freq_974",
           "rank": 974,
           "viet": "chủ yếu",
-          "zh": "腹心 / 關鍵",
-          "zhSpoken": "腹心，關鍵",
-          "en": "Essential",
-          "pos": "動詞",
+          "zh": "主要",
+          "zhSpoken": "主要",
+          "en": "mainly",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mối lo chủ yếu; mối lo chính",
-          "exampleZh": "腹心之患。"
+          "category": "語法功能詞",
+          "example": "Tôi chủ yếu làm ở văn phòng.",
+          "exampleZh": "我主要在辦公室工作。"
         },
         {
           "id": "freq_975",
           "rank": 975,
           "viet": "thu hút",
-          "zh": "觸目 / 抓",
-          "zhSpoken": "觸目，抓",
-          "en": "to attract, to draw",
+          "zh": "吸引",
+          "zhSpoken": "吸引",
+          "en": "to attract",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể thu hút giúp tôi không?",
-          "exampleZh": "你能幫我觸目嗎？"
-        },
-        {
-          "id": "freq_976",
-          "rank": 976,
-          "viet": "b",
-          "zh": "字母 B",
-          "zhSpoken": "字母逼",
-          "en": "b",
-          "pos": "名詞",
-          "hanViet": "",
-          "category": "生活日常",
-          "example": "loại B",
-          "exampleZh": "乙種。"
+          "category": "日常動詞",
+          "example": "Hội An thu hút nhiều du khách.",
+          "exampleZh": "會安吸引很多遊客。"
         },
         {
           "id": "freq_977",
           "rank": 977,
           "viet": "đáp ứng",
-          "zh": "回應",
-          "zhSpoken": "回應",
-          "en": "Satisfy, meet (a need..)",
+          "zh": "滿足（需求）",
+          "zhSpoken": "滿足",
+          "en": "to meet (needs)",
           "pos": "動詞",
           "hanViet": "答應",
-          "category": "日常必備動詞",
-          "example": "Bạn có thể đáp ứng giúp tôi không?",
-          "exampleZh": "你能幫我回應嗎？"
+          "category": "日常動詞",
+          "example": "Chúng tôi đáp ứng yêu cầu của khách.",
+          "exampleZh": "我們滿足客戶的要求。"
         },
         {
           "id": "freq_978",
           "rank": 978,
           "viet": "nhẹ",
-          "zh": "良性 / 清淡",
-          "zhSpoken": "良性，清淡",
+          "zh": "輕",
+          "zhSpoken": "輕",
           "en": "light",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "thân nhẹ như chim én",
-          "exampleZh": "身輕如燕。"
+          "category": "描述與狀態",
+          "example": "Túi này rất nhẹ.",
+          "exampleZh": "這個包很輕。"
         },
         {
           "id": "freq_979",
           "rank": 979,
           "viet": "tư vấn",
-          "zh": "參謀 / 諮詢",
-          "zhSpoken": "參謀，諮詢",
-          "en": "advisory",
+          "zh": "諮詢",
+          "zhSpoken": "諮詢",
+          "en": "to consult",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "tư vấn pháp luật",
-          "exampleZh": "法律諮詢。"
+          "category": "日常動詞",
+          "example": "Anh tư vấn giúp tôi nhé.",
+          "exampleZh": "請幫我提供建議。"
         },
         {
           "id": "freq_980",
           "rank": 980,
           "viet": "hôn",
-          "zh": "婚配 / 親",
-          "zhSpoken": "婚配，親",
+          "zh": "親吻",
+          "zhSpoken": "親吻",
           "en": "to kiss",
-          "pos": "名詞",
+          "pos": "動詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "hôn ước",
-          "exampleZh": "婚約。"
+          "category": "日常動詞",
+          "example": "Mẹ hôn con.",
+          "exampleZh": "媽媽親孩子。"
         },
         {
           "id": "freq_981",
           "rank": 981,
           "viet": "chữa",
-          "zh": "補 / 校正",
-          "zhSpoken": "補，校正",
-          "en": "To cure, to treat, to correct, to r",
+          "zh": "治療 / 修理",
+          "zhSpoken": "治療，修理",
+          "en": "to treat; to fix",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "chữa văn",
-          "exampleZh": "改文章。"
+          "category": "日常動詞",
+          "example": "Anh có chữa được xe này không?",
+          "exampleZh": "你能修這輛車嗎？"
         },
         {
           "id": "freq_982",
           "rank": 982,
           "viet": "đẩy",
-          "zh": "扒拉 / 搬弄",
-          "zhSpoken": "扒拉，搬弄",
-          "en": "to push; to shove; to thrust",
+          "zh": "推",
+          "zhSpoken": "推",
+          "en": "to push",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đẩy thuyền",
-          "exampleZh": "撥船。"
+          "category": "日常動詞",
+          "example": "Đẩy cửa ra.",
+          "exampleZh": "把門推開。"
         },
         {
           "id": "freq_983",
           "rank": 983,
           "viet": "liền",
-          "zh": "不久 / 登時",
-          "zhSpoken": "不久，登時",
-          "en": "(of wound) to heal; to skin over",
-          "pos": "動詞",
+          "zh": "立刻",
+          "zhSpoken": "立刻",
+          "en": "right away",
+          "pos": "副詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "nhà máy xây xong, liền đi ngay vào sản xuất",
-          "exampleZh": "工廠建成, 不久即正式投產。 當下; 當時; 登時。"
+          "category": "語法功能詞",
+          "example": "Tôi đi liền.",
+          "exampleZh": "我馬上去。"
         },
         {
           "id": "freq_984",
           "rank": 984,
           "viet": "cửa hàng",
-          "zh": "廠 / 廠子",
-          "zhSpoken": "廠，廠子",
-          "en": "shop; store",
+          "zh": "商店",
+          "zhSpoken": "商店",
+          "en": "store",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "cửa hàng than",
-          "exampleZh": "煤廠。"
+          "category": "生活名詞",
+          "example": "Cửa hàng này mở đến mấy giờ?",
+          "exampleZh": "這家店開到幾點？"
         },
         {
           "id": "freq_985",
           "rank": 985,
           "viet": "rắc rối",
-          "zh": "湊熱鬧兒 / 錯綜",
-          "zhSpoken": "湊熱鬧兒，錯綜",
-          "en": "complex; complicated; intricate",
+          "zh": "麻煩",
+          "zhSpoken": "麻煩",
+          "en": "trouble",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "rắc rối",
-          "exampleZh": "煩雜。"
+          "category": "生活名詞",
+          "example": "Tôi không muốn có rắc rối.",
+          "exampleZh": "我不想惹麻煩。"
         },
         {
           "id": "freq_986",
           "rank": 986,
           "viet": "pháp luật",
-          "zh": "大法 / 闢",
-          "zhSpoken": "大法，闢",
-          "en": "danh từ. law",
+          "zh": "法律",
+          "zhSpoken": "法律",
+          "en": "law",
           "pos": "名詞",
           "hanViet": "法律",
-          "category": "生活日常",
-          "example": "Pháp luật này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大法」在工作上非常必需。"
+          "category": "生活名詞",
+          "example": "Chúng ta phải tuân thủ pháp luật.",
+          "exampleZh": "我們必須遵守法律。"
         },
         {
           "id": "freq_987",
           "rank": 987,
           "viet": "ý tưởng",
-          "zh": "構想 / 心裁",
-          "zhSpoken": "構想，心裁",
-          "en": "idea, thought",
+          "zh": "點子",
+          "zhSpoken": "點子",
+          "en": "idea",
           "pos": "名詞",
           "hanViet": "意想",
-          "category": "生活日常",
-          "example": "đề ra ý tưởng thể chế cải cách",
-          "exampleZh": "提出體制改革的構想。"
+          "category": "生活名詞",
+          "example": "Đây là ý tưởng rất hay.",
+          "exampleZh": "這是很棒的點子。"
         },
         {
           "id": "freq_988",
           "rank": 988,
           "viet": "lưng",
-          "zh": "背兒 / 背脊",
-          "zhSpoken": "背兒，背脊",
+          "zh": "背",
+          "zhSpoken": "背",
           "en": "back",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "lưng núi",
-          "exampleZh": "山背後。"
+          "category": "生活名詞",
+          "example": "Tôi bị đau lưng.",
+          "exampleZh": "我背痛。"
         },
         {
           "id": "freq_989",
           "rank": 989,
           "viet": "đuổi",
-          "zh": "斥退 / 打發",
-          "zhSpoken": "斥退，打發",
-          "en": "to dismiss; to discharge; to turm o",
+          "zh": "追 / 趕走",
+          "zhSpoken": "追，趕走",
+          "en": "to chase; to expel",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "anh đi trước, tôi đuổi theo sau",
-          "exampleZh": "你在前頭走, 我在後頭趕。"
+          "category": "日常動詞",
+          "example": "Con chó đuổi theo con mèo.",
+          "exampleZh": "狗追著貓。"
         },
         {
           "id": "freq_990",
@@ -13173,145 +13095,145 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "bom",
           "zh": "炸彈",
           "zhSpoken": "炸彈",
-          "en": "Bomb",
+          "en": "bomb",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ném bom",
-          "exampleZh": "投彈。"
+          "category": "生活名詞",
+          "example": "Bom từ thời chiến tranh vẫn còn.",
+          "exampleZh": "戰爭時期的炸彈還在。"
         },
         {
           "id": "freq_991",
           "rank": 991,
           "viet": "ghế",
-          "zh": "艙位 / 椅子",
-          "zhSpoken": "艙位，椅子",
-          "en": "chair; seat",
+          "zh": "椅子",
+          "zhSpoken": "椅子",
+          "en": "chair",
           "pos": "名詞",
           "hanViet": "",
-          "category": "生活日常",
-          "example": "ghế đẩu",
-          "exampleZh": "方凳。"
+          "category": "生活名詞",
+          "example": "Mời ngồi ghế này.",
+          "exampleZh": "請坐這張椅子。"
         },
         {
           "id": "freq_992",
           "rank": 992,
           "viet": "điều khiển",
-          "zh": "播弄 / 操縱",
-          "zhSpoken": "播弄，操縱",
-          "en": "vocabulary",
+          "zh": "操控 / 遙控器",
+          "zhSpoken": "操控，遙控器",
+          "en": "to control; remote",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "điều khiển bằng vô tuyến điện",
-          "exampleZh": "無線電操縱。"
+          "category": "日常動詞",
+          "example": "Cái điều khiển ở đâu rồi?",
+          "exampleZh": "遙控器跑哪去了？"
         },
         {
           "id": "freq_993",
           "rank": 993,
           "viet": "vay",
-          "zh": "貸 / 貸款",
-          "zhSpoken": "貸，貸款",
+          "zh": "借（款）",
+          "zhSpoken": "借",
           "en": "to borrow",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "vay tiền ngân hàng",
-          "exampleZh": "向銀行貸款。"
+          "category": "日常動詞",
+          "example": "Tôi muốn vay ngân hàng.",
+          "exampleZh": "我想跟銀行貸款。"
         },
         {
           "id": "freq_994",
           "rank": 994,
           "viet": "tắm",
-          "zh": "洗澡 / 沐浴",
-          "zhSpoken": "洗澡，沐浴",
-          "en": "to have a bath; to bathe",
+          "zh": "洗澡",
+          "zhSpoken": "洗澡",
+          "en": "to bathe",
           "pos": "動詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "giội nước lã cho mát; tắm nước lã cho mát",
-          "exampleZh": "拿冷水衝個涼。 淴。"
+          "category": "日常動詞",
+          "example": "Tôi đi tắm trước nhé.",
+          "exampleZh": "我先去洗澡喔。"
         },
         {
           "id": "freq_995",
           "rank": 995,
           "viet": "ha",
-          "zh": "哈",
-          "zhSpoken": "哈",
-          "en": "A!, ha ha! (tỏ ý ngạc nhiên, nghi n",
-          "pos": "助詞",
+          "zh": "哈 / 喔（南部）",
+          "zhSpoken": "哈，喔",
+          "en": "ha; right? (Southern)",
+          "pos": "感嘆詞",
           "hanViet": "",
-          "category": "語法標記",
-          "example": "Hãy chú ý đến ha trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「哈」。"
+          "category": "語氣與助詞",
+          "example": "Vui ha!",
+          "exampleZh": "好開心喔！"
         },
         {
           "id": "freq_996",
           "rank": 996,
           "viet": "hại",
-          "zh": "害 / 損",
-          "zhSpoken": "害，損",
-          "en": "harmful; hurtful; damaging; deleter",
+          "zh": "害 / 有害",
+          "zhSpoken": "害，有害",
+          "en": "harm; harmful",
           "pos": "動詞",
           "hanViet": "害",
-          "category": "日常必備動詞",
-          "example": "dấy lợi trừ hại",
-          "exampleZh": "興利除弊。"
+          "category": "日常動詞",
+          "example": "Hút thuốc hại sức khoẻ.",
+          "exampleZh": "吸菸有害健康。"
         },
         {
           "id": "freq_997",
           "rank": 997,
           "viet": "thoả thuận",
-          "zh": "成議 / 諧",
-          "zhSpoken": "成議，諧",
-          "en": "to agree (that.), to come to terms",
-          "pos": "動詞",
+          "zh": "協議",
+          "zhSpoken": "協議",
+          "en": "to agree; agreement",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "đạt được thoả thuận",
-          "exampleZh": "達成協議。"
+          "category": "生活名詞",
+          "example": "Hai bên đã có thoả thuận.",
+          "exampleZh": "雙方已達成協議。"
         },
         {
           "id": "freq_998",
           "rank": 998,
           "viet": "hoàn hảo",
-          "zh": "白無瑕 / 健全",
-          "zhSpoken": "白無瑕，健全",
-          "en": "Smoothly done, successfully done",
+          "zh": "完美",
+          "zhSpoken": "完美",
+          "en": "perfect",
           "pos": "形容詞",
           "hanViet": "",
-          "category": "基礎描述",
-          "example": "trang bị hoàn hảo",
-          "exampleZh": "裝備精良。 十全。"
+          "category": "描述與狀態",
+          "example": "Mọi thứ đều hoàn hảo.",
+          "exampleZh": "一切都很完美。"
         },
         {
           "id": "freq_999",
           "rank": 999,
           "viet": "hội đồng",
-          "zh": "會議",
-          "zhSpoken": "會議",
-          "en": "council; assembly; meeting",
-          "pos": "動詞",
+          "zh": "委員會",
+          "zhSpoken": "委員會",
+          "en": "council",
+          "pos": "名詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "hội đồng bộ trưởng",
-          "exampleZh": "部長會議。"
+          "category": "生活名詞",
+          "example": "Hội đồng đang họp.",
+          "exampleZh": "委員會正在開會。"
         },
         {
           "id": "freq_1000",
           "rank": 1000,
           "viet": "mắc",
-          "zh": "昂貴 / 扒",
-          "zhSpoken": "昂貴，扒",
-          "en": "busy; occupied; engaged",
-          "pos": "動詞",
+          "zh": "貴（南部）/ 犯 / 卡住",
+          "zhSpoken": "貴，犯",
+          "en": "expensive (South); to make (error)",
+          "pos": "形容詞",
           "hanViet": "",
-          "category": "日常必備動詞",
-          "example": "mắc bệnh",
-          "exampleZh": "患病。"
+          "category": "描述與狀態",
+          "example": "Sao mắc quá vậy?",
+          "exampleZh": "怎麼這麼貴？"
         }
       ],
-      "duration": 729.2
+      "duration": 623.7
     }
   ],
   "curated": [
@@ -15609,8 +15531,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể giây giúp tôi không?",
-          "exampleZh": "你能幫我秒嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1002",
@@ -15657,7 +15579,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "liên tục",
           "zh": "不停止 / 蟬聯",
           "zhSpoken": "不停止，蟬聯",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "連續",
           "category": "生活社交動詞",
@@ -15726,8 +15648,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Ly này rất cần thiết cho công việc.",
-          "exampleZh": "這個「杯」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1011",
@@ -15765,8 +15687,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "物",
           "category": "生活社交動詞",
-          "example": "Bạn có thể vật giúp tôi không?",
-          "exampleZh": "你能幫我動物嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1014",
@@ -15774,12 +15696,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "điều hành",
           "zh": "調度 / 發縱指示",
           "zhSpoken": "調度，發縱指示",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể điều hành giúp tôi không?",
-          "exampleZh": "你能幫我調度嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1015",
@@ -15804,8 +15726,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Phiên bản này rất cần thiết cho công việc.",
-          "exampleZh": "這個「版本」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1017",
@@ -15896,7 +15818,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "限制",
           "category": "生活社交動詞",
           "example": "tràn ngập khắp nơi, không thể hạn chế",
-          "exampleZh": "縱橫四溢, 不可範圍。"
+          "exampleZh": "縱橫四溢，不可範圍。"
         },
         {
           "id": "freq_1024",
@@ -15948,7 +15870,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "確",
           "category": "實用生活",
           "example": "tìm xác máy bay mất tích",
-          "exampleZh": "尋找失事飛機的殘骸。 骸。"
+          "exampleZh": "尋找失事飛機的殘骸。"
         },
         {
           "id": "freq_1028",
@@ -15956,12 +15878,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "xung quanh",
           "zh": "方圓 / 環合",
           "zhSpoken": "方圓，環合",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
           "example": "những người xung quanh, anh ấy đều quen biết",
-          "exampleZh": "方圓左近的人, 他都認識。"
+          "exampleZh": "方圓左近的人，他都認識。"
         },
         {
           "id": "freq_1029",
@@ -15974,7 +15896,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "cánh cổng mở rộng",
-          "exampleZh": "大門敞開着。書。"
+          "exampleZh": "大門敞開着。"
         },
         {
           "id": "freq_1030",
@@ -16025,8 +15947,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "窗",
           "category": "生活社交動詞",
-          "example": "Bạn có thể song giúp tôi không?",
-          "exampleZh": "你能幫我不過嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1034",
@@ -16039,7 +15961,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "作品",
           "category": "實用生活",
           "example": "tác phẩm có tính chất thời đại",
-          "exampleZh": "劃時代的創作。 構。"
+          "exampleZh": "劃時代的創作。"
         },
         {
           "id": "freq_1035",
@@ -16052,7 +15974,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "thấy chẳng ai ủng hộ mình cả, hắn cũng không kiên quyết nữa",
-          "exampleZh": "他看見沒有人幫腔, 也就不再堅持了。 保衛。"
+          "exampleZh": "他看見沒有人幫腔，也就不再堅持了。"
         },
         {
           "id": "freq_1036",
@@ -16064,8 +15986,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "交易",
           "category": "生活社交動詞",
-          "example": "Bạn có thể giao dịch giúp tôi không?",
-          "exampleZh": "你能幫我交易嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1037",
@@ -16129,8 +16051,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tỷ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「璽」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1042",
@@ -16151,7 +16073,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "mãi",
           "zh": "半晌 / 不已",
           "zhSpoken": "半晌，不已",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -16177,7 +16099,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thanh niên",
           "zh": "成丁 / 兒",
           "zhSpoken": "成丁，兒",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -16195,7 +16117,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "tết Đoan Ngọ ăn bánh tro mới đúng dịp",
-          "exampleZh": "端午節喫糉子, 應應節令。 期間。"
+          "exampleZh": "端午節喫糉子，應應節令。"
         },
         {
           "id": "freq_1047",
@@ -16247,7 +16169,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "nhờ anh nhắn lại với gia đình tôi là hôm nay tôi không về",
-          "exampleZh": "請你給我家裏捎個口信, 說我今天不回家了。 過話。"
+          "exampleZh": "請你給我家裏捎個口信，說我今天不回家了。"
         }
       ],
       "duration": 745.5
@@ -16274,8 +16196,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "體",
           "category": "實用生活",
-          "example": "Thể này rất cần thiết cho công việc.",
-          "exampleZh": "這個「體」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1052",
@@ -16283,7 +16205,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "bao lâu",
           "zh": "多久 / 久",
           "zhSpoken": "多久，久",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -16309,12 +16231,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tin tưởng",
           "zh": "拿手 / 相信",
           "zhSpoken": "拿手，相信",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "tin tưởng",
-          "exampleZh": "不足憑信。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1055",
@@ -16339,8 +16261,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "試生",
           "category": "實用生活",
-          "example": "Thí sinh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「考生」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1057",
@@ -16392,7 +16314,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "tuổi già sức yếu cần có người đi kèm",
-          "exampleZh": "年邁體衰, 需要有人伴同前往。"
+          "exampleZh": "年邁體衰，需要有人伴同前往。"
         },
         {
           "id": "freq_1061",
@@ -16430,8 +16352,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ký giúp tôi không?",
-          "exampleZh": "你能幫我簽訂嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1064",
@@ -16457,7 +16379,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "quần áo rách rưới",
-          "exampleZh": "衣衫襤褸。 衣衫。"
+          "exampleZh": "衣衫襤褸。"
         },
         {
           "id": "freq_1066",
@@ -16465,7 +16387,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "xuất khẩu",
           "zh": "出口 / 輸出",
           "zhSpoken": "出口，輸出",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "出口",
           "category": "生活社交動詞",
@@ -16483,7 +16405,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "đưa cán bộ xuống tăng cường cho cơ sở",
-          "exampleZh": "下放幹部, 充實基層。 發揚。"
+          "exampleZh": "下放幹部，充實基層。"
         },
         {
           "id": "freq_1068",
@@ -16496,7 +16418,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "nước thua trận",
-          "exampleZh": "戰敗國。書。"
+          "exampleZh": "戰敗國。"
         },
         {
           "id": "freq_1069",
@@ -16535,7 +16457,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "Ti-tan, Crôm, Cô-ban... thường có lẫn trong quặng sắt",
-          "exampleZh": "鈦、鉻、鈷等常與鐵礦伴生。 廁。"
+          "exampleZh": "鈦、鉻、鈷等常與鐵礦伴生。"
         },
         {
           "id": "freq_1072",
@@ -16561,7 +16483,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "khắc phục sai lầm",
-          "exampleZh": "克服弊病。書。"
+          "exampleZh": "克服弊病。"
         },
         {
           "id": "freq_1074",
@@ -16573,8 +16495,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "腦",
           "category": "實用生活",
-          "example": "Não này rất cần thiết cho công việc.",
-          "exampleZh": "這個「腦髓」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1075",
@@ -16625,8 +16547,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể e giúp tôi không?",
-          "exampleZh": "你能幫我怕的是嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1079",
@@ -16634,12 +16556,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trái tim",
           "zh": "雞心 / 心臟",
           "zhSpoken": "雞心，心臟",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
           "example": "thủ đô Hà Nội là trái tim của tổ quốc",
-          "exampleZh": "首都河內是祖國的心臟。 心子。"
+          "exampleZh": "首都河內是祖國的心臟。"
         },
         {
           "id": "freq_1080",
@@ -16660,12 +16582,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "kết nối",
           "zh": "成龍配套 / 對接",
           "zhSpoken": "成龍配套，對接",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể kết nối giúp tôi không?",
-          "exampleZh": "你能幫我成龍配套嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1082",
@@ -16703,8 +16625,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "集團",
           "category": "實用生活",
-          "example": "Tập đoàn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「集體」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1085",
@@ -16716,8 +16638,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hè này rất cần thiết cho công việc.",
-          "exampleZh": "這個「廊」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1086",
@@ -16730,7 +16652,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "愕然",
           "category": "生活社交動詞",
           "example": "khi tin đưa đến, mọi người đều ngạc nhiên",
-          "exampleZh": "消息傳來, 大家都爲之愕然。 驚詫; 奇; 驚訝; 驚異。"
+          "exampleZh": "消息傳來，大家都爲之愕然。 驚詫; 奇; 驚訝; 驚異。"
         },
         {
           "id": "freq_1087",
@@ -16743,7 +16665,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "anh ấy rất mong muốn được tham gia chiến đấu ngay",
-          "exampleZh": "他恨不得馬上投入戰鬥。 期求。"
+          "exampleZh": "他恨不得馬上投入戰鬥。"
         },
         {
           "id": "freq_1088",
@@ -16821,7 +16743,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "phỏng vấn ngắn",
-          "exampleZh": "短促的訪問。 短小。"
+          "exampleZh": "短促的訪問。"
         },
         {
           "id": "freq_1094",
@@ -16846,8 +16768,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "卒業",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tốt nghiệp giúp tôi không?",
-          "exampleZh": "你能幫我卒業嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1096",
@@ -16881,7 +16803,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tham dự",
           "zh": "參加 / 參與",
           "zhSpoken": "參加，參與",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "參預",
           "category": "生活社交動詞",
@@ -16898,8 +16820,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đôi khi giúp tôi không?",
-          "exampleZh": "你能幫我不時嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1100",
@@ -16952,8 +16874,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thể thao này rất cần thiết cho công việc.",
-          "exampleZh": "這個「體操」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1103",
@@ -16991,8 +16913,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lượt này rất cần thiết cho công việc.",
-          "exampleZh": "這個「遍」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1106",
@@ -17004,8 +16926,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cha mẹ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「椿萱」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1107",
@@ -17017,8 +16939,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thơ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「詩章」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1108",
@@ -17031,7 +16953,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "聯繫",
           "category": "生活社交動詞",
           "example": "tổ chức cử tôi đến liên hệ với anh",
-          "exampleZh": "組織上叫我來跟你接頭。 聯絡。"
+          "exampleZh": "組織上叫我來跟你接頭。"
         },
         {
           "id": "freq_1109",
@@ -17056,8 +16978,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất điện tử và quan trọng.",
-          "exampleZh": "這非常電子且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1111",
@@ -17147,8 +17069,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "炎",
           "category": "實用生活",
-          "example": "Viêm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「發炎」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1118",
@@ -17156,7 +17078,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "ví dụ",
           "zh": "喻 / 譬",
           "zhSpoken": "喻，譬",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -17187,7 +17109,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "雖",
           "category": "實用生活",
           "example": "nói thế tuy đúng nhưng cũng cần phải suy xét lại",
-          "exampleZh": "這話固然不錯, 但是也應該考慮考慮。"
+          "exampleZh": "這話固然不錯，但是也應該考慮考慮。"
         },
         {
           "id": "freq_1121",
@@ -17199,8 +17121,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể dĩ nhiên giúp tôi không?",
-          "exampleZh": "你能幫我不能不嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1122",
@@ -17251,8 +17173,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "政權",
           "category": "實用生活",
-          "example": "Chính quyền này rất cần thiết cho công việc.",
-          "exampleZh": "這個「印把子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1126",
@@ -17278,7 +17200,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "專",
           "category": "生活社交動詞",
           "example": "nhà máy này chuyên sản xuất tủ lạnh",
-          "exampleZh": "該廠是生產冰箱的定點廠。 會。"
+          "exampleZh": "該廠是生產冰箱的定點廠。"
         },
         {
           "id": "freq_1128",
@@ -17286,7 +17208,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "quý khách",
           "zh": "來賓 / 貴客",
           "zhSpoken": "來賓，貴客",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "貴客",
           "category": "實用生活",
@@ -17299,7 +17221,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đồng hồ",
           "zh": "表 / 鍾",
           "zhSpoken": "表，鍾",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -17316,8 +17238,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "約",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ước giúp tôi không?",
-          "exampleZh": "你能幫我約嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1131",
@@ -17329,8 +17251,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Ung thư này rất cần thiết cho công việc.",
-          "exampleZh": "這個「癌」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1132",
@@ -17338,7 +17260,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vận động",
           "zh": "調動 / 運",
           "zhSpoken": "調動，運",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "運動",
           "category": "生活社交動詞",
@@ -17369,7 +17291,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "裝備",
           "category": "生活社交動詞",
           "example": "trang bị hiện đại hoá",
-          "exampleZh": "現代化的配備。 設備。"
+          "exampleZh": "現代化的配備。"
         },
         {
           "id": "freq_1135",
@@ -17395,7 +17317,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "sóng bạc tung trời",
-          "exampleZh": "白浪掀 天。書。"
+          "exampleZh": "白浪掀 天。"
         },
         {
           "id": "freq_1137",
@@ -17420,8 +17342,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "律師",
           "category": "實用生活",
-          "example": "Luật sư này rất cần thiết cho công việc.",
-          "exampleZh": "這個「辯護人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1139",
@@ -17472,8 +17394,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tấn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「噸」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1143",
@@ -17494,12 +17416,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tương tự",
           "zh": "類似 / 找出犯錯誤的原因",
           "zhSpoken": "類似，找出犯錯誤的原因",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "相似",
           "category": "情境修飾",
-          "example": "Điều này rất tương tự và quan trọng.",
-          "exampleZh": "這非常類似且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1145",
@@ -17512,7 +17434,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "máy hư rồi, qua tay anh ấy sửa là xong ngay!",
-          "exampleZh": "機器壞了, 經他一掇弄就好啦!。"
+          "exampleZh": "機器壞了，經他一掇弄就好啦！。"
         },
         {
           "id": "freq_1146",
@@ -17551,7 +17473,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "nắng đến nỗi đầu váng mắt hoa",
-          "exampleZh": "烈日曬得人頭昏眼花。 陽光。"
+          "exampleZh": "烈日曬得人頭昏眼花。"
         },
         {
           "id": "freq_1149",
@@ -17604,8 +17526,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Quỹ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「基金」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1152",
@@ -17657,7 +17579,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "出色",
           "category": "情境修飾",
           "example": "nếu nói trình độ của anh ấy, thì thật xuất sắc",
-          "exampleZh": "要說他的水平, 那可真是不含糊。"
+          "exampleZh": "要說他的水平，那可真是不含糊。"
         },
         {
           "id": "freq_1156",
@@ -17665,12 +17587,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "mảnh",
           "zh": "瓣兒 / 摔成幾瓣兒",
           "zhSpoken": "瓣兒，摔成幾瓣兒",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
           "example": "vỡ thành mấy mảnh",
-          "exampleZh": "摔成幾瓣兒。 碴兒。"
+          "exampleZh": "摔成幾瓣兒。"
         },
         {
           "id": "freq_1157",
@@ -17721,8 +17643,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nhà trường này rất cần thiết cho công việc.",
-          "exampleZh": "這個「學校」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1161",
@@ -17735,7 +17657,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "辦法",
           "category": "實用生活",
           "example": "kế hoạch đã đặt ra thì phải có biện pháp kèm theo",
-          "exampleZh": "計劃已經訂出, 措施應該跟上。"
+          "exampleZh": "計劃已經訂出，措施應該跟上。"
         },
         {
           "id": "freq_1162",
@@ -17747,8 +17669,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "清查",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thanh tra giúp tôi không?",
-          "exampleZh": "你能幫我清查嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1163",
@@ -17756,7 +17678,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "điều chỉnh",
           "zh": "岔換 / 對",
           "zhSpoken": "岔換，對",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "調整",
           "category": "生活社交動詞",
@@ -17799,8 +17721,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "災",
           "category": "實用生活",
-          "example": "Tai này rất cần thiết cho công việc.",
-          "exampleZh": "這個「耳」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1167",
@@ -17834,7 +17756,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cảm nhận",
           "zh": "感受 / 看到經濟特區全面迅速的發展",
           "zhSpoken": "感受，看到經濟特區全面迅速的發展",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -17847,12 +17769,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "nguy cơ",
           "zh": "危機 / 危險",
           "zhSpoken": "危機，危險",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "危機",
           "category": "實用生活",
-          "example": "Nguy cơ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「危機」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1171",
@@ -17877,8 +17799,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nhà hàng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「店家」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1173",
@@ -17890,8 +17812,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "馬",
           "category": "實用生活",
-          "example": "Mã này rất cần thiết cho công việc.",
-          "exampleZh": "這個「號碼」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1174",
@@ -17904,7 +17826,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "đừng nhắc nữa, chuyện này hỏng rồi!",
-          "exampleZh": "甭提了, 這件事吹 啦! 腐敗。"
+          "exampleZh": "甭提了，這件事吹 啦！"
         },
         {
           "id": "freq_1175",
@@ -17917,7 +17839,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "lập tức lên đường, còn kịp",
-          "exampleZh": "馬上就動身, 還趕得及。 趕趟兒。"
+          "exampleZh": "馬上就動身，還趕得及。"
         },
         {
           "id": "freq_1176",
@@ -17942,8 +17864,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "khác biệt",
-          "exampleZh": "差別。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1178",
@@ -17990,7 +17912,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "hợp lý",
           "zh": "的當 / 公道",
           "zhSpoken": "的當，公道",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "合理",
           "category": "情境修飾",
@@ -18046,8 +17968,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tác động giúp tôi không?",
-          "exampleZh": "你能幫我成效嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1186",
@@ -18107,12 +18029,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "kỹ năng",
           "zh": "本事 / 技能",
           "zhSpoken": "本事，技能",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "技能",
           "category": "實用生活",
           "example": "anh ấy có được kỹ năng này nhưng cái khác thì không có",
-          "exampleZh": "他就會這兩下子, 別的本事沒有。 兩下子。"
+          "exampleZh": "他就會這兩下子，別的本事沒有。"
         },
         {
           "id": "freq_1191",
@@ -18124,8 +18046,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Trứng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1192",
@@ -18150,8 +18072,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thế thì giúp tôi không?",
-          "exampleZh": "你能幫我恁嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1194",
@@ -18265,7 +18187,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vợ chồng",
           "zh": "夫妻 / 公婆",
           "zhSpoken": "夫妻，公婆",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -18309,7 +18231,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "合",
           "category": "生活社交動詞",
           "example": "gần đây hai người dường như có gì đó không hợp",
-          "exampleZh": "兩口兒最近好像有些不對付。 對路。"
+          "exampleZh": "兩口兒最近好像有些不對付。"
         },
         {
           "id": "freq_1205",
@@ -18330,12 +18252,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Hàn Quốc",
           "zh": "南韓",
           "zhSpoken": "南韓",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hàn quốc này rất cần thiết cho công việc.",
-          "exampleZh": "這個「南韓」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1207",
@@ -18347,8 +18269,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể răng giúp tôi không?",
-          "exampleZh": "你能幫我牙嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1208",
@@ -18386,8 +18308,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "魔",
           "category": "實用生活",
-          "example": "Ma này rất cần thiết cho công việc.",
-          "exampleZh": "這個「精靈」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1211",
@@ -18399,8 +18321,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể cú giúp tôi không?",
-          "exampleZh": "你能幫我句嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1212",
@@ -18438,8 +18360,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "連詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hãy chú ý đến hay là trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「別是」。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1215",
@@ -18447,7 +18369,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Nhật",
           "zh": "和 / 扶桑",
           "zhSpoken": "和，扶桑",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "日",
           "category": "實用生活",
@@ -18516,8 +18438,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thời trang này rất cần thiết cho công việc.",
-          "exampleZh": "這個「服式」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1221",
@@ -18569,7 +18491,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "bài thơ này có màu sắc của dân ca",
-          "exampleZh": "這首詩有民歌風味。 光彩。"
+          "exampleZh": "這首詩有民歌風味。"
         },
         {
           "id": "freq_1225",
@@ -18581,8 +18503,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "都市",
           "category": "實用生活",
-          "example": "đô thị",
-          "exampleZh": "都市。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1226",
@@ -18621,7 +18543,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "sau khi anh đếm xong, báo con số cho anh ấy",
-          "exampleZh": "你數好以後, 就把數目告訴他。"
+          "exampleZh": "你數好以後，就把數目告訴他。"
         },
         {
           "id": "freq_1229",
@@ -18634,7 +18556,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "立即",
           "category": "生活社交動詞",
           "example": "nhận mệnh lệnh là lập tức lên đường",
-          "exampleZh": "接到命令, 當即出發。"
+          "exampleZh": "接到命令，當即出發。"
         },
         {
           "id": "freq_1230",
@@ -18685,8 +18607,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tác giả này rất cần thiết cho công việc.",
-          "exampleZh": "這個「著作人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1234",
@@ -18698,8 +18620,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "提",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đề giúp tôi không?",
-          "exampleZh": "你能幫我菩提樹嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1235",
@@ -18711,8 +18633,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ê giúp tôi không?",
-          "exampleZh": "你能幫我陰痛嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1236",
@@ -18725,7 +18647,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "行頭",
           "category": "實用生活",
           "example": "anh ấy mãi mãi đứng hàng đầu trong cuộc đấu tranh",
-          "exampleZh": "他始終站在鬥爭的最前列。 上游。"
+          "exampleZh": "他始終站在鬥爭的最前列。"
         },
         {
           "id": "freq_1237",
@@ -18759,12 +18681,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "anh chàng",
           "zh": "年青人",
           "zhSpoken": "年青人",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Anh chàng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「年青人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1240",
@@ -18772,7 +18694,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "quan",
           "zh": "寀 / 大人",
           "zhSpoken": "寀，大人",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "官",
           "category": "實用生活",
@@ -18789,8 +18711,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Khỉ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「猴子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1242",
@@ -18815,8 +18737,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể vì thế giúp tôi không?",
-          "exampleZh": "你能幫我故此嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1244",
@@ -18863,7 +18785,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "văn bản",
           "zh": "案 / 書面",
           "zhSpoken": "案，書面",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "文本",
           "category": "實用生活",
@@ -18934,8 +18856,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "國會",
           "category": "實用生活",
-          "example": "Quốc hội này rất cần thiết cho công việc.",
-          "exampleZh": "這個「國會」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1252",
@@ -18943,12 +18865,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "uỷ ban",
           "zh": "委員會",
           "zhSpoken": "委員會",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Uỷ ban này rất cần thiết cho công việc.",
-          "exampleZh": "這個「委員會」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1253",
@@ -18999,8 +18921,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "中央",
           "category": "實用生活",
-          "example": "Trung ương này rất cần thiết cho công việc.",
-          "exampleZh": "這個「中央」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1257",
@@ -19012,8 +18934,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "球手",
           "category": "實用生活",
-          "example": "Cầu thủ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「選手」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1258",
@@ -19047,12 +18969,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "ngày nay",
           "zh": "當代 / 方今",
           "zhSpoken": "當代，方今",
-          "en": "common term",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ngày nay giúp tôi không?",
-          "exampleZh": "你能幫我當代嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1261",
@@ -19064,8 +18986,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tiêu dùng giúp tôi không?",
-          "exampleZh": "你能幫我開支嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1262",
@@ -19086,12 +19008,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tăng trưởng",
           "zh": "增長",
           "zhSpoken": "增長",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "增長",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tăng trưởng giúp tôi không?",
-          "exampleZh": "你能幫我增長嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1264",
@@ -19143,7 +19065,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "想象",
           "category": "生活社交動詞",
           "example": "một điều tưởng tượng đẹp đẽ",
-          "exampleZh": "一個美麗的幻想。 假想。"
+          "exampleZh": "一個美麗的幻想。"
         },
         {
           "id": "freq_1268",
@@ -19203,7 +19125,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "mở cửa",
           "zh": "開放 / 機場關閉了三天",
           "zhSpoken": "開放，機場關閉了三天",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -19216,7 +19138,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tuỳ",
           "zh": "隨 / 隨便",
           "zhSpoken": "隨，隨便",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "隨",
           "category": "生活社交動詞",
@@ -19259,8 +19181,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "部長",
           "category": "實用生活",
-          "example": "Bộ trưởng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「部長」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1277",
@@ -19285,8 +19207,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "師",
           "category": "實用生活",
-          "example": "Sư này rất cần thiết cho công việc.",
-          "exampleZh": "這個「比丘」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1279",
@@ -19333,12 +19255,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đóng góp",
           "zh": "出力 / 分派",
           "zhSpoken": "出力，分派",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "chi phí du lịch lần này, do người tham gia đóng góp",
-          "exampleZh": "這次旅遊的費用, 由參加的人分派。"
+          "exampleZh": "這次旅遊的費用，由參加的人分派。"
         },
         {
           "id": "freq_1283",
@@ -19376,8 +19298,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "預見",
           "category": "生活社交動詞",
-          "example": "Bạn có thể dự kiến giúp tôi không?",
-          "exampleZh": "你能幫我擘畫嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1286",
@@ -19402,8 +19324,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Phương tiện này rất cần thiết cho công việc.",
-          "exampleZh": "這個「設施」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1288",
@@ -19428,8 +19350,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "傷",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thương giúp tôi không?",
-          "exampleZh": "你能幫我戈嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1290",
@@ -19463,7 +19385,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thi đấu",
           "zh": "賽 / 對局",
           "zhSpoken": "賽，對局",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -19493,8 +19415,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hành tinh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「行星」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1295",
@@ -19546,7 +19468,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "收入",
           "category": "實用生活",
           "example": "gần đây gia đình anh ấy thu nhập có tăng thêm",
-          "exampleZh": "他家最近增加了來項。 斂。"
+          "exampleZh": "他家最近增加了來項。"
         },
         {
           "id": "freq_1299",
@@ -19558,8 +19480,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "保險",
           "category": "實用生活",
-          "example": "Bảo hiểm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「保險」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1300",
@@ -19638,8 +19560,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "教師",
           "category": "實用生活",
-          "example": "Giáo sư này rất cần thiết cho công việc.",
-          "exampleZh": "這個「教授」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1305",
@@ -19651,8 +19573,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Phẫu thuật này rất cần thiết cho công việc.",
-          "exampleZh": "這個「動手術」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1306",
@@ -19673,12 +19595,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thay thế",
           "zh": "抽換 / 這篇短文裏一共抽換了十六個字",
           "zhSpoken": "抽換，這篇短文裏一共抽換了十六個字",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "trong bài văn ngắn này thay thế hết 16 chữ",
-          "exampleZh": "這篇短文裏一共抽換了十六個字。 代替。"
+          "exampleZh": "這篇短文裏一共抽換了十六個字。"
         },
         {
           "id": "freq_1308",
@@ -19686,7 +19608,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lợi ích",
           "zh": "裨補 / 潤",
           "zhSpoken": "裨補，潤",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "利益",
           "category": "實用生活",
@@ -19703,8 +19625,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đà nẵng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「沱囊」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1310",
@@ -19716,8 +19638,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "獸",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thú giúp tôi không?",
-          "exampleZh": "你能幫我帶勁嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1311",
@@ -19782,7 +19704,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "tôi no rồi, không ăn thêm được chút nào nữa đâu",
-          "exampleZh": "我飽了, 一點也喫不下了。"
+          "exampleZh": "我飽了，一點也喫不下了。"
         },
         {
           "id": "freq_1316",
@@ -19834,7 +19756,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "anh đừng nghi ngờ, anh ta chẳng có ác ý gì với anh đâu",
-          "exampleZh": "你不要猜忌, 他對你並沒有懷惡意。"
+          "exampleZh": "你不要猜忌，他對你並沒有懷惡意。"
         },
         {
           "id": "freq_1320",
@@ -19885,8 +19807,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể khám phá giúp tôi không?",
-          "exampleZh": "你能幫我破獲嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1324",
@@ -19937,8 +19859,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất dễ thương và quan trọng.",
-          "exampleZh": "這非常愛人兒且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1328",
@@ -19976,8 +19898,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "H này rất cần thiết cho công việc.",
-          "exampleZh": "這個「越文字母第十一字」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1331",
@@ -20015,8 +19937,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "O này rất cần thiết cho công việc.",
-          "exampleZh": "這個「姑母」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1334",
@@ -20067,8 +19989,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "內",
           "category": "實用生活",
-          "example": "Nội này rất cần thiết cho công việc.",
-          "exampleZh": "這個「野外」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1338",
@@ -20080,8 +20002,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thủ tướng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「丞相」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1339",
@@ -20158,8 +20080,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Chuột này rất cần thiết cho công việc.",
-          "exampleZh": "這個「老鼠」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1345",
@@ -20329,8 +20251,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "信號",
           "category": "實用生活",
-          "example": "Tín hiệu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「徽記」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1357",
@@ -20355,8 +20277,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Ba này rất cần thiết cho công việc.",
-          "exampleZh": "這個「阿公」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1359",
@@ -20364,7 +20286,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "liên kết",
           "zh": "瓜葛 / 結盟",
           "zhSpoken": "瓜葛，結盟",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "連結",
           "category": "生活社交動詞",
@@ -20407,8 +20329,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "利",
           "category": "實用生活",
-          "example": "Lợi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「裨補」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1363",
@@ -20429,7 +20351,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "ngoại",
           "zh": "外",
           "zhSpoken": "外",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "外",
           "category": "實用生活",
@@ -20442,7 +20364,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đối mặt",
           "zh": "當前 / 面臨",
           "zhSpoken": "當前，面臨",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -20455,7 +20377,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "ma tuý",
           "zh": "毒品 / 海洛因",
           "zhSpoken": "毒品，海洛因",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -20486,7 +20408,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "確認",
           "category": "生活社交動詞",
           "example": "qua nhiều người xác nhận, người này chính là kẻ gây án",
-          "exampleZh": "經多人指認, 此人就是作案者。"
+          "exampleZh": "經多人指認，此人就是作案者。"
         },
         {
           "id": "freq_1369",
@@ -20525,7 +20447,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "vì mưa to, cho nên không thể lên đường đúng hạn",
-          "exampleZh": "因大雨, 故未如期起程。"
+          "exampleZh": "因大雨，故未如期起程。"
         },
         {
           "id": "freq_1372",
@@ -20533,12 +20455,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vui lòng",
           "zh": "不吝 / 是否有當",
           "zhSpoken": "不吝，是否有當",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
           "example": "có thoả đáng hay không rất mong vui lòng chỉ giáo",
-          "exampleZh": "是否有當, 尚希不吝賜教 好氣兒。"
+          "exampleZh": "是否有當，尚希不吝賜教 好氣兒。"
         },
         {
           "id": "freq_1373",
@@ -20551,7 +20473,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "con kênh này sâu nhất là một trượng rưỡi",
-          "exampleZh": "這條渠的最深處是一丈五。 圳。"
+          "exampleZh": "這條渠的最深處是一丈五。"
         },
         {
           "id": "freq_1374",
@@ -20563,8 +20485,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "愚呆",
           "category": "情境修飾",
-          "example": "Điều này rất ngu ngốc và quan trọng.",
-          "exampleZh": "這非常愚拙且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1375",
@@ -20576,8 +20498,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "quy hoạch",
-          "exampleZh": "規劃。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1376",
@@ -20616,7 +20538,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "nếu mưa trễ, thì cây trồng không thể ra hoa",
-          "exampleZh": "如雨不得不及時, 它們可能不會開花。"
+          "exampleZh": "如雨不得不及時，它們可能不會開花。"
         },
         {
           "id": "freq_1379",
@@ -20628,8 +20550,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Dân số này rất cần thiết cho công việc.",
-          "exampleZh": "這個「人口」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1380",
@@ -20641,8 +20563,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "瑟",
           "category": "實用生活",
-          "example": "Sắt này rất cần thiết cho công việc.",
-          "exampleZh": "這個「鐵」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1381",
@@ -20650,7 +20572,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đe doạ",
           "zh": "威嚇 / 訛詐",
           "zhSpoken": "威嚇，訛詐",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -20745,8 +20667,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "特務",
           "category": "實用生活",
-          "example": "Đặc vụ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「專差」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1389",
@@ -20819,7 +20741,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "công cụ",
           "zh": "工具",
           "zhSpoken": "工具",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "工具",
           "category": "職場通勤",
@@ -20836,8 +20758,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lúa này rất cần thiết cho công việc.",
-          "exampleZh": "這個「稻子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1396",
@@ -20858,12 +20780,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cho dù",
           "zh": "別管 / 不管",
           "zhSpoken": "別管，不管",
-          "en": "vocabulary",
+          "en": "",
           "pos": "連詞",
           "hanViet": "",
           "category": "實用生活",
           "example": "cho dù là ai chăng nữa, cũng đều phải làm theo nguyên tắc",
-          "exampleZh": "別管是誰, 一律按原則辦事。"
+          "exampleZh": "別管是誰，一律按原則辦事。"
         },
         {
           "id": "freq_1398",
@@ -20888,8 +20810,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể cảnh báo giúp tôi không?",
-          "exampleZh": "你能幫我警報嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1400",
@@ -20902,7 +20824,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "người ta nói với anh, sao anh có thể chẳng để ý gì cả vậy?",
-          "exampleZh": "人家對你說話, 你怎麼能睬也不睬?。"
+          "exampleZh": "人家對你說話，你怎麼能睬也不睬？。"
         }
       ],
       "duration": 736.1
@@ -20943,7 +20865,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "diễn giải sinh động, người nghe không cảm thấy chán",
-          "exampleZh": "演講生動, 聽的人不會覺得乾燥無味。 沮喪。"
+          "exampleZh": "演講生動，聽的人不會覺得乾燥無味。"
         },
         {
           "id": "freq_1403",
@@ -20951,12 +20873,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "New York",
           "zh": "紐約",
           "zhSpoken": "紐約",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "New york này rất cần thiết cho công việc.",
-          "exampleZh": "這個「紐約」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1404",
@@ -20995,7 +20917,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "ờ!hoá ra là anh ấy",
-          "exampleZh": "喔, 原來是他。"
+          "exampleZh": "喔，原來是他。"
         },
         {
           "id": "freq_1407",
@@ -21008,7 +20930,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "số lần luyện tập càng nhiều, mức độ thành thạo càng cao",
-          "exampleZh": "練習的次數越多, 熟練的程度越高。"
+          "exampleZh": "練習的次數越多，熟練的程度越高。"
         },
         {
           "id": "freq_1408",
@@ -21046,8 +20968,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "方",
           "category": "實用生活",
-          "example": "Phương này rất cần thiết cho công việc.",
-          "exampleZh": "這個「方」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1411",
@@ -21072,8 +20994,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "西",
           "category": "實用生活",
-          "example": "Tây này rất cần thiết cho công việc.",
-          "exampleZh": "這個「西邊」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1413",
@@ -21099,7 +21021,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "vẻ mặt căng thẳng như đang rất bực tức",
-          "exampleZh": "臉緊繃繃的, 象很生氣的樣子。"
+          "exampleZh": "臉緊繃繃的，象很生氣的樣子。"
         },
         {
           "id": "freq_1415",
@@ -21150,8 +21072,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất ngu và quan trọng.",
-          "exampleZh": "這非常虞且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1419",
@@ -21176,8 +21098,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "吉",
           "category": "實用生活",
-          "example": "Cát này rất cần thiết cho công việc.",
-          "exampleZh": "這個「磣」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1421",
@@ -21190,7 +21112,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "cơ cấu mới lập, tất cả đều phải chờ sắp xếp",
-          "exampleZh": "機構新立, 一切均待擘畫 佈局。"
+          "exampleZh": "機構新立，一切均待擘畫 佈局。"
         },
         {
           "id": "freq_1422",
@@ -21202,8 +21124,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Ngón này rất cần thiết cho công việc.",
-          "exampleZh": "這個「筆」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1423",
@@ -21215,8 +21137,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "驗",
           "category": "生活社交動詞",
-          "example": "Bạn có thể nghiệm giúp tôi không?",
-          "exampleZh": "你能幫我驗嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1424",
@@ -21254,8 +21176,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Dặm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「裏」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1427",
@@ -21281,7 +21203,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "chị có mấy chị em?",
-          "exampleZh": "你們姐兒幾個?口。"
+          "exampleZh": "你們姐兒幾個？"
         },
         {
           "id": "freq_1429",
@@ -21306,8 +21228,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Gạo này rất cần thiết cho công việc.",
-          "exampleZh": "這個「稻米」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1431",
@@ -21319,8 +21241,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Mông này rất cần thiết cho công việc.",
-          "exampleZh": "這個「骶」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1432",
@@ -21333,7 +21255,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "xin ông chở chúng tôi qua sông",
-          "exampleZh": "請您把我們渡過河去。 拉。"
+          "exampleZh": "請您把我們渡過河去。"
         },
         {
           "id": "freq_1433",
@@ -21346,7 +21268,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "mọi người nhẹ nhàng khuyên nó, nó lại mất bình tĩnh",
-          "exampleZh": "人家好聲好氣地勸他, 他倒不耐煩起來。 和風細雨。"
+          "exampleZh": "人家好聲好氣地勸他，他倒不耐煩起來。"
         },
         {
           "id": "freq_1434",
@@ -21359,7 +21281,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "生活",
           "category": "生活社交動詞",
           "example": "cùng sinh hoạt với quần chúng",
-          "exampleZh": "跟羣衆生活在一起。 過日子。"
+          "exampleZh": "跟羣衆生活在一起。"
         },
         {
           "id": "freq_1435",
@@ -21371,8 +21293,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tế bào này rất cần thiết cho công việc.",
-          "exampleZh": "這個「細胞」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1436",
@@ -21471,7 +21393,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "hình thành",
           "zh": "構成 / 建立",
           "zhSpoken": "構成，建立",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "形成",
           "category": "生活社交動詞",
@@ -21497,7 +21419,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "xét",
           "zh": "查 / 察",
           "zhSpoken": "查，察",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -21514,8 +21436,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thế kỷ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「世紀」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1447",
@@ -21540,8 +21462,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể dạo giúp tôi không?",
-          "exampleZh": "你能幫我時期嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1449",
@@ -21566,8 +21488,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hoa kỳ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「花期」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 733.7
@@ -21607,8 +21529,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "心理",
           "category": "實用生活",
-          "example": "Tâm lý này rất cần thiết cho công việc.",
-          "exampleZh": "這個「心理」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1453",
@@ -21642,12 +21564,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tình huống",
           "zh": "處境 / 情況",
           "zhSpoken": "處境，情況",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "情況",
           "category": "實用生活",
           "example": "trong tình huống đó, khó mà diễn tả hết lời",
-          "exampleZh": "箇中況味, 難以盡言。 情節。"
+          "exampleZh": "箇中況味，難以盡言。"
         },
         {
           "id": "freq_1456",
@@ -21659,8 +21581,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "G này rất cần thiết cho công việc.",
-          "exampleZh": "這個「越南字母第十字」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1457",
@@ -21712,7 +21634,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "tách làm hai nửa",
-          "exampleZh": "掰成兩半兒。 捭。"
+          "exampleZh": "掰成兩半兒。"
         },
         {
           "id": "freq_1461",
@@ -21790,7 +21712,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "á! đau chết đi được!",
-          "exampleZh": "哎喲!疼死了! 哎呀。"
+          "exampleZh": "哎喲！疼死了！"
         },
         {
           "id": "freq_1467",
@@ -21828,8 +21750,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Xăng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「汽油」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1470",
@@ -21855,7 +21777,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "trong hang tối om, khiến người ta sợ hãi",
-          "exampleZh": "洞裏陰森森的, 叫人害怕。"
+          "exampleZh": "洞裏陰森森的，叫人害怕。"
         },
         {
           "id": "freq_1472",
@@ -21863,7 +21785,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thuận lợi",
           "zh": "大吉 / 得手",
           "zhSpoken": "大吉，得手",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "順利",
           "category": "實用生活",
@@ -21881,7 +21803,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "anh ấy chăm chú ngắm nhìn người mới đến",
-          "exampleZh": "他把來人仔細端量了一番。 覽。"
+          "exampleZh": "他把來人仔細端量了一番。"
         },
         {
           "id": "freq_1474",
@@ -21893,8 +21815,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "村",
           "category": "實用生活",
-          "example": "Thôn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「堡子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1475",
@@ -21933,7 +21855,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "獨到",
           "category": "情境修飾",
           "example": "kiểu dáng của máy thu thanh này thật độc đáo",
-          "exampleZh": "這個收音機樣子很別緻。 別具一格。"
+          "exampleZh": "這個收音機樣子很別緻。"
         },
         {
           "id": "freq_1478",
@@ -21945,8 +21867,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Bàn tay này rất cần thiết cho công việc.",
-          "exampleZh": "這個「巴掌」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1479",
@@ -21958,8 +21880,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "落",
           "category": "生活社交動詞",
-          "example": "Bạn có thể lạc giúp tôi không?",
-          "exampleZh": "你能幫我花生嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1480",
@@ -22023,8 +21945,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Sam này rất cần thiết cho công việc.",
-          "exampleZh": "這個「水鱉子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1485",
@@ -22036,8 +21958,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "動機",
           "category": "實用生活",
-          "example": "Động cơ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「出發點」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1486",
@@ -22050,7 +21972,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "還境",
           "category": "實用生活",
           "example": "hoàn cảnh nguy hiểm",
-          "exampleZh": "處境危險。 光景。"
+          "exampleZh": "處境危險。"
         },
         {
           "id": "freq_1487",
@@ -22076,7 +21998,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "y tá đỡ người bệnh dậy cho uống thuốc",
-          "exampleZh": "護士扶起傷員, 給他換藥。 架; 招架; 抗。"
+          "exampleZh": "護士扶起傷員，給他換藥。 架; 招架; 抗。"
         },
         {
           "id": "freq_1489",
@@ -22088,8 +22010,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Ả này rất cần thiết cho công việc.",
-          "exampleZh": "這個「姑娘」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1490",
@@ -22115,7 +22037,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "không nên để lỡ thời vụ",
-          "exampleZh": "不要錯過農時。 奪。"
+          "exampleZh": "不要錯過農時。"
         },
         {
           "id": "freq_1492",
@@ -22166,8 +22088,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "貓",
           "category": "生活社交動詞",
-          "example": "Bạn có thể mèo giúp tôi không?",
-          "exampleZh": "你能幫我貓嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1496",
@@ -22192,8 +22114,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể mi giúp tôi không?",
-          "exampleZh": "你能幫我迺嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1498",
@@ -22205,8 +22127,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "giải thưởng",
-          "exampleZh": "綿標。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1499",
@@ -22231,8 +22153,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể làm ăn giúp tôi không?",
-          "exampleZh": "你能幫我經營嗎？"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 754.8
@@ -22286,7 +22208,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "thời tiết này thật khó chịu, lúc lạnh, lúc nóng",
-          "exampleZh": "這個天氣真彆扭, 一會兒冷, 一會兒熱。 不得勁。"
+          "exampleZh": "這個天氣真彆扭，一會兒冷，一會兒熱。"
         },
         {
           "id": "freq_1504",
@@ -22311,8 +22233,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể phiên giúp tôi không?",
-          "exampleZh": "你能幫我次嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1506",
@@ -22324,8 +22246,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thực ra giúp tôi không?",
-          "exampleZh": "你能幫我實則嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1507",
@@ -22333,12 +22255,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thủ",
           "zh": "守 / 頭部",
           "zhSpoken": "守，頭部",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "手",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thủ giúp tôi không?",
-          "exampleZh": "你能幫我守嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1508",
@@ -22363,8 +22285,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "助詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hãy chú ý đến nha trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「啵」。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1510",
@@ -22376,8 +22298,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chừng giúp tôi không?",
-          "exampleZh": "你能幫我把嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1511",
@@ -22428,8 +22350,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tải giúp tôi không?",
-          "exampleZh": "你能幫我運輸嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1515",
@@ -22454,8 +22376,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đám cưới này rất cần thiết cho công việc.",
-          "exampleZh": "這個「婚禮」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1517",
@@ -22476,7 +22398,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "quý vị",
           "zh": "列位",
           "zhSpoken": "列位",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -22493,8 +22415,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Huế này rất cần thiết cho công việc.",
-          "exampleZh": "這個「順化」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1520",
@@ -22519,8 +22441,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tiết giúp tôi không?",
-          "exampleZh": "你能幫我卨嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1522",
@@ -22572,7 +22494,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "hãy khoan im lặng, hãy suy nghĩ lại đã",
-          "exampleZh": "先不要封嘴, 再考慮一下。"
+          "exampleZh": "先不要封嘴，再考慮一下。"
         },
         {
           "id": "freq_1526",
@@ -22593,12 +22515,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Sài Gòn",
           "zh": "西貢",
           "zhSpoken": "西貢",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Sài gòn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「西貢」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1528",
@@ -22610,8 +22532,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "股份",
           "category": "實用生活",
-          "example": "cổ phần",
-          "exampleZh": "股份。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1529",
@@ -22623,8 +22545,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "言語",
           "category": "實用生活",
-          "example": "Ngôn ngữ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「話語」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1530",
@@ -22701,8 +22623,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Năm học này rất cần thiết cho công việc.",
-          "exampleZh": "這個「學年」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1536",
@@ -22714,8 +22636,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "不動產",
           "category": "實用生活",
-          "example": "Bất động sản này rất cần thiết cho công việc.",
-          "exampleZh": "這個「不動產」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1537",
@@ -22736,7 +22658,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lợi nhuận",
           "zh": "紅 / 利",
           "zhSpoken": "紅，利",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -22762,7 +22684,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vô địch",
           "zh": "無敵 / 無堅不摧",
           "zhSpoken": "無敵，無堅不摧",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "無敵",
           "category": "生活社交動詞",
@@ -22819,7 +22741,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "戰役",
           "category": "實用生活",
           "example": "chiến dịch vượt sông",
-          "exampleZh": "渡江戰役。政。"
+          "exampleZh": "渡江戰役。"
         },
         {
           "id": "freq_1545",
@@ -22858,7 +22780,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "anh ấy không muốn thì đừng ép anh ta",
-          "exampleZh": "他不願意, 就別擠對他了。 挾持。"
+          "exampleZh": "他不願意，就別擠對他了。"
         },
         {
           "id": "freq_1548",
@@ -22871,7 +22793,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "chế độ cũ sẽ bị diệt vong, chế độ mới sẽ được ra đời",
-          "exampleZh": "舊制度要滅亡, 新制度要出世了。"
+          "exampleZh": "舊制度要滅亡，新制度要出世了。"
         },
         {
           "id": "freq_1549",
@@ -22924,8 +22846,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "桶",
           "category": "實用生活",
-          "example": "Thùng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「桶」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1552",
@@ -22950,8 +22872,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chế biến giúp tôi không?",
-          "exampleZh": "你能幫我加工嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1554",
@@ -22959,7 +22881,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đóng cửa",
           "zh": "杜門 / 杜門謝客 封禁",
           "zhSpoken": "杜門，杜門謝客 封禁",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -23002,8 +22924,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "姨",
           "category": "實用生活",
-          "example": "Dì này rất cần thiết cho công việc.",
-          "exampleZh": "這個「姨媽」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1558",
@@ -23015,8 +22937,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "完善",
           "category": "生活社交動詞",
-          "example": "Bạn có thể hoàn thiện giúp tôi không?",
-          "exampleZh": "你能幫我成熟嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1559",
@@ -23055,7 +22977,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "hòn đất",
-          "exampleZh": "泥蛋兒。 疙瘩。"
+          "exampleZh": "泥蛋兒。"
         },
         {
           "id": "freq_1562",
@@ -23080,8 +23002,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "裝置",
           "category": "生活社交動詞",
-          "example": "trang trí",
-          "exampleZh": "裝置。 裝扮。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1564",
@@ -23094,7 +23016,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "cậu nói bậy gì đó, mau im đi!",
-          "exampleZh": "你胡說什麼, 快給我住口!。"
+          "exampleZh": "你胡說什麼，快給我住口！。"
         },
         {
           "id": "freq_1565",
@@ -23145,8 +23067,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "生日",
           "category": "實用生活",
-          "example": "sinh nhật",
-          "exampleZh": "華誕。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1569",
@@ -23210,8 +23132,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể quản trị giúp tôi không?",
-          "exampleZh": "你能幫我董嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1574",
@@ -23250,7 +23172,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "集體",
           "category": "實用生活",
           "example": "hi sinh lợi ích cá nhân, phục tùng lợi ích tập thể",
-          "exampleZh": "犧牲小我的利益, 服從大我的利益。 公。"
+          "exampleZh": "犧牲小我的利益，服從大我的利益。"
         },
         {
           "id": "freq_1577",
@@ -23276,7 +23198,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "照",
           "category": "生活社交動詞",
           "example": "chiếu phơi lương thực",
-          "exampleZh": "曬簟。 輝。"
+          "exampleZh": "曬簟。"
         },
         {
           "id": "freq_1579",
@@ -23288,8 +23210,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Kích thước này rất cần thiết cho công việc.",
-          "exampleZh": "這個「尺寸」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1580",
@@ -23327,8 +23249,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "留意",
           "category": "生活社交動詞",
-          "example": "Bạn có thể lưu ý giúp tôi không?",
-          "exampleZh": "你能幫我留意嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1583",
@@ -23340,8 +23262,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "股票",
           "category": "實用生活",
-          "example": "Cổ phiếu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「股票」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1584",
@@ -23366,8 +23288,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Ca sĩ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「歌手」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1586",
@@ -23401,12 +23323,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "anh trai",
           "zh": "兄 / 妻舅",
           "zhSpoken": "兄，妻舅",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Anh trai này rất cần thiết cho công việc.",
-          "exampleZh": "這個「兄」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1589",
@@ -23418,8 +23340,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thuyền trưởng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「船主」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1590",
@@ -23432,7 +23354,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "tóm được ba tên thổ phỉ",
-          "exampleZh": "拿住三個匪徒。 扭。"
+          "exampleZh": "拿住三個匪徒。"
         },
         {
           "id": "freq_1591",
@@ -23483,8 +23405,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "壓力",
           "category": "實用生活",
-          "example": "Áp lực này rất cần thiết cho công việc.",
-          "exampleZh": "這個「壓力」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1595",
@@ -23496,8 +23418,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "大會",
           "category": "實用生活",
-          "example": "Đại hội này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大會」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1596",
@@ -23509,8 +23431,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "動物",
           "category": "實用生活",
-          "example": "Động vật này rất cần thiết cho công việc.",
-          "exampleZh": "這個「動物」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1597",
@@ -23544,7 +23466,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "công bằng",
           "zh": "擺平 / 秉公",
           "zhSpoken": "擺平，秉公",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
@@ -23561,8 +23483,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "信用",
           "category": "實用生活",
-          "example": "Tín dụng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「信用」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 740.1
@@ -23602,8 +23524,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nghệ sĩ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「藝人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1603",
@@ -23663,12 +23585,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "yêu thương",
           "zh": "慈愛 / 疼",
           "zhSpoken": "慈愛，疼",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể yêu thương giúp tôi không?",
-          "exampleZh": "你能幫我慈愛嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1608",
@@ -23680,8 +23602,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Xứ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「地區」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1609",
@@ -23694,7 +23616,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "thời tiết không bình thường",
-          "exampleZh": "節令不正。 令。"
+          "exampleZh": "節令不正。"
         },
         {
           "id": "freq_1610",
@@ -23741,7 +23663,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "toàn cầu",
           "zh": "環球 / 全球",
           "zhSpoken": "環球，全球",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "全球",
           "category": "情境修飾",
@@ -23772,7 +23694,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "他恕",
           "category": "生活社交動詞",
           "example": "con còn nhỏ, không hiểu việc, anh nên tha thứ cho nó",
-          "exampleZh": "孩子小, 不懂事, 您多擔待。"
+          "exampleZh": "孩子小，不懂事，您多擔待。"
         },
         {
           "id": "freq_1616",
@@ -23785,7 +23707,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "通",
           "category": "生活社交動詞",
           "example": "bồn cầu bị tắc rồi, anh đi thông đi",
-          "exampleZh": "大便池堵塞了, 你去搋 搋。"
+          "exampleZh": "大便池堵塞了，你去搋 搋。"
         },
         {
           "id": "freq_1617",
@@ -23810,8 +23732,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thép này rất cần thiết cho công việc.",
-          "exampleZh": "這個「鋼」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1619",
@@ -23862,8 +23784,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nhà thờ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「祠」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1623",
@@ -23875,8 +23797,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "學員",
           "category": "實用生活",
-          "example": "học viên",
-          "exampleZh": "學員。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1624",
@@ -23910,12 +23832,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "bóng đá",
           "zh": "足球",
           "zhSpoken": "足球",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Bóng đá này rất cần thiết cho công việc.",
-          "exampleZh": "這個「足球」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1627",
@@ -23927,8 +23849,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "力",
           "category": "實用生活",
-          "example": "Lực này rất cần thiết cho công việc.",
-          "exampleZh": "這個「力」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1628",
@@ -23954,7 +23876,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "dựng cái gậy lên",
-          "exampleZh": "把棍子戳 起來。 搭建。"
+          "exampleZh": "把棍子戳 起來。"
         },
         {
           "id": "freq_1630",
@@ -23975,12 +23897,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vi",
           "zh": "圍 / 圍場",
           "zhSpoken": "圍，圍場",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "微",
           "category": "實用生活",
-          "example": "Vi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「圍」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1632",
@@ -24005,8 +23927,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất kịp thời và quan trọng.",
-          "exampleZh": "這非常趁早兒且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1634",
@@ -24040,12 +23962,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Ấn Độ",
           "zh": "印度",
           "zhSpoken": "印度",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "印度",
           "category": "實用生活",
-          "example": "Ấn độ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「印度」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1637",
@@ -24058,7 +23980,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "bận áo",
-          "exampleZh": "穿衣。量。"
+          "exampleZh": "穿衣。"
         },
         {
           "id": "freq_1638",
@@ -24079,12 +24001,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đối tác",
           "zh": "伴侶",
           "zhSpoken": "伴侶",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đối tác này rất cần thiết cho công việc.",
-          "exampleZh": "這個「伴侶」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1640",
@@ -24096,8 +24018,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Pin này rất cần thiết cho công việc.",
-          "exampleZh": "這個「電池」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1641",
@@ -24123,7 +24045,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "cửa hàng này quy mô tuy không lớn nhưng hàng hoá thì đầy đủ",
-          "exampleZh": "這家商店局面雖不大, 貨色倒齊全。"
+          "exampleZh": "這家商店局面雖不大，貨色倒齊全。"
         },
         {
           "id": "freq_1643",
@@ -24148,8 +24070,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể hằng giúp tôi không?",
-          "exampleZh": "你能幫我常常嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1645",
@@ -24213,8 +24135,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "神經",
           "category": "實用生活",
-          "example": "Thần kinh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「神經」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1650",
@@ -24222,7 +24144,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thống kê",
           "zh": "統計",
           "zhSpoken": "統計",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -24267,8 +24189,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể hẹn hò giúp tôi không?",
-          "exampleZh": "你能幫我幽期嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1653",
@@ -24306,8 +24228,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thí nghiệm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「實驗」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1656",
@@ -24367,12 +24289,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "công viên",
           "zh": "公園",
           "zhSpoken": "公園",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "職場通勤",
-          "example": "Công viên này rất cần thiết cho công việc.",
-          "exampleZh": "這個「公園」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1661",
@@ -24445,7 +24367,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tủ",
           "zh": "櫥兒 / 櫃兒",
           "zhSpoken": "櫥兒，櫃兒",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -24463,7 +24385,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "qua ngã tư này, hai người mới chia tay",
-          "exampleZh": "過了十字路口, 兩人才道別。"
+          "exampleZh": "過了十字路口，兩人才道別。"
         },
         {
           "id": "freq_1668",
@@ -24476,7 +24398,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "phòng đơn không nhiều, ưu tiên cho các đồng chí nữ ở",
-          "exampleZh": "單間房間不多, 盡着女同志住。 儘先。"
+          "exampleZh": "單間房間不多，盡着女同志住。"
         },
         {
           "id": "freq_1669",
@@ -24501,8 +24423,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "雄",
           "category": "實用生活",
-          "example": "Hùng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「雄健」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1671",
@@ -24527,8 +24449,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tôm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「鰕」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1673",
@@ -24553,8 +24475,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "公主",
           "category": "職場通勤",
-          "example": "Công chúa này rất cần thiết cho công việc.",
-          "exampleZh": "這個「公主」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1675",
@@ -24614,7 +24536,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "chìa khoá",
           "zh": "鑰匙 / 鎖鑰",
           "zhSpoken": "鑰匙，鎖鑰",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -24670,8 +24592,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Rác này rất cần thiết cho công việc.",
-          "exampleZh": "這個「塵」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1684",
@@ -24692,7 +24614,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tiếp xúc",
           "zh": "往還 / 對話",
           "zhSpoken": "往還，對話",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "接觸",
           "category": "生活社交動詞",
@@ -24774,8 +24696,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "靈魂",
           "category": "實用生活",
-          "example": "Linh hồn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「魂魄」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1692",
@@ -24800,8 +24722,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Quái vật này rất cần thiết cho công việc.",
-          "exampleZh": "這個「妖物」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1694",
@@ -24813,8 +24735,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thiệt giúp tôi không?",
-          "exampleZh": "你能幫我折嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1695",
@@ -24839,8 +24761,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "像",
           "category": "實用生活",
-          "example": "Tượng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「雕像」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1697",
@@ -24848,7 +24770,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "phản bội",
           "zh": "悖逆 / 背棄",
           "zhSpoken": "悖逆，背棄",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -24866,7 +24788,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "hai chúng tôi chưa từng giận nhau",
-          "exampleZh": "我們倆從來沒紅過臉。 紅眼。"
+          "exampleZh": "我們倆從來沒紅過臉。"
         },
         {
           "id": "freq_1699",
@@ -24878,8 +24800,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "量詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hãy chú ý đến lô trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「管段」。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1700",
@@ -24891,8 +24813,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể từ bỏ giúp tôi không?",
-          "exampleZh": "你能幫我撤回嗎？"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 733.5
@@ -24919,8 +24841,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Giấy tờ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「公事」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1702",
@@ -24958,8 +24880,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "首都",
           "category": "實用生活",
-          "example": "Thủ đô này rất cần thiết cho công việc.",
-          "exampleZh": "這個「都城」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1705",
@@ -24984,8 +24906,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "克服",
           "category": "生活社交動詞",
-          "example": "Bạn có thể khắc phục giúp tôi không?",
-          "exampleZh": "你能幫我超越嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1707",
@@ -25011,7 +24933,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "đi chậm thôi, coi chừng đường trơn",
-          "exampleZh": "慢點兒走, 當心地上滑。"
+          "exampleZh": "慢點兒走，當心地上滑。"
         },
         {
           "id": "freq_1709",
@@ -25023,8 +24945,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Rồng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「龍」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1710",
@@ -25180,7 +25102,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "威信",
           "category": "實用生活",
           "example": "bác sĩ Trương có tay nghề cao, rất có uy tín ở vùng này",
-          "exampleZh": "張大夫醫術高明, 在這一帶很有名望。 權威。"
+          "exampleZh": "張大夫醫術高明，在這一帶很有名望。"
         },
         {
           "id": "freq_1722",
@@ -25188,12 +25110,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Thái Lan",
           "zh": "泰國",
           "zhSpoken": "泰國",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thái lan này rất cần thiết cho công việc.",
-          "exampleZh": "這個「泰國」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1723",
@@ -25205,8 +25127,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "bà con",
-          "exampleZh": "鄉親們。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1724",
@@ -25245,7 +25167,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "牢",
           "category": "生活社交動詞",
           "example": "một con ngựa dẫn đầu, vạn con ngựa lao theo",
-          "exampleZh": "一馬當先, 萬馬奔騰。 奔騰。"
+          "exampleZh": "一馬當先，萬馬奔騰。"
         },
         {
           "id": "freq_1727",
@@ -25257,8 +25179,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Mét này rất cần thiết cho công việc.",
-          "exampleZh": "這個「米突」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1728",
@@ -25292,12 +25214,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "triệu chứng",
           "zh": "病徵 / 先兆",
           "zhSpoken": "病徵，先兆",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "兆症",
           "category": "實用生活",
-          "example": "Triệu chứng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「病徵」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1731",
@@ -25305,12 +25227,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "người thân",
           "zh": "親人 / 親屬",
           "zhSpoken": "親人，親屬",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Người thân này rất cần thiết cho công việc.",
-          "exampleZh": "這個「親人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1732",
@@ -25322,8 +25244,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Vải này rất cần thiết cho công việc.",
-          "exampleZh": "這個「棉布」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1733",
@@ -25331,7 +25253,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trình bày",
           "zh": "擺 / 表白",
           "zhSpoken": "擺，表白",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -25344,12 +25266,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đâu đó",
           "zh": "常用字詞",
           "zhSpoken": "常用字詞",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đâu đó giúp tôi không?",
-          "exampleZh": "你能幫我常用字詞嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1735",
@@ -25362,7 +25284,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "ăn uống đúng giờ là một thói quen tốt",
-          "exampleZh": "按時進食是個好習慣。 胃口。"
+          "exampleZh": "按時進食是個好習慣。"
         },
         {
           "id": "freq_1736",
@@ -25409,7 +25331,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cơ chế",
           "zh": "機理 / 體制",
           "zhSpoken": "機理，體制",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "機制",
           "category": "實用生活",
@@ -25440,7 +25362,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "hầu hết mấy vùng này tôi đều đã đến cả rồi",
-          "exampleZh": "這幾個地方不差什麼我全都到過。 幾乎所有。"
+          "exampleZh": "這幾個地方不差什麼我全都到過。"
         },
         {
           "id": "freq_1742",
@@ -25465,8 +25387,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "意式",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ý thức giúp tôi không?",
-          "exampleZh": "你能幫我觀念嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1744",
@@ -25478,8 +25400,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể mô tả giúp tôi không?",
-          "exampleZh": "你能幫我描摹嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1745",
@@ -25504,8 +25426,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "提出",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đề xuất giúp tôi không?",
-          "exampleZh": "你能幫我倡言嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1747",
@@ -25530,8 +25452,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "兄",
           "category": "實用生活",
-          "example": "Huynh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「兄長」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1749",
@@ -25539,7 +25461,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "nguyên liệu",
           "zh": "爐料 / 材料",
           "zhSpoken": "爐料，材料",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "原料",
           "category": "實用生活",
@@ -25597,8 +25519,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "trường học",
-          "exampleZh": "庠序。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1753",
@@ -25610,8 +25532,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ghi nhận giúp tôi không?",
-          "exampleZh": "你能幫我確認嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1754",
@@ -25649,8 +25571,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "加增",
           "category": "生活社交動詞",
-          "example": "Bạn có thể gia tăng giúp tôi không?",
-          "exampleZh": "你能幫我增加嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1757",
@@ -25658,12 +25580,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thúc đẩy",
           "zh": "策勵 / 衝動",
           "zhSpoken": "策勵，衝動",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "thúc đẩy phát triển sức sản xuất",
-          "exampleZh": "刺激生產力的發展。 促成。"
+          "exampleZh": "刺激生產力的發展。"
         },
         {
           "id": "freq_1758",
@@ -25671,7 +25593,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đồng nghiệp",
           "zh": "伴侶 / 會友",
           "zhSpoken": "伴侶，會友",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "同業",
           "category": "實用生活",
@@ -25689,7 +25611,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "勁",
           "category": "情境修飾",
           "example": "đất cứng lại rồi, khó cuốc quá",
-          "exampleZh": "地板了, 不好鋤。"
+          "exampleZh": "地板了，不好鋤。"
         },
         {
           "id": "freq_1760",
@@ -25762,7 +25684,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "văn",
           "zh": "文 / 文字",
           "zhSpoken": "文，文字",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "文",
           "category": "實用生活",
@@ -25801,12 +25723,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "xét nghiệm",
           "zh": "查驗 / 化驗",
           "zhSpoken": "查驗，化驗",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể xét nghiệm giúp tôi không?",
-          "exampleZh": "你能幫我查驗嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1769",
@@ -25827,12 +25749,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "em trai",
           "zh": "兄弟 / 二弟",
           "zhSpoken": "兄弟，二弟",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
           "example": "em trai thứ hai",
-          "exampleZh": "二弟。 棣。"
+          "exampleZh": "二弟。"
         },
         {
           "id": "freq_1771",
@@ -25922,8 +25844,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Phóng viên này rất cần thiết cho công việc.",
-          "exampleZh": "這個「訪員」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1778",
@@ -25931,12 +25853,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trực tuyến",
           "zh": "直線 / 在線",
           "zhSpoken": "直線，在線",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể trực tuyến giúp tôi không?",
-          "exampleZh": "你能幫我直線嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1779",
@@ -25970,12 +25892,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đại tá",
           "zh": "大校",
           "zhSpoken": "大校",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đại tá này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大校」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1782",
@@ -26000,8 +25922,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Sĩ quan này rất cần thiết cho công việc.",
-          "exampleZh": "這個「官佐」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1784",
@@ -26040,7 +25962,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "tính toán chuyện ăn uống, lương bổng cho quân binh",
-          "exampleZh": "籌餉。 忖量。"
+          "exampleZh": "籌餉。"
         },
         {
           "id": "freq_1787",
@@ -26048,12 +25970,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thế mà",
           "zh": "然而",
           "zhSpoken": "然而",
-          "en": "vocabulary",
+          "en": "",
           "pos": "連詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hãy chú ý đến thế mà trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「然而」。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1788",
@@ -26104,8 +26026,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ra lệnh giúp tôi không?",
-          "exampleZh": "你能幫我飭令嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1792",
@@ -26130,8 +26052,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lãi suất này rất cần thiết cho công việc.",
-          "exampleZh": "這個「利率」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1794",
@@ -26182,8 +26104,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "出",
           "category": "生活社交動詞",
-          "example": "Bạn có thể xuất giúp tôi không?",
-          "exampleZh": "你能幫我出嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1798",
@@ -26221,8 +26143,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất điên rồ và quan trọng.",
-          "exampleZh": "這非常癲狂且重要。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 732.5
@@ -26249,8 +26171,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "職場通勤",
-          "example": "Công đoàn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「工會」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1802",
@@ -26262,8 +26184,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "指數",
           "category": "實用生活",
-          "example": "Chỉ số này rất cần thiết cho công việc.",
-          "exampleZh": "這個「指數」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1803",
@@ -26380,7 +26302,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "đụng vào là sinh chuyện",
-          "exampleZh": "一觸即發。 犯。"
+          "exampleZh": "一觸即發。"
         },
         {
           "id": "freq_1812",
@@ -26418,8 +26340,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể giờ đây giúp tôi không?",
-          "exampleZh": "你能幫我此刻嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1815",
@@ -26445,7 +26367,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "起動",
           "category": "生活社交動詞",
           "example": "trời lạnh quá, máy đi-ê-zen khó khởi động lắm",
-          "exampleZh": "天氣太冷, 柴油機不容易發動。"
+          "exampleZh": "天氣太冷，柴油機不容易發動。"
         },
         {
           "id": "freq_1817",
@@ -26470,8 +26392,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "放",
           "category": "生活社交動詞",
-          "example": "Bạn có thể phóng giúp tôi không?",
-          "exampleZh": "你能幫我發射嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1819",
@@ -26496,8 +26418,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lợn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「豬」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1821",
@@ -26505,12 +26427,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đại uý",
           "zh": "大尉",
           "zhSpoken": "大尉",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đại uý này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大尉」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1822",
@@ -26548,8 +26470,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Rủi ro này rất cần thiết cho công việc.",
-          "exampleZh": "這個「倒楣」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1825",
@@ -26574,8 +26496,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể mất tích giúp tôi không?",
-          "exampleZh": "你能幫我絕跡嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1827",
@@ -26600,8 +26522,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Kế toán này rất cần thiết cho công việc.",
-          "exampleZh": "這個「划算」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1829",
@@ -26622,12 +26544,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "phó chủ tịch",
           "zh": "副主席",
           "zhSpoken": "副主席",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Phó chủ tịch này rất cần thiết cho công việc.",
-          "exampleZh": "這個「副主席」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1831",
@@ -26665,8 +26587,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đam mê giúp tôi không?",
-          "exampleZh": "你能幫我嗜好嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1834",
@@ -26704,8 +26626,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thiệt hại giúp tôi không?",
-          "exampleZh": "你能幫我妨害嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1837",
@@ -26717,8 +26639,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thắc mắc giúp tôi không?",
-          "exampleZh": "你能幫我疑問嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1838",
@@ -26743,8 +26665,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "職",
           "category": "實用生活",
-          "example": "Chức này rất cần thiết cho công việc.",
-          "exampleZh": "這個「職務」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1840",
@@ -26769,8 +26691,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "表象",
           "category": "實用生活",
-          "example": "Biểu tượng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「表象」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1842",
@@ -26804,7 +26726,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lắng nghe",
           "zh": "諦聽 / 屏息諦聽 聆取",
           "zhSpoken": "諦聽，屏息諦聽 聆取",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -26822,7 +26744,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "lược này làm bằng nhựa",
-          "exampleZh": "這把梳子是化學的。 膠。"
+          "exampleZh": "這把梳子是化學的。"
         },
         {
           "id": "freq_1846",
@@ -26843,7 +26765,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cực kỳ",
           "zh": "霸道 / 倍兒",
           "zhSpoken": "霸道，倍兒",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "極奇",
           "category": "生活社交動詞",
@@ -26873,8 +26795,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Địa ngục này rất cần thiết cho công việc.",
-          "exampleZh": "這個「地獄」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1850",
@@ -26886,8 +26808,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "書院",
           "category": "實用生活",
-          "example": "Thư viện này rất cần thiết cho công việc.",
-          "exampleZh": "這個「宬」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 734.3
@@ -26966,8 +26888,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "思想",
           "category": "實用生活",
-          "example": "Tư tưởng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「觀念」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1856",
@@ -26993,7 +26915,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "cắm xen hoa vào",
-          "exampleZh": "插 花地。 栽。"
+          "exampleZh": "插 花地。"
         },
         {
           "id": "freq_1858",
@@ -27006,7 +26928,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "頑",
           "category": "情境修飾",
           "example": "tiểu Bảo rất ngoan, các dì đều rất thích nó",
-          "exampleZh": "小寶很乖, 阿姨都喜歡他。"
+          "exampleZh": "小寶很乖，阿姨都喜歡他。"
         },
         {
           "id": "freq_1859",
@@ -27018,8 +26940,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "phân biệt",
-          "exampleZh": "辨別。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1860",
@@ -27070,8 +26992,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Một ít này rất cần thiết cho công việc.",
-          "exampleZh": "這個「或」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1864",
@@ -27092,7 +27014,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "quy trình",
           "zh": "規程 / 分理",
           "zhSpoken": "規程，分理",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -27161,8 +27083,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể nâng cấp giúp tôi không?",
-          "exampleZh": "你能幫我見新嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1871",
@@ -27200,8 +27122,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể hầu như giúp tôi không?",
-          "exampleZh": "你能幫我八成兒嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1874",
@@ -27213,8 +27135,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Ông già này rất cần thiết cho công việc.",
-          "exampleZh": "這個「老頭兒」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1875",
@@ -27227,7 +27149,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "目",
           "category": "實用生活",
           "example": "dùng sơn sơn lên gỗ có thể chống được mục",
-          "exampleZh": "木材塗上油漆, 可以防止腐敗。 鹼。"
+          "exampleZh": "木材塗上油漆，可以防止腐敗。"
         },
         {
           "id": "freq_1876",
@@ -27239,8 +27161,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "父兄",
           "category": "實用生活",
-          "example": "Phụ huynh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「父兄」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1877",
@@ -27265,8 +27187,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thách thức giúp tôi không?",
-          "exampleZh": "你能幫我傲然嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1879",
@@ -27279,7 +27201,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "không đáng một xu",
-          "exampleZh": "分文不值。 錢財。"
+          "exampleZh": "分文不值。"
         },
         {
           "id": "freq_1880",
@@ -27305,7 +27227,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "多數",
           "category": "實用生活",
           "example": "đa số các quả hồng trên cây đều đã chín",
-          "exampleZh": "樹上的柿子大多已經成熟。 大多數。"
+          "exampleZh": "樹上的柿子大多已經成熟。"
         },
         {
           "id": "freq_1882",
@@ -27356,8 +27278,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Me này rất cần thiết cho công việc.",
-          "exampleZh": "這個「娘」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1886",
@@ -27404,12 +27326,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "toà án",
           "zh": "法庭 / 法院",
           "zhSpoken": "法庭，法院",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Toà án này rất cần thiết cho công việc.",
-          "exampleZh": "這個「法庭」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1890",
@@ -27434,8 +27356,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "宜",
           "category": "生活社交動詞",
-          "example": "Bạn có thể nghi giúp tôi không?",
-          "exampleZh": "你能幫我惑嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1892",
@@ -27499,8 +27421,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "連詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hãy chú ý đến vậy mà trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「竟自」。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1897",
@@ -27539,7 +27461,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "現場",
           "category": "實用生活",
           "example": "bảo vệ hiện trường để tiện việc điều tra",
-          "exampleZh": "保護現場, 以便進行調查。"
+          "exampleZh": "保護現場，以便進行調查。"
         },
         {
           "id": "freq_1900",
@@ -27579,8 +27501,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "炭",
           "category": "生活社交動詞",
-          "example": "Bạn có thể than giúp tôi không?",
-          "exampleZh": "你能幫我灰嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1902",
@@ -27605,8 +27527,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lưỡi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「鍔」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1904",
@@ -27618,8 +27540,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất bền vững và quan trọng.",
-          "exampleZh": "這非常牢不可破且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1905",
@@ -27631,8 +27553,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nữ hoàng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「女皇」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1906",
@@ -27670,8 +27592,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Phổi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「肺腑」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1909",
@@ -27683,8 +27605,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "慎",
           "category": "實用生活",
-          "example": "Thận này rất cần thiết cho công việc.",
-          "exampleZh": "這個「腰子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1910",
@@ -27692,12 +27614,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Tây Ban Nha",
           "zh": "西班牙",
           "zhSpoken": "西班牙",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "西班牙",
           "category": "實用生活",
-          "example": "Tây ban nha này rất cần thiết cho công việc.",
-          "exampleZh": "這個「西班牙」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1911",
@@ -27723,7 +27645,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "tảng băng trên sông bị kẹt lại rồi",
-          "exampleZh": "河裏的冰塊叉 住了。 拮据。"
+          "exampleZh": "河裏的冰塊叉 住了。"
         },
         {
           "id": "freq_1913",
@@ -27748,8 +27670,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Mây này rất cần thiết cho công việc.",
-          "exampleZh": "這個「層雲」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1915",
@@ -27788,7 +27710,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "相當",
           "category": "情境修飾",
           "example": "một đơn vị tiền lương thời đó tương đương với một cân gạo",
-          "exampleZh": "當時的一個工資分摺合一斤小米。 折算。"
+          "exampleZh": "當時的一個工資分摺合一斤小米。"
         },
         {
           "id": "freq_1918",
@@ -27809,7 +27731,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "huỷ",
           "zh": "付丙 / 毀",
           "zhSpoken": "付丙，毀",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "毀",
           "category": "生活社交動詞",
@@ -27892,7 +27814,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "mạ non bị cỏ che rồi, mau nhổ đi!",
-          "exampleZh": "小苗讓草幠住了, 趕快鋤吧! 覆。"
+          "exampleZh": "小苗讓草幠住了，趕快鋤吧！"
         },
         {
           "id": "freq_1926",
@@ -27913,12 +27835,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trung học",
           "zh": "中學",
           "zhSpoken": "中學",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "中學",
           "category": "實用生活",
-          "example": "Trung học này rất cần thiết cho công việc.",
-          "exampleZh": "這個「中學」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1928",
@@ -27944,7 +27866,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "施工",
           "category": "生活社交動詞",
           "example": "ở đây đang thi công, xe cộ không thể qua lại",
-          "exampleZh": "這裏正在動工, 車輛不能通過。 動土。"
+          "exampleZh": "這裏正在動工，車輛不能通過。"
         },
         {
           "id": "freq_1930",
@@ -27952,7 +27874,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tài trợ",
           "zh": "公助 / 贊助",
           "zhSpoken": "公助，贊助",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "財助",
           "category": "生活社交動詞",
@@ -27969,8 +27891,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể gọn giúp tôi không?",
-          "exampleZh": "你能幫我精練嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1932",
@@ -27983,7 +27905,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "認定",
           "category": "生活社交動詞",
           "example": "kết quả của trận đấu này, khó nhận định",
-          "exampleZh": "這場比賽的結果, 還難以斷定。"
+          "exampleZh": "這場比賽的結果，還難以斷定。"
         },
         {
           "id": "freq_1933",
@@ -27991,12 +27913,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tổng",
           "zh": "和 / 捴",
           "zhSpoken": "和，捴",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "總",
           "category": "實用生活",
-          "example": "Tổng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「和」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1934",
@@ -28004,12 +27926,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trước hết",
           "zh": "首先 / 先不先",
           "zhSpoken": "首先，先不先",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể trước hết giúp tôi không?",
-          "exampleZh": "你能幫我首先嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1935",
@@ -28017,7 +27939,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đặc trưng",
           "zh": "特徵",
           "zhSpoken": "特徵",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "特徵",
           "category": "實用生活",
@@ -28082,7 +28004,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "phá huỷ",
           "zh": "駁倒 / 撤除",
           "zhSpoken": "駁倒，撤除",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "破毀",
           "category": "生活社交動詞",
@@ -28121,12 +28043,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lâu dài",
           "zh": "常年 / 悠悠",
           "zhSpoken": "常年，悠悠",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
           "example": "qua thử thách lâu dài",
-          "exampleZh": "久經鍛鍊。 綿長。"
+          "exampleZh": "久經鍛鍊。"
         },
         {
           "id": "freq_1944",
@@ -28204,7 +28126,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "trời ơi! sao anh có thể nói như thế",
-          "exampleZh": "哎!你怎麼能這麼說呢! 哎呀。"
+          "exampleZh": "哎！你怎麼能這麼說呢！"
         },
         {
           "id": "freq_1950",
@@ -28216,8 +28138,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Dân chủ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「民主」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 741.5
@@ -28310,7 +28232,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "忠誠",
           "category": "情境修飾",
           "example": "trung thành báo quốc",
-          "exampleZh": "赤心報國。 耿耿。"
+          "exampleZh": "赤心報國。"
         },
         {
           "id": "freq_1957",
@@ -28322,8 +28244,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nhà văn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「做手」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1958",
@@ -28335,8 +28257,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể nhận xét giúp tôi không?",
-          "exampleZh": "你能幫我見解嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1959",
@@ -28374,8 +28296,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Heo này rất cần thiết cho công việc.",
-          "exampleZh": "這個「豬玀」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1962",
@@ -28401,7 +28323,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "bảo tàng Cố cung",
-          "exampleZh": "故宮博物院。 儲藏。"
+          "exampleZh": "故宮博物院。"
         },
         {
           "id": "freq_1964",
@@ -28413,8 +28335,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Doanh thu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「贏利」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1965",
@@ -28426,8 +28348,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hoàng tử này rất cần thiết cho công việc.",
-          "exampleZh": "這個「皇子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1966",
@@ -28478,8 +28400,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể khủng khiếp giúp tôi không?",
-          "exampleZh": "你能幫我不得了嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1970",
@@ -28517,8 +28439,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Học bổng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「獎學金」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1973",
@@ -28539,12 +28461,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Minh",
           "zh": "明 / 盟誓",
           "zhSpoken": "明，盟誓",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "明",
           "category": "實用生活",
-          "example": "Minh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「明」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1975",
@@ -28556,8 +28478,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "經費",
           "category": "實用生活",
-          "example": "Kinh phí này rất cần thiết cho công việc.",
-          "exampleZh": "這個「經費」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1976",
@@ -28604,12 +28526,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "kỳ lạ",
           "zh": "奧妙 / 僻",
           "zhSpoken": "奧妙，僻",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
           "example": "vừa nghe lời kỳ lạ này, liền hỏi lại ngay",
-          "exampleZh": "一聽這話不是味兒, 就反過來追問。"
+          "exampleZh": "一聽這話不是味兒，就反過來追問。"
         },
         {
           "id": "freq_1980",
@@ -28635,7 +28557,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "giày đứt chỉ rồi phải khâu lại thôi",
-          "exampleZh": "鞋開了綻要縫上。 縫補。"
+          "exampleZh": "鞋開了綻要縫上。"
         },
         {
           "id": "freq_1982",
@@ -28687,7 +28609,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "蒂",
           "category": "實用生活",
           "example": "đế giày",
-          "exampleZh": "鞋底子。 柢。"
+          "exampleZh": "鞋底子。"
         },
         {
           "id": "freq_1986",
@@ -28708,12 +28630,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cô giáo",
           "zh": "女教員",
           "zhSpoken": "女教員",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cô giáo này rất cần thiết cho công việc.",
-          "exampleZh": "這個「女教員」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1988",
@@ -28721,12 +28643,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "xe tải",
           "zh": "大篷車 / 罐",
           "zhSpoken": "大篷車，罐",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "職場通勤",
-          "example": "Xe tải này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大篷車」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1989",
@@ -28738,8 +28660,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Liên bang này rất cần thiết cho công việc.",
-          "exampleZh": "這個「邦聯」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1990",
@@ -28773,7 +28695,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tiêu chí",
           "zh": "會標 / 會徽",
           "zhSpoken": "會標，會徽",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -28790,8 +28712,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đéo giúp tôi không?",
-          "exampleZh": "你能幫我性交嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1994",
@@ -28812,12 +28734,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cài đặt",
           "zh": "安設 / 安裝",
           "zhSpoken": "安設，安裝",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể cài đặt giúp tôi không?",
-          "exampleZh": "你能幫我安設嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1996",
@@ -28842,8 +28764,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "降生",
           "category": "生活社交動詞",
-          "example": "Bạn có thể giáng sinh giúp tôi không?",
-          "exampleZh": "你能幫我出世嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_1998",
@@ -28856,7 +28778,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "nền tảng; cơ sở",
-          "exampleZh": "基礎。 基本。"
+          "exampleZh": "基礎。"
         },
         {
           "id": "freq_1999",
@@ -28909,8 +28831,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "夫人",
           "category": "實用生活",
-          "example": "Phu nhân này rất cần thiết cho công việc.",
-          "exampleZh": "這個「夫人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2002",
@@ -28922,8 +28844,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "職場通勤",
-          "example": "Sự việc này rất cần thiết cho công việc.",
-          "exampleZh": "這個「勾當」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2003",
@@ -28948,8 +28870,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Chiến binh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「鬥士」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2005",
@@ -28983,12 +28905,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "xe máy",
           "zh": "電驢子 / 機器腳踏車",
           "zhSpoken": "電驢子，機器腳踏車",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "職場通勤",
-          "example": "Xe máy này rất cần thiết cho công việc.",
-          "exampleZh": "這個「電驢子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2008",
@@ -29000,8 +28922,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "hâm mộ",
-          "exampleZh": "景慕。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2009",
@@ -29026,8 +28948,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể huy động giúp tôi không?",
-          "exampleZh": "你能幫我調動嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2011",
@@ -29074,7 +28996,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "yên tâm",
           "zh": "安 / 安然",
           "zhSpoken": "安，安然",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -29092,7 +29014,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "loại thuốc này làm giãn huyết quản",
-          "exampleZh": "這種藥能使血管擴張。 鬆弛。"
+          "exampleZh": "這種藥能使血管擴張。"
         },
         {
           "id": "freq_2016",
@@ -29143,8 +29065,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chứng tỏ giúp tôi không?",
-          "exampleZh": "你能幫我標誌嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2020",
@@ -29208,8 +29130,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể sốc giúp tôi không?",
-          "exampleZh": "你能幫我暈針嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2025",
@@ -29235,7 +29157,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "người lớn nói chuyện trẻn con không được chen vào",
-          "exampleZh": "大人說話, 小孩兒別插嘴。"
+          "exampleZh": "大人說話，小孩兒別插嘴。"
         },
         {
           "id": "freq_2027",
@@ -29273,8 +29195,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Khói này rất cần thiết cho công việc.",
-          "exampleZh": "這個「煙氣」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2030",
@@ -29286,8 +29208,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Gấu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「菱角」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2031",
@@ -29338,8 +29260,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đồ chơi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「玩具」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2035",
@@ -29352,7 +29274,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "雷",
           "category": "生活社交動詞",
           "example": "không đợi nó nói xong thì đã lôi nó đi",
-          "exampleZh": "沒等他說完扯着他就走。 叨登。"
+          "exampleZh": "沒等他說完扯着他就走。"
         },
         {
           "id": "freq_2036",
@@ -29429,8 +29351,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "介詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hãy chú ý đến thay vì trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「顧」。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2042",
@@ -29438,12 +29360,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "móng",
           "zh": "地基 / 地盤",
           "zhSpoken": "地基，地盤",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
           "example": "móng bị lún",
-          "exampleZh": "地盤下沉。 根基。"
+          "exampleZh": "地盤下沉。"
         },
         {
           "id": "freq_2043",
@@ -29546,8 +29468,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Loạt này rất cần thiết cho công việc.",
-          "exampleZh": "這個「排」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 740.0
@@ -29587,8 +29509,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tên lửa này rất cần thiết cho công việc.",
-          "exampleZh": "這個「飛彈」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2053",
@@ -29600,8 +29522,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "理想",
           "category": "實用生活",
-          "example": "Lý tưởng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「理想」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2054",
@@ -29613,8 +29535,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "義",
           "category": "實用生活",
-          "example": "Nghĩa này rất cần thiết cho công việc.",
-          "exampleZh": "這個「語意」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2055",
@@ -29622,12 +29544,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "ngoại trừ",
           "zh": "除外",
           "zhSpoken": "除外",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "外除",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ngoại trừ giúp tôi không?",
-          "exampleZh": "你能幫我除外嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2056",
@@ -29665,8 +29587,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Phe này rất cần thiết cho công việc.",
-          "exampleZh": "這個「陣營」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2059",
@@ -29705,7 +29627,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "anh ấy rất rộng rãi, không tính toán chi li đâu",
-          "exampleZh": "他很大方, 不會計較這幾個錢。 豪爽。"
+          "exampleZh": "他很大方，不會計較這幾個錢。"
         },
         {
           "id": "freq_2062",
@@ -29783,7 +29705,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "dũng cảm hơn người",
-          "exampleZh": "膽力過人。 膽壯。"
+          "exampleZh": "膽力過人。"
         },
         {
           "id": "freq_2068",
@@ -29804,12 +29726,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tuyển sinh",
           "zh": "招生",
           "zhSpoken": "招生",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tuyển sinh giúp tôi không?",
-          "exampleZh": "你能幫我招生嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2070",
@@ -29834,8 +29756,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất quen thuộc và quan trọng.",
-          "exampleZh": "這非常慣用且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2072",
@@ -29899,8 +29821,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "熱",
           "category": "實用生活",
-          "example": "Nhiệt này rất cần thiết cho công việc.",
-          "exampleZh": "這個「火氣」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2077",
@@ -29926,7 +29848,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "đứa bé này rất hiểu biết",
-          "exampleZh": "這孩子很懂事。 耳目。"
+          "exampleZh": "這孩子很懂事。"
         },
         {
           "id": "freq_2079",
@@ -29947,7 +29869,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "nhiệt tình",
           "zh": "夠交情 / 火熱",
           "zhSpoken": "夠交情，火熱",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "熱情",
           "category": "生活社交動詞",
@@ -29973,12 +29895,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lợi thế",
           "zh": "上風",
           "zhSpoken": "上風",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lợi thế này rất cần thiết cho công việc.",
-          "exampleZh": "這個「上風」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2083",
@@ -29990,8 +29912,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể lưu trữ giúp tôi không?",
-          "exampleZh": "你能幫我存檔嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2084",
@@ -30016,8 +29938,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "提及",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đề cập giúp tôi không?",
-          "exampleZh": "你能幫我提起嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2086",
@@ -30042,8 +29964,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "鬚",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tu giúp tôi không?",
-          "exampleZh": "你能幫我鬚子嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2088",
@@ -30056,7 +29978,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "trước đây anh ấy ốm yếu lắm, giờ thì khoẻ nhiều rồi",
-          "exampleZh": "他本來身體很瘦弱, 現在可結實了。 從前。"
+          "exampleZh": "他本來身體很瘦弱，現在可結實了。"
         },
         {
           "id": "freq_2089",
@@ -30082,7 +30004,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "người ta hai người khiêng một sọt, một mình nó gánh hai sọt",
-          "exampleZh": "人家兩個人抬一筐, 他一個人擔兩筐。"
+          "exampleZh": "人家兩個人抬一筐，他一個人擔兩筐。"
         },
         {
           "id": "freq_2091",
@@ -30095,7 +30017,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "vội đi, để quên đồ ở nhà",
-          "exampleZh": "臨行慌促, 把東西忘在家裏了。"
+          "exampleZh": "臨行慌促，把東西忘在家裏了。"
         },
         {
           "id": "freq_2092",
@@ -30107,8 +30029,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "構築",
           "category": "生活社交動詞",
-          "example": "Bạn có thể cấu trúc giúp tôi không?",
-          "exampleZh": "你能幫我構圖嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2093",
@@ -30134,7 +30056,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "梨",
           "category": "實用生活",
           "example": "chân anh ấy bị thương, chỉ có thể lê chân đi từng bước một",
-          "exampleZh": "他的腳受傷了, 只能一步一步地往前蹭。 趿拉; 趿。"
+          "exampleZh": "他的腳受傷了，只能一步一步地往前蹭。 趿拉; 趿。"
         },
         {
           "id": "freq_2095",
@@ -30173,7 +30095,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "團結",
           "category": "生活社交動詞",
           "example": "những người vô sản trên toàn thế giới, hãy đoàn kết lại!",
-          "exampleZh": "全世界無產者, 聯合起來!。"
+          "exampleZh": "全世界無產者，聯合起來！。"
         },
         {
           "id": "freq_2098",
@@ -30185,8 +30107,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể vươn giúp tôi không?",
-          "exampleZh": "你能幫我矗嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2099",
@@ -30194,7 +30116,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "ưu đãi",
           "zh": "垕 / 優待",
           "zhSpoken": "垕，優待",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -30211,8 +30133,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Giảng viên này rất cần thiết cho công việc.",
-          "exampleZh": "這個「講師」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 730.5
@@ -30239,8 +30161,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ước mơ giúp tôi không?",
-          "exampleZh": "你能幫我夢寐以求嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2102",
@@ -30252,8 +30174,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tuyết này rất cần thiết cho công việc.",
-          "exampleZh": "這個「絨毛」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2103",
@@ -30318,7 +30240,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "giấy phép thi công",
-          "exampleZh": "施工執照。 批准書。"
+          "exampleZh": "施工執照。"
         },
         {
           "id": "freq_2108",
@@ -30330,8 +30252,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "連詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hãy chú ý đến như thể trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「正如」。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2109",
@@ -30343,8 +30265,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "nô lệ",
-          "exampleZh": "奴隸。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2110",
@@ -30356,8 +30278,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thực hành giúp tôi không?",
-          "exampleZh": "你能幫我兌現嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2111",
@@ -30365,12 +30287,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đại tướng",
           "zh": "大將",
           "zhSpoken": "大將",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "大將",
           "category": "實用生活",
-          "example": "Đại tướng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大將」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2112",
@@ -30430,12 +30352,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thuỷ",
           "zh": "水 / 初",
           "zhSpoken": "水，初",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "始",
           "category": "實用生活",
-          "example": "Thuỷ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「水」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2117",
@@ -30443,12 +30365,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Hải Phòng",
           "zh": "海防",
           "zhSpoken": "海防",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "海防",
           "category": "實用生活",
-          "example": "Hải phòng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「海防」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2118",
@@ -30460,8 +30382,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "超市",
           "category": "實用生活",
-          "example": "Siêu thị này rất cần thiết cho công việc.",
-          "exampleZh": "這個「超級市場」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2119",
@@ -30469,7 +30391,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "chuyển đổi",
           "zh": "對調 / 換算",
           "zhSpoken": "對調，換算",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -30512,8 +30434,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "製造",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chế tạo giúp tôi không?",
-          "exampleZh": "你能幫我出產嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2123",
@@ -30547,7 +30469,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vương quốc",
           "zh": "王國",
           "zhSpoken": "王國",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "王國",
           "category": "實用生活",
@@ -30560,7 +30482,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thuỷ sản",
           "zh": "水產 / 漁產",
           "zhSpoken": "水產，漁產",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -30590,8 +30512,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Mụ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「婆兒」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2129",
@@ -30604,7 +30526,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "phong thơ này còn chưa dán",
-          "exampleZh": "這封信還沒封口。 伏貼。"
+          "exampleZh": "這封信還沒封口。"
         },
         {
           "id": "freq_2130",
@@ -30642,8 +30564,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể lầm giúp tôi không?",
-          "exampleZh": "你能幫我誤嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2133",
@@ -30655,8 +30577,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể lan giúp tôi không?",
-          "exampleZh": "你能幫我泛嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2134",
@@ -30664,7 +30586,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thời hạn",
           "zh": "剋期 / 年份",
           "zhSpoken": "剋期，年份",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -30681,8 +30603,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Bến này rất cần thiết cho công việc.",
-          "exampleZh": "這個「碼頭」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2136",
@@ -30695,7 +30617,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "làm phiền anh quá, ngày mai gặp lại nhé!",
-          "exampleZh": "打攪您了, 明兒見吧!。"
+          "exampleZh": "打攪您了，明兒見吧！。"
         },
         {
           "id": "freq_2137",
@@ -30708,7 +30630,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "phun nước đầy người cô ấy",
-          "exampleZh": "唧她一身水。 噴灑。"
+          "exampleZh": "唧她一身水。"
         },
         {
           "id": "freq_2138",
@@ -30720,8 +30642,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Khối lượng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「質量」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2139",
@@ -30733,8 +30655,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Kim loại này rất cần thiết cho công việc.",
-          "exampleZh": "這個「金」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2140",
@@ -30746,8 +30668,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "天神",
           "category": "實用生活",
-          "example": "Thiên thần này rất cần thiết cho công việc.",
-          "exampleZh": "這個「神祇」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2141",
@@ -30759,8 +30681,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thị xã này rất cần thiết cho công việc.",
-          "exampleZh": "這個「村鎮」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2142",
@@ -30837,8 +30759,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "無罪",
           "category": "情境修飾",
-          "example": "Điều này rất vô tội và quan trọng.",
-          "exampleZh": "這非常無辜且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2148",
@@ -30850,8 +30772,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể mồi giúp tôi không?",
-          "exampleZh": "你能幫我野食兒嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2149",
@@ -30918,7 +30840,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "chơi cờ chẳng có hứng thú gì cả, chi bằng đánh bóng còn hơn",
-          "exampleZh": "棋沒有什麼來頭, 不如打球。 樂趣。"
+          "exampleZh": "棋沒有什麼來頭，不如打球。"
         },
         {
           "id": "freq_2153",
@@ -30956,8 +30878,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hiệp hội này rất cần thiết cho công việc.",
-          "exampleZh": "這個「協會」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2156",
@@ -30969,8 +30891,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "頃刻",
           "category": "實用生活",
-          "example": "Khoảnh khắc này rất cần thiết cho công việc.",
-          "exampleZh": "這個「片時」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2157",
@@ -30996,7 +30918,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "習鍊",
           "category": "生活社交動詞",
           "example": "đội bóng bàn đang ráo riết tập luyện trước trận đấu",
-          "exampleZh": "乒乓球隊正抓緊賽前練兵。 練手。"
+          "exampleZh": "乒乓球隊正抓緊賽前練兵。"
         },
         {
           "id": "freq_2159",
@@ -31030,7 +30952,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "giảm giá",
           "zh": "貶價 / 打折扣",
           "zhSpoken": "貶價，打折扣",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "減價",
           "category": "生活社交動詞",
@@ -31060,8 +30982,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Học trò này rất cần thiết cho công việc.",
-          "exampleZh": "這個「傳人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2164",
@@ -31069,12 +30991,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trụ sở",
           "zh": "機關 / 治",
           "zhSpoken": "機關，治",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Trụ sở này rất cần thiết cho công việc.",
-          "exampleZh": "這個「機關」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2165",
@@ -31095,12 +31017,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đảng viên",
           "zh": "黨員",
           "zhSpoken": "黨員",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đảng viên này rất cần thiết cho công việc.",
-          "exampleZh": "這個「黨員」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2167",
@@ -31112,8 +31034,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "hành khách",
-          "exampleZh": "乘客。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2168",
@@ -31125,8 +31047,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất khốn nạn và quan trọng.",
-          "exampleZh": "這非常壞蛋且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2169",
@@ -31139,7 +31061,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "號",
           "category": "實用生活",
           "example": "Lý Bạch tự là Thái Bạch, hiệu là Thanh Liên cư sĩ",
-          "exampleZh": "李白字太白, 別號青蓮居士。"
+          "exampleZh": "李白字太白，別號青蓮居士。"
         },
         {
           "id": "freq_2170",
@@ -31151,8 +31073,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "mong đợi",
-          "exampleZh": "企盼。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2171",
@@ -31177,8 +31099,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Úc này rất cần thiết cho công việc.",
-          "exampleZh": "這個「澳大利亞聯邦」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2173",
@@ -31190,8 +31112,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "gặp gỡ",
-          "exampleZh": "際遇。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2174",
@@ -31216,8 +31138,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "生物",
           "category": "實用生活",
-          "example": "Sinh vật này rất cần thiết cho công việc.",
-          "exampleZh": "這個「生物」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2176",
@@ -31255,8 +31177,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất tử tế và quan trọng.",
-          "exampleZh": "這非常慈和且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2179",
@@ -31268,8 +31190,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Bí ẩn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「奧祕」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2180",
@@ -31290,12 +31212,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "bắt giữ",
           "zh": "俘虜 / 羈留",
           "zhSpoken": "俘虜，羈留",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể bắt giữ giúp tôi không?",
-          "exampleZh": "你能幫我俘虜嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2182",
@@ -31320,8 +31242,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "勇",
           "category": "實用生活",
-          "example": "Dũng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「勇」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2184",
@@ -31333,8 +31255,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "殺人",
           "category": "實用生活",
-          "example": "Sát nhân này rất cần thiết cho công việc.",
-          "exampleZh": "這個「殺人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2185",
@@ -31359,8 +31281,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Số liệu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「數據」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2187",
@@ -31372,8 +31294,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "校長",
           "category": "實用生活",
-          "example": "Hiệu trưởng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「校長」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2188",
@@ -31381,7 +31303,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "phù thuỷ",
           "zh": "女巫 / 覡",
           "zhSpoken": "女巫，覡",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -31412,7 +31334,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "không những nhiều mà chất lượng cũng rất tốt",
-          "exampleZh": "不光數量多, 質量也不錯。"
+          "exampleZh": "不光數量多，質量也不錯。"
         },
         {
           "id": "freq_2191",
@@ -31450,8 +31372,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Bí thư này rất cần thiết cho công việc.",
-          "exampleZh": "這個「祕書」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2194",
@@ -31489,8 +31411,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "中士",
           "category": "實用生活",
-          "example": "Trung sĩ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「中士」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2197",
@@ -31498,7 +31420,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tội nghiệp",
           "zh": "顧惜 / 可憐",
           "zhSpoken": "顧惜，可憐",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -31511,12 +31433,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Cần Thơ",
           "zh": "芹苴",
           "zhSpoken": "芹苴",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cần thơ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「芹苴」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2199",
@@ -31541,8 +31463,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thám tử này rất cần thiết cho công việc.",
-          "exampleZh": "這個「暗探」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 737.5
@@ -31565,7 +31487,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đánh dấu",
           "zh": "標 / 標繪",
           "zhSpoken": "標，標繪",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -31582,8 +31504,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đề án này rất cần thiết cho công việc.",
-          "exampleZh": "這個「預案」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2203",
@@ -31634,8 +31556,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "雲",
           "category": "實用生活",
-          "example": "Vân này rất cần thiết cho công việc.",
-          "exampleZh": "這個「理」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2207",
@@ -31656,7 +31578,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thoáng",
           "zh": "晃 / 豁",
           "zhSpoken": "晃，豁",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -31686,8 +31608,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "選用",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tuyển dụng giúp tôi không?",
-          "exampleZh": "你能幫我錄用嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2211",
@@ -31700,7 +31622,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "cài một đóa hồng trước ngực",
-          "exampleZh": "胸前彆着一朵紅花。 佈設。"
+          "exampleZh": "胸前彆着一朵紅花。"
         },
         {
           "id": "freq_2212",
@@ -31726,7 +31648,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "cô ấy là một người nhạy cảm, tiếp thu cái mới rất nhanh",
-          "exampleZh": "她是一個敏感的人, 接受新事物很快。"
+          "exampleZh": "她是一個敏感的人，接受新事物很快。"
         },
         {
           "id": "freq_2214",
@@ -31738,8 +31660,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Mụn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「粉刺」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2215",
@@ -31747,12 +31669,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "bóng tối",
           "zh": "暗影",
           "zhSpoken": "暗影",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Bóng tối này rất cần thiết cho công việc.",
-          "exampleZh": "這個「暗影」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2216",
@@ -31791,7 +31713,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "bề mặt rất sạch sẽ nhưng dưới tủ thì vẫn còn bụi",
-          "exampleZh": "大面兒上搞得很乾淨, 櫃子底下還有塵土。"
+          "exampleZh": "大面兒上搞得很乾淨，櫃子底下還有塵土。"
         },
         {
           "id": "freq_2219",
@@ -31816,8 +31738,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "審權",
           "category": "實用生活",
-          "example": "Thẩm quyền này rất cần thiết cho công việc.",
-          "exampleZh": "這個「權力」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2221",
@@ -31856,7 +31778,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "動員",
           "category": "生活社交動詞",
           "example": "động viên thương binh",
-          "exampleZh": "安撫傷員。 調動。"
+          "exampleZh": "安撫傷員。"
         },
         {
           "id": "freq_2224",
@@ -31877,12 +31799,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "công suất",
           "zh": "功率",
           "zhSpoken": "功率",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "職場通勤",
-          "example": "Công suất này rất cần thiết cho công việc.",
-          "exampleZh": "這個「功率」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2226",
@@ -31920,8 +31842,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nghề nghiệp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「本業」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2229",
@@ -31929,12 +31851,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lớp học",
           "zh": "教室 / 校舍",
           "zhSpoken": "教室，校舍",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lớp học này rất cần thiết cho công việc.",
-          "exampleZh": "這個「教室」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2230",
@@ -31959,8 +31881,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể hơn nữa giúp tôi không?",
-          "exampleZh": "你能幫我何況嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2232",
@@ -31972,8 +31894,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "理說",
           "category": "實用生活",
-          "example": "Lý thuyết này rất cần thiết cho công việc.",
-          "exampleZh": "這個「理論」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2233",
@@ -31981,7 +31903,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "phòng chống",
           "zh": "防治 / 抗禦",
           "zhSpoken": "防治，抗禦",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -32011,8 +31933,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Chủ nhân này rất cần thiết cho công việc.",
-          "exampleZh": "這個「本主兒」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2236",
@@ -32046,7 +31968,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tử vong",
           "zh": "滅亡",
           "zhSpoken": "滅亡",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -32063,8 +31985,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cô dâu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「新娘」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2240",
@@ -32098,12 +32020,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tù nhân",
           "zh": "監犯 / 階下囚",
           "zhSpoken": "監犯，階下囚",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "囚人",
           "category": "實用生活",
-          "example": "Tù nhân này rất cần thiết cho công việc.",
-          "exampleZh": "這個「監犯」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2243",
@@ -32111,12 +32033,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "khoẻ mạnh",
           "zh": "彪壯 / 堅實",
           "zhSpoken": "彪壯，堅實",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
           "example": "đứa bé này mập mạp, trông rất khoẻ mạnh",
-          "exampleZh": "這小夥子膀大腰粗的, 長得真虎勢。"
+          "exampleZh": "這小夥子膀大腰粗的，長得真虎勢。"
         },
         {
           "id": "freq_2244",
@@ -32180,8 +32102,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "衰",
           "category": "生活社交動詞",
-          "example": "Bạn có thể suy giúp tôi không?",
-          "exampleZh": "你能幫我衰嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2249",
@@ -32189,12 +32111,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Lào",
           "zh": "撾",
           "zhSpoken": "撾",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lào này rất cần thiết cho công việc.",
-          "exampleZh": "這個「撾」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2250",
@@ -32234,8 +32156,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nhiên liệu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「燃料」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2252",
@@ -32247,8 +32169,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tôn giáo này rất cần thiết cho công việc.",
-          "exampleZh": "這個「教」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2253",
@@ -32256,7 +32178,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Tuấn",
           "zh": "俊",
           "zhSpoken": "俊",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "俊",
           "category": "實用生活",
@@ -32273,8 +32195,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ngày xưa giúp tôi không?",
-          "exampleZh": "你能幫我從前嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2255",
@@ -32282,7 +32204,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vở",
           "zh": "本 / 本子",
           "zhSpoken": "本，本子",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -32295,12 +32217,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "người mẫu",
           "zh": "模特兒",
           "zhSpoken": "模特兒",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Người mẫu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「模特兒」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2257",
@@ -32339,7 +32261,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "tổ quốc đang kêu gọi chúng ta!",
-          "exampleZh": "祖國在呼喚我們!。"
+          "exampleZh": "祖國在呼喚我們！。"
         },
         {
           "id": "freq_2260",
@@ -32360,7 +32282,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trước mắt",
           "zh": "當 / 當今",
           "zhSpoken": "當，當今",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -32373,7 +32295,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đại lý",
           "zh": "代辦 / 代理",
           "zhSpoken": "代辦，代理",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "代理",
           "category": "實用生活",
@@ -32442,8 +32364,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "態",
           "category": "實用生活",
-          "example": "Thái này rất cần thiết cho công việc.",
-          "exampleZh": "這個「呱」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2268",
@@ -32464,12 +32386,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cớm",
           "zh": "背陰兒 / 警察",
           "zhSpoken": "背陰兒，警察",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cớm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「背陰兒」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2270",
@@ -32481,8 +32403,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "奪",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đoạt giúp tôi không?",
-          "exampleZh": "你能幫我敓嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2271",
@@ -32503,7 +32425,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trả giá",
           "zh": "打價 / 還價兒",
           "zhSpoken": "打價，還價兒",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -32520,8 +32442,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Vi khuẩn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「菌」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2274",
@@ -32533,8 +32455,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "亭",
           "category": "實用生活",
-          "example": "Đình này rất cần thiết cho công việc.",
-          "exampleZh": "這個「亭子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2275",
@@ -32585,8 +32507,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể học hỏi giúp tôi không?",
-          "exampleZh": "你能幫我就正嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2279",
@@ -32599,7 +32521,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "anh ấy trung thành chân thật, người ta rất tin cậy",
-          "exampleZh": "他忠誠老實, 爲人很可靠。 憑信。"
+          "exampleZh": "他忠誠老實，爲人很可靠。"
         },
         {
           "id": "freq_2280",
@@ -32624,8 +32546,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thuốc lá này rất cần thiết cho công việc.",
-          "exampleZh": "這個「葉子菸」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2282",
@@ -32646,12 +32568,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "pháp lý",
           "zh": "法理",
           "zhSpoken": "法理",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "法理",
           "category": "實用生活",
-          "example": "Pháp lý này rất cần thiết cho công việc.",
-          "exampleZh": "這個「法理」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2284",
@@ -32663,8 +32585,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Don này rất cần thiết cho công việc.",
-          "exampleZh": "這個「枯萎」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2285",
@@ -32702,8 +32624,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "舊",
           "category": "實用生活",
-          "example": "Cựu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「舊」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2288",
@@ -32715,8 +32637,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Khí hậu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大氣候」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2289",
@@ -32737,12 +32659,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "hưu",
           "zh": "退休",
           "zhSpoken": "退休",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "休",
           "category": "情境修飾",
-          "example": "Điều này rất hưu và quan trọng.",
-          "exampleZh": "這非常退休且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2291",
@@ -32754,8 +32676,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "珍重",
           "category": "生活社交動詞",
-          "example": "Bạn có thể trân trọng giúp tôi không?",
-          "exampleZh": "你能幫我愛惜嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2292",
@@ -32768,7 +32690,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "tôi căng sợi chỉ, anh giúp tôi cuộn lại",
-          "exampleZh": "我撐着線, 請你幫我捯一捯。量。"
+          "exampleZh": "我撐着線，請你幫我捯一捯。"
         },
         {
           "id": "freq_2293",
@@ -32780,8 +32702,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "方式",
           "category": "實用生活",
-          "example": "Phương thức này rất cần thiết cho công việc.",
-          "exampleZh": "這個「程式」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2294",
@@ -32846,7 +32768,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "用具",
           "category": "實用生活",
           "example": "dụng cụ để ăn",
-          "exampleZh": "餐具。口。"
+          "exampleZh": "餐具。"
         },
         {
           "id": "freq_2299",
@@ -32859,7 +32781,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "đứa bé này rất trung thực, không biết giả vờ đâu",
-          "exampleZh": "這孩子很老實, 不會裝假。"
+          "exampleZh": "這孩子很老實，不會裝假。"
         },
         {
           "id": "freq_2300",
@@ -32871,8 +32793,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Mồm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「嘴巴」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 732.5
@@ -32899,8 +32821,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Ông bà này rất cần thiết cho công việc.",
-          "exampleZh": "這個「祖先」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2302",
@@ -32938,8 +32860,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "公式",
           "category": "職場通勤",
-          "example": "Công thức này rất cần thiết cho công việc.",
-          "exampleZh": "這個「處方」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2305",
@@ -32951,8 +32873,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể cúi giúp tôi không?",
-          "exampleZh": "你能幫我垂嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2306",
@@ -32990,8 +32912,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "職場通勤",
-          "example": "Xe đạp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「單車」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2309",
@@ -33004,7 +32926,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "đem những đồ đạc không dùng đến cất đi",
-          "exampleZh": "把不用的器具儲藏起來。 揣。"
+          "exampleZh": "把不用的器具儲藏起來。"
         },
         {
           "id": "freq_2310",
@@ -33029,8 +32951,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "chăn nuôi",
-          "exampleZh": "畜牧。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2312",
@@ -33077,7 +32999,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đất đai",
           "zh": "版圖 / 大地",
           "zhSpoken": "版圖，大地",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -33090,7 +33012,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "mặt đất",
           "zh": "大地 / 地皮兒",
           "zhSpoken": "大地，地皮兒",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -33116,12 +33038,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đồng bào",
           "zh": "胞波 / 同胞",
           "zhSpoken": "胞波，同胞",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "同胞",
           "category": "實用生活",
-          "example": "Đồng bào này rất cần thiết cho công việc.",
-          "exampleZh": "這個「胞波」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2319",
@@ -33129,7 +33051,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "động lực",
           "zh": "動力 / 原動力",
           "zhSpoken": "動力，原動力",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "動力",
           "category": "實用生活",
@@ -33211,8 +33133,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Sói này rất cần thiết cho công việc.",
-          "exampleZh": "這個「犼」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2326",
@@ -33237,8 +33159,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thẩm mỹ giúp tôi không?",
-          "exampleZh": "你能幫我審美嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2328",
@@ -33246,12 +33168,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trung uý",
           "zh": "中尉",
           "zhSpoken": "中尉",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Trung uý này rất cần thiết cho công việc.",
-          "exampleZh": "這個「中尉」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2329",
@@ -33263,8 +33185,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "凝",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ngưng giúp tôi không?",
-          "exampleZh": "你能幫我打住嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2330",
@@ -33272,7 +33194,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tức",
           "zh": "即 / 悶着",
           "zhSpoken": "即，悶着",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "即",
           "category": "生活社交動詞",
@@ -33302,8 +33224,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể biết đâu giúp tôi không?",
-          "exampleZh": "你能幫我背不住嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2333",
@@ -33393,8 +33315,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể trả thù giúp tôi không?",
-          "exampleZh": "你能幫我復仇嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2340",
@@ -33406,8 +33328,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "私",
           "category": "情境修飾",
-          "example": "Điều này rất tư và quan trọng.",
-          "exampleZh": "這非常私立且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2341",
@@ -33420,7 +33342,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "談判",
           "category": "生活社交動詞",
           "example": "hai nước tiến hành đàm phán về vấn đề biên giới",
-          "exampleZh": "兩國開始就邊界問題進行對話。 會談。"
+          "exampleZh": "兩國開始就邊界問題進行對話。"
         },
         {
           "id": "freq_2342",
@@ -33428,7 +33350,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "bận rộn",
           "zh": "大忙 / 繁忙",
           "zhSpoken": "大忙，繁忙",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
@@ -33446,7 +33368,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "cản không nỗi",
-          "exampleZh": "阻止不了。 趕走。"
+          "exampleZh": "阻止不了。"
         },
         {
           "id": "freq_2344",
@@ -33454,7 +33376,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đồng đội",
           "zh": "袍澤 / 戰友",
           "zhSpoken": "袍澤，戰友",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "同隊",
           "category": "實用生活",
@@ -33467,7 +33389,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "nghiệp vụ",
           "zh": "工作",
           "zhSpoken": "工作",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "業務",
           "category": "實用生活",
@@ -33532,12 +33454,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trợ giúp",
           "zh": "貼 / 棐",
           "zhSpoken": "貼，棐",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "việc này mà anh ra tay, tôi sẽ trợ giúp cho anh",
-          "exampleZh": "這件事你出馬, 我給你敲邊鼓。 贊。"
+          "exampleZh": "這件事你出馬，我給你敲邊鼓。"
         }
       ],
       "duration": 749.7
@@ -33577,8 +33499,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ám ảnh giúp tôi không?",
-          "exampleZh": "你能幫我威脅嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2353",
@@ -33591,7 +33513,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "sao lặn trăng tà, phía đông mặt trời mọc",
-          "exampleZh": "星沉 月落, 旭日東昇。 沒; 下落。"
+          "exampleZh": "星沉 月落，旭日東昇。 沒; 下落。"
         },
         {
           "id": "freq_2354",
@@ -33625,12 +33547,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "kích hoạt",
           "zh": "點火 / 活化",
           "zhSpoken": "點火，活化",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "đúng bảy giờ sáng, kích hoạt động cơ phóng tên lửa",
-          "exampleZh": "上午七點整, 火箭發動機點火。"
+          "exampleZh": "上午七點整，火箭發動機點火。"
         },
         {
           "id": "freq_2357",
@@ -33651,12 +33573,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "chúng mày",
           "zh": "你們",
           "zhSpoken": "你們",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Chúng mày này rất cần thiết cho công việc.",
-          "exampleZh": "這個「你們」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2359",
@@ -33720,8 +33642,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "職場通勤",
-          "example": "Xe buýt này rất cần thiết cho công việc.",
-          "exampleZh": "這個「巴士」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2364",
@@ -33742,12 +33664,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tui",
           "zh": "常用字詞",
           "zhSpoken": "常用字詞",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tui này rất cần thiết cho công việc.",
-          "exampleZh": "這個「常用字詞」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2366",
@@ -33772,8 +33694,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "店",
           "category": "實用生活",
-          "example": "Điếm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「妓院」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2368",
@@ -33785,8 +33707,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Biệt thự này rất cần thiết cho công việc.",
-          "exampleZh": "這個「別墅」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2369",
@@ -33794,7 +33716,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "công cộng",
           "zh": "公共 / 公用",
           "zhSpoken": "公共，公用",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "公共",
           "category": "情境修飾",
@@ -33811,8 +33733,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "血壓",
           "category": "實用生活",
-          "example": "Huyết áp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「高壓」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2371",
@@ -33833,12 +33755,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tuân",
           "zh": "常用字詞",
           "zhSpoken": "常用字詞",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tuân giúp tôi không?",
-          "exampleZh": "你能幫我常用字詞嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2373",
@@ -33851,7 +33773,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "chuyện đâu còn có đó, anh tức giận làm",
-          "exampleZh": "gì? 有話好說, 你瞪什麼眼?。"
+          "exampleZh": "gì？ 有話好說，你瞪什麼眼？。"
         },
         {
           "id": "freq_2374",
@@ -33876,8 +33798,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "天堂",
           "category": "實用生活",
-          "example": "Thiên đường này rất cần thiết cho công việc.",
-          "exampleZh": "這個「淨土」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2376",
@@ -33898,12 +33820,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "xếp hạng",
           "zh": "品第",
           "zhSpoken": "品第",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể xếp hạng giúp tôi không?",
-          "exampleZh": "你能幫我品第嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2378",
@@ -33915,8 +33837,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "預草",
           "category": "生活社交動詞",
-          "example": "Bạn có thể dự thảo giúp tôi không?",
-          "exampleZh": "你能幫我草擬嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2379",
@@ -33924,7 +33846,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cơ cấu",
           "zh": "機構 / 框架",
           "zhSpoken": "機構，框架",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "機構",
           "category": "實用生活",
@@ -33941,8 +33863,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể qua đời giúp tôi không?",
-          "exampleZh": "你能幫我不在嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2381",
@@ -33950,12 +33872,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vãi",
           "zh": "播 / 撒",
           "zhSpoken": "播，撒",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể vãi giúp tôi không?",
-          "exampleZh": "你能幫我播嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2382",
@@ -33994,7 +33916,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "đối diện nhà tôi là bưu điện",
-          "exampleZh": "我家對過就是郵局。 對門。"
+          "exampleZh": "我家對過就是郵局。"
         },
         {
           "id": "freq_2385",
@@ -34019,8 +33941,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "批",
           "category": "生活社交動詞",
-          "example": "Bạn có thể phê giúp tôi không?",
-          "exampleZh": "你能幫我批嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2387",
@@ -34045,8 +33967,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Kẹo này rất cần thiết cho công việc.",
-          "exampleZh": "這個「糖」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2389",
@@ -34071,8 +33993,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể làm chủ giúp tôi không?",
-          "exampleZh": "你能幫我做東嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2391",
@@ -34136,8 +34058,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cứt này rất cần thiết cho công việc.",
-          "exampleZh": "這個「屎」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2396",
@@ -34162,8 +34084,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "突入",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đột nhập giúp tôi không?",
-          "exampleZh": "你能幫我突入嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2398",
@@ -34189,7 +34111,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "及",
           "category": "生活社交動詞",
           "example": "thuyền cập bến",
-          "exampleZh": "船靠岸。 及到。"
+          "exampleZh": "船靠岸。"
         },
         {
           "id": "freq_2400",
@@ -34251,12 +34173,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lo ngại",
           "zh": "顧慮 / 掛礙",
           "zhSpoken": "顧慮，掛礙",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể lo ngại giúp tôi không?",
-          "exampleZh": "你能幫我顧慮嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2404",
@@ -34277,12 +34199,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "liên",
           "zh": "機槍 / 蓮花",
           "zhSpoken": "機槍，蓮花",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể liên giúp tôi không?",
-          "exampleZh": "你能幫我機槍嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2406",
@@ -34294,8 +34216,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "隊長",
           "category": "實用生活",
-          "example": "Đội trưởng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「隊長」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2407",
@@ -34303,12 +34225,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thu thập",
           "zh": "採錄 / 採收",
           "zhSpoken": "採錄，採收",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "收拾",
           "category": "生活社交動詞",
           "example": "thu thập các loại tài liệu rồi tiến hành phân tích",
-          "exampleZh": "各種材料, 加以分析。"
+          "exampleZh": "各種材料，加以分析。"
         },
         {
           "id": "freq_2408",
@@ -34355,12 +34277,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Bình Dương",
           "zh": "平陽",
           "zhSpoken": "平陽",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "平陽",
           "category": "實用生活",
-          "example": "Bình dương này rất cần thiết cho công việc.",
-          "exampleZh": "這個「平陽」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2412",
@@ -34372,8 +34294,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chìa giúp tôi không?",
-          "exampleZh": "你能幫我鑰匙嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2413",
@@ -34398,8 +34320,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "演變",
           "category": "生活社交動詞",
-          "example": "Bạn có thể diễn biến giúp tôi không?",
-          "exampleZh": "你能幫我端的嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2415",
@@ -34420,7 +34342,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "chi nhánh",
           "zh": "支派 / 分號",
           "zhSpoken": "支派，分號",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -34476,8 +34398,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "侵入",
           "category": "生活社交動詞",
-          "example": "xâm nhập",
-          "exampleZh": "入侵。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2421",
@@ -34485,7 +34407,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "kiểu dáng",
           "zh": "樣式 / 這件衣服樣子很好看",
           "zhSpoken": "樣式，這件衣服樣子很好看",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -34502,8 +34424,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể lai giúp tôi không?",
-          "exampleZh": "你能幫我混血種嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2423",
@@ -34529,7 +34451,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "nghe tiếng đã lâu, chưa có duyên phận được làm quen",
-          "exampleZh": "聞名已久, 無緣拜識 結識。"
+          "exampleZh": "聞名已久，無緣拜識 結識。"
         },
         {
           "id": "freq_2425",
@@ -34542,7 +34464,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "anh viết sai, ngược lại còn trách tôi",
-          "exampleZh": "你把字寫壞了, 倒轉來怪我。"
+          "exampleZh": "你把字寫壞了，倒轉來怪我。"
         },
         {
           "id": "freq_2426",
@@ -34593,8 +34515,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tư duy giúp tôi không?",
-          "exampleZh": "你能幫我靈府嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2430",
@@ -34606,8 +34528,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất đẹp trai và quan trọng.",
-          "exampleZh": "這非常靚仔且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2431",
@@ -34615,7 +34537,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cộng hoà",
           "zh": "共和",
           "zhSpoken": "共和",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "共和",
           "category": "實用生活",
@@ -34646,7 +34568,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "gạo xay bằng máy, cơm nấu nở nhiều",
-          "exampleZh": "機米做飯出飯。口。"
+          "exampleZh": "機米做飯出飯。"
         },
         {
           "id": "freq_2434",
@@ -34658,8 +34580,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "兇手",
           "category": "實用生活",
-          "example": "Hung thủ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「兇手」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2435",
@@ -34667,7 +34589,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "liên minh",
           "zh": "奧援 / 結盟",
           "zhSpoken": "奧援，結盟",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -34684,8 +34606,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đòn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「衝程」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2437",
@@ -34693,12 +34615,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "công chức",
           "zh": "公務員 / 人員",
           "zhSpoken": "公務員，人員",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "公職",
           "category": "職場通勤",
-          "example": "công chức",
-          "exampleZh": "公職人員。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2438",
@@ -34710,8 +34632,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tâm trí này rất cần thiết cho công việc.",
-          "exampleZh": "這個「腦際」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2439",
@@ -34723,8 +34645,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "保密",
           "category": "生活社交動詞",
-          "example": "Bạn có thể bảo mật giúp tôi không?",
-          "exampleZh": "你能幫我保密嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2440",
@@ -34758,7 +34680,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "điển hình",
           "zh": "典範 / 典型",
           "zhSpoken": "典範，典型",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -34814,8 +34736,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ví giúp tôi không?",
-          "exampleZh": "你能幫我況嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2447",
@@ -34823,7 +34745,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "doạ",
           "zh": "嚇唬 / 恐嚇 / 威脅",
           "zhSpoken": "嚇唬，恐嚇",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -34895,7 +34817,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "ti-vi có tiết mục hay, làm cho mọi người thích thú",
-          "exampleZh": "好的電視節目能給人以快感。 來頭。"
+          "exampleZh": "好的電視節目能給人以快感。"
         },
         {
           "id": "freq_2452",
@@ -34907,8 +34829,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đành giúp tôi không?",
-          "exampleZh": "你能幫我忍心嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2453",
@@ -34929,7 +34851,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lời nói",
           "zh": "脣舌 / 道白",
           "zhSpoken": "脣舌，道白",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -34955,12 +34877,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tử",
           "zh": "子 / 死",
           "zhSpoken": "子，死",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tử giúp tôi không?",
-          "exampleZh": "你能幫我子嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2457",
@@ -34985,8 +34907,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "hành lang",
-          "exampleZh": "走廊。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2459",
@@ -34998,8 +34920,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất dối trá và quan trọng.",
-          "exampleZh": "這非常扯謊且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2460",
@@ -35024,8 +34946,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "招",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chiêu giúp tôi không?",
-          "exampleZh": "你能幫我招嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2462",
@@ -35038,7 +34960,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "預定",
           "category": "生活社交動詞",
           "example": "rốt cuộc phải làm như thế nào, trong đầu cần có dự định",
-          "exampleZh": "究竟怎麼做, 心裏應該先有個大譜兒。"
+          "exampleZh": "究竟怎麼做，心裏應該先有個大譜兒。"
         },
         {
           "id": "freq_2463",
@@ -35059,12 +34981,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "ven",
           "zh": "邊 / 邊沿",
           "zhSpoken": "邊，邊沿",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Ven này rất cần thiết cho công việc.",
-          "exampleZh": "這個「邊」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2465",
@@ -35076,8 +34998,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất xinh và quan trọng.",
-          "exampleZh": "這非常好看且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2466",
@@ -35103,7 +35025,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "ăn cắp thành quả thắng lợi",
-          "exampleZh": "竊取勝利果實。 賊人。"
+          "exampleZh": "竊取勝利果實。"
         },
         {
           "id": "freq_2468",
@@ -35128,8 +35050,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "有益",
           "category": "情境修飾",
-          "example": "Điều này rất hữu ích và quan trọng.",
-          "exampleZh": "這非常有益且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2470",
@@ -35141,8 +35063,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tràn giúp tôi không?",
-          "exampleZh": "你能幫我濫嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2471",
@@ -35167,8 +35089,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Gi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「常用字詞」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2473",
@@ -35219,8 +35141,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「小男孩」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2477",
@@ -35232,8 +35154,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "K này rất cần thiết cho công việc.",
-          "exampleZh": "這個「越文字母第十三字」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2478",
@@ -35241,12 +35163,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "điện ảnh",
           "zh": "電影",
           "zhSpoken": "電影",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Điện ảnh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「電影」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2479",
@@ -35271,8 +35193,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "理",
           "category": "實用生活",
-          "example": "Lý này rất cần thiết cho công việc.",
-          "exampleZh": "這個「邁」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2481",
@@ -35293,7 +35215,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thành thật",
           "zh": "誠 / 誠樸",
           "zhSpoken": "誠，誠樸",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
@@ -35310,8 +35232,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Dạ dày này rất cần thiết cho công việc.",
-          "exampleZh": "這個「肚腸」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2484",
@@ -35332,7 +35254,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "loài người",
           "zh": "人類",
           "zhSpoken": "人類",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -35362,8 +35284,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể lọt giúp tôi không?",
-          "exampleZh": "你能幫我漏過嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2488",
@@ -35401,8 +35323,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "共產",
           "category": "實用生活",
-          "example": "Cộng sản này rất cần thiết cho công việc.",
-          "exampleZh": "這個「布爾什維克」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2491",
@@ -35427,8 +35349,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Quãng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「段」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2493",
@@ -35505,8 +35427,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "海關",
           "category": "實用生活",
-          "example": "Hải quan này rất cần thiết cho công việc.",
-          "exampleZh": "這個「海關」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2499",
@@ -35559,8 +35481,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "效力",
           "category": "實用生活",
-          "example": "Hiệu lực này rất cần thiết cho công việc.",
-          "exampleZh": "這個「功效」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2502",
@@ -35568,7 +35490,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lắp đặt",
           "zh": "裝置 / 敷設",
           "zhSpoken": "裝置，敷設",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -35585,8 +35507,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể men giúp tôi không?",
-          "exampleZh": "你能幫我大麴嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2504",
@@ -35624,8 +35546,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Dâu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「媳婦」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2507",
@@ -35650,8 +35572,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Sản lượng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「產量」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2509",
@@ -35702,8 +35624,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tài xế này rất cần thiết cho công việc.",
-          "exampleZh": "這個「車把勢」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2513",
@@ -35711,12 +35633,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "uỷ viên",
           "zh": "委員",
           "zhSpoken": "委員",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "委員",
           "category": "實用生活",
-          "example": "Uỷ viên này rất cần thiết cho công việc.",
-          "exampleZh": "這個「委員」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2514",
@@ -35768,7 +35690,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "最少",
           "category": "生活社交動詞",
           "example": "điều kiện tối thiểu",
-          "exampleZh": "起碼的條件。 最少。"
+          "exampleZh": "起碼的條件。"
         },
         {
           "id": "freq_2518",
@@ -35780,8 +35702,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "乳",
           "category": "實用生活",
-          "example": "Vú này rất cần thiết cho công việc.",
-          "exampleZh": "這個「阿姨」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2519",
@@ -35867,12 +35789,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "mặt bằng",
           "zh": "平面",
           "zhSpoken": "平面",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Mặt bằng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「平面」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2526",
@@ -35910,8 +35832,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể vang giúp tôi không?",
-          "exampleZh": "你能幫我響嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2529",
@@ -35919,12 +35841,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "nhạc sĩ",
           "zh": "音樂家",
           "zhSpoken": "音樂家",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nhạc sĩ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「音樂家」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2530",
@@ -35975,8 +35897,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể xả giúp tôi không?",
-          "exampleZh": "你能幫我落嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2534",
@@ -35988,8 +35910,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "chọn lựa",
-          "exampleZh": "抉擇。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2535",
@@ -35997,7 +35919,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "linh hoạt",
           "zh": "飛靈 / 猴",
           "zhSpoken": "飛靈，猴",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "靈活",
           "category": "情境修飾",
@@ -36014,8 +35936,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể phê duyệt giúp tôi không?",
-          "exampleZh": "你能幫我畫稿嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2537",
@@ -36027,8 +35949,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chui giúp tôi không?",
-          "exampleZh": "你能幫我野雞嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2538",
@@ -36049,12 +35971,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Trái Đất",
           "zh": "大地 / 球",
           "zhSpoken": "大地，球",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Trái đất này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大地」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2540",
@@ -36067,7 +35989,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "lần lượt kiểm tra từng linh kiện trên máy",
-          "exampleZh": "挨次檢查機器上的零件。口。"
+          "exampleZh": "挨次檢查機器上的零件。"
         },
         {
           "id": "freq_2541",
@@ -36157,8 +36079,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "轉動",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chuyển động giúp tôi không?",
-          "exampleZh": "你能幫我運動嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2548",
@@ -36170,8 +36092,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Chúng nó này rất cần thiết cho công việc.",
-          "exampleZh": "這個「他們」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2549",
@@ -36179,7 +36101,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tranh chấp",
           "zh": "拌舌頭 / 辭訟",
           "zhSpoken": "拌舌頭，辭訟",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "爭執",
           "category": "生活社交動詞",
@@ -36224,8 +36146,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "會員",
           "category": "實用生活",
-          "example": "Hội viên này rất cần thiết cho công việc.",
-          "exampleZh": "這個「成員」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2552",
@@ -36237,8 +36159,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể phần nào giúp tôi không?",
-          "exampleZh": "你能幫我在某種程度上嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2553",
@@ -36259,7 +36181,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tình cờ",
           "zh": "偶爾 / 偶然",
           "zhSpoken": "偶爾，偶然",
-          "en": "common term",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
@@ -36285,12 +36207,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cộng sự",
           "zh": "伴侶 / 共事",
           "zhSpoken": "伴侶，共事",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "共事",
           "category": "實用生活",
-          "example": "Cộng sự này rất cần thiết cho công việc.",
-          "exampleZh": "這個「伴侶」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2557",
@@ -36329,7 +36251,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "trẻ trung không cố gắng, già nua luống buồn thương",
-          "exampleZh": "少壯不努力, 老大徒傷悲。"
+          "exampleZh": "少壯不努力，老大徒傷悲。"
         },
         {
           "id": "freq_2560",
@@ -36354,8 +36276,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "次長",
           "category": "實用生活",
-          "example": "Thứ trưởng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「次長」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2562",
@@ -36363,7 +36285,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vui chơi",
           "zh": "歡鬧 / 行樂",
           "zhSpoken": "歡鬧，行樂",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -36406,8 +36328,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Go này rất cần thiết cho công việc.",
-          "exampleZh": "這個「鋼絲綜」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2566",
@@ -36415,12 +36337,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trước tiên",
           "zh": "起先 / 首先",
           "zhSpoken": "起先，首先",
-          "en": "common term",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể trước tiên giúp tôi không?",
-          "exampleZh": "你能幫我起先嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2567",
@@ -36445,8 +36367,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể cư xử giúp tôi không?",
-          "exampleZh": "你能幫我表現嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2569",
@@ -36454,12 +36376,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "máy móc",
           "zh": "按圖索驥 / 板板六十四",
           "zhSpoken": "按圖索驥，板板六十四",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "máy móc",
-          "exampleZh": "機械。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2570",
@@ -36485,7 +36407,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "thêm can đảm",
-          "exampleZh": "壯膽兒。 膽壯。"
+          "exampleZh": "壯膽兒。"
         },
         {
           "id": "freq_2572",
@@ -36524,7 +36446,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "giấy Đạo Lâm không thấm mực",
-          "exampleZh": "道林紙不喫墨。 浸。"
+          "exampleZh": "道林紙不喫墨。"
         },
         {
           "id": "freq_2575",
@@ -36545,7 +36467,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "yêu quý",
           "zh": "愛戴 / 呵護",
           "zhSpoken": "愛戴，呵護",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -36588,8 +36510,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nhãn này rất cần thiết cho công việc.",
-          "exampleZh": "這個「報頭」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2580",
@@ -36597,12 +36519,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "uỷ",
           "zh": "託付 / 委任",
           "zhSpoken": "託付，委任",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "委",
           "category": "生活社交動詞",
-          "example": "Bạn có thể uỷ giúp tôi không?",
-          "exampleZh": "你能幫我託付嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2581",
@@ -36654,7 +36576,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "tuổi trẻ sức khoẻ dồi dào",
-          "exampleZh": "年輕力壯。 青春。"
+          "exampleZh": "年輕力壯。"
         },
         {
           "id": "freq_2585",
@@ -36679,8 +36601,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "大使",
           "category": "實用生活",
-          "example": "Đại sứ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大使」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2587",
@@ -36692,8 +36614,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "慘",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thảm giúp tôi không?",
-          "exampleZh": "你能幫我慘嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2588",
@@ -36770,8 +36692,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "俠士",
           "category": "實用生活",
-          "example": "Hiệp sĩ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「爵士」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2594",
@@ -36784,7 +36706,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "hương vị của món này rất ngon",
-          "exampleZh": "這個菜的口味很好。方。"
+          "exampleZh": "這個菜的口味很好。"
         },
         {
           "id": "freq_2595",
@@ -36797,7 +36719,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "nhân dịp quốc khánh, bạn cũ gặp nhau, thật là vui sướng",
-          "exampleZh": "正值國慶, 老友重逢, 真是分外高興。"
+          "exampleZh": "正值國慶，老友重逢，真是分外高興。"
         },
         {
           "id": "freq_2596",
@@ -36805,12 +36727,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "loại hình",
           "zh": "範疇",
           "zhSpoken": "範疇",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "類形",
           "category": "實用生活",
-          "example": "Loại hình này rất cần thiết cho công việc.",
-          "exampleZh": "這個「範疇」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2597",
@@ -36835,8 +36757,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tham nhũng giúp tôi không?",
-          "exampleZh": "你能幫我貪污嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2599",
@@ -36848,8 +36770,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Trâu này rất cần thiết cho công việc.",
-          "exampleZh": "這個「牛」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2600",
@@ -36857,12 +36779,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "máy chủ",
           "zh": "母機 / 母",
           "zhSpoken": "母機，母",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Máy chủ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「母機」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 743.7
@@ -36889,8 +36811,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Y tá này rất cần thiết cho công việc.",
-          "exampleZh": "這個「白衣天使」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2602",
@@ -36902,8 +36824,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chảy máu giúp tôi không?",
-          "exampleZh": "你能幫我出血嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2603",
@@ -36928,8 +36850,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "建議",
           "category": "生活社交動詞",
-          "example": "kiến nghị",
-          "exampleZh": "建議。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2605",
@@ -36937,7 +36859,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thực tiễn",
           "zh": "實踐",
           "zhSpoken": "實踐",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -36968,7 +36890,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "突然",
           "category": "生活社交動詞",
           "example": "anh ấy đột nhiên hỏi tôi, làm tôi nghĩ không ra",
-          "exampleZh": "他乍猛的問我, 倒想不起來了。"
+          "exampleZh": "他乍猛的問我，倒想不起來了。"
         },
         {
           "id": "freq_2608",
@@ -36980,8 +36902,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "小說",
           "category": "實用生活",
-          "example": "Tiểu thuyết này rất cần thiết cho công việc.",
-          "exampleZh": "這個「小說兒」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2609",
@@ -36993,8 +36915,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể bận tâm giúp tôi không?",
-          "exampleZh": "你能幫我操心嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2610",
@@ -37002,12 +36924,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cứu mạng",
           "zh": "活命 / 活命之恩",
           "zhSpoken": "活命，活命之恩",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "ơn cứu mạng",
-          "exampleZh": "活命之恩。 救命。"
+          "exampleZh": "活命之恩。"
         },
         {
           "id": "freq_2611",
@@ -37045,8 +36967,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể be giúp tôi không?",
-          "exampleZh": "你能幫我觶嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2614",
@@ -37058,8 +36980,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "分解",
           "category": "生活社交動詞",
-          "example": "Bạn có thể phân giải giúp tôi không?",
-          "exampleZh": "你能幫我化分嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2615",
@@ -37067,12 +36989,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thư giãn",
           "zh": "寬 / 舒張",
           "zhSpoken": "寬，舒張",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thư giãn giúp tôi không?",
-          "exampleZh": "你能幫我寬嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2616",
@@ -37084,8 +37006,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Trực thăng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「飛機」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2617",
@@ -37093,12 +37015,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tăng giá",
           "zh": "扳價 / 看漲",
           "zhSpoken": "扳價，看漲",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tăng giá giúp tôi không?",
-          "exampleZh": "你能幫我扳價嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2618",
@@ -37110,8 +37032,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể bỏ rơi giúp tôi không?",
-          "exampleZh": "你能幫我甩下嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2619",
@@ -37123,8 +37045,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể gục giúp tôi không?",
-          "exampleZh": "你能幫我耷拉嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2620",
@@ -37149,8 +37071,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lẽ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「諦」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2622",
@@ -37175,8 +37097,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể sinh sống giúp tôi không?",
-          "exampleZh": "你能幫我活嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2624",
@@ -37201,8 +37123,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "rực rỡ",
-          "exampleZh": "鮮豔奪目。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2626",
@@ -37223,12 +37145,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vật lý",
           "zh": "理 / 物理",
           "zhSpoken": "理，物理",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "物理",
           "category": "實用生活",
-          "example": "Vật lý này rất cần thiết cho công việc.",
-          "exampleZh": "這個「理」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2628",
@@ -37266,8 +37188,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể làm nên giúp tôi không?",
-          "exampleZh": "你能幫我建造嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2631",
@@ -37292,8 +37214,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nhà báo này rất cần thiết cho công việc.",
-          "exampleZh": "這個「報人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2633",
@@ -37314,7 +37236,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trực thuộc",
           "zh": "掛靠 / 旅遊協會掛靠在旅遊局",
           "zhSpoken": "掛靠，旅遊協會掛靠在旅遊局",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -37331,8 +37253,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Voi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「象」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2636",
@@ -37379,12 +37301,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lạp",
           "zh": "蠟 / 臘",
           "zhSpoken": "蠟，臘",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lạp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「蠟」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2640",
@@ -37396,8 +37318,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể suýt giúp tôi không?",
-          "exampleZh": "你能幫我參差嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2641",
@@ -37462,7 +37384,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "bày trên mặt bàn",
-          "exampleZh": "擺在桌面上。 陳。"
+          "exampleZh": "擺在桌面上。"
         },
         {
           "id": "freq_2646",
@@ -37474,8 +37396,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "憲法",
           "category": "實用生活",
-          "example": "Hiến pháp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大法」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2647",
@@ -37527,7 +37449,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "陰謀",
           "category": "生活社交動詞",
           "example": "vạch trần âm mưu của bọn thực dân",
-          "exampleZh": "揭穿殖民地主義者的陰謀。 暗算。"
+          "exampleZh": "揭穿殖民地主義者的陰謀。"
         }
       ],
       "duration": 741.9
@@ -37554,8 +37476,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Kịch bản này rất cần thiết cho công việc.",
-          "exampleZh": "這個「劇本」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2652",
@@ -37576,12 +37498,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tổng công ty",
           "zh": "總公司",
           "zhSpoken": "總公司",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "總公司",
           "category": "職場通勤",
-          "example": "Tổng công ty này rất cần thiết cho công việc.",
-          "exampleZh": "這個「總公司」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2654",
@@ -37606,8 +37528,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "聖",
           "category": "實用生活",
-          "example": "Thánh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「聖」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2656",
@@ -37654,7 +37576,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tiêu hoá",
           "zh": "消化 / 克化",
           "zhSpoken": "消化，克化",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "消化",
           "category": "生活社交動詞",
@@ -37671,8 +37593,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cáp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「賭東道」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2661",
@@ -37710,8 +37632,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nếp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「榀」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2664",
@@ -37737,7 +37659,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "xe đang đà chạy nhanh, không thắng lại nỗi",
-          "exampleZh": "車跑快的時候, 衝力很大, 煞不住。 滑枕。"
+          "exampleZh": "車跑快的時候，衝力很大，煞不住。"
         },
         {
           "id": "freq_2666",
@@ -37750,7 +37672,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "không phải việc của anh mà anh ngăn cản làm",
-          "exampleZh": "gì? 沒你的事兒, 你擋什麼橫兒?。"
+          "exampleZh": "gì？ 沒你的事兒，你擋什麼橫兒？。"
         },
         {
           "id": "freq_2667",
@@ -37762,8 +37684,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thiếu tá này rất cần thiết cho công việc.",
-          "exampleZh": "這個「少校」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2668",
@@ -37771,12 +37693,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đại ca",
           "zh": "阿哥 / 大哥",
           "zhSpoken": "阿哥，大哥",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "大哥",
           "category": "實用生活",
-          "example": "Đại ca này rất cần thiết cho công việc.",
-          "exampleZh": "這個「阿哥」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2669",
@@ -37802,7 +37724,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "mùa màng năm nay sẽ không tồi",
-          "exampleZh": "今年的收成錯 不了。 低劣。"
+          "exampleZh": "今年的收成錯 不了。"
         },
         {
           "id": "freq_2671",
@@ -37815,7 +37737,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "對方",
           "category": "實用生活",
           "example": "đánh bóng cần phải tấn công vào điểm yếu của đối phương",
-          "exampleZh": "打球要善於抓住對方的弱點來進攻。 敵方。"
+          "exampleZh": "打球要善於抓住對方的弱點來進攻。"
         },
         {
           "id": "freq_2672",
@@ -37866,8 +37788,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tán giúp tôi không?",
-          "exampleZh": "你能幫我酇嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2676",
@@ -37875,7 +37797,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tư nhân",
           "zh": "私立 / 私人",
           "zhSpoken": "私立，私人",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "私人",
           "category": "實用生活",
@@ -37888,12 +37810,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đồng hành",
           "zh": "伴遊 / 平行",
           "zhSpoken": "伴遊，平行",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đồng hành giúp tôi không?",
-          "exampleZh": "你能幫我伴遊嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2678",
@@ -37918,8 +37840,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "鞋",
           "category": "情境修飾",
-          "example": "Điều này rất hài và quan trọng.",
-          "exampleZh": "這非常滑稽且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2680",
@@ -37940,12 +37862,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tên tuổi",
           "zh": "聲名",
           "zhSpoken": "聲名",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tên tuổi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「聲名」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2682",
@@ -37957,8 +37879,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Bị cáo này rất cần thiết cho công việc.",
-          "exampleZh": "這個「被告人」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2683",
@@ -37970,8 +37892,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lít này rất cần thiết cho công việc.",
-          "exampleZh": "這個「升」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2684",
@@ -37983,8 +37905,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Bánh mì này rất cần thiết cho công việc.",
-          "exampleZh": "這個「麪包」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2685",
@@ -38009,8 +37931,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "清化",
           "category": "實用生活",
-          "example": "Thanh hoá này rất cần thiết cho công việc.",
-          "exampleZh": "這個「清化」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2687",
@@ -38048,8 +37970,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hỗn hợp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「混合」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2690",
@@ -38087,8 +38009,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể nãy giúp tôi không?",
-          "exampleZh": "你能幫我方纔嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2693",
@@ -38109,7 +38031,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "nhân sự",
           "zh": "人事",
           "zhSpoken": "人事",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "人事",
           "category": "實用生活",
@@ -38122,12 +38044,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Quảng Nam",
           "zh": "廣南",
           "zhSpoken": "廣南",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "廣南",
           "category": "實用生活",
-          "example": "Quảng nam này rất cần thiết cho công việc.",
-          "exampleZh": "這個「廣南」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2696",
@@ -38152,8 +38074,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Chuối này rất cần thiết cho công việc.",
-          "exampleZh": "這個「香蕉」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2698",
@@ -38241,7 +38163,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "danh tiếng",
           "zh": "老牌 / 盛譽",
           "zhSpoken": "老牌，盛譽",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -38258,8 +38180,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Phím này rất cần thiết cho công việc.",
-          "exampleZh": "這個「撥子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2705",
@@ -38284,8 +38206,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "人類",
           "category": "實用生活",
-          "example": "Nhân loại này rất cần thiết cho công việc.",
-          "exampleZh": "這個「人類」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2707",
@@ -38310,8 +38232,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể khiêu vũ giúp tôi không?",
-          "exampleZh": "你能幫我交際舞嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2709",
@@ -38349,8 +38271,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Độc giả này rất cần thiết cho công việc.",
-          "exampleZh": "這個「讀者」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2712",
@@ -38362,8 +38284,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nam giới này rất cần thiết cho công việc.",
-          "exampleZh": "這個「男性」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2713",
@@ -38371,12 +38293,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "bỏ cuộc",
           "zh": "半途而廢",
           "zhSpoken": "半途而廢",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể bỏ cuộc giúp tôi không?",
-          "exampleZh": "你能幫我半途而廢嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2714",
@@ -38427,8 +38349,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đồ đạc này rất cần thiết cho công việc.",
-          "exampleZh": "這個「傢」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2718",
@@ -38436,12 +38358,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Nghệ An",
           "zh": "宜安",
           "zhSpoken": "宜安",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nghệ an này rất cần thiết cho công việc.",
-          "exampleZh": "這個「宜安」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2719",
@@ -38454,7 +38376,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "máy bay hạ cánh",
-          "exampleZh": "飛機從空中落下來。 停機。"
+          "exampleZh": "飛機從空中落下來。"
         },
         {
           "id": "freq_2720",
@@ -38505,8 +38427,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "市長",
           "category": "實用生活",
-          "example": "Thị trưởng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「市長」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2724",
@@ -38557,8 +38479,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thang máy này rất cần thiết cho công việc.",
-          "exampleZh": "這個「電梯」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2728",
@@ -38579,7 +38501,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "kể cả",
           "zh": "包括 / 連同",
           "zhSpoken": "包括，連同",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -38596,8 +38518,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "非攻",
           "category": "職場通勤",
-          "example": "Phi công này rất cần thiết cho công việc.",
-          "exampleZh": "這個「飛行員」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2731",
@@ -38605,12 +38527,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cổ đông",
           "zh": "股東",
           "zhSpoken": "股東",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cổ đông này rất cần thiết cho công việc.",
-          "exampleZh": "這個「股東」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2732",
@@ -38622,8 +38544,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "戰術",
           "category": "實用生活",
-          "example": "Chiến thuật này rất cần thiết cho công việc.",
-          "exampleZh": "這個「戰術」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2733",
@@ -38631,12 +38553,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cũng nên",
           "zh": "亦宜 / 亦成",
           "zhSpoken": "亦宜，亦成",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể cũng nên giúp tôi không?",
-          "exampleZh": "你能幫我亦宜嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2734",
@@ -38649,7 +38571,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "anh ấy là người thông minh, hễ gợi ý là hiểu ngay",
-          "exampleZh": "他是聰明人, 一點就明白了。"
+          "exampleZh": "他是聰明人，一點就明白了。"
         },
         {
           "id": "freq_2735",
@@ -38683,12 +38605,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lên tiếng",
           "zh": "開腔 / 吭聲",
           "zhSpoken": "開腔，吭聲",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "mọi người chưa nói câu nào thì anh ấy đã lên tiếng rồi",
-          "exampleZh": "大家都還沒說話, 他先開腔了。"
+          "exampleZh": "大家都還沒說話，他先開腔了。"
         },
         {
           "id": "freq_2738",
@@ -38726,8 +38648,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất hư hỏng và quan trọng.",
-          "exampleZh": "這非常變質且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2741",
@@ -38748,7 +38670,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đối đầu",
           "zh": "不避 / 對壘",
           "zhSpoken": "不避，對壘",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "對頭",
           "category": "生活社交動詞",
@@ -38765,8 +38687,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "隊形",
           "category": "實用生活",
-          "example": "Đội hình này rất cần thiết cho công việc.",
-          "exampleZh": "這個「隊形」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2744",
@@ -38893,12 +38815,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thượng",
           "zh": "崇 / 上頭",
           "zhSpoken": "崇，上頭",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "上",
           "category": "生活社交動詞",
-          "example": "Bạn có thể thượng giúp tôi không?",
-          "exampleZh": "你能幫我崇嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2753",
@@ -38910,8 +38832,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "屋",
           "category": "實用生活",
-          "example": "Ốc này rất cần thiết cho công việc.",
-          "exampleZh": "這個「螺螄」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2754",
@@ -38923,8 +38845,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cầu thang này rất cần thiết cho công việc.",
-          "exampleZh": "這個「樓梯」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2755",
@@ -38945,12 +38867,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "phạm tội",
           "zh": "犯事 / 犯罪",
           "zhSpoken": "犯事，犯罪",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "犯罪",
           "category": "生活社交動詞",
-          "example": "Bạn có thể phạm tội giúp tôi không?",
-          "exampleZh": "你能幫我犯事嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2757",
@@ -38963,7 +38885,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "không theo phép tắc, không thể thành quy tắc",
-          "exampleZh": "不依規矩, 不能成方圓。 例。"
+          "exampleZh": "不依規矩，不能成方圓。"
         },
         {
           "id": "freq_2758",
@@ -38988,8 +38910,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể kế tiếp giúp tôi không?",
-          "exampleZh": "你能幫我迭連嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2760",
@@ -39014,8 +38936,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất ngớ ngẩn và quan trọng.",
-          "exampleZh": "這非常白癡且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2762",
@@ -39023,12 +38945,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vô dụng",
           "zh": "贅",
           "zhSpoken": "贅",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "無用",
           "category": "情境修飾",
-          "example": "Điều này rất vô dụng và quan trọng.",
-          "exampleZh": "這非常贅且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2763",
@@ -39049,12 +38971,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "hiệu ứng",
           "zh": "效應 / 應驗",
           "zhSpoken": "效應，應驗",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "效應",
           "category": "實用生活",
-          "example": "Hiệu ứng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「效應」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2765",
@@ -39062,12 +38984,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vui mừng",
           "zh": "忭 / 高興",
           "zhSpoken": "忭，高興",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "nghe nói anh sắp đến, cả nhà chúng tôi đều rất vui mừng",
-          "exampleZh": "聽說你要來, 我們全家都很高興。"
+          "exampleZh": "聽說你要來，我們全家都很高興。"
         },
         {
           "id": "freq_2766",
@@ -39075,12 +38997,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "máy ảnh",
           "zh": "照相機",
           "zhSpoken": "照相機",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Máy ảnh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「照相機」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2767",
@@ -39106,7 +39028,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "anh ấy biểu diễn kỹ thuật mới ngay tại chỗ",
-          "exampleZh": "他當場就把這種新的技術表演了一次。 就地。"
+          "exampleZh": "他當場就把這種新的技術表演了一次。"
         },
         {
           "id": "freq_2769",
@@ -39131,8 +39053,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể dàn giúp tôi không?",
-          "exampleZh": "你能幫我排列嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2771",
@@ -39144,8 +39066,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "軸",
           "category": "生活社交動詞",
-          "example": "Bạn có thể trục giúp tôi không?",
-          "exampleZh": "你能幫我擺軸嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2772",
@@ -39171,7 +39093,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "cầu xin người khác, thật ngại quá",
-          "exampleZh": "向人張嘴, 怪難爲情的。 祝告。"
+          "exampleZh": "向人張嘴，怪難爲情的。"
         },
         {
           "id": "freq_2774",
@@ -39192,12 +39114,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Đồng Nai",
           "zh": "同奈",
           "zhSpoken": "同奈",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đồng nai này rất cần thiết cho công việc.",
-          "exampleZh": "這個「同奈」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2776",
@@ -39223,7 +39145,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "mưa liên tiếp mấy ngày, tường đã phát ẩm",
-          "exampleZh": "一連下了好幾天雨, 牆壁都返潮了。"
+          "exampleZh": "一連下了好幾天雨，牆壁都返潮了。"
         },
         {
           "id": "freq_2778",
@@ -39248,8 +39170,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể nhiễm trùng giúp tôi không?",
-          "exampleZh": "你能幫我感染嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2780",
@@ -39274,8 +39196,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Chanh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「檸檬」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2782",
@@ -39287,8 +39209,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "兔",
           "category": "實用生活",
-          "example": "Thỏ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「兔子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2783",
@@ -39300,8 +39222,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Vách này rất cần thiết cho công việc.",
-          "exampleZh": "這個「牆」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2784",
@@ -39352,8 +39274,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "大洋",
           "category": "實用生活",
-          "example": "Đại dương này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大洋」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2788",
@@ -39374,12 +39296,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Đài Loan",
           "zh": "臺 / 臺灣",
           "zhSpoken": "臺，臺灣",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đài loan này rất cần thiết cho công việc.",
-          "exampleZh": "這個「臺」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2790",
@@ -39405,7 +39327,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "chân lý không bao giờ có thể phủ nhận",
-          "exampleZh": "真理是駁不倒的。 反口。"
+          "exampleZh": "真理是駁不倒的。"
         },
         {
           "id": "freq_2792",
@@ -39413,12 +39335,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "chữa trị",
           "zh": "投醫 / 治療",
           "zhSpoken": "投醫，治療",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể chữa trị giúp tôi không?",
-          "exampleZh": "你能幫我投醫嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2793",
@@ -39443,8 +39365,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thác này rất cần thiết cho công việc.",
-          "exampleZh": "這個「飛泉」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2795",
@@ -39456,8 +39378,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nhà thơ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「騷客」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2796",
@@ -39465,7 +39387,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đồ hoạ",
           "zh": "畫圖",
           "zhSpoken": "畫圖",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "圖畫",
           "category": "實用生活",
@@ -39522,7 +39444,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "quy các vấn đề cùng tính chất thành một loại",
-          "exampleZh": "把性質相同的問題歸爲一類。 歸。"
+          "exampleZh": "把性質相同的問題歸爲一類。"
         }
       ],
       "duration": 735.3
@@ -39549,8 +39471,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể rạp giúp tôi không?",
-          "exampleZh": "你能幫我倒伏嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2802",
@@ -39589,7 +39511,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "妹",
           "category": "實用生活",
           "example": "muội khói; tàn thuốc",
-          "exampleZh": "菸灰。 煙炱。"
+          "exampleZh": "菸灰。"
         },
         {
           "id": "freq_2805",
@@ -39614,8 +39536,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đảng bộ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「黨部」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2807",
@@ -39623,7 +39545,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "văn nghệ",
           "zh": "文藝",
           "zhSpoken": "文藝",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -39636,12 +39558,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "kỳ vọng",
           "zh": "冀望 / 屬望",
           "zhSpoken": "冀望，屬望",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể kỳ vọng giúp tôi không?",
-          "exampleZh": "你能幫我冀望嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2809",
@@ -39662,12 +39584,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "điện thoại di động",
           "zh": "大哥大",
           "zhSpoken": "大哥大",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Điện thoại di động này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大哥大」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2811",
@@ -39679,8 +39601,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "等級",
           "category": "實用生活",
-          "example": "Đẳng cấp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「檔」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2812",
@@ -39714,7 +39636,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "ước tính",
           "zh": "匡算 / 約計",
           "zhSpoken": "匡算，約計",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -39744,8 +39666,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "蜂",
           "category": "實用生活",
-          "example": "Ong này rất cần thiết cho công việc.",
-          "exampleZh": "這個「蜜蜂」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2817",
@@ -39757,8 +39679,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "丁",
           "category": "實用生活",
-          "example": "Đinh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「丁」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2818",
@@ -39766,7 +39688,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "huỷ hoại",
           "zh": "摧殘 / 倒塌",
           "zhSpoken": "摧殘，倒塌",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "毀壞",
           "category": "生活社交動詞",
@@ -39835,8 +39757,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đà lạt này rất cần thiết cho công việc.",
-          "exampleZh": "這個「大叻」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2824",
@@ -39849,7 +39771,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "間",
           "category": "實用生活",
           "example": "nhân gian",
-          "exampleZh": "人間。方。"
+          "exampleZh": "人間。"
         },
         {
           "id": "freq_2825",
@@ -39862,7 +39784,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "hôm nay mưa, có lẽ anh ấy không đến",
-          "exampleZh": "今天下雨, 他橫不來了。"
+          "exampleZh": "今天下雨，他橫不來了。"
         },
         {
           "id": "freq_2826",
@@ -39887,8 +39809,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể xăm giúp tôi không?",
-          "exampleZh": "你能幫我靶子嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2828",
@@ -39896,12 +39818,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "nhì",
           "zh": "第二",
           "zhSpoken": "第二",
-          "en": "common term",
+          "en": "",
           "pos": "數詞",
           "hanViet": "二",
           "category": "實用生活",
-          "example": "Hãy chú ý đến nhì trong ngữ cảnh này.",
-          "exampleZh": "在這種情境下請注意「第二」。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2829",
@@ -39922,12 +39844,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tập tin",
           "zh": "卷宗",
           "zhSpoken": "卷宗",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tập tin này rất cần thiết cho công việc.",
-          "exampleZh": "這個「卷宗」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2831",
@@ -39939,8 +39861,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể bỏ phiếu giúp tôi không?",
-          "exampleZh": "你能幫我投票嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2832",
@@ -39953,7 +39875,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "biết chăng?",
-          "exampleZh": "知道嗎?。"
+          "exampleZh": "知道嗎？。"
         },
         {
           "id": "freq_2833",
@@ -39961,12 +39883,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "thảm hoạ",
           "zh": "慘案 / 慘禍",
           "zhSpoken": "慘案，慘禍",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "慘禍",
           "category": "實用生活",
-          "example": "Thảm hoạ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「慘案」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2834",
@@ -39992,7 +39914,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "現實",
           "category": "實用生活",
           "example": "suy nghĩ vấn đề, không thể xa rời hiện thực",
-          "exampleZh": "考慮問題, 不能脫離現實。"
+          "exampleZh": "考慮問題，不能脫離現實。"
         },
         {
           "id": "freq_2836",
@@ -40013,7 +39935,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "triều",
           "zh": "朝 / 朝代",
           "zhSpoken": "朝，朝代",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "朝",
           "category": "實用生活",
@@ -40104,7 +40026,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trùng",
           "zh": "重複 / 重",
           "zhSpoken": "重複，重",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "蟲",
           "category": "生活社交動詞",
@@ -40117,7 +40039,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đón nhận",
           "zh": "逢迎 / 接",
           "zhSpoken": "逢迎，接",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
@@ -40135,7 +40057,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "thấy thế không xong, mau tìm đường rút lui",
-          "exampleZh": "見勢不妙, 趕緊退走。 退走。"
+          "exampleZh": "見勢不妙，趕緊退走。"
         },
         {
           "id": "freq_2847",
@@ -40169,12 +40091,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cố ý",
           "zh": "有意",
           "zhSpoken": "有意",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "故意",
           "category": "生活社交動詞",
           "example": "anh ấy cố ý nói thật to để mọi người chú ý",
-          "exampleZh": "他故意把聲音提高, 好引起大家的注意。"
+          "exampleZh": "他故意把聲音提高，好引起大家的注意。"
         },
         {
           "id": "freq_2850",
@@ -40186,8 +40108,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất tư pháp và quan trọng.",
-          "exampleZh": "這非常司法且重要。"
+          "example": "",
+          "exampleZh": ""
         }
       ],
       "duration": 731.7
@@ -40236,12 +40158,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "huỷ diệt",
           "zh": "覆滅 / 毀滅",
           "zhSpoken": "覆滅，毀滅",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "毀滅",
           "category": "生活社交動詞",
-          "example": "Bạn có thể huỷ diệt giúp tôi không?",
-          "exampleZh": "你能幫我覆滅嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2854",
@@ -40249,7 +40171,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "phụ kiện",
           "zh": "附件",
           "zhSpoken": "附件",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -40266,8 +40188,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "審判",
           "category": "實用生活",
-          "example": "Thẩm phán này rất cần thiết cho công việc.",
-          "exampleZh": "這個「法官」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2856",
@@ -40275,12 +40197,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Nha Trang",
           "zh": "芽莊",
           "zhSpoken": "芽莊",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Nha trang này rất cần thiết cho công việc.",
-          "exampleZh": "這個「芽莊」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2857",
@@ -40292,8 +40214,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể hiện diện giúp tôi không?",
-          "exampleZh": "你能幫我到場嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2858",
@@ -40314,12 +40236,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "quan chức",
           "zh": "差使 / 公僕",
           "zhSpoken": "差使，公僕",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "官職",
           "category": "實用生活",
-          "example": "Quan chức này rất cần thiết cho công việc.",
-          "exampleZh": "這個「差使」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2860",
@@ -40357,8 +40279,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "自殺",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tự sát giúp tôi không?",
-          "exampleZh": "你能幫我吞金嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2863",
@@ -40379,12 +40301,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tự tử",
           "zh": "吞金 / 殉情",
           "zhSpoken": "吞金，殉情",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tự tử giúp tôi không?",
-          "exampleZh": "你能幫我吞金嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2865",
@@ -40392,7 +40314,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đầu mối",
           "zh": "暗線 / 中樞",
           "zhSpoken": "暗線，中樞",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -40405,7 +40327,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "vũ trang",
           "zh": "武裝",
           "zhSpoken": "武裝",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "武裝",
           "category": "情境修飾",
@@ -40422,8 +40344,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "醫學",
           "category": "實用生活",
-          "example": "Y học này rất cần thiết cho công việc.",
-          "exampleZh": "這個「醫」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2868",
@@ -40448,8 +40370,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Khu phố này rất cần thiết cho công việc.",
-          "exampleZh": "這個「街道」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2870",
@@ -40461,8 +40383,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "銅錢",
           "category": "實用生活",
-          "example": "Đồng tiền này rất cần thiết cho công việc.",
-          "exampleZh": "這個「幣」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2871",
@@ -40474,8 +40396,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cúm này rất cần thiết cho công việc.",
-          "exampleZh": "這個「流行性感冒」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2872",
@@ -40500,8 +40422,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đời nào giúp tôi không?",
-          "exampleZh": "你能幫我幾時嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2874",
@@ -40522,12 +40444,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cử động",
           "zh": "動換 / 車內太擠",
           "zhSpoken": "動換，車內太擠",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "舉動",
           "category": "生活社交動詞",
           "example": "trong xe chật quá, hàng khách không thể cử động được",
-          "exampleZh": "車內太擠, 人都沒法動換了。 舉措。"
+          "exampleZh": "車內太擠，人都沒法動換了。"
         },
         {
           "id": "freq_2876",
@@ -40565,8 +40487,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "龍",
           "category": "實用生活",
-          "example": "Long này rất cần thiết cho công việc.",
-          "exampleZh": "這個「龍」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2879",
@@ -40587,12 +40509,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đồng tính",
           "zh": "同性",
           "zhSpoken": "同性",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "同性",
           "category": "情境修飾",
-          "example": "Điều này rất đồng tính và quan trọng.",
-          "exampleZh": "這非常同性且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2881",
@@ -40604,8 +40526,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "學費",
           "category": "實用生活",
-          "example": "học phí",
-          "exampleZh": "脩金。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2882",
@@ -40669,8 +40591,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Bọ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「蟲豸」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2887",
@@ -40695,8 +40617,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Mì này rất cần thiết cho công việc.",
-          "exampleZh": "這個「削麪」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2889",
@@ -40708,8 +40630,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "監考",
           "category": "實用生活",
-          "example": "Giám khảo này rất cần thiết cho công việc.",
-          "exampleZh": "這個「考官」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2890",
@@ -40743,12 +40665,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tổng cục",
           "zh": "總局",
           "zhSpoken": "總局",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "總局",
           "category": "實用生活",
-          "example": "Tổng cục này rất cần thiết cho công việc.",
-          "exampleZh": "這個「總局」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2893",
@@ -40769,12 +40691,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "người nhà",
           "zh": "家眷 / 自己人",
           "zhSpoken": "家眷，自己人",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
           "example": "bác ơi, chúng ta đều là người nhà, đừng khách sáo",
-          "exampleZh": "老大爺, 咱們都是自己人, 別客氣。"
+          "exampleZh": "老大爺，咱們都是自己人，別客氣。"
         },
         {
           "id": "freq_2895",
@@ -40795,12 +40717,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Hà Lan",
           "zh": "荷蘭",
           "zhSpoken": "荷蘭",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hà lan này rất cần thiết cho công việc.",
-          "exampleZh": "這個「荷蘭」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2897",
@@ -40825,8 +40747,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "皇家",
           "category": "實用生活",
-          "example": "Hoàng gia này rất cần thiết cho công việc.",
-          "exampleZh": "這個「皇家」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2899",
@@ -40838,8 +40760,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "劫",
           "category": "實用生活",
-          "example": "Kiếp này rất cần thiết cho công việc.",
-          "exampleZh": "這個「劫數」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2900",
@@ -40879,8 +40801,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "丸",
           "category": "生活社交動詞",
-          "example": "Bạn có thể hoàn giúp tôi không?",
-          "exampleZh": "你能幫我開發嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2902",
@@ -40892,8 +40814,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "抗戰",
           "category": "生活社交動詞",
-          "example": "Bạn có thể kháng chiến giúp tôi không?",
-          "exampleZh": "你能幫我抗戰嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2903",
@@ -40944,8 +40866,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cò này rất cần thiết cho công việc.",
-          "exampleZh": "這個「保山」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2907",
@@ -40997,7 +40919,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "情境修飾",
           "example": "những năm tháng chiến đấu sôi động",
-          "exampleZh": "風風火火的戰鬥年代。 活。"
+          "exampleZh": "風風火火的戰鬥年代。"
         },
         {
           "id": "freq_2911",
@@ -41005,7 +40927,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đồng bằng",
           "zh": "平川 / 平原",
           "zhSpoken": "平川，平原",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -41062,7 +40984,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "實用生活",
           "example": "đạt được nhiều thành tựu trong lĩnh vực kỹ thuật",
-          "exampleZh": "在技術上很有造就。 作爲。"
+          "exampleZh": "在技術上很有造就。"
         },
         {
           "id": "freq_2916",
@@ -41070,12 +40992,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "cấu hình",
           "zh": "結構 / 構形",
           "zhSpoken": "結構，構形",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "構形",
           "category": "實用生活",
-          "example": "Cấu hình này rất cần thiết cho công việc.",
-          "exampleZh": "這個「結構」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2917",
@@ -41088,7 +41010,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "",
           "category": "生活社交動詞",
           "example": "mọi người cùng thương lượng, làm thế nào được",
-          "exampleZh": "大家掂對 掂對, 看怎麼辦好。 會商。"
+          "exampleZh": "大家掂對 掂對，看怎麼辦好。"
         },
         {
           "id": "freq_2918",
@@ -41126,8 +41048,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Huy chương này rất cần thiết cho công việc.",
-          "exampleZh": "這個「徽章」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2921",
@@ -41139,8 +41061,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể len giúp tôi không?",
-          "exampleZh": "你能幫我闌入嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2922",
@@ -41148,12 +41070,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "mềm mại",
           "zh": "嬌 / 嬌嫩",
           "zhSpoken": "嬌，嬌嫩",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
           "example": "đoá hoa tươi tắn mềm mại",
-          "exampleZh": "嬌嫩的鮮花。 嬌嬈。"
+          "exampleZh": "嬌嫩的鮮花。"
         },
         {
           "id": "freq_2923",
@@ -41174,12 +41096,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tuy vậy",
           "zh": "話雖如此",
           "zhSpoken": "話雖如此",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tuy vậy giúp tôi không?",
-          "exampleZh": "你能幫我話雖如此嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2925",
@@ -41200,12 +41122,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "Quảng Ninh",
           "zh": "廣寧",
           "zhSpoken": "廣寧",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Quảng ninh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「廣寧」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2927",
@@ -41217,8 +41139,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "藍",
           "category": "實用生活",
-          "example": "Lam này rất cần thiết cho công việc.",
-          "exampleZh": "這個「藍色」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2928",
@@ -41226,12 +41148,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lõi",
           "zh": "軸兒 / 諳練",
           "zhSpoken": "軸兒，諳練",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Lõi này rất cần thiết cho công việc.",
-          "exampleZh": "這個「軸兒」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2929",
@@ -41243,8 +41165,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "免疫",
           "category": "實用生活",
-          "example": "Miễn dịch này rất cần thiết cho công việc.",
-          "exampleZh": "這個「免疫」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2930",
@@ -41291,7 +41213,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tương",
           "zh": "豆瓣兒醬 / 漿",
           "zhSpoken": "豆瓣兒醬，漿",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "醬",
           "category": "實用生活",
@@ -41321,8 +41243,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể buộc tội giúp tôi không?",
-          "exampleZh": "你能幫我定罪嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2936",
@@ -41334,8 +41256,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "本抄",
           "category": "實用生活",
-          "example": "bản sao",
-          "exampleZh": "翻刻本。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2937",
@@ -41347,8 +41269,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Cử tri này rất cần thiết cho công việc.",
-          "exampleZh": "這個「選民」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2938",
@@ -41356,12 +41278,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "nắm bắt",
           "zh": "把握 / 攬總",
           "zhSpoken": "把握，攬總",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể nắm bắt giúp tôi không?",
-          "exampleZh": "你能幫我把握嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2939",
@@ -41412,8 +41334,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "運",
           "category": "生活社交動詞",
-          "example": "Bạn có thể vận giúp tôi không?",
-          "exampleZh": "你能幫我穿着嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2943",
@@ -41425,8 +41347,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "外語",
           "category": "實用生活",
-          "example": "Ngoại ngữ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「外語」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2944",
@@ -41464,8 +41386,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Chứng chỉ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「證書」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2947",
@@ -41517,7 +41439,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "姿勢",
           "category": "實用生活",
           "example": "bài quyền anh ấy luyện tập có tư thế rất đẹp",
-          "exampleZh": "他練的這套拳, 式子擺得很好。"
+          "exampleZh": "他練的這套拳，式子擺得很好。"
         }
       ],
       "duration": 740.7
@@ -41553,12 +41475,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "lành mạnh",
           "zh": "弊絕風清 / 康健",
           "zhSpoken": "弊絕風清，康健",
-          "en": "vocabulary",
+          "en": "",
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất lành mạnh và quan trọng.",
-          "exampleZh": "這非常弊絕風清且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2953",
@@ -41570,8 +41492,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể đau đầu giúp tôi không?",
-          "exampleZh": "你能幫我頭疼嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2954",
@@ -41609,8 +41531,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Thi thể này rất cần thiết cho công việc.",
-          "exampleZh": "這個「屍身」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2957",
@@ -41635,8 +41557,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Gam này rất cần thiết cho công việc.",
-          "exampleZh": "這個「克」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2959",
@@ -41657,7 +41579,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tổng thể",
           "zh": "大致 / 概",
           "zhSpoken": "大致，概",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "總體",
           "category": "實用生活",
@@ -41726,8 +41648,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "塞",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tắc giúp tôi không?",
-          "exampleZh": "你能幫我咑嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2966",
@@ -41752,8 +41674,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "花紅",
           "category": "實用生活",
-          "example": "Hoa hồng này rất cần thiết cho công việc.",
-          "exampleZh": "這個「紅」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2968",
@@ -41761,7 +41683,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tình báo",
           "zh": "諜報 / 情報",
           "zhSpoken": "諜報，情報",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "情報",
           "category": "實用生活",
@@ -41791,8 +41713,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất mới mẻ và quan trọng.",
-          "exampleZh": "這非常別緻且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2971",
@@ -41805,7 +41727,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "觸犯",
           "category": "生活社交動詞",
           "example": "nó làm nhiều chuyện xúc phạm đến mọi người",
-          "exampleZh": "他做了很多得罪人的事兒。 凌。"
+          "exampleZh": "他做了很多得罪人的事兒。"
         },
         {
           "id": "freq_2972",
@@ -41817,8 +41739,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Hà tĩnh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「河靜」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2973",
@@ -41856,8 +41778,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "形容",
           "category": "生活社交動詞",
-          "example": "Bạn có thể hình dung giúp tôi không?",
-          "exampleZh": "你能幫我形容嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2976",
@@ -41895,8 +41817,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "智",
           "category": "實用生活",
-          "example": "Trí này rất cần thiết cho công việc.",
-          "exampleZh": "這個「智」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2979",
@@ -41934,8 +41856,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Tủ lạnh này rất cần thiết cho công việc.",
-          "exampleZh": "這個「冰櫃」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2982",
@@ -41943,12 +41865,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "tỉnh uỷ",
           "zh": "省委會",
           "zhSpoken": "省委會",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "省委",
           "category": "實用生活",
-          "example": "Tỉnh uỷ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「省委會」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2983",
@@ -41960,8 +41882,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể ôn giúp tôi không?",
-          "exampleZh": "你能幫我溫嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2984",
@@ -41986,8 +41908,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Mầm non này rất cần thiết cho công việc.",
-          "exampleZh": "這個「苗子」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2986",
@@ -41995,7 +41917,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "trời đất",
           "zh": "乾坤 / 天壤",
           "zhSpoken": "乾坤，天壤",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
@@ -42012,8 +41934,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "祭",
           "category": "生活社交動詞",
-          "example": "Bạn có thể tế giúp tôi không?",
-          "exampleZh": "你能幫我奠儀嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2988",
@@ -42025,8 +41947,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "解脫",
           "category": "生活社交動詞",
-          "example": "Bạn có thể giải thoát giúp tôi không?",
-          "exampleZh": "你能幫我蟬蛻嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2989",
@@ -42038,8 +41960,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "形容詞",
           "hanViet": "",
           "category": "情境修飾",
-          "example": "Điều này rất vĩnh viễn và quan trọng.",
-          "exampleZh": "這非常不盡且重要。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2990",
@@ -42047,12 +41969,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "y như",
           "zh": "活活 / 好似",
           "zhSpoken": "活活，好似",
-          "en": "vocabulary",
+          "en": "",
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể y như giúp tôi không?",
-          "exampleZh": "你能幫我活活嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2991",
@@ -42064,8 +41986,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể rớt giúp tôi không?",
-          "exampleZh": "你能幫我榜上無名嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2992",
@@ -42104,7 +42026,7 @@ export const VOCAB_BATCHES_BY_TIER = {
           "hanViet": "餘",
           "category": "情境修飾",
           "example": "tiền anh đýa dư rồi, xin hoàn lại anh",
-          "exampleZh": "你的錢給多了, 還你吧。"
+          "exampleZh": "你的錢給多了，還你吧。"
         },
         {
           "id": "freq_2995",
@@ -42129,8 +42051,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "動詞",
           "hanViet": "",
           "category": "生活社交動詞",
-          "example": "Bạn có thể nhìn nhận giúp tôi không?",
-          "exampleZh": "你能幫我論嗎？"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2997",
@@ -42142,8 +42064,8 @@ export const VOCAB_BATCHES_BY_TIER = {
           "pos": "名詞",
           "hanViet": "國路",
           "category": "實用生活",
-          "example": "Quốc lộ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「公路」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2998",
@@ -42151,12 +42073,12 @@ export const VOCAB_BATCHES_BY_TIER = {
           "viet": "đảng uỷ",
           "zh": "黨委",
           "zhSpoken": "黨委",
-          "en": "vocabulary",
+          "en": "",
           "pos": "名詞",
           "hanViet": "",
           "category": "實用生活",
-          "example": "Đảng uỷ này rất cần thiết cho công việc.",
-          "exampleZh": "這個「黨委」在工作上非常必需。"
+          "example": "",
+          "exampleZh": ""
         },
         {
           "id": "freq_2999",
@@ -42195,6 +42117,6 @@ export const VOCAB_1000_BATCHES = VOCAB_BATCHES_BY_TIER['top1k'] || [];
 export const VOCAB_ALL_BATCH_STATS = {
   totalTiers: 3,
   totalBatches: 64,
-  totalWords: 3170,
-  totalDurationMinutes: 779.3
+  totalWords: 3164,
+  totalDurationMinutes: 771.6
 };

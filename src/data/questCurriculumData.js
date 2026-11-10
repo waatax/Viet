@@ -6,6 +6,7 @@
  */
 
 import { questEnrichment } from './questEnrichment.js';
+import { EXTRA_QUEST_LISTENING } from './contentExpansion.js';
 
 const c = (prompt, answer, others, why, hint, audioText) => ({
   type: 'choice',
@@ -831,6 +832,8 @@ QUEST_UNITS.forEach((unit, unitIndex) => {
   unit.nodes.forEach((node, nodeIndex) => {
     const [vi, meaning, others, why] = questEnrichment[unitIndex * 4 + nodeIndex];
     node.questions.push(l(vi, '實戰加一題：聽完後，選出符合情境的意思。', meaning, others, why, '先抓動作、時間和否定詞；需要時可展開字幕再練。'));
+    const [vi2, meaning2, others2, why2] = EXTRA_QUEST_LISTENING[unitIndex * 4 + nodeIndex];
+    node.questions.push(l(vi2, '情境聽力第二題：聽完整句，選出正確的意思。', meaning2, others2, why2, '先聽數字、時間、人物關係與否定詞，再對照選項。'));
     node.questions.forEach((question, index) => { question.id = `${node.id}-q${index + 1}`; });
   });
 });

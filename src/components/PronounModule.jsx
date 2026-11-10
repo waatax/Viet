@@ -1,3 +1,4 @@
+import { EXTRA_PRONOUN_ROLES } from '../data/contentExpansion';
 import React, { useState, useEffect, useMemo } from 'react';
 import { Users, HelpCircle, CheckCircle, Volume2, Sparkles, UserCheck, ArrowRight, BookOpen, ShieldCheck, Award, Briefcase, Building, Home } from 'lucide-react';
 import { pronounKinshipData, corporatePronounHierarchy, politenessRules } from '../data/vietnameseData';
@@ -97,6 +98,8 @@ export const MASTER_PRONOUN_MATRIX = [
     exampleZh: '總經理您好！(晚輩自稱 em，句尾 ạ)'
   }
 ];
+MASTER_PRONOUN_MATRIX.push(...EXTRA_PRONOUN_ROLES);
+
 
 export const PronounModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, loc } = useLanguage();

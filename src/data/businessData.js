@@ -1,3 +1,4 @@
+import { EXTRA_BUSINESS_TEST, EXTRA_CURRENCY_BLITZ } from './contentExpansion.js';
 /**
  * businessData.js
  * Comprehensive Business Travel, Expatriate Management & High-Stakes Negotiation Dataset.
@@ -814,6 +815,8 @@ export const currencyBlitzQuestions = [
     explainZh: '7.800.000 / 780 = 正好約 10,000 新台幣。心算口訣：扣除 3 個零後除以 0.78。'
   }
 ];
+currencyBlitzQuestions.push(...EXTRA_CURRENCY_BLITZ);
+
 
 // ==========================================================================
 // 9. EXECUTIVE HAN-VIET ROOTS
@@ -1054,3 +1057,5 @@ export const businessProficiencyTest = [
     explainZh: '正確！「Phế phẩm」(廢品/不良品)。合約明訂良品率標準，若不良率超標，採購方有權要求「Từ chối nghiệm thu」(拒絕驗收) 並責令供應商返工整改。'
   }
 ];
+businessProficiencyTest.push(...EXTRA_BUSINESS_TEST);
+

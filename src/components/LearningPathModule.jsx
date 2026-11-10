@@ -1,3 +1,4 @@
+import { EXTRA_ETIQUETTE_TIPS, EXTRA_PROVERBS } from '../data/contentExpansion';
 import React, { useState, useEffect, useMemo } from 'react';
 import {
   Compass, CheckCircle, Circle, Target, BookOpen, ArrowRight, Flag, Sparkles,
@@ -212,6 +213,8 @@ export const VIETNAMESE_ETIQUETTE_TIPS = [
     bg: 'rgba(139, 92, 246, 0.12)'
   }
 ];
+VIETNAMESE_ETIQUETTE_TIPS.push(...EXTRA_ETIQUETTE_TIPS);
+
 
 export const VIETNAMESE_PROVERBS = [
   {
@@ -278,6 +281,8 @@ export const VIETNAMESE_PROVERBS = [
     audioText: 'Muốn biết phải hỏi, muốn giỏi phải học'
   }
 ];
+VIETNAMESE_PROVERBS.push(...EXTRA_PROVERBS);
+
 
 export const ADAPTIVE_TRACKS = [
   {

@@ -1,3 +1,4 @@
+import { EXTRA_SCENARIO_EXEGESIS } from './contentExpansion.js';
 /**
  * Comprehensive Scenario Exegesis & Knowledge Lore Dataset (實戰情境深度研經資料庫)
  * 專為日常旅遊、生活、商務情境提供「句型公式拆解、漢越字源考、南北越方言對照、文化習俗錦囊、道地日常口語」5大維度深度研經。
@@ -315,6 +316,8 @@ export const SCENARIO_EXEGESIS = {
     ]
   }
 };
+Object.assign(SCENARIO_EXEGESIS, EXTRA_SCENARIO_EXEGESIS);
+
 
 /**
  * 輔助檢索：取得指定情境的研經資料，若無專屬研經則回傳共通實戰研經架構

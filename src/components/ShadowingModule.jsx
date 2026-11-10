@@ -39,7 +39,7 @@ const scenarioDialoguePhrases = situationalScenarios.slice(0, 8).flatMap(sc =>
   }))
 );
 
-const ALL_SHADOWING_PHRASES = [...practicalPhrases, ...scenarioDialoguePhrases];
+export const ALL_SHADOWING_PHRASES = [...practicalPhrases, ...scenarioDialoguePhrases];
 
 const ShadowingModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode } = useLanguage();

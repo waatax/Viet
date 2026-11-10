@@ -1,3 +1,4 @@
+import { EXTRA_MINIMAL_PAIRS } from '../data/contentExpansion';
 
 export const mouthPhoneticGuide = [
   {
@@ -145,6 +146,8 @@ export const TAIWAN_MINIMAL_PAIRS = [
     audio2: 'bàng'
   }
 ];
+TAIWAN_MINIMAL_PAIRS.push(...EXTRA_MINIMAL_PAIRS);
+
 
 import React, { useState, useEffect, useRef } from 'react';
 import {

@@ -1,3 +1,4 @@
+import { EXTRA_RESEARCH_THEORIES } from '../data/contentExpansion';
 import React, { useState } from 'react';
 import {
   Brain, GraduationCap, Sparkles, Target, Layers, Volume2, ShieldCheck,
@@ -186,6 +187,8 @@ export const RESEARCH_PANELS = [
     ]
   }
 ];
+RESEARCH_PANELS.forEach((panel) => { if (EXTRA_RESEARCH_THEORIES[panel.id]) panel.theories.push(...EXTRA_RESEARCH_THEORIES[panel.id]); });
+
 
 export const ScientificMethodModule = () => {
   const { learningMode } = useLanguage();

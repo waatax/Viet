@@ -1,86 +1,44 @@
 /**
  * srsEngine.js
- * Implementation of SuperMemo-2 (SM-2) Spaced Repetition Algorithm.
+ * Storage wrapper for spaced-repetition data. The scheduling maths lives in flashcardScheduler.js
+ * so every surface (flashcards, topic decks, learning path stats) schedules a card the same way.
  */
+import { schedule, RATING_QUALITY } from './flashcardScheduler.js';
+
+const STORAGE_KEY = 'viet_srs_data';
 
 export const srsEngine = {
-  /**
-   * Initialize or get SRS data from localStorage
-   */
   loadSrsData: () => {
     try {
-      const data = localStorage.getItem('viet_srs_data');
+      const data = localStorage.getItem(STORAGE_KEY);
       return data ? JSON.parse(data) : {};
     } catch {
       return {};
     }
   },
 
-  /**
-   * Save SRS data to localStorage
-   */
   saveSrsData: (data) => {
     try {
-      localStorage.setItem('viet_srs_data', JSON.stringify(data));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch (e) {
-      console.error("Failed to save SRS data", e);
+      console.error('Failed to save SRS data', e);
     }
   },
 
   /**
-   * Calculate next interval and ease factor based on SM-2 algorithm.
    * @param {Object} cardData - { easeFactor, interval, repetitions, dueDate }
-   * @param {number} quality - Rating from 0 to 5 (0: Again, 3: Hard, 4: Good, 5: Easy)
-   * @returns {Object} Updated card data
+   * @param {number|string} quality - 0..5, or 'again' | 'hard' | 'good' | 'easy'
    */
-  calculateSM2: (cardData, quality) => {
-    let { easeFactor = 2.5, interval = 0, repetitions = 0 } = cardData || {};
+  calculateSM2: (cardData, quality) => schedule(cardData, quality),
 
-    if (quality >= 3) {
-      // Pass
-      if (repetitions === 0) {
-        interval = 1;
-      } else if (repetitions === 1) {
-        interval = 6;
-      } else {
-        interval = Math.round(interval * easeFactor);
-      }
-      repetitions += 1;
-    } else {
-      // Fail
-      repetitions = 0;
-      interval = 1;
-    }
-
-    // Adjust ease factor
-    easeFactor = easeFactor + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02));
-    if (easeFactor < 1.3) easeFactor = 1.3;
-
-    // Calculate next due date
-    const dueDate = Date.now() + interval * 24 * 60 * 60 * 1000;
-
-    return {
-      easeFactor,
-      interval,
-      repetitions,
-      dueDate
-    };
-  },
-
-  /**
-   * Process a card review and save it to storage
-   * @param {string|number} cardId 
-   * @param {number} quality 0-5
-   * @returns {Object} updated card data
-   */
   reviewCard: (cardId, quality) => {
     const srsData = srsEngine.loadSrsData();
-    const currentData = srsData[cardId] || {};
-    
-    const updatedData = srsEngine.calculateSM2(currentData, quality);
+    const updatedData = schedule(srsData[cardId] || {}, quality);
     srsData[cardId] = updatedData;
-    
     srsEngine.saveSrsData(srsData);
     return updatedData;
-  }
+  },
+
+  /** Accepts the rating names used by topic decks ('again' | 'hard' | 'good' | 'easy'). */
+  recordReview: (cardId, rating) => srsEngine.reviewCard(cardId, typeof rating === 'string' ? (RATING_QUALITY[rating] ?? 4) : rating)
 };

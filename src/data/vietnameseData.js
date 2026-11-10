@@ -1,3 +1,4 @@
+import { EXTRA_ACCENT_WORDS, EXTRA_SHOPPING_PHRASES, EXTRA_HANVIET_ROOTS, EXTRA_PHRASES, EXTRA_QUIZZES } from './contentExpansion.js';
 /**
  * Comprehensive Dual-Subsystem Vietnamese Learning Dataset
  * (越語學習通雙軌完整數據庫 · 台灣教育部課綱 / iVPT / 漢越音 / 雙子系統全向支援)
@@ -924,6 +925,8 @@ export const accentDifferences = {
     }
   ]
 };
+accentDifferences.wordComparisonMatrix.push(...EXTRA_ACCENT_WORDS);
+
 
 // 4. 數字、貨幣換算與商務金融 (Numbers & VND Currency Simulator)
 export const numbersAndCurrency = {
@@ -1105,6 +1108,8 @@ export const numbersAndCurrency = {
     { ruleZh: '日常俗稱語', ruleEn: 'Slang Currency Terms', textZh: '年輕人口語 "50k" = 50.000đ；"1 củ" = 100萬盾；"1 cọc/cây" = 1億盾/1,000萬盾', textEn: 'Colloquial "50k" = 50,000 VND; "1 củ" = 1M VND; "1 cây" = 10M/100M VND' }
   ]
 };
+numbersAndCurrency.shoppingPhrases.push(...EXTRA_SHOPPING_PHRASES);
+
 
 // 5. 漢越音百字根庫 (Hán Việt Root Explorer - 40%-70% of Vietnamese Vocab)
 export const hanVietRoots = [
@@ -1922,6 +1927,8 @@ export const hanVietRoots = [
     ]
   }
 ];
+hanVietRoots.push(...EXTRA_HANVIET_ROOTS);
+
 
 // 6. 越南語人稱代詞與稱謂推算器 (Kinship & Pronoun Calculator)
 export const pronounKinshipData = [
@@ -8532,6 +8539,8 @@ export const practicalPhrases = [
     "usageEn": "See you soon farewell"
   },
 ];
+practicalPhrases.push(...EXTRA_PHRASES);
+
 
 // 9. SRS 間隔記憶閃卡庫 (Spaced Repetition Flashcards Deck - 100 Cards Full Matrix)
 export const flashcardsDeck = [
@@ -9416,6 +9425,8 @@ export const quizzes = [
     ]
   }
 ];
+quizzes.push(...EXTRA_QUIZZES);
+
 
 // 13. 學習路徑總綱 (Learning Path: Absolute Beginner → Advanced)
 // 對應台灣教育部本土語文（東南亞語文）課綱能力指標 + iVPT 檢定分級 + CEFR 對照

@@ -1,3 +1,4 @@
+import { EXTRA_CONFUSABLE_PAIRS } from './contentExpansion.js';
 /**
  * Confusable & Minimal Pairs Mnemonic Flashcards Dataset (相近似字詞·攣生對比記憶法庫)
  * 
@@ -1605,6 +1606,8 @@ export const CONFUSABLE_PAIRS = [
     }
   }
 ];
+CONFUSABLE_PAIRS.push(...EXTRA_CONFUSABLE_PAIRS);
+
 
 export const CONFUSABLE_STATS = {
   totalPairs: CONFUSABLE_PAIRS.length,

@@ -1,6 +1,9 @@
+// Exports the learner-facing vocabulary (Top 1,000 corrections applied, noise rows removed)
+// for the ear-training batch generator: scripts/generate_all_vocab_batches.py
 import fs from 'fs';
-import { FREQUENCY_VOCABULARY } from '../src/data/frequencyVocabularyData.js';
+import { VOCABULARY } from '../src/data/vocabularyQuality.js';
 
-console.log(`Exporting ${FREQUENCY_VOCABULARY.length} words...`);
-fs.writeFileSync('scripts/all_10000_words.json', JSON.stringify(FREQUENCY_VOCABULARY, null, 2), 'utf-8');
+const rows = VOCABULARY.map(({ verified, exampleKind, note, ...w }) => w);
+console.log(`Exporting ${rows.length} words...`);
+fs.writeFileSync('scripts/all_10000_words.json', JSON.stringify(rows, null, 2), 'utf-8');
 console.log('Saved scripts/all_10000_words.json');

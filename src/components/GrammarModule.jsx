@@ -1,3 +1,4 @@
+import { EXTRA_GRAMMAR_DRILLS } from '../data/contentExpansion';
 export const EXPANDED_GRAMMAR_RULES = [
   {
     titleZh: '1. 基本 SVO 語序 (主詞 + 動詞 + 受詞)',
@@ -483,6 +484,8 @@ export const GRAMMAR_DRILLS = [
     audioText: 'Đừng lo lắng, bạn làm được mà!'
   }
 ];
+GRAMMAR_DRILLS.push(...EXTRA_GRAMMAR_DRILLS);
+
 
 import React, { useState, useEffect } from 'react';
 import {

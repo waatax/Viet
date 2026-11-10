@@ -74,7 +74,8 @@ async def synth(text: str, voice: str, filepath: str, rate: str = "+0%") -> bool
     async with sem:
         for attempt in range(2):
             try:
-                await edge_tts.Communicate(text, voice, rate=rate).save(filepath)
+                # a stalled websocket must not hang the whole batch
+                await asyncio.wait_for(edge_tts.Communicate(text, voice, rate=rate).save(filepath), 45)
                 if os.path.exists(filepath) and os.path.getsize(filepath) > 200:
                     stats["generated"] += 1
                     done = stats["generated"] + stats["skipped"]

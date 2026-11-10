@@ -1,3 +1,4 @@
+import { EXTRA_FAST_TRACK_PHRASES } from '../data/contentExpansion';
 
 export const FAST_TRACK_DRILLS = {
   1: { sentence: 'Rất vui được gặp bạn!', words: ['Rất', 'vui', 'được', 'gặp', 'bạn!'], meaningZh: '很高興認識你！' },
@@ -598,6 +599,8 @@ export const FAST_TRACK_DAYS = [
     }
   }
 ];
+FAST_TRACK_DAYS.forEach((day, i) => { if (EXTRA_FAST_TRACK_PHRASES[i]) day.phrases.push(EXTRA_FAST_TRACK_PHRASES[i]); });
+
 
 const getFastTrackPartnerVisual = (day, speaker = '', learningMode = 'zh') => {
   const isSpeakerA = (speaker || '').startsWith('A');

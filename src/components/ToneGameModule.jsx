@@ -1,3 +1,4 @@
+import { EXTRA_TRICKY_TONES, EXTRA_REAL_TONE_WORDS } from '../data/contentExpansion';
 import React, { useState, useEffect, useRef } from 'react';
 import {
   Music, Volume2, Trophy, Flame, RefreshCw, XCircle, CheckCircle2,
@@ -150,7 +151,7 @@ const generateCombinations = () => {
 const EASY_COMBOS = generateCombinations();
 
 // Difficulty 2: Tricky Minimal Pairs
-const TRICKY_PAIRS = [
+export const TRICKY_PAIRS = [
   { word: 'mả', tone: 'hoi', base: 'ma', hint: 'mả (墳墓 · 問聲降揚)', level: 'tricky' },
   { word: 'mã', tone: 'nga', base: 'ma', hint: 'mã (碼/馬 · 跌聲聲門微阻)', level: 'tricky' },
   { word: 'ngủ', tone: 'hoi', base: 'ngu', hint: 'ngủ (睡覺 · 問聲)', level: 'tricky' },
@@ -172,9 +173,11 @@ const TRICKY_PAIRS = [
   { word: 'lấy', tone: 'sac', base: 'lay', hint: 'lấy (取得/娶妻 · 銳聲急促)', level: 'tricky' },
   { word: 'lạy', tone: 'nang', base: 'lay', hint: 'lạy (跪拜/頂禮 · 重聲短促斷聲)', level: 'tricky' }
 ];
+TRICKY_PAIRS.push(...EXTRA_TRICKY_TONES);
+
 
 // Difficulty 3: Real Everyday Words
-const REAL_WORDS = [
+export const REAL_WORDS = [
   { word: 'phở', tone: 'hoi', base: 'pho', hint: 'phở (河粉 · 問聲起伏)', level: 'real' },
   { word: 'bún', tone: 'sac', base: 'bun', hint: 'bún (米線 · 銳聲急升)', level: 'real' },
   { word: 'cơm', tone: 'ngang', base: 'com', hint: 'cơm (米飯 · 平聲平緩)', level: 'real' },
@@ -188,6 +191,8 @@ const REAL_WORDS = [
   { word: 'bệnh', tone: 'nang', base: 'benh', hint: 'bệnh (疾病 · 重聲)', level: 'real' },
   { word: 'chào', tone: 'huyen', base: 'chao', hint: 'chào (問好 · 玄聲)', level: 'real' }
 ];
+REAL_WORDS.push(...EXTRA_REAL_TONE_WORDS);
+
 
 export const ToneGameModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab: setModuleTab }) => {
   const { learningMode } = useLanguage();

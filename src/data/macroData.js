@@ -1,3 +1,4 @@
+import { EXTRA_MACRO_GLOSSARY } from './contentExpansion.js';
 /**
  * 越南政經 (Vietnam Politics & Economy) 數據核心庫
  * 涵蓋：5 年每週 USD/VND 與 TWD/VND 歷史匯率、越南國家銀行 (SBV) 政策利率、
@@ -2770,6 +2771,8 @@ export const macroVocabularyGlossary = [
   { viet: 'Hệ sinh thái bán dẫn', hanViet: '係生態半導', meaning: '半導體產業生態鏈', sample: 'Việt Nam đang nỗ lực xây dựng hệ sinh thái bán dẫn hoàn chỉnh từ thiết kế đến đóng gói.' },
   { viet: 'Cơ chế thử nghiệm có kiểm soát (Sandbox)', hanViet: '機制試驗有檢索', meaning: '金融監理沙盒', sample: 'Cơ chế Sandbox tại Thủ Thiêm cho phép thử nghiệm các dịch vụ tài chính công nghệ mới.' }
 ];
+macroVocabularyGlossary.push(...EXTRA_MACRO_GLOSSARY);
+
 
 // ── 9. 權威參考來源與官方即時連結專區 (Official Reference Sources Directory) ──
 export const officialReferenceSources = [

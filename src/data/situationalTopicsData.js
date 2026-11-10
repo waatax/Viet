@@ -1,3 +1,4 @@
+import { EXTRA_TOPIC_FLASHCARDS } from './contentExpansion.js';
 /**
  * 7大核心深度情境教學數據庫 (Situational Topics Mastery Dataset)
  * 權威收錄：
@@ -1318,3 +1319,5 @@ export const SITUATIONAL_TOPICS = [
     }
   }
 ];
+SITUATIONAL_TOPICS.forEach((topic) => { const extra = EXTRA_TOPIC_FLASHCARDS[topic.id]; if (extra && topic.flashcardDeck) topic.flashcardDeck.push(extra); });
+

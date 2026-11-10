@@ -1,3 +1,4 @@
+import { EXTRA_EMERGENCY_CARDS } from '../data/contentExpansion';
 import React, { useState, useEffect } from 'react';
 import {
   LifeBuoy, Volume2, Search, Sparkles, Filter, ChevronRight, ShieldAlert,
@@ -364,6 +365,8 @@ export const EMERGENCY_CARDS = [
     situationEn: 'Politely asking a local for help.'
   }
 ];
+EMERGENCY_CARDS.push(...EXTRA_EMERGENCY_CARDS);
+
 
 // 高階緊急避坑與自救指南 (Advanced Critical Survival Insights)
 export const SURVIVAL_CRITICAL_TIPS = [
