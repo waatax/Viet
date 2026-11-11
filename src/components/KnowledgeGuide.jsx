@@ -20,17 +20,17 @@ import {
   Headphones,
   Sparkles,
   BarChart2,
-  ShieldCheck,
-  Layers,
-  Filter,
-  SlidersHorizontal,
+  Heart,
+  Mic,
   X
 } from 'lucide-react';
 import { knowledgeGuides, curriculumStages, knowledgeMaps, speakableVi, knowledgeCanDo, chapterKnowledge, listeningChecks } from '../data/knowledgeGuides';
 import { correctionSteps, transferQuestions, knowledgeReferences } from '../data/knowledgeExtensions';
 import { conceptDetails } from '../data/conceptDetails';
+import { subjectSparks, allModuleMasteryItems } from '../data/knowledgeMasteryData';
 import { SYLLABUS_REGISTRY } from '../config/syllabusRegistry';
 import { loadKnowledgeProgress, saveKnowledgeProgress, errorRepairs } from '../services/knowledgeProgress';
+import { loadModuleMasteredPoints, loadLovedSubjects, toggleLovedSubject } from '../services/bridgeProgress';
 import { KnowledgeDiagram } from './KnowledgeDiagram';
 import { KnowledgeChart } from './KnowledgeChart';
 import { ConceptInfograph } from './ConceptInfograph';
@@ -52,12 +52,19 @@ const TIER_DESCS = {
 export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectChapter, setActiveTab }) {
   const guide = knowledgeGuides[moduleId];
   const moduleConceptDetails = conceptDetails[moduleId] || [];
+  const spark = subjectSparks[moduleId];
+  const masteryItems = allModuleMasteryItems[moduleId] || [];
 
   // Every example is voiced: the Vietnamese, then (in 越＋中 mode) its Taiwan Mandarin meaning
   const exampleLines = useMemo(() => (guide?.rows || []).map(([, vi, zh]) => ({ viet: speakableVi(vi), zh })), [guide]);
-  const speakExample = (i, withMeaning) => {
+  const speakExample = (i, withMeaning, rate = 1) => {
     const line = exampleLines[i];
-    audioEngine.speak(line.viet, { lang: 'vi', accent: selectedAccent, onEnd: withMeaning ? () => audioEngine.speak(line.zh, { lang: 'zh' }) : undefined });
+    audioEngine.speak(line.viet, {
+      lang: 'vi',
+      accent: selectedAccent,
+      rate,
+      onEnd: withMeaning ? () => audioEngine.speak(line.zh, { lang: 'zh' }) : undefined
+    });
   };
 
   const chapters = SYLLABUS_REGISTRY.filter(c => c.moduleId === moduleId);
@@ -72,6 +79,12 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
   const [errorType, setErrorType] = useState(saved.errorType);
   const [storageAvailable, setStorageAvailable] = useState(true);
 
+  // Interactive 200-point mastery & subject love states
+  const [activeSprintPoint, setActiveSprintPoint] = useState(guide ? guide.rows.length - 1 : 9);
+  const [sprintMastered, setSprintMastered] = useState(() => loadModuleMasteredPoints(moduleId, guide?.rows.length || 10));
+  const [lovedList, setLovedList] = useState(() => loadLovedSubjects());
+  const isSubjectLoved = lovedList.includes(moduleId);
+
   // UI/UX Enhanced State: Tier filter, search filter, and infographic mode toggle
   const [tierFilter, setTierFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -81,9 +94,23 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
     setStorageAvailable(saveKnowledgeProgress(moduleId, { checks, recalled, errorType }));
   }, [moduleId, checks, recalled, errorType]);
 
+  const jumpToSprintPoint = (idx) => {
+    setActiveSprintPoint(idx);
+    document.getElementById(`sprint-box-${moduleId}`)?.scrollIntoView({
+      behavior: typeof window !== 'undefined' && window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+      block: 'start'
+    });
+  };
+
+  const handleToggleLove = () => {
+    audioEngine.playHaptic?.('success');
+    const res = toggleLovedSubject(moduleId);
+    setLovedList(res.list);
+  };
+
   const chapter = chapters.find(c => c.id === chapterId);
   const chapterLinks = chapter ? chapterKnowledge(chapter, guide).filter(concept => guide.rows.some(r => r[0] === concept)) : [];
-  
+
   const openCard = (i) => {
     setRevealed(prev => prev.includes(i) ? prev : [...prev, i]);
     document.getElementById(`kg-card-${moduleId}-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -103,6 +130,9 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
   const [transferQuestion, transferOptions, transferCorrect, transferExplanation] = transferQuestions[moduleId];
   const listening = listeningChecks[moduleId];
 
+  // Unified mastered indices (either checked off in recall cards or completed in 聽說讀 Sprint)
+  const combinedMastered = [...new Set([...recalled, ...sprintMastered])];
+
   // Calculate counts per tier for filter badges
   const tierCounts = {
     all: guide.rows.length,
@@ -121,7 +151,94 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
         <span className="kg-level">{curriculumStages[guide.stage - 1].level}</span>
       </header>
 
-      <KnowledgeSprint key={moduleId} moduleId={moduleId} accent={selectedAccent} />
+      {/* ✨ 為什麼你會愛上這門學科 (Subject Spark & 聽說讀攻略) */}
+      {spark && (
+        <section className="kg-subject-spark" aria-labelledby={`spark-title-${moduleId}`}>
+          <div className="kg-spark-top">
+            <div>
+              <span className="kg-spark-badge">{spark.badge} · {spark.disciplineName}</span>
+              <h3 id={`spark-title-${moduleId}`}><Sparkles size={19} aria-hidden="true" /> 為什麼你會愛上這門知識學科</h3>
+              <p className="kg-spark-hook">{spark.sparkHook}</p>
+            </div>
+            <button
+              type="button"
+              className={`kg-love-btn ${isSubjectLoved ? 'kg-love-active' : ''}`}
+              onClick={handleToggleLove}
+            >
+              <Heart size={16} aria-hidden="true" fill={isSubjectLoved ? 'currentColor' : 'none'} />
+              <span>{isSubjectLoved ? '已收藏喜愛的學科 ❤️' : '我喜歡這門學科'}</span>
+            </button>
+          </div>
+
+          <div className="kg-spark-aha">
+            <strong>💡 學科驚奇發現（Aha! 亮點）：</strong>
+            <span>{spark.ahaInsight}</span>
+          </div>
+
+          <div className="kg-spark-3d" role="group" aria-label="本學科聽說讀三維攻略">
+            <div className="kg-spark-pillar">
+              <strong><Headphones size={16} aria-hidden="true" /> 🎧 聽力秘訣</strong>
+              <p>{spark.listenGuide}</p>
+            </div>
+            <div className="kg-spark-pillar">
+              <strong><BookOpen size={16} aria-hidden="true" /> 📖 閱讀解碼</strong>
+              <p>{spark.readGuide}</p>
+            </div>
+            <div className="kg-spark-pillar">
+              <strong><Mic size={16} aria-hidden="true" /> 🗣️ 開口實戰</strong>
+              <p>{spark.speakGuide}</p>
+            </div>
+          </div>
+
+          <div className="kg-spark-mastery-bar">
+            <div className="kg-spark-mastery-copy">
+              <strong>🌟 本科 {guide.rows.length} 個知識點「聽・說・讀」掌握度：{combinedMastered.length} / {guide.rows.length}</strong>
+              <div className="kg-spark-actions">
+                {isSubjectLoved && <span className="kg-spark-affirm">{spark.joyAffirmation}</span>}
+                {combinedMastered.length < guide.rows.length ? (
+                  <button
+                    type="button"
+                    className="kg-next-unmastered-btn"
+                    onClick={() => {
+                      const nextIdx = guide.rows.findIndex((_, idx) => !combinedMastered.includes(idx));
+                      jumpToSprintPoint(nextIdx >= 0 ? nextIdx : 0);
+                    }}
+                  >
+                    🚀 挑戰下一個未掌握知識點
+                  </button>
+                ) : (
+                  <span className="kg-spark-crown">👑 恭喜！本學科 10 大知識點聽說讀全制霸！</span>
+                )}
+              </div>
+            </div>
+            <div className="kg-spark-stars">
+              {guide.rows.map(([c], idx) => {
+                const done = combinedMastered.includes(idx);
+                return (
+                  <button
+                    key={c}
+                    type="button"
+                    className={`kg-star-chip ${done ? 'kg-star-done' : ''}`}
+                    onClick={() => jumpToSprintPoint(idx)}
+                    title={`點選進入第 ${idx + 1} 點「${c}」聽說讀練習`}
+                  >
+                    {done ? '★' : idx + 1} {c}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <KnowledgeSprint
+        key={moduleId}
+        moduleId={moduleId}
+        accent={selectedAccent}
+        selectedPointIndex={activeSprintPoint}
+        onSelectPoint={setActiveSprintPoint}
+        onMasteryUpdate={setSprintMastered}
+      />
 
       {/* Quick Jump Navigation Pill Bar */}
       <nav className="kg-quick-nav" aria-label="本單元核心導覽" onClick={event => {
@@ -169,7 +286,7 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
         <div className="kg-recall-header-block">
           <div className="kg-recall-title-wrap">
             <h3 id={`recall-${moduleId}`}><EyeOff size={20} aria-hidden="true" /> 知識點逐項回想與深度解構 （{guide.rows.length} 個知識點全量圖解）</h3>
-            <p>先收起上方對照表，播放純越文、說出意思與使用規則，再展開核對；需要時改播「越＋中」對照。每個知識點均配備專屬微型向量圖解 (INFOGRAPH) 與避坑指引。</p>
+            <p>先收起上方對照表，播放純越文、說出意思與使用規則，再展開核對；需要時改播「越＋中」對照，或點選「聽說讀闖關」進入上方四步實戰。每個知識點均配備專屬微型向量圖解 (INFOGRAPH) 與避坑指引。</p>
           </div>
 
           {/* Interactive UI/UX Toolbar: Tier Filters, Live Search, & Batch Controls */}
@@ -264,6 +381,8 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
           {guide.rows.map(([concept, vi, meaning, rule], i) => {
             const tier = guide.tiers?.[i] || 'basic';
             const detail = moduleConceptDetails[i];
+            const masteryItem = masteryItems[i];
+            const isMastered = combinedMastered.includes(i);
 
             // Client-side filtering check
             const matchesTier = tierFilter === 'all' || tier === tierFilter;
@@ -289,6 +408,7 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
                 <div className="kg-card-header-row">
                   <span className={`kg-eyebrow kg-tier-${tier}`}>
                     {TIER_ICONS[tier]} {TIER_LABELS[tier]} · {i + 1}/{guide.rows.length}
+                    {isMastered && <strong className="kg-mastered-pill"> ★ 已掌握</strong>}
                   </span>
                   <span className="kg-card-tier-hint">{TIER_DESCS[tier]}</span>
                 </div>
@@ -302,6 +422,12 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
                   </button>
                   <button type="button" onClick={() => speakExample(i, true)} aria-label={`播放越文與中文：${exampleLines[i].viet}`}>
                     <Headphones size={16} aria-hidden="true" /> 越＋中
+                  </button>
+                  <button type="button" onClick={() => speakExample(i, false, 0.75)} aria-label={`慢速跟讀：${exampleLines[i].viet}`}>
+                    🐢 慢讀
+                  </button>
+                  <button type="button" className="kg-sprint-jump-btn" onClick={() => jumpToSprintPoint(i)}>
+                    <Mic size={15} aria-hidden="true" /> 聽說讀練這點
                   </button>
                 </div>
 
@@ -349,6 +475,12 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
                       <em>{detail.mnemonic}</em>
                     </p>
                   )}
+                  {masteryItem?.speakingTask && (
+                    <p className="kg-revealed-speaking">
+                      <span className="kg-revealed-tag kg-tag-speak">開口造句</span>
+                      <span>{masteryItem.speakingTask}</span>
+                    </p>
+                  )}
                 </div>
 
                 {/* Dedicated Micro-Infographic for Every Knowledge Point */}
@@ -370,7 +502,7 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
         </PhraseSetPlayer>
 
         <p role="status">
-          <CheckCircle size={16} aria-hidden="true" /> 已自行確認 {recalled.length}/{guide.rows.length} 項；請隔日用新例句再查。
+          <CheckCircle size={16} aria-hidden="true" /> 已自行確認 {recalled.length}/{guide.rows.length} 項（綜合聽說讀掌握 {combinedMastered.length}/{guide.rows.length} 項）；請隔日用新例句再查。
         </p>
       </section>
 

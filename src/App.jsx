@@ -301,7 +301,7 @@ export function App() {
           <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
             {activeTab !== 'path' && activeTab !== 'quest' && <nav className="module-workspace-nav" aria-label="本課學習工作台">
               <div className="workspace-location"><button onClick={() => setActiveTab('path')}><Home size={17} aria-hidden="true" /> 學習首頁</button><ChevronRight size={15} aria-hidden="true" /><span>{t(ALL_NAV_ITEMS.find(item => item.id === activeTab)?.labelKey || 'tabs.path')}</span></div>
-              <div className="workspace-options"><button aria-pressed={moduleView === 'practice'} onClick={() => { audioEngine.stop(); setModuleView('practice'); }}><Gamepad2 size={18} aria-hidden="true" /> 互動練習</button><button aria-pressed={moduleView === 'knowledge'} onClick={() => { audioEngine.stop(); setModuleView('knowledge'); }}><BookOpen size={18} aria-hidden="true" /> 知識圖解・3 分鐘練習</button></div>
+              <div className="workspace-options"><button aria-pressed={moduleView === 'practice'} onClick={() => { audioEngine.stop(); setModuleView('practice'); }}><Gamepad2 size={18} aria-hidden="true" /> 互動練習</button><button aria-pressed={moduleView === 'knowledge'} onClick={() => { audioEngine.stop(); setModuleView('knowledge'); }}><BookOpen size={18} aria-hidden="true" /> 知識圖解・10 點聽說讀闖關</button></div>
             </nav>}
             {activeTab === 'path' && <HomeLearningHub onNavigate={setActiveTab} onStartStudy={id => { setActiveTab(id); setModuleView('knowledge'); }} />}
             {(moduleView === 'practice' || activeTab === 'path' || activeTab === 'quest') && <>
