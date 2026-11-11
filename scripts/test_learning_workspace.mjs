@@ -39,13 +39,23 @@ let totalMasteryItems = 0;
 for (const id of moduleIds) {
   const spark = subjectSparks[id];
   assert.ok(spark, `subjectSparks[${id}] exists`);
-  for (const field of ['disciplineName', 'badge', 'sparkHook', 'ahaInsight', 'listenGuide', 'readGuide', 'speakGuide', 'joyAffirmation']) {
+  for (const field of ['disciplineName', 'badge', 'sparkHook', 'ahaInsight', 'listenGuide', 'readGuide', 'speakGuide', 'joyAffirmation', 'funFact']) {
     assert.ok(typeof spark[field] === 'string' && spark[field].trim().length >= 6, `${id}.${field} complete`);
     const simp = spark[field].match(SIMPLIFIED);
     assert.ok(!simp, `${id}.${field} contains simplified char: ${simp?.[0]}`);
     for (const mTerm of MAINLAND) {
       assert.ok(!spark[field].includes(mTerm), `${id}.${field} contains mainland term: ${mTerm}`);
     }
+  }
+
+  // Verify magic phrase
+  assert.ok(spark.magicPhrase, `${id}.magicPhrase exists`);
+  assert.ok(typeof spark.magicPhrase.viet === 'string' && spark.magicPhrase.viet.trim().length >= 3, `${id}.magicPhrase.viet`);
+  assert.ok(typeof spark.magicPhrase.zh === 'string' && spark.magicPhrase.zh.trim().length >= 4, `${id}.magicPhrase.zh`);
+  const magicSimp = spark.magicPhrase.zh.match(SIMPLIFIED);
+  assert.ok(!magicSimp, `${id}.magicPhrase.zh contains simplified char: ${magicSimp?.[0]}`);
+  for (const mTerm of MAINLAND) {
+    assert.ok(!spark.magicPhrase.zh.includes(mTerm), `${id}.magicPhrase.zh contains mainland term: ${mTerm}`);
   }
 
   const items = allModuleMasteryItems[id];
@@ -63,6 +73,15 @@ for (const id of moduleIds) {
     assert.equal(item.readingCheck.options[item.readingCheck.answer], item.rule, `${id}[${idx}] reading answer matches rule`);
     assert.ok(item.speakingTask?.trim().length >= 8, `${id}[${idx}] speakingTask`);
     assert.equal(item.speakingCues.length, 3, `${id}[${idx}] 3 speaking self-check cues`);
+
+    // Verify tone contour
+    assert.ok(Array.isArray(item.toneContour) && item.toneContour.length >= 1, `${id}[${idx}] toneContour exists`);
+    item.toneContour.forEach((tc, tcIdx) => {
+      assert.ok(tc.syllable?.trim(), `${id}[${idx}].toneContour[${tcIdx}].syllable`);
+      assert.ok(tc.toneName?.trim(), `${id}[${idx}].toneContour[${tcIdx}].toneName`);
+      assert.ok(tc.contour?.trim(), `${id}[${idx}].toneContour[${tcIdx}].contour`);
+    });
+
     totalMasteryItems++;
   });
 }
@@ -147,10 +166,30 @@ globalThis.localStorage = { getItem() {throw Error('blocked');}, setItem() {thro
 click('能獨立說出');
 assert.ok(JSON.stringify(renderer.toJSON()).includes('儲存空間不可用'));
 act(() => renderer.unmount());
-let selected;
-act(() => { renderer = TestRenderer.create(React.createElement(Hub, {onStartStudy: id => selected=id, onNavigate: id => selected=id})); });
-click('開始今天'); assert.equal(selected, 'phrases');
-click('用挑戰'); assert.equal(selected, 'quest');
+let selectedModule, selectedPoint;
+act(() => {
+  renderer = TestRenderer.create(React.createElement(Hub, {
+    onStartStudy: (id, pIdx) => { selectedModule = id; selectedPoint = pIdx; },
+    onNavigate: id => { selectedModule = id; }
+  }));
+});
+click('開始今天'); assert.equal(selectedModule, 'phrases');
+click('用挑戰'); assert.equal(selectedModule, 'quest');
+
+// Test 200 Knowledge Constellation board
+click('展開 200 知識星空盤');
+assert.ok(JSON.stringify(renderer.toJSON()).includes('越南語 200 知識星空盤'));
+const star3 = renderer.root.findAllByType('button').find(b => b.props.className?.includes('hub-star-node') && b.props.title?.includes('第 3 點'));
+assert.ok(star3, 'star node 3 exists');
+act(() => star3.props.onClick());
+assert.ok(selectedModule);
+assert.equal(selectedPoint, 2);
+
+// Test Challenge Next Star
+click('挑戰下一顆星');
+assert.ok(selectedModule);
+assert.ok(Number.isInteger(selectedPoint));
+
 act(() => renderer.unmount());
 delete globalThis.localStorage;
-console.log('PASS: 20 subject sparks + 200 listen-read-speak knowledge points verified; 1/3/7-day scheduling, per-point mastery, reading check, shadowing, and home routing all pass.');
+console.log('PASS: 20 subject sparks + 200 listen-read-speak knowledge points + tone contours + fun facts + 200 constellation stars all pass.');

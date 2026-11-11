@@ -20,7 +20,22 @@
 /* Structured Reading & Speaking Enhancements */
 .sprint-tier-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
 .sprint-tier-chip{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;font-size:.78rem;font-weight:700;background:#e3efe7;color:#175646}
+.sprint-tier-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .sprint-read-toggle{min-height:36px!important;padding:5px 12px!important;font-size:.82rem!important;border-radius:999px!important}
+.sprint-funfact-toggle{min-height:36px!important;padding:5px 12px!important;font-size:.82rem!important;font-weight:700!important;border-radius:999px!important;background:#fff9e5!important;color:#92580a!important;border-color:#e8cb85!important}
+.sprint-funfact-card{padding:14px 18px;border-radius:14px;background:linear-gradient(120deg,#fffbeb,#fef3c7);border:1px solid #fcd34d;margin:10px 0 14px}
+.sprint-funfact-card strong{color:#92580a;font-size:.9rem;display:block;margin-bottom:4px}
+.sprint-funfact-card p{margin:0;font-size:.88rem;color:#78350f;line-height:1.6}
+
+/* Tone Contour Visualizer */
+.sprint-tone-contour{margin:14px 0;padding:12px 16px;border-radius:14px;background:#edf7f2;border:1px solid #c9e4d5}
+.sprint-tone-title{display:block;font-size:.84rem;font-weight:700;color:#185344;margin-bottom:8px}
+.sprint-tone-chips{display:flex;flex-wrap:wrap;gap:8px}
+.sprint-tone-chip{display:inline-flex;flex-direction:column;align-items:center;gap:2px;min-height:46px!important;padding:5px 10px!important;border-radius:10px!important;background:#ffffff;border:1px solid #b5d7c5;cursor:pointer}
+.sprint-tone-chip strong{font-size:.95rem;color:#134e40}
+.sprint-tone-chip small{font-size:.72rem;color:#0d7a5b;font-weight:700}
+.sprint-tone-chip:hover{border-color:#176958;background:#e5f5eb}
+
 .sprint-read-box{padding:16px;border:1px dashed #9ec5b2;border-radius:14px;background:#f1f8f4;margin:14px 0}
 .sprint-chunk-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed #c8dfd2}
 .sprint-chunk-pills{display:flex;flex-wrap:wrap;gap:6px}
@@ -36,6 +51,12 @@
 .sprint-read-feedback{margin:8px 0 0!important;padding:10px 12px;border-radius:8px;background:#fff9e9;border-left:3px solid #176958;font-size:.88rem}
 .sprint-shadow-bar{padding:14px 16px;border-radius:12px;background:#eef7f2;border:1px solid #cbe3d6;margin-bottom:14px}
 .sprint-shadow-bar span{font-weight:700;font-size:.92rem;display:block;margin-bottom:6px}
+
+.sprint-speaking-tone-help{margin:10px 0;padding:8px 12px;border-radius:10px;background:#edf6f1;border:1px dashed #bcdbc9;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.sprint-speaking-tone-help small{font-weight:700;color:#175646}
+.sprint-speaking-chips{display:flex;flex-wrap:wrap;gap:6px}
+.sprint-mini-chip{font-size:.78rem;padding:2px 8px;border-radius:6px;background:#fff;border:1px solid #c5dfd1;color:#135343}
+
 .sprint-speak-checklist{margin:12px 0}
 .sprint-cue-list{display:flex;flex-wrap:wrap;gap:8px}
 .sprint-cue-btn{font-size:.85rem!important;padding:7px 12px!important;border-radius:999px!important}
@@ -43,13 +64,30 @@
 .sprint-celebration-box{padding:16px;border-radius:14px;background:linear-gradient(120deg,#eef8f1,#fff8e3);border:1px solid #cce3d4;margin-bottom:14px}
 .sprint-joy-msg{margin:0 0 6px!important;font-size:1.02rem}
 
+/* Subject Magic Phrase */
+.sprint-magic-phrase{margin-top:14px;padding:14px 16px;border-radius:12px;background:#ffffff;border:1px solid #e0dfb8}
+.sprint-magic-header{display:flex;align-items:center;gap:6px;font-size:.88rem;color:#92580a;margin-bottom:6px}
+.sprint-magic-vi{font-size:1.2rem;font-weight:800;color:#176958;margin:4px 0}
+.sprint-magic-zh{margin:0 0 10px;font-size:.9rem;color:#4b5563}
+.sprint-magic-play{min-height:36px!important;padding:6px 12px!important;border-radius:999px!important;font-size:.82rem!important;font-weight:700!important}
+
 @media(max-width:600px){.sprint-heading{flex-direction:column;padding:18px}.sprint-point-ribbon{padding:10px 14px}.sprint-point-pill small{display:none}.sprint-body{padding:18px}.sprint-steps{padding:14px 12px;gap:4px}.sprint-steps li{flex-direction:column;font-size:.82rem;gap:6px}.sprint-footer{padding:16px}.sprint-actions button{flex:1 1 130px}.sprint-badge{font-size:.78rem}.knowledge-sprint{border-radius:18px}.sprint-body>.sprint-primary{width:100%}}
 @media(min-width:1000px){.sprint-body{padding:28px 36px}.sprint-steps{max-width:650px}.sprint-options{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
 [data-theme=dark] .sprint-point-ribbon{background:#1b332a;border-color:#305044}
 [data-theme=dark] .sprint-point-pill{background:#223d32;color:#dfeee5;border-color:#3b5e50}
 [data-theme=dark] .sprint-point-pill span{background:#162a22;color:#9de2bd}
 [data-theme=dark] .sprint-point-pill.sprint-point-mastered{background:#3a3219;border-color:#b58620;color:#fde68a}
-[data-theme=dark] .sprint-read-box,[data-theme=dark] .sprint-shadow-bar,[data-theme=dark] .sprint-celebration-box{background:#1e362c;border-color:#385a4c;color:#e4f2e9}
+[data-theme=dark] .sprint-read-box,[data-theme=dark] .sprint-shadow-bar,[data-theme=dark] .sprint-celebration-box,[data-theme=dark] .sprint-tone-contour{background:#1e362c;border-color:#385a4c;color:#e4f2e9}
+[data-theme=dark] .sprint-tone-chip{background:#162820;border-color:#36584a}
+[data-theme=dark] .sprint-tone-chip strong{color:#9de2bd}
+[data-theme=dark] .sprint-tone-chip small{color:#6ee7b7}
+[data-theme=dark] .sprint-speaking-tone-help{background:#1e362c;border-color:#385a4c}
+[data-theme=dark] .sprint-mini-chip{background:#162820;border-color:#36584a;color:#9de2bd}
+[data-theme=dark] .sprint-magic-phrase{background:#1c3127;border-color:#4d603a}
+[data-theme=dark] .sprint-funfact-card{background:#2b2c1b;border-color:#655c27}
+[data-theme=dark] .sprint-funfact-card strong{color:#fde68a}
+[data-theme=dark] .sprint-funfact-card p{color:#fef3c7}
 [data-theme=dark] .sprint-read-slot code{background:#14261f;border-color:#36584a;color:#9de2bd}
 [data-theme=dark] .sprint-mnemonic{color:#b7dec7}
 [data-theme=dark] .sprint-read-feedback{background:#283f34;color:#e8f2e8}

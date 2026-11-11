@@ -49,7 +49,7 @@ const TIER_DESCS = {
   advanced: '語域切換、假朋友與文體深造'
 };
 
-export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectChapter, setActiveTab }) {
+export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectChapter, setActiveTab, initialPointIndex }) {
   const guide = knowledgeGuides[moduleId];
   const moduleConceptDetails = conceptDetails[moduleId] || [];
   const spark = subjectSparks[moduleId];
@@ -80,10 +80,20 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
   const [storageAvailable, setStorageAvailable] = useState(true);
 
   // Interactive 200-point mastery & subject love states
-  const [activeSprintPoint, setActiveSprintPoint] = useState(guide ? guide.rows.length - 1 : 9);
+  const [activeSprintPoint, setActiveSprintPoint] = useState(() => (
+    Number.isInteger(initialPointIndex) && initialPointIndex >= 0 && initialPointIndex < (guide?.rows.length || 10)
+      ? initialPointIndex
+      : (guide ? guide.rows.length - 1 : 9)
+  ));
   const [sprintMastered, setSprintMastered] = useState(() => loadModuleMasteredPoints(moduleId, guide?.rows.length || 10));
   const [lovedList, setLovedList] = useState(() => loadLovedSubjects());
   const isSubjectLoved = lovedList.includes(moduleId);
+
+  useEffect(() => {
+    if (Number.isInteger(initialPointIndex) && initialPointIndex >= 0 && initialPointIndex < (guide?.rows.length || 10)) {
+      setActiveSprintPoint(initialPointIndex);
+    }
+  }, [initialPointIndex, guide]);
 
   // UI/UX Enhanced State: Tier filter, search filter, and infographic mode toggle
   const [tierFilter, setTierFilter] = useState('all');
@@ -174,6 +184,33 @@ export function KnowledgeGuide({ moduleId, selectedAccent = 'north', onSelectCha
             <strong>💡 學科驚奇發現（Aha! 亮點）：</strong>
             <span>{spark.ahaInsight}</span>
           </div>
+
+          {spark.funFact && (
+            <div className="kg-spark-funfact">
+              <strong>💡 文化彩蛋（Fun Fact）：</strong>
+              <span>{spark.funFact}</span>
+            </div>
+          )}
+
+          {spark.magicPhrase && (
+            <div className="kg-spark-magic-banner">
+              <div className="kg-spark-magic-text">
+                <span className="kg-spark-magic-tag">🪄 學科快樂魔法句</span>
+                <strong className="kg-spark-magic-vi" lang="vi">{spark.magicPhrase.viet || spark.magicPhrase.vi}</strong>
+                <span className="kg-spark-magic-zh">({spark.magicPhrase.zh})</span>
+              </div>
+              <button
+                type="button"
+                className="kg-spark-magic-audio"
+                onClick={() => audioEngine.speak(spark.magicPhrase.viet || spark.magicPhrase.vi, { lang: 'vi', accent: selectedAccent })}
+                title="聆聽學科魔法金句"
+                aria-label="聆聽學科魔法金句"
+              >
+                <Volume2 size={16} aria-hidden="true" />
+                <span>聆聽金句</span>
+              </button>
+            </div>
+          )}
 
           <div className="kg-spark-3d" role="group" aria-label="本學科聽說讀三維攻略">
             <div className="kg-spark-pillar">

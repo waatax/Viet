@@ -81,6 +81,7 @@ export function App() {
   // Active module tab
   const [activeTab, setActiveTabState] = useState(getModuleFromHash);
   const [moduleView, setModuleView] = useState('practice');
+  const [targetPointIndex, setTargetPointIndex] = useState(null);
 
   // Show Back To Top Button
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -179,6 +180,24 @@ export function App() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
+
+  // Real-time XP celebration listener from KnowledgeSprint
+  useEffect(() => {
+    const handleAddXp = (e) => {
+      const amount = e?.detail?.amount;
+      if (amount && typeof amount === 'number') {
+        updateUserStats(amount);
+      }
+    };
+    window.addEventListener('viet_add_xp', handleAddXp);
+    return () => window.removeEventListener('viet_add_xp', handleAddXp);
+  }, []);
+
+  const handleStartStudy = (moduleId, pointIdx = null) => {
+    setTargetPointIndex(Number.isInteger(pointIdx) ? pointIdx : null);
+    setActiveTab(moduleId);
+    setModuleView('knowledge');
+  };
 
   const handleSelectChapter = (chapter) => {
     if (chapter && chapter.moduleId) {
@@ -303,7 +322,7 @@ export function App() {
               <div className="workspace-location"><button onClick={() => setActiveTab('path')}><Home size={17} aria-hidden="true" /> 學習首頁</button><ChevronRight size={15} aria-hidden="true" /><span>{t(ALL_NAV_ITEMS.find(item => item.id === activeTab)?.labelKey || 'tabs.path')}</span></div>
               <div className="workspace-options"><button aria-pressed={moduleView === 'practice'} onClick={() => { audioEngine.stop(); setModuleView('practice'); }}><Gamepad2 size={18} aria-hidden="true" /> 互動練習</button><button aria-pressed={moduleView === 'knowledge'} onClick={() => { audioEngine.stop(); setModuleView('knowledge'); }}><BookOpen size={18} aria-hidden="true" /> 知識圖解・10 點聽說讀闖關</button></div>
             </nav>}
-            {activeTab === 'path' && <HomeLearningHub onNavigate={setActiveTab} onStartStudy={id => { setActiveTab(id); setModuleView('knowledge'); }} />}
+            {activeTab === 'path' && <HomeLearningHub onNavigate={setActiveTab} onStartStudy={handleStartStudy} />}
             {(moduleView === 'practice' || activeTab === 'path' || activeTab === 'quest') && <>
             {activeTab === 'path' && (
               <LearningPathModule
@@ -340,7 +359,16 @@ export function App() {
             {activeTab === 'sentence' && <SentenceBuilderModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'tonegame' && <ToneGameModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             </>}
-            {(moduleView === 'knowledge' || activeTab === 'path') && <KnowledgeGuide key={activeTab} moduleId={activeTab} selectedAccent={selectedAccent} onSelectChapter={handleSelectChapter} setActiveTab={setActiveTab} />}
+            {(moduleView === 'knowledge' || activeTab === 'path') && (
+              <KnowledgeGuide
+                key={`${activeTab}-${targetPointIndex ?? 'def'}`}
+                moduleId={activeTab}
+                initialPointIndex={targetPointIndex}
+                selectedAccent={selectedAccent}
+                onSelectChapter={handleSelectChapter}
+                setActiveTab={setActiveTab}
+              />
+            )}
           </Suspense>
         </ErrorBoundary>
       </main>

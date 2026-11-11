@@ -1,5 +1,21 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { Headphones, EyeOff, Mic, CalendarCheck, Download, Square, Trophy, BookOpen, Sparkles, Shuffle, ArrowRight, CheckCircle, Volume2 } from 'lucide-react';
+import {
+  Headphones,
+  EyeOff,
+  Mic,
+  CalendarCheck,
+  Download,
+  Square,
+  Trophy,
+  BookOpen,
+  Sparkles,
+  Shuffle,
+  ArrowRight,
+  CheckCircle,
+  Volume2,
+  Lightbulb,
+  Wand2
+} from 'lucide-react';
 import { knowledgeBridge, bridgeChecks } from '../data/knowledgeBridge';
 import { allModuleMasteryItems, getKnowledgePointMasteryItem, subjectSparks } from '../data/knowledgeMasteryData';
 import { audioEngine } from '../services/audioEngine';
@@ -39,6 +55,7 @@ export default function KnowledgeSprint({ moduleId, accent, selectedPointIndex, 
   const mnemonic = item?.mnemonic || '';
   const listening = item?.listeningCheck || bridgeChecks[moduleId];
   const readingCheck = item?.readingCheck || null;
+  const toneContour = item?.toneContour || [];
   const speakingCues = item?.speakingCues || [];
   const spark = subjectSparks[moduleId];
 
@@ -56,6 +73,7 @@ export default function KnowledgeSprint({ moduleId, accent, selectedPointIndex, 
   const [usedHelp, setUsedHelp] = useState(false);
   const [heard, setHeard] = useState(false);
   const [questionText, setQuestionText] = useState(false);
+  const [showFunFact, setShowFunFact] = useState(false);
   const bodyRef = useRef(null);
 
   const resetForPoint = (nextIdx) => {
@@ -100,6 +118,18 @@ export default function KnowledgeSprint({ moduleId, accent, selectedPointIndex, 
     setProgress(next);
     setMasteredPoints(kpResult.points);
     onMasteryUpdate?.(kpResult.points);
+
+    // Reward XP & Haptics for successful completion
+    if (recalled) {
+      audioEngine.playHaptic('success');
+      audioEngine.playQuestCompleteSound?.();
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('viet_add_xp', {
+          detail: { amount: 25, reason: `掌握知識點：${concept}` }
+        }));
+      }
+    }
+
     setFinished(true);
     move(3);
   };
@@ -171,10 +201,26 @@ export default function KnowledgeSprint({ moduleId, accent, selectedPointIndex, 
             <h4><Headphones size={20} /> 先聽懂今天的句子，再拆結構讀透</h4>
             <div className="sprint-tier-row">
               <span className="sprint-tier-chip">{TIER_BADGES[item?.tier || 'advanced']} · 知識點 {pointIdx + 1}/{totalPoints}</span>
-              <button type="button" className="sprint-read-toggle" onClick={() => setHideZhInRead(!hideZhInRead)}>
-                <BookOpen size={15} aria-hidden="true" /> {hideZhInRead ? '顯示中文語意與解析' : '遮住中文・練習純越閱讀'}
-              </button>
+              <div className="sprint-tier-actions">
+                {spark?.funFact && (
+                  <button type="button" className="sprint-funfact-toggle" onClick={() => setShowFunFact(!showFunFact)}>
+                    <Lightbulb size={14} aria-hidden="true" /> {showFunFact ? '收起冷知識' : '💡 學科文化彩蛋'}
+                  </button>
+                )}
+                <button type="button" className="sprint-read-toggle" onClick={() => setHideZhInRead(!hideZhInRead)}>
+                  <BookOpen size={15} aria-hidden="true" /> {hideZhInRead ? '顯示中文語意與解析' : '遮住中文・練習純越閱讀'}
+                </button>
+              </div>
             </div>
+
+            {/* Cultural Fun Fact Card */}
+            {showFunFact && spark?.funFact && (
+              <div className="sprint-funfact-card" role="note" aria-label="學科趣味冷知識">
+                <strong>💡 越南文化與語言小彩蛋：</strong>
+                <p>{spark.funFact}</p>
+              </div>
+            )}
+
             <p lang="vi" className="sprint-vi">{displayVi}</p>
             {!hideZhInRead ? (
               <>
@@ -191,6 +237,27 @@ export default function KnowledgeSprint({ moduleId, accent, selectedPointIndex, 
               <button type="button" onClick={() => { player.setPrefs({ speed: 1 }); player.play('vi-only'); }}>原速 1×</button>
               <button type="button" onClick={() => { player.stop(); audioEngine.stop(); }}><Square size={15} /> 停止</button>
             </div>
+
+            {/* Tone Pitch Contour Visualizer */}
+            {toneContour.length > 0 && (
+              <div className="sprint-tone-contour" role="region" aria-label="音節聲調走向導引">
+                <span className="sprint-tone-title">🎵 聲調音高動態走向（點擊音節單詞聽音）：</span>
+                <div className="sprint-tone-chips">
+                  {toneContour.map((tc, idx) => (
+                    <button
+                      key={`${tc.word}-${idx}`}
+                      type="button"
+                      className="sprint-tone-chip"
+                      onClick={() => audioEngine.speak(tc.word, { lang: 'vi', accent })}
+                      title={`點擊朗讀音節：${tc.word}`}
+                    >
+                      <strong lang="vi">{tc.word}</strong>
+                      <small>{tc.contour}</small>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Structured Reading & Syntax Slot Box */}
             <div className="sprint-read-box">
@@ -316,6 +383,20 @@ export default function KnowledgeSprint({ moduleId, accent, selectedPointIndex, 
               </div>
             </div>
 
+            {/* Tone Pitch Helper for speaking */}
+            {toneContour.length > 0 && (
+              <div className="sprint-speaking-tone-help">
+                <small>🎵 音高走勢叮嚀：</small>
+                <div className="sprint-speaking-chips">
+                  {toneContour.map((tc, idx) => (
+                    <span key={`${tc.word}-${idx}`} className="sprint-mini-chip">
+                      <strong lang="vi">{tc.word}</strong> {tc.contour.slice(2)}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
             <p className="sprint-task">🎯 第二步・開口遷移任務：{task}</p>
 
             {speakingCues.length > 0 && (
@@ -358,7 +439,7 @@ export default function KnowledgeSprint({ moduleId, accent, selectedPointIndex, 
             <p className="sprint-note">自行核對：語意完整、條件已替換、稱謂與聲調有注意。此處不會自動評分發音。</p>
             <div className="sprint-actions">
               <button type="button" className="sprint-primary" onClick={() => finish(!usedHelp && answer === listening[2])}>
-                {usedHelp || answer !== listening[2] ? '練習完成，明天再鞏固' : '能獨立說出，安排複習'}
+                {usedHelp || answer !== listening[2] ? '練習完成，明天再鞏固' : '能獨立說出，安排複習 (+25 XP 🌟)'}
               </button>
               <button type="button" onClick={() => finish(false)}>還需要提示，明天再練</button>
             </div>
@@ -373,8 +454,28 @@ export default function KnowledgeSprint({ moduleId, accent, selectedPointIndex, 
                 🎊 <strong>第 {pointIdx + 1}/{totalPoints} 點「{concept}」聽說讀完成！</strong>
                 {spark?.joyAffirmation ? ` ${spark.joyAffirmation}` : ''}
               </p>
-              <p>本學科知識點掌握進度：<strong>{masteredPoints.length} / {totalPoints} 點</strong></p>
+              <p>本學科知識點掌握進度：<strong>{masteredPoints.length} / {totalPoints} 點</strong>（已點亮 {masteredPoints.length} 顆星 🌟）</p>
+
+              {/* Subject Magic Phrase */}
+              {spark?.magicPhrase && (
+                <div className="sprint-magic-phrase" role="region" aria-label="學科魔法金句">
+                  <div className="sprint-magic-header">
+                    <Wand2 size={16} aria-hidden="true" />
+                    <strong>🪄 本學科快樂魔法金句：</strong>
+                  </div>
+                  <p lang="vi" className="sprint-magic-vi">{spark.magicPhrase.viet}</p>
+                  <p className="sprint-magic-zh">「{spark.magicPhrase.zh}」— <small>{spark.magicPhrase.usage}</small></p>
+                  <button
+                    type="button"
+                    className="sprint-magic-play"
+                    onClick={() => audioEngine.speak(spark.magicPhrase.viet, { lang: 'vi', accent })}
+                  >
+                    <Volume2 size={15} aria-hidden="true" /> 朗讀魔法金句
+                  </button>
+                </div>
+              )}
             </div>
+
             <p role="status">
               {saved
                 ? `下次複習：${new Date(progress.due).toLocaleDateString('zh-TW')}。進度保留在此瀏覽器。`

@@ -16,7 +16,13 @@ export const subjectSparks = {
     listenGuide: '先聽出句中的否定與時貌詞（如 chưa／không），抓準對方的核心意圖。',
     readGuide: '對照「信（準確）、達（自然）、雅（得體）」三層階梯，讀懂日常與正式文體的差異。',
     speakGuide: '每次開口只設定一個小目標：先求意思清楚，再換一個稱謂或情境說第二遍。',
-    joyAffirmation: '你正在用最聰明的地圖探索越南語，每一次開口都是值得慶祝的里程碑！'
+    joyAffirmation: '你正在用最聰明的地圖探索越南語，每一次開口都是值得慶祝的里程碑！',
+    funFact: '越南人打招呼時最常說「Ăn cơm chưa?（吃飽沒？）」，這源於千年稻作農耕文化的溫情互助，回答「Dạ rồi!（吃飽啦！）」就能立刻收穫燦爛笑容！',
+    magicPhrase: {
+      viet: 'Cố lên, bạn làm được mà!',
+      zh: '加油，你一定可以做到的！',
+      usage: '最溫暖的互相打氣神句'
+    }
   },
   alphabet: {
     disciplineName: '越語聲學與拼讀解碼學',
@@ -26,7 +32,13 @@ export const subjectSparks = {
     listenGuide: '專心聽母音的嘴型（如圓唇 u 與展唇 ư）以及詞尾 -c/-t/-p 俐落收住的瞬間。',
     readGuide: '看字時先拆成「聲母＋母音＋韻尾＋聲調」四格積木，不要整串字母硬背。',
     speakGuide: '唸塞音韻尾時把嘴巴輕輕閉住不吐氣，體會越南語像打擊樂般清脆的節奏感！',
-    joyAffirmation: '太棒了！你的耳朵與舌頭正在解鎖越南語最迷人的聲音密碼！'
+    joyAffirmation: '太棒了！你的耳朵與舌頭正在解鎖越南語最迷人的聲音密碼！',
+    funFact: '越南語字母中的角號（ư、ơ）和帽子（â、ê、ô）是百年前傳教士依據葡萄牙語音標發明的，這套精密的拼音符號讓文盲率在短短幾十年間從 95% 驟降！',
+    magicPhrase: {
+      viet: 'Tiếng Việt dễ thương quá!',
+      zh: '越南話太可愛了吧！',
+      usage: '稱讚發音好聽的真誠讚美'
+    }
   },
   tonegame: {
     disciplineName: '六度聲調與旋律辨義學',
@@ -36,7 +48,13 @@ export const subjectSparks = {
     listenGuide: '先用 0.75× 慢速聽「同音節換聲調」（如 ma／má／mà），感受旋律往上揚或往下沉。',
     readGuide: '把聲調符號當成音符：銳聲（ˊ）高揚、玄聲（ˋ）平緩下降、重聲（.）短促沉穩。',
     speakGuide: '開口時手勢跟著聲調畫曲線，不用刻意用力壓喉嚨，放輕鬆讓聲音自然流動。',
-    joyAffirmation: '你的音感越來越敏銳了！每一個精準的聲調都讓你的越語更有靈魂！'
+    joyAffirmation: '你的音感越來越敏銳了！每一個精準的聲調都讓你的越語更有靈魂！',
+    funFact: '在越南南方（西貢與湄公河三角洲），跌聲（ngã）與問聲（hỏi）發音完全合流，說起話來如同輕柔的水上民謠般溫潤隨和，這正是南方人隨性樂天的性格寫照！',
+    magicPhrase: {
+      viet: 'Nói chuẩn như người bản xứ!',
+      zh: '說得跟在地人一樣標準！',
+      usage: '聽到聲調精準時的最高讚美'
+    }
   },
   pronoun: {
     disciplineName: '越南人際溫度與稱謂社會學',
@@ -46,7 +64,13 @@ export const subjectSparks = {
     listenGuide: '聽對話開頭的第一個詞與句尾的 ạ，就能立刻聽出雙方的輩分與親疏關係。',
     readGuide: '把稱謂視為「成對的雙人舞」（anh ↔ em、chú ↔ cháu），連同雙方的相對年齡一起讀。',
     speakGuide: '不確定對方年齡時，大方微笑加上禮貌詢問，越南朋友一定會熱情回應你！',
-    joyAffirmation: '懂稱謂的人最受歡迎！你已經掌握了打開越南人心門的金鑰匙！'
+    joyAffirmation: '懂稱謂的人最受歡迎！你已經掌握了打開越南人心門的金鑰匙！',
+    funFact: '在越南語裡幾乎沒有冷冰冰的「你／我」，即使是在路邊買一杯甘蔗汁，你叫攤主一聲「Chị ơi（姊姊）」，對方就會像對待親弟妹一樣，熱情地幫你加滿冰塊！',
+    magicPhrase: {
+      viet: 'Em chào anh chị ạ!',
+      zh: '向哥哥姊姊問好！',
+      usage: '打開心門、拉近距離的黃金問候'
+    }
   },
   shopping: {
     disciplineName: '越南市集經濟與數字邏輯學',
@@ -56,7 +80,13 @@ export const subjectSparks = {
     listenGuide: '抓準百位後的 linh／lẻ 與尾數 mốt（1）、lăm（5），報價再快也能一秒聽懂。',
     readGuide: '看標價時直接以「每三位逗號」對齊 nghìn 與 triệu，徹底告別中文「萬位」換算卡頓。',
     speakGuide: '付款前笑著把「數量＋單價＋總價」重述一次，既專業又能贏得店家尊重。',
-    joyAffirmation: '數字與報價難不倒你了！現在去越南逛街點餐，你就是最自信的達人！'
+    joyAffirmation: '數字與報價難不倒你了！現在去越南逛街點餐，你就是最自信的達人！',
+    funFact: '在越南夜市或路邊攤，大家常把千盾（nghìn）簡稱為「k」或「chục（十）」，例如 50k 會說「năm chục」，懂得這樣說老闆會瞬間把你當成道地內行人！',
+    magicPhrase: {
+      viet: 'Bớt một chút nhé, người quen mà!',
+      zh: '算便宜一點嘛，都熟客了！',
+      usage: '夜市充滿人情味的微笑殺價金句'
+    }
   },
   phrases: {
     disciplineName: '高頻語塊與萬能造句工程學',
@@ -66,7 +96,13 @@ export const subjectSparks = {
     listenGuide: '先聽句首是請求、詢問還是致歉，再抓中間被替換的名詞或動詞。',
     readGuide: '把短句拆成「固定句框＋可替換槽位」，一眼看穿句子的組合結構。',
     speakGuide: '每學一句就順手換三種飲料或生活物品說出來，讓萬能句框變成你的直覺反射！',
-    joyAffirmation: '你的口語工具箱越來越豐富了，隨時隨地都能自在開口表達需求！'
+    joyAffirmation: '你的口語工具箱越來越豐富了，隨時隨地都能自在開口表達需求！',
+    funFact: '越南語句尾的「ạ、nhé、nha、đi」被稱為「情感調色盤」！一句話只要尾巴加上甜甜的「nha」，原本生硬的請求瞬間變成像好友撒嬌般親切自然！',
+    magicPhrase: {
+      viet: 'Cho tôi một ly cà phê sữa đá nhé!',
+      zh: '請給我一杯冰奶咖啡唷！',
+      usage: '全越南街頭最受歡迎的生活神句'
+    }
   },
   grammar: {
     disciplineName: '越語極簡語序與時貌建築學',
@@ -76,7 +112,13 @@ export const subjectSparks = {
     listenGuide: '聽動詞前面的時間信號（đã 已經／đang 正在／sẽ 將會／chưa 尚未），瞬間掌握事情發生的時間軸。',
     readGuide: '先圈出「主詞＋動詞＋核心名詞」，再看後面的形容詞如何一層層精確描繪名詞。',
     speakGuide: '形容事物好吃、漂亮時直接說「Món này ngon」，大膽拿掉多餘的 là，越語立刻變道地！',
-    joyAffirmation: '你已經看穿越南語最核心的語序美學，造句邏輯越來越清晰了！'
+    joyAffirmation: '你已經看穿越南語最核心的語序美學，造句邏輯越來越清晰了！',
+    funFact: '越南語動詞完全沒有惱人的時態變位與單複數人稱屈折！形容詞也能直接當動詞用，只要排好積木語序，連小朋友都能在十分鐘內看懂語法骨架！',
+    magicPhrase: {
+      viet: 'Ngữ pháp tiếng Việt rất logic!',
+      zh: '越南語語法非常合乎邏輯！',
+      usage: '越學越有自信的底氣宣言'
+    }
   },
   sentence: {
     disciplineName: '語塊組裝與複句邏輯建構學',
@@ -86,7 +128,13 @@ export const subjectSparks = {
     listenGuide: '注意聽連接詞成對出現的信號（vì…nên…／tuy…nhưng…／nếu…thì…），預判後半句的走向。',
     readGuide: '閱讀長句時先在連接詞與介詞（ở／để／khi）處輕輕畫斜線，長句立刻變成好讀的小短語。',
     speakGuide: '先說出核心主句，再像加積木一樣補上地點、時間或原因，輕鬆說出流暢長句。',
-    joyAffirmation: '從單字到完整長句，你的越語表達力正在迎來質的飛躍！'
+    joyAffirmation: '從單字到完整長句，你的越語表達力正在迎來質的飛躍！',
+    funFact: '越南最著名的古典文學《翹傳》採用「六八體詩歌」，每逢偶數句尾韻律如同海浪波紋般層層推進，這種注重韻律的傳統讓現代越南語的長句讀起來依然朗朗上口！',
+    magicPhrase: {
+      viet: 'Ý kiến của bạn rất hay!',
+      zh: '你的想法非常棒！',
+      usage: '在長句討論中給予夥伴最棒的肯定'
+    }
   },
   hanviet: {
     disciplineName: '千年漢越音韻與古典詩文美學',
@@ -96,7 +144,13 @@ export const subjectSparks = {
     listenGuide: '聽出漢越字根的固定聲母與韻尾對應（如國＝quốc、學＝học），用耳朵就能推敲新詞涵義。',
     readGuide: '一面享受字根秒懂的快感，一面特別標記有趣的「漢越假朋友」（如 bác sĩ 是醫師而非博士）。',
     speakGuide: '在正式場合適度選用漢越詞展現專業，日常聊天則切換成親切的純越固有詞！',
-    joyAffirmation: '貫通漢越字根與文學美感，你正在體驗跨文化語言學習最迷人的樂趣！'
+    joyAffirmation: '貫通漢越字根與文學美感，你正在體驗跨文化語言學習最迷人的樂趣！',
+    funFact: '超過 60% 的越南語進階詞彙都源自漢字古音！比如「thời gian（時間）」、「hạnh phúc（幸福）」，華語學習者只要掌握聲韻對應，單字庫就能以十倍速暴增！',
+    magicPhrase: {
+      viet: 'Vạn sự như ý!',
+      zh: '萬事如意！',
+      usage: '逢年過節最溫馨親切的漢越吉祥話'
+    }
   },
   conversation: {
     disciplineName: '真實互動語用與會話修復學',
@@ -106,7 +160,13 @@ export const subjectSparks = {
     listenGuide: '在對話中抓緊「數字、日期、地點」三大錨點，沒聽清就大方請對方重述。',
     readGuide: '觀察對話如何「開啟需求 → 追問細節 → 修正誤會 → 確認收尾」，掌握真實交談的節奏。',
     speakGuide: '養成「先重述關鍵條件＋加一句 đúng không?」的好習慣，讓每一場對話都精準落地。',
-    joyAffirmation: '你已經具備真實會話的修復力與掌控感，勇敢享受每一次越語交談吧！'
+    joyAffirmation: '你已經具備真實會話的修復力與掌控感，勇敢享受每一次越語交談吧！',
+    funFact: '西貢街頭的「Trà Đá（冰茶）」文化是一扇流動的社交客廳！只要坐在矮塑膠椅上一杯冰茶，一句「Dạo này thế nào?（最近好嗎？）」就能聊上一整個午後！',
+    magicPhrase: {
+      viet: 'Đi uống cà phê không?',
+      zh: '要去喝杯咖啡嗎？',
+      usage: '在越南開啟一段美好情誼的最佳邀請'
+    }
   },
   accent: {
     disciplineName: '越南南北風土與方言地理學',
@@ -116,7 +176,13 @@ export const subjectSparks = {
     listenGuide: '比較同一句話在河內與胡志明市的聲調尾韻與常用語氣詞（thế vs vậy），培養寬廣的聽力耳。',
     readGuide: '記住「口音改變聲音，但不改變標準拼字」，閱讀時仍以正統拼寫為基準。',
     speakGuide: '先穩定練好你最常接觸的地區口音，遇到地區差異詞時微笑問一句「Từ này có nghĩa là gì?」。',
-    joyAffirmation: '聽懂南北雙城之聲，你的越語視野已經跨越地域，走進真實的越南生活！'
+    joyAffirmation: '聽懂南北雙城之聲，你的越語視野已經跨越地域，走進真實的越南生活！',
+    funFact: '河內人喝蛋咖啡（Cà phê trứng）品味綿密細緻，西貢人喝冰奶咖啡（Cà phê sữa đá）享受奔放沁涼；這份風土差異也反映在北部兒化緊湊與南部寬厚開展的語調中！',
+    magicPhrase: {
+      viet: 'Bắc Nam một nhà!',
+      zh: '北南一家親！',
+      usage: '化解口音好奇、展現豁達包容的幽默話'
+    }
   },
   shadowing: {
     disciplineName: '聽覺運動迴路與跟讀神經學',
@@ -126,7 +192,13 @@ export const subjectSparks = {
     listenGuide: '先聽整句的情緒與停頓位置，找出哪幾個字被母語者連在一起唸。',
     readGuide: '利用斜線（／）標出意群邊界，讓眼睛一次讀一個語塊，而不是逐字跳讀。',
     speakGuide: '先慢速 0.75× 對準母音與聲調，再挑戰原速 1.0× 不看字延遲跟讀，最後換一個詞自己說！',
-    joyAffirmation: '每一次跟讀都在強化你的越語肌肉記憶，你的發音與流暢度正在飛速成長！'
+    joyAffirmation: '每一次跟讀都在強化你的越語肌肉記憶，你的發音與流暢度正在飛速成長！',
+    funFact: '認知神經學發現，跟讀時大腦的「布洛卡區（語言生成）」與「韋尼克區（語音感知）」會同時啟動同步放電，模仿三次就能建立超越默念十遍的肌肉記憶！',
+    magicPhrase: {
+      viet: 'Luyện tập mỗi ngày, tiến bộ từng giây!',
+      zh: '每天練習，分秒進步！',
+      usage: '跟讀開口時給大腦的最佳正面暗示'
+    }
   },
   business: {
     disciplineName: '東協商務談判與契約語用學',
@@ -136,7 +208,13 @@ export const subjectSparks = {
     listenGuide: '高度聚焦數量、幣別、交貨日期與責任歸屬，聽完立刻核對條件。',
     readGuide: '掌握正式書信「Kính gửi… / Trân trọng」與條件句「Nếu…thì…」的嚴謹結構。',
     speakGuide: '提出讓步或變更時，務必把「前提條件＋具體數字＋確認期限」連成完整句子說清楚。',
-    joyAffirmation: '兼具專業精準與禮貌風範，你的商務越語實力正在為職涯創造無限可能！'
+    joyAffirmation: '兼具專業精準與禮貌風範，你的商務越語實力正在為職涯創造無限可能！',
+    funFact: '在越南商務餐敘中，最熱鬧的儀式就是全桌起立齊喊「Một, hai, ba, dzô!（一、二、三，乾杯！）」，這不僅是破冰利器，更是東協商業夥伴建立信任的文化橋樑！',
+    magicPhrase: {
+      viet: 'Hợp tác vui vẻ, cùng nhau phát triển!',
+      zh: '合作愉快，攜手共贏！',
+      usage: '簽署協議與商務握手時的誠懇結語'
+    }
   },
   macropol: {
     disciplineName: '越南宏觀政經與批判閱讀學',
@@ -146,7 +224,13 @@ export const subjectSparks = {
     listenGuide: '聽新聞摘要時先抓「比較基準（cùng kỳ 同期）」與「趨勢動詞（tăng／giảm／đi ngang）」。',
     readGuide: '用「來源、口徑、論點、限制」四格濾鏡剖析文章，不把評論推測當成既定事實。',
     speakGuide: '練習用三句話摘要一則趨勢：先說數據事實，再加 có thể 說明可能影響，最後補充觀察條件。',
-    joyAffirmation: '你能用越語思考宏觀經濟與社會脈絡，這份深度與眼界令人讚嘆！'
+    joyAffirmation: '你能用越語思考宏觀經濟與社會脈絡，這份深度與眼界令人讚嘆！',
+    funFact: '1986 年越南推行「Đổi Mới（革新開放）」政策，三十年間從農業國躍升為全球高科技電子製造重鎮，越南語財經報導中「tăng trưởng（成長）」始終是最熱門的關鍵詞！',
+    magicPhrase: {
+      viet: 'Cơ hội phát triển rộng mở!',
+      zh: '發展機遇前景廣闊！',
+      usage: '洞悉東協脈動的遠見評語'
+    }
   },
   quiz: {
     disciplineName: '認知診斷與錯因逆向工程學',
@@ -156,7 +240,13 @@ export const subjectSparks = {
     listenGuide: '分清楚自己是「耳誤（mua／mưa 母音混淆）」還是「詞義不熟」，對症下藥最省力。',
     readGuide: '作答後仔細閱讀每個干擾選項的解析，理解規則邊界比單純記住答案更有價值。',
     speakGuide: '把曾經答錯的題目改寫成跟自己生活有關的新句子並大聲說出來，完成真正的記憶修復！',
-    joyAffirmation: '懂得從錯誤中提煉智慧，你已經掌握了高效學習者最核心的逆向工程力！'
+    joyAffirmation: '懂得從錯誤中提煉智慧，你已經掌握了高效學習者最核心的逆向工程力！',
+    funFact: '大腦神經科學證明：每一次「差點答對但做錯」的時刻，正是神經突觸重新編碼的最活躍期！將錯題歸類不是挫敗，而是把大腦記憶固化成直覺反射的黃金捷徑！',
+    magicPhrase: {
+      viet: 'Thất bại là mẹ thành công!',
+      zh: '失敗是成功之母！',
+      usage: '錯題後重新挑戰自我的豁達口訣'
+    }
   },
   flashcards: {
     disciplineName: '主動提取與間隔記憶工程學',
@@ -166,7 +256,13 @@ export const subjectSparks = {
     listenGuide: '善用「盲聽選義」與「越中連播」，讓耳朵一聽到聲音就直接浮現畫面，不經過中文逐字翻譯。',
     readGuide: '翻卡前給自己三秒鐘主動回想詞義與例句，這種「微費力感」正是神經連結變強的信號。',
     speakGuide: '每複習一張卡，就用它的黃金搭配說一句跟今天生活有關的話，把被動字庫變成主動口語！',
-    joyAffirmation: '你的越語詞彙神經網路正在穩健擴張，每翻一張卡都離流利更近一步！'
+    joyAffirmation: '你的越語詞彙神經網路正在穩健擴張，每翻一張卡都離流利更近一步！',
+    funFact: '根據著名的「測試效應（Testing Effect）」，主動從記憶中提取一個越語詞彙，比被動看答案十次能在大腦海馬迴中保留多達三倍的時間，翻卡前回想三秒正是魔法所在！',
+    magicPhrase: {
+      viet: 'Nhớ lâu, hiểu sâu, dùng được ngay!',
+      zh: '記牢、理解透徹、立刻能用！',
+      usage: '高效率掌握單字庫的自豪宣言'
+    }
   },
   topics: {
     disciplineName: '七大生活專題跨域整合學',
@@ -176,7 +272,13 @@ export const subjectSparks = {
     listenGuide: '在連續情境中同時捕捉兩個以上的關鍵資訊（例如：幾杯飲料＋什麼甜度、哪一天＋住幾晚）。',
     readGuide: '對照七大生活主題的常用句式，觀察數量、時間與程度副詞（hơi／cao）如何精準搭配。',
     speakGuide: '試著把兩個主題串起來說（例如先點餐再問總價與能否轉帳），享受一氣呵成的暢快感！',
-    joyAffirmation: '跨領域整合成功！你已經能把課堂知識化為走遍越南的真實生活力！'
+    joyAffirmation: '跨領域整合成功！你已經能把課堂知識化為走遍越南的真實生活力！',
+    funFact: '越南的國民三明治 Bánh mì 巧妙融合了法國長棍麵包的酥脆與越南在地的扎肉、香菜和醃蘿蔔，這正是越南文化吸收多元精華、轉化為獨特生活美學的最佳象徵！',
+    magicPhrase: {
+      viet: 'Ngon quá, cho tôi thêm một cái!',
+      zh: '太美味了，請再給我一份！',
+      usage: '品味越南街頭美食最真性情的一句話'
+    }
   },
   fasttrack: {
     disciplineName: '七日高頻生存任務工程學',
@@ -186,7 +288,13 @@ export const subjectSparks = {
     listenGuide: '鎖定計程車指路（đi thẳng／rẽ trái）、問價與點餐的高頻回應，讓耳朵熟悉街頭實戰節奏。',
     readGuide: '按第 1 天到第 7 天的任務清單循序推進，每天新學前先遮住課文回想前一天的三句核心句。',
     speakGuide: '把每句生存短句換成自己要去的真實飯店、想吃的美食大聲說三次，上場即戰力滿分！',
-    joyAffirmation: '行動力滿分！短短七天的精準累積，足以讓你的越南之旅充滿驚喜與笑容！'
+    joyAffirmation: '行動力滿分！短短七天的精準累積，足以讓你的越南之旅充滿驚喜與笑容！',
+    funFact: '初訪越南的旅人只要掌握「Xin chào（你好）」、「Cảm ơn（謝謝）」與「Bao nhiêu tiền（多少錢）」這黃金三角生存句，全越南的微笑與熱情就會為你全天候綻放！',
+    magicPhrase: {
+      viet: 'Hẹn gặp lại Việt Nam xinh đẹp!',
+      zh: '再會，美麗的越南！',
+      usage: '旅行滿載美好回憶時的深情道別'
+    }
   },
   emergency: {
     disciplineName: '危機溝通與精準求助實務學',
@@ -196,7 +304,13 @@ export const subjectSparks = {
     listenGuide: '遇到聽不懂的醫療或警政指示時，不慌張、不亂猜，先聽關鍵地標並請求口譯或重述。',
     readGuide: '熟讀常見症狀、方位（bên trái／bên phải）與證件詞彙，搭配全螢幕大字卡隨時出示。',
     speakGuide: '用平穩清楚的語速練熟「位置＋問題＋請找口譯」三連句，有備無患最安心！',
-    joyAffirmation: '學會保護自己與清楚求助，這份從容與安全感將陪伴你安心探索世界！'
+    joyAffirmation: '學會保護自己與清楚求助，這份從容與安全感將陪伴你安心探索世界！',
+    funFact: '在越南若遇到需要求助的情境，只要大方出示寫有地址的大字卡，路上的騎士與店家常會主動幫你打電話甚至熱心帶路，這份淳樸善良是越南最讓人安心的底色！',
+    magicPhrase: {
+      viet: 'Cảm ơn mọi người đã giúp đỡ tôi!',
+      zh: '感謝大家熱心幫助我！',
+      usage: '化險為夷後最誠摯的致謝金句'
+    }
   },
   science: {
     disciplineName: '實證語言習得與記憶實驗學',
@@ -206,9 +320,61 @@ export const subjectSparks = {
     listenGuide: '把易混淆的聲音（如 mua／mưa／múa）交錯在一起盲聽，訓練大腦高解析度的聽覺辨識力。',
     readGuide: '閱讀時養成「先看例句猜規則、再展開核對」的習慣，把每一次閱讀都變成主動提取實驗。',
     speakGuide: '每次學完新詞，堅持用它造一個跟自己今天有關的句子並隔日重測，親眼見證記憶的蛻變！',
-    joyAffirmation: '掌握科學學習法的你，每一分鐘的練習都在創造最高效、最快樂的成長！'
+    joyAffirmation: '掌握科學學習法的你，每一分鐘的練習都在創造最高效、最快樂的成長！',
+    funFact: '大腦的遺忘速度在學習後第一天最快，但只要在第 1 天、第 3 天與第 7 天各主動提取一次，遺忘曲線就會被強行拉平成永久記憶，這就是本系統 1/3/7 排程背後的科學定理！',
+    magicPhrase: {
+      viet: 'Học tập khoa học, nhớ mãi không quên!',
+      zh: '科學學習，歷久不忘！',
+      usage: '成為自主學習大師的終身箴言'
+    }
   }
 };
+
+/**
+ * 聲調走向音高分析器：分析越文字詞中各音節的聲調走勢
+ * 6 大聲調走勢：平聲（33 平中音）、玄聲（21 緩降）、銳聲（35 高升）、問聲（313 降升）、跌聲（35 緊喉中升）、重聲（21 緊喉急降）
+ */
+function analyzeToneContour(vietText) {
+  if (!vietText) return [];
+  const words = String(vietText).trim().split(/\s+/).filter(w => /^[a-zA-Zà-ỹÀ-ỸđĐ]+$/u.test(w.replace(/[.,?!;:…]+$/u, '')));
+  return words.slice(0, 8).map(word => {
+    const cleanWord = word.replace(/[.,?!;:…]+$/u, '').normalize('NFD');
+    let toneName = 'ngang (平聲)';
+    let contour = '33 中平 ──';
+    let pitchHeight = 3;
+
+    if (/[́]/.test(cleanWord)) {
+      toneName = 'sắc (銳聲)';
+      contour = '35 高升 ↗';
+      pitchHeight = 5;
+    } else if (/[̀]/.test(cleanWord)) {
+      toneName = 'huyền (玄聲)';
+      contour = '21 緩降 ↘';
+      pitchHeight = 2;
+    } else if (/[̉]/.test(cleanWord)) {
+      toneName = 'hỏi (問聲)';
+      contour = '313 降升 ⤾';
+      pitchHeight = 2.5;
+    } else if (/[̃]/.test(cleanWord)) {
+      toneName = 'ngã (跌聲)';
+      contour = '35 緊喉升 ⤴';
+      pitchHeight = 4.5;
+    } else if (/[̣]/.test(cleanWord)) {
+      toneName = 'nặng (重聲)';
+      contour = '21 緊喉降 ⤸';
+      pitchHeight = 1;
+    }
+
+    const w = word.replace(/[.,?!;:…]+$/u, '');
+    return {
+      word: w,
+      syllable: w,
+      toneName,
+      contour,
+      pitchHeight
+    };
+  });
+}
 
 /**
  * 為全站 200 個知識點（20 模組 × 每模組 10 點）建構完整的「🎧 聽・📖 讀・🗣️ 說」三維互動資料。
@@ -217,6 +383,7 @@ export const subjectSparks = {
  *   1. 🎧 listeningCheck: [spokenVi, [opt0, opt1, opt2], answerIdx, whyExplanation]
  *   2. 📖 readingCheck: { prompt, options, answer, explain, chunks }
  *   3. 🗣️ speakingTask & speakingCues: 具體開口替換任務與三項自我檢核指標
+ *   4. 🎵 toneContour: 視覺化聲調音高走勢
  */
 function buildModuleMasteryItems(moduleId) {
   const guide = knowledgeGuides[moduleId];
@@ -279,6 +446,9 @@ function buildModuleMasteryItems(moduleId) {
       ? bridgeRow[5]
       : `先跟讀「${vi}」，接著依公式「${detail.syntax || concept}」換一個詞或對象，不看字幕說出一句新話。`;
 
+    // 4. 🎵 Tone Pitch Contour (音高走向分析)
+    const toneContour = analyzeToneContour(idx === 9 && bridgeRow ? bridgeRow[1] : vi);
+
     return {
       moduleId,
       index: idx,
@@ -295,6 +465,7 @@ function buildModuleMasteryItems(moduleId) {
       listeningCheck,
       readingCheck,
       speakingTask,
+      toneContour,
       speakingCues: [
         '聲調高低與詞尾收音清楚',
         `語序符合「${detail.syntax || concept}」結構`,

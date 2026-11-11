@@ -7,7 +7,33 @@
 .hub-today-icon { width: 58px; height: 58px; display: grid; place-items: center; background: #fff; color: #176958; border-radius: 18px; flex-shrink: 0; }
 .hub-today-copy { flex: 1; }.hub-today-copy>span { font-size: .8rem; font-weight: 700; }.hub-today h3 { margin: 5px 0; font-size: 1.3rem; }.hub-today p { margin: 0; font-size: .9rem; line-height: 1.6; }
 .hub-today button { border: 0; border-radius: 13px; background: #176958; color: #fff; padding: 14px 18px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; font: inherit; font-weight: 700; cursor: pointer; min-height: 48px; }
-.hub-stats { display: flex; flex-wrap: wrap; gap: 14px 24px; font-size: .82rem; color: var(--text-secondary); }.hub-stats span { display: flex; align-items: center; gap: 7px; }
+.hub-today-buttons { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.hub-today-sprint-next { background: #fff !important; color: #176958 !important; border: 1.5px solid #176958 !important; }
+.hub-today-sprint-next:hover { background: #d7ede2 !important; }
+.hub-stats { display: flex; flex-wrap: wrap; gap: 14px 24px; font-size: .82rem; color: var(--text-secondary); align-items: center; }.hub-stats span { display: flex; align-items: center; gap: 7px; }
+.hub-constellation-toggle { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: rgba(20, 184, 166, 0.12); color: #0d9488; font-weight: 700; font-size: .82rem; border: 1px solid rgba(20, 184, 166, 0.35); cursor: pointer; transition: all .2s ease; }
+.hub-constellation-toggle:hover { background: rgba(20, 184, 166, 0.22); transform: translateY(-1px); }
+
+/* 🌌 200 Knowledge Constellation Board */
+.hub-constellation-board { margin: 20px 0; padding: 22px; border-radius: 22px; background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 1.5px solid #a7f3d0; box-shadow: 0 4px 16px rgba(16, 185, 129, 0.08); }
+.hub-constellation-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 18px; }
+.hub-constellation-header h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; font-size: 1.25rem; color: #065f46; }
+.hub-constellation-header p { margin: 0; font-size: .88rem; color: #047857; line-height: 1.6; }
+.hub-constellation-close { width: 34px; height: 34px; border-radius: 50%; border: 1px solid #a7f3d0; background: #fff; color: #047857; display: grid; place-items: center; cursor: pointer; flex-shrink: 0; }
+.hub-constellation-close:hover { background: #d1fae5; }
+.hub-constellation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+.hub-constellation-card { padding: 12px 14px; border-radius: 14px; background: #fff; border: 1px solid #d1fae5; display: flex; flex-direction: column; justify-content: space-between; gap: 8px; transition: transform .18s ease, box-shadow .18s ease; }
+.hub-constellation-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(6, 95, 70, 0.08); }
+.hub-constellation-card.card-full-mastered { border-color: #fbbf24; background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%); }
+.hub-constellation-card-header { display: flex; align-items: center; justify-content: space-between; }
+.hub-constellation-mod-name { background: none; border: 0; padding: 0; font: inherit; text-align: left; cursor: pointer; display: flex; align-items: center; justify-content: space-between; width: 100%; font-size: .84rem; font-weight: 700; color: #1f2937; }
+.hub-constellation-mod-name small { font-size: .75rem; color: #059669; font-weight: 800; background: #ecfdf5; padding: 2px 6px; border-radius: 999px; }
+.hub-constellation-card.card-full-mastered .hub-constellation-mod-name small { background: #fef3c7; color: #d97706; }
+.hub-constellation-stars { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.hub-star-node { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: .74rem; font-weight: 800; cursor: pointer; border: 1px solid #d1d5db; background: #f9fafb; color: #6b7280; padding: 0 !important; min-height: 28px !important; transition: all .15s ease; }
+.hub-star-node:hover { transform: scale(1.15); border-color: #10b981; }
+.hub-star-node.star-lit { background: #fef3c7; color: #d97706; border-color: #f59e0b; box-shadow: 0 0 6px rgba(245, 158, 11, 0.4); }
+
 .hub-routes { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 12px; margin-top: 24px; }.hub-routes button { text-align: left; display: flex; align-items: center; gap: 12px; padding: 18px 14px; border: 1px solid var(--border-color); border-radius: 16px; color: var(--text-primary); background: var(--bg-secondary); font: inherit; cursor: pointer; min-width: 0; }.hub-routes button:hover { border-color: var(--brand-green,#239b73); }.hub-route-icon { display: grid; place-items: center; width: 40px; height: 44px; color: #176958; background: #e7f3e9; border-radius: 12px; flex-shrink: 0; }.route-topics { color: #986128; background: #fff1dd; }.route-conversation { color: #426ba8; background: #eaf1ff; }.route-quest { color: #86589d; background: #f3eaf9; }.hub-route-copy { display: grid; gap: 5px; flex: 1; }.hub-route-copy small { color: var(--text-secondary); font-size: .72rem; }.hub-route-copy strong { font-size: .92rem; line-height: 1.5; }.hub-route-copy>span { color: var(--text-secondary); font-size: .72rem; line-height: 1.6; }.hub-routes button>svg { flex-shrink: 0; }.hub-footnote { display: flex; align-items: center; gap: 7px; margin: 18px 0 0; font-size: .78rem; }
 .hub-disciplines { margin-top: 20px; padding-top: 16px; border-top: 1px dashed var(--border-color); }
 .hub-disciplines-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
@@ -18,10 +44,24 @@
 .hub-discipline-pill { display: inline-flex; align-items: center; gap: 6px; min-height: 38px; padding: 6px 12px; border: 1px solid var(--border-color); border-radius: 999px; background: var(--bg-secondary); color: var(--text-primary); font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; transition: border-color .18s ease, transform .18s ease; }
 .hub-discipline-pill:hover { border-color: var(--brand-green,#239b73); transform: translateY(-1px); }
 .hub-discipline-pill small { padding: 2px 6px; border-radius: 999px; background: var(--bg-card); color: var(--text-secondary); font-size: .72rem; font-weight: 700; }
-.module-workspace-nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; border: 1px solid var(--border-color); border-radius: 18px; padding: 14px 18px; margin-bottom: 20px; background: var(--bg-card); }.workspace-location { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: .86rem; color: var(--text-secondary); }.workspace-location button { display: inline-flex; gap: 6px; align-items: center; background: none; border: 0; color: inherit; padding: 8px 0; font: inherit; cursor: pointer; min-height: 44px; }.workspace-options { display: flex; gap: 6px; border-radius: 12px; padding: 4px; background: var(--bg-secondary); }.workspace-options button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 44px; background: transparent; color: var(--text-secondary); border: 0; border-radius: 9px; padding: 10px 16px; font: inherit; cursor: pointer; }.workspace-options button[aria-pressed=true] { background: #176958; color: white; box-shadow: 0 2px 6px #0001; }
+.module-workspace-nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; border: 1px solid var(--border-color); border-radius: 18px; padding: 14px 18px; margin-bottom: 20px; background: var(--bg-card); }.workspace-location { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: .86rem; color: var(--text-secondary); }.workspace-location button { display: inline-flex; gap: 6px; align-items: center; background: none; border: 0; color: inherit; padding: 8px 0; font: inherit; cursor: pointer; min-height: 44px; }.workspace-options { display: flex; gap: 6px; border-radius: 12px; padding: 4px; background: var(--bg-secondary); }.workspace-options button { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 44px; background: transparent; color: var(--text-secondary); border: 0; border-radius: 999px; padding: 10px 16px; font: inherit; cursor: pointer; }.workspace-options button[aria-pressed=true] { background: #176958; color: white; box-shadow: 0 2px 6px #0001; }
 .learning-hub button:focus-visible,.module-workspace-nav button:focus-visible { outline: 3px solid #c58a32; outline-offset: 3px; }
 @media(max-width:1150px){.hub-routes{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.learning-hub{padding:20px 16px;border-radius:20px}.hub-today{padding:18px;gap:12px;flex-wrap:wrap}.hub-today-icon{width:44px;height:48px}.hub-today button{width:100%}.hub-today h3{font-size:1.1rem}.hub-routes{grid-template-columns:1fr;gap:10px}.hub-routes button{padding:12px 14px}.hub-route-copy>span{font-size:.78rem}.hub-stats{gap:10px;font-size:.76rem}.module-workspace-nav{padding:12px}.workspace-options{width:100%}.workspace-options button{flex:1;padding:10px 8px;font-size:.9rem}.hub-footnote{align-items:flex-start}}
+[data-theme=dark] .hub-today { background:#162c23; color:#d1fae5; }
+[data-theme=dark] .hub-today-icon { background:#0f201a; color:#34d399; }
+[data-theme=dark] .hub-today button { background:#059669; }
+[data-theme=dark] .hub-today-sprint-next { background:#0f201a !important; color:#34d399 !important; border-color:#059669 !important; }
+[data-theme=dark] .hub-constellation-board { background:linear-gradient(135deg, #091a13 0%, #0d261c 100%); border-color:#14532d; }
+[data-theme=dark] .hub-constellation-header h3 { color:#6ee7b7; }
+[data-theme=dark] .hub-constellation-header p { color:#a7f3d0; }
+[data-theme=dark] .hub-constellation-close { background:#0f201a; border-color:#14532d; color:#6ee7b7; }
+[data-theme=dark] .hub-constellation-card { background:#0d231a; border-color:#134e3a; }
+[data-theme=dark] .hub-constellation-card.card-full-mastered { border-color:#d97706; background:linear-gradient(180deg, #1f1d13 0%, #0d231a 100%); }
+[data-theme=dark] .hub-constellation-mod-name { color:#e5e7eb; }
+[data-theme=dark] .hub-constellation-mod-name small { background:#064e3b; color:#6ee7b7; }
+[data-theme=dark] .hub-star-node { background:#1f2937; color:#9ca3af; border-color:#374151; }
+[data-theme=dark] .hub-star-node.star-lit { background:#78350f; color:#fde68a; border-color:#d97706; }
 [data-theme=dark] .knowledge-sprint { background:#142922; color:#e1f0e6; border-color:#36564a; --sprint-ink:#e1f0e6; }
 [data-theme=dark] .sprint-heading { background:linear-gradient(120deg,#203b30,#353727); }
 [data-theme=dark] .sprint-kicker,[data-theme=dark] .sprint-note { color:#b3cdbd; }

@@ -447,6 +447,89 @@
   font-size: .9rem;
   line-height: 1.6;
 }
+.kg-spark-funfact {
+  margin: .75rem 0;
+  padding: .75rem 1rem;
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  font-size: .88rem;
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+.kg-spark-funfact strong {
+  color: #059669;
+}
+[data-theme=dark] .kg-spark-funfact {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+[data-theme=dark] .kg-spark-funfact strong {
+  color: #34d399;
+}
+.kg-spark-magic-banner {
+  margin: .75rem 0;
+  padding: .85rem 1.1rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.12) 0%, rgba(217, 119, 6, 0.06) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.kg-spark-magic-text {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.kg-spark-magic-tag {
+  font-size: .75rem;
+  font-weight: 800;
+  padding: .2rem .55rem;
+  border-radius: 999px;
+  background: rgba(245, 158, 11, 0.2);
+  color: #d97706;
+}
+.kg-spark-magic-vi {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  font-family: inherit;
+}
+.kg-spark-magic-zh {
+  font-size: .86rem;
+  color: var(--text-secondary);
+}
+.kg-spark-magic-audio {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: .4rem !important;
+  min-height: 34px !important;
+  padding: .35rem .75rem !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+  border: 1px solid rgba(245, 158, 11, 0.4) !important;
+  color: #d97706 !important;
+  font-size: .8rem !important;
+  font-weight: 700 !important;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+.kg-spark-magic-audio:hover {
+  background: #fef3c7 !important;
+  transform: scale(1.03);
+}
+[data-theme=dark] .kg-spark-magic-banner {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.16) 0%, rgba(180, 83, 9, 0.1) 100%);
+  border-color: rgba(245, 158, 11, 0.4);
+}
+[data-theme=dark] .kg-spark-magic-audio {
+  background: #1e1e1e !important;
+  color: #fbbf24 !important;
+  border-color: rgba(245, 158, 11, 0.5) !important;
+}
 .kg-spark-3d {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
