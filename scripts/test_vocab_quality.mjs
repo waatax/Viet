@@ -1,16 +1,18 @@
 // Guards the corrected Top-3,000 layer (ranks 1–3000) and the cleanup applied to the rest of the 10k bank.
 import assert from 'node:assert/strict';
 import { FREQUENCY_VOCABULARY } from '../src/data/frequencyVocabularyData.js';
-import { TOP1K_CURATED, TOP3K_CURATED, VOCABULARY, VOCAB_TIERS, classifyExample, cleanExampleZh } from '../src/data/vocabularyQuality.js';
+import { TOP1K_CURATED, TOP3K_CURATED, TOP5K_CURATED, VOCABULARY, VOCAB_TIERS, classifyExample, cleanExampleZh } from '../src/data/vocabularyQuality.js';
 
 const ALLOWED_POS = new Set(['名詞', '動詞', '形容詞', '副詞', '代名詞', '介詞', '連詞', '助詞', '量詞', '數詞', '感嘆詞', '限定詞']);
 const lower = (s = '') => s.normalize('NFC').toLowerCase();
-const raw1k = FREQUENCY_VOCABULARY.filter((w) => w.tier === 'top1k' || w.tier === 'top3k');
-const CURATED = new Map([...TOP1K_CURATED, ...TOP3K_CURATED]);
+const raw1k = FREQUENCY_VOCABULARY.filter((w) => w.tier === 'top1k' || w.tier === 'top3k' || w.tier === 'top5k');
+const CURATED = new Map([...TOP1K_CURATED, ...TOP3K_CURATED, ...TOP5K_CURATED]);
 
 assert.equal(TOP1K_CURATED.size, 1000, 'every Top-1000 rank has a curated row');
 assert.equal(TOP3K_CURATED.size, 2000, 'every rank 1001–3000 has a curated row');
 assert.ok([...TOP3K_CURATED.values()].every((r) => r.skip || r.hasHanViet), 'Top-3000 rows state their Sino-Vietnamese root explicitly');
+assert.equal(TOP5K_CURATED.size, 2000, 'every rank 3001–5000 has a curated row');
+assert.ok([...TOP5K_CURATED.values()].every((r) => r.skip || r.hasHanViet), 'Top-5000 rows state their Sino-Vietnamese root explicitly');
 const problems = [];
 for (const w of raw1k) {
   const row = CURATED.get(w.rank);
@@ -49,8 +51,16 @@ assert.ok(by3k['chiến'].zh.includes('戰'), 'chiến no longer glossed 弁');
 assert.equal(by3k['tai'].hanViet, '', 'tai (ear) is not 災');
 assert.ok(!refined3k.some((w) => ['h', 'o', 'g', 'k', 'gi', 'đéo', 'cứt'].includes(w.viet)), 'letter noise and profanity removed');
 
+const refined5k = VOCABULARY.filter((w) => w.tier === 'top5k');
+assert.ok(refined5k.length >= 1950 && refined5k.length <= 2000, `Top-5000 noise rows hidden (${refined5k.length})`);
+assert.ok(refined5k.every((w) => w.verified && w.exampleKind === 'sentence' && classifyExample(w) === 'sentence' && lower(w.example).includes(lower(w.viet))), 'every visible 3001–5000 card is verified with a full sentence');
+const by5k = Object.fromEntries(refined5k.map((w) => [w.viet, w]));
+assert.equal(by5k['bảy'].zh, '七');
+assert.equal(by5k['hai'].zh, '二');
+assert.ok(!refined5k.some((w) => ['đếch', 'đĩ', 'đái', 'chó đẻ', 'con mẹ'].includes(w.viet)), 'profanity removed from 3001–5000');
+
 // Rest of the bank: placeholders and template sentences never reach learners.
-const rest = VOCABULARY.filter((w) => w.tier !== 'top1k' && w.tier !== 'top3k');
+const rest = VOCABULARY.filter((w) => !['top1k', 'top3k', 'top5k'].includes(w.tier));
 assert.ok(!rest.some((w) => /^(vocabulary|common term)$/i.test(w.en)), 'no placeholder English');
 assert.ok(!rest.some((w) => /在工作上非常必需|在這種情境下請注意/.test(w.exampleZh)), 'no template example translations');
 assert.ok(!rest.some((w) => /rất cần thiết cho công việc/.test(w.example)), 'no template examples');

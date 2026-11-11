@@ -40,6 +40,7 @@ const m = await import(pathToFileURL(out).href);
 const sentencePool = (list) => list.filter((p) => p.viet.split(/\s+/).length >= 3).length;
 const rawTop1kSentences = m.FREQUENCY_VOCABULARY.filter((w) => w.tier === 'top1k' && m.classifyExample(w) === 'sentence').length;
 const rawTop3kSentences = m.FREQUENCY_VOCABULARY.filter((w) => w.tier === 'top3k' && m.classifyExample(w) === 'sentence').length;
+const rawTop5kSentences = m.FREQUENCY_VOCABULARY.filter((w) => w.tier === 'top5k' && m.classifyExample(w) === 'sentence').length;
 
 // Baseline = counts at 2351f42 (before this expansion).
 const units = [
@@ -58,6 +59,7 @@ const units = [
   ['flashcards 閃卡：易混字組', 27, m.CONFUSABLE_PAIRS.length],
   ['flashcards 閃卡：Top1k 完整例句', rawTop1kSentences, m.VOCABULARY.filter((w) => w.tier === 'top1k' && w.exampleKind === 'sentence').length],
   ['flashcards 閃卡：Top3k 完整例句', rawTop3kSentences, m.VOCABULARY.filter((w) => w.tier === 'top3k' && w.exampleKind === 'sentence').length],
+  ['flashcards 閃卡：Top5k 完整例句', rawTop5kSentences, m.VOCABULARY.filter((w) => w.tier === 'top5k' && w.exampleKind === 'sentence').length],
   ['grammar 語法：練習題', 20, m.GRAMMAR_DRILLS.length],
   ['sentence 造句：三詞以上句庫', sentencePool(m.practicalPhrases) - sentencePool(m.X.EXTRA_PHRASES), sentencePool(m.practicalPhrases)],
   ['quiz 測驗：題目', 30, m.quizzes.length],

@@ -298,7 +298,7 @@ export const FlashcardStudio = ({ accent = 'north', learningMode = 'zh', updateU
           </div>
           <p className="fs-mode-desc"><Target size={14} aria-hidden="true" /> {STUDY_MODES.find((m) => m.id === prefs.mode)?.descZh}</p>
           {tierInfo && tierInfo.verified < tierInfo.count && (
-            <p className="fs-unverified">此階層已清除套版假例句與英文佔位字；釋義來自開放辭典，尚未逐條人工校對。Top 3,000 已全部校對。</p>
+            <p className="fs-unverified">此階層已清除套版假例句與英文佔位字；釋義來自開放辭典，尚未逐條人工校對。Top 5,000 已全部校對。</p>
           )}
 
           <details className="fs-why" open={showWhy} onToggle={(e) => setShowWhy(e.currentTarget.open)}>

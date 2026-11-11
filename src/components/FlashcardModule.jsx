@@ -232,8 +232,8 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
           <h2 className="fc-hero-title">{learningMode === 'zh' ? '單字閃卡' : 'Vocabulary Flashcards'}</h2>
           <p className="fc-hero-sub">
             {learningMode === 'zh'
-              ? 'Top 3,000 高頻字已逐條人工校對 · 間隔重複安排複習 · 答錯立刻說明原因'
-              : 'Top 3,000 hand-checked · spaced repetition · every mistake explained'}
+              ? 'Top 5,000 高頻字已逐條人工校對 · 間隔重複安排複習 · 答錯立刻說明原因'
+              : 'Top 5,000 hand-checked · spaced repetition · every mistake explained'}
           </p>
         </div>
         <div className="fc-accent-switch" role="group" aria-label={learningMode === 'zh' ? '發音口音' : 'Accent'}>
@@ -432,7 +432,7 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
         updateUserStats={updateUserStats}
         summaryHighlights={[
           '先主動回想再看答案，評分按鈕顯示真實的下次複習時間',
-          'Top 3,000 高頻字逐條校對：現代常用義、完整例句與易錯提醒',
+          'Top 5,000 高頻字逐條校對：現代常用義、完整例句與易錯提醒',
           '易混字對比：聲調雙胞胎、母音符號與漢越同源字一次分清'
         ]}
         relatedModules={[

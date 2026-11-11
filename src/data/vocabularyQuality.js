@@ -1,7 +1,7 @@
 /**
  * 詞彙品質層：把原始 10k 詞頻庫整理成可以安全拿來教學的資料。
  *
- * 1. Top 3,000：套用 top1kCurated.js（1–1,000）與 top3kCurated.js（1,001–3,000）的人工校對
+ * 1. Top 5,000：套用 top1kCurated.js（1–1,000）、top3kCurated.js（1,001–3,000）與 top5kCurated.js（3,001–5,000）的人工校對
  *    （釋義、詞性、例句、易錯提示、漢越音），標記 verified。
  * 2. 其他階層：尚未逐條校對，因此只做「不會出錯」的清理——
  *    - 英文欄位的佔位字（vocabulary、common term）清空，介面改用中文；
@@ -12,8 +12,9 @@
 import { FREQUENCY_VOCABULARY, TIER_DEFINITIONS } from './frequencyVocabularyData.js';
 import { TOP1K_CURATED_ROWS } from './top1kCurated.js';
 import { TOP3K_CURATED_ROWS } from './top3kCurated.js';
+import { TOP5K_CURATED_ROWS } from './top5kCurated.js';
 
-const CURATED_TIERS = new Set(['top1k', 'top3k']);
+const CURATED_TIERS = new Set(['top1k', 'top3k', 'top5k']);
 
 const POS_CATEGORY = {
   名詞: '生活名詞',
@@ -65,7 +66,8 @@ export const parseCuratedRows = (text = '') => {
 
 export const TOP1K_CURATED = parseCuratedRows(TOP1K_CURATED_ROWS);
 export const TOP3K_CURATED = parseCuratedRows(TOP3K_CURATED_ROWS);
-const CURATED = new Map([...TOP1K_CURATED, ...TOP3K_CURATED]);
+export const TOP5K_CURATED = parseCuratedRows(TOP5K_CURATED_ROWS);
+const CURATED = new Map([...TOP1K_CURATED, ...TOP3K_CURATED, ...TOP5K_CURATED]);
 
 /**
  * 漢越音校正（Top 1,000）：原檔有大量「同音不同義」的誤配（anh＝英、ai＝哀、xa＝車…），
