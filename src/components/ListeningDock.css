@@ -353,3 +353,8 @@ body:has(.learning-dock) main {
     min-height: 42px;
   }
 }
+
+.learning-dock-speed-select{display:flex;align-items:center;gap:6px;font-size:.74rem;white-space:nowrap}.learning-dock-speed-select select{min-height:48px;border:1px solid var(--border-color);border-radius:9px;background:var(--bg-card);color:var(--text-primary);padding:5px;font:inherit}.learning-dock-speed-select small{color:var(--text-secondary)}
+.learning-dock .dock-ctrl-btn{min-height:48px;min-width:48px}.learning-dock button:focus-visible,.learning-dock select:focus-visible{outline:3px solid #d99932;outline-offset:3px}
+@media(max-width:600px){.learning-dock-header{flex-wrap:wrap}.learning-dock-speed-select{margin-left:auto}body:has(.learning-dock) main{padding-bottom:330px}}
+@media(prefers-reduced-motion:reduce){.learning-dock,.dock-target-ping{animation:none!important}}

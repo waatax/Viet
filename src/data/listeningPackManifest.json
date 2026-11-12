@@ -1,0 +1,410 @@
+{
+  "word-needs": {
+    "1": {
+      "file": "listening/word-needs-1.mp3",
+      "seconds": 17.299,
+      "bytes": 139115
+    },
+    "0.75": {
+      "file": "listening/word-needs-0.75.mp3",
+      "seconds": 18.672,
+      "bytes": 150062
+    },
+    "1.25": {
+      "file": "listening/word-needs-1.25.mp3",
+      "seconds": 16.48,
+      "bytes": 132590
+    }
+  },
+  "word-where": {
+    "1": {
+      "file": "listening/word-where-1.mp3",
+      "seconds": 15.848,
+      "bytes": 127598
+    },
+    "0.75": {
+      "file": "listening/word-where-0.75.mp3",
+      "seconds": 17.579,
+      "bytes": 141425
+    },
+    "1.25": {
+      "file": "listening/word-where-1.25.mp3",
+      "seconds": 14.855,
+      "bytes": 119537
+    }
+  },
+  "word-time": {
+    "1": {
+      "file": "listening/word-time-1.mp3",
+      "seconds": 16.457,
+      "bytes": 132392
+    },
+    "0.75": {
+      "file": "listening/word-time-0.75.mp3",
+      "seconds": 17.778,
+      "bytes": 142955
+    },
+    "1.25": {
+      "file": "listening/word-time-1.25.mp3",
+      "seconds": 15.667,
+      "bytes": 126059
+    }
+  },
+  "word-tastes": {
+    "1": {
+      "file": "listening/word-tastes-1.mp3",
+      "seconds": 18.473,
+      "bytes": 148511
+    },
+    "0.75": {
+      "file": "listening/word-tastes-0.75.mp3",
+      "seconds": 20.237,
+      "bytes": 162722
+    },
+    "1.25": {
+      "file": "listening/word-tastes-1.25.mp3",
+      "seconds": 17.439,
+      "bytes": 140258
+    }
+  },
+  "word-quantity": {
+    "1": {
+      "file": "listening/word-quantity-1.mp3",
+      "seconds": 15.638,
+      "bytes": 125867
+    },
+    "0.75": {
+      "file": "listening/word-quantity-0.75.mp3",
+      "seconds": 16.941,
+      "bytes": 136238
+    },
+    "1.25": {
+      "file": "listening/word-quantity-1.25.mp3",
+      "seconds": 14.871,
+      "bytes": 119726
+    }
+  },
+  "word-positions": {
+    "1": {
+      "file": "listening/word-positions-1.mp3",
+      "seconds": 16.026,
+      "bytes": 128930
+    },
+    "0.75": {
+      "file": "listening/word-positions-0.75.mp3",
+      "seconds": 18.122,
+      "bytes": 145829
+    },
+    "1.25": {
+      "file": "listening/word-positions-1.25.mp3",
+      "seconds": 14.779,
+      "bytes": 118949
+    }
+  },
+  "word-understand": {
+    "1": {
+      "file": "listening/word-understand-1.mp3",
+      "seconds": 15.157,
+      "bytes": 122021
+    },
+    "0.75": {
+      "file": "listening/word-understand-0.75.mp3",
+      "seconds": 16.581,
+      "bytes": 133352
+    },
+    "1.25": {
+      "file": "listening/word-understand-1.25.mp3",
+      "seconds": 14.336,
+      "bytes": 115496
+    }
+  },
+  "word-shopping": {
+    "1": {
+      "file": "listening/word-shopping-1.mp3",
+      "seconds": 15.801,
+      "bytes": 127205
+    },
+    "0.75": {
+      "file": "listening/word-shopping-0.75.mp3",
+      "seconds": 17.207,
+      "bytes": 138344
+    },
+    "1.25": {
+      "file": "listening/word-shopping-1.25.mp3",
+      "seconds": 14.993,
+      "bytes": 120680
+    }
+  },
+  "talk-repair": {
+    "1": {
+      "file": "listening/talk-repair-1.mp3",
+      "seconds": 26.974,
+      "bytes": 216491
+    },
+    "0.75": {
+      "file": "listening/talk-repair-0.75.mp3",
+      "seconds": 30.452,
+      "bytes": 244334
+    },
+    "1.25": {
+      "file": "listening/talk-repair-1.25.mp3",
+      "seconds": 24.886,
+      "bytes": 199790
+    }
+  },
+  "talk-drink": {
+    "1": {
+      "file": "listening/talk-drink-1.mp3",
+      "seconds": 25.049,
+      "bytes": 201128
+    },
+    "0.75": {
+      "file": "listening/talk-drink-0.75.mp3",
+      "seconds": 27.871,
+      "bytes": 223787
+    },
+    "1.25": {
+      "file": "listening/talk-drink-1.25.mp3",
+      "seconds": 23.372,
+      "bytes": 187691
+    }
+  },
+  "talk-price": {
+    "1": {
+      "file": "listening/talk-price-1.mp3",
+      "seconds": 20.081,
+      "bytes": 161384
+    },
+    "0.75": {
+      "file": "listening/talk-price-0.75.mp3",
+      "seconds": 22.257,
+      "bytes": 178859
+    },
+    "1.25": {
+      "file": "listening/talk-price-1.25.mp3",
+      "seconds": 18.794,
+      "bytes": 151211
+    }
+  },
+  "talk-route": {
+    "1": {
+      "file": "listening/talk-route-1.mp3",
+      "seconds": 26.854,
+      "bytes": 215531
+    },
+    "0.75": {
+      "file": "listening/talk-route-0.75.mp3",
+      "seconds": 30.077,
+      "bytes": 241454
+    },
+    "1.25": {
+      "file": "listening/talk-route-1.25.mp3",
+      "seconds": 24.938,
+      "bytes": 200366
+    }
+  },
+  "talk-meeting": {
+    "1": {
+      "file": "listening/talk-meeting-1.mp3",
+      "seconds": 22.792,
+      "bytes": 183086
+    },
+    "0.75": {
+      "file": "listening/talk-meeting-0.75.mp3",
+      "seconds": 25.307,
+      "bytes": 203249
+    },
+    "1.25": {
+      "file": "listening/talk-meeting-1.25.mp3",
+      "seconds": 21.305,
+      "bytes": 171185
+    }
+  },
+  "talk-room": {
+    "1": {
+      "file": "listening/talk-room-1.mp3",
+      "seconds": 23.759,
+      "bytes": 190766
+    },
+    "0.75": {
+      "file": "listening/talk-room-0.75.mp3",
+      "seconds": 26.53,
+      "bytes": 213041
+    },
+    "1.25": {
+      "file": "listening/talk-room-1.25.mp3",
+      "seconds": 22.114,
+      "bytes": 177713
+    }
+  },
+  "talk-checkout": {
+    "1": {
+      "file": "listening/talk-checkout-1.mp3",
+      "seconds": 22.457,
+      "bytes": 180392
+    },
+    "0.75": {
+      "file": "listening/talk-checkout-0.75.mp3",
+      "seconds": 25.173,
+      "bytes": 202091
+    },
+    "1.25": {
+      "file": "listening/talk-checkout-1.25.mp3",
+      "seconds": 20.851,
+      "bytes": 167531
+    }
+  },
+  "talk-correct": {
+    "1": {
+      "file": "listening/talk-correct-1.mp3",
+      "seconds": 26.812,
+      "bytes": 215342
+    },
+    "0.75": {
+      "file": "listening/talk-correct-0.75.mp3",
+      "seconds": 30.176,
+      "bytes": 242225
+    },
+    "1.25": {
+      "file": "listening/talk-correct-1.25.mp3",
+      "seconds": 24.803,
+      "bytes": 199217
+    }
+  },
+  "han-study": {
+    "1": {
+      "file": "listening/han-study-1.mp3",
+      "seconds": 18.081,
+      "bytes": 145448
+    },
+    "0.75": {
+      "file": "listening/han-study-0.75.mp3",
+      "seconds": 19.732,
+      "bytes": 158699
+    },
+    "1.25": {
+      "file": "listening/han-study-1.25.mp3",
+      "seconds": 17.124,
+      "bytes": 137771
+    }
+  },
+  "han-country": {
+    "1": {
+      "file": "listening/han-country-1.mp3",
+      "seconds": 16.409,
+      "bytes": 132008
+    },
+    "0.75": {
+      "file": "listening/han-country-0.75.mp3",
+      "seconds": 17.753,
+      "bytes": 142763
+    },
+    "1.25": {
+      "file": "listening/han-country-1.25.mp3",
+      "seconds": 15.626,
+      "bytes": 125867
+    }
+  },
+  "han-economy": {
+    "1": {
+      "file": "listening/han-economy-1.mp3",
+      "seconds": 17.343,
+      "bytes": 139502
+    },
+    "0.75": {
+      "file": "listening/han-economy-0.75.mp3",
+      "seconds": 18.96,
+      "bytes": 152369
+    },
+    "1.25": {
+      "file": "listening/han-economy-1.25.mp3",
+      "seconds": 16.401,
+      "bytes": 132017
+    }
+  },
+  "han-culture": {
+    "1": {
+      "file": "listening/han-culture-1.mp3",
+      "seconds": 17.246,
+      "bytes": 138731
+    },
+    "0.75": {
+      "file": "listening/han-culture-0.75.mp3",
+      "seconds": 18.839,
+      "bytes": 151406
+    },
+    "1.25": {
+      "file": "listening/han-culture-1.25.mp3",
+      "seconds": 16.319,
+      "bytes": 131246
+    }
+  },
+  "han-phone": {
+    "1": {
+      "file": "listening/han-phone-1.mp3",
+      "seconds": 17.075,
+      "bytes": 137387
+    },
+    "0.75": {
+      "file": "listening/han-phone-0.75.mp3",
+      "seconds": 18.65,
+      "bytes": 150062
+    },
+    "1.25": {
+      "file": "listening/han-phone-1.25.mp3",
+      "seconds": 16.175,
+      "bytes": 130094
+    }
+  },
+  "han-social": {
+    "1": {
+      "file": "listening/han-social-1.mp3",
+      "seconds": 17.988,
+      "bytes": 144686
+    },
+    "0.75": {
+      "file": "listening/han-social-0.75.mp3",
+      "seconds": 19.539,
+      "bytes": 157169
+    },
+    "1.25": {
+      "file": "listening/han-social-1.25.mp3",
+      "seconds": 17.056,
+      "bytes": 137201
+    }
+  },
+  "han-doctor": {
+    "1": {
+      "file": "listening/han-doctor-1.mp3",
+      "seconds": 16.908,
+      "bytes": 136043
+    },
+    "0.75": {
+      "file": "listening/han-doctor-0.75.mp3",
+      "seconds": 18.642,
+      "bytes": 149870
+    },
+    "1.25": {
+      "file": "listening/han-doctor-1.25.mp3",
+      "seconds": 15.876,
+      "bytes": 127790
+    }
+  },
+  "han-family": {
+    "1": {
+      "file": "listening/han-family-1.mp3",
+      "seconds": 14.411,
+      "bytes": 116078
+    },
+    "0.75": {
+      "file": "listening/han-family-0.75.mp3",
+      "seconds": 15.692,
+      "bytes": 126257
+    },
+    "1.25": {
+      "file": "listening/han-family-1.25.mp3",
+      "seconds": 13.655,
+      "bytes": 109937
+    }
+  }
+}

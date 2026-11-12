@@ -13,7 +13,7 @@
 import { audioEngine } from './audioEngine';
 
 export const PLAY_MODES = ['vi-zh', 'vi-only', 'zh-vi'];
-export const SPEED_OPTIONS = [0.6, 0.75, 1.0, 1.2];
+export const SPEED_OPTIONS = [0.6, 0.75, 1.0, 1.2, 1.25];
 export const REPEAT_OPTIONS = [1, 2, 3];
 
 const PREFS_KEY = 'viet_dialogue_playback_prefs_v1';

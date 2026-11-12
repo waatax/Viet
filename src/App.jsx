@@ -10,6 +10,7 @@ import { MODULE_IDS, ALL_NAV_ITEMS } from './config/navigation';
 import { APP_VERSION, BUILD_REVISION } from './config/release';
 
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
+const ListeningStudio = lazy(() => import('./components/ListeningStudio'));
 // Teaching notes render below each module, so they load after the module itself
 const KnowledgeGuide = lazyNamed(() => import('./components/KnowledgeGuide'), 'KnowledgeGuide');
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
@@ -48,7 +49,7 @@ const writePreference = (key, value) => {
 
 const getModuleFromHash = () => {
   const moduleId = window.location.hash.replace(/^#\/?/, '');
-  if (moduleId === 'quest') return 'quest';
+  if (moduleId === 'quest' || moduleId === 'listen') return moduleId;
   return MODULE_IDS.includes(moduleId) ? moduleId : 'path';
 };
 
@@ -153,7 +154,7 @@ export function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const id = window.location.hash.replace(/^#\/?/, '');
-      if (id === 'quest' || MODULE_IDS.includes(id)) {
+      if (id === 'quest' || id === 'listen' || MODULE_IDS.includes(id)) {
         setActiveTabState(id);
       }
     };
@@ -210,7 +211,7 @@ export function App() {
   };
 
   const setActiveTab = (moduleId) => {
-    const nextModule = (moduleId === 'quest' || MODULE_IDS.includes(moduleId)) ? moduleId : 'path';
+    const nextModule = (moduleId === 'quest' || moduleId === 'listen' || MODULE_IDS.includes(moduleId)) ? moduleId : 'path';
     setActiveTabState(nextModule);
     setModuleView('practice');
     const nextHash = `#/${nextModule}`;
@@ -318,11 +319,12 @@ export function App() {
       <main id="main-content" className="main-content" tabIndex="-1">
         <ErrorBoundary>
           <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
-            {activeTab !== 'path' && activeTab !== 'quest' && <nav className="module-workspace-nav" aria-label="本課學習工作台">
+            {activeTab !== 'path' && activeTab !== 'quest' && activeTab !== 'listen' && <nav className="module-workspace-nav" aria-label="本課學習工作台">
               <div className="workspace-location"><button onClick={() => setActiveTab('path')}><Home size={17} aria-hidden="true" /> 學習首頁</button><ChevronRight size={15} aria-hidden="true" /><span>{t(ALL_NAV_ITEMS.find(item => item.id === activeTab)?.labelKey || 'tabs.path')}</span></div>
               <div className="workspace-options"><button aria-pressed={moduleView === 'practice'} onClick={() => { audioEngine.stop(); setModuleView('practice'); }}><Gamepad2 size={18} aria-hidden="true" /> 互動練習</button><button aria-pressed={moduleView === 'knowledge'} onClick={() => { audioEngine.stop(); setModuleView('knowledge'); }}><BookOpen size={18} aria-hidden="true" /> 知識圖解・10 點聽說讀闖關</button></div>
             </nav>}
             {activeTab === 'path' && <HomeLearningHub onNavigate={setActiveTab} onStartStudy={handleStartStudy} />}
+            {activeTab === 'listen' && <ListeningStudio onNavigate={setActiveTab} />}
             {(moduleView === 'practice' || activeTab === 'path' || activeTab === 'quest') && <>
             {activeTab === 'path' && (
               <LearningPathModule

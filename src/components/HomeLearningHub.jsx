@@ -87,6 +87,10 @@ export default function HomeLearningHub({ onStartStudy, onNavigate }) {
 
   return (
     <section className="learning-hub" aria-labelledby="learning-hub-title">
+      <div className="hub-listen-launch">
+        <div><span>NEW · 24 堂隨身聽微課</span><h2>想先聽？一鍵開始越文＋中文。</h2><p>單字・會話・中越近似詞，整課 MP3 帶著走。越語獨立調速，中文保持原速。</p></div>
+        <button type="button" onClick={() => onNavigate('listen')}><Headphones size={23} aria-hidden="true" /> 打開隨身聽 <ArrowRight size={18} /></button>
+      </div>
       <div className="hub-intro">
         <span className="hub-eyebrow"><Sprout size={17} aria-hidden="true" /> 一點一點，快樂說進生活裡</span>
         <h2 id="learning-hub-title">今天，讓越南文再靠近你一點。</h2>

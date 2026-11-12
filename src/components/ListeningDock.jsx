@@ -14,7 +14,8 @@ import {
   DialogueSequencer,
   subscribeActiveSequencer,
   getActiveSequencerSnapshot,
-  setPlaybackPrefs
+  setPlaybackPrefs,
+  SPEED_OPTIONS
 } from '../services/dialoguePlayback';
 import './ListeningDock.css';
 
@@ -50,7 +51,9 @@ export function ListeningDock() {
     if (idx === undefined || idx < 0) return;
 
     // Search for element matching the active line index
-    const target =
+    const target = snapshot.ctx?.lessonId
+      ? document.querySelector(`[data-listening-lesson="${snapshot.ctx.lessonId}"][data-line-index="${idx}"]`)
+      :
       document.querySelector(`[data-line-index="${idx}"]`) ||
       document.querySelector(`[data-phrase-index="${idx}"]`) ||
       document.querySelector(`[data-vocab-index="${idx}"]`) ||
@@ -70,9 +73,9 @@ export function ListeningDock() {
   useEffect(() => {
     if (!snapshot || !snapshot.sequencer || snapshot.state.status === 'idle') return;
     const handleKeyDown = (e) => {
-      if (e.defaultPrevented) return;
+      if (e.defaultPrevented || e.altKey || e.ctrlKey || e.metaKey || e.shiftKey || e.repeat) return;
       const tag = e.target?.tagName?.toLowerCase();
-      if (tag === 'input' || tag === 'textarea' || e.target?.isContentEditable) return;
+      if (['input', 'textarea', 'select', 'button', 'a', 'summary'].includes(tag) || e.target?.closest?.('[role="button"], [role="dialog"], [role="slider"]') || e.target?.isContentEditable) return;
 
       if (e.code === 'Space') {
         e.preventDefault();
@@ -173,16 +176,12 @@ export function ListeningDock() {
         </div>
 
         {/* Speed button in header for 1-click speed switching */}
-        <button
-          type="button"
-          className="learning-dock-speed-pill"
-          onClick={() => sequencer.cycleSpeed()}
-          title={`目前語速 ${speed}x，點擊切換 (0.6x → 0.75x → 1.0x → 1.2x)`}
-          aria-label={`目前語速 ${speed}x，點擊切換`}
-        >
-          <Gauge size={13} aria-hidden="true" />
-          <span>{speed}x</span>
-        </button>
+        <label className="learning-dock-speed-select">越語
+          <select value={speed} onChange={e => setPlaybackPrefs({ speed: Number(e.target.value) })} aria-label="越南語速度，中文固定原速">
+            {SPEED_OPTIONS.map(rate => <option key={rate} value={rate}>{rate}×</option>)}
+          </select>
+          <small>中 1×</small>
+        </label>
       </div>
 
       {/* Synchronous Bilingual Text Display: Vietnamese + Chinese */}
@@ -192,7 +191,7 @@ export function ListeningDock() {
         title="點擊捲動至對應內容"
         role="button"
         tabIndex={0}
-        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleScrollToActive(); }}
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleScrollToActive(); } }}
       >
         <div className={`learning-dock-vi ${state.part === 'vi' && isPlaying ? 'is-speaking' : ''}`} lang="vi">
           <span className="learning-dock-lang-tag">🇻🇳</span>
