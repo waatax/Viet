@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
+import { ListeningDock } from './components/ListeningDock';
 import { LanguageProvider } from './context/LanguageContext';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import './services/offlineAudioService';
@@ -21,6 +22,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ErrorBoundary>
       <LanguageProvider>
         <App />
+        <ListeningDock />
       </LanguageProvider>
     </ErrorBoundary>
   </React.StrictMode>

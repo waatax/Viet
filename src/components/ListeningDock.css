@@ -1,0 +1,43 @@
+.listening-dock {
+  position: fixed;
+  z-index: 80;
+  inset-inline: 0;
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  width: min(680px, calc(100% - 20px));
+  margin-inline: auto;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+.listening-dock-copy { display: grid; min-width: 0; }
+.listening-dock-copy > * { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.listening-dock-controls { display: flex; gap: 8px; }
+.listening-dock-controls button {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: inherit;
+  background: var(--bg-main);
+}
+.listening-dock-controls button:nth-child(2) { background: var(--brand-primary); color: white; }
+.listening-dock-controls button:disabled { opacity: .45; }
+body:has(.listening-dock) main { padding-bottom: 175px; }
+.hanviet-listen-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 12px; }
+.hanviet-listen-actions button { min-height: 48px; }
+@media (max-width: 768px) {
+  .listening-dock { bottom: calc(66px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (max-width: 390px) {
+  .listening-dock { flex-direction: column; align-items: stretch; }
+  .listening-dock-controls { justify-content: center; }
+}

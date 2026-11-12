@@ -244,6 +244,7 @@ import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
+import { listenToHanViet } from './ListeningDock';
 import './HanVietModule.css';
 
 const getAssetUrl = (path) => {
@@ -697,6 +698,12 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
     );
   });
 
+  const listeningLines = filteredRoots.flatMap(root => [
+    { viet: root.root, zh: root.meaningZh },
+    ...(root.compounds || [])
+  ]);
+  const selectedListeningIndex = listeningLines.findIndex(line => line.viet === selectedRoot?.root);
+
   const playWord = (text, key, rate = 1.0) => {
     audioEngine.speak(text, { accent: selectedAccent, key: key || text, rate });
     if (updateUserStats) updateUserStats(2);
@@ -841,13 +848,17 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
           </div>
 
           {/* Main Grid: Left Root List + Right Detail Compounds */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.75rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '1.75rem' }}>
             {/* Left: Root Picker Cards */}
             <div>
               <h3 style={{ fontSize: '1.15em', fontWeight: 800, marginBottom: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                 <BookOpen size={18} color="var(--brand-primary)" />
                 {learningMode === 'zh' ? '核心字根列表' : 'Core Roots'} ({filteredRoots.length})
               </h3>
+              <div className="hanviet-listen-actions">
+                <button type="button" className="control-btn" disabled={!listeningLines.length} onClick={() => listenToHanViet(listeningLines, selectedAccent)}>▶ 全部播放・越文 → 中文</button>
+                <button type="button" className="control-btn" disabled={selectedListeningIndex < 0} onClick={() => listenToHanViet(listeningLines, selectedAccent, selectedListeningIndex)}>從選取字根續播</button>
+              </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(135px, 1fr))', gap: '0.75rem', maxHeight: '560px', overflowY: 'auto', paddingRight: '0.3rem' }}>
                 {filteredRoots.map((r, idx) => {
                   const isSelected = selectedRoot?.root === r.root;
@@ -903,7 +914,7 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
                   <div style={{ display: 'flex', gap: '0.4rem' }}>
                     <button
                       className="speaker-btn"
-                      onClick={() => playWord(selectedRoot.root, `root_${selectedRoot.root}`, 1.0)}
+                      onClick={() => listenToHanViet([{ viet: selectedRoot.root, zh: selectedRoot.meaningZh }], selectedAccent, 0, true)}
                       title={`播放 ${selectedRoot.root} 發音 (1.0x)`}
                     >
                       <Volume2 size={18} />
@@ -974,7 +985,7 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
                           <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
                             <button
                               className={`speaker-btn mini-btn ${isPlayingC ? 'playing' : ''}`}
-                              onClick={(e) => { e.stopPropagation(); playWord(c.viet, c.viet, 1.0); }}
+                              onClick={(e) => { e.stopPropagation(); listenToHanViet([c], selectedAccent, 0, true); }}
                               title={`朗讀 ${c.viet} (1.0x)`}
                             >
                               <Volume2 size={15} />
@@ -1223,7 +1234,7 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '1.25rem' }}>
             {HAN_VIET_SOUND_RULES.map((rule, idx) => (
               <div
                 key={idx}
