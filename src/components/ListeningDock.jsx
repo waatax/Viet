@@ -1,4 +1,4 @@
-import React, { useSyncExternalStore, useCallback } from 'react';
+import React, { useSyncExternalStore, useCallback, useEffect } from 'react';
 import {
   Play,
   Pause,
@@ -52,6 +52,8 @@ export function ListeningDock() {
     // Search for element matching the active line index
     const target =
       document.querySelector(`[data-line-index="${idx}"]`) ||
+      document.querySelector(`[data-phrase-index="${idx}"]`) ||
+      document.querySelector(`[data-vocab-index="${idx}"]`) ||
       document.querySelector(`[data-index="${idx}"]`) ||
       document.querySelector('.dpb-active-line') ||
       document.querySelector('.playing-card') ||
@@ -62,6 +64,32 @@ export function ListeningDock() {
       target.classList.add('dock-target-ping');
       setTimeout(() => target.classList.remove('dock-target-ping'), 1400);
     }
+  }, [snapshot]);
+
+  // Global desktop keyboard shortcuts: Space (pause/resume), Left (prev), Right (next), R (repeat)
+  useEffect(() => {
+    if (!snapshot || !snapshot.sequencer || snapshot.state.status === 'idle') return;
+    const handleKeyDown = (e) => {
+      if (e.defaultPrevented) return;
+      const tag = e.target?.tagName?.toLowerCase();
+      if (tag === 'input' || tag === 'textarea' || e.target?.isContentEditable) return;
+
+      if (e.code === 'Space') {
+        e.preventDefault();
+        snapshot.sequencer.togglePause();
+      } else if (e.code === 'ArrowRight') {
+        e.preventDefault();
+        snapshot.sequencer.next();
+      } else if (e.code === 'ArrowLeft') {
+        e.preventDefault();
+        snapshot.sequencer.prev();
+      } else if (e.key === 'r' || e.key === 'R') {
+        e.preventDefault();
+        snapshot.sequencer.replay();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [snapshot]);
 
   if (!snapshot || !snapshot.sequencer || snapshot.state.status === 'idle') {
