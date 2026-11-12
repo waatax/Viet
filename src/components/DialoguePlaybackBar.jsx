@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useRef, useState } from 'react';
 import {
   Play,
   Pause,
@@ -279,21 +278,12 @@ export const DialoguePlaybackBar = ({
 }) => {
   const t = getPlaybackCopy(learningMode);
   const rootRef = useRef(null);
-  const [inView, setInView] = useState(true);
   const [settingsOpen, setSettingsOpen] = useState(variant === 'full');
-
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el || typeof IntersectionObserver === 'undefined') return;
-    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.15 });
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
 
   const total = player.total || lines.length;
   const currentLine = player.index >= 0 ? lines.filter(l => l.viet || l.vi)[player.index] : null;
   const currentText = currentLine ? (currentLine.viet || currentLine.vi) : '';
-  const showDock = player.isActive && !inView && typeof document !== 'undefined';
+  const currentNative = currentLine ? (learningMode === 'zh' ? (currentLine.zh || currentLine.cn || currentLine.native) : (currentLine.en || currentLine.native || currentLine.zh)) : '';
 
   return (
     <>
@@ -330,6 +320,22 @@ export const DialoguePlaybackBar = ({
           </div>
         )}
 
+        {/* Synchronous Bilingual Display in the main player card */}
+        {player.isActive && currentLine && (
+          <div className="dpb-current-preview" role="region" aria-label="目前發音內容">
+            <div className={`dpb-current-vi ${player.part === 'vi' ? 'is-speaking' : ''}`} lang="vi">
+              <span className="dpb-preview-flag">🇻🇳</span>
+              <span className="dpb-current-vi-text">{currentText}</span>
+            </div>
+            {currentNative && (
+              <div className={`dpb-current-native ${player.part === 'native' ? 'is-speaking' : ''}`}>
+                <span className="dpb-preview-flag">{learningMode === 'zh' ? '🇹🇼' : '🇬🇧'}</span>
+                <span className="dpb-current-native-text">{currentNative}</span>
+              </div>
+            )}
+          </div>
+        )}
+
         {player.isActive && total > 1 && (
           <div className="dpb-progress" role="group" aria-label={t.line(player.index + 1, total)}>
             {Array.from({ length: total }).map((_, i) => (
@@ -349,25 +355,6 @@ export const DialoguePlaybackBar = ({
 
         {variant === 'full' && !player.isActive && <p className="dpb-tip">💡 {t.tip}</p>}
       </section>
-
-      {showDock && createPortal(
-        <div className={`dpb-dock mode-${player.mode}`} role="region" aria-label={t.region}>
-          <button
-            type="button"
-            className="dpb-dock-info"
-            onClick={() => rootRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-          >
-            <span className="dpb-dock-meta">
-              <span aria-hidden="true">{player.mode === 'vi-zh' ? (learningMode === 'zh' ? '🇻🇳→🇹🇼' : '🇻🇳→🇬🇧') : '🎧'}</span>
-              <span>{t.line(player.index + 1, total)}</span>
-              <PlaybackPartChip player={player} learningMode={learningMode} className="mini" />
-            </span>
-            <span className="dpb-dock-text">{currentText || title}</span>
-          </button>
-          <TransportButtons player={player} learningMode={learningMode} size={16} />
-        </div>,
-        document.body
-      )}
     </>
   );
 };

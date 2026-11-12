@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Volume2, Sparkles, Bookmark, BookOpen, Play, Pause, Star } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
+import { DialogueSequencer } from '../services/dialoguePlayback';
 import { useLanguage } from '../context/LanguageContext';
 import { bookmarkService } from '../services/bookmarkService';
 
@@ -8,12 +9,10 @@ export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
   const { learningMode } = useLanguage();
   const [activeKey, setActiveKey] = useState(null);
   const [activeVocabIndex, setActiveVocabIndex] = useState(null);
-  
   const [isPlayingFull, setIsPlayingFull] = useState(false);
   const [playMode, setPlayMode] = useState('zh-vi'); // 'zh-vi' | 'vi-zh' | 'vi-only'
   const [playbackSpeed, setPlaybackSpeed] = useState(0.9);
-  const isPlayingFullRef = useRef(false);
-  const timerRef = useRef(null);
+  const seqRef = useRef(null);
 
   const vocabList = scenario.vocab || scenario.vocabulary || [];
 
@@ -23,135 +22,70 @@ export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
     });
     return () => {
       unsubscribe();
-      isPlayingFullRef.current = false;
-      if (timerRef.current) clearTimeout(timerRef.current);
     };
   }, []);
 
+  // Initialize and manage sequencer
+  useEffect(() => {
+    const seq = new DialogueSequencer((s) => {
+      setIsPlayingFull(s.status === 'playing');
+      setActiveVocabIndex(s.status === 'idle' ? null : s.index);
+    });
+    seqRef.current = seq;
+    return () => {
+      seq.destroy();
+    };
+  }, []);
+
+  // Follow active vocab card and scroll smoothly
+  useEffect(() => {
+    if (activeVocabIndex === null || activeVocabIndex < 0) return;
+    const el = document.querySelector(`[data-vocab-index="${activeVocabIndex}"]`);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }, [activeVocabIndex]);
+
   // Reset when scenario changes
   useEffect(() => {
-    isPlayingFullRef.current = false;
-    if (timerRef.current) clearTimeout(timerRef.current);
-    audioEngine.stop();
+    seqRef.current?.stop();
     setIsPlayingFull(false);
     setActiveVocabIndex(null);
   }, [scenario.id]);
 
-  const playInSequence = (index, part = 'first', currentPlayMode = playMode, speed = playbackSpeed) => {
-    const listToPlay = vocabList;
-    
-    if (!isPlayingFullRef.current || index >= listToPlay.length) {
-      setIsPlayingFull(false);
-      isPlayingFullRef.current = false;
-      setActiveVocabIndex(null);
-      return;
-    }
-
-    setActiveVocabIndex(index);
-    const item = listToPlay[index];
-    const vietText = item.viet || item.vi;
-    const nativeText = learningMode === 'zh' ? item.zh : item.en;
-    const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
-
-    if (currentPlayMode === 'vi-only') {
-      audioEngine.speak(vietText, {
-        accent: selectedAccent,
-        lang: 'vi',
-        rate: speed,
-        key: `seq_vocab_viet_${index}`,
-        onEnd: () => {
-          if (!isPlayingFullRef.current) return;
-          const gap = speed < 0.85 ? 1300 : 1000;
-          timerRef.current = setTimeout(() => {
-            if (isPlayingFullRef.current) playInSequence(index + 1, 'first', currentPlayMode, speed);
-          }, gap);
-        }
-      });
-    } else if (currentPlayMode === 'zh-vi') {
-      // 1次中文 -> 1次越文 (Chinese first, then Vietnamese)
-      if (part === 'first') {
-        audioEngine.speak(nativeText, {
-          lang: nativeLang,
-          rate: speed,
-          key: `seq_vocab_native_${index}`,
-          onEnd: () => {
-            if (!isPlayingFullRef.current) return;
-            timerRef.current = setTimeout(() => {
-              if (isPlayingFullRef.current) playInSequence(index, 'second', currentPlayMode, speed);
-            }, 300);
-          }
-        });
-      } else {
-        audioEngine.speak(vietText, {
-          accent: selectedAccent,
-          lang: 'vi',
-          rate: speed,
-          key: `seq_vocab_viet_${index}`,
-          onEnd: () => {
-            if (!isPlayingFullRef.current) return;
-            const gap = speed < 0.85 ? 1400 : 1100;
-            timerRef.current = setTimeout(() => {
-              if (isPlayingFullRef.current) playInSequence(index + 1, 'first', currentPlayMode, speed);
-            }, gap);
-          }
-        });
-      }
-    } else {
-      // 'vi-zh': 1次越文 -> 1次中文 (Vietnamese first, then Chinese)
-      if (part === 'first') {
-        audioEngine.speak(vietText, {
-          accent: selectedAccent,
-          lang: 'vi',
-          rate: speed,
-          key: `seq_vocab_viet_${index}`,
-          onEnd: () => {
-            if (!isPlayingFullRef.current) return;
-            timerRef.current = setTimeout(() => {
-              if (isPlayingFullRef.current) playInSequence(index, 'second', currentPlayMode, speed);
-            }, 300);
-          }
-        });
-      } else {
-        audioEngine.speak(nativeText, {
-          lang: nativeLang,
-          rate: speed,
-          key: `seq_vocab_native_${index}`,
-          onEnd: () => {
-            if (!isPlayingFullRef.current) return;
-            const gap = speed < 0.85 ? 1400 : 1100;
-            timerRef.current = setTimeout(() => {
-              if (isPlayingFullRef.current) playInSequence(index + 1, 'first', currentPlayMode, speed);
-            }, gap);
-          }
-        });
-      }
-    }
-  };
-
   const handlePlayFull = (mode = 'zh-vi') => {
-    if (isPlayingFull) {
-      setIsPlayingFull(false);
-      isPlayingFullRef.current = false;
-      setActiveVocabIndex(null);
-      if (timerRef.current) clearTimeout(timerRef.current);
-      audioEngine.stop();
+    const seq = seqRef.current;
+    if (!seq) return;
+    if (seq.state.status === 'playing' && playMode === mode) {
+      seq.togglePause();
       return;
     }
-    
+    if (seq.state.status === 'paused' && playMode === mode) {
+      seq.resume();
+      return;
+    }
+
     setPlayMode(mode);
-    setIsPlayingFull(true);
-    isPlayingFullRef.current = true;
-    playInSequence(0, 'first', mode, playbackSpeed);
+    const lines = vocabList.map(v => ({
+      viet: v.viet || v.vi,
+      native: learningMode === 'zh' ? v.zh : (v.en || v.zh),
+      zh: v.zh,
+      en: v.en
+    }));
+
+    seq.start({
+      lines,
+      mode,
+      fromIndex: activeVocabIndex !== null ? activeVocabIndex : 0,
+      accent: selectedAccent,
+      nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+      title: learningMode === 'zh' ? `${scenario.titleZh || '情境'} · 單字` : `${scenario.titleEn || 'Scenario'} · Vocab`,
+      module: 'vocab'
+    });
   };
 
   const handlePlayVocab = (text, key) => {
-    // If playing continuous, stop it
-    if (isPlayingFull) {
-      setIsPlayingFull(false);
-      isPlayingFullRef.current = false;
-      setActiveVocabIndex(null);
-      if (timerRef.current) clearTimeout(timerRef.current);
-    }
+    seqRef.current?.stop();
     audioEngine.speak(text, { accent: selectedAccent, rate: playbackSpeed, key });
   };
 
@@ -299,7 +233,7 @@ export const ScenarioVocabDeck = ({ scenario, selectedAccent }) => {
           const isPlaying = activeKey === itemKey || activeKey === vietText || activeVocabIndex === idx;
           const phoneticText = item.phonetic || item.ipa;
           return (
-            <div key={idx} className={`vocab-card-item ${isPlaying ? 'playing-card' : ''}`}>
+            <div key={idx} data-vocab-index={idx} data-index={idx} className={`vocab-card-item ${isPlaying ? 'playing-card' : ''}`}>
               <div className="vocab-card-top">
                 <div className="vocab-viet">{vietText}</div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem' }}>

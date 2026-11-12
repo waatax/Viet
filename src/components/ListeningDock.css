@@ -1,43 +1,355 @@
-.listening-dock {
+/* ==========================================================================
+   Universal Learning Dock (全域音訊學習懸浮播放欄)
+   Supports: 會話 (Dialogue), 片語 (Phrases), 單字 (Vocabulary), 漢越詞
+   ========================================================================== */
+
+.learning-dock {
+  --dock-theme: var(--brand-accent, #d97706);
   position: fixed;
-  z-index: 80;
-  inset-inline: 0;
-  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-  width: min(680px, calc(100% - 20px));
-  margin-inline: auto;
-  padding: 10px;
+  left: 50%;
+  bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 1200;
+  width: min(780px, calc(100vw - 20px));
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.75rem 0.95rem;
+  background: color-mix(in srgb, var(--bg-card, #ffffff) 96%, transparent);
+  color: var(--text-primary, #1e293b);
+  border: 1.5px solid color-mix(in srgb, var(--dock-theme) 45%, var(--border-color, #cbd5e1));
+  border-radius: var(--radius-md, 14px);
+  box-shadow: 0 16px 42px -8px rgba(0, 0, 0, 0.26), 0 4px 14px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  animation: learning-dock-slide-in 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  user-select: none;
+}
+
+@keyframes learning-dock-slide-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* Give main container enough breathing room so content isn't obscured */
+body:has(.learning-dock) main {
+  padding-bottom: 210px;
+}
+
+/* Target pulse ping when scrolling to active line from dock */
+.dock-target-ping {
+  animation: dock-target-glow 1.4s ease-out;
+}
+
+@keyframes dock-target-glow {
+  0% {
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.7), 0 4px 20px rgba(239, 68, 68, 0.3);
+  }
+  70% {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+/* ---------- Header: Category badge, counter, speaking chip, speed pill ---------- */
+.learning-dock-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  background: var(--bg-card);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  gap: 0.5rem;
+  font-size: 0.78rem;
 }
-.listening-dock-copy { display: grid; min-width: 0; }
-.listening-dock-copy > * { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-.listening-dock-controls { display: flex; gap: 8px; }
-.listening-dock-controls button {
+
+.learning-dock-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.learning-dock-type-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-weight: 750;
+  color: var(--text-primary, #0f172a);
+  background: color-mix(in srgb, var(--dock-theme) 12%, var(--bg-card, #ffffff));
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--dock-theme) 30%, transparent);
+  white-space: nowrap;
+}
+
+.learning-dock-counter {
+  font-weight: 700;
+  color: var(--text-secondary, #64748b);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.learning-dock-part-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.74rem;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.learning-dock-part-pill.tone-vi {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.learning-dock-part-pill.tone-native {
+  background: rgba(217, 119, 6, 0.12);
+  color: #b45309;
+  border-color: rgba(217, 119, 6, 0.35);
+}
+
+.learning-dock-part-pill.tone-shadow {
+  background: rgba(139, 92, 246, 0.12);
+  color: #7c3aed;
+  border-color: rgba(139, 92, 246, 0.35);
+}
+
+.learning-dock-part-pill.tone-paused {
+  background: var(--bg-input, #f1f5f9);
+  color: var(--text-secondary, #64748b);
+}
+
+.learning-dock-part-pill.tone-error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.learning-dock-speed-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.22rem 0.6rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--brand-accent, #d97706);
+  background: var(--bg-input, #f8fafc);
+  border: 1.5px solid color-mix(in srgb, var(--brand-accent, #d97706) 40%, var(--border-color, #cbd5e1));
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.learning-dock-speed-pill:hover {
+  background: color-mix(in srgb, var(--brand-accent, #d97706) 15%, var(--bg-card, #ffffff));
+  transform: translateY(-1px);
+}
+
+.learning-dock-speed-pill:active {
+  transform: scale(0.96);
+}
+
+/* ---------- Middle: Synchronous Bilingual Card (Vietnamese + Chinese) ---------- */
+.learning-dock-bilingual {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.55rem 0.75rem;
+  background: color-mix(in srgb, var(--bg-card, #ffffff) 50%, var(--bg-input, #f8fafc));
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: var(--radius-sm, 10px);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.learning-dock-bilingual:hover {
+  background: color-mix(in srgb, var(--brand-accent, #d97706) 6%, var(--bg-card, #ffffff));
+  border-color: color-mix(in srgb, var(--brand-accent, #d97706) 40%, var(--border-color, #cbd5e1));
+}
+
+.learning-dock-vi {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  line-height: 1.35;
+}
+
+.learning-dock-vi-text {
+  font-size: 0.98rem;
+  font-weight: 750;
+  color: var(--text-primary, #0f172a);
+  word-break: break-word;
+  transition: color 0.15s ease;
+}
+
+.learning-dock-vi.is-speaking .learning-dock-vi-text {
+  color: var(--brand-primary, #ef4444);
+  text-shadow: 0 0 10px rgba(239, 68, 68, 0.25);
+}
+
+.learning-dock-native {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  line-height: 1.3;
+}
+
+.learning-dock-native-text {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-secondary, #475569);
+  word-break: break-word;
+  transition: color 0.15s ease;
+}
+
+.learning-dock-native.is-speaking .learning-dock-native-text {
+  color: #b45309;
+  font-weight: 700;
+}
+
+.learning-dock-lang-tag {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* ---------- Bottom: Full Transport Control Suite ---------- */
+.learning-dock-controls {
   display: grid;
-  place-items: center;
-  width: 48px;
-  height: 48px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  color: inherit;
-  background: var(--bg-main);
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.4rem;
+  align-items: center;
 }
-.listening-dock-controls button:nth-child(2) { background: var(--brand-primary); color: white; }
-.listening-dock-controls button:disabled { opacity: .45; }
-body:has(.listening-dock) main { padding-bottom: 175px; }
-.hanviet-listen-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 12px; }
-.hanviet-listen-actions button { min-height: 48px; }
+
+.dock-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 40px;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border-color, #cbd5e1);
+  border-radius: var(--radius-sm, 8px);
+  color: var(--text-primary, #1e293b);
+  background: var(--bg-card, #ffffff);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.dock-ctrl-btn:hover:not(:disabled) {
+  background: var(--bg-input, #f1f5f9);
+  border-color: color-mix(in srgb, var(--brand-accent, #d97706) 50%, var(--border-color, #cbd5e1));
+  transform: translateY(-1px);
+}
+
+.dock-ctrl-btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.dock-ctrl-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Main Play/Pause Button */
+.dock-ctrl-btn.btn-main {
+  background: var(--brand-primary, #ef4444);
+  border-color: var(--brand-primary, #ef4444);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(239, 68, 68, 0.35);
+}
+
+.dock-ctrl-btn.btn-main:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--brand-primary, #ef4444) 88%, #000);
+}
+
+/* Replay Button: Highlighted, NEVER hidden */
+.dock-ctrl-btn.btn-replay {
+  background: color-mix(in srgb, var(--brand-accent, #d97706) 12%, var(--bg-card, #ffffff));
+  border-color: color-mix(in srgb, var(--brand-accent, #d97706) 50%, var(--border-color, #cbd5e1));
+  color: var(--brand-accent, #d97706);
+}
+
+.dock-ctrl-btn.btn-replay:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--brand-accent, #d97706) 22%, var(--bg-card, #ffffff));
+}
+
+.dock-ctrl-btn.btn-stop {
+  color: var(--text-muted, #94a3b8);
+}
+
+.dock-ctrl-btn.btn-stop:hover:not(:disabled) {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+.dock-btn-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---------- Responsive Adjustments ---------- */
 @media (max-width: 768px) {
-  .listening-dock { bottom: calc(66px + env(safe-area-inset-bottom, 0px)); }
+  .learning-dock {
+    bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+    width: calc(100vw - 16px);
+    padding: 0.65rem 0.75rem;
+    gap: 0.4rem;
+  }
+
+  body:has(.learning-dock) main {
+    padding-bottom: 230px;
+  }
+
+  .learning-dock-vi-text {
+    font-size: 0.94rem;
+  }
+
+  .learning-dock-native-text {
+    font-size: 0.83rem;
+  }
+
+  .dock-ctrl-btn {
+    min-height: 42px;
+    padding: 0.35rem 0.25rem;
+    gap: 0.2rem;
+  }
+
+  .dock-btn-label {
+    font-size: 0.74rem;
+  }
 }
-@media (max-width: 390px) {
-  .listening-dock { flex-direction: column; align-items: stretch; }
-  .listening-dock-controls { justify-content: center; }
+
+@media (max-width: 480px) {
+  .dock-ctrl-btn.btn-prev .dock-btn-label,
+  .dock-ctrl-btn.btn-next .dock-btn-label,
+  .dock-ctrl-btn.btn-stop .dock-btn-label {
+    display: none; /* Keep icons clean and wide touch targets on very small phones */
+  }
+
+  .dock-ctrl-btn.btn-replay .dock-btn-label,
+  .dock-ctrl-btn.btn-main .dock-btn-label {
+    display: inline; /* Keep crucial labels "暫停" and "重複這句" visible */
+  }
+
+  .dock-ctrl-btn {
+    min-height: 42px;
+  }
 }

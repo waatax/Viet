@@ -12,7 +12,7 @@
  */
 import { audioEngine } from './audioEngine';
 
-export const PLAY_MODES = ['vi-zh', 'vi-only'];
+export const PLAY_MODES = ['vi-zh', 'vi-only', 'zh-vi'];
 export const SPEED_OPTIONS = [0.6, 0.75, 1.0, 1.2];
 export const REPEAT_OPTIONS = [1, 2, 3];
 
@@ -73,6 +73,7 @@ export const setPlaybackPrefs = (partial) => {
     localStorage.setItem(PREFS_KEY, JSON.stringify(sharedPrefs));
   } catch (e) {}
   prefListeners.forEach(fn => fn(sharedPrefs));
+  if (activeSequencer) updateActiveSnapshot();
   return sharedPrefs;
 };
 
@@ -88,6 +89,36 @@ const watchdogMs = (text, lang, rate) => {
 };
 
 let activeSequencer = null;
+let activeSnapshot = null;
+const activeSequencerListeners = new Set();
+
+export const updateActiveSnapshot = () => {
+  if (!activeSequencer || activeSequencer.state.status === 'idle') {
+    activeSnapshot = null;
+  } else {
+    activeSnapshot = {
+      id: activeSequencer.id,
+      state: { ...activeSequencer.state },
+      currentLine: activeSequencer.lines[activeSequencer.state.index] || null,
+      total: activeSequencer.state.total,
+      ctx: { ...activeSequencer.ctx },
+      prefs: { ...activeSequencer.prefs },
+      sequencer: activeSequencer
+    };
+  }
+  activeSequencerListeners.forEach(listener => {
+    try { listener(activeSnapshot); } catch (e) { console.error(e); }
+  });
+};
+
+export const getActiveSequencerSnapshot = () => activeSnapshot;
+export const getActiveSequencer = () => activeSequencer;
+
+export const subscribeActiveSequencer = (listener) => {
+  activeSequencerListeners.add(listener);
+  return () => activeSequencerListeners.delete(listener);
+};
+
 let sequencerCount = 0;
 
 export class DialogueSequencer {
@@ -110,6 +141,7 @@ export class DialogueSequencer {
   setState(patch) {
     this.state = { ...this.state, ...patch };
     if (this.onChange) this.onChange(this.state);
+    if (activeSequencer === this) updateActiveSnapshot();
   }
 
   get prefs() {
@@ -260,6 +292,7 @@ export class DialogueSequencer {
     if (activeSequencer === this) {
       activeSequencer = null;
       this.unbindMediaSession();
+      updateActiveSnapshot();
     }
   }
 
@@ -304,6 +337,18 @@ export class DialogueSequencer {
     this.bindMediaSession();
   }
 
+  setSpeed(speed) {
+    setPlaybackPrefs({ speed });
+  }
+
+  cycleSpeed() {
+    const cur = this.prefs.speed;
+    const idx = SPEED_OPTIONS.indexOf(cur);
+    const next = SPEED_OPTIONS[(idx + 1) % SPEED_OPTIONS.length];
+    setPlaybackPrefs({ speed: next });
+    return next;
+  }
+
   destroy() {
     this.stop();
     this.unsubscribeState?.();
@@ -318,7 +363,11 @@ export class DialogueSequencer {
       return;
     }
     this.preloadAround(index);
-    this.speakPart(index, 'vi', 0);
+    if (this.state.mode === 'zh-vi') {
+      this.speakPart(index, 'native', 0);
+    } else {
+      this.speakPart(index, 'vi', 0);
+    }
   }
 
   speakPart(index, part, rep) {
@@ -368,6 +417,39 @@ export class DialogueSequencer {
     const { repeat, shadowPause, speed } = this.prefs;
     const lineGap = speed < 0.85 ? GAP_MS.betweenLinesSlow : GAP_MS.betweenLines;
     this.clearTimers();
+
+    if (this.state.mode === 'zh-vi') {
+      if (part === 'native') {
+        this.later(() => this.speakPart(index, 'vi', 0), GAP_MS.viToNative);
+        return;
+      }
+      if (part === 'vi') {
+        if (rep + 1 < repeat) {
+          this.later(() => this.speakPart(index, 'vi', rep + 1), GAP_MS.betweenReps);
+          return;
+        }
+        if (shadowPause) {
+          const wait = Math.min(12000, Math.max(1800, elapsedMs * 1.15 + 700));
+          this.setState({ part: 'shadow' });
+          this.later(() => {
+            if (this.singleLineOnly) {
+              this.token++;
+              this.release();
+              return;
+            }
+            this.runLine(index + 1);
+          }, wait, { evenWhenHidden: true });
+          return;
+        }
+        if (this.singleLineOnly) {
+          this.token++;
+          this.release();
+          return;
+        }
+        this.later(() => this.runLine(index + 1), lineGap);
+        return;
+      }
+    }
 
     if (part === 'vi') {
       if (rep + 1 < repeat) {
@@ -433,10 +515,11 @@ export class DialogueSequencer {
     const { accent, nativeLang } = this.ctx;
     const current = this.lines[index];
     const upcoming = this.lines[index + 1];
-    if (current?.native && this.state.mode === 'vi-zh') audioEngine.preload(current.native, { lang: nativeLang });
+    const needsNative = this.state.mode === 'vi-zh' || this.state.mode === 'zh-vi';
+    if (current?.native && needsNative) audioEngine.preload(current.native, { lang: nativeLang });
     if (upcoming) {
       audioEngine.preload(upcoming.viet, { accent });
-      if (upcoming.native && this.state.mode === 'vi-zh') audioEngine.preload(upcoming.native, { lang: nativeLang });
+      if (upcoming.native && needsNative) audioEngine.preload(upcoming.native, { lang: nativeLang });
     }
   }
 

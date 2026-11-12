@@ -173,6 +173,60 @@
   gap: 0.35rem;
 }
 
+/* ---------- Synchronous bilingual line preview in main card ---------- */
+.dpb-current-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.65rem 0.85rem;
+  background: color-mix(in srgb, var(--brand-accent) 6%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, var(--brand-accent) 30%, var(--border-color));
+  border-radius: var(--radius-sm, 8px);
+  animation: dpb-fade-in 0.2s ease-out;
+}
+
+@keyframes dpb-fade-in {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dpb-current-vi,
+.dpb-current-native {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  line-height: 1.35;
+}
+
+.dpb-preview-flag {
+  flex-shrink: 0;
+  font-size: 0.88rem;
+}
+
+.dpb-current-vi-text {
+  font-size: 0.96rem;
+  font-weight: 750;
+  color: var(--text-primary);
+  transition: color 0.15s ease;
+}
+
+.dpb-current-vi.is-speaking .dpb-current-vi-text {
+  color: var(--brand-primary);
+  text-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
+}
+
+.dpb-current-native-text {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: color 0.15s ease;
+}
+
+.dpb-current-native.is-speaking .dpb-current-native-text {
+  color: var(--brand-accent);
+  font-weight: 700;
+}
+
 .dpb-icon-btn {
   width: 40px;
   height: 40px;

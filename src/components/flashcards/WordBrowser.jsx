@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Search, X, Play, Pause, Star, ChevronDown } from 'lucide-react';
 import { audioEngine } from '../../services/audioEngine';
+import { DialogueSequencer } from '../../services/dialoguePlayback';
 import { bookmarkService } from '../../services/bookmarkService';
 import { cardStage } from '../../services/flashcardScheduler';
 import { ToneWord, CardDetails } from './VocabParts';
@@ -59,43 +60,56 @@ export const WordBrowser = ({ deck, srsData, accent, learningMode = 'zh', active
 
   useEffect(() => { setLimit(PAGE); }, [query, status, pos, deck]);
 
+  const seqRef = useRef(null);
+  useEffect(() => {
+    const seq = new DialogueSequencer((s) => {
+      setPlayingIndex(s.status === 'idle' ? -1 : s.index);
+      if (s.index >= 0 && s.index >= limit) {
+        setLimit(s.index + PAGE);
+      }
+    });
+    seqRef.current = seq;
+    return () => {
+      seq.destroy();
+    };
+  }, [limit]);
+
   const stop = () => {
-    playingRef.current = false;
-    clearTimeout(timerRef.current);
-    audioEngine.stop();
+    seqRef.current?.stop();
     setPlayingIndex(-1);
   };
-  useEffect(() => stop, []);
-  useEffect(() => { if (playingRef.current) stop(); }, [filtered]);
-
-  const say = (text, lang, done) => {
-    audioEngine.speak(text, {
-      accent,
-      lang,
-      rate: speed,
-      key: `fs_browse_${lang}_${text}`,
-      onEnd: () => { if (playingRef.current) timerRef.current = setTimeout(done, 380); }
-    });
-  };
-
-  const playFrom = (index, round = 1) => {
-    if (!playingRef.current || index >= filtered.length) { stop(); return; }
-    const w = filtered[index];
-    setPlayingIndex(index);
-    if (index >= limit) setLimit(index + PAGE);
-    const native = learningMode === 'zh' ? w.zh.split(' / ').slice(0, 2).join('，') : (w.en || w.zh);
-    const nativeLang = learningMode === 'zh' ? 'zh' : 'en';
-    const next = () => { timerRef.current = setTimeout(() => playFrom(index + 1), speed < 0.85 ? 900 : 600); };
-    if (playMode === 'vi') say(w.viet, 'vi', next);
-    else if (playMode === 'zh-vi') say(native, nativeLang, () => say(w.viet, 'vi', next));
-    else if (playMode === 'vi-zh') say(w.viet, 'vi', () => say(native, nativeLang, next));
-    else say(w.viet, 'vi', () => say(native, nativeLang, () => (round < 3 ? playFrom(index, round + 1) : next())));
-  };
+  useEffect(() => () => seqRef.current?.stop(), []);
+  useEffect(() => { seqRef.current?.stop(); }, [filtered]);
 
   const togglePlay = (startAt = 0) => {
-    if (playingRef.current) { stop(); return; }
-    playingRef.current = true;
-    playFrom(Math.max(0, startAt));
+    const seq = seqRef.current;
+    if (!seq) return;
+    if (seq.state.status === 'playing') {
+      seq.togglePause();
+      return;
+    }
+    if (seq.state.status === 'paused') {
+      seq.resume();
+      return;
+    }
+
+    const lines = filtered.map((w) => ({
+      viet: w.viet,
+      native: learningMode === 'zh' ? (w.zh ? w.zh.split(' / ').slice(0, 2).join('，') : '') : (w.en || w.zh),
+      zh: w.zh,
+      en: w.en
+    }));
+
+    const mode = playMode === 'vi' ? 'vi-only' : (playMode === 'zh-vi' ? 'zh-vi' : 'vi-zh');
+    seq.start({
+      lines,
+      mode,
+      fromIndex: Math.max(0, startAt),
+      accent,
+      nativeLang: learningMode === 'zh' ? 'zh' : 'en',
+      title: learningMode === 'zh' ? '分級單字庫' : 'Word Browser',
+      module: 'vocab'
+    });
   };
 
   useEffect(() => {
