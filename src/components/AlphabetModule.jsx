@@ -177,10 +177,11 @@ import {
   DiphthongSpellingFigure
 } from './visuals/PhoneticsVisuals';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
+import PronunciationCards from './PronunciationCards';
 
 export const AlphabetModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
-  const [activePhoneticTab, setActivePhoneticTab] = useState('letters'); // 'letters' | 'compound' | 'finals' | 'diphthongs' | 'tones'
+  const [activePhoneticTab, setActivePhoneticTab] = useState('cards');
   const [activeFilter, setActiveFilter] = useState('all'); // 'all' | 'vowel' | 'consonant'
   const [selectedTone, setSelectedTone] = useState(null);
   const [activeKey, setActiveKey] = useState(null);
@@ -330,13 +331,16 @@ export const AlphabetModule = ({ selectedAccent = 'north', updateUserStats, setA
         </h2>
         <p className="section-desc">
           {learningMode === 'zh'
-            ? '由台越語言學專家審定：涵蓋 29 字母、12 單母音、11 複子音、8 尾子音、32 雙/三母音與 6 大聲調最小對立矩陣，配備即時音頻合成與標準真人口語。'
+            ? '先用閃卡聽音跟讀，再查看字母、口形與六聲圖解。示範音節採用越南語語音。'
             : 'Master Vietnamese pronunciation: 29 letters, 12 single vowels, 11 compound consonants, 8 final consonants, 32 diphthongs, and 6 tones minimal pairs.'}
         </p>
       </div>
 
       {/* 5-Tab Phonetic Subnav */}
       <div className="business-subnav" role="tablist" style={{ marginBottom: '2rem' }}>
+        <button className={`biz-nav-tab ${activePhoneticTab === 'cards' ? 'active' : ''}`} onClick={() => setActivePhoneticTab('cards')}>
+          <Layers size={17} /> 發音閃卡
+        </button>
         <button
           className={`biz-nav-tab ${activePhoneticTab === 'letters' ? 'active' : ''}`}
           onClick={() => setActivePhoneticTab('letters')}
@@ -383,6 +387,7 @@ export const AlphabetModule = ({ selectedAccent = 'north', updateUserStats, setA
 
       {/* ==================================================== */}
       {/* TAB 1: 29 ALPHABET & 12 SINGLE VOWELS */}
+      {activePhoneticTab === 'cards' && <PronunciationCards accent={selectedAccent} />}
       {/* ==================================================== */}
       {activePhoneticTab === 'letters' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>

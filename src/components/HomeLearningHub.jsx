@@ -23,7 +23,7 @@ import { loadKnowledgeProgress } from '../services/knowledgeProgress';
 import './LearningWorkspace.css';
 
 const ROUTES = [
-  { id: 'alphabet', Icon: Volume2, title: '先把聲音聽清楚', desc: '發音拆解・聲調・母音', tag: '剛開始' },
+  { id: 'alphabet', Icon: Volume2, title: '越語發音閃卡', desc: '母音・雙母音・六聲・子音跟讀', tag: '發音練習' },
   { id: 'topics', Icon: Coffee, title: '今天就能用的一句', desc: '點餐・問價・說出需求', tag: '生活開口' },
   { id: 'conversation', Icon: Mic, title: '接得住真實對話', desc: '聽懂・澄清・重述確認', tag: '會話練習' },
   { id: 'quest', Icon: Trophy, title: '用挑戰找出弱點', desc: '闖關・解說・錯題再練', tag: '遊戲評量' }
@@ -185,7 +185,7 @@ export default function HomeLearningHub({ onStartStudy, onNavigate }) {
 
       <div className="hub-routes" aria-label="依學習目的開始">
         {ROUTES.map(({ id, Icon, title, desc, tag }) => (
-          <button key={id} onClick={() => id === 'quest' ? onNavigate(id) : onStartStudy(id)}>
+          <button key={id} onClick={() => ['alphabet', 'quest'].includes(id) ? onNavigate(id) : onStartStudy(id)}>
             <span className={`hub-route-icon route-${id}`}><Icon size={23} aria-hidden="true" /></span>
             <span className="hub-route-copy"><small>{tag}</small><strong>{title}</strong><span>{desc}</span></span>
             <ArrowRight size={16} aria-hidden="true" />
