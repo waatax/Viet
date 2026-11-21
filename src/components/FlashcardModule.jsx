@@ -63,9 +63,9 @@ const modeFromTarget = (target) => {
   return 'frequency';
 };
 
-export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
+export const FlashcardModule = ({ searchTarget, selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode } = useLanguage();
-  const initialTarget = useMemo(readTarget, []);
+  const initialTarget = useMemo(() => searchTarget || readTarget(), [searchTarget]);
 
   const [accent, setAccent] = useState(selectedAccent || 'north');
   useEffect(() => { if (selectedAccent) setAccent(selectedAccent); }, [selectedAccent]);
@@ -261,7 +261,7 @@ export const FlashcardModule = ({ selectedAccent = 'north', updateUserStats, set
           learningMode={learningMode}
           updateUserStats={updateUserStats}
           curatedDeck={curatedDeck}
-          initialTier={studioTier}
+          initialTier={studioTier} initialWord={searchTarget}
         />
       )}
 

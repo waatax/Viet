@@ -3,14 +3,16 @@ import {
   Search, X, Layers, ChevronRight, Clock, Award,
   BookOpen, Sparkles, Filter, CheckCircle2, ArrowRight
 } from 'lucide-react';
-import { SYLLABUS_REGISTRY, SYLLABUS_CATEGORIES } from '../config/syllabusRegistry';
+import { searchSite } from '../services/siteSearch';
+import { SYLLABUS_CATEGORIES } from '../config/syllabusRegistry';
 import { useLanguage } from '../context/LanguageContext';
 import { audioEngine } from '../services/audioEngine';
 import './ChapterFinderModal.css';
 
-export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter }) {
+export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter, initialQuery = '' }) {
   const { learningMode, t } = useLanguage();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
+  const [limit, setLimit] = useState(50);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedCardIndex, setSelectedCardIndex] = useState(0);
   const inputRef = useRef(null);
@@ -35,39 +37,21 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
 
   // Filter items
   const filteredChapters = useMemo(() => {
-    const q = searchQuery.toLowerCase().trim();
-    return SYLLABUS_REGISTRY.filter(item => {
-      const matchCat = selectedCategory === 'all' || item.category === selectedCategory;
-      if (!matchCat) return false;
-      if (!q) return true;
-
-      const titleZh = item.titleZh?.toLowerCase() || '';
-      const titleVi = item.titleVi?.toLowerCase() || '';
-      const titleEn = item.titleEn?.toLowerCase() || '';
-      const descZh = item.descZh?.toLowerCase() || '';
-      const descVi = item.descVi?.toLowerCase() || '';
-      const catZh = item.categoryLabelZh?.toLowerCase() || '';
-
-      return titleZh.includes(q) ||
-             titleVi.includes(q) ||
-             titleEn.includes(q) ||
-             descZh.includes(q) ||
-             descVi.includes(q) ||
-             catZh.includes(q);
-    });
+    return searchSite(searchQuery, selectedCategory);
   }, [searchQuery, selectedCategory]);
 
   // Keyboard shortcut listener: ESC to close, Arrow keys to navigate, Enter to select
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (!isOpen) return;
+      if (!isOpen || e.isComposing || e.keyCode === 229) return;
+      if (e.key !== 'Escape' && e.target !== inputRef.current) return;
       if (e.key === 'Escape') {
         audioEngine.playHaptic('tap');
         onClose();
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
         audioEngine.playHaptic('tap');
-        setSelectedCardIndex(prev => Math.min(prev + 1, Math.max(0, filteredChapters.length - 1)));
+        setSelectedCardIndex(prev => Math.min(prev + 1, Math.max(0, Math.min(limit, filteredChapters.length) - 1)));
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
         audioEngine.playHaptic('tap');
@@ -81,7 +65,7 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose, filteredChapters, selectedCardIndex]);
+  }, [isOpen, onClose, filteredChapters, selectedCardIndex, limit]);
 
   if (!isOpen) return null;
 
@@ -102,7 +86,7 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
               <Sparkles size={14} className="sparkle-icon" />
               <span>{learningMode === 'zh' ? '全域章節導航總覽' : 'Global Syllabus & Chapter Navigator'}</span>
             </div>
-            <h2>{learningMode === 'zh' ? '想學哪個章節？快速搜尋直達' : 'Find Any Lesson & Jump Directly'}</h2>
+            <h2>{learningMode === 'zh' ? '全站搜尋' : 'Find Any Lesson & Jump Directly'}</h2>
           </div>
           <button className="finder-close-btn" onClick={() => { audioEngine.playHaptic('tap'); onClose(); }} aria-label="Close modal">
             <X size={20} />
@@ -115,9 +99,9 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
           <input
             ref={inputRef}
             type="text"
-            className="finder-search-input"
+            aria-label="全站搜尋關鍵字" className="finder-search-input"
             value={searchQuery}
-            onChange={(e) => { setSearchQuery(e.target.value); setSelectedCardIndex(0); }}
+            onChange={(e) => { setLimit(50); setSearchQuery(e.target.value); setSelectedCardIndex(0); }}
             placeholder={learningMode === 'zh' ? '輸入關鍵字搜尋：例如「咖啡」、「海關」、「紅發票」、「談判」、「聲調」...' : 'Search chapters, e.g. "coffee", "customs", "invoice", "tones"...'}
           />
           {searchQuery && (
@@ -146,7 +130,7 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
 
         {/* Results Counter */}
         <div className="finder-results-bar">
-          <span>{learningMode === 'zh' ? `找到 ${filteredChapters.length} 個課程章節` : `Found ${filteredChapters.length} chapters`}</span>
+          <span>{learningMode === 'zh' ? `找到 ${filteredChapters.length} 筆結果` : `Found ${filteredChapters.length} results`}</span>
           {searchQuery && (
             <button className="clear-filter-link" onClick={() => { audioEngine.playHaptic('tap'); setSearchQuery(''); setSelectedCategory('all'); setSelectedCardIndex(0); }}>
               {learningMode === 'zh' ? '重設搜尋' : 'Reset search'}
@@ -162,8 +146,8 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
               <small>{learningMode === 'zh' ? '試試其他關鍵字，或點擊上方「全部章節」查看完整清單' : 'Try searching different keywords or select All Chapters'}</small>
             </div>
           ) : (
-            filteredChapters.map((chapter, idx) => (
-              <div
+            filteredChapters.slice(0,limit).map((chapter, idx) => (
+              <button type="button" style={{ textAlign: 'left', width: '100%' }}
                 key={chapter.id}
                 className={`finder-card-item ${idx === selectedCardIndex ? 'keyboard-active' : ''}`}
                 onMouseEnter={() => setSelectedCardIndex(idx)}
@@ -201,9 +185,10 @@ export default function ChapterFinderModal({ isOpen, onClose, onSelectChapter })
                     <ArrowRight size={15} />
                   </div>
                 </div>
-              </div>
+              </button>
             ))
           )}
+          {filteredChapters.length > limit && <button type="button" onClick={() => setLimit(n => n + 50)}>顯示更多結果</button>}
         </div>
       </div>
     </div>

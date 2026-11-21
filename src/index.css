@@ -5247,3 +5247,8 @@ p, li, h1, h2, h3, strong, small, span {
   margin: 0;
   line-height: 1.5;
 }
+.home-global-search { margin: 1rem auto; padding: 1rem; max-width: 70rem; background: var(--bg-card); border: 1px solid var(--border-highlight); border-radius: 1rem; }
+.home-global-search label { display: block; margin-bottom: .45rem; font-weight: 700; }
+.home-global-search div { display: flex; gap: .5rem; }
+.home-global-search input { min-width: 0; flex: 1; font: inherit; padding: .75rem; border: 1px solid var(--border-highlight); border-radius: .5rem; color: var(--text-primary); background: var(--bg-main); }
+.home-global-search button { font: inherit; cursor: pointer; padding: .65rem 1rem; border: 0; border-radius: .5rem; background: #19594f; color: white; }

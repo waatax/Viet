@@ -178,10 +178,11 @@ import {
 } from './visuals/PhoneticsVisuals';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import PronunciationCards from './PronunciationCards';
+import PronunciationVideos from './PronunciationVideos';
 
-export const AlphabetModule = ({ selectedAccent = 'north', updateUserStats, setActiveTab }) => {
+export const AlphabetModule = ({ initialTarget, selectedAccent = 'north', updateUserStats, setActiveTab }) => {
   const { learningMode, loc, t } = useLanguage();
-  const [activePhoneticTab, setActivePhoneticTab] = useState('cards');
+  const [activePhoneticTab, setActivePhoneticTab] = useState(initialTarget?.video != null ? 'videos' : initialTarget?.tab || 'cards');
   const [activeFilter, setActiveFilter] = useState('all'); // 'all' | 'vowel' | 'consonant'
   const [selectedTone, setSelectedTone] = useState(null);
   const [activeKey, setActiveKey] = useState(null);
@@ -338,6 +339,9 @@ export const AlphabetModule = ({ selectedAccent = 'north', updateUserStats, setA
 
       {/* 5-Tab Phonetic Subnav */}
       <div className="business-subnav" role="tablist" style={{ marginBottom: '2rem' }}>
+        <button className={`biz-nav-tab ${activePhoneticTab === 'videos' ? 'active' : ''}`} onClick={() => setActivePhoneticTab('videos')}>
+          <Play size={17} /> 第 0～5 課發音影片
+        </button>
         <button className={`biz-nav-tab ${activePhoneticTab === 'cards' ? 'active' : ''}`} onClick={() => setActivePhoneticTab('cards')}>
           <Layers size={17} /> 發音閃卡
         </button>
@@ -387,7 +391,8 @@ export const AlphabetModule = ({ selectedAccent = 'north', updateUserStats, setA
 
       {/* ==================================================== */}
       {/* TAB 1: 29 ALPHABET & 12 SINGLE VOWELS */}
-      {activePhoneticTab === 'cards' && <PronunciationCards accent={selectedAccent} />}
+      {activePhoneticTab === 'cards' && <PronunciationCards initialTarget={initialTarget} accent={selectedAccent} />}
+      {activePhoneticTab === 'videos' && <PronunciationVideos initialLesson={initialTarget?.video} />}
       {/* ==================================================== */}
       {activePhoneticTab === 'letters' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>

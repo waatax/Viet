@@ -1,0 +1,5 @@
+.pronunciation-videos { max-width: 62rem; margin: 0 auto; padding: 1rem; }
+.pronunciation-videos video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #123b39; border-radius: .75rem; }
+.course-video-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .6rem; }
+.course-video-choices button { text-align: left; padding: .85rem; border-radius: .6rem; border: 1px solid var(--border-highlight); background: var(--bg-card); color: var(--text-primary); font: inherit; cursor: pointer; }
+.course-video-choices button[aria-pressed="true"] { color: white; background: #19594f; }

@@ -10,9 +10,9 @@ import AudioDownloads from './AudioDownloads';
 import './ListeningStudio.css';
 
 const downloadUrl = file => `${import.meta.env.BASE_URL}audio/${file}`;
-export default function ListeningStudio({ onNavigate }) {
+export default function ListeningStudio({ onNavigate, initialLessonId }) {
   const [bookmark] = useState(readListeningBookmark);
-  const [lessonId, setLessonId] = useState(() => LISTENING_LESSONS.find(l => l.id === bookmark?.lessonId)?.id || LISTENING_LESSONS[0].id);
+  const [lessonId, setLessonId] = useState(() => LISTENING_LESSONS.find(l => l.id === (initialLessonId || bookmark?.lessonId))?.id || LISTENING_LESSONS[0].id);
   const lesson = LISTENING_LESSONS.find(l => l.id === lessonId) || LISTENING_LESSONS[0];
   const kind = LISTENING_KINDS.find(k => k.id === lesson.kind);
   const [query, setQuery] = useState('');

@@ -28,13 +28,13 @@ const TIER_META = {
 /**
  * Card-first vocabulary trainer: deck dashboard → study session → summary, plus a browsable list.
  */
-export const FlashcardStudio = ({ accent = 'north', learningMode = 'zh', updateUserStats, curatedDeck = [], initialTier }) => {
+export const FlashcardStudio = ({ accent = 'north', learningMode = 'zh', updateUserStats, curatedDeck = [], initialTier, initialWord }) => {
   const knownTier = (t) => (TIER_META[t] ? t : null);
   const [prefs, setPrefs] = useState(() => {
     const saved = loadPrefs();
     return { ...saved, tier: knownTier(initialTier) || knownTier(saved.tier) || 'top1k' };
   });
-  const [view, setView] = useState('home');
+  const [view, setView] = useState(initialWord?.word ? 'browse' : 'home');
   const [srsData, setSrsData] = useState(() => srsEngine.loadSrsData());
   const [session, setSession] = useState(null);
   const [activeKey, setActiveKey] = useState(null);
@@ -243,7 +243,7 @@ export const FlashcardStudio = ({ accent = 'north', learningMode = 'zh', updateU
       </div>
 
       {view === 'browse' ? (
-        <WordBrowser deck={deck} srsData={srsData} accent={accent} learningMode={learningMode} activeKey={activeKey} />
+        <WordBrowser initialWord={initialWord} deck={deck} srsData={srsData} accent={accent} learningMode={learningMode} activeKey={activeKey} />
       ) : (
         <section className="fs-home" aria-label="今日學習">
           <div className="fs-today">

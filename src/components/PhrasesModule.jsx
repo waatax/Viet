@@ -29,9 +29,9 @@ const categoryIcons = {
   "日常短句速查 / Daily Expressions": "📝"
 };
 
-export const PhrasesModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
+export const PhrasesModule = ({ selectedAccent, updateUserStats, setActiveTab, initialQuery = '' }) => {
   const { learningMode, loc, t } = useLanguage();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState(initialQuery);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [onlyBookmarked, setOnlyBookmarked] = useState(false);
   const [visibleCount, setVisibleCount] = useState(48);

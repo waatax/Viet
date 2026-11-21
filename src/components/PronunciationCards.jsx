@@ -17,11 +17,11 @@ const notes = {
   final: '留意例詞最後的收音。-p、-t、-c、-ch 收住氣流，只搭配銳聲或重聲。'
 };
 
-export default function PronunciationCards({ accent }) {
-  const [deck, setDeck] = useState('letters');
+export default function PronunciationCards({ accent, initialTarget }) {
+  const [deck, setDeck] = useState(initialTarget?.deck || 'letters');
   const [pattern, setPattern] = useState('');
   const [tone, setTone] = useState('');
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(initialTarget?.index || 0);
   const [back, setBack] = useState(false);
   const [listen, setListen] = useState(false);
   const [error, setError] = useState(false);

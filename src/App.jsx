@@ -90,6 +90,9 @@ export function App() {
   // Modals Open State
   const [isAchievementsModalOpen, setIsAchievementsModalOpen] = useState(false);
   const [isDailyQuestsOpen, setIsDailyQuestsOpen] = useState(false);
+  const [homeQuery, setHomeQuery] = useState('');
+  const [initialQuery, setInitialQuery] = useState('');
+  const [searchHit, setSearchHit] = useState(null);
   const [isChapterFinderOpen, setIsChapterFinderOpen] = useState(false);
   const [isAudioDiagOpen, setIsAudioDiagOpen] = useState(false);
   const [isBookmarksOpen, setIsBookmarksOpen] = useState(false);
@@ -202,7 +205,12 @@ export function App() {
 
   const handleSelectChapter = (chapter) => {
     if (chapter && chapter.moduleId) {
+      if (Number.isInteger(chapter.destination?.point)) {
+        handleStartStudy(chapter.moduleId, chapter.destination.point);
+        return;
+      }
       setActiveTab(chapter.moduleId);
+      if (chapter.destination) setSearchHit(chapter);
       if (chapter.targetParam) {
         sessionStorage.setItem('viet_target_chapter', JSON.stringify(chapter));
         window.dispatchEvent(new CustomEvent('viet_jump_chapter', { detail: chapter }));
@@ -212,6 +220,7 @@ export function App() {
 
   const setActiveTab = (moduleId) => {
     const nextModule = (moduleId === 'quest' || moduleId === 'listen' || MODULE_IDS.includes(moduleId)) ? moduleId : 'path';
+    setSearchHit(null);
     setActiveTabState(nextModule);
     setModuleView('practice');
     const nextHash = `#/${nextModule}`;
@@ -323,8 +332,14 @@ export function App() {
               <div className="workspace-location"><button onClick={() => setActiveTab('path')}><Home size={17} aria-hidden="true" /> 學習首頁</button><ChevronRight size={15} aria-hidden="true" /><span>{t(ALL_NAV_ITEMS.find(item => item.id === activeTab)?.labelKey || 'tabs.path')}</span></div>
               <div className="workspace-options"><button aria-pressed={moduleView === 'practice'} onClick={() => { audioEngine.stop(); setModuleView('practice'); }}><Gamepad2 size={18} aria-hidden="true" /> 互動練習</button><button aria-pressed={moduleView === 'knowledge'} onClick={() => { audioEngine.stop(); setModuleView('knowledge'); }}><BookOpen size={18} aria-hidden="true" /> 知識圖解・10 點聽說讀闖關</button></div>
             </nav>}
+            {activeTab === 'path' && <form className="home-global-search" role="search" onSubmit={e => {
+              e.preventDefault(); setInitialQuery(homeQuery); setIsChapterFinderOpen(true);
+            }}>
+              <label htmlFor="home-site-query">全站搜尋</label>
+              <div><input id="home-site-query" type="search" value={homeQuery} onChange={e => setHomeQuery(e.target.value)} placeholder="搜尋中文、越文、注音、課程或影片" /><button type="submit">搜尋</button></div>
+            </form>}
             {activeTab === 'path' && <HomeLearningHub onNavigate={setActiveTab} onStartStudy={handleStartStudy} />}
-            {activeTab === 'listen' && <ListeningStudio onNavigate={setActiveTab} />}
+            {activeTab === 'listen' && <ListeningStudio key={searchHit?.id} initialLessonId={searchHit?.destination?.capsule} onNavigate={setActiveTab} />}
             {(moduleView === 'practice' || activeTab === 'path' || activeTab === 'quest') && <>
             {activeTab === 'path' && (
               <LearningPathModule
@@ -347,12 +362,12 @@ export function App() {
             {activeTab === 'business' && <BusinessHubModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'science' && <ScientificMethodModule setActiveTab={setActiveTab} updateUserStats={updateUserStats} />}
             {activeTab === 'emergency' && <EmergencyKitModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
-            {activeTab === 'alphabet' && <AlphabetModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'alphabet' && <AlphabetModule key={searchHit?.id} initialTarget={searchHit?.destination} selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'accent' && <AccentModule selectedAccent={selectedAccent} setSelectedAccent={setSelectedAccent} setActiveTab={setActiveTab} updateUserStats={updateUserStats} />}
             {activeTab === 'shopping' && <ShoppingModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'conversation' && <ConversationModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
-            {activeTab === 'phrases' && <PhrasesModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
-            {activeTab === 'flashcards' && <FlashcardModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'phrases' && <PhrasesModule key={searchHit?.id} initialQuery={searchHit?.destination?.phrase} selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
+            {activeTab === 'flashcards' && <FlashcardModule key={searchHit?.id} searchTarget={searchHit?.destination} selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'grammar' && <GrammarModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'hanviet' && <HanVietModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'pronoun' && <PronounModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
@@ -480,11 +495,11 @@ export function App() {
 
       {/* Global Chapter Finder Modal */}
       <Suspense fallback={null}>
-        <ChapterFinderModal
+        {isChapterFinderOpen && <ChapterFinderModal initialQuery={initialQuery}
           isOpen={isChapterFinderOpen}
-          onClose={() => setIsChapterFinderOpen(false)}
+          onClose={() => { setIsChapterFinderOpen(false); setInitialQuery(''); }}
           onSelectChapter={handleSelectChapter}
-        />
+        />}
       </Suspense>
 
       {/* Audio Diagnostic Studio Modal */}

@@ -22,12 +22,12 @@ const PLAY_MODES = [
 ];
 
 /** Dictionary-style list of the deck with hands-free continuous playback. */
-export const WordBrowser = ({ deck, srsData, accent, learningMode = 'zh', activeKey }) => {
-  const [query, setQuery] = useState('');
+export const WordBrowser = ({ initialWord, deck, srsData, accent, learningMode = 'zh', activeKey }) => {
+  const [query, setQuery] = useState(initialWord?.word || '');
   const [status, setStatus] = useState('all');
   const [pos, setPos] = useState('all');
   const [limit, setLimit] = useState(PAGE);
-  const [openId, setOpenId] = useState(null);
+  const [openId, setOpenId] = useState(initialWord?.wordId || null);
   const [playMode, setPlayMode] = useState('vi-zh');
   const [speed, setSpeed] = useState(0.9);
   const [playingIndex, setPlayingIndex] = useState(-1);

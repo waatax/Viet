@@ -135,7 +135,7 @@ export const Navbar = ({
               title={learningMode === 'zh' ? '快速搜尋全站 100+ 章節與課程 (快捷鍵: Ctrl+K)' : 'Search 100+ Chapters & Lessons (Ctrl+K)'}
             >
               <Search size={15} className="finder-search-icon" />
-              <span className="finder-btn-text">{learningMode === 'zh' ? '全域查章節' : 'Search Chapters'}</span>
+              <span className="finder-btn-text">{learningMode === 'zh' ? '全站搜尋' : 'Search site'}</span>
               <kbd className="finder-kbd-shortcut">Ctrl K</kbd>
             </button>
           </div>
