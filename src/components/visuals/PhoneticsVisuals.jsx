@@ -306,11 +306,12 @@ export const VowelChart = ({ accent = 'north' }) => {
   }, []);
   const current = data[sel];
   const pos = VOWEL_POS[sel];
+  const clipFor = v => VOWEL_POS[v].short ? data[v].examples[0].vi : v;
+  const activeKey = useActiveAudioKey();
 
   const choose = (v) => {
     setSel(v);
-    const word = data[v]?.examples?.[0]?.vi;
-    if (word) speakVi(word, accent, `tv_vowel_${v}`);
+    speakVi(clipFor(v), accent, `tv_vowel_${v}`);
   };
 
   return (
@@ -320,7 +321,7 @@ export const VowelChart = ({ accent = 'north' }) => {
           <Segmented ariaLabel={L('雙母音滑動', 'Diphthongs')} value={showGlides ? 'on' : 'off'} onChange={(v) => setShowGlides(v === 'on')}
             options={[{ value: 'off', label: L('單母音', 'Monophthongs') }, { value: 'on', label: L('+ 雙母音滑動', '+ Diphthong glides') }]} />
         </div>
-        <svg className="tv-svg" viewBox="0 0 440 300" role="img" aria-label={L('越南語母音舌位圖', 'Vietnamese vowel chart')}>
+        <svg className="tv-svg" viewBox="0 0 440 300" role="group" aria-label={L('越南語母音舌位圖', 'Vietnamese vowel chart')}>
           <polygon points="40,30 400,30 400,270 170,270" style={{ fill: 'var(--bg-main)', stroke: 'var(--border-highlight)', strokeWidth: 2 }} />
           <line x1="100" y1="112" x2="400" y2="112" className="tv-tone-grid-line" strokeDasharray="4 4" />
           <line x1="140" y1="190" x2="400" y2="190" className="tv-tone-grid-line" strokeDasharray="4 4" />
@@ -351,7 +352,7 @@ export const VowelChart = ({ accent = 'north' }) => {
             const active = v === sel;
             return (
               <g key={v} className="tv-artic-point" onClick={() => choose(v)} role="button" tabIndex={0}
-                aria-label={`${v} ${data[v]?.ipa || ''}`}
+                aria-label={L(`播放 ${clipFor(v)}（母音 ${v}）`, `Play ${clipFor(v)} (vowel ${v})`)} aria-pressed={active}
                 onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(v); } }}>
                 <circle cx={p.x} cy={p.y} r={p.short ? 15 : 19}
                   style={{
@@ -376,7 +377,10 @@ export const VowelChart = ({ accent = 'north' }) => {
       {current && (
         <div className="tv-panel" aria-live="polite">
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.6rem', marginBottom: '0.4rem' }}>
-            <span style={{ fontSize: '2.4rem', fontWeight: 900, color: 'var(--brand-primary)' }}>{sel}</span>
+            <button type="button" className={`tv-chip ${activeKey === `tv_vowel_${sel}` ? 'is-playing' : ''}`}
+              onClick={() => choose(sel)} aria-label={L(`重播 ${clipFor(sel)}`, `Replay ${clipFor(sel)}`)}>
+              <strong lang="vi" style={{ fontSize: '2.4rem' }}>{sel}</strong><Volume2 size={18} aria-hidden="true" />
+            </button>
             <span className="tv-mono tv-muted">{current.ipa}</span>
           </div>
           <div className="tv-chip-row" style={{ marginBottom: '0.6rem' }}>
@@ -412,7 +416,7 @@ export const VowelChartFigure = ({ accent, badge }) => {
     <VisualFigure
       badge={badge}
       title={L('母音舌位圖：嘴張多大？舌頭在前還是在後？', 'Vowel Chart: Tongue Height & Backness')}
-      subtitle={L('梯形代表口腔：越往上嘴越閉、越往下嘴越開；左邊舌頭往前、右邊舌頭往後。點擊任一母音聽例字並查看國語注音近似音。', 'The trapezoid maps the mouth: top = close, bottom = open; left = front, right = back. Click a vowel to hear an example.')}
+      subtitle={L('點圖中的母音就能聽發音，再點一次可重播。短母音 ă、â 分別用 ăn、âm 示範。圖中越往上嘴越閉，越往左舌頭越靠前。', 'Tap a vowel to hear it. Tap again to replay. The short vowels ă and â are demonstrated in ăn and âm. Higher means a closer mouth, and left means a more forward tongue.')}
       takeaway={L(<>右上角的 <strong>ư、ơ、â</strong> 是中文沒有的「後不圓唇」母音——舌頭往後縮，但嘴唇千萬不要噘圓。</>, <>The back unrounded <strong>ư, ơ, â</strong> don’t exist in Mandarin — pull the tongue back but keep the lips spread.</>)}
     >
       <VowelChart accent={accent} />
