@@ -1,4 +1,5 @@
 import { vietnameseAlphabet, vietnameseCompoundConsonants, vietnameseFinalConsonants } from './vietnameseData.js';
+import { zhuyinRows } from './zhuyinRows.js';
 
 export const tones = [
   ['ngang', '平聲', '', '維持平穩的音高。'],
@@ -29,6 +30,8 @@ const families = {
 };
 
 export const deckNames = {
+  letters: '第 0 課 · 29 個字母', clusters: '第 0 課 · 11 組複合子音',
+  pairs: '第 0 課 · 22 組雙母音拼寫', triples: '第 0 課 · 10 組三母音拼寫', tones: '第 0 課 · 六聲',
   single: '單母音', double: '核心雙母音', glide: '滑音組合', initial: '字首子音', final: '字尾子音'
 };
 
@@ -54,3 +57,9 @@ pronunciationDecks.initial = [
 pronunciationDecks.final = vietnameseFinalConsonants.flatMap(group => group.items.map(item => ({
   pattern: item.final, word: item.examples[0].vi, answer: item.examples[0].zh, tip: item.descZh
 })));
+
+for (const [deck, rows] of Object.entries(zhuyinRows)) {
+  pronunciationDecks[deck] = rows.map(([pattern, cue, tip, word, answer]) => ({
+    pattern, cue, tip, word, answer
+  }));
+}

@@ -10,3 +10,9 @@
 .pronunciation-actions { justify-content: center; margin-top: .75rem; }
 .pronunciation-actions button { display: inline-flex; align-items: center; gap: .35rem; cursor: pointer; }
 .pronunciation-actions button:disabled { opacity: .48; cursor: default; }
+.pronunciation-reference { margin: 1rem 0; }
+.pronunciation-reference summary { cursor: pointer; font-weight: 600; }
+.pronunciation-reference table { width: 100%; border-collapse: collapse; }
+.pronunciation-reference caption { padding: .65rem; }
+.pronunciation-reference th, .pronunciation-reference td { text-align: left; padding: .5rem .3rem; border-bottom: 1px solid #c3d5cc; }
+.pronunciation-reference button { display: inline-flex; align-items: center; gap: .3rem; padding: .5rem; border-radius: .4rem; border: 1px solid #79958e; background: white; color: #193d37; cursor: pointer; font: inherit; }

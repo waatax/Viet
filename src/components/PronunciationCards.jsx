@@ -5,6 +5,11 @@ import { audioEngine } from '../services/audioEngine';
 import './PronunciationCards.css';
 
 const notes = {
+  letters: '從台灣注音找到口形，再聽字母在越語例詞中的讀音。單母音和字首依字母順序排列。',
+  clusters: '兩到三個字母合成一個字首。先看發音位置，再聽它怎麼接到母音。',
+  pairs: '用注音箭頭追蹤嘴形的移動。兩個母音字母合在同一個音節，一拍念完。',
+  triples: '先找到主要母音，再把前後的滑音連起來。每個例詞都只念一拍。',
+  tones: '用同一個 ma 音節練六聲。注音調形只提示方向，聽越語示範核對高低、長短與緊喉。',
   single: '12 種字母拼寫。i、y 作單母音時同音；ă、â 放在有韻尾的音節中練。',
   double: '三組核心雙母音各念成一拍。比較 ia／iê／yê／ya、ua／uô、ưa／ươ 的拼寫與聲調位置。',
   glide: '從主要母音滑向韻尾，或從圓唇介音滑入母音。整個音節只念一拍。',
@@ -13,7 +18,7 @@ const notes = {
 };
 
 export default function PronunciationCards({ accent }) {
-  const [deck, setDeck] = useState('single');
+  const [deck, setDeck] = useState('letters');
   const [pattern, setPattern] = useState('');
   const [tone, setTone] = useState('');
   const [index, setIndex] = useState(0);
@@ -38,9 +43,9 @@ export default function PronunciationCards({ accent }) {
     setPattern('');
     setTone('');
   }
-  function play(rate) {
+  function play(rate, word = card.word) {
     setError(false);
-    audioEngine.speak(card.word, { accent, lang: 'vi', rate, onError: () => setError(true) });
+    audioEngine.speak(word, { accent, lang: 'vi', rate, onError: () => setError(true) });
   }
 
   return <section className="pronunciation-practice" aria-labelledby="pronunciation-heading">
@@ -57,11 +62,18 @@ export default function PronunciationCards({ accent }) {
       </select></label>}
     </div>
     <p>{notes[deck]}{tonal && ' 六聲對照包含拼讀用音節。'}</p>
+    {card.cue && !listen && <details key={deck} className="pronunciation-reference">
+      <summary>展開注音對照表 · 點例詞聽發音</summary>
+      <table><caption>河內音口形提示</caption><thead><tr><th>拼寫</th><th>台灣注音近似／動作</th><th>越語例詞</th></tr></thead>
+        <tbody>{entries.map(c => <tr key={c.pattern}><th scope="row" lang="vi">{c.pattern}</th><td>{c.cue}<br />{c.tip}</td>
+          <td><button type="button" onClick={() => play(1, c.word)} aria-label={'播放 ' + c.word}><Volume2 size={16} aria-hidden="true" /><span lang="vi">{c.word}</span></button></td></tr>)}</tbody>
+      </table>
+    </details>}
     <label className="pronunciation-listen"><input type="checkbox" checked={listen} onChange={e => { move(index); setListen(e.target.checked); }} />先聽再翻卡</label>
     <div className="pronunciation-face" aria-live="polite">
       <small>{deckNames[deck]} · 第 {index + 1} / {cards.length} 張</small>
       {listen && !back ? <><Ear size={45} aria-hidden="true" /><span>聽示範，試著念一次</span></> :
-        <><strong lang="vi">{card.word}</strong><span>{back ? card.pattern + ' · ' + card.answer : '先念出聲，再聽示範核對'}</span></>}
+        <>{card.cue && <span lang="vi">{card.pattern}</span>}<strong lang="vi">{card.word}</strong><span>{back ? (card.cue || card.pattern) + ' · ' + card.answer : '先念出聲，再聽示範核對'}</span></>}
       {back && <p>{card.tip}</p>}
     </div>
     <div className="pronunciation-actions">
