@@ -3,3 +3,9 @@
 .course-video-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: .6rem; }
 .course-video-choices button { text-align: left; padding: .85rem; border-radius: .6rem; border: 1px solid var(--border-highlight); background: var(--bg-card); color: var(--text-primary); font: inherit; cursor: pointer; }
 .course-video-choices button[aria-pressed="true"] { color: white; background: #19594f; }
+.course-video-legend { font-size: .92rem; color: var(--text-secondary); }
+.course-video-legend .c-on { color: #2f6db5; font-weight: 700; }
+.course-video-legend .c-nuc { color: var(--text-primary); font-weight: 700; }
+.course-video-legend .c-fin { color: #c2552f; font-weight: 700; }
+[data-theme="dark"] .course-video-legend .c-on { color: #8cc8ff; }
+[data-theme="dark"] .course-video-legend .c-fin { color: #ffb27a; }
