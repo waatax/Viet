@@ -14,12 +14,15 @@ import {
   Trophy,
   Volume2,
   Orbit,
-  X
+  X,
+  Film,
+  ExternalLink
 } from 'lucide-react';
 import { knowledgeBridge } from '../data/knowledgeBridge';
 import { subjectSparks, allModuleMasteryItems } from '../data/knowledgeMasteryData';
 import { loadBridge, loadModuleMasteredPoints, loadLovedSubjects } from '../services/bridgeProgress';
 import { loadKnowledgeProgress } from '../services/knowledgeProgress';
+import { YOUTUBE_PLAYLIST_URL } from '../data/youtubeVideos';
 import './LearningWorkspace.css';
 
 const ROUTES = [
@@ -88,8 +91,27 @@ export default function HomeLearningHub({ onStartStudy, onNavigate }) {
   return (
     <section className="learning-hub" aria-labelledby="learning-hub-title">
       <div className="hub-listen-launch">
-        <div><span>NEW · 24 堂隨身聽微課</span><h2>想先聽？一鍵開始越文＋中文。</h2><p>單字・會話・中越近似詞，整課 MP3 帶著走。越語獨立調速，中文保持原速。</p></div>
-        <button type="button" onClick={() => onNavigate('listen')}><Headphones size={23} aria-hidden="true" /> 打開隨身聽 <ArrowRight size={18} /></button>
+        <div>
+          <span>✨ 旗艦升級 · 隨身聽微課 ＋ 快速雙語快播工坊</span>
+          <h2>想先聽？一鍵開始越文＋中文雙語速學。</h2>
+          <p>核心單字・情境會話・中越近似單字，離線 MP3 與雙語合音一鍵下載。越語獨立調速 (0.5×~1.5×)，中文保持 1.0× 自然原速。</p>
+        </div>
+        <button type="button" onClick={() => onNavigate('listen')}><Headphones size={23} aria-hidden="true" /> 打開隨身聽工坊 <ArrowRight size={18} /></button>
+      </div>
+      <div className="hub-youtube-launch">
+        <div>
+          <span>🎬 YouTube 影片課程 · 基礎發音 ＋ 情境會話</span>
+          <h3>用影片看懂嘴形、聲調與實境對話</h3>
+          <p>所有課程影片皆已改為 YouTube 播放清單超連結播放（不佔用空間、手機電腦皆可自由調速）。</p>
+        </div>
+        <div className="hub-youtube-actions">
+          <button type="button" onClick={() => onNavigate('dialogvideo')}>
+            <Film size={18} aria-hidden="true" /> 瀏覽影片目錄
+          </button>
+          <a href={YOUTUBE_PLAYLIST_URL} target="_blank" rel="noopener noreferrer">
+            ▶ 前往 YouTube 播放清單 <ExternalLink size={15} aria-hidden="true" />
+          </a>
+        </div>
       </div>
       <div className="hub-intro">
         <span className="hub-eyebrow"><Sprout size={17} aria-hidden="true" /> 一點一點，快樂說進生活裡</span>

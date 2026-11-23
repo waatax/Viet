@@ -27,9 +27,12 @@ import {
   Minimize2,
   Columns,
   Monitor,
-  LayoutGrid
+  LayoutGrid,
+  ExternalLink
 } from 'lucide-react';
 import { situationalScenarios, scenarioCategories } from '../data/situationalScenarios';
+import { getDialogueYoutubeUrl } from '../data/youtubeVideos';
+import { audioEngine } from '../services/audioEngine';
 import { getScenarioExegesis } from '../data/scenarioExegesisData';
 import { ScenarioExegesisCard } from './ScenarioExegesisCard';
 import { DialoguePlayer } from './DialoguePlayer';
@@ -483,6 +486,29 @@ export const ConversationModule = ({ selectedAccent, updateUserStats, setActiveT
           {/* Scenario Summary Banner */}
           <div className="scenario-summary-box">
             <p>{learningMode === 'zh' ? currentScenario.summaryZh : currentScenario.summaryEn}</p>
+            <div className="scenario-video-actions">
+              {getDialogueYoutubeUrl(currentScenario.id) && (
+                <a
+                  className="scenario-yt-link"
+                  href={getDialogueYoutubeUrl(currentScenario.id)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => audioEngine.stop()}
+                >
+                  <Play size={15} fill="currentColor" aria-hidden="true" />
+                  <span>{learningMode === 'zh' ? '在 YouTube 觀看這段會話影片' : 'Watch this dialogue on YouTube'}</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              )}
+              {setActiveTab && (
+                <button type="button" className="scenario-video-link" onClick={() => {
+                  try { sessionStorage.setItem('viet_dialogue_video', currentScenario.id); } catch { /* still opens the catalog */ }
+                  setActiveTab('dialogvideo');
+                }}>
+                  🎬 {learningMode === 'zh' ? '瀏覽 YouTube 會話影片目錄' : 'Browse YouTube Dialogue Videos'}
+                </button>
+              )}
+            </div>
           </div>
 
           {/* Sub-Tab Navigation Bar (4 Views) */}

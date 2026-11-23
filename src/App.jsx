@@ -6,7 +6,7 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { useLanguage } from './context/LanguageContext';
 import { gamificationEngine } from './utils/gamificationEngine';
 import { audioEngine } from './services/audioEngine';
-import { MODULE_IDS, ALL_NAV_ITEMS } from './config/navigation';
+import { MODULE_IDS, ALL_NAV_ITEMS, SPECIAL_TABS } from './config/navigation';
 import { APP_VERSION, BUILD_REVISION } from './config/release';
 
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
@@ -25,6 +25,7 @@ const AlphabetModule = lazyNamed(() => import('./components/AlphabetModule'), 'A
 const AccentModule = lazyNamed(() => import('./components/AccentModule'), 'AccentModule');
 const ShoppingModule = lazyNamed(() => import('./components/ShoppingModule'), 'ShoppingModule');
 const ConversationModule = lazyNamed(() => import('./components/ConversationModule'), 'ConversationModule');
+const DialogueVideos = lazyNamed(() => import('./components/DialogueVideos'), 'default');
 const PhrasesModule = lazyNamed(() => import('./components/PhrasesModule'), 'PhrasesModule');
 const FlashcardModule = lazyNamed(() => import('./components/FlashcardModule'), 'FlashcardModule');
 const GrammarModule = lazyNamed(() => import('./components/GrammarModule'), 'GrammarModule');
@@ -49,7 +50,7 @@ const writePreference = (key, value) => {
 
 const getModuleFromHash = () => {
   const moduleId = window.location.hash.replace(/^#\/?/, '');
-  if (moduleId === 'quest' || moduleId === 'listen') return moduleId;
+  if (SPECIAL_TABS.includes(moduleId)) return moduleId;
   return MODULE_IDS.includes(moduleId) ? moduleId : 'path';
 };
 
@@ -157,7 +158,7 @@ export function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const id = window.location.hash.replace(/^#\/?/, '');
-      if (id === 'quest' || id === 'listen' || MODULE_IDS.includes(id)) {
+      if (SPECIAL_TABS.includes(id) || MODULE_IDS.includes(id)) {
         setActiveTabState(id);
       }
     };
@@ -219,7 +220,7 @@ export function App() {
   };
 
   const setActiveTab = (moduleId) => {
-    const nextModule = (moduleId === 'quest' || moduleId === 'listen' || MODULE_IDS.includes(moduleId)) ? moduleId : 'path';
+    const nextModule = (SPECIAL_TABS.includes(moduleId) || MODULE_IDS.includes(moduleId)) ? moduleId : 'path';
     setSearchHit(null);
     setActiveTabState(nextModule);
     setModuleView('practice');
@@ -328,7 +329,7 @@ export function App() {
       <main id="main-content" className="main-content" tabIndex="-1">
         <ErrorBoundary>
           <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
-            {activeTab !== 'path' && activeTab !== 'quest' && activeTab !== 'listen' && <nav className="module-workspace-nav" aria-label="本課學習工作台">
+            {activeTab !== 'path' && !SPECIAL_TABS.includes(activeTab) && <nav className="module-workspace-nav" aria-label="本課學習工作台">
               <div className="workspace-location"><button onClick={() => setActiveTab('path')}><Home size={17} aria-hidden="true" /> 學習首頁</button><ChevronRight size={15} aria-hidden="true" /><span>{t(ALL_NAV_ITEMS.find(item => item.id === activeTab)?.labelKey || 'tabs.path')}</span></div>
               <div className="workspace-options"><button aria-pressed={moduleView === 'practice'} onClick={() => { audioEngine.stop(); setModuleView('practice'); }}><Gamepad2 size={18} aria-hidden="true" /> 互動練習</button><button aria-pressed={moduleView === 'knowledge'} onClick={() => { audioEngine.stop(); setModuleView('knowledge'); }}><BookOpen size={18} aria-hidden="true" /> 知識圖解・10 點聽說讀闖關</button></div>
             </nav>}
@@ -339,6 +340,7 @@ export function App() {
               <div><input id="home-site-query" type="search" value={homeQuery} onChange={e => setHomeQuery(e.target.value)} placeholder="搜尋中文、越文、注音、課程或影片" /><button type="submit">搜尋</button></div>
             </form>}
             {activeTab === 'path' && <HomeLearningHub onNavigate={setActiveTab} onStartStudy={handleStartStudy} />}
+            {activeTab === 'dialogvideo' && <DialogueVideos key={searchHit?.id} initialVideoId={searchHit?.destination?.dialogVideo} onNavigate={setActiveTab} />}
             {activeTab === 'listen' && <ListeningStudio key={searchHit?.id} initialLessonId={searchHit?.destination?.capsule} onNavigate={setActiveTab} />}
             {(moduleView === 'practice' || activeTab === 'path' || activeTab === 'quest') && <>
             {activeTab === 'path' && (

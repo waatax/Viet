@@ -3692,6 +3692,48 @@ p, li, h1, h2, h3, strong, small, span {
   border-radius: var(--radius-sm);
 }
 
+.scenario-video-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .55rem;
+  margin-top: .65rem;
+}
+
+.scenario-yt-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  min-height: var(--touch-target, 44px);
+  padding: .45rem .95rem;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: #dc2626;
+  border: 0;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.scenario-yt-link:hover {
+  background: #b91c1c;
+}
+
+.scenario-video-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  min-height: var(--touch-target, 44px);
+  padding: .45rem .9rem;
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  background: #19594f;
+  border: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
 .dialogue-toolbar,
 .toolbar-left,
 .toolbar-right,

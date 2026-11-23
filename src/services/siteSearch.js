@@ -5,6 +5,7 @@ import { practicalPhrases } from '../data/vietnameseData.js';
 import { pronunciationDecks, deckNames } from '../data/pronunciationCards.js';
 import { LISTENING_LESSONS } from '../data/listeningLessons.js';
 import { videoLessons } from '../data/videoLessons.js';
+import dialogueVideoCatalog from '../data/dialogueVideoCatalog.json';
 import { situationalScenarios } from '../data/situationalScenarios.js';
 import { subjectSparks } from '../data/knowledgeMasteryData.js';
 
@@ -19,7 +20,8 @@ const catalog = [
     : chapter),
   ...Object.entries(subjectSparks).map(([id,s]) => entry('module-'+id,id,'practice','學習單元',s.disciplineName,'',s.sparkHook,{})),
   entry('quest-home','quest','practice','遊戲評量','越語闖關挑戰','Duolingo Quest','關卡、遊戲、聽說讀練習',{}),
-  ...videoLessons.map((name,i) => entry('film-'+i,'alphabet','basics','發音影片',`第 ${i} 課 · ${name}`,'',`第${i}課 影片 MP4 台灣華語 越文拼音`,{video:i})),
+  ...videoLessons.map((name,i) => entry('film-'+i,'alphabet','basics','發音影片',`第 ${i} 課 · ${name}`,'',`第${i}課 YouTube 影片 播放清單 台灣華語 越文拼音`,{video:i})),
+  ...dialogueVideoCatalog.videos.map(v => entry('dvideo-'+v.id,'dialogvideo','scenario','會話影片',`會話 ${String(v.no).padStart(2,'0')} · ${v.titleZh}`,v.sections.map(s=>s.preview).join(' · '),`${v.summaryZh} 會話影片 YouTube 播放清單 越文 中文 逐句`,{dialogVideo:v.id},v.titleEn)),
   ...Object.entries(pronunciationDecks).flatMap(([deck,cards]) => cards.map((c,index) =>
     entry('pron-'+deck+'-'+index,'alphabet','basics','發音閃卡',c.word,c.pattern,[deckNames[deck],c.cue,c.tip,c.answer].filter(Boolean).join(' · '),{deck,index}))),
   ...Object.entries(knowledgeGuides).flatMap(([moduleId,g]) => g.rows.map(([name,vi,zh,detail],point) =>

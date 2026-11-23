@@ -237,14 +237,16 @@ export const HAN_VIET_SOUND_RULES = [
   }
 ];
 
-import React, { useState, useEffect } from 'react';
-import { BookOpen, Search, Volume2, Sparkles, Award, ArrowRight, Layers, HelpCircle, Briefcase, FileText } from 'lucide-react';
+import React, { useState, useEffect, useSyncExternalStore } from 'react';
+import { BookOpen, Search, Volume2, Sparkles, Award, ArrowRight, Layers, HelpCircle, Briefcase, FileText, Download, Gauge, Loader2 } from 'lucide-react';
 import { hanVietRoots } from '../data/vietnameseData';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
 import { ModuleMilestoneCard } from './ModuleMilestoneCard';
 import { listenToHanViet } from './ListeningDock';
+import { SPEED_OPTIONS, getPlaybackPrefs, setPlaybackPrefs, subscribePlaybackPrefs } from '../services/dialoguePlayback';
+import { downloadBilingualAudioPair } from '../utils/audioStitcher';
 import './HanVietModule.css';
 
 const getAssetUrl = (path) => {
@@ -451,6 +453,8 @@ export const HIGH_FREQUENCY_BUSINESS_HANVIET = [
 
 export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab }) => {
   const { learningMode, loc } = useLanguage();
+  const prefs = useSyncExternalStore(subscribePlaybackPrefs, getPlaybackPrefs, getPlaybackPrefs);
+  const [downloadingC, setDownloadingC] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [activeHanTab, setActiveHanTab] = useState('roots'); // 'roots' | 'rules' | 'combiner' | 'falsefriends'
   const [selectedRoot, setSelectedRoot] = useState(hanVietRoots[0]);
@@ -855,9 +859,16 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
                 <BookOpen size={18} color="var(--brand-primary)" />
                 {learningMode === 'zh' ? '核心字根列表' : 'Core Roots'} ({filteredRoots.length})
               </h3>
-              <div className="hanviet-listen-actions">
+              <div className="hanviet-listen-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '0.75rem' }}>
                 <button type="button" className="control-btn" disabled={!listeningLines.length} onClick={() => listenToHanViet(listeningLines, selectedAccent)}>▶ 全部播放・越文 → 中文</button>
                 <button type="button" className="control-btn" disabled={selectedListeningIndex < 0} onClick={() => listenToHanViet(listeningLines, selectedAccent, selectedListeningIndex)}>從選取字根續播</button>
+                <label style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', background: 'var(--bg-input, rgba(0,0,0,0.04))', padding: '0.35rem 0.65rem', borderRadius: '6px', border: '1px solid var(--border-color)', fontSize: '0.84rem', fontWeight: 700 }}>
+                  <Gauge size={14} /> 越語速度
+                  <select value={prefs.speed} onChange={e => setPlaybackPrefs({ speed: Number(e.target.value) })} style={{ background: 'var(--bg-card)', color: 'var(--text-primary)', border: '1px solid var(--border-color)', borderRadius: '4px', padding: '0.15rem 0.35rem', fontWeight: 800 }}>
+                    {SPEED_OPTIONS.map(r => <option key={r} value={r}>{r}×</option>)}
+                  </select>
+                  <span style={{ color: 'var(--brand-gold)', fontSize: '0.78rem' }}>中文固定 1×</span>
+                </label>
               </div>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(135px, 1fr))', gap: '0.75rem', maxHeight: '560px', overflowY: 'auto', paddingRight: '0.3rem' }}>
                 {filteredRoots.map((r, idx) => {
@@ -997,6 +1008,28 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
                               style={{ color: 'var(--brand-gold)' }}
                             >
                               0.75x
+                            </button>
+                            <button
+                              className="speaker-btn mini-btn"
+                              title={`下載 ${c.viet} 越中文雙語合音 (WAV)`}
+                              disabled={downloadingC === c.viet}
+                              onClick={async (e) => {
+                                e.stopPropagation();
+                                setDownloadingC(c.viet);
+                                try {
+                                  await downloadBilingualAudioPair({
+                                    vietText: c.viet,
+                                    zhText: c.zh,
+                                    accent: selectedAccent,
+                                    filename: `[漢越詞]-${c.viet}-${c.zh}`
+                                  });
+                                } finally {
+                                  setDownloadingC(null);
+                                }
+                              }}
+                              style={{ color: 'var(--brand-gold)' }}
+                            >
+                              {downloadingC === c.viet ? <Loader2 size={13} className="spin" /> : <Download size={13} />}
                             </button>
                           </div>
                         </div>

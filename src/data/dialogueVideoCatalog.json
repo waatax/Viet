@@ -1,0 +1,4131 @@
+{
+  "version": 1,
+  "series": [
+    {
+      "id": "starter",
+      "icon": "🌱",
+      "titleZh": "入門短對話",
+      "descZh": "兩三句就能用的超短對話，先建立開口的信心。"
+    },
+    {
+      "id": "fasttrack",
+      "icon": "⚡",
+      "titleZh": "7 天速成會話",
+      "descZh": "一天一個生存主題：打招呼、點餐、殺價、叫車到交朋友。"
+    },
+    {
+      "id": "stage",
+      "icon": "🎓",
+      "titleZh": "階梯進階會話",
+      "descZh": "從 A1 自我介紹一路走到投資論壇，難度逐級提高。"
+    },
+    {
+      "id": "life",
+      "icon": "🗣️",
+      "titleZh": "生活情境會話",
+      "descZh": "見面閒聊、吃喝、旅遊、購物、看病與緊急求助。"
+    },
+    {
+      "id": "topic",
+      "icon": "💬",
+      "titleZh": "主題情境對話",
+      "descZh": "問候、家庭、時間、價錢、數字等主題，各有兩段對話。"
+    },
+    {
+      "id": "banking",
+      "icon": "🏛️",
+      "titleZh": "銀行金融會話",
+      "descZh": "開戶、匯款與定存，臨櫃辦事一次學會。"
+    },
+    {
+      "id": "business",
+      "icon": "💼",
+      "titleZh": "職場商務會話",
+      "descZh": "會議、驗廠、報價、報關、稅務與勞資，台商實戰情境。"
+    },
+    {
+      "id": "trip",
+      "icon": "✈️",
+      "titleZh": "商務出差實戰句與談判",
+      "descZh": "商展四階段、南北商務開場、出差求生句與談判決戰。"
+    }
+  ],
+  "videos": [
+    {
+      "no": 1,
+      "id": "quest_units",
+      "series": "starter",
+      "icon": "🧭",
+      "titleZh": "闖關課程八單元小對話",
+      "titleEn": "Quest Unit Mini Dialogues",
+      "summaryZh": "闖關課程每個單元的核心兩句對話：問候、身分、點餐、問價、時間、交通、工廠與聊天。",
+      "moduleTab": "quest",
+      "duration": 564.3,
+      "lineCount": 16,
+      "roles": [],
+      "sections": [
+        {
+          "titleZh": "基礎問候與初次見面",
+          "lines": 2,
+          "preview": "Xin chào! Bạn tên là gì?"
+        },
+        {
+          "titleZh": "人稱代詞與身分確認",
+          "lines": 2,
+          "preview": "Anh là kỹ sư phải không?"
+        },
+        {
+          "titleZh": "飲食生活與越式咖啡",
+          "lines": 2,
+          "preview": "Cho tôi một ly cà phê sữa đá, ít đường!"
+        },
+        {
+          "titleZh": "數字、金錢與市場採購",
+          "lines": 2,
+          "preview": "Cái áo này bao nhiêu tiền một cái?"
+        },
+        {
+          "titleZh": "日常作息與時間表達",
+          "lines": 2,
+          "preview": "Bây giờ là mấy giờ rồi anh?"
+        },
+        {
+          "titleZh": "方位交通與城市出行",
+          "lines": 2,
+          "preview": "Bác tài ơi, cho cháu đến chợ Bến Thành!"
+        },
+        {
+          "titleZh": "產線工廠與商務會話",
+          "lines": 2,
+          "preview": "Lô hàng này đã kiểm tra chất lượng chưa?"
+        },
+        {
+          "titleZh": "社交聊天與文化習俗",
+          "lines": 2,
+          "preview": "Bạn nói tiếng Việt lưu loát quá!"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20.6,
+          "title": "1｜基礎問候與初次見面・逐句"
+        },
+        {
+          "t": 57.1,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 69.2,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 91.2,
+          "title": "2｜人稱代詞與身分確認・逐句"
+        },
+        {
+          "t": 126.8,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 138.5,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 158.6,
+          "title": "3｜飲食生活與越式咖啡・逐句"
+        },
+        {
+          "t": 194,
+          "title": "3｜完整會話"
+        },
+        {
+          "t": 205.8,
+          "title": "3｜換你上場"
+        },
+        {
+          "t": 227,
+          "title": "4｜數字、金錢與市場採購・逐句"
+        },
+        {
+          "t": 261.1,
+          "title": "4｜完整會話"
+        },
+        {
+          "t": 272.4,
+          "title": "4｜換你上場"
+        },
+        {
+          "t": 292,
+          "title": "5｜日常作息與時間表達・逐句"
+        },
+        {
+          "t": 322.5,
+          "title": "5｜完整會話"
+        },
+        {
+          "t": 333.3,
+          "title": "5｜換你上場"
+        },
+        {
+          "t": 353,
+          "title": "6｜方位交通與城市出行・逐句"
+        },
+        {
+          "t": 390.6,
+          "title": "6｜完整會話"
+        },
+        {
+          "t": 402.9,
+          "title": "6｜換你上場"
+        },
+        {
+          "t": 424.5,
+          "title": "7｜產線工廠與商務會話・逐句"
+        },
+        {
+          "t": 461.9,
+          "title": "7｜完整會話"
+        },
+        {
+          "t": 474.1,
+          "title": "7｜換你上場"
+        },
+        {
+          "t": 494.8,
+          "title": "8｜社交聊天與文化習俗・逐句"
+        },
+        {
+          "t": 526.8,
+          "title": "8｜完整會話"
+        },
+        {
+          "t": 537.7,
+          "title": "8｜換你上場"
+        },
+        {
+          "t": 556.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 2,
+      "id": "listening_talks",
+      "series": "starter",
+      "icon": "🎧",
+      "titleZh": "隨身聽會話膠囊八組",
+      "titleEn": "Listening Studio Conversation Capsules",
+      "summaryZh": "聽不懂時怎麼接話、點飲料、問價、問路、約時間、訂房、結帳與改口。",
+      "moduleTab": "listen",
+      "duration": 740.3,
+      "lineCount": 32,
+      "roles": [
+        "A",
+        "B"
+      ],
+      "sections": [
+        {
+          "titleZh": "聽不懂，也能接住對話",
+          "lines": 4,
+          "preview": "Xin lỗi, tôi chưa hiểu."
+        },
+        {
+          "titleZh": "點飲料：客製再確認",
+          "lines": 4,
+          "preview": "Cho tôi một ly cà phê sữa đá."
+        },
+        {
+          "titleZh": "問價：聽出千位單位",
+          "lines": 4,
+          "preview": "Cái này bao nhiêu tiền?"
+        },
+        {
+          "titleZh": "問路：左右轉回說一次",
+          "lines": 4,
+          "preview": "Xin lỗi, nhà ga ở đâu?"
+        },
+        {
+          "titleZh": "約時間：星期別照中文猜",
+          "lines": 4,
+          "preview": "Thứ sáu bạn có rảnh không?"
+        },
+        {
+          "titleZh": "訂房：房數、人數、晚數",
+          "lines": 4,
+          "preview": "Tôi muốn đặt một phòng."
+        },
+        {
+          "titleZh": "結帳：先問付款方式",
+          "lines": 4,
+          "preview": "Cho tôi tính tiền."
+        },
+        {
+          "titleZh": "說錯了：直接修正關鍵字",
+          "lines": 4,
+          "preview": "Chúng ta gặp thứ bảy nhé."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.7,
+          "title": "1｜聽不懂，也能接住對話・逐句"
+        },
+        {
+          "t": 73.3,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 89.4,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 124.2,
+          "title": "2｜點飲料：客製再確認・逐句"
+        },
+        {
+          "t": 170.8,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 184.9,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 215.7,
+          "title": "3｜問價：聽出千位單位・逐句"
+        },
+        {
+          "t": 255.8,
+          "title": "3｜完整會話"
+        },
+        {
+          "t": 268.3,
+          "title": "3｜換你上場"
+        },
+        {
+          "t": 293.5,
+          "title": "4｜問路：左右轉回說一次・逐句"
+        },
+        {
+          "t": 341.9,
+          "title": "4｜完整會話"
+        },
+        {
+          "t": 356.5,
+          "title": "4｜換你上場"
+        },
+        {
+          "t": 384.3,
+          "title": "5｜約時間：星期別照中文・逐句"
+        },
+        {
+          "t": 427.2,
+          "title": "5｜完整會話"
+        },
+        {
+          "t": 440.4,
+          "title": "5｜換你上場"
+        },
+        {
+          "t": 465.9,
+          "title": "6｜訂房：房數、人數、晚・逐句"
+        },
+        {
+          "t": 511.2,
+          "title": "6｜完整會話"
+        },
+        {
+          "t": 524.8,
+          "title": "6｜換你上場"
+        },
+        {
+          "t": 551,
+          "title": "7｜結帳：先問付款方式・逐句"
+        },
+        {
+          "t": 595.2,
+          "title": "7｜完整會話"
+        },
+        {
+          "t": 609,
+          "title": "7｜換你上場"
+        },
+        {
+          "t": 635.2,
+          "title": "8｜說錯了：直接修正關鍵・逐句"
+        },
+        {
+          "t": 685.5,
+          "title": "8｜完整會話"
+        },
+        {
+          "t": 700.4,
+          "title": "8｜換你上場"
+        },
+        {
+          "t": 732.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 3,
+      "id": "ft_day1_fasttrack",
+      "series": "fasttrack",
+      "icon": "🤝",
+      "titleZh": "Day 1: 3秒禮貌社交破冰",
+      "titleEn": "Day 1: 3-Second Polite Icebreaker",
+      "summaryZh": "掌握最核心的問候、道謝、道歉與應答，踏出開口第一步！",
+      "moduleTab": "conversation",
+      "duration": 155.2,
+      "lineCount": 4,
+      "roles": [
+        "A・你",
+        "B・越南人"
+      ],
+      "sections": [
+        {
+          "titleZh": "Day 1: 3秒禮貌社交破冰",
+          "lines": 4,
+          "preview": "Dạ, em chào anh ạ! Em tên là Minh."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 17.4,
+          "title": "逐句學習"
+        },
+        {
+          "t": 89.2,
+          "title": "完整會話"
+        },
+        {
+          "t": 109.9,
+          "title": "換你上場"
+        },
+        {
+          "t": 147.5,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 4,
+      "id": "ft_day2_fasttrack",
+      "series": "fasttrack",
+      "icon": "☕",
+      "titleZh": "Day 2: 點餐與越南咖啡魔術密碼",
+      "titleEn": "Day 2: Ordering Food & Coffee Magic Codes",
+      "summaryZh": "解鎖越南最著名的咖啡、法棍麵包與河粉點餐秘訣！",
+      "moduleTab": "conversation",
+      "duration": 150,
+      "lineCount": 4,
+      "roles": [
+        "A・你",
+        "B・店員"
+      ],
+      "sections": [
+        {
+          "titleZh": "Day 2: 點餐與越南咖啡魔術密碼",
+          "lines": 4,
+          "preview": "Em ơi! Cho anh một ly cà phê sữa đá, ít đường."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 17.4,
+          "title": "逐句學習"
+        },
+        {
+          "t": 86.3,
+          "title": "完整會話"
+        },
+        {
+          "t": 106.4,
+          "title": "換你上場"
+        },
+        {
+          "t": 142.3,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 5,
+      "id": "ft_day3_fasttrack",
+      "series": "fasttrack",
+      "icon": "💵",
+      "titleZh": "Day 3: 市場殺價與數字貨幣秒算",
+      "titleEn": "Day 3: Market Bargaining & VND Numbers",
+      "summaryZh": "攻克百萬越南盾換算，享受夜市與傳統市場自在購物的樂趣！",
+      "moduleTab": "conversation",
+      "duration": 160.1,
+      "lineCount": 4,
+      "roles": [
+        "A・你",
+        "B・老闆"
+      ],
+      "sections": [
+        {
+          "titleZh": "Day 3: 市場殺價與數字貨幣秒算",
+          "lines": 4,
+          "preview": "Chị ơi, cái áo này bao nhiêu tiền?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.2,
+          "title": "逐句學習"
+        },
+        {
+          "t": 91.3,
+          "title": "完整會話"
+        },
+        {
+          "t": 112.9,
+          "title": "換你上場"
+        },
+        {
+          "t": 152.4,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 6,
+      "id": "ft_day4_fasttrack",
+      "series": "fasttrack",
+      "icon": "🚕",
+      "titleZh": "Day 4: 計程車、Grab 與問路導航",
+      "titleEn": "Day 4: Taxi, Grab & Directions",
+      "summaryZh": "出門搭車不迷路！精準指揮司機直走、轉彎與停車。",
+      "moduleTab": "conversation",
+      "duration": 136.9,
+      "lineCount": 4,
+      "roles": [
+        "A・司機",
+        "B・你"
+      ],
+      "sections": [
+        {
+          "titleZh": "Day 4: 計程車、Grab 與問路導航",
+          "lines": 4,
+          "preview": "Chào anh, anh muốn đi đến đâu ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.3,
+          "title": "逐句學習"
+        },
+        {
+          "t": 78.4,
+          "title": "完整會話"
+        },
+        {
+          "t": 96.2,
+          "title": "換你上場"
+        },
+        {
+          "t": 129.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 7,
+      "id": "ft_day5_fasttrack",
+      "series": "fasttrack",
+      "icon": "👥",
+      "titleZh": "Day 5: 稱謂神算與人際搞定術",
+      "titleEn": "Day 5: Kinship Pronouns & Social Magic",
+      "summaryZh": "徹底攻克越南人際稱謂系統，叫對稱呼好感度瞬間爆表！",
+      "moduleTab": "conversation",
+      "duration": 157.8,
+      "lineCount": 4,
+      "roles": [
+        "A・你",
+        "B・大伯"
+      ],
+      "sections": [
+        {
+          "titleZh": "Day 5: 稱謂神算與人際搞定術",
+          "lines": 4,
+          "preview": "Cháu chào Bác ạ! Bác có khỏe không?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 17.3,
+          "title": "逐句學習"
+        },
+        {
+          "t": 91.6,
+          "title": "完整會話"
+        },
+        {
+          "t": 112.6,
+          "title": "換你上場"
+        },
+        {
+          "t": 150.1,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 8,
+      "id": "ft_day6_fasttrack",
+      "series": "fasttrack",
+      "icon": "🛍️",
+      "titleZh": "Day 6: 便利超商與逛街結帳",
+      "titleEn": "Day 6: Convenience Store & Shopping Checkout",
+      "summaryZh": "超商買水、買生活用品、刷卡與發票生活實戰。",
+      "moduleTab": "conversation",
+      "duration": 147,
+      "lineCount": 4,
+      "roles": [
+        "A・你",
+        "B・收銀員"
+      ],
+      "sections": [
+        {
+          "titleZh": "Day 6: 便利超商與逛街結帳",
+          "lines": 4,
+          "preview": "Em ơi, cho anh lấy chai nước suối này và bao bánh quy."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 16.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 84.7,
+          "title": "完整會話"
+        },
+        {
+          "t": 104.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 139.3,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 9,
+      "id": "ft_day7_fasttrack",
+      "series": "fasttrack",
+      "icon": "💬",
+      "titleZh": "Day 7: 社交閒聊與結交越南好友",
+      "titleEn": "Day 7: Small Talk & Making Local Friends",
+      "summaryZh": "聊家鄉、交換 Zalo、相約喝咖啡，建立深厚跨國友誼！",
+      "moduleTab": "conversation",
+      "duration": 165.9,
+      "lineCount": 4,
+      "roles": [
+        "A・你",
+        "B・越南朋友"
+      ],
+      "sections": [
+        {
+          "titleZh": "Day 7: 社交閒聊與結交越南好友",
+          "lines": 4,
+          "preview": "Quê bạn ở đâu vậy? Bạn ở Sài Gòn lâu chưa?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 17.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 96.5,
+          "title": "完整會話"
+        },
+        {
+          "t": 118.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 158.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 10,
+      "id": "stage1_greeting",
+      "series": "stage",
+      "icon": "🤝",
+      "titleZh": "日常打招呼與自我介紹 (Chào hỏi & Giới thiệu)",
+      "titleEn": "Greetings & Self Introduction",
+      "summaryZh": "【階段 1：零基礎破冰 (A1 / 越語初發)】實戰系統對話，循序漸進掌握各語境對應能力。",
+      "moduleTab": "conversation",
+      "duration": 193.5,
+      "lineCount": 5,
+      "roles": [
+        "Nam",
+        "Lan"
+      ],
+      "sections": [
+        {
+          "titleZh": "初次見面 (Gặp nhau lần đầu)",
+          "lines": 5,
+          "preview": "Xin chào! Tôi là Nam. Rất vui được gặp bạn."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 17.7,
+          "title": "逐句學習"
+        },
+        {
+          "t": 112.1,
+          "title": "完整會話"
+        },
+        {
+          "t": 138,
+          "title": "換你上場"
+        },
+        {
+          "t": 185.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 11,
+      "id": "stage2_dining_transport",
+      "series": "stage",
+      "icon": "🍜",
+      "titleZh": "餐廳點餐與交通搭車 (Nhà hàng & Giao thông)",
+      "titleEn": "Restaurant Ordering & Transportation",
+      "summaryZh": "【階段 2：生存餐飲與問路 (A2 / 初級流利)】實戰系統對話，循序漸進掌握各語境對應能力。",
+      "moduleTab": "conversation",
+      "duration": 285.5,
+      "lineCount": 9,
+      "roles": [
+        "顧客",
+        "店員",
+        "司機"
+      ],
+      "sections": [
+        {
+          "titleZh": "點牛肉河粉與冰奶咖 (Gọi Phở & Cà phê)",
+          "lines": 5,
+          "preview": "Em ơi! Cho anh xem thực đơn."
+        },
+        {
+          "titleZh": "搭乘計程車與指路 (Đi Taxi & Chỉ đường)",
+          "lines": 4,
+          "preview": "Bác tài ơi, cho tôi đến chợ Bến Thành."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.2,
+          "title": "1｜點牛肉河粉與冰奶咖 ・逐句"
+        },
+        {
+          "t": 105.1,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 128.1,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 173.7,
+          "title": "2｜搭乘計程車與指路 (・逐句"
+        },
+        {
+          "t": 230.8,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 247.3,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 277.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 12,
+      "id": "stage3_clinic_housing",
+      "series": "stage",
+      "icon": "🏥",
+      "titleZh": "看病買藥與租屋合約 (Khám bệnh & Thuê nhà)",
+      "titleEn": "Doctor Visit & Apartment Rental",
+      "summaryZh": "【階段 3：融入生活與醫療 (B1 / 中級實用)】實戰系統對話，循序漸進掌握各語境對應能力。",
+      "moduleTab": "conversation",
+      "duration": 142.6,
+      "lineCount": 4,
+      "roles": [
+        "醫生",
+        "病人"
+      ],
+      "sections": [
+        {
+          "titleZh": "在診所與藥局看病 (Tại phòng khám & Nhà thuốc)",
+          "lines": 4,
+          "preview": "Chào anh, anh cảm thấy trong người thế nào?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18,
+          "title": "逐句學習"
+        },
+        {
+          "t": 86,
+          "title": "完整會話"
+        },
+        {
+          "t": 105.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 134.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 13,
+      "id": "stage4_biz_contract",
+      "series": "stage",
+      "icon": "💼",
+      "titleZh": "商業會議與簽署合約 (Họp thương mại & Ký hợp đồng)",
+      "titleEn": "Business Meeting & Contract Signing",
+      "summaryZh": "【階段 4：商務談判與職場 (B2 / 中高級商務)】實戰系統對話，循序漸進掌握各語境對應能力。",
+      "moduleTab": "conversation",
+      "duration": 182.9,
+      "lineCount": 4,
+      "roles": [
+        "經理",
+        "陳先生"
+      ],
+      "sections": [
+        {
+          "titleZh": "洽談合作合約 (Thảo luận hợp đồng hợp tác)",
+          "lines": 4,
+          "preview": "Chào ông Chen! Rất hân hạnh được đón tiếp phái đoàn của ông."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.3,
+          "title": "逐句學習"
+        },
+        {
+          "t": 105.9,
+          "title": "完整會話"
+        },
+        {
+          "t": 130.5,
+          "title": "換你上場"
+        },
+        {
+          "t": 175.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 14,
+      "id": "stage5_fdi_economy",
+      "series": "stage",
+      "icon": "📈",
+      "titleZh": "台越投資與經貿發展論壇 (Đầu tư & Kinh tế)",
+      "titleEn": "Investment & Macroeconomics Forum",
+      "summaryZh": "【階段 5：高階專業與檢定 (C1-C2 / 高級專業)】實戰系統對話，循序漸進掌握各語境對應能力。",
+      "moduleTab": "conversation",
+      "duration": 140.6,
+      "lineCount": 3,
+      "roles": [
+        "專家",
+        "投資人"
+      ],
+      "sections": [
+        {
+          "titleZh": "外商直接投資 (FDI) 趨勢分析",
+          "lines": 3,
+          "preview": "Việt Nam đang là điểm đến hấp dẫn đối với các tập đoàn công nghệ toàn cầu."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.5,
+          "title": "逐句學習"
+        },
+        {
+          "t": 83.8,
+          "title": "完整會話"
+        },
+        {
+          "t": 102.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 132.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 15,
+      "id": "vietnam_geography",
+      "series": "life",
+      "icon": "🇻🇳",
+      "titleZh": "越南風土民情與三大區域",
+      "titleEn": "Vietnamese Culture & Regions",
+      "summaryZh": "深入了解越南北、中、南部的風土民情，並探索各大著名城市的必訪景點。",
+      "moduleTab": "conversation",
+      "duration": 281.8,
+      "lineCount": 6,
+      "roles": [
+        "遊客",
+        "當地朋友"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 6,
+          "preview": "Tôi muốn đi du lịch Việt Nam. Bạn có thể giới thiệu cho tôi vài thành phố được không?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 170.3,
+          "title": "完整會話"
+        },
+        {
+          "t": 209.3,
+          "title": "換你上場"
+        },
+        {
+          "t": 274.1,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 16,
+      "id": "family_restaurant",
+      "series": "life",
+      "icon": "🍽️",
+      "titleZh": "傳統越南餐廳點餐與特色飲料",
+      "titleEn": "Ordering at a Traditional Vietnamese Restaurant",
+      "summaryZh": "學習在傳統越式餐廳 (Quán ăn gia đình) 點越式合菜 (如控肉、酸湯) 與常見飲料 (生啤酒、甘蔗汁)。",
+      "moduleTab": "conversation",
+      "duration": 231,
+      "lineCount": 5,
+      "roles": [
+        "服務生",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Dạ, hai anh chị dùng gì ạ? Có cần xem thực đơn không?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20.7,
+          "title": "逐句學習"
+        },
+        {
+          "t": 140.3,
+          "title": "完整會話"
+        },
+        {
+          "t": 171.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 223.3,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 17,
+      "id": "cafe",
+      "series": "life",
+      "icon": "☕",
+      "titleZh": "咖啡廳點經典冰奶咖與甜度冰量",
+      "titleEn": "Ordering Vietnamese Iced Coffee at a Cafe",
+      "summaryZh": "學習點最道地的 Cà phê sữa đá (冰奶咖)、Bạc xỉu (白咖啡/多奶) 以及調整甜度冰量與內用外帶。",
+      "moduleTab": "conversation",
+      "duration": 194.8,
+      "lineCount": 5,
+      "roles": [
+        "店員",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Dạ xin chào anh! Anh muốn uống gì ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.4,
+          "title": "逐句學習"
+        },
+        {
+          "t": 118.4,
+          "title": "完整會話"
+        },
+        {
+          "t": 144.2,
+          "title": "換你上場"
+        },
+        {
+          "t": 187.1,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 18,
+      "id": "pho",
+      "series": "life",
+      "icon": "🍜",
+      "titleZh": "傳統河粉店點牛肉河粉、油條與熟度",
+      "titleEn": "Ordering Pho Beef Noodle Soup & Toppings",
+      "summaryZh": "學會區分半熟生牛肉 (Phở tái)、全熟牛腩 (Phở chín/nạm)、加點油條 (Quẩy) 與特製半熟蛋 (Trứng chần)。",
+      "moduleTab": "conversation",
+      "duration": 189.3,
+      "lineCount": 5,
+      "roles": [
+        "老闆",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Chào em, hôm nay ăn phở gì em ơi?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.5,
+          "title": "逐句學習"
+        },
+        {
+          "t": 111,
+          "title": "完整會話"
+        },
+        {
+          "t": 135.3,
+          "title": "換你上場"
+        },
+        {
+          "t": 181.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 19,
+      "id": "banhmi",
+      "series": "life",
+      "icon": "🥖",
+      "titleZh": "越式法國麵包攤客製化內餡與辣度",
+      "titleEn": "Ordering Banh Mi at a Street Food Cart",
+      "summaryZh": "掌握點 Bánh mì thịt (肉餡麵包)、Bánh mì trứng (煎蛋麵包)、客製加滿肝醬 (Pa-tê)、醃蘿蔔與調整辣度。",
+      "moduleTab": "conversation",
+      "duration": 193.1,
+      "lineCount": 5,
+      "roles": [
+        "老闆娘",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Cháu ơi, ăn bánh mì gì? Có ăn pa-tê và bơ không?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20.6,
+          "title": "逐句學習"
+        },
+        {
+          "t": 116.4,
+          "title": "完整會話"
+        },
+        {
+          "t": 142.3,
+          "title": "換你上場"
+        },
+        {
+          "t": 185.4,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 20,
+      "id": "seafood",
+      "series": "life",
+      "icon": "🦐",
+      "titleZh": "海鮮大排檔炒螺肉、敬酒乾杯與結帳",
+      "titleEn": "Seafood Street Stall (Quán Ốc) Dining & Toasting",
+      "summaryZh": "體驗西貢最熱鬧的「Nhậu」(飲酒宵夜) 文化，點蒜香奶油炒香螺、鹽烤斑節蝦、大喊「Mot Hai Ba Dzo」乾杯。",
+      "moduleTab": "conversation",
+      "duration": 211.3,
+      "lineCount": 4,
+      "roles": [
+        "店員",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Dạ chào anh chị! Hôm nay có ốc hương xào bơ tỏi và tôm nướng muối ớt rất tươi ạ."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.1,
+          "title": "逐句學習"
+        },
+        {
+          "t": 127.8,
+          "title": "完整會話"
+        },
+        {
+          "t": 155.8,
+          "title": "換你上場"
+        },
+        {
+          "t": 203.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 21,
+      "id": "boba_che",
+      "series": "life",
+      "icon": "🧋",
+      "titleZh": "手搖奶茶與傳統越式甜湯 (Chè) 點餐",
+      "titleEn": "Ordering Boba Milk Tea & Traditional Sweet Soup (Chè)",
+      "summaryZh": "學會手搖飲料客製化糖度 (Đường)、冰量 (Đá)、加黑糖珍珠 (Trân châu) 與品嚐傳統柚皮甜湯 (Chè bưởi)、三色冰 (Chè ba màu)。",
+      "moduleTab": "conversation",
+      "duration": 160.4,
+      "lineCount": 4,
+      "roles": [
+        "店員",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Em chào anh! Anh gọi trà sữa hay chè truyền thống ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.7,
+          "title": "逐句學習"
+        },
+        {
+          "t": 95.1,
+          "title": "完整會話"
+        },
+        {
+          "t": 115.9,
+          "title": "換你上場"
+        },
+        {
+          "t": 152.7,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 22,
+      "id": "airport",
+      "series": "life",
+      "icon": "✈️",
+      "titleZh": "國際機場辦理登機、過海關與託運行李",
+      "titleEn": "Airport Check-In, Baggage Drop & Customs Clearance",
+      "summaryZh": "機場櫃台出示護照 (Hộ chiếu)、登機證 (Thẻ lên máy bay)、行李託運 (Hành lý ký gửi) 與挑選靠窗靠走道座位。",
+      "moduleTab": "conversation",
+      "duration": 239.2,
+      "lineCount": 5,
+      "roles": [
+        "地勤",
+        "旅客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Xin chào quý khách, xin vui lòng cho xem hộ chiếu và vé máy bay ạ."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.3,
+          "title": "逐句學習"
+        },
+        {
+          "t": 146.2,
+          "title": "完整會話"
+        },
+        {
+          "t": 179,
+          "title": "換你上場"
+        },
+        {
+          "t": 231.5,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 23,
+      "id": "hotel",
+      "series": "life",
+      "icon": "🏨",
+      "titleZh": "飯店櫃台辦理入住 (Check-in)、退房與客房需求",
+      "titleEn": "Hotel Check-In, Room Requests & Check-Out",
+      "summaryZh": "辦理飯店入住 (Nhận phòng)、詢問 Wi-Fi 密碼、早餐時間 (Bữa sáng)、要求多加枕頭與延遲退房 (Trả phòng muộn)。",
+      "moduleTab": "conversation",
+      "duration": 239.2,
+      "lineCount": 5,
+      "roles": [
+        "櫃台接待",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Dạ xin chào quý khách! Anh chị đã đặt phòng trước chưa ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.9,
+          "title": "逐句學習"
+        },
+        {
+          "t": 147.7,
+          "title": "完整會話"
+        },
+        {
+          "t": 180.3,
+          "title": "換你上場"
+        },
+        {
+          "t": 231.5,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 24,
+      "id": "taxi",
+      "series": "life",
+      "icon": "🚖",
+      "titleZh": "Grab 叫車確認、指示司機左轉右轉與靠邊停",
+      "titleEn": "Taking Grab, Giving Directions & Dropping Off",
+      "summaryZh": "學會確認車牌號碼 (Biển số xe)、指示司機直走 (Đi thẳng)、左轉 (Rẽ trái)、右轉 (Rẽ phải)、靠邊停 (Dừng lại ở đây)。",
+      "moduleTab": "conversation",
+      "duration": 190.9,
+      "lineCount": 4,
+      "roles": [
+        "司機",
+        "乘客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Dạ chào anh, anh đi đến chợ Bến Thành đúng không ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 107.6,
+          "title": "完整會話"
+        },
+        {
+          "t": 132,
+          "title": "換你上場"
+        },
+        {
+          "t": 183.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 25,
+      "id": "market",
+      "series": "life",
+      "icon": "🛍️",
+      "titleZh": "傳統市場與觀光夜市挑選水果、問價與殺價",
+      "titleEn": "Market Shopping, Fruit Selection & Polite Bargaining",
+      "summaryZh": "學會挑選芒果、火龍果、榴槤，詢問價格 (Bao nhiêu một ký)，禮貌殺價「Bớt cho em một chút」(算便宜一點)。",
+      "moduleTab": "conversation",
+      "duration": 224.9,
+      "lineCount": 5,
+      "roles": [
+        "攤販大姐",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Em gái ơi, mua xoài cát Hòa Lộc hay thanh long đi em, trái cây vườn tươi ngọt lắm!"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.1,
+          "title": "逐句學習"
+        },
+        {
+          "t": 139.6,
+          "title": "完整會話"
+        },
+        {
+          "t": 169.8,
+          "title": "換你上場"
+        },
+        {
+          "t": 217.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 26,
+      "id": "convenience",
+      "series": "life",
+      "icon": "🏪",
+      "titleZh": "便利商店買零食泡麵、微波加熱與要塑膠袋",
+      "titleEn": "Convenience Store Shopping, Microwave & Bag Request",
+      "summaryZh": "在 Circle K、GS25、FamilyMart、WinMart 購買泡麵、飲料、要求微波加熱 (Hâm nóng)、要塑膠袋 (Túi nilon) 與發票。",
+      "moduleTab": "conversation",
+      "duration": 173.1,
+      "lineCount": 4,
+      "roles": [
+        "收銀員",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Dạ xin chào anh! Anh có thẻ thành viên không ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.5,
+          "title": "逐句學習"
+        },
+        {
+          "t": 102,
+          "title": "完整會話"
+        },
+        {
+          "t": 124.8,
+          "title": "換你上場"
+        },
+        {
+          "t": 165.4,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 27,
+      "id": "pharmacy",
+      "series": "life",
+      "icon": "💊",
+      "titleZh": "藥局買藥、描述感冒發燒、拉肚子與用藥頻率",
+      "titleEn": "Buying Medicine at a Pharmacy & Describing Symptoms",
+      "summaryZh": "描述症狀：發燒 (Sốt)、頭痛 (Đau đầu)、喉嚨痛 (Đau họng)、拉肚子 (Đau bụng/Tiêu chảy)、詢問飯前飯後吃法。",
+      "moduleTab": "conversation",
+      "duration": 220.5,
+      "lineCount": 5,
+      "roles": [
+        "藥劑師",
+        "患者"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Dạ chào anh, anh đang có triệu chứng khó chịu thế nào ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 134.5,
+          "title": "完整會話"
+        },
+        {
+          "t": 164.4,
+          "title": "換你上場"
+        },
+        {
+          "t": 212.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 28,
+      "id": "hospital",
+      "series": "life",
+      "icon": "🏥",
+      "titleZh": "診所醫院掛號看診、量血壓與醫生問診",
+      "titleEn": "Hospital & Clinic Visit, Vitals Check & Doctor Consultation",
+      "summaryZh": "掛號 (Đăng ký khám)、量血壓 (Đo huyết áp)、體溫 (Nhiệt độ)、聽診與醫生開立處方簽 (Kê đơn thuốc)。",
+      "moduleTab": "conversation",
+      "duration": 197.3,
+      "lineCount": 4,
+      "roles": [
+        "醫生",
+        "患者"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Xin chào anh! Anh đến khám bệnh gì ạ? Xin cho tôi mượn hộ chiếu để làm thủ tục."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.3,
+          "title": "逐句學習"
+        },
+        {
+          "t": 123.3,
+          "title": "完整會話"
+        },
+        {
+          "t": 151.2,
+          "title": "換你上場"
+        },
+        {
+          "t": 189.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 29,
+      "id": "spa",
+      "series": "life",
+      "icon": "💆",
+      "titleZh": "越式洗頭 (Gội đầu dưỡng sinh)、肩頸按摩與力道調整",
+      "titleEn": "Vietnamese Herbal Hair Spa & Massage Relaxation",
+      "summaryZh": "體驗正統草本養生洗頭套餐 (Gội đầu dưỡng sinh)、肩頸掏耳按摩、調整水溫與力道「Mạnh hơn」(重一點) /「Nhẹ thôi」(輕一點)。",
+      "moduleTab": "conversation",
+      "duration": 260.7,
+      "lineCount": 5,
+      "roles": [
+        "美容師",
+        "顧客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Dạ em chào anh! Hôm nay anh chọn gói gội đầu dưỡng sinh sáu mươi phút hay chín mươi phút ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 156.2,
+          "title": "完整會話"
+        },
+        {
+          "t": 190.6,
+          "title": "換你上場"
+        },
+        {
+          "t": 253,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 30,
+      "id": "haircut",
+      "series": "life",
+      "icon": "✂️",
+      "titleZh": "男士理髮沙龍 (30Shine 剪髮、洗臉修鬍與造型全體驗)",
+      "titleEn": "Men's Barber & Grooming (30Shine Haircut, Facial, Wash & Style)",
+      "summaryZh": "深入走訪越南最大現代男士連鎖理髮沙龍 30Shine！掌握經典 10 步驟「Shine Combo」套餐預約、與理髮師溝通髮型長度細節（推兩側、打薄頂部、修鬍輪廓）、躺式洗臉洗頭力道水溫反饋，以及吹整抓蠟與結帳付款的全方位實用對話。",
+      "moduleTab": "conversation",
+      "duration": 978.6,
+      "lineCount": 17,
+      "roles": [],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 17,
+          "preview": "Dạ em chào anh ạ! Anh đã đặt lịch cắt tóc trên app 30Shine trước chưa ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 31.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 626,
+          "title": "完整會話"
+        },
+        {
+          "t": 761.6,
+          "title": "換你上場"
+        },
+        {
+          "t": 970.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 31,
+      "id": "emergency",
+      "series": "life",
+      "icon": "🚨",
+      "titleZh": "緊急求助、遺失護照錢包、報警報案與急難電話",
+      "titleEn": "Emergency Assistance, Lost Passport, Police Report & Hotlines",
+      "summaryZh": "大喊救命「Cứu tôi với!」(救我)、遺失護照 (Mất hộ chiếu)、報警 (Báo công an)、報案筆錄 (Lập biên bản) 與 113/114/115 急難電話。",
+      "moduleTab": "conversation",
+      "duration": 212.4,
+      "lineCount": 4,
+      "roles": [
+        "受害者",
+        "警察"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Giúp tôi với! Cứu tôi với! Có ai biết nói tiếng Anh hoặc tiếng Trung không?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 23.1,
+          "title": "逐句學習"
+        },
+        {
+          "t": 127.5,
+          "title": "完整會話"
+        },
+        {
+          "t": 155.3,
+          "title": "換你上場"
+        },
+        {
+          "t": 204.7,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 32,
+      "id": "meeting",
+      "series": "life",
+      "icon": "🤝",
+      "titleZh": "初次見面自我介紹、詢問背景與加 Zalo 好友",
+      "titleEn": "Self-Introduction, Background & Adding Zalo Contact",
+      "summaryZh": "學習向越南朋友自我介紹姓名、國籍、工作、學越文時間，並禮貌交換 Zalo/Facebook 聯繫方式。",
+      "moduleTab": "conversation",
+      "duration": 305.3,
+      "lineCount": 5,
+      "roles": [
+        "朋友",
+        "學習者"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Chào bạn! Mình là Minh. Rất vui được làm quen với bạn."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.6,
+          "title": "逐句學習"
+        },
+        {
+          "t": 187.8,
+          "title": "完整會話"
+        },
+        {
+          "t": 229.4,
+          "title": "換你上場"
+        },
+        {
+          "t": 297.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 33,
+      "id": "smalltalk",
+      "series": "life",
+      "icon": "💬",
+      "titleZh": "天氣閒聊、週末休假安排與日常生活關心",
+      "titleEn": "Weather, Weekend Plans & Everyday Chit-Chat",
+      "summaryZh": "學習越南人最常聊的天氣變化、週末放假去處、美食推薦與生活問候技巧。",
+      "moduleTab": "conversation",
+      "duration": 234.5,
+      "lineCount": 4,
+      "roles": [
+        "同事",
+        "學習者"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Dạo này thời tiết Sài Gòn nóng quá anh nhỉ! Chiều nào cũng có mưa rào."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20.7,
+          "title": "逐句學習"
+        },
+        {
+          "t": 140.8,
+          "title": "完整會話"
+        },
+        {
+          "t": 172.2,
+          "title": "換你上場"
+        },
+        {
+          "t": 226.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 34,
+      "id": "leisure_hobbies",
+      "series": "life",
+      "icon": "🎮",
+      "titleZh": "交流個人興趣、卡拉OK (Karaoke) 與看電影休閒",
+      "titleEn": "Talking About Hobbies, Karaoke & Movies",
+      "summaryZh": "掌握如何表達自己的興趣愛好（唱歌、拍照、烹飪、聽音樂），並參與越南超受歡迎的 Karaoke 聚會。",
+      "moduleTab": "conversation",
+      "duration": 188,
+      "lineCount": 4,
+      "roles": [
+        "朋友",
+        "學習者"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Anh David ơi, sở thích của anh lúc rảnh rỗi là gì thế?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.6,
+          "title": "逐句學習"
+        },
+        {
+          "t": 113.4,
+          "title": "完整會話"
+        },
+        {
+          "t": 137.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 180.3,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 35,
+      "id": "sports_fitness",
+      "series": "life",
+      "icon": "⚽",
+      "titleZh": "公園踢毽子 (Đá cầu)、打羽球與健身房運動交流",
+      "titleEn": "Shuttlecock Kicking (Đá cầu), Badminton & Gym Fitness",
+      "summaryZh": "認識越南國技「踢毽子」(Đá cầu)、晨間公園運動、羽毛球約打與健身房重量訓練表達。",
+      "moduleTab": "conversation",
+      "duration": 222.2,
+      "lineCount": 4,
+      "roles": [
+        "球友",
+        "學習者"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Anh David! Anh có muốn vào chơi đá cầu cùng tụi em cho vui không?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20.1,
+          "title": "逐句學習"
+        },
+        {
+          "t": 133.2,
+          "title": "完整會話"
+        },
+        {
+          "t": 163,
+          "title": "換你上場"
+        },
+        {
+          "t": 214.5,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 36,
+      "id": "travel_tour",
+      "series": "life",
+      "icon": "🛵",
+      "titleZh": "景點門票購買、租借機車 (Thuê xe máy) 與一日遊諮詢",
+      "titleEn": "Attraction Tickets, Motorbike Rental & Day Tour Booking",
+      "summaryZh": "掌握在峴港、河內、胡志明或大叻租機車、確認油箱、押金、頭盔與購買觀光景點門票實戰對話。",
+      "moduleTab": "conversation",
+      "duration": 204.8,
+      "lineCount": 4,
+      "roles": [
+        "店主",
+        "學習者"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Chào em, em muốn thuê xe máy số hay xe ga? Thuê mấy ngày?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.6,
+          "title": "逐句學習"
+        },
+        {
+          "t": 123.9,
+          "title": "完整會話"
+        },
+        {
+          "t": 150.9,
+          "title": "換你上場"
+        },
+        {
+          "t": 197.1,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 37,
+      "id": "apartment_rental_contract",
+      "series": "life",
+      "icon": "🏢",
+      "titleZh": "公寓租賃簽約與物業維修",
+      "titleEn": "Apartment Lease Agreement & Maintenance Request",
+      "summaryZh": "租客向房東洽談月租押金、水電管理費分攤、居住登記 (Tạm trú) 與冷氣漏水報修。",
+      "moduleTab": "conversation",
+      "duration": 264,
+      "lineCount": 6,
+      "roles": [
+        "租客",
+        "房東"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 6,
+          "preview": "Chào chị Mai, tiền cọc căn hộ này là mấy tháng và hợp đồng ký tối thiểu bao lâu?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.9,
+          "title": "逐句學習"
+        },
+        {
+          "t": 160.6,
+          "title": "完整會話"
+        },
+        {
+          "t": 196.1,
+          "title": "換你上場"
+        },
+        {
+          "t": 256.3,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 38,
+      "id": "airport_customs_visa",
+      "series": "life",
+      "icon": "✈️",
+      "titleZh": "機場海關入境與電子簽證查驗",
+      "titleEn": "Airport Immigration & E-Visa Verification",
+      "summaryZh": "抵達新山一或內排國際機場，接受邊檢移民官查驗護照、E-visa 電子簽證、入境目的與申報隨身物品。",
+      "moduleTab": "conversation",
+      "duration": 246.5,
+      "lineCount": 6,
+      "roles": [
+        "移民官",
+        "旅客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 6,
+          "preview": "Xin chào, vui lòng xuất trình hộ chiếu và giấy thị thực điện tử (E-visa)."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.7,
+          "title": "逐句學習"
+        },
+        {
+          "t": 146,
+          "title": "完整會話"
+        },
+        {
+          "t": 178.6,
+          "title": "換你上場"
+        },
+        {
+          "t": 238.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 39,
+      "id": "nhau_culture_dinner",
+      "series": "life",
+      "icon": "🍻",
+      "titleZh": "越南熱炒 Nhậu 文化與敬酒禮儀",
+      "titleEn": "Vietnamese Nhậu Culture & Toasting Etiquette",
+      "summaryZh": "融入越南下班後的 Nhậu 熱炒應酬：點熱炒烤肉海鮮、齊喊 1-2-3-Dô 碰杯、雙手敬酒與職場情誼破冰。",
+      "moduleTab": "conversation",
+      "duration": 304.6,
+      "lineCount": 6,
+      "roles": [
+        "越南夥伴",
+        "學員"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 6,
+          "preview": "Hôm nay ký xong hợp đồng rồi, tối nay anh em mình đi nhậu ăn mừng nhé!"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.6,
+          "title": "逐句學習"
+        },
+        {
+          "t": 187.4,
+          "title": "完整會話"
+        },
+        {
+          "t": 228.2,
+          "title": "換你上場"
+        },
+        {
+          "t": 296.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 40,
+      "id": "pharmacy_clinic_visit",
+      "series": "life",
+      "icon": "💊",
+      "titleZh": "藥局購藥與診所問診",
+      "titleEn": "Pharmacy Medicine & Clinic Consultation",
+      "summaryZh": "在越南藥局 (Hiệu thuốc) 說明頭痛發燒腹瀉、購買成藥分包 (Liều thuốc) 與國際診所掛號問診。",
+      "moduleTab": "conversation",
+      "duration": 242,
+      "lineCount": 6,
+      "roles": [
+        "藥劑師",
+        "病患"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 6,
+          "preview": "Chào bạn, bạn đang bị khó chịu ở đâu, có những triệu chứng gì?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 17.4,
+          "title": "逐句學習"
+        },
+        {
+          "t": 145.3,
+          "title": "完整會話"
+        },
+        {
+          "t": 178.2,
+          "title": "換你上場"
+        },
+        {
+          "t": 234.3,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 41,
+      "id": "topic_business_greeting",
+      "series": "topic",
+      "icon": "🤝",
+      "titleZh": "商業見面問候情境對話",
+      "titleEn": "Business Greetings & Networking Dialogues",
+      "summaryZh": "掌握越南商務拜訪、名片交換、尊稱禮儀、正式自我介紹與商務破冰金句。",
+      "moduleTab": "topics",
+      "duration": 388.8,
+      "lineCount": 9,
+      "roles": [
+        "A・台灣客人",
+        "B・南經理"
+      ],
+      "sections": [
+        {
+          "titleZh": "初次商務拜訪與名片交換",
+          "lines": 5,
+          "preview": "Dạ, em chào Giám đốc Nam ạ! Rất hân hạnh được gặp anh."
+        },
+        {
+          "titleZh": "會議結尾與後續跟進相約",
+          "lines": 4,
+          "preview": "Cuộc họp hôm nay rất hiệu quả, cảm ơn anh Nam đã dành thời gian."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.9,
+          "title": "1｜初次商務拜訪與名片交・逐句"
+        },
+        {
+          "t": 133.4,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 163.3,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 217.6,
+          "title": "2｜會議結尾與後續跟進相・逐句"
+        },
+        {
+          "t": 312.7,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 337.7,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 381.1,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 42,
+      "id": "topic_dining_restaurant",
+      "series": "topic",
+      "icon": "🍜",
+      "titleZh": "餐廳話題情境對話",
+      "titleEn": "Dining & Restaurant Conversations Dialogues",
+      "summaryZh": "從入座呼喚服務生、點河粉烤肉飯、客製化甜度冰量，到索取餐具與俐落買單。",
+      "moduleTab": "topics",
+      "duration": 359.5,
+      "lineCount": 10,
+      "roles": [
+        "A・顧客",
+        "B・店員"
+      ],
+      "sections": [
+        {
+          "titleZh": "傳統河粉店點牛肉河粉與飲料",
+          "lines": 5,
+          "preview": "Em ơi! Quán mình có phở bò không em?"
+        },
+        {
+          "titleZh": "餐後結帳與發票索取",
+          "lines": 5,
+          "preview": "Em ơi, bàn số 5 tính tiền giúp anh!"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.1,
+          "title": "1｜傳統河粉店點牛肉河粉・逐句"
+        },
+        {
+          "t": 117.6,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 143,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 189.1,
+          "title": "2｜餐後結帳與發票索取・逐句"
+        },
+        {
+          "t": 282.7,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 307.3,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 351.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 43,
+      "id": "topic_family_kinship",
+      "series": "topic",
+      "icon": "👨‍👩‍👧‍👦",
+      "titleZh": "家庭話題情境對話",
+      "titleEn": "Family, Relatives & Kinship Titles Dialogues",
+      "summaryZh": "拆解越南家族親屬樹、婚姻狀況、兄弟姐妹排序，深度理解稱謂背後的宗族文化。",
+      "moduleTab": "topics",
+      "duration": 362.7,
+      "lineCount": 9,
+      "roles": [
+        "A・越南朋友",
+        "B・你",
+        "A・鄰居大伯",
+        "B・Minh"
+      ],
+      "sections": [
+        {
+          "titleZh": "咖啡廳閒聊家庭成員與近況",
+          "lines": 5,
+          "preview": "Anh Minh ơi, gia đình anh ở Đài Loan có mấy người vậy?"
+        },
+        {
+          "titleZh": "詢問婚姻狀況與生活關心",
+          "lines": 4,
+          "preview": "Cháu Minh sang Việt Nam làm việc lâu chưa? Đã có gia đình chưa?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.2,
+          "title": "1｜咖啡廳閒聊家庭成員與・逐句"
+        },
+        {
+          "t": 126.3,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 154,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 198.5,
+          "title": "2｜詢問婚姻狀況與生活關・逐句"
+        },
+        {
+          "t": 289.4,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 312.4,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 355,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 44,
+      "id": "topic_health_medical",
+      "series": "topic",
+      "icon": "💊",
+      "titleZh": "健康話題情境對話",
+      "titleEn": "Health, Medical & Pharmacy Dialogues",
+      "summaryZh": "身體各部位名稱、感冒發燒症狀精準表達、藥局買藥劑量指示與醫院診所看診對話。",
+      "moduleTab": "topics",
+      "duration": 401.7,
+      "lineCount": 10,
+      "roles": [
+        "A・顧客",
+        "B・藥師",
+        "A・醫生",
+        "B・Minh"
+      ],
+      "sections": [
+        {
+          "titleZh": "連鎖藥局 (Pharmacity) 描述感冒發燒症狀買藥",
+          "lines": 5,
+          "preview": "Chào dược sĩ, tôi bị sốt nhẹ và nghẹt mũi từ tối qua."
+        },
+        {
+          "titleZh": "國際診所醫生問診與量血壓",
+          "lines": 5,
+          "preview": "Chào anh Minh, hôm nay anh cảm thấy khó chịu ở đâu?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.4,
+          "title": "1｜連鎖藥局 (Phar・逐句"
+        },
+        {
+          "t": 129.2,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 157,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 207.8,
+          "title": "2｜國際診所醫生問診與量・逐句"
+        },
+        {
+          "t": 314.4,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 341.6,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 394,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 45,
+      "id": "topic_date_time_stay",
+      "series": "topic",
+      "icon": "📅",
+      "titleZh": "日期時間與停留情境對話",
+      "titleEn": "Dates, Days, Months & Duration of Stay Dialogues",
+      "summaryZh": "掌握星期一至星期日、12個月份、時間副詞，以及海關與日常生活詢問「要待多久」。",
+      "moduleTab": "topics",
+      "duration": 302.6,
+      "lineCount": 9,
+      "roles": [
+        "A・海關",
+        "B・乘客",
+        "A・合作夥伴",
+        "B・Minh"
+      ],
+      "sections": [
+        {
+          "titleZh": "機場海關人員詢問入境目的與停留天數",
+          "lines": 5,
+          "preview": "Chào anh, anh đến Việt Nam với mục đích gì?"
+        },
+        {
+          "titleZh": "與越南合作夥伴相約下週會議時間",
+          "lines": 4,
+          "preview": "Anh Minh ơi, tuần sau Thứ mấy anh rảnh để mình họp dự án?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.8,
+          "title": "1｜機場海關人員詢問入境・逐句"
+        },
+        {
+          "t": 105.3,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 127.7,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 166.6,
+          "title": "2｜與越南合作夥伴相約下・逐句"
+        },
+        {
+          "t": 238.7,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 258.3,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 294.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 46,
+      "id": "topic_pricing_bargaining",
+      "series": "topic",
+      "icon": "💵",
+      "titleZh": "多少錢常見說法情境對話",
+      "titleEn": "Pricing, Inquiries & Bargaining Dialogues",
+      "summaryZh": "萬能問價、市場溫和殺價神句、去零頭技術、優惠折扣與多種付款方式（現金/刷卡/QR）。",
+      "moduleTab": "topics",
+      "duration": 420.5,
+      "lineCount": 10,
+      "roles": [
+        "A・顧客",
+        "B・水果攤販",
+        "B・店員"
+      ],
+      "sections": [
+        {
+          "titleZh": "傳統市場購買熱帶水果與溫和議價",
+          "lines": 5,
+          "preview": "Chị ơi, sầu riêng này bán thế nào một ký vậy chị?"
+        },
+        {
+          "titleZh": "精品服飾店詢問折扣與電子掃碼付款",
+          "lines": 5,
+          "preview": "Em ơi, chiếc áo sơ mi lụa này có đang được giảm giá không?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19,
+          "title": "1｜傳統市場購買熱帶水果・逐句"
+        },
+        {
+          "t": 141.9,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 173.5,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 231.2,
+          "title": "2｜精品服飾店詢問折扣與・逐句"
+        },
+        {
+          "t": 338.5,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 365.3,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 412.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 47,
+      "id": "topic_numbers_scale",
+      "series": "topic",
+      "icon": "🔢",
+      "titleZh": "數字、量詞與大數情境對話",
+      "titleEn": "Numbers, Units & Large Currency Dialogues",
+      "summaryZh": "掌握 0 到十億數字、特殊變音規則（mốt, tư, lăm, mươi）、量詞搭配與百萬越南盾秒算。",
+      "moduleTab": "topics",
+      "duration": 424.2,
+      "lineCount": 9,
+      "roles": [
+        "A・顧客",
+        "B・金店老闆",
+        "B・店員"
+      ],
+      "sections": [
+        {
+          "titleZh": "銀樓 (Tiệm vàng) 換匯與計算匯率",
+          "lines": 5,
+          "preview": "Chị ơi, hôm nay 100 Đô la Mỹ (USD) đổi được bao nhiêu tiền Việt vậy chị?"
+        },
+        {
+          "titleZh": "飲料店運用量詞與數字點多杯外帶",
+          "lines": 4,
+          "preview": "Em ơi, cho anh đặt ba ly trà sữa trân châu và hai chai nước cam ép."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.7,
+          "title": "1｜銀樓 (Tiệm v・逐句"
+        },
+        {
+          "t": 153,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 188.3,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 247.3,
+          "title": "2｜飲料店運用量詞與數字・逐句"
+        },
+        {
+          "t": 346.4,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 372.6,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 416.5,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 48,
+      "id": "bank_open_account",
+      "series": "banking",
+      "icon": "🏦",
+      "titleZh": "臨櫃開立個人帳戶 (Mở tài khoản ngân hàng)",
+      "titleEn": "1. Opening a Bank Account (Mở tài khoản ngân hàng)",
+      "summaryZh": "越南商業銀行實戰情境：1. 臨櫃開立個人帳戶 (Mở tài khoản ngân hàng)，標準對話練習與金融業務。",
+      "moduleTab": "conversation",
+      "duration": 138.5,
+      "lineCount": 4,
+      "roles": [
+        "客戶",
+        "銀行櫃員"
+      ],
+      "sections": [
+        {
+          "titleZh": "臨櫃開立個人帳戶 (Mở tài khoản ngân hàng)",
+          "lines": 4,
+          "preview": "Cho tôi mở một tài khoản ngân hàng cá nhân."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.4,
+          "title": "逐句學習"
+        },
+        {
+          "t": 79.5,
+          "title": "完整會話"
+        },
+        {
+          "t": 97.8,
+          "title": "換你上場"
+        },
+        {
+          "t": 130.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 49,
+      "id": "bank_wire_transfer",
+      "series": "banking",
+      "icon": "💳",
+      "titleZh": "大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+      "titleEn": "2. Large Wire Transfer (Chuyển khoản số tiền lớn)",
+      "summaryZh": "越南商業銀行實戰情境：2. 大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)，標準對話練習與金融業務。",
+      "moduleTab": "conversation",
+      "duration": 140.6,
+      "lineCount": 4,
+      "roles": [
+        "客戶",
+        "銀行櫃員"
+      ],
+      "sections": [
+        {
+          "titleZh": "大額商業匯款與轉帳 (Chuyển khoản số tiền lớn)",
+          "lines": 4,
+          "preview": "Tôi muốn chuyển khoản hai tỷ đồng cho công ty đối tác."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 82.3,
+          "title": "完整會話"
+        },
+        {
+          "t": 100.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 132.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 50,
+      "id": "bank_deposit_interest",
+      "series": "banking",
+      "icon": "💰",
+      "titleZh": "定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+      "titleEn": "3. Term Deposit & Interest Rates (Gửi tiết kiệm & Lãi suất)",
+      "summaryZh": "越南商業銀行實戰情境：3. 定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)，標準對話練習與金融業務。",
+      "moduleTab": "conversation",
+      "duration": 143.8,
+      "lineCount": 4,
+      "roles": [
+        "客戶",
+        "銀行櫃員"
+      ],
+      "sections": [
+        {
+          "titleZh": "定期存款與利息諮詢 (Gửi tiết kiệm & Lãi suất)",
+          "lines": 4,
+          "preview": "Lãi suất gửi tiết kiệm kỳ hạn mười hai tháng là bao nhiêu?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20,
+          "title": "逐句學習"
+        },
+        {
+          "t": 83.4,
+          "title": "完整會話"
+        },
+        {
+          "t": 102.2,
+          "title": "換你上場"
+        },
+        {
+          "t": 136.1,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 51,
+      "id": "business_negotiation",
+      "series": "business",
+      "icon": "💼",
+      "titleZh": "辦公室會議與合約交涉",
+      "titleEn": "Office Meetings & Contract Negotiation",
+      "summaryZh": "學習如何在越南辦公室進行專業的商業交涉，包含討論價格、合約條款與表達合作意願。",
+      "moduleTab": "conversation",
+      "duration": 259.9,
+      "lineCount": 5,
+      "roles": [
+        "合作夥伴",
+        "訪客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Chào anh, rất vui được đón tiếp anh tại văn phòng công ty chúng tôi."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20,
+          "title": "逐句學習"
+        },
+        {
+          "t": 156.7,
+          "title": "完整會話"
+        },
+        {
+          "t": 192.4,
+          "title": "換你上場"
+        },
+        {
+          "t": 252.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 52,
+      "id": "factory_tour",
+      "series": "business",
+      "icon": "🏭",
+      "titleZh": "越南工廠視察與生產進度討論",
+      "titleEn": "Vietnam Factory Tour & Production Progress",
+      "summaryZh": "掌握在越南工廠視察時的實用對話，包含詢問生產進度、品質控管與出貨時間。",
+      "moduleTab": "conversation",
+      "duration": 235,
+      "lineCount": 6,
+      "roles": [
+        "管理者",
+        "廠長/領班"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 6,
+          "preview": "Xin chào, tiến độ sản xuất của lô hàng này đến đâu rồi?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.9,
+          "title": "逐句學習"
+        },
+        {
+          "t": 140.2,
+          "title": "完整會話"
+        },
+        {
+          "t": 171.8,
+          "title": "換你上場"
+        },
+        {
+          "t": 227.3,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 53,
+      "id": "rent",
+      "series": "business",
+      "icon": "🏠",
+      "titleZh": "租屋看房詢問租金、押金、水電費與簽約",
+      "titleEn": "Renting an Apartment, Asking Utilities & Lease Terms",
+      "summaryZh": "看房諮詢：詢問每月租金 (Tiền thuê)、押金 (Tiền cọc)、電費 (Tiền điện)、水費 (Tiền nước) 與簽署租賃合約 (Hợp đồng thuê nhà)。",
+      "moduleTab": "conversation",
+      "duration": 254.9,
+      "lineCount": 5,
+      "roles": [
+        "房東",
+        "租客"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Chào em! Mời em vào xem căn hộ. Căn này một phòng ngủ, đầy đủ nội thất."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.9,
+          "title": "逐句學習"
+        },
+        {
+          "t": 156.6,
+          "title": "完整會話"
+        },
+        {
+          "t": 191.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 247.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 54,
+      "id": "business_meeting",
+      "series": "business",
+      "icon": "💼",
+      "titleZh": "職場商務拜訪、交換名片、洽談專案與預約下次會議",
+      "titleEn": "Business Meeting, Exchanging Namecards & Project Discussion",
+      "summaryZh": "商務禮儀：雙手遞接名片 (Trao danh thiếp)、稱呼職稱 (Giám đốc)、洽談合作 (Hợp tác) 與敲定合約進度。",
+      "moduleTab": "conversation",
+      "duration": 215.3,
+      "lineCount": 4,
+      "roles": [
+        "越方代表",
+        "台方代表"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Chào anh Chen! Rất hân hạnh được đón tiếp phái đoàn của anh tại văn phòng chúng tôi."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.1,
+          "title": "逐句學習"
+        },
+        {
+          "t": 129.6,
+          "title": "完整會話"
+        },
+        {
+          "t": 157.9,
+          "title": "換你上場"
+        },
+        {
+          "t": 207.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 55,
+      "id": "workplace_collab",
+      "series": "business",
+      "icon": "💼",
+      "titleZh": "辦公室工作交接、請病假報備與會議進度匯報",
+      "titleEn": "Workplace Handovers, Sick Leave Requests & Meeting Progress",
+      "summaryZh": "學會辦公室與工廠產線現場實務溝通：請假（Nghỉ phép）、確認交期進度、協同跨部門合作。",
+      "moduleTab": "conversation",
+      "duration": 186.5,
+      "lineCount": 4,
+      "roles": [
+        "主管",
+        "學習者"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "David, báo cáo tiến độ dự án tuần này đã hoàn thành chưa?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.4,
+          "title": "逐句學習"
+        },
+        {
+          "t": 111.2,
+          "title": "完整會話"
+        },
+        {
+          "t": 135.6,
+          "title": "換你上場"
+        },
+        {
+          "t": 178.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 56,
+      "id": "biz_trade_show_secc",
+      "series": "business",
+      "icon": "🎪",
+      "titleZh": "國際商展攤位接待、產品介紹與名片交換",
+      "titleEn": "SECC Trade Show Booth Greeting, Product Pitch & Card Exchange",
+      "summaryZh": "在胡志明市 SECC 展覽館接待國際買家：迎賓問候、遞送型錄 (Catalogue)、解說技術認證與交換名片及 Zalo。",
+      "moduleTab": "conversation",
+      "duration": 314.9,
+      "lineCount": 5,
+      "roles": [
+        "參展商",
+        "買家"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 5,
+          "preview": "Dạ xin chào anh! Chào mừng anh ghé thăm gian hàng của công ty chúng tôi tại triển lãm SECC."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.5,
+          "title": "逐句學習"
+        },
+        {
+          "t": 195.2,
+          "title": "完整會話"
+        },
+        {
+          "t": 238.9,
+          "title": "換你上場"
+        },
+        {
+          "t": 307.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 57,
+      "id": "biz_rfq_pricing",
+      "series": "business",
+      "icon": "💵",
+      "titleZh": "詢價報價 (RFQ)、大宗採購折扣與 MOQ 議價",
+      "titleEn": "RFQ Quotation, Bulk Volume Discount & MOQ Negotiation",
+      "summaryZh": "商務採購核心：核對 FOB Cát Lái 港口交貨價格、協商大宗採購折讓比率與首批試產起訂量 (MOQ)。",
+      "moduleTab": "conversation",
+      "duration": 311.5,
+      "lineCount": 4,
+      "roles": [
+        "採購經理",
+        "業務總監"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Chào anh, chúng tôi đã nhận được bản yêu cầu báo giá (RFQ) cho đơn hàng 50.000 sản phẩm."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.6,
+          "title": "逐句學習"
+        },
+        {
+          "t": 188,
+          "title": "完整會話"
+        },
+        {
+          "t": 231,
+          "title": "換你上場"
+        },
+        {
+          "t": 303.8,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 58,
+      "id": "biz_oem_odm_contract",
+      "series": "business",
+      "icon": "⚙️",
+      "titleZh": "OEM 代工與 ODM 客製化規格洽談",
+      "titleEn": "OEM Manufacturing, ODM Custom Specs & NDA Signing",
+      "summaryZh": "工程代工交涉：確認模具費 (Chi phí khuôn mẫu)、工程公差 (Dung sai kỹ thuật)、試產打樣與簽署保密協定 (NDA)。",
+      "moduleTab": "conversation",
+      "duration": 282.4,
+      "lineCount": 4,
+      "roles": [
+        "總工程師",
+        "台方代表"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Chào anh, chúng tôi đã xem qua bản vẽ kỹ thuật CAD của bên anh. Nhà máy hoàn toàn có thể gia công OEM theo tiêu chuẩn này."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.3,
+          "title": "逐句學習"
+        },
+        {
+          "t": 172.1,
+          "title": "完整會話"
+        },
+        {
+          "t": 210.9,
+          "title": "換你上場"
+        },
+        {
+          "t": 274.7,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 59,
+      "id": "biz_vat_invoice_tax",
+      "series": "business",
+      "icon": "🧾",
+      "titleZh": "開立電子加值稅紅發票 (Hóa đơn đỏ) 與公司統編報帳",
+      "titleEn": "Requesting Official VAT Red Invoices & Corporate Tax Reimbursement",
+      "summaryZh": "越南報帳法規：索取 10% 加值稅電子紅發票 (Hóa đơn điện tử)、提供公司統一編號 (MST)、核對發票內容與 Email 接收。",
+      "moduleTab": "conversation",
+      "duration": 282.3,
+      "lineCount": 4,
+      "roles": [
+        "出差商務客",
+        "櫃檯會計"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Em ơi, công ty anh cần xuất hóa đơn đỏ (hóa đơn GTGT) cho toàn bộ chi phí lưu trú và ăn uống đợt này."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.2,
+          "title": "逐句學習"
+        },
+        {
+          "t": 172,
+          "title": "完整會話"
+        },
+        {
+          "t": 210.3,
+          "title": "換你上場"
+        },
+        {
+          "t": 274.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 60,
+      "id": "biz_factory_audit_qc",
+      "series": "business",
+      "icon": "🏭",
+      "titleZh": "工廠產線驗廠、品管抽檢與不良品處置",
+      "titleEn": "Factory Audit Walkthrough, QC Sampling & Defect Management",
+      "summaryZh": "廠房實務稽核：穿戴工安護具、巡視產線產能 (Năng suất chuyền)、抽檢不良率 (Tỷ lệ lỗi) 與擬定預防改善對策。",
+      "moduleTab": "conversation",
+      "duration": 289.7,
+      "lineCount": 4,
+      "roles": [
+        "廠長",
+        "稽核主管"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Chào đoàn chuyên gia. Trước khi vào khu vực xưởng sản xuất, xin mời tất cả mọi người đội mũ bảo hộ và mang giày bảo hộ."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.1,
+          "title": "逐句學習"
+        },
+        {
+          "t": 176.9,
+          "title": "完整會話"
+        },
+        {
+          "t": 216,
+          "title": "換你上場"
+        },
+        {
+          "t": 282,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 61,
+      "id": "biz_customs_logistics",
+      "series": "business",
+      "icon": "🚢",
+      "titleZh": "進出口海關報關、貨櫃裝箱與提單交期",
+      "titleEn": "Customs Clearance, Container Logistics & Bill of Lading (B/L)",
+      "summaryZh": "跨國貿易物流：掌握蓋萊港 (Cát Lái) / 海防港 (Hải Phòng) 報關程序、裝箱單 (Packing List) 與避免延滯費 (Demurrage)。",
+      "moduleTab": "conversation",
+      "duration": 263.6,
+      "lineCount": 4,
+      "roles": [
+        "報關專員",
+        "物流總監"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Chào anh, lô hàng 2 container linh kiện từ Đài Loan đã cập cảng Cát Lái sáng nay."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 19.9,
+          "title": "逐句學習"
+        },
+        {
+          "t": 157.4,
+          "title": "完整會話"
+        },
+        {
+          "t": 192.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 255.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 62,
+      "id": "biz_nhau_banquet",
+      "series": "business",
+      "icon": "🍻",
+      "titleZh": "商務宴請、酒桌應酬祝酒與座位禮儀",
+      "titleEn": "Business Banquet, 'Nhậu' Toasting Rituals & Dining Etiquette",
+      "summaryZh": "商務人脈沉澱：學會正式晚宴座位安排、雙手敬酒致意、齊喊「1, 2, 3, Dô!」與優雅表達酒量防線。",
+      "moduleTab": "conversation",
+      "duration": 285.1,
+      "lineCount": 4,
+      "roles": [
+        "董事長",
+        "台方團長"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Rất vinh hạnh được đón tiếp phái đoàn doanh nghiệp Đài Loan tại TP.HCM! Xin mời anh Chen ngồi vào vị trí danh dự này."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 23.2,
+          "title": "逐句學習"
+        },
+        {
+          "t": 175.2,
+          "title": "完整會話"
+        },
+        {
+          "t": 214.2,
+          "title": "換你上場"
+        },
+        {
+          "t": 277.4,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 63,
+      "id": "biz_bank_finance",
+      "series": "business",
+      "icon": "🏦",
+      "titleZh": "越南銀行開戶、跨國匯款與企業信用狀",
+      "titleEn": "Corporate Banking Setup, Cross-Border Remittance & LC Issuance",
+      "summaryZh": "外派財務運作：辦理企業外幣與越盾帳戶開戶、開立不可撤銷信用狀 (L/C) 與向銀行申辦跨國結匯手續。",
+      "moduleTab": "conversation",
+      "duration": 290.3,
+      "lineCount": 4,
+      "roles": [
+        "銀行行員",
+        "財務長"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Kính chào anh, Ngân hàng Vietcombank có thể hỗ trợ gì cho doanh nghiệp có vốn đầu tư nước ngoài (FDI) của anh ạ?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.1,
+          "title": "逐句學習"
+        },
+        {
+          "t": 174.7,
+          "title": "完整會話"
+        },
+        {
+          "t": 214.5,
+          "title": "換你上場"
+        },
+        {
+          "t": 282.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 64,
+      "id": "biz_hiring_labor",
+      "series": "business",
+      "icon": "👥",
+      "titleZh": "工廠招募招工、勞動合約與加班排班",
+      "titleEn": "Factory Recruitment, Labor Contracts & Overtime Shift Planning",
+      "summaryZh": "廠房人資管理：招募產線技術員、核定底薪與全勤津貼 (Phụ cấp chuyên cần)、簽署勞動合約與安排合法加班 (Tăng ca)。",
+      "moduleTab": "conversation",
+      "duration": 296.9,
+      "lineCount": 4,
+      "roles": [
+        "人資主管",
+        "總經理"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Thưa Tổng Giám Đốc, để chuẩn bị cho kế hoạch mở rộng chuyền sản xuất mới, xưởng chúng ta cần tuyển thêm 100 công nhân may và 10 kỹ thuật viên."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.6,
+          "title": "逐句學習"
+        },
+        {
+          "t": 181.1,
+          "title": "完整會話"
+        },
+        {
+          "t": 221.3,
+          "title": "換你上場"
+        },
+        {
+          "t": 289.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 65,
+      "id": "biz_exclusive_agency",
+      "series": "business",
+      "icon": "🤝",
+      "titleZh": "獨家經銷代理權、年度業績目標與市場拓展",
+      "titleEn": "Exclusive Distributorship, Annual Sales Quotas & Channel Strategy",
+      "summaryZh": "通路拓展戰略：簽署分區獨家總代理合約 (Đại lý độc quyền)、設定季度 KPI 採購承諾與行銷補貼分攤。",
+      "moduleTab": "conversation",
+      "duration": 301.6,
+      "lineCount": 4,
+      "roles": [
+        "越南經銷商",
+        "市場總監"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Chào anh, công ty chúng tôi có hơn 500 đại lý cấp 2 trên toàn quốc và muốn xin làm nhà phân phối độc quyền cho thương hiệu của anh tại Việt Nam."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 184.8,
+          "title": "完整會話"
+        },
+        {
+          "t": 225.3,
+          "title": "換你上場"
+        },
+        {
+          "t": 293.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 66,
+      "id": "biz_factory_lease",
+      "series": "business",
+      "icon": "🏗️",
+      "titleZh": "工業區土地租賃、標準廠房挑選與基礎設施談判",
+      "titleEn": "Industrial Land & Ready-Built Factory (RBF) Lease Negotiation",
+      "summaryZh": "外資設廠選址：挑選平陽/北寧標準廠房 (RBF)、洽談每平米月租金 ($/m2/tháng)、變壓站容量 (KVA) 與廢水排放指標。",
+      "moduleTab": "conversation",
+      "duration": 308.1,
+      "lineCount": 4,
+      "roles": [
+        "園區招商主管",
+        "設廠總經理"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Kính chào đoàn doanh nghiệp Đài Loan! Khu công nghiệp VSIP chúng tôi xin giới thiệu cụm nhà xưởng xây sẵn (RBF) diện tích 5.000 m2 vừa hoàn thiện."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 23.1,
+          "title": "逐句學習"
+        },
+        {
+          "t": 191,
+          "title": "完整會話"
+        },
+        {
+          "t": 232.7,
+          "title": "換你上場"
+        },
+        {
+          "t": 300.4,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 67,
+      "id": "biz_bank_loan",
+      "series": "business",
+      "icon": "💰",
+      "titleZh": "企業銀行融資貸款、抵押授信與利率協商",
+      "titleEn": "Corporate Bank Loans, Collateral Credit Lines & Interest Rate Negotiation",
+      "summaryZh": "企業融資操盤：向銀行申辦中期設備貸款 (Vay trung hạn) 與營運週轉金額度 (Hạn mức vốn lưu động)、抵押土地廠房並敲定浮動/固定利率。",
+      "moduleTab": "conversation",
+      "duration": 290.4,
+      "lineCount": 4,
+      "roles": [
+        "銀行企金主管",
+        "財務長"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Kính chào anh! Ngân hàng chúng tôi đã hoàn tất thẩm định báo cáo tài chính của doanh nghiệp FDI bên anh."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 177.4,
+          "title": "完整會話"
+        },
+        {
+          "t": 216.2,
+          "title": "換你上場"
+        },
+        {
+          "t": 282.7,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 68,
+      "id": "biz_epc_construction",
+      "series": "business",
+      "icon": "🏢",
+      "titleZh": "營造建設總承包 (EPC) 與廠房鋼構施工進度",
+      "titleEn": "EPC General Contractor, Steel Structure Construction & Handover",
+      "summaryZh": "工程建廠全流程：簽署統包合約 (Hợp đồng EPC)、鋼結構安裝 (Nhà thép tiền chế)、工期里程碑 (Tiến độ) 與工程保固期 (Bảo hành 24 tháng)。",
+      "moduleTab": "conversation",
+      "duration": 263.9,
+      "lineCount": 4,
+      "roles": [
+        "營造總承包商",
+        "專案工程處長"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Kính chào Chủ đầu tư! Chúng tôi đã hoàn thiện thiết kế cơ sở và xin được Giấy phép xây dựng (GPXD) cho nhà xưởng 10.000 m2."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20.3,
+          "title": "逐句學習"
+        },
+        {
+          "t": 161.6,
+          "title": "完整會話"
+        },
+        {
+          "t": 196.8,
+          "title": "換你上場"
+        },
+        {
+          "t": 256.2,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 69,
+      "id": "biz_environmental_permit",
+      "series": "business",
+      "icon": "🌱",
+      "titleZh": "環評報告評估 (ĐTM)、廢水排放與環保合規審查",
+      "titleEn": "Environmental Impact Assessment (EIA/ĐTM) & Wastewater Compliance",
+      "summaryZh": "廠房環保法規：申辦環評報告 (ĐTM) 與環境許可證 (GPMT)、工業廢水標準納管 (QCVN 40) 與危險廢棄物申報處置。",
+      "moduleTab": "conversation",
+      "duration": 308.8,
+      "lineCount": 4,
+      "roles": [
+        "環保顧問專家",
+        "環安衛處長"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Chào Ban Giám Đốc! Theo Luật Bảo vệ Môi trường mới, dự án sản xuất xi mạ và dệt may của bên anh thuộc nhóm nguy cơ gây ô nhiễm cao, bắt buộc phải lập Báo cáo ĐTM."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.9,
+          "title": "逐句學習"
+        },
+        {
+          "t": 192.3,
+          "title": "完整會話"
+        },
+        {
+          "t": 233.5,
+          "title": "換你上場"
+        },
+        {
+          "t": 301.1,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 70,
+      "id": "biz_fire_safety_pccc",
+      "series": "business",
+      "icon": "🚒",
+      "titleZh": "消防工程審批 (PCCC)、噴淋系統與消防驗收",
+      "titleEn": "Fire Safety Design Appraisal (PCCC), Sprinklers & Police Inspection",
+      "summaryZh": "廠房投產前置：申請消防設計審批 (Thẩm duyệt PCCC)、安裝自動噴淋系統 (Sprinkler)、防火塗料與通過公安局消防實地驗收。",
+      "moduleTab": "conversation",
+      "duration": 290.6,
+      "lineCount": 4,
+      "roles": [
+        "消防顧問工程師",
+        "廠長"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Kính chào Tổng Giám Đốc! Bản vẽ thiết kế hệ thống Phòng cháy chữa cháy (PCCC) của nhà xưởng đã được Cục Cảnh sát PCCC phê duyệt thẩm duyệt."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 22,
+          "title": "逐句學習"
+        },
+        {
+          "t": 180,
+          "title": "完整會話"
+        },
+        {
+          "t": 219,
+          "title": "換你上場"
+        },
+        {
+          "t": 282.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 71,
+      "id": "biz_work_permit_trc",
+      "series": "business",
+      "icon": "🛂",
+      "titleZh": "外籍幹部工作證 (Work Permit) 與三年暫住卡申辦",
+      "titleEn": "Expatriate Work Permit & 3-Year Temporary Residence Card (TRC)",
+      "summaryZh": "台商幹部外派合法合規：申報外籍專家用人需求批文 (Giải trình nhu cầu lao động)、辦理 2 年工作證與領取 3 年暫住卡 (TRC)。",
+      "moduleTab": "conversation",
+      "duration": 320.8,
+      "lineCount": 4,
+      "roles": [
+        "人資法務專員",
+        "總經理"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Chào Tổng Giám Đốc! Bộ Lao động - Thương binh và Xã hội đã phê duyệt Công văn chấp thuận nhu cầu sử dụng lao động nước ngoài cho 5 vị trí chuyên gia Đài Loan của bên mình."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.1,
+          "title": "逐句學習"
+        },
+        {
+          "t": 196.7,
+          "title": "完整會話"
+        },
+        {
+          "t": 240.1,
+          "title": "換你上場"
+        },
+        {
+          "t": 313.1,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 72,
+      "id": "biz_tax_audit_transfer_pricing",
+      "series": "business",
+      "icon": "📊",
+      "titleZh": "國稅局稅務稽查、移轉訂價與反避稅抗辯",
+      "titleEn": "Tax Audit Defense, Transfer Pricing Documentation & FDI Compliance",
+      "summaryZh": "外資稅務實戰：迎戰越南稅務總局年度稽查 (Thanh tra thuế)、編制移轉訂價三層文檔 (Transfer Pricing Local File) 與捍衛關聯交易合理性。",
+      "moduleTab": "conversation",
+      "duration": 332.4,
+      "lineCount": 4,
+      "roles": [
+        "國稅局稽查組長",
+        "財務長"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 4,
+          "preview": "Kính chào Ban Giám Đốc. Theo Quyết định thanh tra thuế, chúng tôi sẽ tiến hành thanh tra quyết toán Thuế TNDN và kiểm tra giao dịch liên kết của công ty trong 3 năm qua."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 21.8,
+          "title": "逐句學習"
+        },
+        {
+          "t": 205.9,
+          "title": "完整會話"
+        },
+        {
+          "t": 250.8,
+          "title": "換你上場"
+        },
+        {
+          "t": 324.7,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 73,
+      "id": "factory_quality_qa",
+      "series": "business",
+      "icon": "🏭",
+      "titleZh": "工廠品保抽驗與出貨裝櫃",
+      "titleEn": "Factory QA Inspection & Container Loading",
+      "summaryZh": "品保經理與客戶駐廠稽核員進行產線抽檢 (AQL 抽樣標準)、不良品返工判斷與海運貨櫃準時出貨安排。",
+      "moduleTab": "conversation",
+      "duration": 298.3,
+      "lineCount": 6,
+      "roles": [
+        "客戶稽核",
+        "廠長"
+      ],
+      "sections": [
+        {
+          "titleZh": "完整會話",
+          "lines": 6,
+          "preview": "Chào anh Nam, lô hàng 10.000 sản phẩm này đã hoàn thành đóng gói xong chưa?"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20.2,
+          "title": "逐句學習"
+        },
+        {
+          "t": 181.6,
+          "title": "完整會話"
+        },
+        {
+          "t": 221.9,
+          "title": "換你上場"
+        },
+        {
+          "t": 290.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 74,
+      "id": "biz_trade_show",
+      "series": "trip",
+      "icon": "🎪",
+      "titleZh": "商展參展四階段實戰句",
+      "titleEn": "Trade Show Phrases in Four Stages",
+      "summaryZh": "佈展進場、迎賓接待、報價洽談到展後跟進，依展會流程逐段練習。",
+      "moduleTab": "business",
+      "duration": 772.7,
+      "lineCount": 15,
+      "roles": [],
+      "sections": [
+        {
+          "titleZh": "佈展進場與後勤設置",
+          "lines": 4,
+          "preview": "Cho tôi hỏi ban tổ chức triển lãm: Vị trí gian hàng A12 của chúng tôi ở khu vực nào?"
+        },
+        {
+          "titleZh": "攤位熱情迎賓與線索獲取",
+          "lines": 4,
+          "preview": "Dạ xin chào anh/chị! Chào mừng anh/chị ghé thăm gian hàng của công ty chúng tôi."
+        },
+        {
+          "titleZh": "產品解說、技術參數與 OEM 能力",
+          "lines": 4,
+          "preview": "Sản phẩm này được sản xuất theo tiêu chuẩn chất lượng ISO 9001 và đạt chứng nhận CE/RoHS."
+        },
+        {
+          "titleZh": "會後跟進、Zalo 聯繫與預約拜訪",
+          "lines": 3,
+          "preview": "Anh/chị cho em xin số Zalo để tối nay em gửi bảng báo giá chi tiết và video sản phẩm nhé!"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.4,
+          "title": "1｜佈展進場與後勤設置・逐句"
+        },
+        {
+          "t": 114,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 139.1,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 195.9,
+          "title": "2｜攤位熱情迎賓與線索獲・逐句"
+        },
+        {
+          "t": 296.5,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 323.2,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 383.5,
+          "title": "3｜產品解說、技術參數與・逐句"
+        },
+        {
+          "t": 498.7,
+          "title": "3｜完整會話"
+        },
+        {
+          "t": 527.7,
+          "title": "3｜換你上場"
+        },
+        {
+          "t": 593.1,
+          "title": "4｜會後跟進、Zalo ・逐句"
+        },
+        {
+          "t": 686.3,
+          "title": "4｜完整會話"
+        },
+        {
+          "t": 710.9,
+          "title": "4｜換你上場"
+        },
+        {
+          "t": 765,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 75,
+      "id": "biz_dual_city",
+      "series": "trip",
+      "icon": "🏙️",
+      "titleZh": "河內與胡志明市商務開場句",
+      "titleEn": "Hanoi vs HCMC Business Openers",
+      "summaryZh": "北越重禮節、南越重效率：比較兩座城市談生意的開場說法。",
+      "moduleTab": "business",
+      "duration": 284,
+      "lineCount": 6,
+      "roles": [],
+      "sections": [
+        {
+          "titleZh": "河內（北越）",
+          "lines": 3,
+          "preview": "Dạ, em chào Anh Tổng Giám Đốc ạ! Hôm nay thời tiết Hà Nội rất đẹp."
+        },
+        {
+          "titleZh": "胡志明市（南越）",
+          "lines": 3,
+          "preview": "Chào anh! Anh em mình hẹn gặp ở quán cà phê quận 1 bàn công việc cho tiện nhé."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 17.8,
+          "title": "1｜河內（北越）・逐句"
+        },
+        {
+          "t": 82.8,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 101.6,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 143.1,
+          "title": "2｜胡志明市（南越）・逐句"
+        },
+        {
+          "t": 214.5,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 233.7,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 276.3,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 76,
+      "id": "biz_travel_survival",
+      "series": "trip",
+      "icon": "🧾",
+      "titleZh": "出差報帳、入境與叫車句",
+      "titleEn": "Business Trip Survival Phrases",
+      "summaryZh": "索取發票、統一編號、商務入境與 Grab 指路，出差當天就用得到。",
+      "moduleTab": "business",
+      "duration": 440.3,
+      "lineCount": 10,
+      "roles": [],
+      "sections": [
+        {
+          "titleZh": "加值稅紅發票",
+          "lines": 4,
+          "preview": "Công ty chúng tôi cần xuất hóa đơn đỏ (hóa đơn GTGT)."
+        },
+        {
+          "titleZh": "機場入境、商務簽證與接送",
+          "lines": 3,
+          "preview": "Tôi đến Việt Nam để đi công tác và tham dự triển lãm thương mại."
+        },
+        {
+          "titleZh": "Grab 叫車、專車指路與過路費報帳",
+          "lines": 3,
+          "preview": "Tôi đang đứng ở trước sảnh khách sạn, mặc áo sơ mi trắng."
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 18.6,
+          "title": "1｜加值稅紅發票・逐句"
+        },
+        {
+          "t": 102.8,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 126.3,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 179.6,
+          "title": "2｜機場入境、商務簽證與・逐句"
+        },
+        {
+          "t": 247.2,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 265.7,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 306.4,
+          "title": "3｜Grab 叫車、專車・逐句"
+        },
+        {
+          "t": 373.7,
+          "title": "3｜完整會話"
+        },
+        {
+          "t": 392.1,
+          "title": "3｜換你上場"
+        },
+        {
+          "t": 432.6,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 77,
+      "id": "biz_zalo",
+      "series": "trip",
+      "icon": "💬",
+      "titleZh": "Zalo 商務聯絡訊息",
+      "titleEn": "Zalo Business Messages",
+      "summaryZh": "現場加 Zalo、會後跟進與邀約參觀工廠的完整訊息範本。",
+      "moduleTab": "business",
+      "duration": 358.6,
+      "lineCount": 3,
+      "roles": [],
+      "sections": [
+        {
+          "titleZh": "Zalo 訊息範本",
+          "lines": 3,
+          "preview": "Anh/chị cho em xin số điện thoại có Zalo hoặc quét mã QR để em gửi thông tin nhé!"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 16.7,
+          "title": "逐句學習"
+        },
+        {
+          "t": 212.4,
+          "title": "完整會話"
+        },
+        {
+          "t": 263.8,
+          "title": "換你上場"
+        },
+        {
+          "t": 350.9,
+          "title": "複習表"
+        }
+      ]
+    },
+    {
+      "no": 78,
+      "id": "biz_negotiation_battles",
+      "series": "trip",
+      "icon": "🥊",
+      "titleZh": "商務談判決戰最佳應對",
+      "titleEn": "Negotiation Battles: Best Replies",
+      "summaryZh": "七場商務談判的對方發言與最佳回應：商展、河內會談、南部工廠、應酬與危機處理。",
+      "moduleTab": "business",
+      "duration": 1356.8,
+      "lineCount": 14,
+      "roles": [],
+      "sections": [
+        {
+          "titleZh": "決戰 1：SECC 商展現場樣品與起訂量交涉",
+          "lines": 2,
+          "preview": "Sản phẩm này bên bạn thiết kế rất đẹp! Tôi muốn mua lại luôn cái mẫu trưng bày này để về test thử, và đơn hàng đầu tiên bên tôi chỉ đặt 100 cái với giá sỉ được không?"
+        },
+        {
+          "titleZh": "決戰 2：河內大型集團正式商務會談與 MOU 簽署",
+          "lines": 2,
+          "preview": "Chào các bạn doanh nghiệp Đài Loan. Tập đoàn chúng tôi rất quan tâm đến năng lực công nghệ của bên bạn, nhưng ban giám đốc cần sự cam kết chắc chắn về chuyển giao kỹ thuật và tính pháp lý tại Việt Nam."
+        },
+        {
+          "titleZh": "決戰 3：胡志明市獨家經銷代理權交涉",
+          "lines": 2,
+          "preview": "Bên em có hệ thống phân phối phủ khắp 63 tỉnh thành. Em muốn công ty anh giao quyền đại lý độc quyền tại Việt Nam cho bên em, với cam kết doanh số năm đầu là 500.000 USD."
+        },
+        {
+          "titleZh": "決戰 4：大宗訂單採購議價",
+          "lines": 2,
+          "preview": "Chào anh/chị. Báo giá 12 USD/sản phẩm cho đơn hàng 50.000 cái là mức giá cạnh tranh nhất của công ty chúng tôi rồi ạ."
+        },
+        {
+          "titleZh": "決戰 5：產線交期延遲與良率危機",
+          "lines": 2,
+          "preview": "Chào anh. Do tuần trước bị cúp điện và công nhân mới vào nhiều nên tiến độ bị chậm vài ngày, mong anh thông cảm."
+        },
+        {
+          "titleZh": "決戰 6：長期出差特約商務協議",
+          "lines": 2,
+          "preview": "Dạ chào anh. Giá niêm yết phòng Deluxe là 1.800.000 VND/đêm, đối với khách lưu trú dài hạn bên em giảm còn 1.500.000 VND ạ."
+        },
+        {
+          "titleZh": "決戰 7：酒桌應酬與合作敬酒",
+          "lines": 2,
+          "preview": "Hôm nay rất vui được đón tiếp đoàn doanh nghiệp Đài Loan! Nào, anh em ta làm một ly 100% mừng hợp tác thành công nhé!"
+        }
+      ],
+      "chapters": [
+        {
+          "t": 0,
+          "title": "開場"
+        },
+        {
+          "t": 20.2,
+          "title": "1｜決戰 1：SECC ・逐句"
+        },
+        {
+          "t": 152.8,
+          "title": "1｜完整會話"
+        },
+        {
+          "t": 187.1,
+          "title": "1｜換你上場"
+        },
+        {
+          "t": 238,
+          "title": "2｜決戰 2：河內大型集・逐句"
+        },
+        {
+          "t": 367.7,
+          "title": "2｜完整會話"
+        },
+        {
+          "t": 400.7,
+          "title": "2｜換你上場"
+        },
+        {
+          "t": 450.3,
+          "title": "3｜決戰 3：胡志明市獨・逐句"
+        },
+        {
+          "t": 593.9,
+          "title": "3｜完整會話"
+        },
+        {
+          "t": 631.6,
+          "title": "3｜換你上場"
+        },
+        {
+          "t": 685.8,
+          "title": "4｜決戰 4：大宗訂單採・逐句"
+        },
+        {
+          "t": 778.6,
+          "title": "4｜完整會話"
+        },
+        {
+          "t": 803.7,
+          "title": "4｜換你上場"
+        },
+        {
+          "t": 845.4,
+          "title": "5｜決戰 5：產線交期延・逐句"
+        },
+        {
+          "t": 943.5,
+          "title": "5｜完整會話"
+        },
+        {
+          "t": 969.2,
+          "title": "5｜換你上場"
+        },
+        {
+          "t": 1011.6,
+          "title": "6｜決戰 6：長期出差特・逐句"
+        },
+        {
+          "t": 1112,
+          "title": "6｜完整會話"
+        },
+        {
+          "t": 1138,
+          "title": "6｜換你上場"
+        },
+        {
+          "t": 1180.7,
+          "title": "7｜決戰 7：酒桌應酬與・逐句"
+        },
+        {
+          "t": 1280.5,
+          "title": "7｜完整會話"
+        },
+        {
+          "t": 1306.5,
+          "title": "7｜換你上場"
+        },
+        {
+          "t": 1349.1,
+          "title": "複習表"
+        }
+      ]
+    }
+  ]
+}

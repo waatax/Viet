@@ -1,7 +1,7 @@
 import {
   Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
   Layers3, BookOpenText, UsersRound, BadgeCheck, BookMarked, Zap, Brain, LifeBuoy,
-  Music, Puzzle, Mic, Briefcase, Landmark, Sparkles
+  Music, Puzzle, Mic, Briefcase, Landmark, Sparkles, Film
 } from 'lucide-react';
 
 export const MODULE_IDS = [
@@ -9,6 +9,9 @@ export const MODULE_IDS = [
   'phrases', 'conversation', 'flashcards', 'grammar', 'sentence', 'quiz',
   'shadowing', 'hanviet', 'shopping', 'accent', 'science'
 ];
+
+/** Pages reachable by hash that are not knowledge-guide modules. */
+export const SPECIAL_TABS = ['quest', 'listen', 'dialogvideo'];
 
 export const NAV_GROUPS = [
   {
@@ -25,6 +28,7 @@ export const NAV_GROUPS = [
       { id: 'fasttrack', labelKey: 'tabs.fasttrack', icon: Zap },
       { id: 'phrases', labelKey: 'tabs.phrases', icon: MessageSquareText },
       { id: 'conversation', labelKey: 'tabs.conversation', icon: MessagesSquare },
+      { id: 'dialogvideo', labelKey: 'tabs.dialogvideo', icon: Film },
       { id: 'emergency', labelKey: 'tabs.emergency', icon: LifeBuoy }
     ]
   },

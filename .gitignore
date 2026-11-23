@@ -7,8 +7,14 @@ local/
 Local*
 local*
 
-# Course videos are kept locally, never on GitHub (Pages size limit)
+# Course videos are kept locally and played via YouTube links, never on GitHub / Pages
 /越語影片課程/
+/越語發音五堂課/
+public/pronunciation-video/
+public/dialogue-video/
+public/**/*.mp4
+public/**/*.webm
+public/**/*.mov
 
 # Internal Planning, Curriculum & Design Specs
 *CORE*.md
