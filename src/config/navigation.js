@@ -11,7 +11,7 @@ export const MODULE_IDS = [
 ];
 
 /** Pages reachable by hash that are not knowledge-guide modules. */
-export const SPECIAL_TABS = ['quest', 'listen', 'dialogvideo', 'songs'];
+export const SPECIAL_TABS = ['quest', 'listen', 'dialogvideo', 'songs', 'ultra'];
 
 export const NAV_GROUPS = [
   {

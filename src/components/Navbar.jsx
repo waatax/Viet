@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo, useRef } from 'react';
 import {
   Sun, Moon, Type, Flame, Trophy, Globe, Menu, X, Sparkles,
-  Map, Languages, AudioLines, ShoppingBag, MessagesSquare, MessageSquareText,
-  Layers3, BookOpen, BookOpenText, UsersRound, BadgeCheck, BookMarked, Settings2, Star, Mic, Puzzle, Music, Zap, Brain, LifeBuoy, Award, Briefcase, ChevronRight, Search, Landmark
+  Map, AudioLines, MessagesSquare, Layers3, Settings2, Star,
+  Zap, ChevronRight, ChevronDown, Search, Headphones, Film, Music2, SlidersHorizontal, Target
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
@@ -22,10 +22,21 @@ const getFontSizeLabel = (size, mode) => {
 const FONT_SIZE_LABELS = {
   small: '88%',
   normal: '100%',
-  large: '114%',
-  xlarge: '128%',
-  xxlarge: '144%'
+  large: '115%',
+  xlarge: '130%',
+  xxlarge: '145%'
 };
+
+const PRIMARY_STRIP_ITEMS = [
+  { id: 'path', labelZh: '首頁', labelEn: 'Home', icon: Map },
+  { id: 'ultra', labelZh: '母語超速特訓', labelEn: 'Ultralearn', icon: Flame },
+  { id: 'songs', labelZh: '聽音樂學', labelEn: 'Songs', icon: Music2 },
+  { id: 'listen', labelZh: '單字隨身聽', labelEn: 'Audio Lab', icon: Headphones },
+  { id: 'conversation', labelZh: '情境會話', labelEn: 'Dialogues', icon: MessagesSquare },
+  { id: 'flashcards', labelZh: '單字閃卡', labelEn: 'Flashcards', icon: Layers3 },
+  { id: 'dialogvideo', labelZh: '影片課程', labelEn: 'Videos', icon: Film },
+  { id: 'quest', labelZh: '越語闖關', labelEn: 'Quest', icon: Sparkles }
+];
 
 export const Navbar = ({
   theme,
@@ -47,21 +58,46 @@ export const Navbar = ({
 }) => {
   const { learningMode, toggleLearningMode, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [prefsOpen, setPrefsOpen] = useState(false);
+  const [catalogOpen, setCatalogOpen] = useState(false);
   const [bookmarkCount, setBookmarkCount] = useState(() => bookmarkService.getCount());
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+
+  const prefsRef = useRef(null);
+  const catalogRef = useRef(null);
 
   useEffect(() => {
     const unsubBm = bookmarkService.subscribe(items => {
       setBookmarkCount(items.length);
     });
-    const unsubAudio = audioEngine.subscribe(state => {
-      setIsAudioPlaying(state.isPlaying);
-    });
     return () => {
       unsubBm();
-      unsubAudio();
     };
   }, []);
+
+  useEffect(() => {
+    const handleOutside = (e) => {
+      if (prefsRef.current && !prefsRef.current.contains(e.target)) setPrefsOpen(false);
+      if (catalogRef.current && !catalogRef.current.contains(e.target)) setCatalogOpen(false);
+    };
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') {
+        setPrefsOpen(false);
+        setCatalogOpen(false);
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutside);
+    document.addEventListener('keydown', handleEsc);
+    return () => {
+      document.removeEventListener('mousedown', handleOutside);
+      document.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+    setCatalogOpen(false);
+  }, [activeTab]);
 
   const stepFontSize = (delta) => {
     audioEngine.playHaptic('selection');
@@ -71,359 +107,316 @@ export const Navbar = ({
     setFontSize(FONT_SIZES[nextIndex]);
   };
 
-  const cycleTheme = () => {
+  const isDark = theme === 'dark';
+  const selectTheme = (next) => {
     audioEngine.playHaptic('selection');
-    setTheme(prev => {
-      if (prev === 'light') return 'sepia';
-      if (prev === 'sepia') return 'dark';
-      return 'light';
-    });
+    setTheme(next);
   };
-  
-  const { currentXpInLevel, requiredXpForNextLevel, progressPercent } = gamificationEngine.getLevelProgress(userStats.xp);
+
+  const toggleTheme = () => {
+    selectTheme(isDark ? 'light' : 'dark');
+  };
+
   const currentLevel = gamificationEngine.calculateLevel(userStats.xp);
-  const shieldsCount = gamificationEngine.loadStreakShields();
   const dailyQuests = gamificationEngine.getDailyQuests();
   const completedQuestsCount = dailyQuests.filter(q => q.completed).length;
 
+  const isPrimaryTab = PRIMARY_STRIP_ITEMS.some(item => item.id === activeTab);
   const currentGroup = useMemo(() => {
-    return NAV_GROUPS.find(g => g.items.some(item => item.id === activeTab)) || NAV_GROUPS[0];
+    return NAV_GROUPS.find(g => g.items.some(item => item.id === activeTab)) || null;
   }, [activeTab]);
 
-  const [selectedGroupId, setSelectedGroupId] = useState(currentGroup.id);
-
-  useEffect(() => {
-    setSelectedGroupId(currentGroup.id);
-  }, [currentGroup.id]);
-
-  useEffect(() => setMenuOpen(false), [activeTab]);
-
-  const activeGroupObj = useMemo(() => {
-    return NAV_GROUPS.find(g => g.id === selectedGroupId) || currentGroup;
-  }, [selectedGroupId, currentGroup]);
-
-  const handleSelectGroup = (group) => {
-    audioEngine.playHaptic('selection');
-    setSelectedGroupId(group.id);
-    const hasActiveItem = group.items.some(it => it.id === activeTab);
-    if (!hasActiveItem && group.items.length > 0) {
-      setActiveTab(group.items[0].id);
-    }
-  };
-
   return (
-    <header className="header-container">
-      <nav className="navbar" aria-label={learningMode === 'zh' ? '主要導覽與學習設定' : 'Primary navigation and learning settings'}>
+    <header className="header-container viet-header-v2">
+      {/* Row 1: Clean Utility Bar */}
+      <nav className="navbar viet-navbar-v2" aria-label={learningMode === 'zh' ? '主要導覽與學習設定' : 'Primary navigation and learning settings'}>
         <div className="nav-content">
           <div className="nav-brand-and-finder">
-            {/* Brand Logo */}
-            <button className="brand-logo" onClick={() => { audioEngine.playHaptic('tap'); setActiveTab('path'); }} aria-label={t('brandName')}>
+            <button
+              className="brand-logo"
+              onClick={() => { audioEngine.playHaptic('tap'); setActiveTab('path'); }}
+              aria-label={t('brandName')}
+            >
               <span className="flag-badge" aria-hidden="true"><span>★</span> VIỆT</span>
               <span className="brand-copy">
                 <span className="brand-title-line">
                   <strong>{t('brandName')}</strong>
                   <span className="brand-ver-badge">v{APP_VERSION}</span>
                 </span>
-                <small className="brand-tagline">{t('brandSub')}</small>
               </span>
             </button>
 
-            {/* Desktop Chapter Quick Finder Button */}
             <button
               className="nav-chapter-finder-btn"
               onClick={onOpenChapterFinder}
-              title={learningMode === 'zh' ? '快速搜尋全站 100+ 章節與課程 (快捷鍵: Ctrl+K)' : 'Search 100+ Chapters & Lessons (Ctrl+K)'}
+              title={learningMode === 'zh' ? '搜尋全站單字、會話、歌曲與課程 (Ctrl+K)' : 'Search lessons, words & songs (Ctrl+K)'}
             >
               <Search size={15} className="finder-search-icon" />
-              <span className="finder-btn-text">{learningMode === 'zh' ? '全站搜尋' : 'Search site'}</span>
+              <span className="finder-btn-text">{learningMode === 'zh' ? '搜尋單字、會話、歌曲…' : 'Search site…'}</span>
               <kbd className="finder-kbd-shortcut">Ctrl K</kbd>
             </button>
           </div>
 
-          {/* Mobile Quick Action Buttons (Top Bar) */}
+          {/* Mobile Quick Actions */}
           <div className="nav-mobile-actions">
             <button
-              className="mobile-finder-icon-btn"
+              className="icon-control"
               onClick={onOpenChapterFinder}
-              title="搜尋章節"
-              aria-label="搜尋章節"
+              aria-label="搜尋全站內容"
+              title="搜尋全站內容"
             >
               <Search size={18} />
-              <span>查章節</span>
-            </button>
-
-            <button
-              className="mobile-xp-btn"
-              onClick={onOpenAchievements}
-              title="成就進度"
-            >
-              <Trophy size={14} /> {userStats.xp}
-            </button>
-
-            <button
-              className="mobile-bookmark-btn"
-              onClick={() => {
-                audioEngine.playHaptic('tap');
-                if (onOpenBookmarks) onOpenBookmarks();
-              }}
-              title={learningMode === 'zh' ? '個人生詞本' : 'Word Bank'}
-              aria-label="生詞本"
-            >
-              <Star size={16} fill={bookmarkCount > 0 ? '#eab308' : 'none'} color={bookmarkCount > 0 ? '#eab308' : 'currentColor'} />
-              {bookmarkCount > 0 && <span className="mobile-badge-count">{bookmarkCount}</span>}
-            </button>
-
-            {/* Mobile Direct Font Resizing Stepper */}
-            <div className="mobile-quick-font-stepper" aria-label="字級縮放">
-              <button
-                className="mobile-quick-font-btn"
-                onClick={() => stepFontSize(-1)}
-                disabled={fontSize === 'small'}
-                title="縮小字體 (A-)"
-                aria-label="縮小字體"
-              >
-                A-
-              </button>
-              <span className="mobile-quick-font-indicator" title={`字級: ${FONT_SIZE_LABELS[fontSize] || '100%'}`}>
-                {getFontSizeLabel(fontSize, learningMode)}
-              </span>
-              <button
-                className="mobile-quick-font-btn"
-                onClick={() => stepFontSize(1)}
-                disabled={fontSize === 'xxlarge'}
-                title="放大字體 (A+)"
-                aria-label="放大字體"
-              >
-                A+
-              </button>
-            </div>
-
-            <button
-              className="icon-control"
-              onClick={cycleTheme}
-              aria-label={theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}
-              title={theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}
-            >
-              {theme === 'light' && <Sun size={18} />}
-              {theme === 'sepia' && <BookOpen size={18} />}
-              {theme === 'dark' && <Moon size={18} />}
             </button>
 
             <button
               className="icon-control"
-              onClick={() => {
-                audioEngine.playHaptic('tap');
-                if (onOpenAudioDiagnostic) onOpenAudioDiagnostic();
-              }}
-              title={learningMode === 'zh' ? '開啟音訊健康檢驗儀' : 'Audio Diagnostics'}
-              aria-label="開啟音訊健康檢驗儀"
+              onClick={toggleTheme}
+              aria-label={isDark ? '切換至亮色模式' : '切換至深色模式'}
+              title={isDark ? '切換至亮色模式' : '切換至深色模式'}
             >
-              <AudioLines size={18} />
+              {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
             <button
               className="icon-control menu-toggle"
               onClick={() => setMenuOpen(open => !open)}
               aria-expanded={menuOpen}
-              aria-controls="header-settings"
-              aria-label={menuOpen ? '關閉設定選單' : '開啟設定選單'}
+              aria-controls="mobile-nav-drawer"
+              aria-label={menuOpen ? '關閉目錄' : '開啟全部目錄'}
             >
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
 
-          {/* Desktop Right Side Control Hub */}
-          <div id="header-settings" className={`header-settings ${menuOpen ? 'is-open' : ''}`}>
-            {/* Language Subsystem Switch */}
-            <div className="track-badge-container">
-              <button
-                className="subsystem-switch-btn"
-                onClick={() => toggleLearningMode()}
-                title={learningMode === 'zh' ? '切換為英文介面 (English Mode)' : '切換為中文介面 (Chinese Mode)'}
-              >
-                <Globe size={15} />
-                <span className="mode-text">{learningMode === 'zh' ? '中文' : 'English'}</span>
-                <span className="switch-tag">{learningMode === 'zh' ? 'EN' : '中文'}</span>
-              </button>
-            </div>
-
+          {/* Desktop Right Control Hub (Streamlined) */}
+          <div id="header-settings" className="header-settings">
             <div className="controls-group">
-              {/* Consolidated Master Learner Hub Pill */}
-              <button
-                className="learner-hub-pill"
-                onClick={onOpenAchievements}
-                title={learningMode === 'zh' ? '查看學習進度、連續天數與勳章展示' : 'View Learning Stats & Achievements'}
-              >
-                <span className="hub-stat-item quest-stat" onClick={(e) => { e.stopPropagation(); onOpenDailyQuests(); }}>
-                  🎯 {completedQuestsCount}/{dailyQuests.length}
-                </span>
-                <span className="hub-stat-divider quest-divider">•</span>
-                <span className="hub-stat-item level-stat">
-                  <Star size={13} /> Lv.{currentLevel}
-                </span>
-                <span className="hub-stat-divider level-divider">•</span>
-                <span className="hub-stat-item streak-stat">
-                  <Flame size={13} className="streak-flame-animated" /> {userStats.streak}天
-                </span>
-                <span className="hub-stat-divider streak-divider">•</span>
-                <span className="hub-stat-item xp-stat">
-                  <Trophy size={13} /> {userStats.xp}
-                </span>
-              </button>
+              {/* 1-Click Light / Dark Segmented Theme Switch */}
+              <div className="theme-segmented-pill" role="group" aria-label={learningMode === 'zh' ? '背景主題切換' : 'Theme switcher'}>
+                <button
+                  type="button"
+                  className={`theme-seg-btn ${!isDark ? 'active' : ''}`}
+                  onClick={() => selectTheme('light')}
+                  aria-pressed={!isDark}
+                  title={learningMode === 'zh' ? '亮色模式' : 'Light Mode'}
+                >
+                  <Sun size={14} />
+                  <span>{learningMode === 'zh' ? '亮色' : 'Light'}</span>
+                </button>
+                <button
+                  type="button"
+                  className={`theme-seg-btn ${isDark ? 'active' : ''}`}
+                  onClick={() => selectTheme('dark')}
+                  aria-pressed={isDark}
+                  title={learningMode === 'zh' ? '深色模式' : 'Dark Mode'}
+                >
+                  <Moon size={14} />
+                  <span>{learningMode === 'zh' ? '深色' : 'Dark'}</span>
+                </button>
+              </div>
 
-              {/* Accent Quick Switcher (North vs South) */}
+              {/* Accent Quick Switcher */}
               <button
                 className={`control-btn accent-toggle-btn accent-${selectedAccent}`}
                 onClick={() => {
                   audioEngine.playHaptic('selection');
                   setSelectedAccent(prev => prev === 'north' ? 'south' : 'north');
                 }}
-                title={learningMode === 'zh'
-                  ? (selectedAccent === 'north' ? '當前口音：河內標準音 (北越)。點擊切換為南越口音偏好 (南越)' : '當前口音：南越口音偏好 (南越)。點擊切換為河內標準音 (北越)')
-                  : (selectedAccent === 'north' ? 'Accent: Hanoi (North). Click for Saigon (South)' : 'Accent: Saigon (South). Click for Hanoi (North)')}
-                aria-label={selectedAccent === 'north' ? '口音：河內標準音' : '口音：南越口音偏好'}
+                title={selectedAccent === 'north' ? '目前：河內標準音（點擊切換西貢音）' : '目前：西貢南越音（點擊切換河內音）'}
               >
                 <span className="accent-icon">{selectedAccent === 'north' ? '🏛️' : '🌴'}</span>
                 <span className="accent-label-full">{selectedAccent === 'north' ? '河內音' : '西貢音'}</span>
                 <span className="accent-label-short">{selectedAccent === 'north' ? '北' : '南'}</span>
               </button>
 
-              {/* Speech Speed Switcher (1.0x vs 0.75x) */}
-              <button
-                className={`control-btn speed-toggle-btn ${speechRate <= 0.85 ? 'is-slow' : 'is-normal'}`}
-                onClick={() => {
-                  audioEngine.playHaptic('tap');
-                  if (setSpeechRate) {
-                    setSpeechRate(speechRate <= 0.85 ? 1.0 : 0.75);
-                  }
-                }}
-                title={learningMode === 'zh' ? '點擊切換正常語速 (1.0x) 或慢速精聽 (0.75x)' : 'Toggle standard (1.0x) or slow study speed (0.75x)'}
-                aria-label={speechRate <= 0.85 ? '慢速精聽 0.75x' : '標準語速 1.0x'}
-              >
-                <span className="speed-icon">{speechRate <= 0.85 ? '🐢' : '🐰'}</span>
-                <span className="speed-label">{speechRate <= 0.85 ? '0.75x' : '1.0x'}</span>
-              </button>
-
-              {/* Personal Word Bank & Bookmarks Trigger */}
+              {/* Word Bank Trigger */}
               <button
                 className={`control-btn bookmarks-toggle-btn ${bookmarkCount > 0 ? 'has-bookmarks' : ''}`}
                 onClick={() => {
                   audioEngine.playHaptic('tap');
                   if (onOpenBookmarks) onOpenBookmarks();
                 }}
-                title={learningMode === 'zh' ? '開啟個人生詞本與收藏庫 (快捷鍵: Ctrl+B)' : 'Open Personal Word Bank (Ctrl+B)'}
-                aria-label="開啟生詞本與收藏庫"
+                title={learningMode === 'zh' ? '個人生詞本 (Ctrl+B)' : 'Word Bank (Ctrl+B)'}
               >
-                <Star size={14} className={bookmarkCount > 0 ? 'star-active-glow' : ''} fill={bookmarkCount > 0 ? '#eab308' : 'none'} color={bookmarkCount > 0 ? '#eab308' : 'currentColor'} />
-                <span className="bookmarks-pill-label">{learningMode === 'zh' ? '生詞本' : 'Word Bank'}</span>
+                <Star size={14} fill={bookmarkCount > 0 ? '#eab308' : 'none'} color={bookmarkCount > 0 ? '#eab308' : 'currentColor'} />
+                <span className="bookmarks-pill-label">{learningMode === 'zh' ? '生詞本' : 'Saved'}</span>
                 {bookmarkCount > 0 && <span className="bookmarks-header-count">{bookmarkCount}</span>}
               </button>
 
-              {/* Audio Diagnostic Studio Trigger Button */}
+              {/* Compact Learner Progress Pill */}
               <button
-                className="control-btn audio-diag-toggle-btn"
-                onClick={() => {
-                  audioEngine.playHaptic('tap');
-                  if (onOpenAudioDiagnostic) onOpenAudioDiagnostic();
-                }}
-                title={learningMode === 'zh' ? '開啟音訊引擎健康檢驗儀與發音沙盒 (4,005 完整音庫)' : 'Open Audio Diagnostic Studio (4,005 audio files)'}
-                aria-label="開啟音訊健康檢驗儀"
+                className="learner-hub-pill"
+                onClick={onOpenAchievements}
+                title={learningMode === 'zh' ? '查看學習進度、每日任務與勳章' : 'Progress & Achievements'}
               >
-                <AudioLines size={14} />
-                <span className="audio-diag-label">{learningMode === 'zh' ? '檢音儀' : 'Lab'}</span>
-              </button>
-
-              {/* Font Size Selector (Adaptive Stepper + Direct Options) */}
-              <div className="font-size-selector" aria-label={t('fontSize')}>
-                <button
-                  className="size-option-btn stepper-btn"
-                  onClick={() => stepFontSize(-1)}
-                  disabled={fontSize === 'small'}
-                  title="縮小字體 (A-)"
-                  aria-label="縮小字體"
-                >
-                  A-
-                </button>
-                <div className="font-size-direct-list">
-                  {FONT_SIZES.map((size) => (
-                    <button
-                      key={size}
-                      className={`size-option-btn ${fontSize === size ? 'active' : ''}`}
-                      onClick={() => { audioEngine.playHaptic('selection'); setFontSize(size); }}
-                      aria-pressed={fontSize === size}
-                      title={FONT_SIZE_LABELS[size]}
-                    >
-                      {getFontSizeLabel(size, learningMode)}
-                    </button>
-                  ))}
-                </div>
-                <span className="font-size-compact-indicator" title={`當前字級: ${FONT_SIZE_LABELS[fontSize] || '100%'}`}>
-                  {getFontSizeLabel(fontSize, learningMode)}
+                <span className="hub-stat-item streak-stat">
+                  <Flame size={13} className="streak-flame-animated" /> {userStats.streak}天
                 </span>
-                <button
-                  className="size-option-btn stepper-btn"
-                  onClick={() => stepFontSize(1)}
-                  disabled={fontSize === 'xxlarge'}
-                  title="放大字體 (A+)"
-                  aria-label="放大字體"
-                >
-                  A+
-                </button>
-              </div>
-
-              {/* Theme Toggle (3-state: Light / Sepia / Dark) */}
-              <button
-                className={`control-btn theme-toggle-btn theme-${theme}`}
-                onClick={cycleTheme}
-                title={theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}
-                aria-label={theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}
-              >
-                {theme === 'light' && <Sun size={15} />}
-                {theme === 'sepia' && <BookOpen size={15} />}
-                {theme === 'dark' && <Moon size={15} />}
-                <span className="theme-toggle-label">{theme === 'sepia' ? t('sepiaTheme') : (theme === 'light' ? t('lightTheme') : t('darkTheme'))}</span>
+                <span className="hub-stat-divider">·</span>
+                <span className="hub-stat-item xp-stat">
+                  <Trophy size={13} /> {userStats.xp}
+                </span>
               </button>
+
+              {/* Preferences Popover (Font Size, Speed, Language, Quests, Audio Lab) */}
+              <div className="nav-popover-wrap" ref={prefsRef}>
+                <button
+                  type="button"
+                  className={`control-btn nav-prefs-trigger ${prefsOpen ? 'is-open' : ''}`}
+                  onClick={() => { audioEngine.playHaptic('tap'); setPrefsOpen(o => !o); setCatalogOpen(false); }}
+                  aria-expanded={prefsOpen}
+                  aria-label={learningMode === 'zh' ? '顯示與學習偏好設定' : 'Display & study preferences'}
+                  title={learningMode === 'zh' ? '字級、語速、語言與工具' : 'Font, speed, language & tools'}
+                >
+                  <SlidersHorizontal size={15} />
+                  <span className="prefs-btn-label">{learningMode === 'zh' ? '設定' : 'Prefs'}</span>
+                </button>
+
+                {prefsOpen && (
+                  <div className="nav-prefs-popover" role="dialog" aria-label={learningMode === 'zh' ? '學習偏好設定' : 'Study Preferences'}>
+                    <div className="prefs-pop-row">
+                      <span className="prefs-pop-label"><Type size={14} /> {learningMode === 'zh' ? '字級大小' : 'Font Size'}</span>
+                      <div className="drawer-font-stepper">
+                        <button
+                          type="button"
+                          className="drawer-font-stepper-btn"
+                          onClick={() => stepFontSize(-1)}
+                          disabled={fontSize === 'small'}
+                          aria-label="縮小字體"
+                        >A-</button>
+                        <span className="drawer-font-stepper-val">{FONT_SIZE_LABELS[fontSize] || '100%'}</span>
+                        <button
+                          type="button"
+                          className="drawer-font-stepper-btn"
+                          onClick={() => stepFontSize(1)}
+                          disabled={fontSize === 'xxlarge'}
+                          aria-label="放大字體"
+                        >A+</button>
+                      </div>
+                    </div>
+
+                    <div className="prefs-pop-row">
+                      <span className="prefs-pop-label"><Settings2 size={14} /> {learningMode === 'zh' ? '發音語速' : 'Speech Rate'}</span>
+                      <button
+                        type="button"
+                        className={`prefs-pop-chip ${speechRate <= 0.85 ? 'is-active' : ''}`}
+                        onClick={() => {
+                          audioEngine.playHaptic('tap');
+                          if (setSpeechRate) setSpeechRate(speechRate <= 0.85 ? 1.0 : 0.75);
+                        }}
+                      >
+                        {speechRate <= 0.85 ? '🐢 0.75x 慢速' : '🐰 1.0x 原速'}
+                      </button>
+                    </div>
+
+                    <div className="prefs-pop-row">
+                      <span className="prefs-pop-label"><Globe size={14} /> {learningMode === 'zh' ? '介面語言' : 'Interface'}</span>
+                      <button
+                        type="button"
+                        className="prefs-pop-chip"
+                        onClick={() => toggleLearningMode()}
+                      >
+                        {learningMode === 'zh' ? '繁體中文 → EN' : 'English → 中文'}
+                      </button>
+                    </div>
+
+                    <div className="prefs-pop-divider" />
+
+                    <button
+                      type="button"
+                      className="prefs-pop-action"
+                      onClick={() => { setPrefsOpen(false); onOpenDailyQuests(); }}
+                    >
+                      <Target size={15} />
+                      <span>{learningMode === 'zh' ? `每日挑戰 (${completedQuestsCount}/${dailyQuests.length})` : `Daily Quests (${completedQuestsCount}/${dailyQuests.length})`}</span>
+                      <span className="prefs-pop-meta">Lv.{currentLevel}</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      className="prefs-pop-action"
+                      onClick={() => { setPrefsOpen(false); if (onOpenAudioDiagnostic) onOpenAudioDiagnostic(); }}
+                    >
+                      <AudioLines size={15} />
+                      <span>{learningMode === 'zh' ? '音訊健康檢驗儀' : 'Audio Diagnostics'}</span>
+                      <span className="prefs-pop-meta">4,005 音檔</span>
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Row 2: Desktop Categories Navigation Bar */}
-      <div className="desktop-categories-nav" role="tablist" aria-label={learningMode === 'zh' ? '分類導覽' : 'Category navigation'}>
+      {/* Row 2: Instant Learning Strip (Clean Single Row) */}
+      <div className="desktop-categories-nav viet-quick-nav-strip" role="navigation" aria-label={learningMode === 'zh' ? '快速學習導覽' : 'Quick learning navigation'}>
         <div className="desktop-categories-content">
-          {NAV_GROUPS.map(group => {
-            const isGroupActive = activeGroupObj.id === group.id;
-            const groupLabel = group.labelKey ? t(group.labelKey) : t('tabs.path');
-            const Icon = group.items[0]?.icon || Map;
+          {PRIMARY_STRIP_ITEMS.map(({ id, labelZh, labelEn, icon: Icon }) => {
+            const isActive = activeTab === id;
             return (
               <button
-                key={group.id}
-                className={`nav-cat-btn ${isGroupActive ? 'active' : ''}`}
-                onClick={() => handleSelectGroup(group)}
-                role="tab"
-                aria-selected={isGroupActive}
-                title={groupLabel}
+                key={id}
+                type="button"
+                className={`nav-cat-btn ${isActive ? 'active' : ''}`}
+                onClick={() => { audioEngine.playHaptic('selection'); setActiveTab(id); }}
+                aria-current={isActive ? 'page' : undefined}
               >
                 <Icon size={15} strokeWidth={2.2} />
-                <span className="nav-cat-label">{groupLabel}</span>
-                {group.items.length > 1 && (
-                  <span className="cat-counter-badge">
-                    {group.items.length}
-                  </span>
-                )}
+                <span className="nav-cat-label">{learningMode === 'zh' ? labelZh : labelEn}</span>
               </button>
             );
           })}
+
+          {/* All Modules Mega-Dropdown Trigger */}
+          <div className="nav-catalog-wrap" ref={catalogRef}>
+            <button
+              type="button"
+              className={`nav-cat-btn nav-catalog-btn ${catalogOpen || (!isPrimaryTab && activeTab !== 'path') ? 'active' : ''}`}
+              onClick={() => { audioEngine.playHaptic('selection'); setCatalogOpen(o => !o); setPrefsOpen(false); }}
+              aria-expanded={catalogOpen}
+            >
+              <span>{learningMode === 'zh' ? '全部課程' : 'All Courses'}</span>
+              <ChevronDown size={14} className={catalogOpen ? 'rotated' : ''} />
+            </button>
+
+            {catalogOpen && (
+              <div className="nav-catalog-dropdown" role="menu">
+                {NAV_GROUPS.filter(g => g.id !== 'dashboard').map(group => (
+                  <div key={group.id} className="catalog-col">
+                    <div className="catalog-col-title">{t(group.labelKey)}</div>
+                    <div className="catalog-col-list">
+                      {group.items.map(item => {
+                        const ItemIcon = item.icon;
+                        const active = activeTab === item.id;
+                        return (
+                          <button
+                            key={item.id}
+                            type="button"
+                            className={`catalog-item-btn ${active ? 'active' : ''}`}
+                            onClick={() => { audioEngine.playHaptic('selection'); setActiveTab(item.id); setCatalogOpen(false); }}
+                          >
+                            <ItemIcon size={15} />
+                            <span>{t(item.labelKey)}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
-      {/* Subnav Module Bar: Displays Sub-items of Active Group */}
-      {activeGroupObj && activeGroupObj.items.length > 1 && (
+      {/* Contextual Sub-module bar: ONLY shown inside non-primary deep modules */}
+      {activeTab !== 'path' && !isPrimaryTab && currentGroup && currentGroup.items.length > 1 && (
         <div className="subnav-modules-bar">
           <span className="subnav-group-label">
-            {activeGroupObj.labelKey ? t(activeGroupObj.labelKey) : t('tabs.path')} <ChevronRight size={13} />
+            {currentGroup.labelKey ? t(currentGroup.labelKey) : t('tabs.path')} <ChevronRight size={13} />
           </span>
-          {activeGroupObj.items.map(item => {
+          {currentGroup.items.map(item => {
             const Icon = item.icon;
             const isItemActive = activeTab === item.id;
             return (
@@ -442,53 +435,46 @@ export const Navbar = ({
         </div>
       )}
 
-      {/* Mobile Drawer Backdrop overlay */}
+      {/* Mobile Drawer Backdrop */}
       {menuOpen && (
         <div className="mobile-drawer-backdrop" onClick={() => setMenuOpen(false)} aria-hidden="true" />
       )}
 
-      {/* Mobile Drawer Menu Organized by Groups */}
+      {/* Mobile Drawer Menu */}
       {menuOpen && (
-        <div className="mobile-nav-grouped-drawer">
+        <div id="mobile-nav-drawer" className="mobile-nav-grouped-drawer">
           <div className="mobile-drawer-header">
             <span className="mobile-drawer-title">
-              {learningMode === 'zh' ? '📚 全站模組與設定' : '📚 Modules & Settings'}
+              {learningMode === 'zh' ? '📚 全部學習模組與設定' : '📚 Courses & Settings'}
             </span>
             <button className="mobile-drawer-close" onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(false); }}>
               <X size={18} />
             </button>
           </div>
 
-          {/* Mobile Reading & Display Settings Card */}
           <div className="mobile-drawer-settings-card">
-            {/* Theme Row */}
+            {/* Theme Row: Clean 2-mode Light / Dark */}
             <div className="drawer-setting-row">
               <span className="drawer-setting-label">
-                <Sun size={14} /> {learningMode === 'zh' ? '閱讀主題' : 'Theme'}
+                {isDark ? <Moon size={14} /> : <Sun size={14} />} {learningMode === 'zh' ? '介面主題' : 'Theme'}
               </span>
               <div className="drawer-theme-pill-group">
                 <button
-                  className={`drawer-theme-pill ${theme === 'light' ? 'active' : ''}`}
-                  onClick={() => { audioEngine.playHaptic('selection'); setTheme('light'); }}
+                  className={`drawer-theme-pill ${!isDark ? 'active' : ''}`}
+                  onClick={() => selectTheme('light')}
                 >
-                  <Sun size={12} /> {learningMode === 'zh' ? '清朗' : 'Light'}
+                  <Sun size={13} /> {learningMode === 'zh' ? '亮色模式' : 'Light'}
                 </button>
                 <button
-                  className={`drawer-theme-pill ${theme === 'sepia' ? 'active' : ''}`}
-                  onClick={() => { audioEngine.playHaptic('selection'); setTheme('sepia'); }}
+                  className={`drawer-theme-pill ${isDark ? 'active' : ''}`}
+                  onClick={() => selectTheme('dark')}
                 >
-                  <BookOpen size={12} /> {learningMode === 'zh' ? '護眼' : 'Sepia'}
-                </button>
-                <button
-                  className={`drawer-theme-pill ${theme === 'dark' ? 'active' : ''}`}
-                  onClick={() => { audioEngine.playHaptic('selection'); setTheme('dark'); }}
-                >
-                  <Moon size={12} /> {learningMode === 'zh' ? '曜石' : 'Dark'}
+                  <Moon size={13} /> {learningMode === 'zh' ? '深色模式' : 'Dark'}
                 </button>
               </div>
             </div>
 
-            {/* Font Size Stepper Row */}
+            {/* Font Size Row */}
             <div className="drawer-setting-row">
               <span className="drawer-setting-label">
                 <Type size={14} /> {learningMode === 'zh' ? '字級縮放' : 'Font Size'}
@@ -499,98 +485,65 @@ export const Navbar = ({
                   onClick={() => stepFontSize(-1)}
                   disabled={fontSize === 'small'}
                   aria-label="縮小字體"
-                >
-                  A-
-                </button>
-                <span className="drawer-font-stepper-val">
-                  {FONT_SIZE_LABELS[fontSize] || '100%'}
-                </span>
+                >A-</button>
+                <span className="drawer-font-stepper-val">{FONT_SIZE_LABELS[fontSize] || '100%'}</span>
                 <button
                   className="drawer-font-stepper-btn"
                   onClick={() => stepFontSize(1)}
                   disabled={fontSize === 'xxlarge'}
                   aria-label="放大字體"
-                >
-                  A+
-                </button>
+                >A+</button>
               </div>
             </div>
 
             {/* Accent & Speed Row */}
-            <div className="drawer-setting-row" style={{ marginTop: '0.2rem' }}>
+            <div className="drawer-setting-row">
               <button
+                type="button"
+                className="drawer-quick-toggle"
                 onClick={() => {
                   audioEngine.playHaptic('selection');
                   setSelectedAccent(prev => prev === 'north' ? 'south' : 'north');
                 }}
-                style={{
-                  flex: 1,
-                  padding: '0.45rem',
-                  borderRadius: 'var(--radius-sm)',
-                  border: '1px solid var(--border-color)',
-                  background: selectedAccent === 'north' ? 'rgba(59, 130, 246, 0.12)' : 'rgba(16, 185, 129, 0.12)',
-                  color: selectedAccent === 'north' ? '#3b82f6' : '#10b981',
-                  fontWeight: 800,
-                  fontSize: '0.8rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.3rem',
-                  cursor: 'pointer'
-                }}
               >
-                <span>{selectedAccent === 'north' ? '🏛️ 河內音' : '🌴 西貢音'}</span>
+                {selectedAccent === 'north' ? '🏛️ 河內音' : '🌴 西貢音'}
               </button>
-
               <button
+                type="button"
+                className="drawer-quick-toggle"
                 onClick={() => {
                   audioEngine.playHaptic('tap');
-                  if (setSpeechRate) {
-                    setSpeechRate(speechRate <= 0.85 ? 1.0 : 0.75);
-                  }
-                }}
-                style={{
-                  flex: 1,
-                  padding: '0.45rem',
-                  borderRadius: 'var(--radius-sm)',
-                  border: '1px solid var(--border-color)',
-                  background: speechRate <= 0.85 ? 'rgba(245, 158, 11, 0.14)' : 'var(--bg-subtle)',
-                  color: speechRate <= 0.85 ? 'var(--brand-gold)' : 'var(--text-secondary)',
-                  fontWeight: 800,
-                  fontSize: '0.8rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '0.3rem',
-                  cursor: 'pointer'
+                  if (setSpeechRate) setSpeechRate(speechRate <= 0.85 ? 1.0 : 0.75);
                 }}
               >
-                <span>{speechRate <= 0.85 ? '🐢 0.75x' : '🐰 1.0x'}</span>
+                {speechRate <= 0.85 ? '🐢 0.75x' : '🐰 1.0x'}
+              </button>
+              <button
+                type="button"
+                className="drawer-quick-toggle"
+                onClick={() => toggleLearningMode()}
+              >
+                {learningMode === 'zh' ? '🌐 EN' : '🌐 中文'}
               </button>
             </div>
           </div>
 
-          {/* Quick Chapter Finder Trigger inside drawer */}
           <button
             className="mobile-drawer-finder-btn"
             onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(false); onOpenChapterFinder(); }}
           >
             <Search size={16} />
-            <span>{learningMode === 'zh' ? '🔍 開啟全域章節速查盤 (100+ 章節)' : '🔍 Open Chapter Finder (100+ Lessons)'}</span>
+            <span>{learningMode === 'zh' ? '全站搜尋 (單字、會話、歌曲)' : 'Search Site'}</span>
             <ChevronRight size={14} />
           </button>
 
-          {/* Quick Word Bank Trigger inside drawer */}
           <button
             className="mobile-drawer-finder-btn"
-            style={{ borderColor: 'rgba(234, 179, 8, 0.4)', background: 'rgba(234, 179, 8, 0.08)' }}
             onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(false); if (onOpenBookmarks) onOpenBookmarks(); }}
           >
             <Star size={16} fill={bookmarkCount > 0 ? '#eab308' : 'none'} color="#eab308" />
-            <span style={{ color: 'var(--brand-gold)' }}>
-              {learningMode === 'zh' ? `⭐ 我的個人生詞本與收藏庫 (${bookmarkCount})` : `⭐ Personal Word Bank (${bookmarkCount})`}
-            </span>
-            <ChevronRight size={14} color="#eab308" />
+            <span>{learningMode === 'zh' ? `個人生詞本 (${bookmarkCount})` : `Word Bank (${bookmarkCount})`}</span>
+            <ChevronRight size={14} />
           </button>
 
           {NAV_GROUPS.map(group => (
@@ -619,43 +572,42 @@ export const Navbar = ({
         </div>
       )}
 
-      {/* Ergonomic Mobile Bottom Navigation Bar (< 768px) */}
+      {/* Ergonomic Mobile Bottom Navigation Bar */}
       <div className="mobile-bottom-nav" role="navigation" aria-label="行動端主要導航">
         <button
           className={`bottom-nav-item ${activeTab === 'path' ? 'active' : ''}`}
           onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('path'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
           <Map size={20} />
-          <span>學習首頁</span>
+          <span>首頁</span>
           {activeTab === 'path' && <span className="bottom-nav-indicator" />}
         </button>
 
         <button
-          className="bottom-nav-item finder-trigger-bottom"
-          onClick={() => { audioEngine.playHaptic('tap'); onOpenChapterFinder(); }}
+          className={`bottom-nav-item ${activeTab === 'songs' ? 'active' : ''}`}
+          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('songs'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
-          <div className="bottom-finder-icon-wrap">
-            <Search size={20} />
-          </div>
-          <span>查章節</span>
+          <Music2 size={20} />
+          <span>聽音樂</span>
+          {activeTab === 'songs' && <span className="bottom-nav-indicator" />}
         </button>
 
         <button
-          className={`bottom-nav-item ${activeTab === 'quest' ? 'active' : ''}`}
-          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('quest'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          className={`bottom-nav-item ${activeTab === 'listen' ? 'active' : ''}`}
+          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('listen'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
-          <Sparkles size={20} />
-          <span>越語闖關</span>
-          {activeTab === 'quest' && <span className="bottom-nav-indicator" />}
+          <Headphones size={20} />
+          <span>隨身聽</span>
+          {activeTab === 'listen' && <span className="bottom-nav-indicator" />}
         </button>
 
         <button
-          className={`bottom-nav-item ${activeTab === 'fasttrack' ? 'active' : ''}`}
-          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('fasttrack'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+          className={`bottom-nav-item ${activeTab === 'conversation' ? 'active' : ''}`}
+          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('conversation'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
-          <Zap size={20} />
-          <span>日常速成</span>
-          {activeTab === 'fasttrack' && <span className="bottom-nav-indicator" />}
+          <MessagesSquare size={20} />
+          <span>會話</span>
+          {activeTab === 'conversation' && <span className="bottom-nav-indicator" />}
         </button>
 
         <button
@@ -663,7 +615,7 @@ export const Navbar = ({
           onClick={() => { audioEngine.playHaptic('tap'); setMenuOpen(prev => !prev); }}
         >
           <Menu size={20} />
-          <span>全部目錄</span>
+          <span>全部</span>
         </button>
       </div>
     </header>

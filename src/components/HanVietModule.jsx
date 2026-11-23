@@ -1034,7 +1034,7 @@ export const HanVietModule = ({ selectedAccent, updateUserStats, setActiveTab })
                           </div>
                         </div>
                         {isExpanded && isFalseFriend && (
-                          <div style={{ padding: '0.75rem', background: '#fff4e5', borderLeft: '4px solid #ff9800', borderRadius: '4px', fontSize: '0.9em', color: '#663c00' }}>
+                          <div style={{ padding: '0.75rem', background: 'var(--tint-amber-bg)', border: '1px solid var(--tint-amber-border)', borderLeft: '4px solid var(--brand-gold)', borderRadius: '8px', fontSize: '0.9em', color: 'var(--text-primary)' }}>
                             <strong>字面直譯：</strong> {c.falseFriend.literalZh}<br/>
                             <div style={{ marginTop: '0.3rem' }}><strong>⚠️ 注意：</strong> {c.falseFriend.warningZh}</div>
                           </div>

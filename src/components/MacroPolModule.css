@@ -3,47 +3,48 @@
    比照 Paperluz 產業情報中心與彭博 / 日經亞洲風格
    ========================================================= */
 
-:root {
-  --macro-bg: #0b1329;
-  --macro-bg-card: #131f3d;
-  --macro-bg-card-hover: #1a294f;
-  --macro-fg: #f8fafc;
-  --macro-fg-muted: #94a3b8;
-  --macro-border: #24355a;
-  --macro-accent: #3b82f6;
-  --macro-accent-glow: rgba(59, 130, 246, 0.2);
-  --macro-gold: #f59e0b;
-  --macro-gold-bg: rgba(245, 158, 11, 0.12);
-  --macro-green: #10b981;
-  --macro-green-bg: rgba(16, 185, 129, 0.12);
-  --macro-red: #ef4444;
-  --macro-red-bg: rgba(239, 68, 68, 0.12);
-  --macro-purple: #8b5cf6;
-  --macro-purple-bg: rgba(139, 92, 246, 0.12);
-  --macro-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-  --macro-shadow-lg: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+:root,
+[data-theme="dark"] {
+  --macro-bg: var(--bg-main, #090d16);
+  --macro-bg-card: var(--bg-card, #111827);
+  --macro-bg-card-hover: var(--bg-card-hover, #1d293f);
+  --macro-fg: var(--text-primary, #f1f5f9);
+  --macro-fg-muted: var(--text-secondary, #94a3b8);
+  --macro-border: var(--border-color, rgba(148, 163, 184, 0.14));
+  --macro-accent: #60a5fa;
+  --macro-accent-glow: rgba(96, 165, 250, 0.2);
+  --macro-gold: #fbbf24;
+  --macro-gold-bg: rgba(245, 158, 11, 0.14);
+  --macro-green: #34d399;
+  --macro-green-bg: rgba(16, 185, 129, 0.14);
+  --macro-red: #f87171;
+  --macro-red-bg: rgba(239, 68, 68, 0.14);
+  --macro-purple: #c084fc;
+  --macro-purple-bg: rgba(168, 85, 247, 0.14);
+  --macro-shadow: var(--card-shadow);
+  --macro-shadow-lg: var(--card-shadow-hover);
   --macro-font-mono: 'JetBrains Mono', monospace;
 }
 
 [data-theme="light"] {
-  --macro-bg: #f4f6fb;
-  --macro-bg-card: #ffffff;
-  --macro-bg-card-hover: #f8fafd;
-  --macro-fg: #0f172a;
-  --macro-fg-muted: #475569;
-  --macro-border: #e2e8f0;
+  --macro-bg: var(--bg-main, #f4f6f9);
+  --macro-bg-card: var(--bg-card, #ffffff);
+  --macro-bg-card-hover: var(--bg-card-hover, #f1f5f9);
+  --macro-fg: var(--text-primary, #0f172a);
+  --macro-fg-muted: var(--text-secondary, #475569);
+  --macro-border: var(--border-color, rgba(15, 23, 42, 0.09));
   --macro-accent: #2563eb;
   --macro-accent-glow: rgba(37, 99, 235, 0.12);
-  --macro-gold: #d97706;
-  --macro-gold-bg: #fef3c7;
-  --macro-green: #059669;
-  --macro-green-bg: #d1fae5;
-  --macro-red: #dc2626;
-  --macro-red-bg: #fee2e2;
-  --macro-purple: #7c3aed;
-  --macro-purple-bg: #ede9fe;
-  --macro-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
-  --macro-shadow-lg: 0 12px 32px -4px rgba(15, 23, 42, 0.08);
+  --macro-gold: #b45309;
+  --macro-gold-bg: #fffbeb;
+  --macro-green: #0f766e;
+  --macro-green-bg: #ecfdf5;
+  --macro-red: #cf261e;
+  --macro-red-bg: #fff1f2;
+  --macro-purple: #6d28d9;
+  --macro-purple-bg: #f5f3ff;
+  --macro-shadow: var(--card-shadow);
+  --macro-shadow-lg: var(--card-shadow-hover);
 }
 
 [data-theme="paper"],

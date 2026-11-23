@@ -11,6 +11,7 @@ import { APP_VERSION, BUILD_REVISION } from './config/release';
 
 const lazyNamed = (loader, exportName) => lazy(() => loader().then(module => ({ default: module[exportName] })));
 const ListeningStudio = lazy(() => import('./components/ListeningStudio'));
+const UltralearningCoach = lazy(() => import('./components/UltralearningCoach'));
 // Teaching notes render below each module, so they load after the module itself
 const KnowledgeGuide = lazyNamed(() => import('./components/KnowledgeGuide'), 'KnowledgeGuide');
 const LearningPathModule = lazyNamed(() => import('./components/LearningPathModule'), 'LearningPathModule');
@@ -58,9 +59,10 @@ const getModuleFromHash = () => {
 export function App() {
   const { learningMode, t } = useLanguage();
 
-  // Theme state: light or dark
+  // Theme state: light or dark (two cohesive visual modes)
   const [theme, setTheme] = useState(() => {
-    return readPreference('viet_theme', 'dark');
+    const saved = readPreference('viet_theme', 'dark');
+    return saved === 'dark' ? 'dark' : 'light';
   });
 
   // Font size state: small, normal, large, xlarge
@@ -232,9 +234,12 @@ export function App() {
     // Persist last visited module for Resume Learning feature
     if (nextModule !== 'path') {
       try {
+        const now = Date.now();
         localStorage.setItem('viet_last_visited', JSON.stringify({
+          tab: nextModule,
           moduleId: nextModule,
-          timestamp: Date.now()
+          time: now,
+          timestamp: now
         }));
       } catch (e) {}
     }
@@ -334,16 +339,17 @@ export function App() {
               <div className="workspace-location"><button onClick={() => setActiveTab('path')}><Home size={17} aria-hidden="true" /> 學習首頁</button><ChevronRight size={15} aria-hidden="true" /><span>{t(ALL_NAV_ITEMS.find(item => item.id === activeTab)?.labelKey || 'tabs.path')}</span></div>
               <div className="workspace-options"><button aria-pressed={moduleView === 'practice'} onClick={() => { audioEngine.stop(); setModuleView('practice'); }}><Gamepad2 size={18} aria-hidden="true" /> 互動練習</button><button aria-pressed={moduleView === 'knowledge'} onClick={() => { audioEngine.stop(); setModuleView('knowledge'); }}><BookOpen size={18} aria-hidden="true" /> 知識圖解・10 點聽說讀闖關</button></div>
             </nav>}
-            {activeTab === 'path' && <form className="home-global-search" role="search" onSubmit={e => {
-              e.preventDefault(); setInitialQuery(homeQuery); setIsChapterFinderOpen(true);
-            }}>
-              <label htmlFor="home-site-query">全站搜尋</label>
-              <div><input id="home-site-query" type="search" value={homeQuery} onChange={e => setHomeQuery(e.target.value)} placeholder="搜尋中文、越文、注音、課程或影片" /><button type="submit">搜尋</button></div>
-            </form>}
-            {activeTab === 'path' && <HomeLearningHub onNavigate={setActiveTab} onStartStudy={handleStartStudy} />}
+            {activeTab === 'path' && (
+              <HomeLearningHub
+                onNavigate={setActiveTab}
+                onStartStudy={handleStartStudy}
+                onOpenSearch={(q = '') => { setInitialQuery(q); setIsChapterFinderOpen(true); }}
+              />
+            )}
             {activeTab === 'dialogvideo' && <DialogueVideos key={searchHit?.id} initialVideoId={searchHit?.destination?.dialogVideo} onNavigate={setActiveTab} />}
             {activeTab === 'songs' && <VietnameseSongsModule key={searchHit?.id} initialSongId={searchHit?.destination?.songId} selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'listen' && <ListeningStudio key={searchHit?.id} initialLessonId={searchHit?.destination?.capsule} onNavigate={setActiveTab} />}
+            {activeTab === 'ultra' && <UltralearningCoach selectedAccent={selectedAccent} onNavigate={setActiveTab} onStartStudy={handleStartStudy} updateUserStats={updateUserStats} />}
             {(moduleView === 'practice' || activeTab === 'path' || activeTab === 'quest') && <>
             {activeTab === 'path' && (
               <LearningPathModule
@@ -352,6 +358,8 @@ export function App() {
                 setSelectedAccent={setSelectedAccent}
                 updateUserStats={updateUserStats}
                 onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
+                onSelectChapter={handleSelectChapter}
+                KnowledgeGuideComponent={KnowledgeGuide}
               />
             )}
             {activeTab === 'quest' && (
@@ -380,7 +388,7 @@ export function App() {
             {activeTab === 'sentence' && <SentenceBuilderModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             {activeTab === 'tonegame' && <ToneGameModule selectedAccent={selectedAccent} updateUserStats={updateUserStats} setActiveTab={setActiveTab} />}
             </>}
-            {(moduleView === 'knowledge' || activeTab === 'path') && (
+            {moduleView === 'knowledge' && activeTab !== 'path' && (
               <KnowledgeGuide
                 key={`${activeTab}-${targetPointIndex ?? 'def'}`}
                 moduleId={activeTab}

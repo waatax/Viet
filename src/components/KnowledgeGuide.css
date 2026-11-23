@@ -334,32 +334,32 @@
   border-radius: 4px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: .85rem;
-  color: #2563eb;
+  color: var(--tint-blue-text);
   word-break: break-all;
 }
 
 .kg-tag-syntax {
-  background: rgba(37, 99, 235, 0.12);
-  color: #2563eb;
-  border-color: rgba(37, 99, 235, 0.25);
+  background: var(--tint-blue-bg);
+  color: var(--tint-blue-text);
+  border-color: var(--tint-blue-border);
 }
 
 .kg-tag-usage {
-  background: rgba(5, 150, 105, 0.12);
-  color: #059669;
-  border-color: rgba(5, 150, 105, 0.25);
+  background: var(--tint-jade-bg);
+  color: var(--tint-jade-text);
+  border-color: var(--tint-jade-border);
 }
 
 .kg-tag-trap {
-  background: rgba(220, 38, 38, 0.12);
-  color: #dc2626;
-  border-color: rgba(220, 38, 38, 0.25);
+  background: var(--tint-rose-bg);
+  color: var(--tint-rose-text);
+  border-color: var(--tint-rose-border);
 }
 
 .kg-tag-mnemonic {
-  background: rgba(124, 58, 237, 0.12);
-  color: #7c3aed;
-  border-color: rgba(124, 58, 237, 0.25);
+  background: var(--tint-purple-bg);
+  color: var(--tint-purple-text);
+  border-color: var(--tint-purple-border);
 }
 
 

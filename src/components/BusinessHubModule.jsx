@@ -996,11 +996,11 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
                 <div
                   key={cIdx}
                   style={{
-                    background: '#ffffff',
+                    background: 'var(--bg-card)',
                     padding: '1.1rem 1.25rem',
                     borderRadius: 'var(--radius-md)',
-                    border: '1px solid #e7e5e4',
-                    boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                    border: '1px solid var(--border-color)',
+                    boxShadow: 'var(--shadow-xs)',
                     display: 'flex',
                     flexDirection: 'column',
                     gap: '0.4rem'

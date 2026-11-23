@@ -1,18 +1,159 @@
-.pronunciation-practice { max-width: 52rem; margin: 0 auto; padding: clamp(1rem, 4vw, 2rem); border: 1px solid #a8beba; border-radius: 1.25rem; background: #f8fcfa; color: #193d37; }
-.pronunciation-practice header, .pronunciation-actions, .pronunciation-filters, .pronunciation-listen { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
-.pronunciation-practice h3 { font-size: 1.5rem; margin: 0; }
-.pronunciation-filters { margin-top: 1.25rem; }
-.pronunciation-filters label { display: grid; gap: .25rem; flex: 1 1 8rem; }
-.pronunciation-filters select, .pronunciation-actions button { font: inherit; padding: .58rem .8rem; color: #193d37; background: white; border: 1px solid #79958e; border-radius: .6rem; }
-.pronunciation-face { display: grid; justify-items: center; align-content: center; text-align: center; gap: .65rem; min-height: 14rem; padding: 1rem; background: #164942; color: white; border-radius: 1rem; margin: 1rem 0; }
-.pronunciation-face strong { font-size: clamp(2.75rem, 8vw, 4.25rem); line-height: 1.4; }
-.pronunciation-face p { margin: 0; }
-.pronunciation-actions { justify-content: center; margin-top: .75rem; }
-.pronunciation-actions button { display: inline-flex; align-items: center; gap: .35rem; cursor: pointer; }
-.pronunciation-actions button:disabled { opacity: .48; cursor: default; }
-.pronunciation-reference { margin: 1rem 0; }
-.pronunciation-reference summary { cursor: pointer; font-weight: 600; }
-.pronunciation-reference table { width: 100%; border-collapse: collapse; }
-.pronunciation-reference caption { padding: .65rem; }
-.pronunciation-reference th, .pronunciation-reference td { text-align: left; padding: .5rem .3rem; border-bottom: 1px solid #c3d5cc; }
-.pronunciation-reference button { display: inline-flex; align-items: center; gap: .3rem; padding: .5rem; border-radius: .4rem; border: 1px solid #79958e; background: white; color: #193d37; cursor: pointer; font: inherit; }
+/* PronunciationCards.css — Theme-Harmonized Light & Dark Phonetics Cards */
+
+.pronunciation-practice {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: clamp(1rem, 3.5vw, 1.85rem);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--card-shadow);
+}
+
+.pronunciation-practice header,
+.pronunciation-actions,
+.pronunciation-filters,
+.pronunciation-listen {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.pronunciation-practice h3 {
+  font-size: 1.4rem;
+  font-weight: 850;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.pronunciation-filters {
+  margin-top: 1.15rem;
+}
+
+.pronunciation-filters label {
+  display: grid;
+  gap: 0.3rem;
+  flex: 1 1 8rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.pronunciation-filters select,
+.pronunciation-actions button {
+  font: inherit;
+  padding: 0.55rem 0.85rem;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.65rem;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.pronunciation-actions button:hover:not(:disabled) {
+  border-color: var(--brand-green);
+  background: var(--tint-jade-bg);
+  color: var(--tint-jade-text);
+}
+
+.pronunciation-face {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+  gap: 0.65rem;
+  min-height: 14rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #0f4c45 0%, #155e55 100%);
+  color: #f8fafc;
+  border-radius: var(--radius-lg);
+  margin: 1rem 0;
+  border: 1px solid rgba(45, 212, 191, 0.25);
+}
+
+[data-theme="dark"] .pronunciation-face {
+  background: linear-gradient(135deg, #0d2b28 0%, #133f3a 100%);
+  border-color: rgba(45, 212, 191, 0.35);
+}
+
+.pronunciation-face strong {
+  font-size: clamp(2.75rem, 8vw, 4.25rem);
+  line-height: 1.35;
+}
+
+.pronunciation-face p {
+  margin: 0;
+  color: #d1fae5;
+}
+
+.pronunciation-actions {
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+
+.pronunciation-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.pronunciation-actions button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.pronunciation-reference {
+  margin: 1.15rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pronunciation-reference summary {
+  cursor: pointer;
+  font-weight: 750;
+  color: var(--text-primary);
+}
+
+.pronunciation-reference table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.pronunciation-reference caption {
+  padding: 0.6rem 0;
+  color: var(--text-secondary);
+  text-align: left;
+}
+
+.pronunciation-reference th,
+.pronunciation-reference td {
+  text-align: left;
+  padding: 0.55rem 0.4rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.pronunciation-reference button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.42rem 0.65rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.pronunciation-reference button:hover {
+  border-color: var(--brand-green);
+  color: var(--brand-green);
+}

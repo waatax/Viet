@@ -152,20 +152,20 @@
   color: var(--text-color);
 }
 
-/* Dark theme specific adjustments */
+/* Dark theme inherits unified tokens cleanly */
 [data-theme='dark'] .region-card {
-  background: #1e293b;
-  border-color: #334155;
+  background: var(--bg-card);
+  border-color: var(--border-color);
 }
 
 [data-theme='dark'] .region-info,
 [data-theme='dark'] .city-box {
-  background: #0f172a;
-  border-color: #334155;
+  background: var(--bg-card-subtle);
+  border-color: var(--border-color);
 }
 
 [data-theme='dark'] .attractions-box {
-  background: #1e293b;
+  background: var(--bg-card);
 }
 
 @media (max-width: 600px) {

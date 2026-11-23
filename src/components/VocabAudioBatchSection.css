@@ -144,8 +144,8 @@
 }
 
 .vba-tier-pill:hover {
-  border-color: var(--brand-primary, #2563eb);
-  background: #ffffff;
+  border-color: var(--brand-accent);
+  background: var(--bg-card);
   transform: translateY(-1px);
 }
 
@@ -492,8 +492,8 @@
 }
 
 .vba-step-btn:hover {
-  background: #e2e8f0;
-  color: #2563eb;
+  background: var(--bg-card-hover);
+  color: var(--brand-accent);
 }
 
 .vba-step-tag {
@@ -555,18 +555,19 @@
 }
 
 .vba-speed-btn.active {
-  background: #ffffff;
-  color: #2563eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: var(--bg-card);
+  color: var(--brand-accent);
+  box-shadow: var(--shadow-xs);
 }
 
 .vba-audio-warning {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  color: #d97706;
+  color: var(--tint-amber-text);
   font-size: 0.82rem;
-  background: #fef3c7;
+  background: var(--tint-amber-bg);
+  border: 1px solid var(--tint-amber-border);
   padding: 0.4rem 0.75rem;
   border-radius: 0.5rem;
 }
@@ -676,24 +677,24 @@
 }
 
 .vba-fp-btn.active {
-  background: #ffffff;
-  color: var(--brand-primary, #2563eb);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: var(--bg-card);
+  color: var(--brand-accent);
+  box-shadow: var(--shadow-xs);
 }
 
 .vba-view-mode-toggle {
   display: flex;
-  background: var(--bg-secondary, #f1f5f9);
+  background: var(--bg-secondary);
   padding: 0.2rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--border-color, #e2e8f0);
+  border: 1px solid var(--border-color);
 }
 
 .vba-vm-btn {
   padding: 0.3rem 0.45rem;
   border: none;
   background: transparent;
-  color: var(--text-secondary, #64748b);
+  color: var(--text-secondary);
   border-radius: 0.35rem;
   cursor: pointer;
   display: flex;
@@ -702,9 +703,9 @@
 }
 
 .vba-vm-btn.active {
-  background: #ffffff;
-  color: #2563eb;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: var(--bg-card);
+  color: var(--brand-accent);
+  box-shadow: var(--shadow-xs);
 }
 
 /* ── View 1: Cards Grid ── */
@@ -759,20 +760,20 @@
 
 .vba-wc-pos {
   font-size: 0.72rem;
-  padding: 0.12rem 0.4rem;
-  border-radius: 4px;
-  background: #eff6ff;
-  color: #2563eb;
-  font-weight: 600;
+  padding: 0.12rem 0.45rem;
+  border-radius: 5px;
+  background: var(--tint-blue-bg);
+  color: var(--tint-blue-text);
+  font-weight: 700;
 }
 
 .vba-wc-hanviet {
   font-size: 0.72rem;
-  padding: 0.12rem 0.4rem;
-  border-radius: 4px;
-  background: #fef3c7;
-  color: #b45309;
-  font-weight: 600;
+  padding: 0.12rem 0.45rem;
+  border-radius: 5px;
+  background: var(--tint-amber-bg);
+  color: var(--tint-amber-text);
+  font-weight: 700;
 }
 
 .vba-mastery-chk {
@@ -917,16 +918,16 @@
 
 .vba-table-pos {
   font-size: 0.75rem;
-  padding: 0.15rem 0.4rem;
-  border-radius: 4px;
-  background: #eff6ff;
-  color: #2563eb;
-  font-weight: 600;
+  padding: 0.15rem 0.45rem;
+  border-radius: 5px;
+  background: var(--tint-blue-bg);
+  color: var(--tint-blue-text);
+  font-weight: 700;
 }
 
 .vba-td-hanviet {
-  color: #b45309;
-  font-weight: 600;
+  color: var(--tint-amber-text);
+  font-weight: 700;
   font-size: 0.82rem;
 }
 

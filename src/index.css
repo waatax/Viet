@@ -61,9 +61,10 @@
   /* Apple HIG Continuous Squircle Radius System */
   --radius-xs: 8px;
   --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 26px;
-  --radius-xl: 34px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --radius-2xl: 32px;
   --radius-full: 9999px;
 
   /* Safe Area Insets */
@@ -74,141 +75,249 @@
 }
 
 /* ==========================================================================
-   Theme 1: Light Mode (Apple Frost & Paper White)
+   Theme 1: Light Mode (Crisp Alabaster & Calm Editorial Surfaces)
    ========================================================================== */
+:root,
 [data-theme="light"] {
-  --bg-main: #f8fafc;
-  --bg-subtle: #f1f5f9;
-  --bg-header: rgba(248, 250, 252, 0.92);
+  color-scheme: light;
+  --bg-main: #f4f6f9;
+  --bg-subtle: #edf1f6;
+  --bg-secondary: #eef2f6;
+  --bg-surface: #f1f5f9;
+  --bg-header: rgba(255, 255, 255, 0.88);
   --bg-card: #ffffff;
-  --bg-card-subtle: #fbfcfe;
+  --bg-card-subtle: #f8fafc;
+  --bg-card-secondary: #f1f5f9;
   --bg-card-hover: #f1f5f9;
-  --bg-input: #f1f5f9;
-  --bg-accent: #eff6ff;
+  --bg-input: #eef2f6;
+  --bg-accent: #edf4ff;
 
-  --text-primary: #1e293b;
+  /* Legacy & Component Surface Aliases (guarantees zero mismatched white/dark frames) */
+  --card-bg: #ffffff;
+  --surface-card: #ffffff;
+  --surface-secondary: #f1f5f9;
+  --surface-tag: #e8eef6;
+  --surface-light: #f1f5f9;
+  --surface-color: #ffffff;
+  --text-color: #0f172a;
+
+  --text-primary: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
   --text-inverse: #ffffff;
 
-  --border-color: #e2e8f0;
-  --border-subtle: #f1f5f9;
-  --border-highlight: #cbd5e1;
-  --border-focus: #3b82f6;
+  --border-color: rgba(15, 23, 42, 0.09);
+  --border-subtle: rgba(15, 23, 42, 0.06);
+  --border-highlight: rgba(15, 23, 42, 0.16);
+  --border-hover: rgba(15, 23, 42, 0.22);
+  --border-focus: #2563eb;
 
-  /* Apple System & Vietnam Flag Accents */
-  --brand-primary: #da251c;
-  --brand-primary-rgb: 218, 37, 28;
-  --brand-gold: #d97706;
-  --brand-gold-rgb: 217, 119, 6;
+  /* Brand & Semantic Accents */
+  --brand-primary: #cf261e;
+  --brand-primary-light: #ef4444;
+  --brand-primary-hover: #b21c15;
+  --brand-primary-rgb: 207, 38, 30;
+  --brand-gold: #b45309;
+  --brand-gold-rgb: 180, 83, 9;
   --brand-accent: #2563eb;
   --brand-accent-rgb: 37, 99, 235;
-  --brand-green: #059669;
+  --brand-green: #0f766e;
+  --brand-emerald: #059669;
   --brand-purple: #7c3aed;
-  --brand-teal: #0891b2;
+  --brand-teal: #0d9488;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-color: #0f766e;
 
-  /* Shadows - Organic Elevation & Specular Reflection */
-  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
-  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-  --card-shadow: 0 4px 18px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
-  --card-shadow-hover: 0 16px 36px -4px rgba(15, 23, 42, 0.1), 0 6px 14px rgba(15, 23, 42, 0.05);
-  
+  /* Semantic Tinted Content Frames (Light Mode — Soft Editorial Pastels) */
+  --tint-jade-bg: #ecfdf5;
+  --tint-jade-border: rgba(15, 118, 110, 0.22);
+  --tint-jade-text: #0f766e;
+  --tint-rose-bg: #fff1f2;
+  --tint-rose-border: rgba(225, 29, 72, 0.22);
+  --tint-rose-text: #be123c;
+  --tint-blue-bg: #eff6ff;
+  --tint-blue-border: rgba(37, 99, 235, 0.22);
+  --tint-blue-text: #1d4ed8;
+  --tint-amber-bg: #fffbeb;
+  --tint-amber-border: rgba(217, 119, 6, 0.26);
+  --tint-amber-text: #b45309;
+  --tint-purple-bg: #f5f3ff;
+  --tint-purple-border: rgba(124, 58, 237, 0.22);
+  --tint-purple-text: #6d28d9;
+  --tint-teal-bg: #f0fdfa;
+  --tint-teal-border: rgba(13, 148, 136, 0.24);
+  --tint-teal-text: #0f766e;
+
+  /* Shadows - Crisp Layered Elevation */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.03);
+  --card-shadow-hover: 0 14px 32px -6px rgba(15, 23, 42, 0.11), 0 4px 12px rgba(15, 23, 42, 0.04);
+
   --glass-bg: rgba(255, 255, 255, 0.88);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --glow-primary: rgba(218, 37, 28, 0.15);
-  --glow-accent: rgba(37, 99, 235, 0.15);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glow-primary: rgba(207, 38, 30, 0.14);
+  --glow-accent: rgba(37, 99, 235, 0.14);
 }
 
 /* ==========================================================================
-   Theme 2: Dark Mode (Obsidian Deep Slate · Eye-Comfort Night Reading)
+   Theme 2: Dark Mode (Midnight Slate · High-Contrast Eye-Comfort Surface)
    ========================================================================== */
 [data-theme="dark"] {
-  --bg-main: #0b0f17;
-  --bg-subtle: #111722;
-  --bg-header: rgba(12, 16, 23, 0.92);
-  --bg-card: #151c28;
-  --bg-card-subtle: #1b2434;
-  --bg-card-hover: #212c40;
-  --bg-input: #1a2333;
-  --bg-accent: #1e2a3e;
+  color-scheme: dark;
+  --bg-main: #090d16;
+  --bg-subtle: #111827;
+  --bg-secondary: #162033;
+  --bg-surface: #141d2e;
+  --bg-header: rgba(11, 16, 28, 0.88);
+  --bg-card: #111827;
+  --bg-card-subtle: #162033;
+  --bg-card-secondary: #162033;
+  --bg-card-hover: #1d293f;
+  --bg-input: #172133;
+  --bg-accent: #1a2740;
+
+  /* Legacy & Component Surface Aliases (Dark-matched so every diagram/card integrates seamlessly) */
+  --card-bg: #111827;
+  --surface-card: #162033;
+  --surface-secondary: #141d2e;
+  --surface-tag: #1f2b42;
+  --surface-light: #141d2e;
+  --surface-color: #162033;
+  --text-color: #f1f5f9;
 
   --text-primary: #f1f5f9;
   --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --text-inverse: #0c1017;
+  --text-muted: #7b8ba1;
+  --text-inverse: #090d16;
 
-  --border-color: rgba(255, 255, 255, 0.09);
-  --border-subtle: rgba(255, 255, 255, 0.05);
-  --border-highlight: rgba(255, 255, 255, 0.18);
+  --border-color: rgba(148, 163, 184, 0.14);
+  --border-subtle: rgba(148, 163, 184, 0.08);
+  --border-highlight: rgba(148, 163, 184, 0.24);
+  --border-hover: rgba(148, 163, 184, 0.34);
   --border-focus: #60a5fa;
 
-  /* Ambient Night Glow Colors */
+  /* Luminous Night-Tuned Accents */
   --brand-primary: #f87171;
+  --brand-primary-light: #fca5a5;
+  --brand-primary-hover: #ef4444;
   --brand-primary-rgb: 248, 113, 113;
   --brand-gold: #fbbf24;
   --brand-gold-rgb: 251, 191, 36;
   --brand-accent: #60a5fa;
   --brand-accent-rgb: 96, 165, 250;
-  --brand-green: #34d399;
+  --brand-green: #2dd4bf;
+  --brand-emerald: #34d399;
   --brand-purple: #c084fc;
-  --brand-teal: #22d3ee;
+  --brand-teal: #2dd4bf;
+  --primary: #60a5fa;
+  --primary-dark: #93c5fd;
+  --primary-color: #2dd4bf;
 
-  /* Shadows - Deep Kyoto Obsidian & Ambient Glow */
-  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.4);
-  --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.5);
-  --card-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
-  --card-shadow-hover: 0 18px 40px -6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(96, 165, 250, 0.15);
+  /* Semantic Tinted Content Frames (Dark Mode — Deep Translucent Glass Tints) */
+  --tint-jade-bg: rgba(16, 185, 129, 0.13);
+  --tint-jade-border: rgba(52, 211, 153, 0.28);
+  --tint-jade-text: #5eead4;
+  --tint-rose-bg: rgba(244, 63, 94, 0.13);
+  --tint-rose-border: rgba(251, 113, 133, 0.3);
+  --tint-rose-text: #fda4af;
+  --tint-blue-bg: rgba(59, 130, 246, 0.14);
+  --tint-blue-border: rgba(96, 165, 250, 0.28);
+  --tint-blue-text: #93c5fd;
+  --tint-amber-bg: rgba(245, 158, 11, 0.13);
+  --tint-amber-border: rgba(251, 191, 36, 0.3);
+  --tint-amber-text: #fcd34d;
+  --tint-purple-bg: rgba(168, 85, 247, 0.14);
+  --tint-purple-border: rgba(192, 132, 252, 0.28);
+  --tint-purple-text: #d8b4fe;
+  --tint-teal-bg: rgba(20, 184, 166, 0.14);
+  --tint-teal-border: rgba(45, 212, 191, 0.28);
+  --tint-teal-text: #5eead4;
 
-  --glass-bg: rgba(22, 30, 46, 0.88);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  /* Shadows - Deep Slate Depth */
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.45);
+  --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.52);
+  --card-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.48), 0 2px 6px rgba(0, 0, 0, 0.28);
+  --card-shadow-hover: 0 18px 38px -6px rgba(0, 0, 0, 0.65), 0 0 18px rgba(96, 165, 250, 0.12);
+
+  --glass-bg: rgba(17, 24, 39, 0.88);
+  --glass-border: rgba(148, 163, 184, 0.12);
   --glow-primary: rgba(248, 113, 113, 0.2);
   --glow-accent: rgba(96, 165, 250, 0.2);
 }
 
-/* ==========================================================================
-   Theme 3: Warm Sepia & Eye-Care Paper Mode (溫潤羊皮紙護眼閱讀模式)
-   ========================================================================== */
+/* Legacy fallback if sepia attribute ever appears */
 [data-theme="sepia"] {
-  --bg-main: #fcf9f2;
-  --bg-subtle: #f5eedf;
-  --bg-header: rgba(251, 247, 238, 0.95);
-  --bg-card: #fffefb;
-  --bg-card-subtle: #f8f2e4;
-  --bg-card-hover: #f3ebda;
-  --bg-input: #f6efe1;
-  --bg-accent: #f5ecd8;
-
-  --text-primary: #2d2416;
-  --text-secondary: #574632;
-  --text-muted: #806e56;
+  color-scheme: light;
+  --bg-main: #f4f6f9;
+  --bg-subtle: #edf1f6;
+  --bg-secondary: #eef2f6;
+  --bg-surface: #f1f5f9;
+  --bg-header: rgba(255, 255, 255, 0.88);
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f8fafc;
+  --bg-card-secondary: #f1f5f9;
+  --bg-card-hover: #f1f5f9;
+  --bg-input: #eef2f6;
+  --bg-accent: #edf4ff;
+  --card-bg: #ffffff;
+  --surface-card: #ffffff;
+  --surface-secondary: #f1f5f9;
+  --surface-tag: #e8eef6;
+  --surface-light: #f1f5f9;
+  --surface-color: #ffffff;
+  --text-color: #0f172a;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
   --text-inverse: #ffffff;
-
-  --border-color: rgba(142, 107, 57, 0.16);
-  --border-subtle: rgba(142, 107, 57, 0.09);
-  --border-highlight: rgba(142, 107, 57, 0.32);
-  --border-focus: #b45309;
-
-  /* Natural Amber & Terracotta Palette */
-  --brand-primary: #b44318;
-  --brand-primary-rgb: 180, 67, 24;
+  --border-color: rgba(15, 23, 42, 0.09);
+  --border-subtle: rgba(15, 23, 42, 0.06);
+  --border-highlight: rgba(15, 23, 42, 0.16);
+  --border-hover: rgba(15, 23, 42, 0.22);
+  --border-focus: #2563eb;
+  --brand-primary: #cf261e;
+  --brand-primary-light: #ef4444;
+  --brand-primary-hover: #b21c15;
+  --brand-primary-rgb: 207, 38, 30;
   --brand-gold: #b45309;
   --brand-gold-rgb: 180, 83, 9;
-  --brand-accent: #0284c7;
-  --brand-accent-rgb: 2, 132, 199;
-  --brand-green: #15803d;
-  --brand-purple: #7e22ce;
-  --brand-teal: #0f766e;
-
-  /* Shadows - Warm Earth Tones */
-  --shadow-xs: 0 1px 2px rgba(87, 72, 51, 0.05);
-  --shadow-sm: 0 2px 6px rgba(87, 72, 51, 0.06), 0 1px 2px rgba(87, 72, 51, 0.04);
-  --card-shadow: 0 4px 18px -2px rgba(87, 72, 51, 0.07), 0 1px 3px rgba(87, 72, 51, 0.04);
-  --card-shadow-hover: 0 16px 36px -4px rgba(87, 72, 51, 0.12), 0 6px 14px rgba(87, 72, 51, 0.06);
-
-  --glass-bg: rgba(251, 247, 238, 0.92);
-  --glass-border: rgba(142, 107, 57, 0.22);
-  --glow-primary: rgba(194, 65, 12, 0.16);
-  --glow-accent: rgba(180, 83, 9, 0.16);
+  --brand-accent: #2563eb;
+  --brand-accent-rgb: 37, 99, 235;
+  --brand-green: #0f766e;
+  --brand-emerald: #059669;
+  --brand-purple: #7c3aed;
+  --brand-teal: #0d9488;
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-color: #0f766e;
+  --tint-jade-bg: #ecfdf5;
+  --tint-jade-border: rgba(15, 118, 110, 0.22);
+  --tint-jade-text: #0f766e;
+  --tint-rose-bg: #fff1f2;
+  --tint-rose-border: rgba(225, 29, 72, 0.22);
+  --tint-rose-text: #be123c;
+  --tint-blue-bg: #eff6ff;
+  --tint-blue-border: rgba(37, 99, 235, 0.22);
+  --tint-blue-text: #1d4ed8;
+  --tint-amber-bg: #fffbeb;
+  --tint-amber-border: rgba(217, 119, 6, 0.26);
+  --tint-amber-text: #b45309;
+  --tint-purple-bg: #f5f3ff;
+  --tint-purple-border: rgba(124, 58, 237, 0.22);
+  --tint-purple-text: #6d28d9;
+  --tint-teal-bg: #f0fdfa;
+  --tint-teal-border: rgba(13, 148, 136, 0.24);
+  --tint-teal-text: #0f766e;
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
+  --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.03);
+  --card-shadow-hover: 0 14px 32px -6px rgba(15, 23, 42, 0.11), 0 4px 12px rgba(15, 23, 42, 0.04);
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(15, 23, 42, 0.08);
+  --glow-primary: rgba(207, 38, 30, 0.14);
+  --glow-accent: rgba(37, 99, 235, 0.14);
 }
 
 /* Font Size Modifiers (Universal 5-Stage Hierarchy: 88% / 100% / 115% / 130% / 145%) */
@@ -5289,8 +5398,325 @@ p, li, h1, h2, h3, strong, small, span {
   margin: 0;
   line-height: 1.5;
 }
-.home-global-search { margin: 1rem auto; padding: 1rem; max-width: 70rem; background: var(--bg-card); border: 1px solid var(--border-highlight); border-radius: 1rem; }
-.home-global-search label { display: block; margin-bottom: .45rem; font-weight: 700; }
-.home-global-search div { display: flex; gap: .5rem; }
-.home-global-search input { min-width: 0; flex: 1; font: inherit; padding: .75rem; border: 1px solid var(--border-highlight); border-radius: .5rem; color: var(--text-primary); background: var(--bg-main); }
-.home-global-search button { font: inherit; cursor: pointer; padding: .65rem 1rem; border: 0; border-radius: .5rem; background: #19594f; color: white; }
+
+/* ==========================================================================
+   UI/UX Overhaul V2: Calm Editorial Header, Dual Theme Pill & Mega Catalog
+   ========================================================================== */
+.viet-header-v2 {
+  background: var(--bg-header);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow-xs);
+}
+
+.viet-navbar-v2 {
+  padding: 0.55rem 1.25rem;
+  background: transparent;
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: none;
+}
+
+.viet-header-v2 .nav-content,
+.viet-header-v2 .desktop-categories-content {
+  max-width: 1280px;
+}
+
+.viet-header-v2 .main-content,
+.main-content {
+  max-width: 1240px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3.5rem;
+}
+
+/* Crisp 2-Mode Light / Dark Segmented Theme Switch */
+.theme-segmented-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  gap: 2px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.theme-seg-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  height: 28px;
+  padding: 0 0.65rem;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.theme-seg-btn:hover {
+  color: var(--text-primary);
+}
+
+.theme-seg-btn.active {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-xs);
+}
+
+[data-theme="dark"] .theme-seg-btn.active {
+  background: var(--bg-card-hover);
+  color: var(--brand-gold);
+}
+
+/* Preferences Popover */
+.nav-popover-wrap,
+.nav-catalog-wrap {
+  position: relative;
+}
+
+.nav-prefs-trigger.is-open {
+  border-color: var(--brand-accent);
+  color: var(--brand-accent);
+  background: var(--bg-accent);
+}
+
+.nav-prefs-popover {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 280px;
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 1px solid var(--border-highlight);
+  box-shadow: var(--card-shadow-hover);
+  z-index: 1500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  animation: iosScaleUp 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.prefs-pop-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.prefs-pop-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.prefs-pop-chip {
+  padding: 0.32rem 0.7rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.prefs-pop-chip:hover,
+.prefs-pop-chip.is-active {
+  border-color: var(--brand-accent);
+  background: var(--bg-accent);
+  color: var(--brand-accent);
+}
+
+.prefs-pop-divider {
+  height: 1px;
+  background: var(--border-color);
+  margin: 0.1rem 0;
+}
+
+.prefs-pop-action {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.83rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast);
+}
+
+.prefs-pop-action:hover {
+  background: var(--bg-secondary);
+}
+
+.prefs-pop-meta {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  padding: 0.12rem 0.45rem;
+  border-radius: var(--radius-full);
+}
+
+/* Row 2: Instant Learning Strip */
+.viet-quick-nav-strip {
+  background: transparent;
+  border-bottom: 0;
+  padding: 0.4rem 1.25rem;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.viet-quick-nav-strip .desktop-categories-content {
+  overflow: visible;
+  flex-wrap: wrap;
+  gap: 0.32rem;
+}
+
+.viet-quick-nav-strip .nav-cat-btn {
+  padding: 0.36rem 0.8rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+}
+
+.viet-quick-nav-strip .nav-cat-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.viet-quick-nav-strip .nav-cat-btn.active {
+  background: var(--brand-green);
+  border-color: var(--brand-green);
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(15, 118, 110, 0.28);
+}
+
+[data-theme="dark"] .viet-quick-nav-strip .nav-cat-btn.active {
+  background: #0f766e;
+  border-color: rgba(45, 212, 191, 0.45);
+  color: #f0fdfa;
+}
+
+.nav-catalog-btn svg.rotated {
+  transform: rotate(180deg);
+}
+
+.nav-catalog-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: min(760px, calc(100vw - 2rem));
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  border: 1px solid var(--border-highlight);
+  box-shadow: var(--card-shadow-hover);
+  z-index: 1500;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  animation: iosScaleUp 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.catalog-col-title {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.45rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.catalog-col-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+
+.catalog-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.83rem;
+  font-weight: 650;
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.catalog-item-btn:hover {
+  background: var(--bg-secondary);
+  color: var(--brand-green);
+}
+
+.catalog-item-btn.active {
+  background: var(--tint-jade-bg);
+  color: var(--tint-jade-text);
+  font-weight: 800;
+}
+
+/* Mobile Drawer Quick Toggles */
+.drawer-quick-toggle {
+  flex: 1;
+  padding: 0.48rem 0.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .theme-seg-btn span,
+  .prefs-btn-label {
+    display: none;
+  }
+  .theme-seg-btn {
+    padding: 0 0.45rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .viet-quick-nav-strip {
+    display: none;
+  }
+  .main-content {
+    padding: 1rem 0.9rem 5.5rem;
+  }
+}

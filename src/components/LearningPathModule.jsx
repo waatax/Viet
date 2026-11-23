@@ -456,16 +456,19 @@ export const PEDAGOGICAL_STEPS = [
   }
 ];
 
+const VALID_HOME_VIEWS = ['overview', 'studio', 'curriculum', 'culture', 'guide'];
+
 export const LearningPathModule = ({
   setActiveTab,
   onOpenChapterFinder,
+  onSelectChapter,
+  KnowledgeGuideComponent,
   selectedAccent = 'north',
   setSelectedAccent,
   updateUserStats
 }) => {
   const { learningMode, loc, t } = useLanguage();
 
-  // Which stages the learner has marked complete (persisted locally)
   const [completed, setCompleted] = useState(() => {
     try {
       const saved = localStorage.getItem('viet_path_progress');
@@ -475,17 +478,6 @@ export const LearningPathModule = ({
     }
   });
 
-  // Fast-track completed days count
-  const [fastTrackCount, setFastTrackCount] = useState(() => {
-    try {
-      const saved = localStorage.getItem('viet_fasttrack_completed_days');
-      return saved ? JSON.parse(saved).length : 0;
-    } catch {
-      return 0;
-    }
-  });
-
-  // Interactive Can-Do Checkmarks Persisted State
   const [checkedCanDos, setCheckedCanDos] = useState(() => {
     try {
       const saved = localStorage.getItem('viet_cando_checklist');
@@ -495,7 +487,6 @@ export const LearningPathModule = ({
     }
   });
 
-  // Daily Study Goal in Minutes (5, 10, 20)
   const [dailyGoalMinutes, setDailyGoalMinutes] = useState(() => {
     try {
       return parseInt(localStorage.getItem('viet_daily_goal_min') || '10', 10);
@@ -504,12 +495,12 @@ export const LearningPathModule = ({
     }
   });
 
-  // 3-View Home Studio Perspective: 'conversation' | 'fasttrack_quest' | 'all_modules'
   const [activeHomeView, setActiveHomeView] = useState(() => {
     try {
-      return localStorage.getItem('viet_home_view_tab') || 'conversation';
+      const saved = localStorage.getItem('viet_home_view_tab_v2');
+      return VALID_HOME_VIEWS.includes(saved) ? saved : 'overview';
     } catch {
-      return 'conversation';
+      return 'overview';
     }
   });
 
@@ -517,11 +508,10 @@ export const LearningPathModule = ({
     audioEngine.playHaptic('selection');
     setActiveHomeView(viewKey);
     try {
-      localStorage.setItem('viet_home_view_tab', viewKey);
+      localStorage.setItem('viet_home_view_tab_v2', viewKey);
     } catch {}
   };
 
-  // Active Adaptive Learning Track Preset: 'all' | 'expatriate' | 'lifestyle' | 'academic'
   const [activeTrack, setActiveTrack] = useState(() => {
     try {
       return localStorage.getItem('viet_active_learning_track') || 'all';
@@ -539,39 +529,34 @@ export const LearningPathModule = ({
 
   const trackFeaturedChapters = useMemo(() => {
     if (activeTrack === 'expatriate') {
-      return SYLLABUS_REGISTRY.filter(chap => 
-        chap.category === 'business' || 
-        chap.category === 'macropol' || 
-        chap.id === 'scn_factory_qa' || 
-        chap.id === 'scn_nhau_dinner' || 
+      return SYLLABUS_REGISTRY.filter(chap =>
+        chap.category === 'business' ||
+        chap.category === 'macropol' ||
+        chap.id === 'scn_factory_qa' ||
+        chap.id === 'scn_nhau_dinner' ||
         chap.id === 'vocab_5k'
-      ).slice(0, 8);
+      ).slice(0, 6);
     }
     if (activeTrack === 'lifestyle') {
-      return SYLLABUS_REGISTRY.filter(chap => 
-        chap.category === 'scenario' || 
-        chap.category === 'fasttrack' || 
-        chap.category === 'topics' || 
-        chap.id === 'vocab_1k' || 
-        chap.id === 'scn_apt_rental' || 
-        chap.id === 'scn_air_customs' || 
-        chap.id === 'scn_pharmacy_clinic'
-      ).slice(0, 8);
+      return SYLLABUS_REGISTRY.filter(chap =>
+        chap.category === 'scenario' ||
+        chap.category === 'fasttrack' ||
+        chap.category === 'topics' ||
+        chap.id === 'vocab_1k' ||
+        chap.id === 'scn_apt_rental' ||
+        chap.id === 'scn_air_customs'
+      ).slice(0, 6);
     }
     if (activeTrack === 'academic') {
-      return SYLLABUS_REGISTRY.filter(chap => 
-        chap.category === 'basics' || 
-        chap.category === 'grammar' || 
+      return SYLLABUS_REGISTRY.filter(chap =>
+        chap.category === 'basics' ||
+        chap.category === 'grammar' ||
         chap.category === 'vocab'
-      ).slice(0, 8);
+      ).slice(0, 6);
     }
-    return SYLLABUS_REGISTRY.slice(0, 8);
+    return SYLLABUS_REGISTRY.slice(0, 6);
   }, [activeTrack]);
 
-  // Expanded Stage Details Accordion
-  const [expandedStageId, setExpandedStageId] = useState(null);
-
-  // SRS Data
   const [srsStats, setSrsStats] = useState({ dueCount: 0, masteredCount: 0, totalTracked: 0 });
 
   useEffect(() => {
@@ -580,30 +565,24 @@ export const LearningPathModule = ({
     let due = 0;
     let mastered = 0;
     const trackedKeys = Object.keys(srsData);
-    
     trackedKeys.forEach(id => {
       const item = srsData[id];
       if (item.dueDate && item.dueDate <= now) due++;
       if (item.interval && item.interval >= 14) mastered++;
     });
-
-    setSrsStats({
-      dueCount: due,
-      masteredCount: mastered,
-      totalTracked: trackedKeys.length
-    });
+    setSrsStats({ dueCount: due, masteredCount: mastered, totalTracked: trackedKeys.length });
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('viet_path_progress', JSON.stringify(completed));
+    try { localStorage.setItem('viet_path_progress', JSON.stringify(completed)); } catch {}
   }, [completed]);
 
   useEffect(() => {
-    localStorage.setItem('viet_cando_checklist', JSON.stringify(checkedCanDos));
+    try { localStorage.setItem('viet_cando_checklist', JSON.stringify(checkedCanDos)); } catch {}
   }, [checkedCanDos]);
 
   useEffect(() => {
-    localStorage.setItem('viet_daily_goal_min', dailyGoalMinutes.toString());
+    try { localStorage.setItem('viet_daily_goal_min', dailyGoalMinutes.toString()); } catch {}
   }, [dailyGoalMinutes]);
 
   const toggleStage = (id) => {
@@ -612,10 +591,7 @@ export const LearningPathModule = ({
 
   const toggleCanDo = (stageId, canDoIdx) => {
     const key = `${stageId}_${canDoIdx}`;
-    setCheckedCanDos(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
+    setCheckedCanDos(prev => ({ ...prev, [key]: !prev[key] }));
   };
 
   const handlePlayLandscape = (e, text, accent = 'north') => {
@@ -624,67 +600,15 @@ export const LearningPathModule = ({
     audioEngine.speak(text, { accent });
   };
 
-  const percent = Math.round((completed.length / learningPath.length) * 100);
-  const currentStage = learningPath.find(s => !completed.includes(s.id)) || learningPath[0];
-
-  const quickStarts = [
-    { id: 'topics', icon: Sparkles, titleZh: '7大情境專題深造', titleEn: '7 Situational Mastery', descZh: '商業問候·餐廳·家庭·健康·日期·殺價·數字', descEn: 'Business, Dining, Family, Health, Dates, Price & Numbers', tone: 'gold' },
-    { id: 'macropol', icon: Landmark, titleZh: '越南政經智庫', titleEn: 'Macro & Politics', descZh: '5年匯率·SBV利率·海關關稅·十四大', descEn: '5Y FX, SBV Rates, Customs & Dossiers', tone: 'blue' },
-    { id: 'business', icon: Briefcase, titleZh: '商務出差旗艦', titleEn: 'Business & FDI Hub', descZh: '談判·紅發票·工廠巡檢·應酬', descEn: 'Negotiation, Invoices & Factory', tone: 'gold' },
-    { id: 'fasttrack', icon: Zap, titleZh: '7天生活速成', titleEn: '7-Day Fast-Track', descZh: '35 句高頻破冰實戰', descEn: '35 Survival Phrases', tone: 'gold' },
-    { id: 'science', icon: Brain, titleZh: '科學方法研究', titleEn: 'Science & SLA', descZh: '5 大跨學科學習體系', descEn: '5-Discipline SLA Hub', tone: 'purple' },
-    { id: 'emergency', icon: LifeBuoy, titleZh: '生活急救錦囊', titleEn: 'Survival Audio Kit', descZh: '街頭出差一鍵出聲', descEn: 'Instant Tap-to-Speak', tone: 'red' },
-    { id: 'alphabet', icon: AudioLines, titleZh: '發音聲調打底', titleEn: 'Sounds & Tones', descZh: '29 字母與 6 聲調', descEn: '29 letters & 6 tones', tone: 'blue' },
-    { id: 'conversation', icon: MessagesSquare, titleZh: '64大情境對話', titleEn: '64 Scenarios', descZh: '真實對話與角色扮演', descEn: 'Dialogues & Role-Play', tone: 'red' },
-    { id: 'hanviet', icon: BookOpen, titleZh: '漢越同源字根', titleEn: 'Han-Viet Roots', descZh: '百大字根倍速記詞', descEn: '100 Core cognate roots', tone: 'purple' }
-  ];
-
-  // Last visited module state for "Resume Learning"
-  const [lastVisited] = useState(() => {
-    try {
-      const raw = localStorage.getItem('viet_last_visited');
-      if (raw) {
-        const parsed = JSON.parse(raw);
-        if (parsed?.tab && parsed.tab !== 'path') return parsed;
-      }
-    } catch {}
-    return null;
-  });
-
-  const lastVisitedModule = useMemo(() => {
-    if (!lastVisited?.tab || lastVisited.tab === 'path') return null;
-    for (const group of NAV_GROUPS) {
-      const found = group.items.find(i => i.id === lastVisited.tab);
-      if (found) return found;
-    }
-    return null;
-  }, [lastVisited]);
-
-  const LastVisitedIcon = lastVisitedModule?.icon || Compass;
-
-  const formatRelativeTime = (timestamp) => {
-    if (!timestamp) return '';
-    const diffSec = Math.floor((Date.now() - timestamp) / 1000);
-    if (diffSec < 60) return learningMode === 'zh' ? '剛剛' : 'just now';
-    if (diffSec < 3600) return `${Math.floor(diffSec / 60)} ${learningMode === 'zh' ? '分鐘前' : 'mins ago'}`;
-    if (diffSec < 86400) return `${Math.floor(diffSec / 3600)} ${learningMode === 'zh' ? '小時前' : 'hrs ago'}`;
-    return `${Math.floor(diffSec / 86400)} ${learningMode === 'zh' ? '天前' : 'days ago'}`;
-  };
-
-  // Daily Proverb State
   const [quoteIdx, setQuoteIdx] = useState(() => {
     const now = new Date();
     const startOfYear = new Date(now.getFullYear(), 0, 0);
-    const diff = now - startOfYear;
-    const oneDay = 1000 * 60 * 60 * 24;
-    const dayOfYear = Math.floor(diff / oneDay);
+    const dayOfYear = Math.floor((now - startOfYear) / 86400000);
     return dayOfYear % VIETNAMESE_PROVERBS.length;
   });
 
   const currentProverb = VIETNAMESE_PROVERBS[quoteIdx];
-  const [isProverbBookmarked, setIsProverbBookmarked] = useState(() => {
-    return bookmarkService.isBookmarked(currentProverb.vi);
-  });
+  const [isProverbBookmarked, setIsProverbBookmarked] = useState(() => bookmarkService.isBookmarked(currentProverb.vi));
   const [copiedProverb, setCopiedProverb] = useState(false);
 
   useEffect(() => {
@@ -716,1661 +640,558 @@ export const LearningPathModule = ({
     setTimeout(() => setCopiedProverb(false), 2000);
   };
 
+  const currentStage = learningPath.find(s => !completed.includes(s.id)) || learningPath[0];
+
+  const SPECIALIZED_PORTALS = [
+    {
+      id: 'business',
+      icon: Briefcase,
+      tone: 'amber',
+      titleZh: '商務出差與工廠實務',
+      titleEn: 'Business & FDI Hub',
+      descZh: '產線巡檢・AQL 品保・紅發票・商務應酬'
+    },
+    {
+      id: 'macropol',
+      icon: Landmark,
+      tone: 'blue',
+      titleZh: '越南政經總經智庫',
+      titleEn: 'Vietnam Macro Hub',
+      descZh: 'USD/VND 匯率・央行利率・通關法規專題'
+    },
+    {
+      id: 'emergency',
+      icon: LifeBuoy,
+      tone: 'rose',
+      titleZh: '生活急救點讀錦囊',
+      titleEn: 'Emergency Audio Kit',
+      descZh: '醫療看診・遺失協尋・街頭一鍵出聲卡'
+    },
+    {
+      id: 'hanviet',
+      icon: BookOpen,
+      tone: 'purple',
+      titleZh: '漢越同源字根倍速記憶',
+      titleEn: 'Han-Viet Cognates',
+      descZh: '用中文漢字推導越語詞彙與聲調對應'
+    }
+  ];
+
+  const EXPLORE_TABS = [
+    { id: 'overview', icon: '✨', labelZh: '每日精選', labelEn: 'Daily Picks' },
+    { id: 'studio', icon: '🎧', labelZh: '首頁快播會話室', labelEn: 'Quick Dialogue Studio' },
+    { id: 'curriculum', icon: '🗺️', labelZh: '20 模組與 A1–C2 藍圖', labelEn: 'Full Curriculum' },
+    { id: 'culture', icon: '🇻🇳', labelZh: '越南風土與禮儀', labelEn: 'Culture & Etiquette' },
+    { id: 'guide', icon: '📖', labelZh: '學習法與知識導覽', labelEn: 'Method & Guide' }
+  ];
+
   return (
-    <div className="module-container">
-      {/* 🧭 首頁三大視角切換器 (Home 3-View Segmented Switcher) */}
-      <div className="home-view-switcher" role="tablist" aria-label="首頁學習視角切換">
-        <button
-          type="button"
-          role="tab"
-          aria-selected={activeHomeView === 'conversation'}
-          className={`home-view-tab-btn ${activeHomeView === 'conversation' ? 'active' : ''}`}
-          onClick={() => handleSelectHomeView('conversation')}
-        >
-          <span className="tab-icon">🎧</span>
-          <div className="tab-copy">
-            <strong>{learningMode === 'zh' ? '實戰會話與開口造句' : 'Situational Studio'}</strong>
-            <small>{learningMode === 'zh' ? '75 組雙語會話 · 萬用句型機' : '75 Dialogues & Mixer'}</small>
-          </div>
-        </button>
-
-        <button
-          type="button"
-          role="tab"
-          aria-selected={activeHomeView === 'fasttrack_quest'}
-          className={`home-view-tab-btn ${activeHomeView === 'fasttrack_quest' ? 'active' : ''}`}
-          onClick={() => handleSelectHomeView('fasttrack_quest')}
-        >
-          <span className="tab-icon">⚡</span>
-          <div className="tab-copy">
-            <strong>{learningMode === 'zh' ? '日常速成與闖關' : 'Fast-Track & Quests'}</strong>
-            <small>{learningMode === 'zh' ? '7天生活破冰 · Duolingo 冒險' : '7-Day & Quest Loop'}</small>
-          </div>
-        </button>
-
-        <button
-          type="button"
-          role="tab"
-          aria-selected={activeHomeView === 'all_modules'}
-          className={`home-view-tab-btn ${activeHomeView === 'all_modules' ? 'active' : ''}`}
-          onClick={() => handleSelectHomeView('all_modules')}
-        >
-          <span className="tab-icon">🗺️</span>
-          <div className="tab-copy">
-            <strong>{learningMode === 'zh' ? '全域 20 模組與文化' : 'All 20 Modules & Lore'}</strong>
-            <small>{learningMode === 'zh' ? '完整課綱 · 智庫 · 諺語風景' : 'Full Map & Intelligence'}</small>
-          </div>
-        </button>
-      </div>
-
-      {/* 🇻🇳 首頁頂部實質會話速播工作台 (Practical Situational Conversation Studio) */}
-      <HomeConversationStudio
-        selectedAccent={selectedAccent}
-        onSelectAccent={setSelectedAccent}
-        setActiveTab={setActiveTab}
-        updateUserStats={updateUserStats}
-      />
-
-      {/* Hero Section with Live Progress Ring */}
-      <section className="home-hero" aria-labelledby="home-title">
-        <div className="hero-copy">
-          <div className="eyebrow"><Sparkles size={15} /> {learningMode === 'zh' ? '多學科科學方法 · 專為繁體中文學習者打造' : 'Science-Backed Vietnamese for Everyone'}</div>
-          <h1 id="home-title">
-            {learningMode === 'zh' ? <>從第一聲問候，<span>走進真正的越南。</span></> : <>Learn Vietnamese.<span>Use it with confidence.</span></>}
-          </h1>
-          <p>
-            {learningMode === 'zh'
-              ? '結合 7天生活速成破冰、漢越音認知捷徑、SM-2 遺忘曲線對抗與南北口音切換，讓大眾快樂學好、掌握基本溝通！'
-              : 'Master accents, 7-day survival conversations, Sino-Vietnamese cognates, and SM-2 memory curves in one joyful path.'}
-          </p>
-          <div className="hero-actions">
-            <button className="primary-action" onClick={() => setActiveTab('fasttrack')}>
-              <Zap size={18} fill="currentColor" /> {learningMode === 'zh' ? '開啟 7 天生活速成破冰' : 'Start 7-Day Fast-Track'}
-            </button>
-            <button className="secondary-action" onClick={() => setActiveTab('science')}>
-              <Brain size={18} /> {learningMode === 'zh' ? '檢視科學研究體系' : 'Explore Science Hub'}
-            </button>
-          </div>
-        </div>
-
-        <div className="hero-progress-card">
-          <div className="progress-orbit" style={{ '--progress': `${percent * 3.6}deg` }}>
-            <div><strong>{percent}%</strong><span>{learningMode === 'zh' ? '總進度' : 'progress'}</span></div>
-          </div>
-          <div className="hero-progress-copy">
-            <span>{learningMode === 'zh' ? '7天速成進度' : 'Fast-Track Progress'}</span>
-            <strong>{fastTrackCount} / 7 {learningMode === 'zh' ? '天已通關' : 'Days Complete'}</strong>
-            <small>{completed.length} / {learningPath.length} {learningMode === 'zh' ? '大階段完成' : 'stages complete'}</small>
-          </div>
-        </div>
-      </section>
-
-      {/* 🦉 Duolingo 遊戲化學習之路快捷傳送門 */}
-      <section className="duolingo-quest-banner" style={{
-        margin: '1.25rem 0',
-        padding: '1.25rem 1.6rem',
-        background: 'linear-gradient(135deg, rgba(88, 204, 2, 0.18) 0%, rgba(6, 182, 212, 0.15) 100%)',
-        border: '2px solid rgba(88, 204, 2, 0.4)',
-        borderRadius: '20px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '1.25rem',
-        boxShadow: '0 6px 24px rgba(88, 204, 2, 0.12)'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.1rem' }}>
-          <div style={{
-            fontSize: '2.4rem',
-            lineHeight: 1,
-            filter: 'drop-shadow(0 3px 8px rgba(0,0,0,0.2))'
-          }}>
-            🦉
-          </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.25rem' }}>
-              <span style={{
-                fontSize: '0.75rem',
-                fontWeight: 800,
-                textTransform: 'uppercase',
-                background: '#58cc02',
-                color: '#fff',
-                padding: '0.2rem 0.6rem',
-                borderRadius: '9999px'
-              }}>
-                全新登場 · DUOLINGO QUEST
-              </span>
-              <span style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 700 }}>
-                👑 8 大單元 · 32 關卡 · 200+ 題
-              </span>
-            </div>
-            <strong style={{ fontSize: '1.2rem', color: 'var(--text-primary, #fff)', display: 'block' }}>
-              越南語 Duolingo 遊戲化階梯學習之路
-            </strong>
-            <p style={{ margin: '0.2rem 0 0 0', fontSize: '0.85rem', color: 'var(--text-muted, #94a3b8)' }}>
-              全語音朗讀 · 烏龜慢速調型 · 提示鷹架支援 · 錯題重複直達徹底學會
-            </p>
-          </div>
-        </div>
-
-        <button
-          onClick={() => {
-            audioEngine.playHaptic('tap');
-            setActiveTab('quest');
-          }}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.75rem 1.6rem',
-            borderRadius: '9999px',
-            background: '#58cc02',
-            color: '#ffffff',
-            border: 'none',
-            fontSize: '1rem',
-            fontWeight: 800,
-            cursor: 'pointer',
-            boxShadow: '0 4px 0 #46a302',
-            transition: 'all 0.15s ease'
-          }}
-        >
-          <span>立即啟航闖關</span>
-          <ArrowRight size={18} />
-        </button>
-      </section>
-
-      {/* ⚡ 接續上次學習橫幅 (Resume Learning Flow) */}
-      {lastVisitedModule && (
-        <section className="resume-learning-banner" style={{
-          margin: '1.25rem 0',
-          padding: '1.1rem 1.5rem',
-          background: 'linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(16, 185, 129, 0.1) 100%)',
-          border: '1.5px solid rgba(59, 130, 246, 0.35)',
-          borderRadius: 'var(--radius-lg)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          boxShadow: '0 4px 18px rgba(37, 99, 235, 0.08)'
-        }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.9rem' }}>
-            <div style={{
-              width: '44px',
-              height: '44px',
-              borderRadius: 'var(--radius-md)',
-              background: 'var(--brand-primary)',
-              color: '#fff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              boxShadow: '0 4px 12px rgba(37, 99, 235, 0.35)'
-            }}>
-              <LastVisitedIcon size={24} />
-            </div>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{
-                  fontSize: '0.72rem',
-                  fontWeight: 800,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
-                  background: 'rgba(59, 130, 246, 0.2)',
-                  color: 'var(--brand-primary)',
-                  padding: '0.15rem 0.55rem',
-                  borderRadius: 'var(--radius-full)'
-                }}>
-                  ⚡ {learningMode === 'zh' ? '接續上次進度' : 'Resume Flow'}
-                </span>
-                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                  {formatRelativeTime(lastVisited.time)}
-                </span>
-              </div>
-              <strong style={{ fontSize: '1.1rem', color: 'var(--text-primary)', display: 'block', marginTop: '0.2rem' }}>
-                {t(lastVisitedModule.labelKey) || lastVisited.tab}
-              </strong>
-            </div>
-          </div>
-
-          <button
-            onClick={() => {
-              audioEngine.playHaptic('tap');
-              setActiveTab(lastVisited.tab);
-            }}
-            style={{
-              padding: '0.65rem 1.35rem',
-              borderRadius: 'var(--radius-full)',
-              background: 'var(--brand-primary)',
-              color: '#fff',
-              border: 'none',
-              fontWeight: 800,
-              fontSize: '0.92rem',
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.45rem',
-              boxShadow: '0 4px 14px rgba(37, 99, 235, 0.3)',
-              transition: 'all 0.15s ease'
-            }}
-          >
-            <span>{learningMode === 'zh' ? '繼續學習' : 'Resume Learning'}</span>
-            <ArrowRight size={16} />
-          </button>
-        </section>
-      )}
-
-      {/* Daily Study Goal Selector Bar */}
-      <section style={{
-        margin: '1.5rem 0',
-        padding: '1.1rem 1.5rem',
-        background: 'var(--bg-card)',
-        border: '1.5px solid var(--border-color)',
-        borderRadius: 'var(--radius-lg)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        flexWrap: 'wrap',
-        gap: '1rem'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-          <div style={{
-            width: '42px',
-            height: '42px',
-            borderRadius: 'var(--radius-md)',
-            background: 'rgba(234, 179, 8, 0.15)',
-            color: 'var(--brand-gold)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-            <Target size={22} />
-          </div>
-          <div>
-            <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)' }}>
-              {learningMode === 'zh' ? '🎯 今日個人化學習微目標' : '🎯 Daily Micro-Learning Target'}
-            </strong>
-            <p style={{ margin: '0.2rem 0 0', fontSize: '0.86rem', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh' ? '每天練習 5–10 分鐘，聽懂一句，再試著自己說一次。' : 'Practise for 5–10 minutes: understand one sentence, then say it yourself.'}
-            </p>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-          {[
-            { min: 5, labelZh: '🌱 輕鬆 5 分鐘', labelEn: '🌱 5 mins' },
-            { min: 10, labelZh: '⚡ 標準 10 分鐘', labelEn: '⚡ 10 mins' },
-            { min: 20, labelZh: '🔥 衝刺 20 分鐘', labelEn: '🔥 20 mins' }
-          ].map(opt => (
-            <button
-              key={opt.min}
-              onClick={() => setDailyGoalMinutes(opt.min)}
-              style={{
-                padding: '0.45rem 0.9rem',
-                borderRadius: 'var(--radius-full)',
-                border: dailyGoalMinutes === opt.min ? '2px solid var(--brand-primary)' : '1px solid var(--border-color)',
-                background: dailyGoalMinutes === opt.min ? 'var(--bg-accent)' : 'var(--bg-main)',
-                color: dailyGoalMinutes === opt.min ? 'var(--brand-primary)' : 'var(--text-secondary)',
-                fontWeight: dailyGoalMinutes === opt.min ? 800 : 600,
-                fontSize: '0.86rem',
-                cursor: 'pointer',
-                transition: 'all 0.15s ease'
-              }}
-            >
-              {learningMode === 'zh' ? opt.labelZh : opt.labelEn}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* 🚀 今日推薦 3 步黃金動能循環 (Today's 3-Step Momentum Loop) */}
-      <section className="daily-momentum-card" style={{
-        margin: '1.75rem 0',
-        padding: '1.75rem',
-        background: 'linear-gradient(135deg, color-mix(in srgb, var(--bg-card) 92%, #2563eb 8%) 0%, color-mix(in srgb, var(--bg-card) 95%, #10b981 5%) 100%)',
-        border: '2px solid var(--border-highlight)',
-        borderRadius: 'var(--radius-xl)',
-        boxShadow: 'var(--card-shadow)',
-        position: 'relative',
-        overflow: 'hidden'
-      }}>
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '4px',
-          background: 'linear-gradient(90deg, #3b82f6, #10b981, #f59e0b)'
-        }} />
-
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.78rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              <Flame size={15} color="var(--brand-gold)" />
-              <span>{learningMode === 'zh' ? '高黏著動能 · 二語習得每日最佳化' : 'Daily Momentum Acquisition Cycle'}</span>
-            </div>
-            <h2 style={{ fontSize: '1.38rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.25rem 0 0.15rem' }}>
-              {learningMode === 'zh' ? '⚡ 今日黃金學習 3 步閉環 (20 分鐘最優路徑)' : '⚡ Today\'s 3-Step Golden Momentum Loop'}
-            </h2>
-            <p style={{ margin: 0, fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh'
-                ? '不需猶豫今天學什麼！按照「溫故 ➔ 吸收 ➔ 輸出」科學節奏，每天 20 分鐘自然養成母語神經迴路。'
-                : 'No more guessing what to study: Review ➔ Acquire ➔ Output. 20 mins a day for effortless fluency.'}
-            </p>
-          </div>
-
-          <button
-            onClick={() => {
-              audioEngine.playHaptic('success');
-              setActiveTab('flashcards');
-            }}
-            style={{
-              padding: '0.75rem 1.4rem',
-              borderRadius: 'var(--radius-full)',
-              background: 'linear-gradient(135deg, var(--brand-accent), #1d4ed8)',
-              color: '#fff',
-              border: 'none',
-              fontWeight: 800,
-              fontSize: '0.94rem',
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              boxShadow: '0 4px 15px rgba(37, 99, 235, 0.35)',
-              transition: 'all 0.2s ease'
-            }}
-          >
-            <Play size={16} fill="currentColor" />
-            <span>{learningMode === 'zh' ? '一鍵啟動今日閉環' : 'Start Today\'s Loop'}</span>
-          </button>
-        </div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '1rem'
-        }}>
-          {/* Step 1 */}
-          <div
-            onClick={() => {
-              audioEngine.playHaptic('tap');
-              setActiveTab('flashcards');
-            }}
-            style={{
-              background: 'var(--bg-main)',
-              border: '1.5px solid var(--border-color)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '1.2rem',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative'
-            }}
-            className="momentum-step-card"
-          >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
-              <span style={{
-                background: 'rgba(59, 130, 246, 0.15)',
-                color: '#3b82f6',
-                fontWeight: 900,
-                fontSize: '0.76rem',
-                padding: '0.2rem 0.6rem',
-                borderRadius: 'var(--radius-full)'
-              }}>
-                STEP 1 · 5 分鐘
-              </span>
-              <span style={{ fontSize: '1.35rem' }}>🧠</span>
-            </div>
-            <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)', marginBottom: '0.3rem' }}>
-              {learningMode === 'zh' ? '溫故知新：SM-2 智能閃卡' : 'Review: SM-2 Spaced Repetition'}
-            </strong>
-            <p style={{ margin: 0, fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.45, flexGrow: 1 }}>
-              {learningMode === 'zh'
-                ? `抗遺忘記憶喚醒！今日排程有 ${srsStats.dueCount > 0 ? srsStats.dueCount : '10'} 個到期單字等待鞏固長期記憶。`
-                : `Beat the forgetting curve with active recall flashcards.`}
-            </p>
-            <div style={{ marginTop: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem', fontWeight: 800, color: '#3b82f6' }}>
-              <span>{learningMode === 'zh' ? '進入閃卡庫' : 'Open Deck'}</span>
-              <ArrowRight size={14} />
-            </div>
-          </div>
-
-          {/* Step 2 */}
-          <div
-            onClick={() => {
-              audioEngine.playHaptic('tap');
-              setActiveTab(fastTrackCount < 7 ? 'fasttrack' : 'topics');
-            }}
-            style={{
-              background: 'var(--bg-main)',
-              border: '1.5px solid var(--border-color)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '1.2rem',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative'
-            }}
-            className="momentum-step-card"
-          >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
-              <span style={{
-                background: 'rgba(234, 179, 8, 0.15)',
-                color: 'var(--brand-gold)',
-                fontWeight: 900,
-                fontSize: '0.76rem',
-                padding: '0.2rem 0.6rem',
-                borderRadius: 'var(--radius-full)'
-              }}>
-                STEP 2 · 10 分鐘
-              </span>
-              <span style={{ fontSize: '1.35rem' }}>⚡</span>
-            </div>
-            <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)', marginBottom: '0.3rem' }}>
-              {learningMode === 'zh' ? '核心吸收：今日進度章節' : 'Core Lesson: Today\'s Focus'}
-            </strong>
-            <p style={{ margin: 0, fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.45, flexGrow: 1 }}>
-              {learningMode === 'zh'
-                ? (fastTrackCount < 7 ? `7天生活速成：第 ${fastTrackCount + 1} 天破冰實戰！精讀 5 句道地金句與對話。` : '7大情境專題：商務談判、點餐飲食與日常生活深度吸收。')
-                : 'Acquire high-frequency language patterns through structured immersion.'}
-            </p>
-            <div style={{ marginTop: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem', fontWeight: 800, color: 'var(--brand-gold)' }}>
-              <span>{learningMode === 'zh' ? (fastTrackCount < 7 ? `挑戰 Day ${fastTrackCount + 1}` : '進入情境專題') : 'Start Lesson'}</span>
-              <ArrowRight size={14} />
-            </div>
-          </div>
-
-          {/* Step 3 */}
-          <div
-            onClick={() => {
-              audioEngine.playHaptic('tap');
-              setActiveTab('sentence');
-            }}
-            style={{
-              background: 'var(--bg-main)',
-              border: '1.5px solid var(--border-color)',
-              borderRadius: 'var(--radius-lg)',
-              padding: '1.2rem',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative'
-            }}
-            className="momentum-step-card"
-          >
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.65rem' }}>
-              <span style={{
-                background: 'rgba(16, 185, 129, 0.15)',
-                color: '#10b981',
-                fontWeight: 900,
-                fontSize: '0.76rem',
-                padding: '0.2rem 0.6rem',
-                borderRadius: 'var(--radius-full)'
-              }}>
-                STEP 3 · 5 分鐘
-              </span>
-              <span style={{ fontSize: '1.35rem' }}>🎯</span>
-            </div>
-            <strong style={{ fontSize: '1.05rem', color: 'var(--text-primary)', marginBottom: '0.3rem' }}>
-              {learningMode === 'zh' ? '實戰輸出：拼句與對話模擬' : 'Output: Sentence & Dialogue'}
-            </strong>
-            <p style={{ margin: 0, fontSize: '0.84rem', color: 'var(--text-secondary)', lineHeight: 1.45, flexGrow: 1 }}>
-              {learningMode === 'zh'
-                ? '立即轉化為產出！透過拼句特訓或情境對話角色扮演，驗證今天所學，鎖定記憶。'
-                : 'Convert passive knowledge into active communicative fluency.'}
-            </p>
-            <div style={{ marginTop: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.82rem', fontWeight: 800, color: '#10b981' }}>
-              <span>{learningMode === 'zh' ? '立即拼句實戰' : 'Start Output'}</span>
-              <ArrowRight size={14} />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 🌟 今日道地越語諺語金句 (Daily Vietnamese Wisdom & Quote) */}
-      <section className="daily-wisdom-card" style={{
-        margin: '1.75rem 0',
-        padding: '1.5rem 1.75rem',
-        background: 'linear-gradient(135deg, color-mix(in srgb, var(--bg-card) 94%, #f59e0b 6%) 0%, color-mix(in srgb, var(--bg-card) 96%, #8b5cf6 4%) 100%)',
-        border: '1.5px solid rgba(245, 158, 11, 0.35)',
-        borderRadius: 'var(--radius-xl)',
-        boxShadow: 'var(--card-shadow)',
-        position: 'relative'
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span style={{ fontSize: '1.4rem' }}>📜</span>
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <strong style={{ fontSize: '1.15rem', color: 'var(--text-primary)' }}>
-                  {learningMode === 'zh' ? '今日道地越語諺語金句 (Tục Ngữ & Ca Dao)' : 'Daily Vietnamese Wisdom & Proverb'}
-                </strong>
-                <span style={{
-                  fontSize: '0.72rem',
-                  fontWeight: 800,
-                  color: 'var(--brand-gold)',
-                  background: 'rgba(234, 179, 8, 0.15)',
-                  padding: '0.15rem 0.55rem',
-                  borderRadius: 'var(--radius-full)'
-                }}>
-                  #{quoteIdx + 1} / {VIETNAMESE_PROVERBS.length}
-                </span>
-              </div>
-              <p style={{ margin: '0.15rem 0 0', fontSize: '0.84rem', color: 'var(--text-secondary)' }}>
-                {learningMode === 'zh' ? '每日一句母語智慧，內化道地越式思維與文化哲理' : 'Absorb daily native wisdom, metaphors, and cultural philosophies'}
-              </p>
-            </div>
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <button
-              onClick={handleNextQuote}
-              title={learningMode === 'zh' ? '換下一句諺語' : 'Next Proverb'}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.35rem',
-                padding: '0.45rem 0.85rem',
-                borderRadius: 'var(--radius-full)',
-                border: '1px solid var(--border-color)',
-                background: 'var(--bg-main)',
-                color: 'var(--text-secondary)',
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                cursor: 'pointer'
-              }}
-            >
-              <RotateCw size={13} />
-              <span>{learningMode === 'zh' ? '🎲 換一句' : '🎲 Next'}</span>
-            </button>
-          </div>
-        </div>
-
-        <div style={{
-          background: 'var(--bg-main)',
-          border: '1px solid var(--border-color)',
-          borderRadius: 'var(--radius-lg)',
-          padding: '1.25rem 1.5rem',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '0.75rem'
-        }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.75rem' }}>
-            <div style={{ flex: 1, minWidth: '240px' }}>
-              <div style={{
-                fontSize: '1.35rem',
-                fontWeight: 900,
-                color: 'var(--brand-accent)',
-                lineHeight: 1.4,
-                letterSpacing: '0.01em'
-              }}>
-                "{currentProverb.vi}"
-              </div>
-              <div style={{
-                fontSize: '0.98rem',
-                color: 'var(--text-primary)',
-                marginTop: '0.4rem',
-                lineHeight: 1.5,
-                fontWeight: 600
-              }}>
-                {learningMode === 'zh' ? currentProverb.zh : currentProverb.en}
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <button
-                onClick={() => {
-                  audioEngine.playHaptic('tap');
-                  audioEngine.speak(currentProverb.audioText, { accent: 'north' });
-                }}
-                className="speaker-btn"
-                title="河內標準音朗讀"
-                style={{ width: '36px', height: '36px' }}
-              >
-                <Volume2 size={18} />
-              </button>
-              <button
-                onClick={handleToggleProverbBookmark}
-                title={isProverbBookmarked ? '從生詞本移除' : '收藏此金句至全域生詞本'}
-                style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: 'var(--radius-full)',
-                  border: isProverbBookmarked ? '1.5px solid var(--brand-gold)' : '1px solid var(--border-color)',
-                  background: isProverbBookmarked ? 'rgba(234, 179, 8, 0.2)' : 'var(--bg-main)',
-                  color: isProverbBookmarked ? 'var(--brand-gold)' : 'var(--text-muted)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                  transition: 'all 0.15s ease'
-                }}
-              >
-                <Star size={18} fill={isProverbBookmarked ? 'currentColor' : 'none'} />
-              </button>
-              <button
-                onClick={handleCopyProverb}
-                title="複製越文與註解"
-                style={{
-                  width: '36px',
-                  height: '36px',
-                  borderRadius: 'var(--radius-full)',
-                  border: '1px solid var(--border-color)',
-                  background: 'var(--bg-main)',
-                  color: copiedProverb ? '#10b981' : 'var(--text-muted)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  cursor: 'pointer',
-                  transition: 'all 0.15s ease'
-                }}
-              >
-                {copiedProverb ? <Check size={17} /> : <Copy size={17} />}
-              </button>
-            </div>
-          </div>
-
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            gap: '0.6rem',
-            borderTop: '1px dashed var(--border-color)',
-            paddingTop: '0.65rem',
-            fontSize: '0.84rem'
-          }}>
-            <span style={{
-              background: 'rgba(139, 92, 246, 0.12)',
-              color: '#8b5cf6',
-              fontWeight: 800,
-              padding: '0.15rem 0.55rem',
-              borderRadius: 'var(--radius-sm)'
-            }}>
-              📖 漢越字根拆解：{currentProverb.hanViet}
-            </span>
-            <span style={{ color: 'var(--text-secondary)' }}>
-              💡 <strong>文化背景：</strong>{currentProverb.culturalContext}
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Adaptive 3-Track Goal Switcher */}
-      <section className="adaptive-tracks-card" style={{
-        margin: '1.75rem 0',
-        padding: '1.5rem',
-        background: 'var(--bg-card)',
-        border: '1.5px solid var(--border-color)',
-        borderRadius: 'var(--radius-xl)',
-        boxShadow: 'var(--card-shadow)'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', marginBottom: '1.25rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-            <div style={{
-              width: '40px',
-              height: '40px',
-              borderRadius: 'var(--radius-md)',
-              background: 'rgba(37, 99, 235, 0.12)',
-              color: 'var(--brand-accent)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <Compass size={22} />
-            </div>
-            <div>
-              <h3 style={{ margin: 0, fontSize: '1.18rem', fontWeight: 900, color: 'var(--text-primary)' }}>
-                {learningMode === 'zh' ? '🎯 個人化學習賽道導航 (Adaptive Goal Tracks)' : '🎯 Adaptive Goal-Oriented Tracks'}
-              </h3>
-              <p style={{ margin: '0.2rem 0 0', fontSize: '0.86rem', color: 'var(--text-secondary)' }}>
-                {learningMode === 'zh' 
-                  ? '選擇您的學習目標，系統將智能為您重組章節推薦、情境演練與高頻單字權重' 
-                  : 'Select your learning objective to dynamically prioritize recommended chapters and vocabulary.'}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
-          gap: '0.85rem'
-        }}>
-          {ADAPTIVE_TRACKS.map(tr => {
-            const isSelected = activeTrack === tr.id;
-            return (
-              <div
-                key={tr.id}
-                onClick={() => handleSelectTrack(tr.id)}
-                style={{
-                  padding: '1.1rem 1.25rem',
-                  borderRadius: 'var(--radius-lg)',
-                  border: isSelected ? `2px solid ${tr.color}` : '1px solid var(--border-color)',
-                  background: isSelected ? 'var(--bg-accent)' : 'var(--bg-main)',
-                  cursor: 'pointer',
-                  transition: 'all 0.2s ease',
-                  position: 'relative',
-                  boxShadow: isSelected ? '0 4px 14px rgba(37,99,235,0.15)' : 'none'
-                }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                  <span style={{ fontSize: '1.75rem' }}>{tr.icon}</span>
-                  <span style={{
-                    background: isSelected ? tr.color : 'rgba(148, 163, 184, 0.15)',
-                    color: isSelected ? '#fff' : 'var(--text-secondary)',
-                    fontSize: '0.72rem',
-                    fontWeight: 800,
-                    padding: '0.15rem 0.55rem',
-                    borderRadius: 'var(--radius-full)'
-                  }}>
-                    {learningMode === 'zh' ? tr.badgeZh : tr.badgeEn}
-                  </span>
-                </div>
-                <strong style={{ fontSize: '0.98rem', color: isSelected ? tr.color : 'var(--text-primary)', display: 'block', marginBottom: '0.3rem' }}>
-                  {learningMode === 'zh' ? tr.titleZh : tr.titleEn}
-                </strong>
-                <p style={{ margin: 0, fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
-                  {learningMode === 'zh' ? tr.descZh : tr.descEn}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Master Course Syllabus & Chapter Quick Jump Hub */}
-      <section className="syllabus-hub-banner" style={{
-        margin: '1.75rem 0',
-        padding: '1.75rem 2rem',
-        background: 'var(--bg-card)',
-        border: '1.5px solid var(--border-highlight)',
-        borderRadius: 'var(--radius-xl)',
-        boxShadow: 'var(--card-shadow)'
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.25rem' }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              <Layers size={15} />
-              <span>{learningMode === 'zh' ? '全站章節導覽大廳' : 'Master Curriculum Directory'}</span>
-            </div>
-            <h2 style={{ fontSize: '1.45rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.35rem 0 0.2rem' }}>
-              {learningMode === 'zh' 
-                ? `${ADAPTIVE_TRACKS.find(t => t.id === activeTrack)?.titleZh || '全能精通'} · 精選推薦直達` 
-                : `${ADAPTIVE_TRACKS.find(t => t.id === activeTrack)?.titleEn || 'Mastery'} · Featured Chapters`}
-            </h2>
-            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh' 
-                ? '依主題立即探索生活情境、商務出差、越南政經、發音聲調與語法字根，快速找到你想學的內容！'
-                : 'Browse by topics: Life Dialogues, FDI Business, Macro Politics, Pronunciation, and Grammar Roots.'}
-            </p>
-          </div>
-
-          <button
-            onClick={onOpenChapterFinder}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              padding: '0.7rem 1.25rem',
-              borderRadius: 'var(--radius-full)',
-              background: 'var(--brand-accent)',
-              color: '#fff',
-              border: 'none',
-              fontWeight: 800,
-              fontSize: '0.92rem',
-              cursor: 'pointer',
-              boxShadow: '0 4px 14px rgba(37, 99, 235, 0.3)',
-              transition: 'all 0.2s ease'
-            }}
-          >
-            <Search size={17} />
-            <span>{learningMode === 'zh' ? '🔍 開啟全域章節速查盤 (Ctrl+K)' : 'Search All Chapters'}</span>
-          </button>
-        </div>
-
-        {/* Featured Chapter Cards */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-          gap: '0.85rem'
-        }}>
-          {trackFeaturedChapters.map(chap => (
-            <div
-              key={chap.id}
-              onClick={() => {
-                setActiveTab(chap.moduleId);
-                if (chap.targetParam) {
-                  sessionStorage.setItem('viet_target_chapter', JSON.stringify(chap));
-                  window.dispatchEvent(new CustomEvent('viet_jump_chapter', { detail: chap }));
-                }
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              style={{
-                background: 'var(--bg-main)',
-                border: '1px solid var(--border-color)',
-                borderRadius: 'var(--radius-md)',
-                padding: '1rem',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-              className="syllabus-preview-card"
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
-                <span style={{ fontSize: '0.72rem', fontWeight: 800, color: 'var(--brand-accent)', background: 'var(--bg-accent)', padding: '0.15rem 0.5rem', borderRadius: 'var(--radius-full)' }}>
-                  {learningMode === 'zh' ? chap.categoryLabelZh : chap.categoryLabelVi}
-                </span>
-                <span style={{ fontSize: '0.68rem', fontWeight: 800, color: 'var(--brand-gold)' }}>
-                  {chap.level} · {chap.readTime}
-                </span>
-              </div>
-              <strong style={{ fontSize: '0.95rem', color: 'var(--text-primary)', margin: '0.2rem 0', lineHeight: 1.3 }}>
-                {chap.titleZh}
-              </strong>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.5rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {chap.titleVi}
-              </div>
-              <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.78rem', fontWeight: 700, color: 'var(--brand-accent)' }}>
-                <span>{learningMode === 'zh' ? '前往章節' : 'Start'}</span>
-                <ArrowRight size={13} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 🗺️ 全域 20 大模組知識體系全景地圖 (20-Module SLA Knowledge Map) */}
-      <section className="knowledge-map-section" style={{
-        margin: '2rem 0',
-        padding: '1.75rem',
-        background: 'var(--bg-card)',
-        border: '1.5px solid var(--border-color)',
-        borderRadius: 'var(--radius-xl)',
-        boxShadow: 'var(--card-shadow)'
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1.5rem' }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              <Layers size={16} />
-              <span>{learningMode === 'zh' ? '全域架構 · 零死角全景導航' : 'Complete 20-Module Knowledge Architecture'}</span>
-            </div>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.35rem 0 0.2rem' }}>
-              {learningMode === 'zh' ? '🗺️ 全域 20 大模組知識體系地圖 (Knowledge Highway)' : '🗺️ 20-Module Full Knowledge Map'}
-            </h2>
-            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh'
-                ? '依二語習得（SLA）科學認知階梯劃分：發音打底 ➔ 生活破冰 ➔ 深度對話 ➔ 語法字根 ➔ 智庫經貿，各模組無縫相連。'
-                : 'Structured by SLA cognitive stages: Phonetics ➔ Survival ➔ Scenarios ➔ Syntax & Roots ➔ Business & Macro Intelligence.'}
-            </p>
-          </div>
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          {MODULE_KNOWLEDGE_MAP.map((tier) => (
-            <div
-              key={tier.tierId}
-              style={{
-                background: 'var(--bg-main)',
-                border: '1px solid var(--border-color)',
-                borderLeft: `5px solid ${tier.color}`,
-                borderRadius: 'var(--radius-lg)',
-                padding: '1.25rem'
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.85rem' }}>
-                <div>
-                  <h3 style={{ margin: 0, fontSize: '1.12rem', fontWeight: 900, color: 'var(--text-primary)' }}>
-                    {learningMode === 'zh' ? tier.tierNameZh : tier.tierNameEn}
-                  </h3>
-                  <p style={{ margin: '0.2rem 0 0', fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
-                    {learningMode === 'zh' ? tier.tierDescZh : tier.tierDescEn}
-                  </p>
-                </div>
-                <span style={{
-                  fontSize: '0.74rem',
-                  fontWeight: 800,
-                  color: tier.color,
-                  background: 'var(--bg-card)',
-                  padding: '0.2rem 0.65rem',
-                  borderRadius: 'var(--radius-full)',
-                  border: `1px solid ${tier.color}`
-                }}>
-                  {tier.modules.length} {learningMode === 'zh' ? '個核心模組' : 'Modules'}
-                </span>
-              </div>
-
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-                gap: '0.75rem'
-              }}>
-                {tier.modules.map((mod) => (
-                  <div
-                    key={mod.id}
-                    onClick={() => {
-                      audioEngine.playHaptic('tap');
-                      setActiveTab(mod.id);
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    style={{
-                      background: 'var(--bg-card)',
-                      border: '1px solid var(--border-color)',
-                      borderRadius: 'var(--radius-md)',
-                      padding: '0.9rem 1rem',
-                      cursor: 'pointer',
-                      transition: 'all 0.15s ease',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      boxShadow: 'var(--card-shadow)'
-                    }}
-                    className="knowledge-mod-card"
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                        <span style={{ fontSize: '1.3rem' }}>{mod.icon}</span>
-                        <strong style={{ fontSize: '0.94rem', color: 'var(--text-primary)' }}>
-                          {learningMode === 'zh' ? mod.titleZh : mod.titleEn}
-                        </strong>
-                      </div>
-                      <span style={{
-                        fontSize: '0.7rem',
-                        fontWeight: 900,
-                        background: 'rgba(37, 99, 235, 0.1)',
-                        color: 'var(--brand-accent)',
-                        padding: '0.15rem 0.45rem',
-                        borderRadius: 'var(--radius-full)'
-                      }}>
-                        {mod.level}
-                      </span>
-                    </div>
-
-                    <p style={{ margin: '0 0 0.6rem', fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.4, flexGrow: 1 }}>
-                      {mod.descZh}
-                    </p>
-
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '0.4rem', borderTop: '1px solid var(--border-subtle)', marginTop: 'auto' }}>
-                      <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 700 }}>
-                        ⏱ {mod.hours}
-                      </span>
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.2rem', fontSize: '0.76rem', fontWeight: 800, color: 'var(--brand-accent)' }}>
-                        <span>進入</span>
-                        <ArrowRight size={12} />
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 🇻🇳 越南人文地理與生活實境圖解景觀專區 */}
-      <section className="cultural-landscapes-section">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '0.5rem' }}>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              <MapPin size={15} />
-              <span>{learningMode === 'zh' ? '越南人文地理實景' : 'Cultural Geography & Destinations'}</span>
-            </div>
-            <h2 style={{ fontSize: '1.45rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.35rem 0 0.2rem' }}>
-              {learningMode === 'zh' ? '🇻🇳 越南人文地理與生活實境圖解 (Cultural Landscapes)' : '🇻🇳 Living Environments & Cultural Landscapes'}
-            </h2>
-            <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh' 
-                ? '走進真實越南！結合地理風貌、地標發音與實戰情境直達，全方位掌握南北文化思維與語言脈絡。' 
-                : 'Immerse into authentic Vietnam: geographical vistas, native pronunciations, and direct scenario links.'}
-            </p>
-          </div>
-        </div>
-
-        <div className="landscape-grid">
-          {VIETNAM_LANDSCAPES.map(land => (
-            <div
-              key={land.id}
-              className="landscape-card"
-              onClick={() => {
-                audioEngine.playHaptic('tap');
-                setActiveTab(land.targetModule);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-            >
-              <div className="landscape-img-wrap">
-                <img
-                  src={`${import.meta.env.BASE_URL || '/'}images/${land.image}`}
-                  alt={land.nameZh}
-                  className="landscape-img"
-                  loading="lazy"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                  }}
-                />
-                <div className="landscape-img-overlay">
-                  <span className="landscape-badge">
-                    {learningMode === 'zh' ? land.badgeZh : land.badgeEn}
-                  </span>
-                  <span className="landscape-accent-tag">
-                    {land.accent}
-                  </span>
-                </div>
-              </div>
-
-              <div className="landscape-content">
-                <div className="landscape-title-row">
-                  <span className="landscape-name-zh">
-                    {learningMode === 'zh' ? land.nameZh : land.nameEn}
-                  </span>
-                  <button
-                    className="landscape-listen-btn"
-                    onClick={(e) => handlePlayLandscape(e, land.audioText, land.accentType)}
-                    title="聆聽地標發音"
-                    aria-label={`聆聽 ${land.nameVi} 發音`}
-                  >
-                    <Volume2 size={14} />
-                  </button>
-                </div>
-                <div className="landscape-name-vi">{land.nameVi}</div>
-                <p className="landscape-desc">
-                  {learningMode === 'zh' ? land.descZh : land.descEn}
-                </p>
-                <div className="landscape-footer-cta">
-                  <span>{learningMode === 'zh' ? '前往相關學習模組' : 'Explore Module'}</span>
-                  <ArrowRight size={13} />
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 7-Day Fast-Track Banner */}
-      <section style={{
-        margin: '1.75rem 0',
-        padding: '1.5rem 2rem',
-        background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(234, 179, 8, 0.1) 50%, rgba(59, 130, 246, 0.1) 100%)',
-        border: '1.5px solid rgba(234, 179, 8, 0.35)',
-        borderRadius: 'var(--radius-lg)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '1.25rem'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-          <div style={{
-            width: '56px',
-            height: '56px',
-            borderRadius: 'var(--radius-md)',
-            background: 'linear-gradient(135deg, #ef4444, #f59e0b)',
-            color: '#fff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '1.8rem',
-            boxShadow: '0 8px 20px rgba(239, 68, 68, 0.25)'
-          }}>
-            ⚡
-          </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
-              <strong style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>
-                {learningMode === 'zh' ? '7天生活基本溝通速成破冰計畫' : '7-Day Fast-Track Survival Vietnamese'}
-              </strong>
-              <span style={{
-                background: 'var(--brand-gold)',
-                color: '#000',
-                fontSize: '0.75rem',
-                fontWeight: 900,
-                padding: '0.2rem 0.6rem',
-                borderRadius: 'var(--radius-full)'
-              }}>
-                {learningMode === 'zh' ? '大眾快樂零負擔' : 'Zero Friction'}
-              </span>
-            </div>
-            <p style={{ margin: '0.35rem 0 0', fontSize: '0.92rem', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh'
-                ? '每天 5 分鐘，精選 35 句打招呼、點咖啡、市場殺價、Grab搭車、稱謂防踩雷與交友實戰金句！'
-                : '5 minutes a day: 35 essential phrases for greetings, coffee, bargaining, Grab rides, pronouns, and making friends!'}
-            </p>
-          </div>
-        </div>
-
-        <button
-          className="primary-action"
-          onClick={() => setActiveTab('fasttrack')}
-          style={{ padding: '0.75rem 1.5rem', fontSize: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-        >
-          <Play size={18} fill="currentColor" />
-          {learningMode === 'zh' ? '立即前往速成島' : 'Start Fast-Track'}
-        </button>
-      </section>
-
-      {/* Vietnam Macro & Policy Intelligence Portal Banner (Paperluz format) */}
-      <section style={{
-        margin: '1.75rem 0',
-        padding: '1.5rem 2rem',
-        background: 'linear-gradient(135deg, rgba(11, 19, 41, 0.95) 0%, rgba(19, 31, 61, 0.95) 100%)',
-        border: '1.5px solid #3b82f6',
-        borderRadius: 'var(--radius-lg)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '1.25rem',
-        boxShadow: '0 8px 30px rgba(0, 0, 0, 0.35)',
-        color: '#f8fafc'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-          <div style={{
-            width: '56px',
-            height: '56px',
-            borderRadius: 'var(--radius-md)',
-            background: 'linear-gradient(135deg, #2563eb, #3b82f6)',
-            color: '#fff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            fontSize: '1.8rem',
-            boxShadow: '0 8px 20px rgba(37, 99, 235, 0.4)'
-          }}>
-            🏛️
-          </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
-              <strong style={{ fontSize: '1.25rem', color: '#ffffff' }}>
-                {learningMode === 'zh' ? '越南政經 · 國家戰略與宏觀總經情報中心' : 'Vietnam Macro & Policy Intelligence Hub'}
-              </strong>
-              <span style={{
-                background: '#f59e0b',
-                color: '#000',
-                fontSize: '0.75rem',
-                fontWeight: 900,
-                padding: '0.2rem 0.6rem',
-                borderRadius: 'var(--radius-full)'
-              }}>
-                {learningMode === 'zh' ? '智庫與一流新聞規格' : 'Paperluz Standard'}
-              </span>
-            </div>
-            <p style={{ margin: '0.35rem 0 0', fontSize: '0.92rem', color: '#94a3b8' }}>
-              {learningMode === 'zh'
-                ? 'USD/VND 五年每週匯率走勢追蹤 · 央行與四大行定存放款利率矩陣 · 海關外貿通關法規 · 越共十四大與政經深度調查專題！'
-                : '5-Year USD/VND weekly FX trend, SBV & Big 4 deposit/lending rates matrix, trade customs regulations, and in-depth political-economic dossiers!'}
-            </p>
-          </div>
-        </div>
-
-        <button
-          onClick={() => setActiveTab('macropol')}
-          style={{
-            padding: '0.75rem 1.5rem',
-            fontSize: '1rem',
-            fontWeight: 800,
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            background: '#3b82f6',
-            color: '#fff',
-            border: 'none',
-            borderRadius: 'var(--radius-md)',
-            cursor: 'pointer',
-            boxShadow: '0 4px 14px rgba(59, 130, 246, 0.4)',
-            transition: 'all 0.15s ease'
-          }}
-        >
-          <BookOpen size={18} />
-          {learningMode === 'zh' ? '進入越南政經門戶' : 'Explore Macro Hub'}
-        </button>
-      </section>
-
-      {/* 💡 越南跨文化避坑與社交禮儀圖解專區 */}
-      <section className="cultural-tips-section">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem' }}>
-          <Sparkles size={18} style={{ color: 'var(--brand-gold)' }} />
-          <h2 style={{ fontSize: '1.45rem', fontWeight: 900, color: 'var(--text-primary)', margin: 0 }}>
-            {learningMode === 'zh' ? '💡 越南跨文化避坑與社交禮儀圖解指南' : '💡 Cultural Etiquette & Living Hacks Guide'}
-          </h2>
-        </div>
-        <p style={{ margin: '0 0 1rem', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-          {learningMode === 'zh'
-            ? '在地人沒說但超重要的 5 大日常溝通眉角！從茶桌習慣、馬路求生到商務宴飲禮儀，避免踩雷、迅速融入。'
-            : '5 essential cultural survival rules: tea table habits, road safety, and dinner manners for seamless integration.'}
-        </p>
-
-        <div className="etiquette-grid">
-          {VIETNAMESE_ETIQUETTE_TIPS.map(tip => (
-            <div key={tip.id} className="etiquette-card" style={{ borderLeft: `4px solid ${tip.color}` }}>
-              <div className="etiquette-header">
-                <div className="etiquette-icon-wrap" style={{ background: tip.bg }}>
-                  <span>{tip.icon}</span>
-                </div>
-                <span className="etiquette-tag" style={{ background: tip.bg, color: tip.color }}>
-                  {learningMode === 'zh' ? tip.tagZh : tip.tagEn}
-                </span>
-              </div>
-              <strong className="etiquette-title">
-                {learningMode === 'zh' ? tip.titleZh : tip.titleEn}
-              </strong>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '0.3rem 0 0.5rem' }}>
-                <span className="etiquette-vi">{tip.phraseVi}</span>
-                <button
-                  className="landscape-listen-btn"
-                  onClick={(e) => handlePlayLandscape(e, tip.audioText)}
-                  title="聆聽發音"
-                  aria-label={`聆聽 ${tip.phraseVi} 發音`}
-                >
-                  <Volume2 size={13} />
-                </button>
-              </div>
-              <p className="etiquette-desc">
-                {learningMode === 'zh' ? tip.descZh : tip.descEn}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SRS Retention Status Hub */}
-      <section className="srs-retention-hub" style={{
-        margin: '1.75rem 0',
-        padding: '1.25rem 1.5rem',
-        background: 'linear-gradient(135deg, rgba(37,99,235,0.08) 0%, rgba(16,185,129,0.08) 100%)',
-        border: '1.5px solid rgba(37,99,235,0.25)',
-        borderRadius: 'var(--radius-lg)',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-        gap: '1.25rem'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <div style={{
-            width: '48px',
-            height: '48px',
-            borderRadius: 'var(--radius-md)',
-            background: 'var(--brand-primary)',
-            color: '#fff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-            <Brain size={26} />
-          </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <strong style={{ fontSize: '1.15em', color: 'var(--text-primary)' }}>
-                {learningMode === 'zh' ? '🧠 今日大腦記憶保鮮狀態 (SM-2 SRS)' : '🧠 Daily Brain Retention Status (SM-2)'}
-              </strong>
-              {srsStats.dueCount > 0 ? (
-                <span style={{
-                  background: '#ef4444',
-                  color: '#fff',
-                  fontSize: '0.75em',
-                  fontWeight: 800,
-                  padding: '0.2rem 0.55rem',
-                  borderRadius: 'var(--radius-full)'
-                }}>
-                  {learningMode === 'zh' ? `${srsStats.dueCount} 張到期待複習` : `${srsStats.dueCount} Due for review`}
-                </span>
-              ) : (
-                <span style={{
-                  background: 'var(--brand-green)',
-                  color: '#fff',
-                  fontSize: '0.75em',
-                  fontWeight: 800,
-                  padding: '0.2rem 0.55rem',
-                  borderRadius: 'var(--radius-full)'
-                }}>
-                  {learningMode === 'zh' ? '✓ 記憶狀態絕佳' : '✓ Retention optimal'}
-                </span>
-              )}
-            </div>
-            <p style={{ margin: '0.3rem 0 0', fontSize: '0.88em', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh'
-                ? `已進入間隔重複排程：${srsStats.totalTracked} 個單字 · 深度長期記憶 (14d+)：${srsStats.masteredCount} 個`
-                : `Active in SRS schedule: ${srsStats.totalTracked} words · Long-term mastered (14d+): ${srsStats.masteredCount} words`}
-            </p>
-          </div>
-        </div>
-
-        <button
-          className="primary-action"
-          style={{ padding: '0.6rem 1.2rem', fontSize: '0.92rem' }}
-          onClick={() => setActiveTab('flashcards')}
-        >
-          <Layers3 size={17} />
-          {learningMode === 'zh' ? '開啟智能閃卡複習' : 'Start SRS Flashcards'}
-        </button>
-      </section>
-
-      {/* 5-Step SLA Closed-Loop Pedagogical Model Card */}
-      <section className="pedagogical-loop-card" style={{
-        margin: '1.75rem 0',
-        padding: '1.5rem',
-        background: 'var(--bg-card)',
-        border: '1.5px solid var(--border-color)',
-        borderRadius: 'var(--radius-xl)',
-        boxShadow: 'var(--card-shadow)'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem' }}>
-          <div style={{
-            width: '40px',
-            height: '40px',
-            borderRadius: 'var(--radius-md)',
-            background: 'rgba(234, 179, 8, 0.15)',
-            color: 'var(--brand-gold)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}>
-            <Layers size={22} />
-          </div>
-          <div>
-            <h3 style={{ margin: 0, fontSize: '1.18rem', fontWeight: 900, color: 'var(--text-primary)' }}>
-              {learningMode === 'zh' ? '🔄 認知二語習得 5 步閉環教學法 (SLA Closed-Loop Model)' : '🔄 5-Step SLA Closed-Loop Pedagogical Model'}
-            </h3>
-            <p style={{ margin: '0.2rem 0 0', fontSize: '0.86rem', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh'
-                ? '告別死記硬背！遵循二語習得 SLA 科學節奏：精聽輸入 ➔ 結構剖析 ➔ 間隔固化 ➔ 內化跟讀 ➔ 任務輸出'
-                : 'Scientific language acquisition flow: Auditory Input ➔ Grammar Structure ➔ Memory Consolidation ➔ Prosodic Shadowing ➔ Interactive Output.'}
-            </p>
-          </div>
-        </div>
-
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
-          gap: '0.75rem'
-        }}>
-          {PEDAGOGICAL_STEPS.map((s) => (
-            <div
-              key={s.step}
-              onClick={() => {
-                setActiveTab(s.targetModule);
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              style={{
-                background: 'var(--bg-main)',
-                border: '1px solid var(--border-color)',
-                borderRadius: 'var(--radius-lg)',
-                padding: '1.1rem',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                display: 'flex',
-                flexDirection: 'column',
-                position: 'relative'
-              }}
-              className="pedagogical-step-box"
-            >
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.6rem' }}>
-                <span style={{
-                  width: '28px',
-                  height: '28px',
-                  borderRadius: 'var(--radius-full)',
-                  background: s.color,
-                  color: '#fff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '0.8rem',
-                  fontWeight: 900
-                }}>
-                  {s.step}
-                </span>
-                <span style={{ fontSize: '1.45rem' }}>{s.icon}</span>
-              </div>
-              <strong style={{ fontSize: '0.92rem', color: 'var(--text-primary)', marginBottom: '0.35rem', lineHeight: 1.3 }}>
-                {learningMode === 'zh' ? s.titleZh : s.titleEn}
-              </strong>
-              <p style={{ margin: 0, fontSize: '0.8rem', color: 'var(--text-secondary)', lineHeight: 1.4, flexGrow: 1 }}>
-                {learningMode === 'zh' ? s.descZh : s.descEn}
-              </p>
-              <div style={{ marginTop: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.78rem', fontWeight: 800, color: s.color }}>
-                <span>{learningMode === 'zh' ? '前往此步驟' : 'Enter Step'}</span>
-                <ArrowRight size={13} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Quick Start Grid */}
-      <section className="quick-start-section" aria-labelledby="quick-start-title">
-        <div className="section-heading-row">
-          <div>
-            <span className="section-kicker">{learningMode === 'zh' ? '快速開始' : 'QUICK START'}</span>
-            <h2 id="quick-start-title">{learningMode === 'zh' ? '今天想練什麼？' : 'What would you like to practice?'}</h2>
-          </div>
-          <span className="section-note">{learningMode === 'zh' ? '每次 5–10 分鐘也能穩定前進' : 'Make progress in just 5–10 minutes'}</span>
-        </div>
-        <div className="quick-start-grid">
-          {quickStarts.map(({ id, icon: Icon, titleZh, titleEn, descZh, descEn, tone }) => (
-            <button key={id} className={`quick-start-card tone-${tone}`} onClick={() => setActiveTab(id)}>
-              <span className="quick-icon"><Icon size={23} /></span>
-              <span><strong>{learningMode === 'zh' ? titleZh : titleEn}</strong><small>{learningMode === 'zh' ? descZh : descEn}</small></span>
-              <ArrowRight className="quick-arrow" size={18} />
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* CEFR Framework Milestones Matrix Bar */}
-      <section style={{
-        marginTop: '2rem',
-        padding: '1.25rem 1.5rem',
-        background: 'var(--bg-card)',
-        border: '1.5px solid var(--border-color)',
-        borderRadius: 'var(--radius-lg)'
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem', flexWrap: 'wrap', gap: '0.5rem' }}>
-          <div>
-            <span style={{ fontSize: '0.8rem', fontWeight: 800, color: 'var(--brand-accent)', textTransform: 'uppercase' }}>
-              七階課綱學習目標
-            </span>
-            <h3 style={{ margin: '0.2rem 0 0', fontSize: '1.15rem', fontWeight: 900, color: 'var(--text-primary)' }}>
-              越語能力成長階段里程碑 (Progress Milestones)
-            </h3>
-          </div>
-          <span style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
-            詞數為課綱規劃目標，非官方檢定門檻
-          </span>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '0.65rem' }}>
-          {learningPath.map((stage, i) => ({ lvl: stage.level, vocab: `${stage.vocabTarget.toLocaleString()}詞`, focus: ['發音·聲調·破冰', '稱謂·數字·生存', '語法·漢越字根', '會話·口音·糾錯', '商務·正式書信', '社論·成語·論證', '文學·翻譯·語域'][i], color: ['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#06b6d4','#ec4899'][i] })).map((m, mIdx) => (
-            <div
-              key={mIdx}
-              style={{
-                background: 'var(--bg-main)',
-                border: '1px solid var(--border-color)',
-                borderTop: `3px solid ${m.color}`,
-                borderRadius: 'var(--radius-sm)',
-                padding: '0.7rem 0.55rem',
-                textAlign: 'center'
-              }}
-            >
-              <div style={{ fontWeight: 900, fontSize: '0.92rem', color: m.color }}>{m.lvl}</div>
-              <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-                📚 {m.vocab}
-              </div>
-              <div style={{ fontSize: '0.74rem', fontWeight: 700, color: 'var(--text-secondary)', marginTop: '0.3rem' }}>
-                {m.focus}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Stage Roadmap Cards: A1 to C2 with Interactive Can-Do Checklist */}
-      <div id="learning-roadmap" className="roadmap-grid" style={{ marginTop: '2.5rem' }}>
-        <div style={{ gridColumn: '1 / -1', marginBottom: '0.5rem' }}>
-          <span className="section-kicker">{learningMode === 'zh' ? '成長藍圖' : 'LEARNING ROADMAP'}</span>
-          <h2 style={{ fontSize: '1.6rem', fontWeight: 900, color: 'var(--text-primary)', margin: '0.2rem 0' }}>
-            {learningMode === 'zh' ? '🇻🇳 信達雅三位一體：A1 至 C2 七大進階階段' : 'A1 to C2: Seven-Stage Study Roadmap'}
-          </h2>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '0.94rem' }}>
-            {learningMode === 'zh'
-              ? '依七階課綱勾選實戰能力指標。級別、詞數與時間是學習規劃；站內完成紀錄不等同官方認證，C1+為本課綱過渡階段。'
-              : 'Track practical curriculum tasks. Levels, word counts and time are study targets, not official certification; C1+ is a curriculum transition stage.'}
-          </p>
-        </div>
-
-        {learningPath.map((stage, idx) => {
-          const done = completed.includes(stage.id);
-          const isCurrent = currentStage && currentStage.id === stage.id;
-          const isExpanded = expandedStageId === stage.id;
-          const canDoList = learningMode === 'zh' ? stage.canDoZh : stage.canDoEn;
-
-          // Calculate checked Can-Dos count
-          const stageCheckedCount = canDoList.filter((_, cIdx) => checkedCanDos[`${stage.id}_${cIdx}`]).length;
-          const canDoProgress = Math.round((stageCheckedCount / canDoList.length) * 100);
-
+    <div className="home-explore-deck">
+      <div className="home-explore-tabs" role="tablist" aria-label={learningMode === 'zh' ? '探索更多學習專區' : 'Explore learning sections'}>
+        {EXPLORE_TABS.map(tab => {
+          const isActive = activeHomeView === tab.id;
           return (
-            <div
-              key={stage.id}
-              className="learning-card"
-              style={{
-                borderLeft: `6px solid ${done ? 'var(--brand-green)' : isCurrent ? 'var(--brand-primary)' : 'var(--border-color)'}`,
-                opacity: done ? 0.95 : 1,
-                background: done ? 'var(--bg-card-subtle)' : 'var(--bg-card)',
-                boxShadow: isCurrent ? '0 8px 30px rgba(218, 37, 28, 0.12)' : 'var(--card-shadow)',
-                transition: 'all 0.2s ease'
-              }}
+            <button
+              key={tab.id}
+              type="button"
+              role="tab"
+              aria-selected={isActive}
+              className={`home-explore-tab ${isActive ? 'active' : ''}`}
+              onClick={() => handleSelectHomeView(tab.id)}
             >
-              {/* Stage header row */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem', flexWrap: 'wrap', marginBottom: '0.9rem' }}>
-                <div style={{ flex: '1 1 320px' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.4rem', flexWrap: 'wrap' }}>
-                    <span style={{ background: 'var(--brand-primary)', color: '#fff', fontWeight: 900, fontSize: '0.78em', padding: '0.2rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
-                      CEFR {stage.level}
-                    </span>
-                    <span style={{ background: 'var(--bg-accent)', color: 'var(--brand-gold)', fontWeight: 800, fontSize: '0.78em', padding: '0.2rem 0.65rem', borderRadius: 'var(--radius-full)' }}>
-                      {loc(stage, 'ivpt')}
-                    </span>
-                    {isCurrent && (
-                      <span style={{ color: 'var(--brand-accent)', fontWeight: 800, fontSize: '0.82em', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
-                        <Flame size={14} color="var(--brand-accent)" />
-                        {learningMode === 'zh' ? '目前進行中' : 'In progress'}
-                      </span>
-                    )}
-                  </div>
-                  <h3 style={{ fontSize: '1.28em', fontWeight: 900, color: 'var(--text-primary)' }}>
-                    {loc(stage, 'title')}
-                  </h3>
-                  <div style={{ fontSize: '0.86em', color: 'var(--text-muted)', marginTop: '0.3rem' }}>
-                    ⏱ {loc(stage, 'duration')} · 📚 {learningMode === 'zh' ? `目標詞彙 ${stage.vocabTarget} 字` : `${stage.vocabTarget} words target`}
-                  </div>
-                </div>
-
-                <button
-                  className="control-btn"
-                  onClick={() => toggleStage(stage.id)}
-                  style={{
-                    background: done ? 'var(--brand-green)' : 'var(--bg-main)',
-                    color: done ? '#fff' : 'inherit',
-                    fontWeight: 800,
-                    whiteSpace: 'nowrap'
-                  }}
-                >
-                  {done ? <CheckCircle size={16} /> : <Circle size={16} />}
-                  <span>
-                    {done
-                      ? (learningMode === 'zh' ? '已全階段通關' : 'Completed')
-                      : (learningMode === 'zh' ? '標記通關' : 'Mark done')}
-                  </span>
-                </button>
-              </div>
-
-              {/* Stage goal */}
-              <div style={{ background: 'var(--bg-accent)', padding: '0.75rem 1rem', borderRadius: 'var(--radius-sm)', marginBottom: '0.9rem', fontSize: '0.94em', borderLeft: '3px solid var(--brand-accent)' }}>
-                🎯 <strong>{learningMode === 'zh' ? '核心目標：' : 'Stage goal: '}</strong>
-                {loc(stage, 'goal')}
-              </div>
-
-              {/* Interactive Can-Do Checklist */}
-              <div style={{ marginBottom: '1rem', background: 'var(--bg-main)', padding: '0.85rem 1rem', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border-color)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.6rem' }}>
-                  <div style={{ fontSize: '0.88em', fontWeight: 800, color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                    <CheckSquare size={16} color="var(--brand-green)" />
-                    <span>{learningMode === 'zh' ? '能力指標任務自檢 (Can-Do)' : 'Can-Do Progress Checklist'}</span>
-                  </div>
-                  <span style={{ fontSize: '0.82rem', fontWeight: 800, color: 'var(--brand-green)' }}>
-                    {stageCheckedCount} / {canDoList.length} ({canDoProgress}%)
-                  </span>
-                </div>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.45rem' }}>
-                  {canDoList.map((item, i) => {
-                    const isChecked = !!checkedCanDos[`${stage.id}_${i}`];
-                    return (
-                      <div
-                        key={i}
-                        onClick={() => toggleCanDo(stage.id, i)}
-                        style={{
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          gap: '0.55rem',
-                          cursor: 'pointer',
-                          padding: '0.3rem 0',
-                          userSelect: 'none'
-                        }}
-                      >
-                        <span style={{ marginTop: '2px', color: isChecked ? 'var(--brand-green)' : 'var(--text-muted)' }}>
-                          {isChecked ? <CheckSquare size={16} /> : <Square size={16} />}
-                        </span>
-                        <span style={{
-                          fontSize: '0.9rem',
-                          color: isChecked ? 'var(--text-muted)' : 'var(--text-secondary)',
-                          textDecoration: isChecked ? 'line-through' : 'none',
-                          lineHeight: 1.45
-                        }}>
-                          {item}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Linked Recommended Learning Modules with Direct Launch CTA */}
-              <div style={{ marginBottom: '1rem' }}>
-                <div style={{ fontSize: '0.86em', fontWeight: 800, color: 'var(--text-secondary)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <BookOpen size={15} color="var(--brand-accent)" />
-                  {learningMode === 'zh' ? '推薦實戰學習模組' : 'Recommended modules'}
-                </div>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  {stage.modules.map((modId, mIdx) => (
-                    <button
-                      key={modId}
-                      className="control-btn"
-                      onClick={() => setActiveTab(modId)}
-                      style={{
-                        fontSize: '0.88em',
-                        background: mIdx === 0 ? 'var(--bg-accent)' : 'var(--bg-main)',
-                        border: mIdx === 0 ? '1.5px solid var(--brand-accent)' : '1px solid var(--border-color)',
-                        color: mIdx === 0 ? 'var(--brand-accent)' : 'var(--text-primary)',
-                        padding: '0.45rem 0.85rem',
-                        fontWeight: 700
-                      }}
-                    >
-                      <span>{t(`tabs.${modId}`)}</span>
-                      <ArrowRight size={14} />
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Milestone Indicator */}
-              <div style={{ fontSize: '0.88em', color: 'var(--brand-gold)', display: 'flex', alignItems: 'flex-start', gap: '0.45rem', marginTop: 'auto', paddingTop: '0.5rem', borderTop: '1px dashed var(--border-color)' }}>
-                <Flag size={15} style={{ flexShrink: 0, marginTop: '0.15rem' }} />
-                <span>{loc(stage, 'milestone')}</span>
-              </div>
-            </div>
+              <span aria-hidden="true">{tab.icon}</span>
+              <span>{learningMode === 'zh' ? tab.labelZh : tab.labelEn}</span>
+            </button>
           );
         })}
       </div>
+
+      {activeHomeView === 'overview' && (
+        <div className="explore-panel explore-overview">
+          <section className="proverb-card-v2" aria-label="每日越語諺語">
+            <div className="proverb-card-head">
+              <div className="proverb-head-title">
+                <span className="proverb-pill">📜 每日越語金句 #{quoteIdx + 1}/{VIETNAMESE_PROVERBS.length}</span>
+                <span className="proverb-hanviet">{currentProverb.hanViet}</span>
+              </div>
+              <div className="proverb-head-actions">
+                <button
+                  type="button"
+                  className="proverb-icon-btn"
+                  onClick={() => {
+                    audioEngine.playHaptic('tap');
+                    audioEngine.speak(currentProverb.audioText, { accent: selectedAccent });
+                  }}
+                  title="播放發音"
+                  aria-label="播放諺語發音"
+                >
+                  <Volume2 size={16} />
+                </button>
+                <button
+                  type="button"
+                  className={`proverb-icon-btn ${isProverbBookmarked ? 'is-saved' : ''}`}
+                  onClick={handleToggleProverbBookmark}
+                  title={isProverbBookmarked ? '從生詞本移除' : '收藏至生詞本'}
+                  aria-label="收藏諺語"
+                >
+                  <Star size={16} fill={isProverbBookmarked ? 'currentColor' : 'none'} />
+                </button>
+                <button
+                  type="button"
+                  className="proverb-icon-btn"
+                  onClick={handleCopyProverb}
+                  title="複製"
+                  aria-label="複製諺語"
+                >
+                  {copiedProverb ? <Check size={15} /> : <Copy size={15} />}
+                </button>
+                <button
+                  type="button"
+                  className="proverb-shuffle-btn"
+                  onClick={handleNextQuote}
+                >
+                  <RotateCw size={13} />
+                  <span>換一句</span>
+                </button>
+              </div>
+            </div>
+            <blockquote className="proverb-vi">“{currentProverb.vi}”</blockquote>
+            <p className="proverb-zh">{learningMode === 'zh' ? currentProverb.zh : currentProverb.en}</p>
+          </section>
+
+          <section className="specialized-portals-section" aria-label="進階專題與實用工具">
+            <div className="explore-subhead">
+              <h2>{learningMode === 'zh' ? '專題與實戰工具' : 'Specialized Hubs'}</h2>
+              <button type="button" className="explore-link-btn" onClick={() => handleSelectHomeView('curriculum')}>
+                <span>瀏覽全部 20 門課程</span>
+                <ArrowRight size={14} />
+              </button>
+            </div>
+            <div className="specialized-portals-grid">
+              {SPECIALIZED_PORTALS.map(({ id, icon: Icon, tone, titleZh, titleEn, descZh }) => (
+                <button
+                  key={id}
+                  type="button"
+                  className={`portal-card-v2 tone-${tone}`}
+                  onClick={() => {
+                    audioEngine.playHaptic('tap');
+                    setActiveTab(id);
+                  }}
+                >
+                  <span className={`portal-icon-v2 tone-${tone}`}>
+                    <Icon size={20} aria-hidden="true" />
+                  </span>
+                  <span className="portal-copy-v2">
+                    <strong>{learningMode === 'zh' ? titleZh : titleEn}</strong>
+                    <small>{descZh}</small>
+                  </span>
+                  <ArrowRight size={15} className="portal-arrow-v2" aria-hidden="true" />
+                </button>
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {activeHomeView === 'studio' && (
+        <div className="explore-panel">
+          <HomeConversationStudio
+            selectedAccent={selectedAccent}
+            onSelectAccent={setSelectedAccent}
+            setActiveTab={setActiveTab}
+            updateUserStats={updateUserStats}
+          />
+        </div>
+      )}
+
+      {activeHomeView === 'curriculum' && (
+        <div className="explore-panel explore-curriculum">
+          <section className="explore-surface-card">
+            <div className="explore-surface-head">
+              <div>
+                <span className="explore-kicker">個人化學習賽道</span>
+                <h2>依目標挑選優先章節</h2>
+              </div>
+              {onOpenChapterFinder && (
+                <button type="button" className="explore-primary-pill" onClick={onOpenChapterFinder}>
+                  <Search size={15} />
+                  <span>搜尋全部章節</span>
+                </button>
+              )}
+            </div>
+
+            <div className="adaptive-tracks-grid">
+              {ADAPTIVE_TRACKS.map(tr => {
+                const isSelected = activeTrack === tr.id;
+                return (
+                  <button
+                    key={tr.id}
+                    type="button"
+                    className={`track-choice-card ${isSelected ? 'is-selected' : ''}`}
+                    onClick={() => handleSelectTrack(tr.id)}
+                  >
+                    <div className="track-choice-top">
+                      <span className="track-choice-icon">{tr.icon}</span>
+                      <span className="track-choice-badge">{learningMode === 'zh' ? tr.badgeZh : tr.badgeEn}</span>
+                    </div>
+                    <strong>{learningMode === 'zh' ? tr.titleZh : tr.titleEn}</strong>
+                    <small>{learningMode === 'zh' ? tr.descZh : tr.descEn}</small>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="track-chapters-grid">
+              {trackFeaturedChapters.map(chap => (
+                <button
+                  key={chap.id}
+                  type="button"
+                  className="syllabus-preview-card"
+                  onClick={() => {
+                    setActiveTab(chap.moduleId);
+                    if (chap.targetParam) {
+                      sessionStorage.setItem('viet_target_chapter', JSON.stringify(chap));
+                      window.dispatchEvent(new CustomEvent('viet_jump_chapter', { detail: chap }));
+                    }
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                >
+                  <div className="syllabus-card-meta">
+                    <span className="syllabus-cat-pill">{learningMode === 'zh' ? chap.categoryLabelZh : chap.categoryLabelVi}</span>
+                    <span className="syllabus-lvl-text">{chap.level} · {chap.readTime}</span>
+                  </div>
+                  <strong>{chap.titleZh}</strong>
+                  <small>{chap.titleVi}</small>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          <section className="explore-surface-card">
+            <div className="explore-surface-head">
+              <div>
+                <span className="explore-kicker">全域課程地圖</span>
+                <h2>五大階梯・20 大核心學習模組</h2>
+              </div>
+            </div>
+
+            <div className="tiers-stack">
+              {MODULE_KNOWLEDGE_MAP.map((tier) => (
+                <div key={tier.tierId} className="tier-group-box" style={{ '--tier-accent': tier.color }}>
+                  <div className="tier-group-head">
+                    <div>
+                      <h3>{learningMode === 'zh' ? tier.tierNameZh : tier.tierNameEn}</h3>
+                      <p>{learningMode === 'zh' ? tier.tierDescZh : tier.tierDescEn}</p>
+                    </div>
+                    <span className="tier-count-pill">{tier.modules.length} 模組</span>
+                  </div>
+                  <div className="tier-modules-grid">
+                    {tier.modules.map((mod) => (
+                      <button
+                        key={mod.id}
+                        type="button"
+                        className="knowledge-mod-card"
+                        onClick={() => {
+                          audioEngine.playHaptic('tap');
+                          setActiveTab(mod.id);
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }}
+                      >
+                        <div className="mod-card-top">
+                          <span className="mod-card-title">
+                            <span>{mod.icon}</span>
+                            <strong>{learningMode === 'zh' ? mod.titleZh : mod.titleEn}</strong>
+                          </span>
+                          <span className="mod-level-tag">{mod.level}</span>
+                        </div>
+                        <p>{mod.descZh}</p>
+                        <div className="mod-card-foot">
+                          <span>⏱ {mod.hours}</span>
+                          <span className="mod-enter-cta">進入 <ArrowRight size={12} /></span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="learning-roadmap" className="explore-surface-card">
+            <div className="explore-surface-head">
+              <div>
+                <span className="explore-kicker">A1–C2 成長藍圖</span>
+                <h2>七階實戰能力指標 (Can-Do Checklist)</h2>
+              </div>
+              <span className="roadmap-progress-pill">已完成 {completed.length} / {learningPath.length} 階段</span>
+            </div>
+
+            <div className="roadmap-grid-v2">
+              {learningPath.map((stage) => {
+                const done = completed.includes(stage.id);
+                const isCurrent = currentStage && currentStage.id === stage.id;
+                const canDoList = learningMode === 'zh' ? stage.canDoZh : stage.canDoEn;
+                const stageCheckedCount = canDoList.filter((_, cIdx) => checkedCanDos[`${stage.id}_${cIdx}`]).length;
+                const canDoProgress = Math.round((stageCheckedCount / canDoList.length) * 100);
+
+                return (
+                  <div key={stage.id} className={`roadmap-stage-card ${done ? 'is-done' : isCurrent ? 'is-current' : ''}`}>
+                    <div className="roadmap-stage-head">
+                      <div>
+                        <div className="roadmap-stage-badges">
+                          <span className="stage-cefr-badge">CEFR {stage.level}</span>
+                          <span className="stage-ivpt-badge">{loc(stage, 'ivpt')}</span>
+                          {isCurrent && <span className="stage-current-badge"><Flame size={13} /> 進行中</span>}
+                        </div>
+                        <h3>{loc(stage, 'title')}</h3>
+                        <small>⏱ {loc(stage, 'duration')} · 📚 目標詞彙 {stage.vocabTarget} 字</small>
+                      </div>
+                      <button
+                        type="button"
+                        className={`stage-toggle-btn ${done ? 'is-done' : ''}`}
+                        onClick={() => toggleStage(stage.id)}
+                      >
+                        {done ? <CheckCircle size={15} /> : <Circle size={15} />}
+                        <span>{done ? '已通關' : '標記通關'}</span>
+                      </button>
+                    </div>
+
+                    <div className="stage-goal-box">
+                      <strong>🎯 核心目標：</strong>{loc(stage, 'goal')}
+                    </div>
+
+                    <div className="stage-cando-box">
+                      <div className="stage-cando-head">
+                        <span><CheckSquare size={15} /> 能力自檢</span>
+                        <strong>{stageCheckedCount}/{canDoList.length} ({canDoProgress}%)</strong>
+                      </div>
+                      <div className="stage-cando-list">
+                        {canDoList.map((item, i) => {
+                          const isChecked = !!checkedCanDos[`${stage.id}_${i}`];
+                          return (
+                            <button
+                              key={i}
+                              type="button"
+                              className={`stage-cando-item ${isChecked ? 'is-checked' : ''}`}
+                              onClick={() => toggleCanDo(stage.id, i)}
+                            >
+                              {isChecked ? <CheckSquare size={15} /> : <Square size={15} />}
+                              <span>{item}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    <div className="stage-modules-row">
+                      {stage.modules.map((modId) => (
+                        <button
+                          key={modId}
+                          type="button"
+                          className="stage-mod-chip"
+                          onClick={() => setActiveTab(modId)}
+                        >
+                          <span>{t(`tabs.${modId}`)}</span>
+                          <ArrowRight size={13} />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {activeHomeView === 'culture' && (
+        <div className="explore-panel explore-culture">
+          <section className="cultural-landscapes-section">
+            <div className="explore-surface-head">
+              <div>
+                <span className="explore-kicker"><MapPin size={14} /> 越南人文地理</span>
+                <h2>走進真實越南・地標發音與情境直達</h2>
+              </div>
+            </div>
+
+            <div className="landscape-grid">
+              {VIETNAM_LANDSCAPES.map(land => (
+                <div
+                  key={land.id}
+                  className="landscape-card"
+                  onClick={() => {
+                    audioEngine.playHaptic('tap');
+                    setActiveTab(land.targetModule);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                >
+                  <div className="landscape-img-wrap">
+                    <img
+                      src={`${import.meta.env.BASE_URL || '/'}images/${land.image}`}
+                      alt={land.nameZh}
+                      className="landscape-img"
+                      loading="lazy"
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                    <div className="landscape-img-overlay">
+                      <span className="landscape-badge">{learningMode === 'zh' ? land.badgeZh : land.badgeEn}</span>
+                      <span className="landscape-accent-tag">{land.accent}</span>
+                    </div>
+                  </div>
+
+                  <div className="landscape-content">
+                    <div className="landscape-title-row">
+                      <span className="landscape-name-zh">{learningMode === 'zh' ? land.nameZh : land.nameEn}</span>
+                      <button
+                        type="button"
+                        className="landscape-listen-btn"
+                        onClick={(e) => handlePlayLandscape(e, land.audioText, land.accentType)}
+                        title="聆聽地標發音"
+                        aria-label={`聆聽 ${land.nameVi} 發音`}
+                      >
+                        <Volume2 size={14} />
+                      </button>
+                    </div>
+                    <div className="landscape-name-vi">{land.nameVi}</div>
+                    <p className="landscape-desc">{learningMode === 'zh' ? land.descZh : land.descEn}</p>
+                    <div className="landscape-footer-cta">
+                      <span>前往相關學習模組</span>
+                      <ArrowRight size={13} />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="cultural-tips-section">
+            <div className="explore-surface-head">
+              <div>
+                <span className="explore-kicker">跨文化社交眉角</span>
+                <h2>越南在地生活避坑與禮儀指南</h2>
+              </div>
+            </div>
+
+            <div className="etiquette-grid">
+              {VIETNAMESE_ETIQUETTE_TIPS.map(tip => (
+                <div key={tip.id} className="etiquette-card" style={{ borderLeft: `4px solid ${tip.color}` }}>
+                  <div className="etiquette-header">
+                    <div className="etiquette-icon-wrap" style={{ background: tip.bg }}>
+                      <span>{tip.icon}</span>
+                    </div>
+                    <span className="etiquette-tag" style={{ background: tip.bg, color: tip.color }}>
+                      {learningMode === 'zh' ? tip.tagZh : tip.tagEn}
+                    </span>
+                  </div>
+                  <strong className="etiquette-title">{learningMode === 'zh' ? tip.titleZh : tip.titleEn}</strong>
+                  <div className="etiquette-phrase-row">
+                    <span className="etiquette-vi">{tip.phraseVi}</span>
+                    <button
+                      type="button"
+                      className="landscape-listen-btn"
+                      onClick={(e) => handlePlayLandscape(e, tip.audioText)}
+                      title="聆聽發音"
+                      aria-label={`聆聽 ${tip.phraseVi} 發音`}
+                    >
+                      <Volume2 size={13} />
+                    </button>
+                  </div>
+                  <p className="etiquette-desc">{learningMode === 'zh' ? tip.descZh : tip.descEn}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
+
+      {activeHomeView === 'guide' && (
+        <div className="explore-panel explore-guide">
+          <div className="guide-metrics-grid">
+            <section className="explore-surface-card compact-card">
+              <div className="guide-metric-head">
+                <span className="guide-metric-icon amber"><Target size={20} /></span>
+                <div>
+                  <h3>今日微學習目標</h3>
+                  <p>每天 5–20 分鐘，穩定建立越語語感</p>
+                </div>
+              </div>
+              <div className="goal-pills-row">
+                {[
+                  { min: 5, label: '🌱 輕鬆 5 分鐘' },
+                  { min: 10, label: '⚡ 標準 10 分鐘' },
+                  { min: 20, label: '🔥 衝刺 20 分鐘' }
+                ].map(opt => (
+                  <button
+                    key={opt.min}
+                    type="button"
+                    className={`goal-pill-btn ${dailyGoalMinutes === opt.min ? 'active' : ''}`}
+                    onClick={() => setDailyGoalMinutes(opt.min)}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </section>
+
+            <section className="explore-surface-card compact-card">
+              <div className="guide-metric-head">
+                <span className="guide-metric-icon blue"><Brain size={20} /></span>
+                <div>
+                  <h3>SM-2 記憶保鮮狀態</h3>
+                  <p>排程中 {srsStats.totalTracked} 詞 · 長期記憶 {srsStats.masteredCount} 詞</p>
+                </div>
+              </div>
+              <div className="srs-action-row">
+                <span className={`srs-status-badge ${srsStats.dueCount > 0 ? 'has-due' : 'is-clear'}`}>
+                  {srsStats.dueCount > 0 ? `${srsStats.dueCount} 張到期待複習` : '✓ 記憶狀態良好'}
+                </span>
+                <button type="button" className="explore-primary-pill" onClick={() => setActiveTab('flashcards')}>
+                  <Layers3 size={15} />
+                  <span>前往智能閃卡</span>
+                </button>
+              </div>
+            </section>
+          </div>
+
+          <section className="explore-surface-card">
+            <div className="explore-surface-head">
+              <div>
+                <span className="explore-kicker">科學二語習得 (SLA)</span>
+                <h2>五步閉環學習節奏</h2>
+              </div>
+            </div>
+            <div className="sla-steps-grid">
+              {PEDAGOGICAL_STEPS.map((s) => (
+                <button
+                  key={s.step}
+                  type="button"
+                  className="sla-step-card"
+                  onClick={() => {
+                    setActiveTab(s.targetModule);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                >
+                  <div className="sla-step-top">
+                    <span className="sla-step-num" style={{ background: s.color }}>{s.step}</span>
+                    <span className="sla-step-emoji">{s.icon}</span>
+                  </div>
+                  <strong>{learningMode === 'zh' ? s.titleZh : s.titleEn}</strong>
+                  <p>{learningMode === 'zh' ? s.descZh : s.descEn}</p>
+                </button>
+              ))}
+            </div>
+          </section>
+
+          {KnowledgeGuideComponent && (
+            <KnowledgeGuideComponent
+              moduleId="path"
+              selectedAccent={selectedAccent}
+              onSelectChapter={onSelectChapter}
+              setActiveTab={setActiveTab}
+            />
+          )}
+        </div>
+      )}
     </div>
   );
 };
