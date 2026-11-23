@@ -584,6 +584,15 @@ export const Navbar = ({
         </button>
 
         <button
+          className={`bottom-nav-item ${activeTab === 'ultra' ? 'active' : ''}`}
+          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('ultra'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+        >
+          <Flame size={20} />
+          <span>母語特訓</span>
+          {activeTab === 'ultra' && <span className="bottom-nav-indicator" />}
+        </button>
+
+        <button
           className={`bottom-nav-item ${activeTab === 'songs' ? 'active' : ''}`}
           onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('songs'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
         >
@@ -599,15 +608,6 @@ export const Navbar = ({
           <Headphones size={20} />
           <span>隨身聽</span>
           {activeTab === 'listen' && <span className="bottom-nav-indicator" />}
-        </button>
-
-        <button
-          className={`bottom-nav-item ${activeTab === 'conversation' ? 'active' : ''}`}
-          onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('conversation'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-        >
-          <MessagesSquare size={20} />
-          <span>會話</span>
-          {activeTab === 'conversation' && <span className="bottom-nav-indicator" />}
         </button>
 
         <button

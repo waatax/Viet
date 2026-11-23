@@ -335,6 +335,7 @@ export function App() {
       <main id="main-content" className="main-content" tabIndex="-1">
         <ErrorBoundary>
           <Suspense fallback={<div className="module-loading" role="status">載入學習內容中…</div>}>
+            <div key={activeTab} className="module-stage-enter">
             {activeTab !== 'path' && !SPECIAL_TABS.includes(activeTab) && <nav className="module-workspace-nav" aria-label="本課學習工作台">
               <div className="workspace-location"><button onClick={() => setActiveTab('path')}><Home size={17} aria-hidden="true" /> 學習首頁</button><ChevronRight size={15} aria-hidden="true" /><span>{t(ALL_NAV_ITEMS.find(item => item.id === activeTab)?.labelKey || 'tabs.path')}</span></div>
               <div className="workspace-options"><button aria-pressed={moduleView === 'practice'} onClick={() => { audioEngine.stop(); setModuleView('practice'); }}><Gamepad2 size={18} aria-hidden="true" /> 互動練習</button><button aria-pressed={moduleView === 'knowledge'} onClick={() => { audioEngine.stop(); setModuleView('knowledge'); }}><BookOpen size={18} aria-hidden="true" /> 知識圖解・10 點聽說讀闖關</button></div>
@@ -398,6 +399,7 @@ export function App() {
                 setActiveTab={setActiveTab}
               />
             )}
+            </div>
           </Suspense>
         </ErrorBoundary>
       </main>
@@ -533,81 +535,79 @@ export function App() {
         />
       </Suspense>
 
-      {/* Footer */}
-      <footer className="footer">
+      {/* Editorial Footer V2 */}
+      <footer className="footer footer-v2">
         <div className="footer-content">
-          <div>
-            <div style={{ fontWeight: 800, fontSize: '1.05em', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap' }}>
-              <span>🇻🇳 越語學習通 (科學研究團隊旗艦版) · Chào Việt Nam!</span>
-              <span style={{ fontSize: '0.72rem', fontWeight: 800, background: 'rgba(234, 179, 8, 0.15)', color: 'var(--brand-gold)', border: '1px solid var(--brand-gold)', borderRadius: 'var(--radius-full)', padding: '0.1rem 0.5rem' }}>
-                v{APP_VERSION}
-              </span>
+          <div className="footer-brand-block">
+            <div className="footer-brand-title">
+              <span>🇻🇳 越語學習通 · Chào Việt Nam!</span>
+              <span className="footer-ver-pill">v{APP_VERSION}</span>
             </div>
-            <div style={{ fontSize: '0.85em', color: 'var(--text-muted)', marginTop: '0.2rem' }}>
-              {learningMode === 'zh' 
-                ? '第二語言習得 (SLA) · 漢越音音韻體系 · SM-2 間隔重複 · 八角行為遊戲化 · Apple HIG 觸覺聲學工藝' 
-                : 'SLA Methodology · Sino-Vietnamese Cognates · SM-2 Retention · Octalysis Gamification · Apple HIG Acoustic Haptics'}
+            <div className="footer-sub-copy">
+              {learningMode === 'zh'
+                ? 'See → Do → Feedback 學習引擎 · SM-2 間隔記憶 · 漢越音體系 · 南北越雙口音原音'
+                : 'See → Do → Feedback Engine · SM-2 Retention · Sino-Vietnamese Cognates · North & South Audio'}
             </div>
-            <a href={`${import.meta.env.BASE_URL}release.json`} style={{ fontSize: '.8rem', color: 'var(--text-secondary)' }}>
-              {learningMode === 'zh' ? '版本紀錄' : 'Release details'} · {BUILD_REVISION.slice(0, 7)}
+            <a className="footer-release-link" href={`${import.meta.env.BASE_URL}release.json`}>
+              <span>{learningMode === 'zh' ? '版本紀錄' : 'Release details'}</span>
+              <span>· {BUILD_REVISION.slice(0, 7)}</span>
             </a>
           </div>
 
-          <div className="footer-settings-controls" style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', flexWrap: 'wrap' }}>
+          <div className="footer-actions-row">
             <button
-              className="secondary-action"
+              type="button"
+              className="footer-tool-btn accent-jade"
               onClick={() => { audioEngine.playHaptic('tap'); setIsAudioDiagOpen(true); }}
-              style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem', border: '1px solid rgba(16, 185, 129, 0.4)', color: '#10b981', background: 'rgba(16, 185, 129, 0.12)' }}
               title="音訊健康檢驗儀 (Ctrl+Shift+A)"
             >
-              <Activity size={14} color="#10b981" />
-              <span>{learningMode === 'zh' ? '🎧 檢音儀 (4,005 音檔)' : '🎧 Audio Lab'}</span>
+              <Activity size={14} />
+              <span>{learningMode === 'zh' ? '檢音儀' : 'Audio Lab'}</span>
             </button>
 
             <button
-              className="secondary-action"
+              type="button"
+              className="footer-tool-btn"
               onClick={() => { audioEngine.playHaptic('tap'); setIsDailyQuestsOpen(true); }}
-              style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
             >
-              <Target size={14} color="var(--brand-primary)" />
-              <span>{learningMode === 'zh' ? '每日挑戰看板' : 'Daily Quests'}</span>
+              <Target size={14} />
+              <span>{learningMode === 'zh' ? '每日挑戰' : 'Quests'}</span>
             </button>
 
             <button
-              className="secondary-action"
+              type="button"
+              className="footer-tool-btn"
               onClick={() => { audioEngine.playHaptic('tap'); setIsAchievementsModalOpen(true); }}
-              style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
             >
-              <Trophy size={14} color="var(--brand-gold)" />
-              <span>{learningMode === 'zh' ? '成就勳章櫃' : 'Achievements'}</span>
+              <Trophy size={14} />
+              <span>{learningMode === 'zh' ? '成就勳章' : 'Badges'}</span>
             </button>
 
             <button
-              className="secondary-action"
-              onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('business'); }}
-              style={{ padding: '0.4rem 0.8rem', fontSize: '0.82rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+              type="button"
+              className="footer-tool-btn"
+              onClick={() => { audioEngine.playHaptic('selection'); setActiveTab('ultra'); }}
             >
-              <Sparkles size={14} color="var(--brand-primary)" />
-              <span>{learningMode === 'zh' ? '商務出差中心' : 'Business Hub'}</span>
+              <Sparkles size={14} />
+              <span>{learningMode === 'zh' ? '母語特訓' : 'Ultralearn'}</span>
             </button>
 
-            {/* Accent Preference */}
-            <div className="accent-toggle-group" style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', background: 'var(--bg-input)', padding: '0.3rem 0.6rem', borderRadius: 'var(--radius-full)', border: '1px solid var(--border-color)' }}>
-              <Settings2 size={15} color="var(--brand-primary)" />
-              <span style={{ fontSize: '0.82em', fontWeight: 700, color: 'var(--text-secondary)' }}>
-                {learningMode === 'zh' ? '口音：' : 'Accent: '}
+            <div className="footer-accent-group" role="group" aria-label={learningMode === 'zh' ? '預設口音' : 'Default accent'}>
+              <span className="footer-accent-label">
+                <Settings2 size={13} />
+                <span>{learningMode === 'zh' ? '口音' : 'Accent'}</span>
               </span>
               <button
+                type="button"
                 className={`accent-chip ${selectedAccent === 'north' ? 'active' : ''}`}
                 onClick={() => { audioEngine.playHaptic('tap'); setSelectedAccent('north'); }}
-                style={{ cursor: 'pointer' }}
               >
                 {t('northAccent')}
               </button>
               <button
+                type="button"
                 className={`accent-chip ${selectedAccent === 'south' ? 'active' : ''}`}
                 onClick={() => { audioEngine.playHaptic('tap'); setSelectedAccent('south'); }}
-                style={{ cursor: 'pointer' }}
               >
                 {t('southAccent')}
               </button>

@@ -445,22 +445,27 @@
   align-items: center;
   gap: 8px;
   min-height: 46px;
-  padding: 10px 18px;
-  border-radius: var(--radius-md);
-  border: 0;
-  background: #0f766e;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(15, 118, 110, 0.25);
+  background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
   color: #ffffff;
   font: inherit;
   font-size: 0.94rem;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(15, 118, 110, 0.28);
-  transition: transform var(--transition-fast), background var(--transition-fast);
+  box-shadow: 0 4px 14px -2px rgba(15, 118, 110, 0.36);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
 }
 
 .ultra-play-hero-btn:hover {
-  background: #0d665f;
-  transform: translateY(-1px);
+  filter: brightness(1.06);
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 20px -4px rgba(15, 118, 110, 0.44);
+}
+
+.ultra-play-hero-btn:active {
+  transform: scale(0.98);
 }
 
 .ultra-sub-audio-btn {
@@ -468,20 +473,24 @@
   align-items: center;
   gap: 5px;
   min-height: 40px;
-  padding: 7px 12px;
+  padding: 7px 13px;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-highlight);
   background: var(--bg-card);
   color: var(--text-primary);
   font: inherit;
   font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: var(--shadow-xs);
+  transition: border-color var(--transition-fast), background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
 }
 
 .ultra-sub-audio-btn:hover {
   border-color: var(--brand-green);
-  color: var(--brand-green);
+  background: var(--tint-jade-bg);
+  color: var(--tint-jade-text);
+  transform: translateY(-1px);
 }
 
 .ultra-blind-shield {

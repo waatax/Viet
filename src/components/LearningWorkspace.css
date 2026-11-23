@@ -123,7 +123,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 18px;
+  padding: 20px;
   text-align: left;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-color);
@@ -131,16 +131,44 @@
   color: var(--text-primary);
   font: inherit;
   cursor: pointer;
-  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.18s ease,
-              box-shadow 0.2s ease,
-              background 0.18s ease;
+  overflow: hidden;
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s ease,
+              box-shadow 0.22s ease,
+              background 0.2s ease;
 }
+
+.hub-instant-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.hub-instant-card.tone-rose::before   { background: linear-gradient(90deg, #e11d48, #fb7185); }
+.hub-instant-card.tone-teal::before   { background: linear-gradient(90deg, #0f766e, #2dd4bf); }
+.hub-instant-card.tone-blue::before   { background: linear-gradient(90deg, #2563eb, #60a5fa); }
+.hub-instant-card.tone-purple::before { background: linear-gradient(90deg, #7c3aed, #c084fc); }
+.hub-instant-card.tone-coral::before  { background: linear-gradient(90deg, #cf261e, #f87171); }
+.hub-instant-card.tone-amber::before  { background: linear-gradient(90deg, #d97706, #fbbf24); }
 
 .hub-instant-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--card-shadow-hover);
   background: var(--bg-card);
+}
+
+.hub-instant-card:hover::before {
+  opacity: 1;
+}
+
+.hub-instant-card:active {
+  transform: translateY(-1px) scale(0.99);
 }
 
 .hub-instant-card.tone-rose:hover   { border-color: var(--tint-rose-border); }
