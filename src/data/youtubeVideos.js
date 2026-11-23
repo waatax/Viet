@@ -66,7 +66,17 @@ export const DIALOGUE_YOUTUBE_IDS = {
   pharmacy: '6hQEYpUhbLM',                // 27 藥局買藥、描述感冒發燒、拉肚子與用藥頻率
   hospital: 'T1K8hsQUzEM',                // 28 診所醫院掛號看診、量血壓與醫生問診
   spa: 'bTwM76vwHCo',                     // 29 越南理髮院洗頭 Gội đầu dưỡng sinh
-  haircut: 'gwXzknu06uo'                  // 30 理髮沙龍 剪髮、洗臉修鬍與造型
+  haircut: 'gwXzknu06uo',                 // 30 理髮沙龍 剪髮、洗臉修鬍與造型
+  emergency: 'BbVBtxhAhq4',               // 31 緊急求助、遺失護照錢包、報警報案與急難電話
+  meeting: 'XQ-LgOP3rmY',                 // 32 初次見面自我介紹、詢問背景與加 Zalo 好友
+  smalltalk: 'An2qOHl_ulg',               // 33 天氣閒聊、週末休假安排與日常生活關心
+  leisure_hobbies: 'Aq2nDfxtei8',         // 34 交流個人興趣、卡拉OK Karaoke 與看電影休閒
+  sports_fitness: 'nH3HLpiT0VE',          // 35 公園踢毽子 Đá cầu、打羽球與健身房運動交流
+  travel_tour: 'evMdp-5E-qI',             // 36 景點門票購買、租借機車 Thuê xe máy 與一日遊諮詢
+  apartment_rental_contract: '6tPvXkSv5pM', // 37 公寓租賃簽約與物業維修
+  airport_customs_visa: 'JyVuKQZzPe8',    // 38 機場海關入境與電子簽證查驗
+  nhau_culture_dinner: 'jI00vw88Ohc',     // 39 越南熱炒 Nhậu 文化與敬酒禮儀
+  pharmacy_clinic_visit: 'yiM6Po0QR-4'    // 40 藥局購藥與診所問診
 };
 
 export function getDialogueYoutubeId(id) {
