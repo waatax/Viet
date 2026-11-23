@@ -8,6 +8,7 @@ import { videoLessons } from '../data/videoLessons.js';
 import dialogueVideoCatalog from '../data/dialogueVideoCatalog.json';
 import { situationalScenarios } from '../data/situationalScenarios.js';
 import { subjectSparks } from '../data/knowledgeMasteryData.js';
+import { VIETNAMESE_SONGS } from '../data/vietnameseSongs.js';
 
 const fold = s => s.normalize('NFD').replace(/\p{M}/gu, '').replace(/đ/g, 'd');
 const text = s => String(s ?? '').normalize('NFC').toLowerCase().trim();
@@ -22,6 +23,8 @@ const catalog = [
   entry('quest-home','quest','practice','遊戲評量','越語闖關挑戰','Duolingo Quest','關卡、遊戲、聽說讀練習',{}),
   ...videoLessons.map((name,i) => entry('film-'+i,'alphabet','basics','發音影片',`第 ${i} 課 · ${name}`,'',`第${i}課 YouTube 影片 播放清單 台灣華語 越文拼音`,{video:i})),
   ...dialogueVideoCatalog.videos.map(v => entry('dvideo-'+v.id,'dialogvideo','scenario','會話影片',`會話 ${String(v.no).padStart(2,'0')} · ${v.titleZh}`,v.sections.map(s=>s.preview).join(' · '),`${v.summaryZh} 會話影片 YouTube 播放清單 越文 中文 逐句`,{dialogVideo:v.id},v.titleEn)),
+  entry('songs-hub','songs','scenario','越南歌曲','越南歌曲 · 24 首雙語歌詞與時間軸','Nhạc Trẻ Việt Nam (24 bài hát)','越南歌曲 完整越文歌詞 中文翻譯 YouTube 秒數 開始時間 Trạm Cover JiKi X',{},'Vietnamese Songs (24 Bilingual Lyrics)'),
+  ...VIETNAMESE_SONGS.map(s => entry('song-'+s.id,'songs','scenario','越南歌曲',`歌曲 ${String(s.no).padStart(2,'0')} · ${s.titleZh} (${s.startTimestamp})`,s.titleVi,`${s.coverArtist} 原唱 ${s.originalArtist} 第${s.startSec}秒 ${s.summaryZh} 越南歌曲 歌詞 翻譯`,{songId:s.id},s.titleVi)),
   ...Object.entries(pronunciationDecks).flatMap(([deck,cards]) => cards.map((c,index) =>
     entry('pron-'+deck+'-'+index,'alphabet','basics','發音閃卡',c.word,c.pattern,[deckNames[deck],c.cue,c.tip,c.answer].filter(Boolean).join(' · '),{deck,index}))),
   ...Object.entries(knowledgeGuides).flatMap(([moduleId,g]) => g.rows.map(([name,vi,zh,detail],point) =>

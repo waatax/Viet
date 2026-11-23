@@ -16,6 +16,7 @@ import {
   Orbit,
   X,
   Film,
+  Music2,
   ExternalLink
 } from 'lucide-react';
 import { knowledgeBridge } from '../data/knowledgeBridge';
@@ -23,6 +24,7 @@ import { subjectSparks, allModuleMasteryItems } from '../data/knowledgeMasteryDa
 import { loadBridge, loadModuleMasteredPoints, loadLovedSubjects } from '../services/bridgeProgress';
 import { loadKnowledgeProgress } from '../services/knowledgeProgress';
 import { YOUTUBE_PLAYLIST_URL, TOTAL_YOUTUBE_VIDEOS, readWatchedVideos } from '../data/youtubeVideos';
+import { SONGS_YOUTUBE_BASE_URL, VIETNAMESE_SONGS, readListenedSongs } from '../data/vietnameseSongs';
 import './LearningWorkspace.css';
 
 const ROUTES = [
@@ -90,6 +92,33 @@ export default function HomeLearningHub({ onStartStudy, onNavigate }) {
 
   return (
     <section className="learning-hub" aria-labelledby="learning-hub-title">
+      <div className="hub-quick-bar" aria-label="首頁快捷入口">
+        <button
+          type="button"
+          className="hub-quick-music-btn"
+          onClick={() => onNavigate('songs')}
+        >
+          <Music2 size={20} aria-hidden="true" />
+          <span>🎵 聽音樂 · 越南歌曲 ({VIETNAMESE_SONGS.length} 首)</span>
+          <ArrowRight size={16} aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          className="hub-quick-sub-btn"
+          onClick={() => onNavigate('listen')}
+        >
+          <Headphones size={17} aria-hidden="true" />
+          <span>隨身聽工坊</span>
+        </button>
+        <button
+          type="button"
+          className="hub-quick-sub-btn"
+          onClick={() => onNavigate('dialogvideo')}
+        >
+          <Film size={17} aria-hidden="true" />
+          <span>影片課程 ({TOTAL_YOUTUBE_VIDEOS})</span>
+        </button>
+      </div>
       <div className="hub-listen-launch">
         <div>
           <span>✨ 旗艦升級 · 隨身聽微課 ＋ 快速雙語快播工坊</span>
@@ -112,6 +141,23 @@ export default function HomeLearningHub({ onStartStudy, onNavigate }) {
           </button>
           <a href={YOUTUBE_PLAYLIST_URL} target="_blank" rel="noopener noreferrer">
             ▶ 前往 YouTube 播放清單 <ExternalLink size={15} aria-hidden="true" />
+          </a>
+        </div>
+      </div>
+      <div className="hub-songs-launch">
+        <div>
+          <span>🎵 聽音樂學越語 · 越南歌曲雙語歌詞工坊（完整 {VIETNAMESE_SONGS.length} 首）</span>
+          <h3>聽音樂・邊聽越南抒情金曲，邊對照完整越文歌詞與繁中翻譯</h3>
+          <p>
+            完整整理 YouTube 熱門翻唱合輯 24 首歌曲（Từng Là、Giữa Đại Lộ Đông Tây、Thu Cuối、Phai Dấu Cuộc Tình 等），附每首精確開始秒數與逐段 YouTube 秒數直達連結（已聽學 {readListenedSongs().length} / {VIETNAMESE_SONGS.length} 首）。
+          </p>
+        </div>
+        <div className="hub-songs-actions">
+          <button type="button" onClick={() => onNavigate('songs')}>
+            <Music2 size={18} aria-hidden="true" /> 🎵 聽音樂 ({VIETNAMESE_SONGS.length} 首)
+          </button>
+          <a href={SONGS_YOUTUBE_BASE_URL} target="_blank" rel="noopener noreferrer">
+            ▶ 前往 YouTube 原影片 <ExternalLink size={15} aria-hidden="true" />
           </a>
         </div>
       </div>

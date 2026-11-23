@@ -1,0 +1,1057 @@
+.viet-songs {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 1rem;
+  color: var(--text-primary);
+}
+
+.vs-hero {
+  border: 1px solid var(--border-color);
+  border-radius: 1.25rem;
+  padding: clamp(1.1rem, 2.5vw, 1.75rem);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, #e11d48 8%, var(--bg-card)),
+    color-mix(in srgb, #0f766e 8%, var(--bg-card))
+  );
+  margin-bottom: 1.15rem;
+}
+
+.vs-hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.1rem;
+}
+
+.vs-hero-copy {
+  flex: 1 1 28rem;
+}
+
+.vs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.28rem 0.78rem;
+  border-radius: 999px;
+  background: rgba(225, 29, 72, 0.13);
+  color: #be123c;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+[data-theme="dark"] .vs-eyebrow {
+  background: rgba(251, 113, 133, 0.18);
+  color: #fda4af;
+}
+
+.vs-hero h2 {
+  margin: 0.5rem 0 0.45rem;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.vs-hero p {
+  margin: 0.25rem 0;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  font-size: 0.94rem;
+}
+
+.vs-hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.vs-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.vs-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  align-items: stretch;
+  min-width: 15.5rem;
+}
+
+.vs-yt-main-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.48rem;
+  padding: 0.75rem 1.15rem;
+  border-radius: 0.8rem;
+  background: #dc2626;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.92rem;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(220, 38, 38, 0.26);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.vs-yt-main-cta:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.vs-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.42rem;
+  padding: 0.58rem 0.95rem;
+  border-radius: 0.72rem;
+  border: 1px solid var(--border-highlight, var(--border-color));
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 750;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.vs-secondary-btn:hover {
+  border-color: #0f766e;
+  background: color-mix(in srgb, #0f766e 8%, var(--bg-card));
+}
+
+.vs-secondary-btn.is-active {
+  background: #0f766e;
+  border-color: #0f766e;
+  color: #fff;
+}
+
+/* Progress bar */
+.vs-progress-strip {
+  margin-top: 1rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: 0.85rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  display: grid;
+  gap: 0.4rem;
+}
+
+.vs-progress-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.vs-progress-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+}
+
+.vs-progress-meta small {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.vs-progress-strip progress {
+  width: 100%;
+  height: 0.5rem;
+  accent-color: #10b981;
+}
+
+/* Full 24-song Master Timestamp Table */
+.vs-index-drawer {
+  border: 1px solid var(--border-color);
+  border-radius: 1.1rem;
+  background: var(--bg-card);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+.vs-index-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.vs-index-header h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.vs-index-header p {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.vs-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  border-radius: 0.8rem;
+}
+
+.vs-timestamp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  min-width: 44rem;
+}
+
+.vs-timestamp-table th,
+.vs-timestamp-table td {
+  padding: 0.58rem 0.7rem;
+  border-bottom: 1px solid var(--border-color);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.vs-timestamp-table th {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-weight: 800;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.vs-timestamp-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.vs-timestamp-table tr.is-selected {
+  background: color-mix(in srgb, #0f766e 10%, var(--bg-card));
+}
+
+.vs-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+.vs-sec-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.16rem 0.48rem;
+  border-radius: 0.45rem;
+  background: color-mix(in srgb, #0f766e 14%, var(--bg-secondary));
+  color: var(--text-primary);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.vs-table-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.vs-mini-yt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.28rem 0.56rem;
+  border-radius: 0.48rem;
+  background: #dc2626;
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.vs-mini-yt:hover {
+  background: #b91c1c;
+}
+
+.vs-mini-lyrics-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.28rem 0.56rem;
+  border-radius: 0.48rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vs-mini-lyrics-btn:hover {
+  border-color: #0f766e;
+}
+
+/* Main two-column workspace */
+.vs-workspace {
+  display: grid;
+  grid-template-columns: minmax(17.5rem, 22rem) minmax(0, 1fr);
+  gap: 1.15rem;
+  align-items: start;
+}
+
+/* Left sidebar tracklist */
+.vs-sidebar {
+  border: 1px solid var(--border-color);
+  border-radius: 1.1rem;
+  background: var(--bg-card);
+  padding: 0.9rem;
+  position: sticky;
+  top: 5.5rem;
+  max-height: calc(100vh - 6.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.vs-search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.vs-search-box svg {
+  position: absolute;
+  left: 0.72rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.vs-search-box input {
+  width: 100%;
+  padding: 0.56rem 0.75rem 0.56rem 2.1rem;
+  border-radius: 0.7rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-input, var(--bg-secondary));
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.86rem;
+}
+
+.vs-search-box input:focus {
+  outline: 2px solid #0f766e;
+  outline-offset: 1px;
+}
+
+.vs-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.36rem;
+}
+
+.vs-filter-chip {
+  padding: 0.28rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.vs-filter-chip.is-active {
+  background: #0f766e;
+  border-color: #0f766e;
+  color: #fff;
+}
+
+.vs-track-list {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+  padding-right: 0.2rem;
+}
+
+.vs-track-item {
+  width: 100%;
+  text-align: left;
+  padding: 0.62rem 0.72rem;
+  border-radius: 0.78rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font: inherit;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 2.1rem minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: start;
+  transition: border-color 0.14s ease, background 0.14s ease, transform 0.12s ease;
+}
+
+.vs-track-item:hover {
+  border-color: #0f766e;
+  transform: translateX(2px);
+}
+
+.vs-track-item.is-active {
+  border-color: #0f766e;
+  background: color-mix(in srgb, #0f766e 13%, var(--bg-card));
+  box-shadow: 0 2px 10px rgba(15, 118, 110, 0.14);
+}
+
+.vs-track-num {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.55rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  display: grid;
+  place-items: center;
+  font-size: 0.78rem;
+  font-weight: 850;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.vs-track-item.is-active .vs-track-num {
+  background: #0f766e;
+  border-color: #0f766e;
+  color: #fff;
+}
+
+.vs-track-info {
+  min-width: 0;
+  display: grid;
+  gap: 0.16rem;
+}
+
+.vs-track-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.vs-track-title-vi {
+  font-weight: 800;
+  font-size: 0.89rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vs-track-title-zh {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.vs-track-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.12rem;
+}
+
+.vs-track-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+/* Right main detail area */
+.vs-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.vs-song-card {
+  border: 1px solid var(--border-color);
+  border-radius: 1.15rem;
+  background: var(--bg-card);
+  padding: clamp(1rem, 2.2vw, 1.45rem);
+}
+
+.vs-song-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.42rem;
+  margin-bottom: 0.55rem;
+}
+
+.vs-badge-no {
+  padding: 0.2rem 0.62rem;
+  border-radius: 999px;
+  background: #0f766e;
+  color: #fff;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.vs-badge-mood {
+  padding: 0.2rem 0.62rem;
+  border-radius: 999px;
+  background: rgba(234, 179, 8, 0.14);
+  color: #b45309;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+[data-theme="dark"] .vs-badge-mood {
+  color: #fde047;
+}
+
+.vs-badge-artist {
+  padding: 0.2rem 0.62rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.vs-song-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+}
+
+.vs-song-heading h3 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  line-height: 1.28;
+}
+
+.vs-song-subtitle {
+  font-size: 1.05rem;
+  font-weight: 750;
+  color: var(--brand-primary, #0f766e);
+}
+
+.vs-song-summary {
+  margin: 0.55rem 0 0.85rem;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+/* Detailed Timestamps Grid */
+.vs-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  gap: 0.55rem;
+  margin-bottom: 0.95rem;
+}
+
+.vs-telemetry-box {
+  padding: 0.65rem 0.78rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  display: grid;
+  gap: 0.15rem;
+}
+
+.vs-telemetry-box span {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.vs-telemetry-box strong {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.vs-telemetry-box small {
+  font-size: 0.74rem;
+  color: var(--brand-primary, #0f766e);
+  font-weight: 750;
+}
+
+/* Action bar */
+.vs-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.vs-yt-song-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.68rem 1.08rem;
+  border-radius: 0.75rem;
+  background: #dc2626;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(220, 38, 38, 0.24);
+  transition: background 0.15s ease, transform 0.12s ease;
+}
+
+.vs-yt-song-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+}
+
+.vs-yt-vocal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  padding: 0.64rem 0.95rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid #dc2626;
+  background: color-mix(in srgb, #dc2626 8%, var(--bg-card));
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
+[data-theme="dark"] .vs-yt-vocal-btn {
+  color: #fca5a5;
+  border-color: #ef4444;
+}
+
+.vs-yt-vocal-btn:hover {
+  background: color-mix(in srgb, #dc2626 16%, var(--bg-card));
+}
+
+/* Embedded YouTube preview */
+.vs-embed-wrap {
+  margin-top: 1rem;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #000;
+}
+
+.vs-embed-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.82rem;
+}
+
+.vs-embed-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+/* Section Jump Pills */
+.vs-section-nav {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-color);
+}
+
+.vs-section-nav-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+  margin-bottom: 0.48rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.vs-section-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.vs-section-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.34rem 0.68rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vs-section-pill:hover {
+  border-color: #0f766e;
+  color: #0f766e;
+}
+
+.vs-section-pill small {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+/* Lyrics Toolbar */
+.vs-lyrics-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.95rem;
+  background: var(--bg-card);
+}
+
+.vs-toolbar-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.vs-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.42rem 0.75rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.vs-mode-btn.is-active {
+  background: #0f766e;
+  border-color: #0f766e;
+  color: #fff;
+}
+
+/* Lyrics Sections */
+.vs-lyrics-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.vs-lyric-section {
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: var(--bg-card);
+  overflow: hidden;
+}
+
+.vs-lyric-section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.72rem 1rem;
+  background: color-mix(in srgb, #0f766e 8%, var(--bg-secondary));
+  border-bottom: 1px solid var(--border-color);
+}
+
+.vs-lyric-section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 850;
+  font-size: 0.93rem;
+}
+
+.vs-section-yt-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+  padding: 0.28rem 0.66rem;
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+  font-size: 0.77rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+[data-theme="dark"] .vs-section-yt-link {
+  background: rgba(239, 68, 68, 0.2);
+  color: #fca5a5;
+}
+
+.vs-section-yt-link:hover {
+  background: #dc2626;
+  color: #fff;
+}
+
+.vs-lyric-lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.vs-lyric-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.72rem 1rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--border-color) 65%, transparent);
+  transition: background 0.12s ease;
+}
+
+.vs-lyric-row:last-child {
+  border-bottom: 0;
+}
+
+.vs-lyric-row:hover {
+  background: color-mix(in srgb, #0f766e 5%, var(--bg-card));
+}
+
+.vs-line-time {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem;
+  padding: 0.24rem 0.45rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.74rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.vs-line-time:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+  background: color-mix(in srgb, #dc2626 8%, var(--bg-card));
+}
+
+.vs-line-time small {
+  font-size: 0.67rem;
+  opacity: 0.82;
+}
+
+.vs-line-texts {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.vs-line-texts.is-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem 1.1rem;
+  align-items: baseline;
+}
+
+.vs-line-vi {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.55;
+}
+
+.vs-line-zh {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.vs-speak-btn {
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.14s ease;
+}
+
+.vs-speak-btn:hover {
+  border-color: #0f766e;
+  color: #0f766e;
+  background: color-mix(in srgb, #0f766e 10%, var(--bg-card));
+}
+
+/* Key Vocabulary Card */
+.vs-vocab-card {
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  background: var(--bg-card);
+  padding: 1rem 1.15rem;
+}
+
+.vs-vocab-card h4 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.vs-vocab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 0.65rem;
+}
+
+.vs-vocab-item {
+  padding: 0.72rem 0.85rem;
+  border-radius: 0.78rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.vs-vocab-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.vs-vocab-vi {
+  font-weight: 850;
+  font-size: 0.98rem;
+  color: var(--brand-primary, #0f766e);
+}
+
+.vs-vocab-zh {
+  font-weight: 750;
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.vs-vocab-note {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.48;
+}
+
+/* Prev / Next Song Footer */
+.vs-song-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding-top: 0.25rem;
+}
+
+.vs-nav-song-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1rem;
+  border-radius: 0.78rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.vs-nav-song-btn:hover:not(:disabled) {
+  border-color: #0f766e;
+  background: color-mix(in srgb, #0f766e 8%, var(--bg-card));
+}
+
+.vs-nav-song-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .vs-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .vs-sidebar {
+    position: static;
+    max-height: 22rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .viet-songs {
+    padding: 0.65rem;
+  }
+
+  .vs-hero-actions {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .vs-line-texts.is-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .vs-lyric-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 0.68rem 0.75rem;
+  }
+
+  .vs-line-time {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.4rem;
+    width: fit-content;
+  }
+}

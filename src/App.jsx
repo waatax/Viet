@@ -26,6 +26,7 @@ const AccentModule = lazyNamed(() => import('./components/AccentModule'), 'Accen
 const ShoppingModule = lazyNamed(() => import('./components/ShoppingModule'), 'ShoppingModule');
 const ConversationModule = lazyNamed(() => import('./components/ConversationModule'), 'ConversationModule');
 const DialogueVideos = lazyNamed(() => import('./components/DialogueVideos'), 'default');
+const VietnameseSongsModule = lazyNamed(() => import('./components/VietnameseSongsModule'), 'default');
 const PhrasesModule = lazyNamed(() => import('./components/PhrasesModule'), 'PhrasesModule');
 const FlashcardModule = lazyNamed(() => import('./components/FlashcardModule'), 'FlashcardModule');
 const GrammarModule = lazyNamed(() => import('./components/GrammarModule'), 'GrammarModule');
@@ -341,6 +342,7 @@ export function App() {
             </form>}
             {activeTab === 'path' && <HomeLearningHub onNavigate={setActiveTab} onStartStudy={handleStartStudy} />}
             {activeTab === 'dialogvideo' && <DialogueVideos key={searchHit?.id} initialVideoId={searchHit?.destination?.dialogVideo} onNavigate={setActiveTab} />}
+            {activeTab === 'songs' && <VietnameseSongsModule key={searchHit?.id} initialSongId={searchHit?.destination?.songId} selectedAccent={selectedAccent} updateUserStats={updateUserStats} />}
             {activeTab === 'listen' && <ListeningStudio key={searchHit?.id} initialLessonId={searchHit?.destination?.capsule} onNavigate={setActiveTab} />}
             {(moduleView === 'practice' || activeTab === 'path' || activeTab === 'quest') && <>
             {activeTab === 'path' && (
