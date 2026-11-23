@@ -45,8 +45,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import {
   Eye, EyeOff, Puzzle, ThumbsUp, ThumbsDown,
   Zap, Calendar, CheckCircle2, Circle, Volume2, Sparkles, Trophy,
-  ArrowRight, ShieldCheck, HelpCircle, Heart, Star, Award, ChevronRight, Play, MessageSquare, Lightbulb, Users, Headphones
+  ArrowRight, ShieldCheck, HelpCircle, Heart, Star, Award, ChevronRight, Play, MessageSquare, Lightbulb, Users, Headphones, ExternalLink
 } from 'lucide-react';
+import { getDialogueYoutubeUrl } from '../data/youtubeVideos';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { gamificationEngine } from '../utils/gamificationEngine';
@@ -964,6 +965,33 @@ export const FastTrackModule = ({ selectedAccent = 'north', updateUserStats, set
             <p style={{ color: 'var(--text-secondary)', margin: '0.4rem 0 0', fontSize: '1rem', lineHeight: 1.5 }}>
               {learningMode === 'zh' ? currentDay.summaryZh : currentDay.summaryEn}
             </p>
+            {getDialogueYoutubeUrl(`ft_day${currentDay.day}_fasttrack`) && (
+              <div className="scenario-video-actions">
+                <a
+                  className="scenario-yt-link"
+                  href={getDialogueYoutubeUrl(`ft_day${currentDay.day}_fasttrack`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => audioEngine.stop()}
+                >
+                  <Play size={15} fill="currentColor" aria-hidden="true" />
+                  <span>{learningMode === 'zh' ? `在 YouTube 觀看 Day ${currentDay.day} 教學影片` : `Watch Day ${currentDay.day} Video on YouTube`}</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+                {setActiveTab && (
+                  <button
+                    type="button"
+                    className="scenario-video-link"
+                    onClick={() => {
+                      try { sessionStorage.setItem('viet_dialogue_video', `ft_day${currentDay.day}_fasttrack`); } catch { /* ok */ }
+                      setActiveTab('dialogvideo');
+                    }}
+                  >
+                    🎬 {learningMode === 'zh' ? '查看影片章節與目錄' : 'Video Chapters & Catalog'}
+                  </button>
+                )}
+              </div>
+            )}
           </div>
 
           <div style={{

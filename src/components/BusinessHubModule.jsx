@@ -3,8 +3,9 @@ import {
   Briefcase, Plane, FileText, Factory, Beer, Zap, Trophy, Volume2,
   CheckCircle2, AlertCircle, ArrowRight, RefreshCw, Flame, Award,
   Building, ShieldCheck, Heart, Sparkles, Copy, Check, Info, Users, Clock,
-  MapPin, MessageCircle, Send, Presentation, QrCode, Tag, Star, Headphones
+  MapPin, MessageCircle, Send, Presentation, QrCode, Tag, Star, Headphones, Play, ExternalLink
 } from 'lucide-react';
+import { getDialogueYoutubeUrl } from '../data/youtubeVideos';
 import {
   businessCategories,
   tradeShowGuide,
@@ -364,6 +365,45 @@ export const BusinessHubModule = ({ selectedAccent = 'north', updateUserStats, s
             ? '涵蓋 SECC/ICE 商展佈展與接單、河內 vs 胡志明市商務文化、Zalo 名片社交、7 大多分支談判決戰、加值稅紅發票與工廠巡檢。'
             : 'Trade show booth management, Hanoi vs HCMC business dynamics, Zalo networking, 7 interactive battles, and VAT invoices.'}
         </p>
+        {(() => {
+          const tabVideoMap = {
+            expo: 'biz_trade_show',
+            dualcity: 'biz_dual_city',
+            networking: 'biz_zalo',
+            negotiation: 'biz_negotiation_battles',
+            travel: 'biz_travel_survival',
+            factory: 'factory_quality_qa'
+          };
+          const vidId = tabVideoMap[activeTab] || 'biz_trade_show';
+          const ytUrl = getDialogueYoutubeUrl(vidId);
+          return ytUrl ? (
+            <div className="scenario-video-actions">
+              <a
+                className="scenario-yt-link"
+                href={ytUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => audioEngine.stop()}
+              >
+                <Play size={15} fill="currentColor" aria-hidden="true" />
+                <span>{learningMode === 'zh' ? '在 YouTube 觀看本商務單元教學影片' : 'Watch Business Unit on YouTube'}</span>
+                <ExternalLink size={14} aria-hidden="true" />
+              </a>
+              {setModuleTab && (
+                <button
+                  type="button"
+                  className="scenario-video-link"
+                  onClick={() => {
+                    try { sessionStorage.setItem('viet_dialogue_video', vidId); } catch { /* ok */ }
+                    setModuleTab('dialogvideo');
+                  }}
+                >
+                  🎬 {learningMode === 'zh' ? '瀏覽全部 28 支商務 YouTube 影片' : 'Browse All Business YouTube Videos'}
+                </button>
+              )}
+            </div>
+          ) : null;
+        })()}
       </div>
 
       {/* Sub-Navigation Tabs */}

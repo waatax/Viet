@@ -3,9 +3,10 @@ import {
   Sparkles, Volume2, Play, Pause, RotateCw, CheckCircle2,
   XCircle, Award, BookOpen, Layers, MessageSquare, ChevronRight,
   ChevronLeft, HelpCircle, ShieldCheck, Zap, Globe, ArrowRight,
-  ThumbsUp, ThumbsDown, Star, Check, MapPin, Headphones
+  ThumbsUp, ThumbsDown, Star, Check, MapPin, Headphones, ExternalLink
 } from 'lucide-react';
 import { SITUATIONAL_TOPICS } from '../data/situationalTopicsData';
+import { getDialogueYoutubeUrl } from '../data/youtubeVideos';
 import { audioEngine } from '../services/audioEngine';
 import { useLanguage } from '../context/LanguageContext';
 import { srsEngine } from '../services/srsEngine';
@@ -468,6 +469,34 @@ export const TopicMasteryModule = ({ selectedAccent = 'north', updateUserStats, 
               <span className="takeaway-badge">💡 {learningMode === 'zh' ? '實戰心法' : 'Key Insight'}</span>
               <span className="takeaway-text">{topicVisual.highlightZh}</span>
             </div>
+
+            {getDialogueYoutubeUrl(`topic_${currentTopic.id}`) && (
+              <div className="scenario-video-actions">
+                <a
+                  className="scenario-yt-link"
+                  href={getDialogueYoutubeUrl(`topic_${currentTopic.id}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => audioEngine.stop()}
+                >
+                  <Play size={15} fill="currentColor" aria-hidden="true" />
+                  <span>{learningMode === 'zh' ? '在 YouTube 觀看本主題情境對話影片' : 'Watch Topic Dialogue on YouTube'}</span>
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+                {setActiveTab && (
+                  <button
+                    type="button"
+                    className="scenario-video-link"
+                    onClick={() => {
+                      try { sessionStorage.setItem('viet_dialogue_video', `topic_${currentTopic.id}`); } catch { /* ok */ }
+                      setActiveTab('dialogvideo');
+                    }}
+                  >
+                    🎬 {learningMode === 'zh' ? '查看影片章節與目錄' : 'Video Chapters & Catalog'}
+                  </button>
+                )}
+              </div>
+            )}
 
             {/* 全域聲學控制列 */}
             <div className="topics-global-controls">

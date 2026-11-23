@@ -39,7 +39,7 @@ export const translations = {
       accent: '方言補充',
       shopping: '數字與貨幣',
       conversation: '情境會話',
-      dialogvideo: '會話影片目錄',
+      dialogvideo: 'YouTube 影片課程',
       phrases: '實用短句速查',
       flashcards: '間隔記憶閃卡',
       grammar: '語法與拼句',

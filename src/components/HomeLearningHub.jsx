@@ -22,7 +22,7 @@ import { knowledgeBridge } from '../data/knowledgeBridge';
 import { subjectSparks, allModuleMasteryItems } from '../data/knowledgeMasteryData';
 import { loadBridge, loadModuleMasteredPoints, loadLovedSubjects } from '../services/bridgeProgress';
 import { loadKnowledgeProgress } from '../services/knowledgeProgress';
-import { YOUTUBE_PLAYLIST_URL } from '../data/youtubeVideos';
+import { YOUTUBE_PLAYLIST_URL, TOTAL_YOUTUBE_VIDEOS, readWatchedVideos } from '../data/youtubeVideos';
 import './LearningWorkspace.css';
 
 const ROUTES = [
@@ -100,13 +100,15 @@ export default function HomeLearningHub({ onStartStudy, onNavigate }) {
       </div>
       <div className="hub-youtube-launch">
         <div>
-          <span>🎬 YouTube 影片課程 · 基礎發音 ＋ 情境會話</span>
-          <h3>用影片看懂嘴形、聲調與實境對話</h3>
-          <p>所有課程影片皆已改為 YouTube 播放清單超連結播放（不佔用空間、手機電腦皆可自由調速）。</p>
+          <span>🎬 YouTube 完整影音課程 · 共 {TOTAL_YOUTUBE_VIDEOS} 支影片已上架（基礎發音 6 ＋ 情境會話 77）</span>
+          <h3>用影片看懂嘴形、聲調與 77 大實境商務生活對話</h3>
+          <p>
+            全站課程影片皆整合至 YouTube 播放清單，點擊即可直達對應影片與章節時間點（已觀看 {readWatchedVideos().length} / {TOTAL_YOUTUBE_VIDEOS} 支）。
+          </p>
         </div>
         <div className="hub-youtube-actions">
           <button type="button" onClick={() => onNavigate('dialogvideo')}>
-            <Film size={18} aria-hidden="true" /> 瀏覽影片目錄
+            <Film size={18} aria-hidden="true" /> 影片課程中心 ({TOTAL_YOUTUBE_VIDEOS})
           </button>
           <a href={YOUTUBE_PLAYLIST_URL} target="_blank" rel="noopener noreferrer">
             ▶ 前往 YouTube 播放清單 <ExternalLink size={15} aria-hidden="true" />
