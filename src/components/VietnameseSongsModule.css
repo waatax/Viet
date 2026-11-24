@@ -340,6 +340,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .vs-search-box svg {
@@ -369,6 +370,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.36rem;
+  flex-shrink: 0;
 }
 
 .vs-filter-chip {
@@ -390,17 +392,21 @@
 }
 
 .vs-track-list {
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 0.42rem;
-  padding-right: 0.2rem;
+  gap: 0.48rem;
+  padding-right: 0.25rem;
 }
 
 .vs-track-item {
+  flex: 0 0 auto;
   width: 100%;
+  height: auto;
   text-align: left;
-  padding: 0.62rem 0.72rem;
+  padding: 0.65rem 0.72rem;
   border-radius: 0.78rem;
   border: 1px solid var(--border-color);
   background: var(--bg-secondary);
@@ -447,8 +453,9 @@
 
 .vs-track-info {
   min-width: 0;
-  display: grid;
-  gap: 0.16rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .vs-track-title-row {
@@ -456,11 +463,13 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.35rem;
+  min-width: 0;
 }
 
 .vs-track-title-vi {
   font-weight: 800;
   font-size: 0.89rem;
+  line-height: 1.35;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -468,6 +477,7 @@
 
 .vs-track-title-zh {
   font-size: 0.78rem;
+  line-height: 1.35;
   color: var(--text-secondary);
   white-space: nowrap;
   overflow: hidden;
@@ -478,10 +488,11 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.35rem;
   font-size: 0.72rem;
+  line-height: 1.3;
   color: var(--text-muted);
-  margin-top: 0.12rem;
+  margin-top: 0.08rem;
 }
 
 .vs-track-status {
