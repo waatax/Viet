@@ -50,6 +50,10 @@ export const Navbar = ({
   setSelectedAccent,
   speechRate = 1.0,
   setSpeechRate,
+  wordLookupEnabled = true,
+  setWordLookupEnabled,
+  wordLookupAutoSpeak = true,
+  setWordLookupAutoSpeak,
   onOpenAchievements,
   onOpenDailyQuests,
   onOpenChapterFinder,
@@ -319,6 +323,44 @@ export const Navbar = ({
                         {learningMode === 'zh' ? '繁體中文 → EN' : 'English → 中文'}
                       </button>
                     </div>
+
+                    {setWordLookupEnabled && (
+                      <div className="prefs-pop-row">
+                        <span className="prefs-pop-label"><Sparkles size={14} /> {learningMode === 'zh' ? '指字/點字翻譯' : 'Word Lookup'}</span>
+                        <button
+                          type="button"
+                          className={`prefs-pop-chip ${wordLookupEnabled ? 'is-active' : ''}`}
+                          onClick={() => {
+                            audioEngine.playHaptic('tap');
+                            setWordLookupEnabled((v) => !v);
+                          }}
+                          aria-pressed={wordLookupEnabled}
+                        >
+                          {wordLookupEnabled
+                            ? (learningMode === 'zh' ? '✨ 開啟' : '✨ ON')
+                            : (learningMode === 'zh' ? '已關閉' : 'OFF')}
+                        </button>
+                      </div>
+                    )}
+
+                    {wordLookupEnabled && setWordLookupAutoSpeak && (
+                      <div className="prefs-pop-row">
+                        <span className="prefs-pop-label"><AudioLines size={14} /> {learningMode === 'zh' ? '點字自動讀音' : 'Click Audio'}</span>
+                        <button
+                          type="button"
+                          className={`prefs-pop-chip ${wordLookupAutoSpeak ? 'is-active' : ''}`}
+                          onClick={() => {
+                            audioEngine.playHaptic('tap');
+                            setWordLookupAutoSpeak((v) => !v);
+                          }}
+                          aria-pressed={wordLookupAutoSpeak}
+                        >
+                          {wordLookupAutoSpeak
+                            ? (learningMode === 'zh' ? '🔊 開啟' : '🔊 ON')
+                            : (learningMode === 'zh' ? '靜音' : 'Muted')}
+                        </button>
+                      </div>
+                    )}
 
                     <div className="prefs-pop-divider" />
 

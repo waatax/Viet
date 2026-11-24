@@ -42,6 +42,7 @@ const DailyQuestModal = lazyNamed(() => import('./components/DailyQuestModal'), 
 const ChapterFinderModal = lazyNamed(() => import('./components/ChapterFinderModal'), 'default');
 const AudioDiagnosticModal = lazyNamed(() => import('./components/AudioDiagnosticModal'), 'default');
 const BookmarksModal = lazyNamed(() => import('./components/BookmarksModal'), 'default');
+const VietWordLookup = lazyNamed(() => import('./components/VietWordLookup'), 'VietWordLookup');
 
 const readPreference = (key, fallback) => {
   try { return localStorage.getItem(key) || fallback; } catch { return fallback; }
@@ -77,6 +78,22 @@ export function App() {
 
   // Speech rate preference: 1.0 or 0.75
   const [speechRate, setSpeechRateState] = useState(() => audioEngine.getSpeechRate());
+
+  // Instant hover/click Vietnamese word translation & pronunciation lookup
+  const [wordLookupEnabled, setWordLookupEnabled] = useState(() => {
+    return readPreference('viet_word_lookup_enabled', 'true') !== 'false';
+  });
+  const [wordLookupAutoSpeak, setWordLookupAutoSpeak] = useState(() => {
+    return readPreference('viet_word_lookup_autospeak', 'true') !== 'false';
+  });
+
+  useEffect(() => {
+    writePreference('viet_word_lookup_enabled', String(wordLookupEnabled));
+  }, [wordLookupEnabled]);
+
+  useEffect(() => {
+    writePreference('viet_word_lookup_autospeak', String(wordLookupAutoSpeak));
+  }, [wordLookupAutoSpeak]);
 
   const handleSetSpeechRate = (rate) => {
     audioEngine.setSpeechRate(rate);
@@ -324,6 +341,10 @@ export function App() {
         setSelectedAccent={setSelectedAccent}
         speechRate={speechRate}
         setSpeechRate={handleSetSpeechRate}
+        wordLookupEnabled={wordLookupEnabled}
+        setWordLookupEnabled={setWordLookupEnabled}
+        wordLookupAutoSpeak={wordLookupAutoSpeak}
+        setWordLookupAutoSpeak={setWordLookupAutoSpeak}
         onOpenAchievements={() => setIsAchievementsModalOpen(true)}
         onOpenDailyQuests={() => setIsDailyQuestsOpen(true)}
         onOpenChapterFinder={() => setIsChapterFinderOpen(true)}
@@ -534,6 +555,18 @@ export function App() {
           updateUserStats={updateUserStats}
         />
       </Suspense>
+
+      {/* Global Hover/Click Vietnamese Word Translator & Pronunciation Popover */}
+      {wordLookupEnabled && (
+        <Suspense fallback={null}>
+          <VietWordLookup
+            enabled={wordLookupEnabled}
+            autoSpeakOnClick={wordLookupAutoSpeak}
+            selectedAccent={selectedAccent}
+            activeTab={activeTab}
+          />
+        </Suspense>
+      )}
 
       {/* Editorial Footer V2 */}
       <footer className="footer footer-v2">

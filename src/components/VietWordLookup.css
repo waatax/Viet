@@ -1,0 +1,355 @@
+/* VietWordLookup.css — Lightweight floating Vietnamese word translator & pronunciation popover */
+
+.viet-word-highlight {
+  position: fixed;
+  z-index: 1190;
+  pointer-events: none;
+  border-radius: 5px;
+  background: rgba(16, 185, 129, 0.16);
+  border-bottom: 2px solid #10b981;
+  transition: opacity 0.14s ease, transform 0.14s ease;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .viet-word-highlight {
+  background: rgba(52, 211, 153, 0.22);
+  border-bottom-color: #34d399;
+}
+
+.viet-word-popover {
+  position: fixed;
+  z-index: 1250;
+  width: max-content;
+  min-width: 224px;
+  max-width: min(320px, calc(100vw - 24px));
+  padding: 11px 13px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow:
+    0 12px 32px -6px rgba(15, 23, 42, 0.18),
+    0 4px 12px -2px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  animation: vwl-pop-in 0.15s cubic-bezier(0.2, 0.85, 0.3, 1);
+  user-select: text;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+[data-theme="dark"] .viet-word-popover {
+  background: rgba(18, 24, 38, 0.96);
+  color: #f1f5f9;
+  border-color: rgba(148, 163, 184, 0.22);
+  box-shadow:
+    0 14px 36px -6px rgba(0, 0, 0, 0.55),
+    0 4px 14px -2px rgba(0, 0, 0, 0.35);
+}
+
+@keyframes vwl-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viet-word-popover,
+  .viet-word-highlight {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Header row */
+.vwl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.vwl-word-group {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.vwl-word {
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: #059669;
+  letter-spacing: 0.01em;
+  word-break: break-word;
+}
+
+[data-theme="dark"] .vwl-word {
+  color: #34d399;
+}
+
+.vwl-pos {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .vwl-pos {
+  background: rgba(52, 211, 153, 0.16);
+  color: #6ee7b7;
+}
+
+.vwl-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.vwl-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.14s ease, color 0.14s ease, transform 0.1s ease;
+}
+
+.vwl-icon-btn:hover {
+  background: rgba(148, 163, 184, 0.16);
+  color: #0f172a;
+}
+
+[data-theme="dark"] .vwl-icon-btn {
+  color: #94a3b8;
+}
+
+[data-theme="dark"] .vwl-icon-btn:hover {
+  background: rgba(148, 163, 184, 0.18);
+  color: #f8fafc;
+}
+
+.vwl-icon-btn.is-saved {
+  color: #eab308;
+}
+
+/* Translation row */
+.vwl-meaning-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.vwl-zh {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.35;
+}
+
+[data-theme="dark"] .vwl-zh {
+  color: #f8fafc;
+}
+
+.vwl-zh-muted {
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+[data-theme="dark"] .vwl-zh-muted {
+  color: #94a3b8;
+}
+
+.vwl-hanviet {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(245, 158, 11, 0.14);
+  color: #b45309;
+  white-space: nowrap;
+}
+
+[data-theme="dark"] .vwl-hanviet {
+  background: rgba(251, 191, 36, 0.16);
+  color: #fcd34d;
+}
+
+/* Morpheme breakdown for multi-word compounds */
+.vwl-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-size: 0.76rem;
+  color: #475569;
+  margin-bottom: 6px;
+  padding: 4px 7px;
+  border-radius: 8px;
+  background: rgba(148, 163, 184, 0.1);
+}
+
+[data-theme="dark"] .vwl-breakdown {
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, 0.12);
+}
+
+.vwl-breakdown-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.vwl-breakdown-syl {
+  font-weight: 700;
+  color: #059669;
+}
+
+[data-theme="dark"] .vwl-breakdown-syl {
+  color: #34d399;
+}
+
+/* Tone pills */
+.vwl-tones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.vwl-tone-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: rgba(148, 163, 184, 0.12);
+  color: #475569;
+}
+
+[data-theme="dark"] .vwl-tone-chip {
+  background: rgba(148, 163, 184, 0.14);
+  color: #cbd5e1;
+}
+
+.vwl-tone-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Pronunciation controls row */
+.vwl-audio-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.vwl-speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex: 1;
+  padding: 5px 10px;
+  border-radius: 9px;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.12);
+  color: #047857;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.14s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.vwl-speak-btn:hover {
+  background: rgba(16, 185, 129, 0.22);
+}
+
+.vwl-speak-btn:active {
+  transform: scale(0.97);
+}
+
+[data-theme="dark"] .vwl-speak-btn {
+  background: rgba(16, 185, 129, 0.18);
+  border-color: rgba(52, 211, 153, 0.35);
+  color: #6ee7b7;
+}
+
+[data-theme="dark"] .vwl-speak-btn:hover {
+  background: rgba(16, 185, 129, 0.28);
+}
+
+.vwl-speak-btn.is-playing {
+  background: #10b981;
+  border-color: #10b981;
+  color: #ffffff;
+}
+
+.vwl-mini-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 7px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: transparent;
+  color: #475569;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.14s ease, color 0.14s ease, border-color 0.14s ease;
+  white-space: nowrap;
+}
+
+.vwl-mini-btn:hover {
+  background: rgba(148, 163, 184, 0.14);
+  color: #0f172a;
+}
+
+[data-theme="dark"] .vwl-mini-btn {
+  color: #cbd5e1;
+  border-color: rgba(148, 163, 184, 0.24);
+}
+
+[data-theme="dark"] .vwl-mini-btn:hover {
+  background: rgba(148, 163, 184, 0.18);
+  color: #ffffff;
+}
+
+.vwl-mini-btn.is-active {
+  background: rgba(59, 130, 246, 0.14);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #1d4ed8;
+}
+
+[data-theme="dark"] .vwl-mini-btn.is-active {
+  background: rgba(96, 165, 250, 0.2);
+  border-color: rgba(96, 165, 250, 0.45);
+  color: #93c5fd;
+}

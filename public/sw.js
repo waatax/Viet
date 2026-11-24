@@ -16,6 +16,23 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
+  // Offline lookup dictionary caching: Stale-While-Revalidate for instant 0ms loads
+  if (url.pathname.endsWith('/data/vi-zh-dict.json')) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(async (cache) => {
+        const cached = await cache.match(event.request, { ignoreSearch: true });
+        const networkPromise = fetch(event.request)
+          .then((res) => {
+            if (res && res.status === 200) cache.put(event.request, res.clone());
+            return res;
+          })
+          .catch(() => cached);
+        return cached || networkPromise;
+      })
+    );
+    return;
+  }
+
   // Audio files caching strategy: Cache-First with Network Fallback
   if (url.pathname.includes('/audio/') || url.pathname.endsWith('.mp3')) {
     event.respondWith(
