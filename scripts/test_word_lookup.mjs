@@ -111,4 +111,56 @@ for (const eng of [
   assert.ok(sel2 && sel2.found && sel2.breakdown.length === 3);
 }
 
+// 8. Homepage Daily Proverb & ALL-CAPS Han-Viet pills ("Lời nói chẳng mất tiền mua..." & "LỜI (言) · TIỀN (錢) · MUA (買)")
+{
+  const proverb = '“Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau.”';
+  for (const word of ['Lời', 'nói', 'chẳng', 'mất', 'tiền', 'mua', 'lựa', 'mà', 'cho', 'vừa', 'lòng', 'nhau']) {
+    const idx = proverb.indexOf(word);
+    const res = lookupTokenInText(proverb, idx + 1, dict);
+    assert.ok(res && res.found && res.zh, `Expected translation for "${word}" in proverb, got ${JSON.stringify(res)}`);
+  }
+
+  const hvPill = 'LỜI (言) · TIỀN (錢) · MUA (買)';
+  for (const word of ['LỜI', 'TIỀN', 'MUA']) {
+    const idx = hvPill.indexOf(word);
+    const res = lookupTokenInText(hvPill, idx + 1, dict);
+    assert.ok(res && res.found && res.zh, `Expected translation for ALL-CAPS "${word}", got ${JSON.stringify(res)}`);
+  }
+}
+
+// 9. Vietnamese old <-> new tone placement orthography equivalence
+for (const [a, b] of [['khỏe', 'khoẻ'], ['hóa', 'hoá'], ['hòa', 'hoà'], ['thủy', 'thuỷ']]) {
+  const ra = lookupTokenInText(a, 1, dict);
+  const rb = lookupTokenInText(b, 1, dict);
+  assert.ok(ra && ra.found && rb && rb.found, `Both "${a}" and "${b}" must resolve in dictionary`);
+}
+
+// 10. Verify 100% word translation hit rate across ALL Daily Proverbs & multi-module sentences
+const representativeSentences = [
+  'Có công mài sắt, có ngày nên kim.',
+  'Học ăn, học nói, học gói, học mở.',
+  'Đi một ngày đàng, học một sàng khôn.',
+  'Ăn quả nhớ kẻ trồng cây.',
+  'Lời nói chẳng mất tiền mua, lựa lời mà nói cho vừa lòng nhau.',
+  'Gần mực thì đen, gần đèn thì sáng.',
+  'Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.',
+  'Muốn biết phải hỏi, muốn giỏi phải học.',
+  'Thương người như thể thương thân.',
+  'Cho em một tô phở bò tái nạm và một đĩa quẩy nhé.',
+  'Rất hân hạnh được gặp Giám đốc công ty Đài Loan.',
+  'Trà đá vỉa hè Sài Gòn rất ngon và rẻ.',
+  'CÔNG (功) · MÀI · SẮT (鐵) · KIM (針)',
+  'NON · NÚI · CAO (高)',
+  'BIẾT (知) · HỎI (問) · GIỎI · HỌC (學)'
+];
+
+for (const sent of representativeSentences) {
+  const re = /[A-Za-zÀ-ỹđĐ]+/g;
+  let m;
+  while ((m = re.exec(sent)) !== null) {
+    const res = lookupTokenInText(sent, m.index + 1, dict);
+    assert.ok(res && res.found && res.zh, `Word "${m[0]}" in "${sent}" must translate to Traditional Chinese (got ${JSON.stringify(res)})`);
+  }
+}
+
 console.log(`PASS test_word_lookup: ${entryCount} entries (${(rawBytes / 1024).toFixed(1)} KB), all assertions passed.`);
