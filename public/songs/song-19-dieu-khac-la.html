@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>#19 Điều Khác Lạ（與眾不同）— 越中雙語歌詞與單字片語精讀講義 | 越語學習通</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --jade: #0f766e;
+      --jade-dark: #115e59;
+      --jade-soft: #f0fdfa;
+      --jade-border: #99f6e4;
+      --jade-line: #2dd4bf;
+      --rose: #be123c;
+      --rose-soft: #fff1f2;
+      --amber: #92400e;
+      --amber-soft: #fef3c7;
+      --indigo: #3730a3;
+      --indigo-soft: #eef2ff;
+      --indigo-border: #c7d2fe;
+      --ink: #0f172a;
+      --ink-2: #334155;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --line-soft: #eef2f6;
+      --surface: #ffffff;
+      --paper: #f8fafc;
+      --font-vi: "Be Vietnam Pro", "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      --font-zh: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif;
+      --font-mono: "Noto Sans Mono", "Cascadia Mono", Consolas, ui-monospace, monospace;
+    }
+
+    @page {
+      size: A4 portrait;
+      margin: 13mm 11.5mm 14mm 11.5mm;
+      @top-left {
+        content: "#19 Điều Khác Lạ（與眾不同）";
+        font-family: "Be Vietnam Pro", "Microsoft JhengHei", "PingFang TC", sans-serif;
+        font-size: 7.5pt;
+        font-weight: 600;
+        color: #64748b;
+        border-bottom: 0.5pt solid #e2e8f0;
+        padding-bottom: 3pt;
+        margin-bottom: 4pt;
+      }
+      @top-right {
+        content: "越語學習通 · 雙語歌詞精讀講義";
+        font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+        font-size: 7.5pt;
+        color: #94a3b8;
+        border-bottom: 0.5pt solid #e2e8f0;
+        padding-bottom: 3pt;
+        margin-bottom: 4pt;
+      }
+      @bottom-left {
+        content: "YouTube 原曲：youtu.be/m7Wya6Z-QdM?t=4131 · Trạm Cover";
+        font-family: "Be Vietnam Pro", "Microsoft JhengHei", "PingFang TC", sans-serif;
+        font-size: 7.2pt;
+        color: #94a3b8;
+        border-top: 0.5pt solid #e2e8f0;
+        padding-top: 3pt;
+      }
+      @bottom-right {
+        content: "第 " counter(page) " / " counter(pages) " 頁";
+        font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+        font-size: 7.5pt;
+        font-weight: 600;
+        color: #64748b;
+        border-top: 0.5pt solid #e2e8f0;
+        padding-top: 3pt;
+      }
+    }
+
+    @page :first {
+      @top-left { content: none; border: none; }
+      @top-right { content: none; border: none; }
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #eef2f6;
+      color: var(--ink);
+      font-family: var(--font-zh);
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* Screen-only interactive top toolbar */
+    .screen-bar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #dbe2ea;
+      padding: 10px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    }
+
+    .bar-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .bar-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 11px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--ink);
+      font-family: var(--font-zh);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.14s ease;
+    }
+
+    .bar-btn:hover {
+      border-color: var(--jade);
+      color: var(--jade);
+      background: var(--jade-soft);
+    }
+
+    .bar-btn.is-primary {
+      background: linear-gradient(135deg, #0f766e, #0d9488);
+      border-color: #0f766e;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(15, 118, 110, 0.25);
+    }
+
+    .bar-btn.is-primary:hover {
+      filter: brightness(1.06);
+      color: #ffffff;
+    }
+
+    .bar-btn.is-rose {
+      background: linear-gradient(135deg, #be123c, #e11d48);
+      border-color: #be123c;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(190, 18, 60, 0.24);
+    }
+
+    .bar-btn.is-rose:hover {
+      filter: brightness(1.06);
+      color: #ffffff;
+    }
+
+    .bar-btn.is-active {
+      background: var(--jade-soft);
+      border-color: var(--jade);
+      color: var(--jade-dark);
+    }
+
+    .bar-btn.is-disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+
+    /* Main Sheet Container (A4 proportions on screen) */
+    .sheet {
+      max-width: 210mm;
+      margin: 18px auto 36px;
+      background: var(--surface);
+      padding: 13mm 12mm 16mm;
+      border-radius: 12px;
+      box-shadow: 0 10px 36px rgba(15, 23, 42, 0.1);
+    }
+
+    /* Editorial Cover Header */
+    .song-header {
+      border: 1px solid #d5e5e2;
+      border-top: 4px solid var(--jade);
+      border-radius: 10px;
+      background: linear-gradient(180deg, #f5fbfa 0%, #ffffff 52%);
+      padding: 13px 15px 11px;
+      margin-bottom: 12px;
+      break-inside: avoid;
+    }
+
+    .header-eyebrow {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .eyebrow-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .track-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--jade);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 8pt;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .mood-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: var(--amber);
+      font-size: 7.8pt;
+      font-weight: 700;
+    }
+
+    .brand-tag {
+      font-size: 7.8pt;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 4px 12px;
+      margin-bottom: 6px;
+    }
+
+    .title-vi {
+      margin: 0;
+      font-family: var(--font-vi);
+      font-size: 19pt;
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+
+    .title-zh {
+      font-size: 12.5pt;
+      font-weight: 700;
+      color: var(--jade);
+    }
+
+    .song-summary {
+      margin: 0 0 9px;
+      font-size: 8.4pt;
+      line-height: 1.55;
+      color: var(--ink-2);
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.12fr 0.94fr 1.14fr;
+      gap: 6px;
+      margin-bottom: 9px;
+    }
+
+    .meta-box {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 5px 8px;
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 6.8pt;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 1px;
+    }
+
+    .meta-val {
+      display: block;
+      font-family: var(--font-vi);
+      font-size: 8.2pt;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .meta-sub {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 6.8pt;
+      color: var(--jade);
+      font-weight: 600;
+      margin-top: 1px;
+    }
+
+    .meta-link {
+      display: block;
+      color: var(--rose);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 6.7pt;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Legend strip */
+    .legend-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px 12px;
+      padding: 6px 9px;
+      border-radius: 7px;
+      background: var(--paper);
+      border: 1px dashed #cbd5e1;
+      font-size: 7.2pt;
+      color: var(--ink-2);
+    }
+
+    .legend-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-sample-phrase {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: var(--jade-soft);
+      border: 1px solid var(--jade-border);
+      border-left: 2.5px solid var(--jade);
+      color: var(--jade-dark);
+      font-weight: 700;
+    }
+
+    .legend-sample-word {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      padding: 1px 6px;
+      border-radius: 4px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .legend-tone {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+
+    /* Lyric sections */
+    .lyric-section {
+      margin-bottom: 11px;
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 5px 10px;
+      margin-bottom: 6px;
+      border-radius: 7px;
+      background: linear-gradient(90deg, #e6f7f5 0%, #f8fafc 100%);
+      border: 1px solid #ccebe6;
+      border-left: 3.5px solid var(--jade);
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+
+    .sec-title {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .sec-index {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      background: var(--jade);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 7.2pt;
+      font-weight: 700;
+    }
+
+    .sec-head h2 {
+      margin: 0;
+      font-size: 9.4pt;
+      font-weight: 800;
+      color: var(--jade-dark);
+    }
+
+    .sec-time {
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .sec-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 5.5px;
+    }
+
+    /* Individual lyric line card */
+    .lyric-card {
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #ffffff;
+      padding: 6px 9px 6.5px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .lyric-main {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .line-ts {
+      flex: 0 0 auto;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 46px;
+      padding: 2px 4px;
+      border-radius: 5px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 6.7pt;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-top: 1px;
+    }
+
+    .line-ts small {
+      font-size: 6pt;
+      color: #94a3b8;
+    }
+
+    .line-body {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .line-vi {
+      font-family: var(--font-vi);
+      font-size: 10.6pt;
+      font-weight: 700;
+      line-height: 1.48;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    .vi-phrase {
+      background: rgba(20, 184, 166, 0.08);
+      border-bottom: 1.5px solid var(--jade-line);
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .vi-en {
+      background: rgba(99, 102, 241, 0.08);
+      border-bottom: 1.5px dashed #818cf8;
+      border-radius: 3px;
+      padding: 0 2px;
+    }
+
+    .line-zh {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      font-size: 8.8pt;
+      font-weight: 500;
+      line-height: 1.45;
+      color: var(--ink-2);
+    }
+
+    .zh-mark {
+      flex: 0 0 auto;
+      display: inline-block;
+      padding: 0 3.5px;
+      border-radius: 3px;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      font-size: 6.4pt;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    /* Word & Phrase Interlinear Gloss Strip */
+    .gloss-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3.5px 4.5px;
+      margin-top: 5.5px;
+      padding-top: 5px;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .g-chip {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 1px;
+      padding: 2.5px 5.5px 2.5px 5.5px;
+      border-radius: 5px;
+      line-height: 1.25;
+      max-width: 100%;
+    }
+
+    .g-chip.is-phrase {
+      background: var(--jade-soft);
+      border: 1px solid var(--jade-border);
+      border-left: 2.5px solid var(--jade);
+    }
+
+    .g-chip.is-word {
+      background: var(--paper);
+      border: 1px solid #e2e8f0;
+    }
+
+    .g-chip.is-en {
+      background: var(--indigo-soft);
+      border: 1px solid var(--indigo-border);
+      border-left: 2.5px solid var(--indigo);
+    }
+
+    .g-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      flex-wrap: nowrap;
+    }
+
+    .g-tag {
+      display: inline-block;
+      padding: 0 3px;
+      border-radius: 3px;
+      font-size: 5.8pt;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+    }
+
+    .g-tag.is-phrase {
+      background: var(--jade);
+      color: #ffffff;
+    }
+
+    .g-tag.is-en {
+      background: var(--indigo);
+      color: #ffffff;
+    }
+
+    .g-vi {
+      font-family: var(--font-vi);
+      font-size: 7.8pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .g-chip.is-phrase .g-vi {
+      color: var(--jade-dark);
+    }
+
+    .g-chip.is-en .g-vi {
+      color: var(--indigo);
+    }
+
+    .g-pos {
+      font-size: 5.9pt;
+      font-weight: 600;
+      color: #64748b;
+      background: rgba(148, 163, 184, 0.14);
+      padding: 0 3px;
+      border-radius: 3px;
+      line-height: 1.35;
+    }
+
+    .g-tones {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .g-dot {
+      display: inline-block;
+      width: 4.5px;
+      height: 4.5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .g-zh {
+      font-size: 7.2pt;
+      font-weight: 500;
+      color: var(--ink-2);
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      flex-wrap: wrap;
+    }
+
+    .g-chip.is-phrase .g-zh {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .g-hv {
+      font-size: 6pt;
+      font-weight: 700;
+      color: var(--amber);
+      background: var(--amber-soft);
+      padding: 0 3px;
+      border-radius: 3px;
+      line-height: 1.35;
+    }
+
+    /* End-of-song Key Vocabulary & Phrase Reference */
+    .summary-block {
+      margin-top: 12px;
+      border: 1px solid #d5e5e2;
+      border-radius: 9px;
+      background: #ffffff;
+      padding: 10px 12px;
+    }
+
+    .summary-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 6px;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      border-bottom: 1.5px solid var(--jade-border);
+      break-after: avoid;
+    }
+
+    .summary-head h3 {
+      margin: 0;
+      font-size: 9.8pt;
+      font-weight: 800;
+      color: var(--jade-dark);
+    }
+
+    .summary-head span {
+      font-size: 7.3pt;
+      color: var(--muted);
+    }
+
+    .vocab-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .vocab-card {
+      padding: 7px 9px;
+      border-radius: 7px;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--jade);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .vocab-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: 3px;
+    }
+
+    .vocab-vi {
+      font-family: var(--font-vi);
+      font-size: 9.2pt;
+      font-weight: 800;
+      color: var(--jade-dark);
+    }
+
+    .vocab-zh {
+      font-size: 8.6pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .vocab-note {
+      margin: 0;
+      font-size: 7.5pt;
+      line-height: 1.48;
+      color: var(--ink-2);
+    }
+
+    .phrase-ref-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 5px 7px;
+    }
+
+    .pref-item {
+      padding: 4.5px 7px;
+      border-radius: 6px;
+      background: var(--jade-soft);
+      border: 1px solid #d5f3ee;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .pref-vi-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4px;
+    }
+
+    .pref-vi {
+      font-family: var(--font-vi);
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--jade-dark);
+    }
+
+    .pref-zh-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 1px;
+    }
+
+    .pref-zh {
+      font-size: 7.3pt;
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .pref-cnt {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 6.4pt;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .sheet-colophon {
+      margin-top: 12px;
+      padding-top: 7px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      font-size: 7pt;
+      color: var(--muted);
+    }
+
+    /* Screen interactive display toggles */
+    body.hide-words .g-chip.is-word { display: none; }
+    body.hide-gloss .gloss-strip { display: none; }
+    body.hide-tones .g-tones { display: none; }
+    body.hide-ts .line-ts { display: none; }
+
+    @media print {
+      :root {
+        /* Use static TrueType fonts in print so Chromium embeds compact, searchable CJK+Viet subsets instead of Type3 paths */
+        --font-vi: "Be Vietnam Pro", "Segoe UI", "Microsoft JhengHei", "PingFang TC", sans-serif;
+        --font-zh: "Microsoft JhengHei", "PingFang TC", "Hiragino Sans CNS", sans-serif;
+        --font-mono: "Consolas", "Noto Sans Mono", ui-monospace, monospace;
+      }
+      html, body {
+        background: #ffffff !important;
+        font-family: var(--font-zh) !important;
+      }
+      .no-print, .screen-bar {
+        display: none !important;
+      }
+      .sheet {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      a { color: inherit; }
+    }
+
+    @media screen and (max-width: 720px) {
+      .sheet {
+        margin: 8px;
+        padding: 14px 12px;
+      }
+      .meta-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .vocab-grid, .phrase-ref-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="screen-bar no-print" aria-label="歌詞講義列印與導覽列">
+    <div class="bar-group">
+      <a class="bar-btn" href="../#/songs">← 返回越語學習通</a>
+      <a class="bar-btn" href="./index.html">☰ 24 首歌詞總覽</a>
+      <a class="bar-btn " href="./song-18-thang-may-em-nho-anh.html">◀ 上一首</a>
+      <a class="bar-btn " href="./song-20-cong-chua-bong-bong.html">下一首 ▶</a>
+    </div>
+    <div class="bar-group">
+      <button type="button" class="bar-btn is-active" id="btn-mode-all">單字＋片語</button>
+      <button type="button" class="bar-btn" id="btn-mode-phrase">僅看片語</button>
+      <button type="button" class="bar-btn is-active" id="btn-tones">聲調色點</button>
+      <button type="button" class="bar-btn is-active" id="btn-ts">逐句秒數</button>
+      <a class="bar-btn is-rose" href="./song-19-dieu-khac-la.pdf" download="song-19-dieu-khac-la.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載本首 PDF</a>
+      <button type="button" class="bar-btn is-primary" onclick="window.print()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>列印 / 另存 PDF</button>
+    </div>
+  </nav>
+
+  <main class="sheet">
+    <header class="song-header">
+      <div class="header-eyebrow">
+        <div class="eyebrow-left">
+          <span class="track-pill">TRACK 19 / 24</span>
+          <span class="mood-pill">深情對唱</span>
+        </div>
+        <span class="brand-tag">越語學習通 · 越南抒情金曲雙語逐詞講義</span>
+      </div>
+
+      <div class="title-row">
+        <h1 class="title-vi" lang="vi">Điều Khác Lạ</h1>
+        <span class="title-zh">與眾不同</span>
+      </div>
+
+      <p class="song-summary">揉合抒情女聲與深沉饒舌的男女對唱情歌，描繪緣盡後兩人依然難捨彼此的心酸。女聲傾訴思念的破碎與孤寂，男聲饒舌則將所有傷痛獨自扛下，把快樂留給曾經深愛的人。</p>
+
+      <div class="meta-grid">
+        <div class="meta-box">
+          <span class="meta-label">翻唱 / 原唱</span>
+          <span class="meta-val">Trạm Cover</span>
+          <span class="meta-sub">原唱：Đạt G ft. Ngọc Haleyy</span>
+        </div>
+        <div class="meta-box">
+          <span class="meta-label">曲目時間軸（曲長 04:41）</span>
+          <span class="meta-val">01:08:51 – 01:13:32</span>
+          <span class="meta-sub">起 4131s · 人聲 01:08:51 (4131s)</span>
+        </div>
+        <div class="meta-box">
+          <span class="meta-label">歌詞與詞彙標示統計</span>
+          <span class="meta-val">5 段 · 42 句雙語</span>
+          <span class="meta-sub">84 組片語 · 100 個單字</span>
+        </div>
+        <div class="meta-box">
+          <span class="meta-label">YouTube 原影片直達</span>
+          <a class="meta-link" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4131" target="_blank" rel="noopener noreferrer">youtu.be/m7Wya6Z-QdM?t=4131</a>
+          <span class="meta-sub">合輯：Soul Tracks</span>
+        </div>
+      </div>
+
+      <div class="legend-bar">
+        <div class="legend-group">
+          <strong>標示圖例：</strong>
+          <span class="legend-sample-phrase">片語／複合詞（句中附綠底線）</span>
+          <span class="legend-sample-word">單字</span>
+          <span class="g-hv">漢·漢越同源字</span>
+        </div>
+        <div class="legend-group">
+          <strong>聲調色點：</strong>
+          <span class="legend-tone"><span class="g-dot" style="background:#64748b"></span>平聲</span><span class="legend-tone"><span class="g-dot" style="background:#ef4444"></span>銳聲</span><span class="legend-tone"><span class="g-dot" style="background:#3b82f6"></span>玄聲</span><span class="legend-tone"><span class="g-dot" style="background:#f59e0b"></span>問聲</span><span class="legend-tone"><span class="g-dot" style="background:#8b5cf6"></span>跌聲</span><span class="legend-tone"><span class="g-dot" style="background:#10b981"></span>重聲</span>
+        </div>
+      </div>
+    </header>
+
+    
+      <section class="lyric-section" id="sec-1">
+        <div class="sec-head">
+          <div class="sec-title">
+            <span class="sec-index">01</span>
+            <h2>主歌一 (Verse 1)</h2>
+          </div>
+          <a class="sec-time" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4131" target="_blank" rel="noopener noreferrer">
+            01:08:51 · 第 4131 秒
+          </a>
+        </div>
+        <div class="sec-lines">
+          
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4131" target="_blank" rel="noopener noreferrer" title="YouTube 第 4131 秒">
+                  <span>01:08:51</span>
+                  <small>4131s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Anh thấy <span class="vi-phrase">được gì</span> qua những <span class="vi-phrase">nỗi buồn</span> của em</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>你從我的陣陣哀愁裡，究竟看懂了什麼</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Anh：平聲"></span></span><span class="g-vi">Anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="thấy：銳聲"></span></span><span class="g-vi">thấy</span><span class="g-pos">動</span></span><span class="g-zh">看見／覺得</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">được gì</span><span class="g-tones" aria-label="重聲・玄聲"><span class="g-dot" style="background:#10b981" title="được：重聲"></span><span class="g-dot" style="background:#3b82f6" title="gì：玄聲"></span></span></span><span class="g-zh">能得到什麼</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="qua：平聲"></span></span><span class="g-vi">qua</span><span class="g-pos">動</span></span><span class="g-zh">經過／掠過</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="những：跌聲"></span></span><span class="g-vi">những</span><span class="g-pos">限</span></span><span class="g-zh">那些／種種</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">nỗi buồn</span><span class="g-tones" aria-label="跌聲・玄聲"><span class="g-dot" style="background:#8b5cf6" title="nỗi：跌聲"></span><span class="g-dot" style="background:#3b82f6" title="buồn：玄聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">哀愁／悲傷</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="問聲"><span class="g-dot" style="background:#f59e0b" title="của：問聲"></span></span><span class="g-vi">của</span><span class="g-pos">介</span></span><span class="g-zh">的（所屬）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4139" target="_blank" rel="noopener noreferrer" title="YouTube 第 4139 秒">
+                  <span>01:08:59</span>
+                  <small>4139s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Em thấy <span class="vi-phrase">được gì</span> qua những <span class="vi-phrase">nỗi nhớ</span> khi em xa anh</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我從離開你後的綿長思念裡，又看清了什麼</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Em：平聲"></span></span><span class="g-vi">Em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="thấy：銳聲"></span></span><span class="g-vi">thấy</span><span class="g-pos">動</span></span><span class="g-zh">看見／覺得</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">được gì</span><span class="g-tones" aria-label="重聲・玄聲"><span class="g-dot" style="background:#10b981" title="được：重聲"></span><span class="g-dot" style="background:#3b82f6" title="gì：玄聲"></span></span></span><span class="g-zh">能得到什麼</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="qua：平聲"></span></span><span class="g-vi">qua</span><span class="g-pos">動</span></span><span class="g-zh">經過／掠過</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="những：跌聲"></span></span><span class="g-vi">những</span><span class="g-pos">限</span></span><span class="g-zh">那些／種種</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">nỗi nhớ</span><span class="g-tones" aria-label="跌聲・銳聲"><span class="g-dot" style="background:#8b5cf6" title="nỗi：跌聲"></span><span class="g-dot" style="background:#ef4444" title="nhớ：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">思念之情</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="khi：平聲"></span></span><span class="g-vi">khi</span><span class="g-pos">連</span></span><span class="g-zh">當…的時候</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="xa：平聲"></span></span><span class="g-vi">xa</span><span class="g-pos">形</span></span><span class="g-zh">遙遠／分離</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4145" target="_blank" rel="noopener noreferrer" title="YouTube 第 4145 秒">
+                  <span>01:09:05</span>
+                  <small>4145s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Em đang cố <span class="vi-phrase">tìm lại</span> anh, người <span class="vi-phrase">con trai</span> đã quên em</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我正努力尋找著你，那個早已把我遺忘的男孩</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Em：平聲"></span></span><span class="g-vi">Em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="đang：平聲"></span></span><span class="g-vi">đang</span><span class="g-pos">副</span></span><span class="g-zh">正在</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="cố：銳聲"></span></span><span class="g-vi">cố</span><span class="g-pos">動</span></span><span class="g-zh">努力／強撐</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">tìm lại</span><span class="g-tones" aria-label="玄聲・重聲"><span class="g-dot" style="background:#3b82f6" title="tìm：玄聲"></span><span class="g-dot" style="background:#10b981" title="lại：重聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">找回／尋回</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="người：玄聲"></span></span><span class="g-vi">người</span><span class="g-pos">名</span></span><span class="g-zh">人／心上人</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">con trai</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="con：平聲"></span><span class="g-dot" style="background:#64748b" title="trai：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">男孩</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="đã：跌聲"></span></span><span class="g-vi">đã</span><span class="g-pos">副</span></span><span class="g-zh">已經（過去）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="quên：平聲"></span></span><span class="g-vi">quên</span><span class="g-pos">動</span></span><span class="g-zh">忘記</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4154" target="_blank" rel="noopener noreferrer" title="YouTube 第 4154 秒">
+                  <span>01:09:14</span>
+                  <small>4154s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Giờ đây</span> <span class="vi-phrase">mọi thứ</span> <span class="vi-phrase">vụn vỡ</span> đi <span class="vi-phrase">tất cả</span>, <span class="vi-phrase">anh ơi</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>如今一切全都支離破碎了啊，親愛的你</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Giờ đây</span><span class="g-tones" aria-label="玄聲・平聲"><span class="g-dot" style="background:#3b82f6" title="Giờ：玄聲"></span><span class="g-dot" style="background:#64748b" title="đây：平聲"></span></span><span class="g-pos">副</span></span><span class="g-zh">如今／現在</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">mọi thứ</span><span class="g-tones" aria-label="重聲・銳聲"><span class="g-dot" style="background:#10b981" title="mọi：重聲"></span><span class="g-dot" style="background:#ef4444" title="thứ：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">一切事物</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">vụn vỡ</span><span class="g-tones" aria-label="重聲・跌聲"><span class="g-dot" style="background:#10b981" title="vụn：重聲"></span><span class="g-dot" style="background:#8b5cf6" title="vỡ：跌聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">支離破碎</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="đi：平聲"></span></span><span class="g-vi">đi</span><span class="g-pos">動</span></span><span class="g-zh">走／離去</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">tất cả</span><span class="g-tones" aria-label="銳聲・問聲"><span class="g-dot" style="background:#ef4444" title="tất：銳聲"></span><span class="g-dot" style="background:#f59e0b" title="cả：問聲"></span></span><span class="g-pos">代</span></span><span class="g-zh">全部／所有</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">anh ơi</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span><span class="g-dot" style="background:#64748b" title="ơi：平聲"></span></span><span class="g-pos">嘆</span></span><span class="g-zh">親愛的／你啊</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4161" target="_blank" rel="noopener noreferrer" title="YouTube 第 4161 秒">
+                  <span>01:09:21</span>
+                  <small>4161s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Anh mơ <span class="vi-phrase">tiếng cười</span> <span class="vi-phrase">thân quen</span>, chiều trong tay bước <span class="vi-phrase">rong chơi</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我夢見熟悉的笑聲，傍晚手牽手漫步同遊</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Anh：平聲"></span></span><span class="g-vi">Anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="mơ：平聲"></span></span><span class="g-vi">mơ</span><span class="g-pos">動</span></span><span class="g-zh">夢見／做夢</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">tiếng cười</span><span class="g-tones" aria-label="銳聲・玄聲"><span class="g-dot" style="background:#ef4444" title="tiếng：銳聲"></span><span class="g-dot" style="background:#3b82f6" title="cười：玄聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">笑聲</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">thân quen</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="thân：平聲"></span><span class="g-dot" style="background:#64748b" title="quen：平聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">熟悉親切</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="chiều：玄聲"></span></span><span class="g-vi">chiều</span><span class="g-pos">名</span></span><span class="g-zh">傍晚／午後</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="trong：平聲"></span></span><span class="g-vi">trong</span><span class="g-pos">介</span></span><span class="g-zh">在…之中</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="tay：平聲"></span></span><span class="g-vi">tay</span><span class="g-pos">名</span></span><span class="g-zh">手</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="bước：銳聲"></span></span><span class="g-vi">bước</span><span class="g-pos">動</span></span><span class="g-zh">踏出／漫步</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">rong chơi</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="rong：平聲"></span><span class="g-dot" style="background:#64748b" title="chơi：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">漫步同遊</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4166" target="_blank" rel="noopener noreferrer" title="YouTube 第 4166 秒">
+                  <span>01:09:26</span>
+                  <small>4166s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Mông lung</span> <span class="vi-phrase">đứt đoạn</span> <span class="vi-phrase">yêu thương</span>, <span class="vi-phrase">có lẽ</span> duyên ta <span class="vi-phrase">không thành</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>迷茫中愛意斷了線，或許我們終究有緣無分</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Mông lung</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="Mông：平聲"></span><span class="g-dot" style="background:#64748b" title="lung：平聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">迷茫朦朧</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đứt đoạn</span><span class="g-tones" aria-label="銳聲・重聲"><span class="g-dot" style="background:#ef4444" title="đứt：銳聲"></span><span class="g-dot" style="background:#10b981" title="đoạn：重聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">中斷／斷裂</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">yêu thương</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="yêu：平聲"></span><span class="g-dot" style="background:#64748b" title="thương：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">愛意／疼愛</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">có lẽ</span><span class="g-tones" aria-label="銳聲・跌聲"><span class="g-dot" style="background:#ef4444" title="có：銳聲"></span><span class="g-dot" style="background:#8b5cf6" title="lẽ：跌聲"></span></span><span class="g-pos">副</span></span><span class="g-zh">也許／或許</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="duyên：平聲"></span></span><span class="g-vi">duyên</span><span class="g-pos">名</span></span><span class="g-zh">緣分<span class="g-hv">漢·緣</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="ta：平聲"></span></span><span class="g-vi">ta</span><span class="g-pos">代</span></span><span class="g-zh">我們／我</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">không thành</span><span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="không：平聲"></span><span class="g-dot" style="background:#3b82f6" title="thành：玄聲"></span></span></span><span class="g-zh">無法成全</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4177" target="_blank" rel="noopener noreferrer" title="YouTube 第 4177 秒">
+                  <span>01:09:37</span>
+                  <small>4177s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Anh mang hết chuyện <span class="vi-phrase">cô đơn</span> gửi cho <span class="vi-phrase">cơn gió</span> <span class="vi-phrase">phiêu du</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我將滿腹孤單心事，全都託付給四處漂泊的風</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Anh：平聲"></span></span><span class="g-vi">Anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="mang：平聲"></span></span><span class="g-vi">mang</span><span class="g-pos">動</span></span><span class="g-zh">帶著／穿戴</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="hết：銳聲"></span></span><span class="g-vi">hết</span><span class="g-pos">副</span></span><span class="g-zh">全部／過完</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="chuyện：重聲"></span></span><span class="g-vi">chuyện</span><span class="g-pos">名</span></span><span class="g-zh">往事／故事</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">cô đơn</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="cô：平聲"></span><span class="g-dot" style="background:#64748b" title="đơn：平聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">孤單寂寞<span class="g-hv">漢·孤單</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="問聲"><span class="g-dot" style="background:#f59e0b" title="gửi：問聲"></span></span><span class="g-vi">gửi</span><span class="g-pos">動</span></span><span class="g-zh">寄託／寄出<span class="g-hv">漢·寄</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="cho：平聲"></span></span><span class="g-vi">cho</span><span class="g-pos">介</span></span><span class="g-zh">給／讓／任憑</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">cơn gió</span><span class="g-tones" aria-label="平聲・銳聲"><span class="g-dot" style="background:#64748b" title="cơn：平聲"></span><span class="g-dot" style="background:#ef4444" title="gió：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">一陣風</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">phiêu du</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="phiêu：平聲"></span><span class="g-dot" style="background:#64748b" title="du：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">漂泊漫遊<span class="g-hv">漢·漂遊</span></span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4182" target="_blank" rel="noopener noreferrer" title="YouTube 第 4182 秒">
+                  <span>01:09:42</span>
+                  <small>4182s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Chiều tàn</span> <span class="vi-phrase">hoàng hôn</span> <span class="vi-phrase">xóa hết</span> những <span class="vi-phrase">nghi ngờ</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>殘陽黃昏悄然抹去所有猜疑</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Chiều tàn</span><span class="g-tones" aria-label="玄聲・玄聲"><span class="g-dot" style="background:#3b82f6" title="Chiều：玄聲"></span><span class="g-dot" style="background:#3b82f6" title="tàn：玄聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">殘陽傍晚</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">hoàng hôn</span><span class="g-tones" aria-label="玄聲・平聲"><span class="g-dot" style="background:#3b82f6" title="hoàng：玄聲"></span><span class="g-dot" style="background:#64748b" title="hôn：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">黃昏<span class="g-hv">漢·黃昏</span></span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">xóa hết</span><span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="xóa：銳聲"></span><span class="g-dot" style="background:#ef4444" title="hết：銳聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">抹去所有</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="những：跌聲"></span></span><span class="g-vi">những</span><span class="g-pos">限</span></span><span class="g-zh">那些／種種</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">nghi ngờ</span><span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="nghi：平聲"></span><span class="g-dot" style="background:#3b82f6" title="ngờ：玄聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">猜疑／懷疑</span></span>
+              </div>
+            </article>
+        </div>
+      </section>
+
+      <section class="lyric-section" id="sec-2">
+        <div class="sec-head">
+          <div class="sec-title">
+            <span class="sec-index">02</span>
+            <h2>副歌一 (Chorus 1)</h2>
+          </div>
+          <a class="sec-time" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4192" target="_blank" rel="noopener noreferrer">
+            01:09:52 · 第 4192 秒
+          </a>
+        </div>
+        <div class="sec-lines">
+          
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4192" target="_blank" rel="noopener noreferrer" title="YouTube 第 4192 秒">
+                  <span>01:09:52</span>
+                  <small>4192s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Sao <span class="vi-phrase">đôi tay</span> chưa buông <span class="vi-phrase">đôi chân</span> em đi rồi</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>為何雙手尚未放開，你的腳步卻已遠去</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Sao：平聲"></span></span><span class="g-vi">Sao</span><span class="g-pos">副</span></span><span class="g-zh">為何／星星</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đôi tay</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đôi：平聲"></span><span class="g-dot" style="background:#64748b" title="tay：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">雙手</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="chưa：平聲"></span></span><span class="g-vi">chưa</span><span class="g-pos">副</span></span><span class="g-zh">尚未／還沒</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="buông：平聲"></span></span><span class="g-vi">buông</span><span class="g-pos">動</span></span><span class="g-zh">放開／放手</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đôi chân</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đôi：平聲"></span><span class="g-dot" style="background:#64748b" title="chân：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">雙腳／步伐</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="đi：平聲"></span></span><span class="g-vi">đi</span><span class="g-pos">動</span></span><span class="g-zh">走／離去</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="rồi：玄聲"></span></span><span class="g-vi">rồi</span><span class="g-pos">助</span></span><span class="g-zh">了／然後</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4195" target="_blank" rel="noopener noreferrer" title="YouTube 第 4195 秒">
+                  <span>01:09:55</span>
+                  <small>4195s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Sao <span class="vi-phrase">đêm nay</span> <span class="vi-phrase">cô đơn</span> <span class="vi-phrase">lấn át</span> <span class="vi-phrase">nỗi nhớ</span> <span class="vi-phrase">tơi bời</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>為何今夜的孤寂淹沒了凌亂不堪的思念</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Sao：平聲"></span></span><span class="g-vi">Sao</span><span class="g-pos">副</span></span><span class="g-zh">為何／星星</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đêm nay</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đêm：平聲"></span><span class="g-dot" style="background:#64748b" title="nay：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">今夜</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">cô đơn</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="cô：平聲"></span><span class="g-dot" style="background:#64748b" title="đơn：平聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">孤單寂寞<span class="g-hv">漢·孤單</span></span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">lấn át</span><span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="lấn：銳聲"></span><span class="g-dot" style="background:#ef4444" title="át：銳聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">淹沒／壓倒</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">nỗi nhớ</span><span class="g-tones" aria-label="跌聲・銳聲"><span class="g-dot" style="background:#8b5cf6" title="nỗi：跌聲"></span><span class="g-dot" style="background:#ef4444" title="nhớ：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">思念之情</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">tơi bời</span><span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="tơi：平聲"></span><span class="g-dot" style="background:#3b82f6" title="bời：玄聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">凌亂不堪</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4199" target="_blank" rel="noopener noreferrer" title="YouTube 第 4199 秒">
+                  <span>01:09:59</span>
+                  <small>4199s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Buồn kia còn sau <span class="vi-phrase">màu mắt</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>那抹憂傷依然深藏在眼眸之後</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="Buồn：玄聲"></span></span><span class="g-vi">Buồn</span><span class="g-pos">形</span></span><span class="g-zh">悲傷／憂鬱</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="kia：平聲"></span></span><span class="g-vi">kia</span><span class="g-pos">限</span></span><span class="g-zh">那個／遠方</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="còn：玄聲"></span></span><span class="g-vi">còn</span><span class="g-pos">副</span></span><span class="g-zh">還／剩下</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="sau：平聲"></span></span><span class="g-vi">sau</span><span class="g-pos">介</span></span><span class="g-zh">在…之後</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">màu mắt</span><span class="g-tones" aria-label="玄聲・銳聲"><span class="g-dot" style="background:#3b82f6" title="màu：玄聲"></span><span class="g-dot" style="background:#ef4444" title="mắt：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">眼眸神色</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4206" target="_blank" rel="noopener noreferrer" title="YouTube 第 4206 秒">
+                  <span>01:10:06</span>
+                  <small>4206s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Em <span class="vi-phrase">lang thang</span> nơi anh từng hay <span class="vi-phrase">đi qua</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我獨自徘徊在你曾經走過的街角</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Em：平聲"></span></span><span class="g-vi">Em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">lang thang</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="lang：平聲"></span><span class="g-dot" style="background:#64748b" title="thang：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">流浪徘徊</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="nơi：平聲"></span></span><span class="g-vi">nơi</span><span class="g-pos">名</span></span><span class="g-zh">所在／地方</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="từng：玄聲"></span></span><span class="g-vi">từng</span><span class="g-pos">限</span></span><span class="g-zh">每一道／曾經</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="hay：平聲"></span></span><span class="g-vi">hay</span><span class="g-pos">連</span></span><span class="g-zh">或者／抑或</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đi qua</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đi：平聲"></span><span class="g-dot" style="background:#64748b" title="qua：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">走過／掠過</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4211" target="_blank" rel="noopener noreferrer" title="YouTube 第 4211 秒">
+                  <span>01:10:11</span>
+                  <small>4211s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Mà nhìn <span class="vi-phrase">khóe mắt</span> <span class="vi-phrase">rưng rưng</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>望著彼此泛紅含淚的眼眶</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="Mà：玄聲"></span></span><span class="g-vi">Mà</span><span class="g-pos">連</span></span><span class="g-zh">而／卻／所</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="nhìn：玄聲"></span></span><span class="g-vi">nhìn</span><span class="g-pos">動</span></span><span class="g-zh">望著／凝視</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">khóe mắt</span><span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="khóe：銳聲"></span><span class="g-dot" style="background:#ef4444" title="mắt：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">眼角／眼眶</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">rưng rưng</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="rưng：平聲"></span><span class="g-dot" style="background:#64748b" title="rưng：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">熱淚盈眶</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4217" target="_blank" rel="noopener noreferrer" title="YouTube 第 4217 秒">
+                  <span>01:10:17</span>
+                  <small>4217s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Biết bao</span> chuyện buồn</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>道不盡多少心酸往事</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Biết bao</span><span class="g-tones" aria-label="銳聲・平聲"><span class="g-dot" style="background:#ef4444" title="Biết：銳聲"></span><span class="g-dot" style="background:#64748b" title="bao：平聲"></span></span><span class="g-pos">副</span></span><span class="g-zh">多麼／多少</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="chuyện：重聲"></span></span><span class="g-vi">chuyện</span><span class="g-pos">名</span></span><span class="g-zh">往事／故事</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="buồn：玄聲"></span></span><span class="g-vi">buồn</span><span class="g-pos">形</span></span><span class="g-zh">悲傷／憂鬱</span></span>
+              </div>
+            </article>
+        </div>
+      </section>
+
+      <section class="lyric-section" id="sec-3">
+        <div class="sec-head">
+          <div class="sec-title">
+            <span class="sec-index">03</span>
+            <h2>饒舌段 (Rap Verse)</h2>
+          </div>
+          <a class="sec-time" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4252" target="_blank" rel="noopener noreferrer">
+            01:10:52 · 第 4252 秒
+          </a>
+        </div>
+        <div class="sec-lines">
+          
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4252" target="_blank" rel="noopener noreferrer" title="YouTube 第 4252 秒">
+                  <span>01:10:52</span>
+                  <small>4252s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Đêm nay</span> một đêm buồn</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>今夜是個悲傷的夜晚</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Đêm nay</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="Đêm：平聲"></span><span class="g-dot" style="background:#64748b" title="nay：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">今夜</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="một：重聲"></span></span><span class="g-vi">một</span><span class="g-pos">數</span></span><span class="g-zh">一<span class="g-hv">漢·一</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="đêm：平聲"></span></span><span class="g-vi">đêm</span><span class="g-pos">名</span></span><span class="g-zh">夜晚／長夜</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="buồn：玄聲"></span></span><span class="g-vi">buồn</span><span class="g-pos">形</span></span><span class="g-zh">悲傷／憂鬱</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4254" target="_blank" rel="noopener noreferrer" title="YouTube 第 4254 秒">
+                  <span>01:10:54</span>
+                  <small>4254s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Anh muốn <span class="vi-phrase">cảm xúc</span> của mình không ai <span class="vi-phrase">có thể</span> được chạm vào nó</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我只想把自己的情緒封存，不讓任何人觸碰</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Anh：平聲"></span></span><span class="g-vi">Anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="muốn：銳聲"></span></span><span class="g-vi">muốn</span><span class="g-pos">動</span></span><span class="g-zh">想要</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">cảm xúc</span><span class="g-tones" aria-label="問聲・銳聲"><span class="g-dot" style="background:#f59e0b" title="cảm：問聲"></span><span class="g-dot" style="background:#ef4444" title="xúc：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">情緒／感受<span class="g-hv">漢·感觸</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="問聲"><span class="g-dot" style="background:#f59e0b" title="của：問聲"></span></span><span class="g-vi">của</span><span class="g-pos">介</span></span><span class="g-zh">的（所屬）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="mình：玄聲"></span></span><span class="g-vi">mình</span><span class="g-pos">代</span></span><span class="g-zh">我們／自己</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="không：平聲"></span></span><span class="g-vi">không</span><span class="g-pos">副</span></span><span class="g-zh">不／沒有</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="ai：平聲"></span></span><span class="g-vi">ai</span><span class="g-pos">代</span></span><span class="g-zh">誰</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">có thể</span><span class="g-tones" aria-label="銳聲・問聲"><span class="g-dot" style="background:#ef4444" title="có：銳聲"></span><span class="g-dot" style="background:#f59e0b" title="thể：問聲"></span></span><span class="g-pos">助</span></span><span class="g-zh">可以／能夠<span class="g-hv">漢·可體</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="được：重聲"></span></span><span class="g-vi">được</span><span class="g-pos">助</span></span><span class="g-zh">得以／能夠<span class="g-hv">漢·得</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="chạm：重聲"></span></span><span class="g-vi">chạm</span><span class="g-pos">動</span></span><span class="g-zh">觸碰／輕吻</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="vào：玄聲"></span></span><span class="g-vi">vào</span><span class="g-pos">介</span></span><span class="g-zh">進入／在</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="nó：銳聲"></span></span><span class="g-vi">nó</span><span class="g-pos">代</span></span><span class="g-zh">它</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4257" target="_blank" rel="noopener noreferrer" title="YouTube 第 4257 秒">
+                  <span>01:10:57</span>
+                  <small>4257s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Nơi có hai <span class="vi-phrase">làn xe</span> chạy, giờ thì anh đứng <span class="vi-phrase">ở giữa</span> <span class="vi-phrase">mơ màng</span> gọi gió</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>在雙向車道之間，此刻我佇立其中恍惚地呼喚微風</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Nơi：平聲"></span></span><span class="g-vi">Nơi</span><span class="g-pos">名</span></span><span class="g-zh">所在／地方</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="có：銳聲"></span></span><span class="g-vi">có</span><span class="g-pos">動</span></span><span class="g-zh">有</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="hai：平聲"></span></span><span class="g-vi">hai</span><span class="g-pos">數</span></span><span class="g-zh">二／兩<span class="g-hv">漢·二</span></span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">làn xe</span><span class="g-tones" aria-label="玄聲・平聲"><span class="g-dot" style="background:#3b82f6" title="làn：玄聲"></span><span class="g-dot" style="background:#64748b" title="xe：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">車道</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="chạy：重聲"></span></span><span class="g-vi">chạy</span><span class="g-pos">動</span></span><span class="g-zh">奔跑／行駛</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="giờ：玄聲"></span></span><span class="g-vi">giờ</span><span class="g-pos">副</span></span><span class="g-zh">如今／現在</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="thì：玄聲"></span></span><span class="g-vi">thì</span><span class="g-pos">連</span></span><span class="g-zh">就／便</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="đứng：銳聲"></span></span><span class="g-vi">đứng</span><span class="g-pos">動</span></span><span class="g-zh">站立／佇立</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">ở giữa</span><span class="g-tones" aria-label="問聲・跌聲"><span class="g-dot" style="background:#f59e0b" title="ở：問聲"></span><span class="g-dot" style="background:#8b5cf6" title="giữa：跌聲"></span></span></span><span class="g-zh">在正中間</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">mơ màng</span><span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="mơ：平聲"></span><span class="g-dot" style="background:#3b82f6" title="màng：玄聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">迷濛恍惚</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="gọi：重聲"></span></span><span class="g-vi">gọi</span><span class="g-pos">動</span></span><span class="g-zh">呼喚／喚作</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="gió：銳聲"></span></span><span class="g-vi">gió</span><span class="g-pos">名</span></span><span class="g-zh">微風／風</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4263" target="_blank" rel="noopener noreferrer" title="YouTube 第 4263 秒">
+                  <span>01:11:03</span>
+                  <small>4263s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Anh nhớ <span class="vi-phrase">nụ cười</span> <span class="vi-phrase">thân thương</span> <span class="vi-phrase">ngày trước</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我想念從前那抹親切溫暖的笑容</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Anh：平聲"></span></span><span class="g-vi">Anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="nhớ：銳聲"></span></span><span class="g-vi">nhớ</span><span class="g-pos">動</span></span><span class="g-zh">想念／思念</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">nụ cười</span><span class="g-tones" aria-label="重聲・玄聲"><span class="g-dot" style="background:#10b981" title="nụ：重聲"></span><span class="g-dot" style="background:#3b82f6" title="cười：玄聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">笑容</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">thân thương</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="thân：平聲"></span><span class="g-dot" style="background:#64748b" title="thương：平聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">親切溫暖</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">ngày trước</span><span class="g-tones" aria-label="玄聲・銳聲"><span class="g-dot" style="background:#3b82f6" title="ngày：玄聲"></span><span class="g-dot" style="background:#ef4444" title="trước：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">從前／以前</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4265" target="_blank" rel="noopener noreferrer" title="YouTube 第 4265 秒">
+                  <span>01:11:05</span>
+                  <small>4265s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Anh mặt <span class="vi-phrase">lạnh nhạt</span> ở trên <span class="vi-phrase">đỉnh đầu</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我強裝冷漠的神情，孤冷籠罩在頭頂上方</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Anh：平聲"></span></span><span class="g-vi">Anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="mặt：重聲"></span></span><span class="g-vi">mặt</span><span class="g-pos">名</span></span><span class="g-zh">臉龐／神情</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">lạnh nhạt</span><span class="g-tones" aria-label="重聲・重聲"><span class="g-dot" style="background:#10b981" title="lạnh：重聲"></span><span class="g-dot" style="background:#10b981" title="nhạt：重聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">冷漠／疏離</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="問聲"><span class="g-dot" style="background:#f59e0b" title="ở：問聲"></span></span><span class="g-vi">ở</span><span class="g-pos">介</span></span><span class="g-zh">在／身處</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="trên：平聲"></span></span><span class="g-vi">trên</span><span class="g-pos">介</span></span><span class="g-zh">在…之上</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đỉnh đầu</span><span class="g-tones" aria-label="問聲・玄聲"><span class="g-dot" style="background:#f59e0b" title="đỉnh：問聲"></span><span class="g-dot" style="background:#3b82f6" title="đầu：玄聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">頭頂上方</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4267" target="_blank" rel="noopener noreferrer" title="YouTube 第 4267 秒">
+                  <span>01:11:07</span>
+                  <small>4267s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Người chưa từng khóc là người chưa từng biết đau</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>未曾哭過的人，就不曾真正懂得心痛</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="Người：玄聲"></span></span><span class="g-vi">Người</span><span class="g-pos">名</span></span><span class="g-zh">人／心上人</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="chưa：平聲"></span></span><span class="g-vi">chưa</span><span class="g-pos">副</span></span><span class="g-zh">尚未／還沒</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="từng：玄聲"></span></span><span class="g-vi">từng</span><span class="g-pos">限</span></span><span class="g-zh">每一道／曾經</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="khóc：銳聲"></span></span><span class="g-vi">khóc</span><span class="g-pos">動</span></span><span class="g-zh">哭泣／落淚<span class="g-hv">漢·哭</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="là：玄聲"></span></span><span class="g-vi">là</span><span class="g-pos">動</span></span><span class="g-zh">是</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="người：玄聲"></span></span><span class="g-vi">người</span><span class="g-pos">名</span></span><span class="g-zh">人／心上人</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="chưa：平聲"></span></span><span class="g-vi">chưa</span><span class="g-pos">副</span></span><span class="g-zh">尚未／還沒</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="từng：玄聲"></span></span><span class="g-vi">từng</span><span class="g-pos">限</span></span><span class="g-zh">每一道／曾經</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="biết：銳聲"></span></span><span class="g-vi">biết</span><span class="g-pos">動</span></span><span class="g-zh">知道／懂得</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="đau：平聲"></span></span><span class="g-vi">đau</span><span class="g-pos">形</span></span><span class="g-zh">痛／心痛</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4270" target="_blank" rel="noopener noreferrer" title="YouTube 第 4270 秒">
+                  <span>01:11:10</span>
+                  <small>4270s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Nỗi buồn</span> của anh, anh cũng không muốn cho em biết đâu</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我心裡的難過，其實並不想讓你知道</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Nỗi buồn</span><span class="g-tones" aria-label="跌聲・玄聲"><span class="g-dot" style="background:#8b5cf6" title="Nỗi：跌聲"></span><span class="g-dot" style="background:#3b82f6" title="buồn：玄聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">哀愁／難過</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="問聲"><span class="g-dot" style="background:#f59e0b" title="của：問聲"></span></span><span class="g-vi">của</span><span class="g-pos">介</span></span><span class="g-zh">的</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="cũng：跌聲"></span></span><span class="g-vi">cũng</span><span class="g-pos">副</span></span><span class="g-zh">也</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="không：平聲"></span></span><span class="g-vi">không</span><span class="g-pos">副</span></span><span class="g-zh">不</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="muốn：銳聲"></span></span><span class="g-vi">muốn</span><span class="g-pos">動</span></span><span class="g-zh">想</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="cho：平聲"></span></span><span class="g-vi">cho</span><span class="g-pos">介</span></span><span class="g-zh">讓</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="biết：銳聲"></span></span><span class="g-vi">biết</span><span class="g-pos">動</span></span><span class="g-zh">知道</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="đâu：平聲"></span></span><span class="g-vi">đâu</span><span class="g-pos">助</span></span><span class="g-zh">呢（否定語氣）</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4272" target="_blank" rel="noopener noreferrer" title="YouTube 第 4272 秒">
+                  <span>01:11:12</span>
+                  <small>4272s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Ngày dài tháng rộng</span> <span class="vi-phrase">che chở</span> ta ôm lấy nhau</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>漫長歲月裡我們曾相擁取暖、彼此守護</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Ngày dài tháng rộng</span><span class="g-tones" aria-label="玄聲・玄聲・銳聲・重聲"><span class="g-dot" style="background:#3b82f6" title="Ngày：玄聲"></span><span class="g-dot" style="background:#3b82f6" title="dài：玄聲"></span><span class="g-dot" style="background:#ef4444" title="tháng：銳聲"></span><span class="g-dot" style="background:#10b981" title="rộng：重聲"></span></span><span class="g-pos">成語</span></span><span class="g-zh">漫長歲月</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">che chở</span><span class="g-tones" aria-label="平聲・問聲"><span class="g-dot" style="background:#64748b" title="che：平聲"></span><span class="g-dot" style="background:#f59e0b" title="chở：問聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">庇護／守護</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="ta：平聲"></span></span><span class="g-vi">ta</span><span class="g-pos">代</span></span><span class="g-zh">我們／我</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="ôm：平聲"></span></span><span class="g-vi">ôm</span><span class="g-pos">動</span></span><span class="g-zh">擁抱</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="lấy：銳聲"></span></span><span class="g-vi">lấy</span><span class="g-pos">動</span></span><span class="g-zh">取／拿</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="nhau：平聲"></span></span><span class="g-vi">nhau</span><span class="g-pos">代</span></span><span class="g-zh">彼此／互相</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4275" target="_blank" rel="noopener noreferrer" title="YouTube 第 4275 秒">
+                  <span>01:11:15</span>
+                  <small>4275s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Giấu <span class="vi-phrase">thật sâu</span> vào trong <span class="vi-phrase">đôi mắt</span> buồn</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>將一切深深藏進這雙憂鬱的眼眸裡</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="Giấu：銳聲"></span></span><span class="g-vi">Giấu</span><span class="g-pos">動</span></span><span class="g-zh">隱藏／埋藏</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">thật sâu</span><span class="g-tones" aria-label="重聲・平聲"><span class="g-dot" style="background:#10b981" title="thật：重聲"></span><span class="g-dot" style="background:#64748b" title="sâu：平聲"></span></span><span class="g-pos">副</span></span><span class="g-zh">深深地</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="vào：玄聲"></span></span><span class="g-vi">vào</span><span class="g-pos">介</span></span><span class="g-zh">進入／在</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="trong：平聲"></span></span><span class="g-vi">trong</span><span class="g-pos">介</span></span><span class="g-zh">在…之中</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đôi mắt</span><span class="g-tones" aria-label="平聲・銳聲"><span class="g-dot" style="background:#64748b" title="đôi：平聲"></span><span class="g-dot" style="background:#ef4444" title="mắt：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">雙眼／眼眸</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="buồn：玄聲"></span></span><span class="g-vi">buồn</span><span class="g-pos">形</span></span><span class="g-zh">悲傷／憂鬱</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4277" target="_blank" rel="noopener noreferrer" title="YouTube 第 4277 秒">
+                  <span>01:11:17</span>
+                  <small>4277s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Nhìn thấy</span> nhau vui là điều <span class="vi-phrase">ai cũng</span> muốn, em đừng buồn</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>看見對方過得開心是彼此的心願，妳別難過</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Nhìn thấy</span><span class="g-tones" aria-label="玄聲・銳聲"><span class="g-dot" style="background:#3b82f6" title="Nhìn：玄聲"></span><span class="g-dot" style="background:#ef4444" title="thấy：銳聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">看見</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="nhau：平聲"></span></span><span class="g-vi">nhau</span><span class="g-pos">代</span></span><span class="g-zh">彼此／互相</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="vui：平聲"></span></span><span class="g-vi">vui</span><span class="g-pos">形</span></span><span class="g-zh">快樂／開心</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="là：玄聲"></span></span><span class="g-vi">là</span><span class="g-pos">動</span></span><span class="g-zh">是</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="điều：玄聲"></span></span><span class="g-vi">điều</span><span class="g-pos">名</span></span><span class="g-zh">事情／話語</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">ai cũng</span><span class="g-tones" aria-label="平聲・跌聲"><span class="g-dot" style="background:#64748b" title="ai：平聲"></span><span class="g-dot" style="background:#8b5cf6" title="cũng：跌聲"></span></span></span><span class="g-zh">每個人都</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="muốn：銳聲"></span></span><span class="g-vi">muốn</span><span class="g-pos">動</span></span><span class="g-zh">想要</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="đừng：玄聲"></span></span><span class="g-vi">đừng</span><span class="g-pos">副</span></span><span class="g-zh">別／不要</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="buồn：玄聲"></span></span><span class="g-vi">buồn</span><span class="g-pos">形</span></span><span class="g-zh">悲傷／憂鬱</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4281" target="_blank" rel="noopener noreferrer" title="YouTube 第 4281 秒">
+                  <span>01:11:21</span>
+                  <small>4281s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Thả xuống</span> lại những <span class="vi-phrase">kỷ niệm</span> anh <span class="vi-phrase">dành cho</span> em</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>輕輕放下那些我曾為妳留下的回憶</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Thả xuống</span><span class="g-tones" aria-label="問聲・銳聲"><span class="g-dot" style="background:#f59e0b" title="Thả：問聲"></span><span class="g-dot" style="background:#ef4444" title="xuống：銳聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">輕輕放下</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="lại：重聲"></span></span><span class="g-vi">lại</span><span class="g-pos">副</span></span><span class="g-zh">又／再／回來</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="những：跌聲"></span></span><span class="g-vi">những</span><span class="g-pos">限</span></span><span class="g-zh">那些／種種</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">kỷ niệm</span><span class="g-tones" aria-label="問聲・重聲"><span class="g-dot" style="background:#f59e0b" title="kỷ：問聲"></span><span class="g-dot" style="background:#10b981" title="niệm：重聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">回憶／紀念<span class="g-hv">漢·紀念</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">dành cho</span><span class="g-tones" aria-label="玄聲・平聲"><span class="g-dot" style="background:#3b82f6" title="dành：玄聲"></span><span class="g-dot" style="background:#64748b" title="cho：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">獻給／留給</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4285" target="_blank" rel="noopener noreferrer" title="YouTube 第 4285 秒">
+                  <span>01:11:25</span>
+                  <small>4285s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Dù đẹp dù xấu dù có <span class="vi-phrase">vụn vỡ</span> anh <span class="vi-phrase">dành cho</span> em</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>無論美好、殘缺或已破碎，全都是我給妳的心意</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="Dù：玄聲"></span></span><span class="g-vi">Dù</span><span class="g-pos">連</span></span><span class="g-zh">即使／無論</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="đẹp：重聲"></span></span><span class="g-vi">đẹp</span><span class="g-pos">形</span></span><span class="g-zh">美麗／動人</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="dù：玄聲"></span></span><span class="g-vi">dù</span><span class="g-pos">連</span></span><span class="g-zh">即使／無論</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="xấu：銳聲"></span></span><span class="g-vi">xấu</span><span class="g-pos">形</span></span><span class="g-zh">殘缺／不好</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="dù：玄聲"></span></span><span class="g-vi">dù</span><span class="g-pos">連</span></span><span class="g-zh">即使／無論</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="có：銳聲"></span></span><span class="g-vi">có</span><span class="g-pos">動</span></span><span class="g-zh">有</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">vụn vỡ</span><span class="g-tones" aria-label="重聲・跌聲"><span class="g-dot" style="background:#10b981" title="vụn：重聲"></span><span class="g-dot" style="background:#8b5cf6" title="vỡ：跌聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">支離破碎</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">dành cho</span><span class="g-tones" aria-label="玄聲・平聲"><span class="g-dot" style="background:#3b82f6" title="dành：玄聲"></span><span class="g-dot" style="background:#64748b" title="cho：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">獻給／留給</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4288" target="_blank" rel="noopener noreferrer" title="YouTube 第 4288 秒">
+                  <span>01:11:28</span>
+                  <small>4288s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Nghe xong xin em đừng khóc, vì khi anh viết đã <span class="vi-phrase">bao lần</span> khóc</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>聽完後請妳別流淚，因為寫下這段詞時我早已哭過無數回</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Nghe：平聲"></span></span><span class="g-vi">Nghe</span><span class="g-pos">動</span></span><span class="g-zh">聽見／感受</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="xong：平聲"></span></span><span class="g-vi">xong</span><span class="g-pos">動</span></span><span class="g-zh">結束／完畢</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="xin：平聲"></span></span><span class="g-vi">xin</span><span class="g-pos">動</span></span><span class="g-zh">願／懇請</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="đừng：玄聲"></span></span><span class="g-vi">đừng</span><span class="g-pos">副</span></span><span class="g-zh">別／不要</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="khóc：銳聲"></span></span><span class="g-vi">khóc</span><span class="g-pos">動</span></span><span class="g-zh">哭泣／落淚<span class="g-hv">漢·哭</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="vì：玄聲"></span></span><span class="g-vi">vì</span><span class="g-pos">連</span></span><span class="g-zh">因為／為了</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="khi：平聲"></span></span><span class="g-vi">khi</span><span class="g-pos">連</span></span><span class="g-zh">當…的時候</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="viết：銳聲"></span></span><span class="g-vi">viết</span><span class="g-pos">動</span></span><span class="g-zh">寫下</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="đã：跌聲"></span></span><span class="g-vi">đã</span><span class="g-pos">副</span></span><span class="g-zh">已經（過去）</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">bao lần</span><span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="bao：平聲"></span><span class="g-dot" style="background:#3b82f6" title="lần：玄聲"></span></span><span class="g-pos">副</span></span><span class="g-zh">多少次</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="khóc：銳聲"></span></span><span class="g-vi">khóc</span><span class="g-pos">動</span></span><span class="g-zh">哭泣／落淚<span class="g-hv">漢·哭</span></span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4294" target="_blank" rel="noopener noreferrer" title="YouTube 第 4294 秒">
+                  <span>01:11:34</span>
+                  <small>4294s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Anh thấy <span class="vi-phrase">nặng nề</span> <span class="vi-phrase">đôi chân</span> của mình vì lỡ đi nhầm lên trên <span class="vi-phrase">sườn dốc</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我只覺腳步無比沉重，只因不小心誤踏上陡峭的斜坡</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Anh：平聲"></span></span><span class="g-vi">Anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="thấy：銳聲"></span></span><span class="g-vi">thấy</span><span class="g-pos">動</span></span><span class="g-zh">看見／覺得</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">nặng nề</span><span class="g-tones" aria-label="重聲・玄聲"><span class="g-dot" style="background:#10b981" title="nặng：重聲"></span><span class="g-dot" style="background:#3b82f6" title="nề：玄聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">無比沉重</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đôi chân</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đôi：平聲"></span><span class="g-dot" style="background:#64748b" title="chân：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">雙腳／步伐</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="問聲"><span class="g-dot" style="background:#f59e0b" title="của：問聲"></span></span><span class="g-vi">của</span><span class="g-pos">介</span></span><span class="g-zh">的（所屬）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="mình：玄聲"></span></span><span class="g-vi">mình</span><span class="g-pos">代</span></span><span class="g-zh">我們／自己</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="vì：玄聲"></span></span><span class="g-vi">vì</span><span class="g-pos">連</span></span><span class="g-zh">因為／為了</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="lỡ：跌聲"></span></span><span class="g-vi">lỡ</span><span class="g-pos">動</span></span><span class="g-zh">錯過／不小心</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="đi：平聲"></span></span><span class="g-vi">đi</span><span class="g-pos">動</span></span><span class="g-zh">走／離去</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="nhầm：玄聲"></span></span><span class="g-vi">nhầm</span><span class="g-pos">副</span></span><span class="g-zh">誤踏／弄錯</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="lên：平聲"></span></span><span class="g-vi">lên</span><span class="g-pos">動</span></span><span class="g-zh">往上／升起</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="trên：平聲"></span></span><span class="g-vi">trên</span><span class="g-pos">介</span></span><span class="g-zh">在…之上</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">sườn dốc</span><span class="g-tones" aria-label="玄聲・銳聲"><span class="g-dot" style="background:#3b82f6" title="sườn：玄聲"></span><span class="g-dot" style="background:#ef4444" title="dốc：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">斜坡／山坡</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4298" target="_blank" rel="noopener noreferrer" title="YouTube 第 4298 秒">
+                  <span>01:11:38</span>
+                  <small>4298s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Kết thúc</span> không đẹp <span class="vi-phrase">đâu phải</span> nói quên là quên</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>不完美的結局，哪是說忘就能輕易忘懷</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Kết thúc</span><span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="Kết：銳聲"></span><span class="g-dot" style="background:#ef4444" title="thúc：銳聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">結束／畫下句點<span class="g-hv">漢·結束</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="không：平聲"></span></span><span class="g-vi">không</span><span class="g-pos">副</span></span><span class="g-zh">不／沒有</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="đẹp：重聲"></span></span><span class="g-vi">đẹp</span><span class="g-pos">形</span></span><span class="g-zh">美麗／動人</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đâu phải</span><span class="g-tones" aria-label="平聲・問聲"><span class="g-dot" style="background:#64748b" title="đâu：平聲"></span><span class="g-dot" style="background:#f59e0b" title="phải：問聲"></span></span></span><span class="g-zh">哪裡是／並非</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="nói：銳聲"></span></span><span class="g-vi">nói</span><span class="g-pos">動</span></span><span class="g-zh">說／傾訴</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="quên：平聲"></span></span><span class="g-vi">quên</span><span class="g-pos">動</span></span><span class="g-zh">忘記</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="là：玄聲"></span></span><span class="g-vi">là</span><span class="g-pos">動</span></span><span class="g-zh">是</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="quên：平聲"></span></span><span class="g-vi">quên</span><span class="g-pos">動</span></span><span class="g-zh">忘記</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4301" target="_blank" rel="noopener noreferrer" title="YouTube 第 4301 秒">
+                  <span>01:11:41</span>
+                  <small>4301s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Khi <span class="vi-phrase">bao đêm</span> anh say, anh vẫn muốn em <span class="vi-phrase">một lần</span> <span class="vi-phrase">gọi tên</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>無數個買醉的深夜裡，我仍渴望聽妳再喚我一聲名字</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Khi：平聲"></span></span><span class="g-vi">Khi</span><span class="g-pos">連</span></span><span class="g-zh">當…的時候</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">bao đêm</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="bao：平聲"></span><span class="g-dot" style="background:#64748b" title="đêm：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">多少個夜晚</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="say：平聲"></span></span><span class="g-vi">say</span><span class="g-pos">動</span></span><span class="g-zh">沉醉／醉心</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="vẫn：跌聲"></span></span><span class="g-vi">vẫn</span><span class="g-pos">副</span></span><span class="g-zh">依然／仍然</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="muốn：銳聲"></span></span><span class="g-vi">muốn</span><span class="g-pos">動</span></span><span class="g-zh">想要</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">một lần</span><span class="g-tones" aria-label="重聲・玄聲"><span class="g-dot" style="background:#10b981" title="một：重聲"></span><span class="g-dot" style="background:#3b82f6" title="lần：玄聲"></span></span></span><span class="g-zh">一次</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">gọi tên</span><span class="g-tones" aria-label="重聲・平聲"><span class="g-dot" style="background:#10b981" title="gọi：重聲"></span><span class="g-dot" style="background:#64748b" title="tên：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">呼喚名字</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4304" target="_blank" rel="noopener noreferrer" title="YouTube 第 4304 秒">
+                  <span>01:11:44</span>
+                  <small>4304s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Có thể</span> trong <span class="vi-phrase">giây phút</span> nào đó, những <span class="vi-phrase">tổn thương</span> này <span class="vi-phrase">hóa thành</span> <span class="vi-phrase">sắt đá</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>或許在某個瞬間，這些傷痕會凝結成冰冷的鐵石</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Có thể</span><span class="g-tones" aria-label="銳聲・問聲"><span class="g-dot" style="background:#ef4444" title="Có：銳聲"></span><span class="g-dot" style="background:#f59e0b" title="thể：問聲"></span></span><span class="g-pos">助</span></span><span class="g-zh">可以／能夠<span class="g-hv">漢·可體</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="trong：平聲"></span></span><span class="g-vi">trong</span><span class="g-pos">介</span></span><span class="g-zh">在…之中</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">giây phút</span><span class="g-tones" aria-label="平聲・銳聲"><span class="g-dot" style="background:#64748b" title="giây：平聲"></span><span class="g-dot" style="background:#ef4444" title="phút：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">片刻／瞬間</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="nào：玄聲"></span></span><span class="g-vi">nào</span><span class="g-pos">限</span></span><span class="g-zh">哪一個／何等</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="đó：銳聲"></span></span><span class="g-vi">đó</span><span class="g-pos">代</span></span><span class="g-zh">那／那裡</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="những：跌聲"></span></span><span class="g-vi">những</span><span class="g-pos">限</span></span><span class="g-zh">那些／種種</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">tổn thương</span><span class="g-tones" aria-label="問聲・平聲"><span class="g-dot" style="background:#f59e0b" title="tổn：問聲"></span><span class="g-dot" style="background:#64748b" title="thương：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">傷痛／傷害<span class="g-hv">漢·損傷</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="này：玄聲"></span></span><span class="g-vi">này</span><span class="g-pos">限</span></span><span class="g-zh">這／這個</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">hóa thành</span><span class="g-tones" aria-label="銳聲・玄聲"><span class="g-dot" style="background:#ef4444" title="hóa：銳聲"></span><span class="g-dot" style="background:#3b82f6" title="thành：玄聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">化作／凝結成</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">sắt đá</span><span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="sắt：銳聲"></span><span class="g-dot" style="background:#ef4444" title="đá：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">鐵石（冰冷堅硬）</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4309" target="_blank" rel="noopener noreferrer" title="YouTube 第 4309 秒">
+                  <span>01:11:49</span>
+                  <small>4309s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Thôi thì</span> <span class="vi-phrase">phần vui</span> em cứ giữ, <span class="vi-phrase">gồng gánh</span> <span class="vi-phrase">phần buồn</span> cứ để anh</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>罷了，快樂的那份就留給妳，悲傷的重量全都讓我來扛</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Thôi thì</span><span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="Thôi：平聲"></span><span class="g-dot" style="background:#3b82f6" title="thì：玄聲"></span></span><span class="g-pos">連</span></span><span class="g-zh">罷了／那就</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">phần vui</span><span class="g-tones" aria-label="玄聲・平聲"><span class="g-dot" style="background:#3b82f6" title="phần：玄聲"></span><span class="g-dot" style="background:#64748b" title="vui：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">快樂的那份</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="cứ：銳聲"></span></span><span class="g-vi">cứ</span><span class="g-pos">副</span></span><span class="g-zh">總是／儘管</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="giữ：跌聲"></span></span><span class="g-vi">giữ</span><span class="g-pos">動</span></span><span class="g-zh">珍藏／守住</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">gồng gánh</span><span class="g-tones" aria-label="玄聲・銳聲"><span class="g-dot" style="background:#3b82f6" title="gồng：玄聲"></span><span class="g-dot" style="background:#ef4444" title="gánh：銳聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">咬牙一肩扛起</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">phần buồn</span><span class="g-tones" aria-label="玄聲・玄聲"><span class="g-dot" style="background:#3b82f6" title="phần：玄聲"></span><span class="g-dot" style="background:#3b82f6" title="buồn：玄聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">悲傷的那份</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="cứ：銳聲"></span></span><span class="g-vi">cứ</span><span class="g-pos">副</span></span><span class="g-zh">總是／儘管</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="問聲"><span class="g-dot" style="background:#f59e0b" title="để：問聲"></span></span><span class="g-vi">để</span><span class="g-pos">連</span></span><span class="g-zh">為了／讓</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span>
+              </div>
+            </article>
+        </div>
+      </section>
+
+      <section class="lyric-section" id="sec-4">
+        <div class="sec-head">
+          <div class="sec-title">
+            <span class="sec-index">04</span>
+            <h2>主歌二 (Verse 2)</h2>
+          </div>
+          <a class="sec-time" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4312" target="_blank" rel="noopener noreferrer">
+            01:11:52 · 第 4312 秒
+          </a>
+        </div>
+        <div class="sec-lines">
+          
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4312" target="_blank" rel="noopener noreferrer" title="YouTube 第 4312 秒">
+                  <span>01:11:52</span>
+                  <small>4312s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Đâu ai</span> muốn <span class="vi-phrase">nhìn lại</span> nhau bằng những <span class="vi-phrase">ánh mắt</span> <span class="vi-phrase">vô hồn</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>誰會願意用空洞失神的目光再次凝望彼此</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Đâu ai</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="Đâu：平聲"></span><span class="g-dot" style="background:#64748b" title="ai：平聲"></span></span></span><span class="g-zh">哪有人／誰會</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="muốn：銳聲"></span></span><span class="g-vi">muốn</span><span class="g-pos">動</span></span><span class="g-zh">想要</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">nhìn lại</span><span class="g-tones" aria-label="玄聲・重聲"><span class="g-dot" style="background:#3b82f6" title="nhìn：玄聲"></span><span class="g-dot" style="background:#10b981" title="lại：重聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">回望／重逢相看</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="nhau：平聲"></span></span><span class="g-vi">nhau</span><span class="g-pos">代</span></span><span class="g-zh">彼此／互相</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="bằng：玄聲"></span></span><span class="g-vi">bằng</span><span class="g-pos">介</span></span><span class="g-zh">以／用</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="những：跌聲"></span></span><span class="g-vi">những</span><span class="g-pos">限</span></span><span class="g-zh">那些／種種</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">ánh mắt</span><span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="ánh：銳聲"></span><span class="g-dot" style="background:#ef4444" title="mắt：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">眼神／目光</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">vô hồn</span><span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="vô：平聲"></span><span class="g-dot" style="background:#3b82f6" title="hồn：玄聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">空洞失神<span class="g-hv">漢·無魂</span></span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4317" target="_blank" rel="noopener noreferrer" title="YouTube 第 4317 秒">
+                  <span>01:11:57</span>
+                  <small>4317s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Con tim</span> đã <span class="vi-phrase">nhiều phen</span> đau vẫn cố <span class="vi-phrase">tươi vui</span> <span class="vi-phrase">bên ngoài</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>這顆心已歷經無數次傷痛，外表卻仍強顏歡笑</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Con tim</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="Con：平聲"></span><span class="g-dot" style="background:#64748b" title="tim：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">這顆心</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="đã：跌聲"></span></span><span class="g-vi">đã</span><span class="g-pos">副</span></span><span class="g-zh">已經（過去）</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">nhiều phen</span><span class="g-tones" aria-label="玄聲・平聲"><span class="g-dot" style="background:#3b82f6" title="nhiều：玄聲"></span><span class="g-dot" style="background:#64748b" title="phen：平聲"></span></span><span class="g-pos">副</span></span><span class="g-zh">無數次</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="đau：平聲"></span></span><span class="g-vi">đau</span><span class="g-pos">形</span></span><span class="g-zh">痛／心痛</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="跌聲"><span class="g-dot" style="background:#8b5cf6" title="vẫn：跌聲"></span></span><span class="g-vi">vẫn</span><span class="g-pos">副</span></span><span class="g-zh">依然／仍然</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="cố：銳聲"></span></span><span class="g-vi">cố</span><span class="g-pos">動</span></span><span class="g-zh">努力／強撐</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">tươi vui</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="tươi：平聲"></span><span class="g-dot" style="background:#64748b" title="vui：平聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">開朗歡笑</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">bên ngoài</span><span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="bên：平聲"></span><span class="g-dot" style="background:#3b82f6" title="ngoài：玄聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">外頭／外表</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4323" target="_blank" rel="noopener noreferrer" title="YouTube 第 4323 秒">
+                  <span>01:12:03</span>
+                  <small>4323s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Đâu ai</span> biết được <span class="vi-phrase">thân tâm</span> <span class="vi-phrase">chờ mong</span> anh đến <span class="vi-phrase">mỏi mòn</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>有誰知曉我身心俱疲，卻依舊望穿秋水地等待著你</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Đâu ai</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="Đâu：平聲"></span><span class="g-dot" style="background:#64748b" title="ai：平聲"></span></span></span><span class="g-zh">哪有人／誰會</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="biết：銳聲"></span></span><span class="g-vi">biết</span><span class="g-pos">動</span></span><span class="g-zh">知道／懂得</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="được：重聲"></span></span><span class="g-vi">được</span><span class="g-pos">助</span></span><span class="g-zh">得以／能夠<span class="g-hv">漢·得</span></span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">thân tâm</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="thân：平聲"></span><span class="g-dot" style="background:#64748b" title="tâm：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">身心<span class="g-hv">漢·身心</span></span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">chờ mong</span><span class="g-tones" aria-label="玄聲・平聲"><span class="g-dot" style="background:#3b82f6" title="chờ：玄聲"></span><span class="g-dot" style="background:#64748b" title="mong：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">期盼守候</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="銳聲"><span class="g-dot" style="background:#ef4444" title="đến：銳聲"></span></span><span class="g-vi">đến</span><span class="g-pos">動</span></span><span class="g-zh">到／來到</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">mỏi mòn</span><span class="g-tones" aria-label="問聲・玄聲"><span class="g-dot" style="background:#f59e0b" title="mỏi：問聲"></span><span class="g-dot" style="background:#3b82f6" title="mòn：玄聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">身心俱疲／望穿秋水</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4335" target="_blank" rel="noopener noreferrer" title="YouTube 第 4335 秒">
+                  <span>01:12:15</span>
+                  <small>4335s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Mộng kia dần tan <span class="vi-phrase">chẳng còn</span> <span class="vi-phrase">mơ ước</span> <span class="vi-phrase">được gì</span>, <span class="vi-phrase">anh ơi</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>舊夢漸漸消散，再也無力奢望任何未來了，親愛的你</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="Mộng：重聲"></span></span><span class="g-vi">Mộng</span><span class="g-pos">名</span></span><span class="g-zh">舊夢／夢<span class="g-hv">漢·夢</span></span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="kia：平聲"></span></span><span class="g-vi">kia</span><span class="g-pos">限</span></span><span class="g-zh">那個／遠方</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="dần：玄聲"></span></span><span class="g-vi">dần</span><span class="g-pos">副</span></span><span class="g-zh">漸漸</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="tan：平聲"></span></span><span class="g-vi">tan</span><span class="g-pos">動</span></span><span class="g-zh">消散／融化</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">chẳng còn</span><span class="g-tones" aria-label="問聲・玄聲"><span class="g-dot" style="background:#f59e0b" title="chẳng：問聲"></span><span class="g-dot" style="background:#3b82f6" title="còn：玄聲"></span></span></span><span class="g-zh">再也不</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">mơ ước</span><span class="g-tones" aria-label="平聲・銳聲"><span class="g-dot" style="background:#64748b" title="mơ：平聲"></span><span class="g-dot" style="background:#ef4444" title="ước：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">夢想／期盼</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">được gì</span><span class="g-tones" aria-label="重聲・玄聲"><span class="g-dot" style="background:#10b981" title="được：重聲"></span><span class="g-dot" style="background:#3b82f6" title="gì：玄聲"></span></span></span><span class="g-zh">能得到什麼</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">anh ơi</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span><span class="g-dot" style="background:#64748b" title="ơi：平聲"></span></span><span class="g-pos">嘆</span></span><span class="g-zh">親愛的／你啊</span></span>
+              </div>
+            </article>
+        </div>
+      </section>
+
+      <section class="lyric-section" id="sec-5">
+        <div class="sec-head">
+          <div class="sec-title">
+            <span class="sec-index">05</span>
+            <h2>副歌二 (Chorus 2)</h2>
+          </div>
+          <a class="sec-time" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4342" target="_blank" rel="noopener noreferrer">
+            01:12:22 · 第 4342 秒
+          </a>
+        </div>
+        <div class="sec-lines">
+          
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4342" target="_blank" rel="noopener noreferrer" title="YouTube 第 4342 秒">
+                  <span>01:12:22</span>
+                  <small>4342s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Sao <span class="vi-phrase">đôi tay</span> chưa buông <span class="vi-phrase">đôi chân</span> em đi rồi</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>為何雙手尚未放開，你的腳步卻已遠去</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Sao：平聲"></span></span><span class="g-vi">Sao</span><span class="g-pos">副</span></span><span class="g-zh">為何／星星</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đôi tay</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đôi：平聲"></span><span class="g-dot" style="background:#64748b" title="tay：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">雙手</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="chưa：平聲"></span></span><span class="g-vi">chưa</span><span class="g-pos">副</span></span><span class="g-zh">尚未／還沒</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="buông：平聲"></span></span><span class="g-vi">buông</span><span class="g-pos">動</span></span><span class="g-zh">放開／放手</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đôi chân</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đôi：平聲"></span><span class="g-dot" style="background:#64748b" title="chân：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">雙腳／步伐</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="em：平聲"></span></span><span class="g-vi">em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="đi：平聲"></span></span><span class="g-vi">đi</span><span class="g-pos">動</span></span><span class="g-zh">走／離去</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="rồi：玄聲"></span></span><span class="g-vi">rồi</span><span class="g-pos">助</span></span><span class="g-zh">了／然後</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4345" target="_blank" rel="noopener noreferrer" title="YouTube 第 4345 秒">
+                  <span>01:12:25</span>
+                  <small>4345s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Sao <span class="vi-phrase">đêm nay</span> <span class="vi-phrase">cô đơn</span> <span class="vi-phrase">lấn át</span> <span class="vi-phrase">nỗi nhớ</span> <span class="vi-phrase">tơi bời</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>為何今夜的孤寂淹沒了凌亂不堪的思念</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Sao：平聲"></span></span><span class="g-vi">Sao</span><span class="g-pos">副</span></span><span class="g-zh">為何／星星</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đêm nay</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đêm：平聲"></span><span class="g-dot" style="background:#64748b" title="nay：平聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">今夜</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">cô đơn</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="cô：平聲"></span><span class="g-dot" style="background:#64748b" title="đơn：平聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">孤單寂寞<span class="g-hv">漢·孤單</span></span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">lấn át</span><span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="lấn：銳聲"></span><span class="g-dot" style="background:#ef4444" title="át：銳聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">淹沒／壓倒</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">nỗi nhớ</span><span class="g-tones" aria-label="跌聲・銳聲"><span class="g-dot" style="background:#8b5cf6" title="nỗi：跌聲"></span><span class="g-dot" style="background:#ef4444" title="nhớ：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">思念之情</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">tơi bời</span><span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="tơi：平聲"></span><span class="g-dot" style="background:#3b82f6" title="bời：玄聲"></span></span><span class="g-pos">形</span></span><span class="g-zh">凌亂不堪</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4349" target="_blank" rel="noopener noreferrer" title="YouTube 第 4349 秒">
+                  <span>01:12:29</span>
+                  <small>4349s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Buồn kia còn sau <span class="vi-phrase">màu mắt</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>那抹憂傷依然深藏在眼眸之後</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="Buồn：玄聲"></span></span><span class="g-vi">Buồn</span><span class="g-pos">形</span></span><span class="g-zh">悲傷／憂鬱</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="kia：平聲"></span></span><span class="g-vi">kia</span><span class="g-pos">限</span></span><span class="g-zh">那個／遠方</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="còn：玄聲"></span></span><span class="g-vi">còn</span><span class="g-pos">副</span></span><span class="g-zh">還／剩下</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="sau：平聲"></span></span><span class="g-vi">sau</span><span class="g-pos">介</span></span><span class="g-zh">在…之後</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">màu mắt</span><span class="g-tones" aria-label="玄聲・銳聲"><span class="g-dot" style="background:#3b82f6" title="màu：玄聲"></span><span class="g-dot" style="background:#ef4444" title="mắt：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">眼眸神色</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4356" target="_blank" rel="noopener noreferrer" title="YouTube 第 4356 秒">
+                  <span>01:12:36</span>
+                  <small>4356s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Em <span class="vi-phrase">lang thang</span> nơi anh từng hay <span class="vi-phrase">đi qua</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>我獨自徘徊在你曾經走過的街角</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="Em：平聲"></span></span><span class="g-vi">Em</span><span class="g-pos">代</span></span><span class="g-zh">妳／我（女方）</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">lang thang</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="lang：平聲"></span><span class="g-dot" style="background:#64748b" title="thang：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">流浪徘徊</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="nơi：平聲"></span></span><span class="g-vi">nơi</span><span class="g-pos">名</span></span><span class="g-zh">所在／地方</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span></span><span class="g-vi">anh</span><span class="g-pos">代</span></span><span class="g-zh">我／你（男方）</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="từng：玄聲"></span></span><span class="g-vi">từng</span><span class="g-pos">限</span></span><span class="g-zh">每一道／曾經</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="平聲"><span class="g-dot" style="background:#64748b" title="hay：平聲"></span></span><span class="g-vi">hay</span><span class="g-pos">連</span></span><span class="g-zh">或者／抑或</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">đi qua</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đi：平聲"></span><span class="g-dot" style="background:#64748b" title="qua：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">走過／掠過</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4362" target="_blank" rel="noopener noreferrer" title="YouTube 第 4362 秒">
+                  <span>01:12:42</span>
+                  <small>4362s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi">Mà nhìn <span class="vi-phrase">khóe mắt</span> <span class="vi-phrase">rưng rưng</span></div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>望著彼此泛紅含淚的眼眶</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="Mà：玄聲"></span></span><span class="g-vi">Mà</span><span class="g-pos">連</span></span><span class="g-zh">而／卻／所</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="nhìn：玄聲"></span></span><span class="g-vi">nhìn</span><span class="g-pos">動</span></span><span class="g-zh">望著／凝視</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">khóe mắt</span><span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="khóe：銳聲"></span><span class="g-dot" style="background:#ef4444" title="mắt：銳聲"></span></span><span class="g-pos">名</span></span><span class="g-zh">眼角／眼眶</span></span><span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">rưng rưng</span><span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="rưng：平聲"></span><span class="g-dot" style="background:#64748b" title="rưng：平聲"></span></span><span class="g-pos">動</span></span><span class="g-zh">熱淚盈眶</span></span>
+              </div>
+            </article>
+            <article class="lyric-card">
+              <div class="lyric-main">
+                <a class="line-ts" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&amp;t=4367" target="_blank" rel="noopener noreferrer" title="YouTube 第 4367 秒">
+                  <span>01:12:47</span>
+                  <small>4367s</small>
+                </a>
+                <div class="line-body">
+                  <div class="line-vi" lang="vi"><span class="vi-phrase">Biết bao</span> chuyện buồn</div>
+                  <div class="line-zh"><span class="zh-mark">譯</span><span>道不盡多少心酸往事</span></div>
+                </div>
+              </div>
+              <div class="gloss-strip" aria-label="單字與片語標示">
+                <span class="g-chip is-phrase"><span class="g-top"><span class="g-tag is-phrase">片語</span><span class="g-vi">Biết bao</span><span class="g-tones" aria-label="銳聲・平聲"><span class="g-dot" style="background:#ef4444" title="Biết：銳聲"></span><span class="g-dot" style="background:#64748b" title="bao：平聲"></span></span><span class="g-pos">副</span></span><span class="g-zh">多麼／多少</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="重聲"><span class="g-dot" style="background:#10b981" title="chuyện：重聲"></span></span><span class="g-vi">chuyện</span><span class="g-pos">名</span></span><span class="g-zh">往事／故事</span></span><span class="g-chip is-word"><span class="g-top"><span class="g-tones" aria-label="玄聲"><span class="g-dot" style="background:#3b82f6" title="buồn：玄聲"></span></span><span class="g-vi">buồn</span><span class="g-pos">形</span></span><span class="g-zh">悲傷／憂鬱</span></span>
+              </div>
+            </article>
+        </div>
+      </section>
+
+    <section class="summary-block">
+      <div class="summary-head">
+        <h3>本曲精選核心詞彙與句型精講</h3>
+        <span>共 5 組核心詞彙</span>
+      </div>
+      <div class="vocab-grid">
+        
+        <div class="vocab-card">
+          <div class="vocab-top">
+            <span class="vocab-vi" lang="vi">vụn vỡ</span>
+            <span class="g-tones" aria-label="重聲・跌聲"><span class="g-dot" style="background:#10b981" title="vụn：重聲"></span><span class="g-dot" style="background:#8b5cf6" title="vỡ：跌聲"></span></span>
+            <span class="vocab-zh">支離破碎、碎裂</span>
+          </div>
+          <p class="vocab-note">常用來形容夢想、情感或心靈徹底破碎</p>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-top">
+            <span class="vocab-vi" lang="vi">lấn át</span>
+            <span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="lấn：銳聲"></span><span class="g-dot" style="background:#ef4444" title="át：銳聲"></span></span>
+            <span class="vocab-zh">壓倒、淹沒</span>
+          </div>
+          <p class="vocab-note">形容某種強烈情緒（如孤單）徹底覆蓋其他感受</p>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-top">
+            <span class="vocab-vi" lang="vi">rưng rưng</span>
+            <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="rưng：平聲"></span><span class="g-dot" style="background:#64748b" title="rưng：平聲"></span></span>
+            <span class="vocab-zh">淚眼婆娑、熱淚盈眶</span>
+          </div>
+          <p class="vocab-note">疊詞，生動描繪眼眶泛淚、欲滴未滴的模樣</p>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-top">
+            <span class="vocab-vi" lang="vi">sườn dốc</span>
+            <span class="g-tones" aria-label="玄聲・銳聲"><span class="g-dot" style="background:#3b82f6" title="sườn：玄聲"></span><span class="g-dot" style="background:#ef4444" title="dốc：銳聲"></span></span>
+            <span class="vocab-zh">山坡、斜坡</span>
+          </div>
+          <p class="vocab-note">歌詞中比喻感情路上艱難沉重的下坡或險坡</p>
+        </div>
+        <div class="vocab-card">
+          <div class="vocab-top">
+            <span class="vocab-vi" lang="vi">gồng gánh</span>
+            <span class="g-tones" aria-label="玄聲・銳聲"><span class="g-dot" style="background:#3b82f6" title="gồng：玄聲"></span><span class="g-dot" style="background:#ef4444" title="gánh：銳聲"></span></span>
+            <span class="vocab-zh">咬牙扛起、一肩承擔</span>
+          </div>
+          <p class="vocab-note">原意為挑擔，引申為獨自承受沉重壓力或悲傷</p>
+        </div>
+      </div>
+    </section>
+
+    
+      <section class="summary-block phrase-ref-block">
+        <div class="summary-head">
+          <h3>本曲常見片語速查表（共 24 組）</h3>
+          <span>依本曲出現頻率排序，便於聽前預習與複習</span>
+        </div>
+        <div class="phrase-ref-grid">
+          
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">cô đơn</span>
+                <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="cô：平聲"></span><span class="g-dot" style="background:#64748b" title="đơn：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">孤單寂寞</span>
+                <span class="g-hv">漢·孤單</span>
+                <span class="pref-cnt">×3</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">đêm nay</span>
+                <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đêm：平聲"></span><span class="g-dot" style="background:#64748b" title="nay：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">今夜</span>
+                
+                <span class="pref-cnt">×3</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">đôi chân</span>
+                <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đôi：平聲"></span><span class="g-dot" style="background:#64748b" title="chân：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">雙腳／步伐</span>
+                
+                <span class="pref-cnt">×3</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">được gì</span>
+                <span class="g-tones" aria-label="重聲・玄聲"><span class="g-dot" style="background:#10b981" title="được：重聲"></span><span class="g-dot" style="background:#3b82f6" title="gì：玄聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">能得到什麼</span>
+                
+                <span class="pref-cnt">×3</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">nỗi nhớ</span>
+                <span class="g-tones" aria-label="跌聲・銳聲"><span class="g-dot" style="background:#8b5cf6" title="nỗi：跌聲"></span><span class="g-dot" style="background:#ef4444" title="nhớ：銳聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">思念之情</span>
+                
+                <span class="pref-cnt">×3</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">anh ơi</span>
+                <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="anh：平聲"></span><span class="g-dot" style="background:#64748b" title="ơi：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">親愛的／你啊</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">biết bao</span>
+                <span class="g-tones" aria-label="銳聲・平聲"><span class="g-dot" style="background:#ef4444" title="Biết：銳聲"></span><span class="g-dot" style="background:#64748b" title="bao：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">多麼／多少</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">có thể</span>
+                <span class="g-tones" aria-label="銳聲・問聲"><span class="g-dot" style="background:#ef4444" title="có：銳聲"></span><span class="g-dot" style="background:#f59e0b" title="thể：問聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">可以／能夠</span>
+                <span class="g-hv">漢·可體</span>
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">dành cho</span>
+                <span class="g-tones" aria-label="玄聲・平聲"><span class="g-dot" style="background:#3b82f6" title="dành：玄聲"></span><span class="g-dot" style="background:#64748b" title="cho：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">獻給／留給</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">đâu ai</span>
+                <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="Đâu：平聲"></span><span class="g-dot" style="background:#64748b" title="ai：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">哪有人／誰會</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">đi qua</span>
+                <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đi：平聲"></span><span class="g-dot" style="background:#64748b" title="qua：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">走過／掠過</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">đôi tay</span>
+                <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="đôi：平聲"></span><span class="g-dot" style="background:#64748b" title="tay：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">雙手</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">khóe mắt</span>
+                <span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="khóe：銳聲"></span><span class="g-dot" style="background:#ef4444" title="mắt：銳聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">眼角／眼眶</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">lang thang</span>
+                <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="lang：平聲"></span><span class="g-dot" style="background:#64748b" title="thang：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">流浪徘徊</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">màu mắt</span>
+                <span class="g-tones" aria-label="玄聲・銳聲"><span class="g-dot" style="background:#3b82f6" title="màu：玄聲"></span><span class="g-dot" style="background:#ef4444" title="mắt：銳聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">眼眸神色</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">nỗi buồn</span>
+                <span class="g-tones" aria-label="跌聲・玄聲"><span class="g-dot" style="background:#8b5cf6" title="nỗi：跌聲"></span><span class="g-dot" style="background:#3b82f6" title="buồn：玄聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">哀愁／悲傷</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">tơi bời</span>
+                <span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="tơi：平聲"></span><span class="g-dot" style="background:#3b82f6" title="bời：玄聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">凌亂不堪</span>
+                
+                <span class="pref-cnt">×2</span>
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">ai cũng</span>
+                <span class="g-tones" aria-label="平聲・跌聲"><span class="g-dot" style="background:#64748b" title="ai：平聲"></span><span class="g-dot" style="background:#8b5cf6" title="cũng：跌聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">每個人都</span>
+                
+                
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">ánh mắt</span>
+                <span class="g-tones" aria-label="銳聲・銳聲"><span class="g-dot" style="background:#ef4444" title="ánh：銳聲"></span><span class="g-dot" style="background:#ef4444" title="mắt：銳聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">眼神／目光</span>
+                
+                
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">bao đêm</span>
+                <span class="g-tones" aria-label="平聲・平聲"><span class="g-dot" style="background:#64748b" title="bao：平聲"></span><span class="g-dot" style="background:#64748b" title="đêm：平聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">多少個夜晚</span>
+                
+                
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">bao lần</span>
+                <span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="bao：平聲"></span><span class="g-dot" style="background:#3b82f6" title="lần：玄聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">多少次</span>
+                
+                
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">bên ngoài</span>
+                <span class="g-tones" aria-label="平聲・玄聲"><span class="g-dot" style="background:#64748b" title="bên：平聲"></span><span class="g-dot" style="background:#3b82f6" title="ngoài：玄聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">外頭／外表</span>
+                
+                
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">cảm xúc</span>
+                <span class="g-tones" aria-label="問聲・銳聲"><span class="g-dot" style="background:#f59e0b" title="cảm：問聲"></span><span class="g-dot" style="background:#ef4444" title="xúc：銳聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">情緒／感受</span>
+                <span class="g-hv">漢·感觸</span>
+                
+              </div>
+            </div>
+            <div class="pref-item">
+              <div class="pref-vi-row">
+                <span class="pref-vi" lang="vi">chẳng còn</span>
+                <span class="g-tones" aria-label="問聲・玄聲"><span class="g-dot" style="background:#f59e0b" title="chẳng：問聲"></span><span class="g-dot" style="background:#3b82f6" title="còn：玄聲"></span></span>
+              </div>
+              <div class="pref-zh-row">
+                <span class="pref-zh">再也不</span>
+                
+                
+              </div>
+            </div>
+        </div>
+      </section>
+
+    <footer class="sheet-colophon">
+      <span>越語學習通 (Chào Việt Nam!) · 第 19 首獨立歌詞講義：Điều Khác Lạ（與眾不同）</span>
+      <span>原影片：https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm</span>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var btnAll = document.getElementById('btn-mode-all');
+      var btnPhrase = document.getElementById('btn-mode-phrase');
+      var btnTones = document.getElementById('btn-tones');
+      var btnTs = document.getElementById('btn-ts');
+
+      if (btnAll && btnPhrase) {
+        btnAll.addEventListener('click', function () {
+          document.body.classList.remove('hide-words', 'hide-gloss');
+          btnAll.classList.add('is-active');
+          btnPhrase.classList.remove('is-active');
+        });
+        btnPhrase.addEventListener('click', function () {
+          document.body.classList.add('hide-words');
+          document.body.classList.remove('hide-gloss');
+          btnPhrase.classList.add('is-active');
+          btnAll.classList.remove('is-active');
+        });
+      }
+      if (btnTones) {
+        btnTones.addEventListener('click', function () {
+          var hidden = document.body.classList.toggle('hide-tones');
+          btnTones.classList.toggle('is-active', !hidden);
+        });
+      }
+      if (btnTs) {
+        btnTs.addEventListener('click', function () {
+          var hidden = document.body.classList.toggle('hide-ts');
+          btnTs.classList.toggle('is-active', !hidden);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>24 首越南歌曲・獨立雙語歌詞 PDF 與 HTML 列印總覽 | 越語學習通</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --jade: #0f766e;
+      --jade-dark: #115e59;
+      --jade-soft: #f0fdfa;
+      --jade-border: #99f6e4;
+      --rose: #be123c;
+      --ink: #0f172a;
+      --ink-2: #334155;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --bg: #f1f5f9;
+      --font-vi: "Be Vietnam Pro", "Segoe UI", "Noto Sans TC", sans-serif;
+      --font-zh: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+      --font-mono: "Noto Sans Mono", Consolas, ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-zh);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 16px 48px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 55%, #fff1f2 100%);
+      border: 1px solid #ccebe6;
+      border-top: 4px solid var(--jade);
+      border-radius: 16px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
+      box-shadow: 0 6px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--jade);
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(20px, 3vw, 28px);
+      line-height: 1.3;
+    }
+
+    .hero p {
+      margin: 0;
+      color: var(--ink-2);
+      font-size: 14px;
+      line-height: 1.65;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 13.5px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .hero-btn:hover {
+      border-color: var(--jade);
+      color: var(--jade);
+    }
+
+    .hero-btn.is-yt {
+      background: #dc2626;
+      border-color: #dc2626;
+      color: #ffffff;
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .stat-pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ink-2);
+    }
+
+    .search-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .search-bar input {
+      flex: 1 1 280px;
+      max-width: 440px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #cbd5e1;
+      background: #ffffff;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .search-bar input:focus {
+      outline: 2px solid var(--jade);
+      outline-offset: 1px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 14px;
+    }
+
+    .song-item {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 14px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+      transition: transform 0.14s ease, border-color 0.14s ease, box-shadow 0.14s ease;
+      break-inside: avoid;
+    }
+
+    .song-item:hover {
+      border-color: var(--jade);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 118, 110, 0.1);
+    }
+
+    .item-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .item-no {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: var(--jade);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 800;
+      display: grid;
+      place-items: center;
+    }
+
+    .item-titles {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .item-titles h2 {
+      margin: 0;
+      font-family: var(--font-vi);
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .item-zh {
+      margin: 2px 0 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--jade);
+    }
+
+    .item-mood {
+      flex: 0 0 auto;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .item-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+
+    .item-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+
+    .item-stats span {
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      color: var(--ink-2);
+    }
+
+    .item-stats .stat-phrase {
+      background: var(--jade-soft);
+      border-color: var(--jade-border);
+      color: var(--jade-dark);
+    }
+
+    .item-actions {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .btn-html, .btn-pdf {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      padding: 8px 10px;
+      border-radius: 9px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.14s ease;
+    }
+
+    .btn-html {
+      background: var(--jade-soft);
+      border: 1px solid var(--jade-border);
+      color: var(--jade-dark);
+    }
+
+    .btn-html:hover {
+      background: var(--jade);
+      border-color: var(--jade);
+      color: #ffffff;
+    }
+
+    .btn-pdf {
+      background: linear-gradient(135deg, #be123c, #e11d48);
+      border: 1px solid #be123c;
+      color: #ffffff;
+    }
+
+    .btn-pdf:hover {
+      filter: brightness(1.07);
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .no-print { display: none !important; }
+      .wrap { max-width: none; padding: 0; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .item-actions { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div class="hero-top">
+        <div>
+          <span class="eyebrow">越語學習通 · 24 首獨立歌詞精讀講義</span>
+          <h1>越南抒情金曲庫・雙語歌詞 PDF 下載與列印中心</h1>
+          <p>
+            全部 <strong>24 首</strong>越南流行金曲皆已整理為<strong>每首獨立</strong>的 HTML 列印頁與 A4 排版 PDF。
+            每句歌詞皆完整包含<strong>越文原句（附片語底線區隔）</strong>、<strong>繁體中文整句翻譯</strong>、
+            <strong>逐詞「單字／片語」獨立標示</strong>、<strong>六聲調色點</strong>、<strong>漢越詞提示</strong>與<strong>本曲核心詞彙精講</strong>。
+          </p>
+        </div>
+        <div class="hero-actions no-print">
+          <a class="hero-btn" href="../#/songs">← 返回越南歌曲互動頁</a>
+          <a class="hero-btn is-yt" href="https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm" target="_blank" rel="noopener noreferrer">▶ YouTube 原合輯</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <span class="stat-pill">24 首獨立 HTML ＋ 24 份 A4 PDF</span>
+        <span class="stat-pill">共 914 句雙語歌詞</span>
+        <span class="stat-pill">共 2,190 次片語標示</span>
+        <span class="stat-pill">共 4,262 次單字標示</span>
+      </div>
+    </header>
+
+    <div class="search-bar no-print">
+      <input type="search" id="song-filter" placeholder="搜尋曲目編號、越文歌名、中文歌名、歌手或曲風…" aria-label="搜尋 24 首歌曲" />
+      <span id="filter-count" style="font-size:13px; color:#64748b; font-weight:600;">顯示全部 24 首</span>
+    </div>
+
+    <section class="grid" id="songs-grid" aria-label="24 首獨立歌曲講義清單">
+      
+      <article class="song-item" data-search="01 từng là 曾經是 trạm cover vũ cát tường 溫柔抒情">
+        <div class="item-top">
+          <span class="item-no">01</span>
+          <div class="item-titles">
+            <h2 lang="vi">Từng Là</h2>
+            <p class="item-zh">曾經是</p>
+          </div>
+          <span class="item-mood">溫柔抒情</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Vũ Cát Tường</span>
+          <span class="mono">00:00:00 (0s) · 04:02</span>
+        </div>
+        <div class="item-stats">
+          <span>8 段落</span>
+          <span>42 句雙語</span>
+          <span class="stat-phrase">33 組片語</span>
+          <span>46 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-01-tung-la.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-01-tung-la.pdf" download="song-01-tung-la.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="02 giữa đại lộ đông tây 在東西大道上 trạm cover uyên linh / hứa kim tuyền 浪漫都會">
+        <div class="item-top">
+          <span class="item-no">02</span>
+          <div class="item-titles">
+            <h2 lang="vi">Giữa Đại Lộ Đông Tây</h2>
+            <p class="item-zh">在東西大道上</p>
+          </div>
+          <span class="item-mood">浪漫都會</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Uyên Linh / Hứa Kim Tuyền</span>
+          <span class="mono">00:04:02 (242s) · 03:29</span>
+        </div>
+        <div class="item-stats">
+          <span>8 段落</span>
+          <span>32 句雙語</span>
+          <span class="stat-phrase">42 組片語</span>
+          <span>51 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-02-giua-dai-lo-dong-tay.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-02-giua-dai-lo-dong-tay.pdf" download="song-02-giua-dai-lo-dong-tay.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="03 thu cuối 晚秋 trạm cover, jiki x cover yanbi, mr.t, hằng bingboong 秋日懷舊">
+        <div class="item-top">
+          <span class="item-no">03</span>
+          <div class="item-titles">
+            <h2 lang="vi">Thu Cuối</h2>
+            <p class="item-zh">晚秋</p>
+          </div>
+          <span class="item-mood">秋日懷舊</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover, Jiki X Cover</strong></span>
+          <span>原唱：Yanbi, Mr.T, Hằng BingBoong</span>
+          <span class="mono">00:07:31 (451s) · 04:15</span>
+        </div>
+        <div class="item-stats">
+          <span>8 段落</span>
+          <span>70 句雙語</span>
+          <span class="stat-phrase">127 組片語</span>
+          <span>124 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-03-thu-cuoi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-03-thu-cuoi.pdf" download="song-03-thu-cuoi.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="04 có em chờ 有我等你 trạm cover, jiki x cover min ft. mr a 甜蜜療癒">
+        <div class="item-top">
+          <span class="item-no">04</span>
+          <div class="item-titles">
+            <h2 lang="vi">Có Em Chờ</h2>
+            <p class="item-zh">有我等你</p>
+          </div>
+          <span class="item-mood">甜蜜療癒</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover, Jiki X Cover</strong></span>
+          <span>原唱：MIN ft. Mr A</span>
+          <span class="mono">00:11:46 (706s) · 03:58</span>
+        </div>
+        <div class="item-stats">
+          <span>9 段落</span>
+          <span>44 句雙語</span>
+          <span class="stat-phrase">65 組片語</span>
+          <span>74 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-04-co-em-cho.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-04-co-em-cho.pdf" download="song-04-co-em-cho.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="05 giấc mơ trưa 午後之夢 trạm cover thùy chi / giáng son 民謠詩意">
+        <div class="item-top">
+          <span class="item-no">05</span>
+          <div class="item-titles">
+            <h2 lang="vi">Giấc Mơ Trưa</h2>
+            <p class="item-zh">午後之夢</p>
+          </div>
+          <span class="item-mood">民謠詩意</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Thùy Chi / Giáng Son</span>
+          <span class="mono">00:15:44 (944s) · 04:04</span>
+        </div>
+        <div class="item-stats">
+          <span>5 段落</span>
+          <span>39 句雙語</span>
+          <span class="stat-phrase">24 組片語</span>
+          <span>34 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-05-giac-mo-trua.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-05-giac-mo-trua.pdf" download="song-05-giac-mo-trua.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="06 mơ 夢 trạm cover vũ cát tường 深情夢幻">
+        <div class="item-top">
+          <span class="item-no">06</span>
+          <div class="item-titles">
+            <h2 lang="vi">Mơ</h2>
+            <p class="item-zh">夢</p>
+          </div>
+          <span class="item-mood">深情夢幻</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Vũ Cát Tường</span>
+          <span class="mono">00:19:48 (1188s) · 04:08</span>
+        </div>
+        <div class="item-stats">
+          <span>6 段落</span>
+          <span>43 句雙語</span>
+          <span class="stat-phrase">57 組片語</span>
+          <span>61 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-06-mo.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-06-mo.pdf" download="song-06-mo.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="07 mặt mộc 素顏 trạm cover phạm nguyên ngọc x vanh 清新甜蜜">
+        <div class="item-top">
+          <span class="item-no">07</span>
+          <div class="item-titles">
+            <h2 lang="vi">Mặt Mộc</h2>
+            <p class="item-zh">素顏</p>
+          </div>
+          <span class="item-mood">清新甜蜜</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Phạm Nguyên Ngọc x VAnh</span>
+          <span class="mono">00:23:56 (1436s) · 02:44</span>
+        </div>
+        <div class="item-stats">
+          <span>5 段落</span>
+          <span>34 句雙語</span>
+          <span class="stat-phrase">53 組片語</span>
+          <span>69 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-07-mat-moc.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-07-mat-moc.pdf" download="song-07-mat-moc.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="08 dấu mưa 雨跡 jiki x cover trung quân idol / phạm toàn thắng 深情懷舊">
+        <div class="item-top">
+          <span class="item-no">08</span>
+          <div class="item-titles">
+            <h2 lang="vi">Dấu Mưa</h2>
+            <p class="item-zh">雨跡</p>
+          </div>
+          <span class="item-mood">深情懷舊</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Jiki X Cover</strong></span>
+          <span>原唱：Trung Quân Idol / Phạm Toàn Thắng</span>
+          <span class="mono">00:26:40 (1600s) · 04:04</span>
+        </div>
+        <div class="item-stats">
+          <span>5 段落</span>
+          <span>46 句雙語</span>
+          <span class="stat-phrase">23 組片語</span>
+          <span>30 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-08-dau-mua.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-08-dau-mua.pdf" download="song-08-dau-mua.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="09 hẹn một mai 相約明日 jiki x cover bùi anh tuấn / nguyễn duy anh 溫暖守候">
+        <div class="item-top">
+          <span class="item-no">09</span>
+          <div class="item-titles">
+            <h2 lang="vi">Hẹn Một Mai</h2>
+            <p class="item-zh">相約明日</p>
+          </div>
+          <span class="item-mood">溫暖守候</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Jiki X Cover</strong></span>
+          <span>原唱：Bùi Anh Tuấn / Nguyễn Duy Anh</span>
+          <span class="mono">00:30:44 (1844s) · 04:14</span>
+        </div>
+        <div class="item-stats">
+          <span>7 段落</span>
+          <span>33 句雙語</span>
+          <span class="stat-phrase">36 組片語</span>
+          <span>50 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-09-hen-mot-mai.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-09-hen-mot-mai.pdf" download="song-09-hen-mot-mai.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="10 yêu em rất nhiều 非常愛妳 jiki x cover hoàng tôn 深情告白">
+        <div class="item-top">
+          <span class="item-no">10</span>
+          <div class="item-titles">
+            <h2 lang="vi">Yêu Em Rất Nhiều</h2>
+            <p class="item-zh">非常愛妳</p>
+          </div>
+          <span class="item-mood">深情告白</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>JiKi X Cover</strong></span>
+          <span>原唱：Hoàng Tôn</span>
+          <span class="mono">00:34:58 (2098s) · 04:22</span>
+        </div>
+        <div class="item-stats">
+          <span>7 段落</span>
+          <span>41 句雙語</span>
+          <span class="stat-phrase">44 組片語</span>
+          <span>65 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-10-yeu-em-rat-nhieu.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-10-yeu-em-rat-nhieu.pdf" download="song-10-yeu-em-rat-nhieu.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="11 trái đất ôm mặt trời 地球擁抱太陽 trạm cover kai đinh x grey d x hoàng thùy linh 溫柔治癒">
+        <div class="item-top">
+          <span class="item-no">11</span>
+          <div class="item-titles">
+            <h2 lang="vi">Trái Đất Ôm Mặt Trời</h2>
+            <p class="item-zh">地球擁抱太陽</p>
+          </div>
+          <span class="item-mood">溫柔治癒</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：KAI ĐINH x GREY D x HOÀNG THÙY LINH</span>
+          <span class="mono">00:39:20 (2360s) · 02:50</span>
+        </div>
+        <div class="item-stats">
+          <span>5 段落</span>
+          <span>40 句雙語</span>
+          <span class="stat-phrase">49 組片語</span>
+          <span>61 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-11-trai-dat-om-mat-troi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-11-trai-dat-om-mat-troi.pdf" download="song-11-trai-dat-om-mat-troi.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="12 giấc mơ có thật 成真的夢 trạm cover lệ quyên / tường văn 唯美哀愁">
+        <div class="item-top">
+          <span class="item-no">12</span>
+          <div class="item-titles">
+            <h2 lang="vi">Giấc Mơ Có Thật</h2>
+            <p class="item-zh">成真的夢</p>
+          </div>
+          <span class="item-mood">唯美哀愁</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Lệ Quyên / Tường Văn</span>
+          <span class="mono">00:42:10 (2530s) · 03:58</span>
+        </div>
+        <div class="item-stats">
+          <span>6 段落</span>
+          <span>38 句雙語</span>
+          <span class="stat-phrase">55 組片語</span>
+          <span>51 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-12-giac-mo-co-that.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-12-giac-mo-co-that.pdf" download="song-12-giac-mo-co-that.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="13 phai dấu cuộc tình 褪色的戀情（越文版《黃昏》） trạm cover quang vinh 經典懷舊">
+        <div class="item-top">
+          <span class="item-no">13</span>
+          <div class="item-titles">
+            <h2 lang="vi">Phai Dấu Cuộc Tình</h2>
+            <p class="item-zh">褪色的戀情（越文版《黃昏》）</p>
+          </div>
+          <span class="item-mood">經典懷舊</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Quang Vinh</span>
+          <span class="mono">00:46:08 (2768s) · 04:50</span>
+        </div>
+        <div class="item-stats">
+          <span>7 段落</span>
+          <span>41 句雙語</span>
+          <span class="stat-phrase">46 組片語</span>
+          <span>39 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-13-phai-dau-cuoc-tinh.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-13-phai-dau-cuoc-tinh.pdf" download="song-13-phai-dau-cuoc-tinh.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="14 ngôi nhà hạnh phúc 浪漫滿屋（幸福之家） trạm cover thủy tiên 甜蜜治癒">
+        <div class="item-top">
+          <span class="item-no">14</span>
+          <div class="item-titles">
+            <h2 lang="vi">Ngôi Nhà Hạnh Phúc</h2>
+            <p class="item-zh">浪漫滿屋（幸福之家）</p>
+          </div>
+          <span class="item-mood">甜蜜治癒</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Thủy Tiên</span>
+          <span class="mono">00:50:58 (3058s) · 02:38</span>
+        </div>
+        <div class="item-stats">
+          <span>5 段落</span>
+          <span>20 句雙語</span>
+          <span class="stat-phrase">21 組片語</span>
+          <span>35 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-14-ngoi-nha-hanh-phuc.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-14-ngoi-nha-hanh-phuc.pdf" download="song-14-ngoi-nha-hanh-phuc.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="15 ánh sao và bầu trời 星光與天空 trạm cover t.r.i x cá 遺憾虐心">
+        <div class="item-top">
+          <span class="item-no">15</span>
+          <div class="item-titles">
+            <h2 lang="vi">Ánh Sao Và Bầu Trời</h2>
+            <p class="item-zh">星光與天空</p>
+          </div>
+          <span class="item-mood">遺憾虐心</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：T.R.I x Cá</span>
+          <span class="mono">00:53:36 (3216s) · 03:51</span>
+        </div>
+        <div class="item-stats">
+          <span>7 段落</span>
+          <span>35 句雙語</span>
+          <span class="stat-phrase">43 組片語</span>
+          <span>87 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-15-anh-sao-va-bau-troi.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-15-anh-sao-va-bau-troi.pdf" download="song-15-anh-sao-va-bau-troi.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="16 suy nghĩ trong anh 我心中的思緒 jiki x cover khắc việt 深情告白">
+        <div class="item-top">
+          <span class="item-no">16</span>
+          <div class="item-titles">
+            <h2 lang="vi">Suy Nghĩ Trong Anh</h2>
+            <p class="item-zh">我心中的思緒</p>
+          </div>
+          <span class="item-mood">深情告白</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Jiki X Cover</strong></span>
+          <span>原唱：Khắc Việt</span>
+          <span class="mono">00:57:27 (3447s) · 04:09</span>
+        </div>
+        <div class="item-stats">
+          <span>5 段落</span>
+          <span>41 句雙語</span>
+          <span class="stat-phrase">30 組片語</span>
+          <span>57 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-16-suy-nghi-trong-anh.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-16-suy-nghi-trong-anh.pdf" download="song-16-suy-nghi-trong-anh.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="17 em của quá khứ 過去的妳 trạm cover nguyễn đình vũ / huy nam 懷舊思念">
+        <div class="item-top">
+          <span class="item-no">17</span>
+          <div class="item-titles">
+            <h2 lang="vi">Em Của Quá Khứ</h2>
+            <p class="item-zh">過去的妳</p>
+          </div>
+          <span class="item-mood">懷舊思念</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Nguyễn Đình Vũ / Huy Nam</span>
+          <span class="mono">01:01:36 (3696s) · 03:13</span>
+        </div>
+        <div class="item-stats">
+          <span>4 段落</span>
+          <span>32 句雙語</span>
+          <span class="stat-phrase">34 組片語</span>
+          <span>49 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-17-em-cua-qua-khu.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-17-em-cua-qua-khu.pdf" download="song-17-em-cua-qua-khu.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="18 tháng mấy em nhớ anh 幾月妳會想起我 jiki x cover hà anh tuấn 詩意惆悵">
+        <div class="item-top">
+          <span class="item-no">18</span>
+          <div class="item-titles">
+            <h2 lang="vi">Tháng Mấy Em Nhớ Anh</h2>
+            <p class="item-zh">幾月妳會想起我</p>
+          </div>
+          <span class="item-mood">詩意惆悵</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>JiKi X Cover</strong></span>
+          <span>原唱：Hà Anh Tuấn</span>
+          <span class="mono">01:04:49 (3889s) · 04:02</span>
+        </div>
+        <div class="item-stats">
+          <span>6 段落</span>
+          <span>39 句雙語</span>
+          <span class="stat-phrase">48 組片語</span>
+          <span>41 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-18-thang-may-em-nho-anh.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-18-thang-may-em-nho-anh.pdf" download="song-18-thang-may-em-nho-anh.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="19 điều khác lạ 與眾不同 trạm cover đạt g ft. ngọc haleyy 深情對唱">
+        <div class="item-top">
+          <span class="item-no">19</span>
+          <div class="item-titles">
+            <h2 lang="vi">Điều Khác Lạ</h2>
+            <p class="item-zh">與眾不同</p>
+          </div>
+          <span class="item-mood">深情對唱</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Đạt G ft. Ngọc Haleyy</span>
+          <span class="mono">01:08:51 (4131s) · 04:41</span>
+        </div>
+        <div class="item-stats">
+          <span>5 段落</span>
+          <span>42 句雙語</span>
+          <span class="stat-phrase">84 組片語</span>
+          <span>100 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-19-dieu-khac-la.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-19-dieu-khac-la.pdf" download="song-19-dieu-khac-la.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="20 công chúa bong bóng 泡泡公主 trạm cover bảo thy ft. 2b 童話哀愁">
+        <div class="item-top">
+          <span class="item-no">20</span>
+          <div class="item-titles">
+            <h2 lang="vi">Công Chúa Bong Bóng</h2>
+            <p class="item-zh">泡泡公主</p>
+          </div>
+          <span class="item-mood">童話哀愁</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Bảo Thy ft. 2B</span>
+          <span class="mono">01:13:32 (4412s) · 04:26</span>
+        </div>
+        <div class="item-stats">
+          <span>7 段落</span>
+          <span>38 句雙語</span>
+          <span class="stat-phrase">40 組片語</span>
+          <span>66 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-20-cong-chua-bong-bong.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-20-cong-chua-bong-bong.pdf" download="song-20-cong-chua-bong-bong.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="21 nếu là anh 如果是我 jiki x cover the men 溫柔守候">
+        <div class="item-top">
+          <span class="item-no">21</span>
+          <div class="item-titles">
+            <h2 lang="vi">Nếu Là Anh</h2>
+            <p class="item-zh">如果是我</p>
+          </div>
+          <span class="item-mood">溫柔守候</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>JiKi X Cover</strong></span>
+          <span>原唱：The Men</span>
+          <span class="mono">01:17:58 (4678s) · 03:20</span>
+        </div>
+        <div class="item-stats">
+          <span>5 段落</span>
+          <span>20 句雙語</span>
+          <span class="stat-phrase">23 組片語</span>
+          <span>39 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-21-neu-la-anh.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-21-neu-la-anh.pdf" download="song-21-neu-la-anh.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="22 bước qua đời nhau 擦肩走過彼此人生 jiki x cover lê bảo bình / khắc việt 遺憾心碎">
+        <div class="item-top">
+          <span class="item-no">22</span>
+          <div class="item-titles">
+            <h2 lang="vi">Bước Qua Đời Nhau</h2>
+            <p class="item-zh">擦肩走過彼此人生</p>
+          </div>
+          <span class="item-mood">遺憾心碎</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Jiki X Cover</strong></span>
+          <span>原唱：Lê Bảo Bình / Khắc Việt</span>
+          <span class="mono">01:21:18 (4878s) · 03:59</span>
+        </div>
+        <div class="item-stats">
+          <span>7 段落</span>
+          <span>40 句雙語</span>
+          <span class="stat-phrase">33 組片語</span>
+          <span>37 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-22-buoc-qua-doi-nhau.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-22-buoc-qua-doi-nhau.pdf" download="song-22-buoc-qua-doi-nhau.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="23 ngày chưa giông bão 風暴來臨之前 trạm cover bùi lan hương / phan mạnh quỳnh 空靈迷幻">
+        <div class="item-top">
+          <span class="item-no">23</span>
+          <div class="item-titles">
+            <h2 lang="vi">Ngày Chưa Giông Bão</h2>
+            <p class="item-zh">風暴來臨之前</p>
+          </div>
+          <span class="item-mood">空靈迷幻</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Bùi Lan Hương / Phan Mạnh Quỳnh</span>
+          <span class="mono">01:25:17 (5117s) · 03:40</span>
+        </div>
+        <div class="item-stats">
+          <span>5 段落</span>
+          <span>34 句雙語</span>
+          <span class="stat-phrase">42 組片語</span>
+          <span>65 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-23-ngay-chua-giong-bao.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-23-ngay-chua-giong-bao.pdf" download="song-23-ngay-chua-giong-bao.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+
+      <article class="song-item" data-search="24 rời bỏ 離去 trạm cover hòa minzy / vũ huy hoàng 成全放手">
+        <div class="item-top">
+          <span class="item-no">24</span>
+          <div class="item-titles">
+            <h2 lang="vi">Rời Bỏ</h2>
+            <p class="item-zh">離去</p>
+          </div>
+          <span class="item-mood">成全放手</span>
+        </div>
+        <div class="item-meta">
+          <span>翻唱：<strong>Trạm Cover</strong></span>
+          <span>原唱：Hòa Minzy / Vũ Huy Hoàng</span>
+          <span class="mono">01:28:57 (5337s) · 03:37</span>
+        </div>
+        <div class="item-stats">
+          <span>6 段落</span>
+          <span>30 句雙語</span>
+          <span class="stat-phrase">30 組片語</span>
+          <span>50 個單字</span>
+        </div>
+        <div class="item-actions">
+          <a class="btn-html" href="./song-24-roi-bo.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>獨立列印頁 (HTML)</a>
+          <a class="btn-pdf" href="./song-24-roi-bo.pdf" download="song-24-roi-bo.pdf"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>下載 PDF</a>
+        </div>
+      </article>
+    </section>
+  </div>
+
+  <script>
+    (function () {
+      var input = document.getElementById('song-filter');
+      var countEl = document.getElementById('filter-count');
+      var cards = Array.prototype.slice.call(document.querySelectorAll('.song-item'));
+      if (!input) return;
+      input.addEventListener('input', function () {
+        var q = input.value.trim().toLowerCase();
+        var shown = 0;
+        cards.forEach(function (card) {
+          var hay = card.getAttribute('data-search') || '';
+          var match = !q || hay.indexOf(q) !== -1;
+          card.style.display = match ? '' : 'none';
+          if (match) shown++;
+        });
+        if (countEl) {
+          countEl.textContent = q ? '符合條件：' + shown + ' / 24 首' : '顯示全部 24 首';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

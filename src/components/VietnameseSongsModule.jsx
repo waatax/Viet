@@ -2,7 +2,8 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Music2, ExternalLink, Play, Clock, Volume2, Search, CheckCircle2,
   Heart, Copy, Check, ListMusic, ChevronLeft, ChevronRight, Sparkles,
-  BookOpen, Columns2, Rows3, Eye, EyeOff, Mic, Tv, X
+  BookOpen, Columns2, Rows3, Eye, EyeOff, Mic, Tv, X,
+  FileText, Download, Printer
 } from 'lucide-react';
 import { audioEngine } from '../services/audioEngine';
 import {
@@ -28,6 +29,11 @@ const fold = (s) =>
     .replace(/đ/gi, 'd')
     .toLowerCase();
 
+const BASE_URL =
+  (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.BASE_URL) || '/';
+const songSheetUrl = (file) =>
+  `${BASE_URL.endsWith('/') ? BASE_URL : `${BASE_URL}/`}songs/${file}`;
+
 export default function VietnameseSongsModule({
   initialSongId,
   selectedAccent = 'north',
@@ -41,6 +47,7 @@ export default function VietnameseSongsModule({
   const [query, setQuery] = useState('');
   const [artistFilter, setArtistFilter] = useState('all'); // 'all' | 'tram' | 'jiki' | 'duet' | 'favorites' | 'unlistened'
   const [showMasterTable, setShowMasterTable] = useState(true);
+  const [showPrintHub, setShowPrintHub] = useState(true);
   const [showChinese, setShowChinese] = useState(true);
   const [layoutMode, setLayoutMode] = useState('stacked'); // 'stacked' | 'columns'
   const [showLineTimes, setShowLineTimes] = useState(true);
@@ -244,6 +251,14 @@ export default function VietnameseSongsModule({
             </a>
             <button
               type="button"
+              className={`vs-secondary-btn ${showPrintHub ? 'is-active' : ''}`}
+              onClick={() => setShowPrintHub((prev) => !prev)}
+            >
+              <Printer size={15} aria-hidden="true" />
+              {showPrintHub ? '收起 24 首歌詞 PDF 下載列印區' : '展開 24 首歌詞 PDF 下載列印區'}
+            </button>
+            <button
+              type="button"
               className={`vs-secondary-btn ${showMasterTable ? 'is-active' : ''}`}
               onClick={() => setShowMasterTable((prev) => !prev)}
             >
@@ -264,6 +279,80 @@ export default function VietnameseSongsModule({
           <progress value={totals.listenedCount} max={totals.songs} aria-label="越南歌曲學習進度" />
         </div>
       </header>
+
+      {/* 24-Song Independent Printable HTML & A4 PDF Download Center */}
+      {showPrintHub && (
+        <section className="vs-print-hub" aria-label="24 首獨立歌詞講義 PDF 下載與列印中心">
+          <div className="vs-print-hub-head">
+            <div>
+              <h3>
+                <Printer size={18} aria-hidden="true" /> 24 首獨立歌詞講義・PDF 下載與列印專區
+              </h3>
+              <p>
+                每首歌皆獨立排版為專屬 <strong>HTML 列印頁</strong> 與 <strong>A4 精裝 PDF</strong>，
+                除完整越文歌詞與繁體中文整句翻譯外，更逐句標示<strong>「單字／片語」</strong>、
+                <strong>六聲調色點</strong>、<strong>漢越同源字</strong>與<strong>本曲核心詞彙精析</strong>。
+              </p>
+            </div>
+            <a
+              className="vs-print-hub-index-btn"
+              href={songSheetUrl('index.html')}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FileText size={15} aria-hidden="true" />
+              開啟獨立 24 首下載總覽頁
+              <ExternalLink size={13} aria-hidden="true" />
+            </a>
+          </div>
+
+          <div className="vs-print-grid">
+            {VIETNAMESE_SONGS.map((song) => {
+              const isSel = song.id === current.id;
+              const no = String(song.no).padStart(2, '0');
+              return (
+                <div key={`pdf-${song.id}`} className={`vs-print-card ${isSel ? 'is-selected' : ''}`}>
+                  <div className="vs-print-card-top">
+                    <span className="vs-print-no">{no}</span>
+                    <div className="vs-print-titles">
+                      <button
+                        type="button"
+                        className="vs-print-title-btn"
+                        onClick={() => selectSong(song.id, true)}
+                        title={`檢視第 ${no} 首《${song.titleVi}》互動歌詞`}
+                      >
+                        <span className="vs-print-vi">{song.titleVi}</span>
+                        <span className="vs-print-zh">{song.titleZh}</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div className="vs-print-actions">
+                    <a
+                      className="vs-sheet-html-btn"
+                      href={songSheetUrl(`${song.id}.html`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`開啟 #${no} ${song.titleVi} 獨立列印頁 (HTML)`}
+                    >
+                      <FileText size={13} aria-hidden="true" />
+                      列印頁 HTML
+                    </a>
+                    <a
+                      className="vs-sheet-pdf-btn"
+                      href={songSheetUrl(`${song.id}.pdf`)}
+                      download={`${song.id}.pdf`}
+                      title={`直接下載 #${no} ${song.titleVi} 獨立 A4 PDF`}
+                    >
+                      <Download size={13} aria-hidden="true" />
+                      下載 PDF
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      )}
 
       {/* Complete 24-Song Detailed Timestamp & Seconds Index */}
       {showMasterTable && (
@@ -359,6 +448,23 @@ export default function VietnameseSongsModule({
                           >
                             完整歌詞
                           </button>
+                          <a
+                            className="vs-mini-html"
+                            href={songSheetUrl(`${song.id}.html`)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title={`開啟 ${song.titleVi} 獨立列印頁 (HTML)`}
+                          >
+                            HTML
+                          </a>
+                          <a
+                            className="vs-mini-pdf"
+                            href={songSheetUrl(`${song.id}.pdf`)}
+                            download={`${song.id}.pdf`}
+                            title={`下載 ${song.titleVi} 獨立 PDF`}
+                          >
+                            PDF ↓
+                          </a>
                         </div>
                       </td>
                     </tr>
@@ -529,6 +635,26 @@ export default function VietnameseSongsModule({
                   <ExternalLink size={13} aria-hidden="true" />
                 </a>
               )}
+
+              <a
+                className="vs-sheet-action-html"
+                href={songSheetUrl(`${current.id}.html`)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FileText size={15} aria-hidden="true" />
+                獨立歌詞列印頁 (HTML)
+                <ExternalLink size={13} aria-hidden="true" />
+              </a>
+
+              <a
+                className="vs-sheet-action-pdf"
+                href={songSheetUrl(`${current.id}.pdf`)}
+                download={`${current.id}.pdf`}
+              >
+                <Download size={15} aria-hidden="true" />
+                下載本首 PDF 講義
+              </a>
 
               <button
                 type="button"

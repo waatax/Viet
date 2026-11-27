@@ -117,6 +117,10 @@ assert.ok(jsonStr.includes('https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm'), 
 assert.ok(jsonStr.includes('https://youtu.be/m7Wya6Z-QdM?si=M96hnlOOjHQ3EjAm&t=242'), 'Exact second timestamp link rendered for Song #2');
 assert.ok(jsonStr.includes('Từng Là'), 'Default song #1 rendered');
 assert.ok(jsonStr.includes('Rời Bỏ'), 'Song #24 listed in master table & sidebar');
+assert.ok(jsonStr.includes('/Viet/songs/index.html'), '24-song printable index link rendered');
+assert.ok(jsonStr.includes('/Viet/songs/song-01-tung-la.html'), 'Song #1 standalone HTML link rendered');
+assert.ok(jsonStr.includes('/Viet/songs/song-01-tung-la.pdf'), 'Song #1 standalone PDF download link rendered');
+assert.ok(jsonStr.includes('/Viet/songs/song-24-roi-bo.pdf'), 'Song #24 standalone PDF download link rendered');
 
 // Click into song #13 (Phai Dấu Cuộc Tình) and test TTS + XP
 const textOf = node => (node.children || []).map(c => typeof c === 'string' ? c : textOf(c)).join('');
